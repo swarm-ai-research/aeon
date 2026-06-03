@@ -1,0 +1,50 @@
+{
+  "pack": "startup-idea",
+  "label": "startup · idea",
+  "cohesion": 3.01,
+  "topTerms": [
+    "startup",
+    "idea",
+    "backlog",
+    "competitive"
+  ],
+  "members": [
+    {
+      "slug": "idea-capture",
+      "name": "Idea Capture",
+      "description": "Quick note capture triggered via Telegram — restates, triages, logs, and echoes back for confirmation",
+      "install": "./add-skill aaronjmars/aeon idea-capture"
+    },
+    {
+      "slug": "idea-pipeline",
+      "name": "idea-pipeline",
+      "description": "Weekly execution gap audit — cross-references the startup idea backlog against shipped skills, prototypes, and cross-repo PRs. Surfaces the top 3 ideas to build this week based on narrative fit and operator fit.",
+      "install": "./add-skill aaronjmars/aeon idea-pipeline"
+    },
+    {
+      "slug": "idea-validator",
+      "name": "idea-validator",
+      "description": "Screen the startup idea backlog — research competitive landscape, score viability, surface the strongest picks from memory/topics/startup-ideas.md",
+      "install": "./add-skill aaronjmars/aeon idea-validator"
+    },
+    {
+      "slug": "launch-radar",
+      "name": "launch-radar",
+      "description": "Weekly competitive scan — searches ProductHunt, HN Show HN, and GitHub Trending for product launches matching the operator's startup idea backlog. Flags when someone ships an idea from the list.",
+      "install": "./add-skill aaronjmars/aeon launch-radar"
+    },
+    {
+      "slug": "startup-idea",
+      "name": "Startup Idea",
+      "description": "2 evidence-backed startup memos with ICP, wedge, monetization, and numeric kill criteria",
+      "install": "./add-skill aaronjmars/aeon startup-idea"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon idea-capture",
+    "./add-skill aaronjmars/aeon idea-pipeline",
+    "./add-skill aaronjmars/aeon idea-validator",
+    "./add-skill aaronjmars/aeon launch-radar",
+    "./add-skill aaronjmars/aeon startup-idea"
+  ]
+}

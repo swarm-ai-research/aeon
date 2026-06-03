@@ -1,0 +1,141 @@
+{
+  "pack": "monitor-movers",
+  "label": "monitor · movers",
+  "cohesion": 1.36,
+  "topTerms": [
+    "monitor",
+    "movers",
+    "polymarket",
+    "volume"
+  ],
+  "members": [
+    {
+      "slug": "batch-health",
+      "name": "batch-health",
+      "description": "Daily post-batch audit — checks whether all enabled scheduled skills fired in their expected morning window, alerts on silent misses, files issues on batch-level outages",
+      "install": "./add-skill aaronjmars/aeon batch-health"
+    },
+    {
+      "slug": "defi-monitor",
+      "name": "DeFi Monitor",
+      "description": "Check pool health, positions, and yield rates for tracked protocols",
+      "install": "./add-skill aaronjmars/aeon defi-monitor"
+    },
+    {
+      "slug": "defi-overview",
+      "name": "DeFi Overview",
+      "description": "Daily DeFi read — regime verdict, biggest movers with \"why it matters\", sustainable vs incentive yields, fees fundamentals",
+      "install": "./add-skill aaronjmars/aeon defi-overview"
+    },
+    {
+      "slug": "distribute-tokens",
+      "name": "Distribute Tokens",
+      "description": "Send tokens to a list of contributors via Bankr Wallet API with per-recipient idempotency, two-phase resolve→execute, dry-run, and recovery from partial runs",
+      "install": "./add-skill aaronjmars/aeon distribute-tokens"
+    },
+    {
+      "slug": "market-context-refresh",
+      "name": "Market Context Refresh",
+      "description": "Fetch live crypto macro data and update memory/topics/market-context.md",
+      "install": "./add-skill aaronjmars/aeon market-context-refresh"
+    },
+    {
+      "slug": "monitor-polymarket",
+      "name": "Monitor Polymarket",
+      "description": "Monitor specific prediction markets for 24h price moves, volume changes, and fresh comments",
+      "install": "./add-skill aaronjmars/aeon monitor-polymarket"
+    },
+    {
+      "slug": "monitor-runners",
+      "name": "Monitor Runners",
+      "description": "Find the top 5 tokens that ran hardest in the past 24h across major chains using GeckoTerminal",
+      "install": "./add-skill aaronjmars/aeon monitor-runners"
+    },
+    {
+      "slug": "on-chain-monitor",
+      "name": "On-Chain Monitor",
+      "description": "Monitor blockchain addresses and contracts for notable activity",
+      "install": "./add-skill aaronjmars/aeon on-chain-monitor"
+    },
+    {
+      "slug": "polymarket",
+      "name": "Polymarket",
+      "description": "Surface trending and top markets on Polymarket globally — volume leaders, biggest movers, new & notable markets. Complement to monitor-polymarket.",
+      "install": "./add-skill aaronjmars/aeon polymarket"
+    },
+    {
+      "slug": "polymarket-comments",
+      "name": "Polymarket Comments",
+      "description": "Top trending Polymarket markets and the most interesting comments from them",
+      "install": "./add-skill aaronjmars/aeon polymarket-comments"
+    },
+    {
+      "slug": "price-threshold-alert",
+      "name": "price-threshold-alert",
+      "description": "Fire when the tracked token does something — new ATH, sharp 1h move, or operator-set target crossed. Silent on normal days.",
+      "install": "./add-skill aaronjmars/aeon price-threshold-alert"
+    },
+    {
+      "slug": "token-alert",
+      "name": "Token Alert",
+      "description": "Notify on price or volume anomalies for tracked tokens",
+      "install": "./add-skill aaronjmars/aeon token-alert"
+    },
+    {
+      "slug": "token-movers",
+      "name": "Token Movers",
+      "description": "Top movers, losers, and trending coins from CoinGecko — with signal enrichment and pump-risk flags",
+      "install": "./add-skill aaronjmars/aeon token-movers"
+    },
+    {
+      "slug": "token-pick",
+      "name": "Token Pick",
+      "description": "One token recommendation and one prediction market pick — scored, quantified, with a skip branch when signals are weak",
+      "install": "./add-skill aaronjmars/aeon token-pick"
+    },
+    {
+      "slug": "token-report",
+      "name": "token-report",
+      "description": "Daily price performance report for the project's token — price, volume, liquidity, and context",
+      "install": "./add-skill aaronjmars/aeon token-report"
+    },
+    {
+      "slug": "treasury-info",
+      "name": "Treasury Info",
+      "description": "Decision-ready treasury overview — verdict, concentration, depegs, significant changes",
+      "install": "./add-skill aaronjmars/aeon treasury-info"
+    },
+    {
+      "slug": "unlock-monitor",
+      "name": "Unlock Monitor",
+      "description": "Weekly token unlock and vesting tracker — quantify supply pressure via absorption ratio, classify cliff vs linear, deliver one-line market reads",
+      "install": "./add-skill aaronjmars/aeon unlock-monitor"
+    },
+    {
+      "slug": "wallet-digest",
+      "name": "Wallet Digest",
+      "description": "Lightweight balance-and-activity summary across tracked wallets. Sibling to on-chain-monitor — balances-only, no per-transfer decode.",
+      "install": "./add-skill aaronjmars/aeon wallet-digest"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon batch-health",
+    "./add-skill aaronjmars/aeon defi-monitor",
+    "./add-skill aaronjmars/aeon defi-overview",
+    "./add-skill aaronjmars/aeon distribute-tokens",
+    "./add-skill aaronjmars/aeon market-context-refresh",
+    "./add-skill aaronjmars/aeon monitor-polymarket",
+    "./add-skill aaronjmars/aeon monitor-runners",
+    "./add-skill aaronjmars/aeon on-chain-monitor",
+    "./add-skill aaronjmars/aeon polymarket",
+    "./add-skill aaronjmars/aeon polymarket-comments",
+    "./add-skill aaronjmars/aeon price-threshold-alert",
+    "./add-skill aaronjmars/aeon token-alert",
+    "./add-skill aaronjmars/aeon token-movers",
+    "./add-skill aaronjmars/aeon token-pick",
+    "./add-skill aaronjmars/aeon token-report",
+    "./add-skill aaronjmars/aeon treasury-info",
+    "./add-skill aaronjmars/aeon unlock-monitor",
+    "./add-skill aaronjmars/aeon wallet-digest"
+  ]
+}

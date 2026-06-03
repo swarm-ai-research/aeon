@@ -1,0 +1,27 @@
+{
+  "pack": "profiling-eda",
+  "label": "profiling · eda",
+  "cohesion": 13.85,
+  "topTerms": [
+    "profiling",
+    "eda"
+  ],
+  "members": [
+    {
+      "slug": "compute-futures-eda",
+      "name": "Compute-Futures EDA",
+      "description": "Daily profiling of the deployer's compute-futures sweep — null/outlier/distribution/correlation per mode, committed findings, one-line notification",
+      "install": "./add-skill aaronjmars/aeon compute-futures-eda"
+    },
+    {
+      "slug": "programmatic-eda",
+      "name": "Programmatic EDA",
+      "description": "Systematic exploratory data analysis on a dataset — structure, nulls, outliers, distributions, correlations — and produce a shareable profiling report",
+      "install": "./add-skill aaronjmars/aeon programmatic-eda"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon compute-futures-eda",
+    "./add-skill aaronjmars/aeon programmatic-eda"
+  ]
+}

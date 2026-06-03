@@ -1,0 +1,16 @@
+{
+  "name": "gitlawb-safety",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Prototype safety/capability-lifecycle layer for running Aeon agents on GitLawb",
+  "scripts": {
+    "demo": "node demo.mjs",
+    "phase1": "node phase1.mjs",
+    "phase2": "node phase2.mjs",
+    "phase3": "node phase3.mjs",
+    "phase4": "node phase4.mjs",
+    "phase5": "node phase5.mjs",
+    "runner": "node task-runner.mjs once"
+  }
+}

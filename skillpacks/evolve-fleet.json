@@ -1,0 +1,127 @@
+{
+  "pack": "evolve-fleet",
+  "label": "evolve · fleet",
+  "cohesion": 1.29,
+  "topTerms": [
+    "evolve",
+    "fleet",
+    "gitlawb",
+    "instances"
+  ],
+  "members": [
+    {
+      "slug": "auto-merge",
+      "name": "Auto Merge",
+      "description": "Automatically merge open PRs that have passing CI, no blocking reviews, and no conflicts",
+      "install": "./add-skill aaronjmars/aeon auto-merge"
+    },
+    {
+      "slug": "auto-workflow",
+      "name": "Auto-Workflow Builder",
+      "description": "Analyze a URL and generate a tailored aeon.yml schedule with skill suggestions",
+      "install": "./add-skill aaronjmars/aeon auto-workflow"
+    },
+    {
+      "slug": "autoresearch",
+      "name": "Autoresearch",
+      "description": "Evolve a skill by generating variations, evaluating them, and updating the best version",
+      "install": "./add-skill aaronjmars/aeon autoresearch"
+    },
+    {
+      "slug": "autoresearch-goal",
+      "name": "Autoresearch Goal",
+      "description": "Evolve the system in service of a stated goal — discovers relevant files across skills/prototypes/workflows, generates cross-file improvement proposals, scores by goal impact, ships the winner as a PR",
+      "install": "./add-skill aaronjmars/aeon autoresearch-goal"
+    },
+    {
+      "slug": "config-validator",
+      "name": "Config Validator",
+      "description": "Validate aeon.yml and .github/workflows/aeon.yml for structural invariants that have caused past outages — checkout step ordering, duplicate skill keys, missing skill files",
+      "install": "./add-skill aaronjmars/aeon config-validator"
+    },
+    {
+      "slug": "create-skill",
+      "name": "Create Skill",
+      "description": "Generate a complete new skill from a one-line prompt and ship it as a PR",
+      "install": "./add-skill aaronjmars/aeon create-skill"
+    },
+    {
+      "slug": "gitlawb-fleet",
+      "name": "GitLawb Fleet",
+      "description": "Spawn, renew, and kill GitLawb-hosted Aeon instances via short-lived UCAN capabilities — the off-switch layer GitLawb v0.1 lacks",
+      "install": "./add-skill aaronjmars/aeon gitlawb-fleet"
+    },
+    {
+      "slug": "gitlawb-fleet-metrics",
+      "name": "GitLawb Fleet Metrics",
+      "description": "Daily observability snapshot for the GitLawb-hosted fleet — instances, renewal pass-rate, blocklist events, merge-gate activity — to notify + dashboard",
+      "install": "./add-skill aaronjmars/aeon gitlawb-fleet-metrics"
+    },
+    {
+      "slug": "memory-structural-dedupe",
+      "name": "memory-structural-dedupe",
+      "description": "Detect and collapse structural duplicate rows in MEMORY.md — sections like Recent Articles and Skills Built that accumulate multiple content blocks across memory-flush cycles. Companion to scripts/memory-dedupe (topic-pointer dedup); this handles section-level row accumulation.",
+      "install": "./add-skill aaronjmars/aeon memory-structural-dedupe"
+    },
+    {
+      "slug": "repo-scanner",
+      "name": "Repo Scanner",
+      "description": "Catalog GitHub repos into a prioritized fleet report with concrete, coded opportunities that downstream skills consume directly",
+      "install": "./add-skill aaronjmars/aeon repo-scanner"
+    },
+    {
+      "slug": "skill-enabler",
+      "name": "skill-enabler",
+      "description": "Flip enabled:false → enabled:true for a comma-separated list of skill slugs in aeon.yml — validate against skills/, fail loudly on already-enabled or missing slugs, commit, open a PR with per-skill rationale",
+      "install": "./add-skill aaronjmars/aeon skill-enabler"
+    },
+    {
+      "slug": "skill-freshness",
+      "name": "skill-freshness",
+      "description": "Audit every enabled skill's upstream file dependencies for staleness — flags chained skills about to consume yesterday's article or a long-dead topic file",
+      "install": "./add-skill aaronjmars/aeon skill-freshness"
+    },
+    {
+      "slug": "skill-graph",
+      "name": "Skill Dependency Graph",
+      "description": "Generate a navigable Mermaid dependency map of all skills with change detection, per-category drill-downs, and enabled overlay",
+      "install": "./add-skill aaronjmars/aeon skill-graph"
+    },
+    {
+      "slug": "skill-repair",
+      "name": "Skill Repair",
+      "description": "Diagnose and fix failing or degraded skills automatically — systemic-first triage, per-category playbooks, verification plan",
+      "install": "./add-skill aaronjmars/aeon skill-repair"
+    },
+    {
+      "slug": "swarm-safety-eval",
+      "name": "SWARM Safety Eval",
+      "description": "Grade the fleet's own multi-agent safety dynamics with SWARM soft-metrics (toxicity, quality gap, welfare), diff vs the prior eval, and notify on regression",
+      "install": "./add-skill aaronjmars/aeon swarm-safety-eval"
+    },
+    {
+      "slug": "vercel-projects",
+      "name": "Vercel Projects",
+      "description": "Triage Vercel deploy fleet — verdict, errored-first, what-changed since last snapshot",
+      "install": "./add-skill aaronjmars/aeon vercel-projects"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon auto-merge",
+    "./add-skill aaronjmars/aeon auto-workflow",
+    "./add-skill aaronjmars/aeon autoresearch",
+    "./add-skill aaronjmars/aeon autoresearch-goal",
+    "./add-skill aaronjmars/aeon config-validator",
+    "./add-skill aaronjmars/aeon create-skill",
+    "./add-skill aaronjmars/aeon gitlawb-fleet",
+    "./add-skill aaronjmars/aeon gitlawb-fleet-metrics",
+    "./add-skill aaronjmars/aeon memory-structural-dedupe",
+    "./add-skill aaronjmars/aeon repo-scanner",
+    "./add-skill aaronjmars/aeon skill-enabler",
+    "./add-skill aaronjmars/aeon skill-freshness",
+    "./add-skill aaronjmars/aeon skill-graph",
+    "./add-skill aaronjmars/aeon skill-repair",
+    "./add-skill aaronjmars/aeon swarm-safety-eval",
+    "./add-skill aaronjmars/aeon vercel-projects"
+  ]
+}

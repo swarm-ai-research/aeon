@@ -1,0 +1,19 @@
+{
+  "name": "compute-futures",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Prototype compute-futures market simulated by the GitLawb fleet — usepod-grounded inference compute as the underlying, with optional x402 settlement",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "sim": "node sim.mjs",
+    "sim:x402": "node sim.mjs --x402",
+    "sim:darkbloom": "node sim.mjs --darkbloom",
+    "sim:surplus": "node sim.mjs --surplus",
+    "sim:basket": "node sim.mjs --basket",
+    "sim:spread": "node sim.mjs --spread",
+    "sim:live": "node sim.mjs --live",
+    "sweep": "node scenario-sweep.mjs",
+    "x402": "node x402-demo.mjs"
+  }
+}

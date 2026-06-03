@@ -1,0 +1,155 @@
+{
+  "pack": "prediction-tracker",
+  "label": "prediction · tracker",
+  "cohesion": 1.45,
+  "topTerms": [
+    "prediction",
+    "tracker",
+    "regulatory",
+    "pulse"
+  ],
+  "members": [
+    {
+      "slug": "agent-displacement",
+      "name": "agent-displacement",
+      "description": "Weekly tracker of AI agent substitution signals — which roles, companies, and industries show real headcount displacement. Named roles + real deployments only.",
+      "install": "./add-skill aaronjmars/aeon agent-displacement"
+    },
+    {
+      "slug": "ai-framework-watch",
+      "name": "AI Framework Watch",
+      "description": "Weekly competitive-intelligence digest on the AI agent framework space — momentum, releases, breaking changes across a curated watchlist",
+      "install": "./add-skill aaronjmars/aeon ai-framework-watch"
+    },
+    {
+      "slug": "aixbt-pulse",
+      "name": "AIXBT Pulse",
+      "description": "Cross-domain market pulse from AIXBT's free grounding endpoint — crypto, macro, tradfi, geopolitics. Refreshes taxonomy references (clusters, chains) as a bonus.",
+      "install": "./add-skill aaronjmars/aeon aixbt-pulse"
+    },
+    {
+      "slug": "competitor-launch-radar",
+      "name": "competitor-launch-radar",
+      "description": "Weekly scan of Product Hunt + Hacker News for NEW AI-agent-framework launches outside the 9-framework cohort already tracked by ai-framework-watch",
+      "install": "./add-skill aaronjmars/aeon competitor-launch-radar"
+    },
+    {
+      "slug": "content-engine",
+      "name": "Content Engine",
+      "description": "Daily draft-only AI/dev-tools content pack for Telegram review",
+      "install": "./add-skill aaronjmars/aeon content-engine"
+    },
+    {
+      "slug": "deal-flow",
+      "name": "Deal Flow",
+      "description": "Weekly funding round tracker across configurable verticals",
+      "install": "./add-skill aaronjmars/aeon deal-flow"
+    },
+    {
+      "slug": "deep-research",
+      "name": "Deep Research",
+      "description": "Exhaustive multi-source synthesis on any topic with explicit source credibility tiering and per-finding confidence — analyst-grade, not aggregator-grade",
+      "install": "./add-skill aaronjmars/aeon deep-research"
+    },
+    {
+      "slug": "ecosystem-pulse",
+      "name": "ecosystem-pulse",
+      "description": "Weekly liveness check of the projects listed in ECOSYSTEM.md — stars/forks/last-commit recency + new releases for any project that can be matched to a GitHub repo",
+      "install": "./add-skill aaronjmars/aeon ecosystem-pulse"
+    },
+    {
+      "slug": "hacker-news-digest",
+      "name": "Hacker News Digest",
+      "description": "Top HN stories filtered by interests, with comment-mined insights and themed clustering",
+      "install": "./add-skill aaronjmars/aeon hacker-news-digest"
+    },
+    {
+      "slug": "huggingface-trending",
+      "name": "Hugging Face Trending",
+      "description": "Curated trending Hugging Face models, datasets, and spaces — filtered, clustered, and labeled with a \"why notable\" line per pick",
+      "install": "./add-skill aaronjmars/aeon huggingface-trending"
+    },
+    {
+      "slug": "monitor-kalshi",
+      "name": "Monitor Kalshi",
+      "description": "Monitor specific Kalshi prediction markets for 24h price moves, volume changes, and top events",
+      "install": "./add-skill aaronjmars/aeon monitor-kalshi"
+    },
+    {
+      "slug": "narrative-tracker",
+      "name": "Narrative Tracker",
+      "description": "Track rising, peaking, and fading crypto/tech narratives with quantitative mindshare + velocity signals and explicit positioning calls",
+      "install": "./add-skill aaronjmars/aeon narrative-tracker"
+    },
+    {
+      "slug": "paper-digest",
+      "name": "Paper Digest",
+      "description": "Find and summarize new papers matching tracked research interests",
+      "install": "./add-skill aaronjmars/aeon paper-digest"
+    },
+    {
+      "slug": "paper-pick",
+      "name": "Paper Pick",
+      "description": "Find the one paper you should read today from Hugging Face Papers",
+      "install": "./add-skill aaronjmars/aeon paper-pick"
+    },
+    {
+      "slug": "pm-intel",
+      "name": "PM Intel",
+      "description": "Weekly competitive intelligence on the prediction market ecosystem — what major platforms and new entrants are shipping, funding, and building",
+      "install": "./add-skill aaronjmars/aeon pm-intel"
+    },
+    {
+      "slug": "pm-manipulation",
+      "name": "PM Manipulation",
+      "description": "Detect suspected manipulation on prediction markets over the past 3 days by cross-referencing price/volume/comment anomalies with multilingual local-press coverage",
+      "install": "./add-skill aaronjmars/aeon pm-manipulation"
+    },
+    {
+      "slug": "pm-pulse",
+      "name": "pm-pulse",
+      "description": "Weekly prediction-market & coordination-market tracker — volume on tracked platforms, new mechanism designs, reflexive market launches, regulatory moves",
+      "install": "./add-skill aaronjmars/aeon pm-pulse"
+    },
+    {
+      "slug": "reg-monitor",
+      "name": "Regulatory Monitor",
+      "description": "Track legislation, regulatory actions, and legal developments affecting prediction markets, crypto, and AI agents — triaged by stage × impact for decision-ready output",
+      "install": "./add-skill aaronjmars/aeon reg-monitor"
+    },
+    {
+      "slug": "research-brief",
+      "name": "Research Brief",
+      "description": "Deep dive on a topic with a falsifiable thesis, cited claims, and explicit uncertainty",
+      "install": "./add-skill aaronjmars/aeon research-brief"
+    },
+    {
+      "slug": "rwa-pulse",
+      "name": "rwa-pulse",
+      "description": "Weekly Real World Asset tokenization momentum tracker — surfaces new protocol launches, TVL milestones, institutional adoption, and regulatory approvals",
+      "install": "./add-skill aaronjmars/aeon rwa-pulse"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon agent-displacement",
+    "./add-skill aaronjmars/aeon ai-framework-watch",
+    "./add-skill aaronjmars/aeon aixbt-pulse",
+    "./add-skill aaronjmars/aeon competitor-launch-radar",
+    "./add-skill aaronjmars/aeon content-engine",
+    "./add-skill aaronjmars/aeon deal-flow",
+    "./add-skill aaronjmars/aeon deep-research",
+    "./add-skill aaronjmars/aeon ecosystem-pulse",
+    "./add-skill aaronjmars/aeon hacker-news-digest",
+    "./add-skill aaronjmars/aeon huggingface-trending",
+    "./add-skill aaronjmars/aeon monitor-kalshi",
+    "./add-skill aaronjmars/aeon narrative-tracker",
+    "./add-skill aaronjmars/aeon paper-digest",
+    "./add-skill aaronjmars/aeon paper-pick",
+    "./add-skill aaronjmars/aeon pm-intel",
+    "./add-skill aaronjmars/aeon pm-manipulation",
+    "./add-skill aaronjmars/aeon pm-pulse",
+    "./add-skill aaronjmars/aeon reg-monitor",
+    "./add-skill aaronjmars/aeon research-brief",
+    "./add-skill aaronjmars/aeon rwa-pulse"
+  ]
+}

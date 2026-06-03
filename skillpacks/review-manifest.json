@@ -1,0 +1,190 @@
+{
+  "pack": "review-manifest",
+  "label": "review · manifest",
+  "cohesion": 1.26,
+  "topTerms": [
+    "review",
+    "manifest",
+    "improve",
+    "health"
+  ],
+  "members": [
+    {
+      "slug": "action-converter",
+      "name": "Action Converter",
+      "description": "5 concrete real-life actions for today, leverage-scored against open loops with specificity and anti-fluff gates",
+      "install": "./add-skill aaronjmars/aeon action-converter"
+    },
+    {
+      "slug": "cost-report",
+      "name": "cost-report",
+      "description": "Weekly API cost report — computes dollar costs from token usage, flags anomalies, forecasts burn, and prescribes concrete optimizations",
+      "install": "./add-skill aaronjmars/aeon cost-report"
+    },
+    {
+      "slug": "evening-recap",
+      "name": "Evening Recap",
+      "description": "End-of-day operational summary — what Aeon shipped, what failed, what needs follow-up",
+      "install": "./add-skill aaronjmars/aeon evening-recap"
+    },
+    {
+      "slug": "fork-skill-digest",
+      "name": "fork-skill-digest",
+      "description": "Weekly cross-fork customization digest — surfaces where the fleet's enable/disable/var/model decisions diverge from upstream defaults",
+      "install": "./add-skill aaronjmars/aeon fork-skill-digest"
+    },
+    {
+      "slug": "goal-tracker",
+      "name": "Goal Tracker",
+      "description": "Compare current progress against goals with quantified status, velocity, trend, and a concrete next action per goal",
+      "install": "./add-skill aaronjmars/aeon goal-tracker"
+    },
+    {
+      "slug": "heartbeat",
+      "name": "Heartbeat",
+      "description": "Proactive ambient check — surface anything worth attention",
+      "install": "./add-skill aaronjmars/aeon heartbeat"
+    },
+    {
+      "slug": "janitor",
+      "name": "Janitor",
+      "description": "Weekly cleanup of accumulated temp files — .notify-* root-level files, .pending-notify-temp/, and stale .outputs/ chain artifacts older than their TTL",
+      "install": "./add-skill aaronjmars/aeon janitor"
+    },
+    {
+      "slug": "memory-flush",
+      "name": "Memory Flush",
+      "description": "Promote important recent log entries into MEMORY.md",
+      "install": "./add-skill aaronjmars/aeon memory-flush"
+    },
+    {
+      "slug": "morning-brief",
+      "name": "Morning Brief",
+      "description": "Priority-driven daily briefing — the 3 things to focus on today, why now, and what moved",
+      "install": "./add-skill aaronjmars/aeon morning-brief"
+    },
+    {
+      "slug": "note-taking",
+      "name": "Note Taking",
+      "description": "Save a note as a Supernotes card (if configured) or to a local memory/notes/ file",
+      "install": "./add-skill aaronjmars/aeon note-taking"
+    },
+    {
+      "slug": "onboard",
+      "name": "onboard",
+      "description": "One-shot setup validator — runs every check from the ./onboard CLI inside the workflow and sends the resulting checklist to the configured notification channel",
+      "install": "./add-skill aaronjmars/aeon onboard"
+    },
+    {
+      "slug": "operator-scorecard",
+      "name": "operator-scorecard",
+      "description": "Weekly plain-language synthesis of agent health + community growth + economic activity — answers \"was this week worth it?\" in one notification",
+      "install": "./add-skill aaronjmars/aeon operator-scorecard"
+    },
+    {
+      "slug": "planner",
+      "name": "Planner",
+      "description": "Decide the day's work — read goals, fleet health, and recent activity, then produce a ranked plan and (opt-in) dispatch the skills that matter most today",
+      "install": "./add-skill aaronjmars/aeon planner"
+    },
+    {
+      "slug": "reflect",
+      "name": "Weekly Reflect",
+      "description": "Review recent activity, consolidate memory, and prune stale entries",
+      "install": "./add-skill aaronjmars/aeon reflect"
+    },
+    {
+      "slug": "run-frequency-guard",
+      "name": "run-frequency-guard",
+      "description": "Daily per-skill run-count watchdog — checks if any capped skills exceeded their configured daily limit and alerts on breach",
+      "install": "./add-skill aaronjmars/aeon run-frequency-guard"
+    },
+    {
+      "slug": "search-skill",
+      "name": "Search Skills",
+      "description": "Search the open agent skills ecosystem for skills that fill a real gap and install them via the native add-skill path",
+      "install": "./add-skill aaronjmars/aeon search-skill"
+    },
+    {
+      "slug": "self-improve",
+      "name": "self-improve",
+      "description": "Improve the agent itself — better skills, prompts, workflows, and config based on recent performance",
+      "install": "./add-skill aaronjmars/aeon self-improve"
+    },
+    {
+      "slug": "self-review",
+      "name": "Self Review",
+      "description": "Weekly audit of what the agent did, what failed, and what to improve",
+      "install": "./add-skill aaronjmars/aeon self-review"
+    },
+    {
+      "slug": "skill-analytics",
+      "name": "skill-analytics",
+      "description": "Weekly fleet-level skill-run analytics — ranks skills by 7d run count, surfaces success rates, exit-taxonomy distribution, and anomaly flags (significance-gated)",
+      "install": "./add-skill aaronjmars/aeon skill-analytics"
+    },
+    {
+      "slug": "skill-evals",
+      "name": "Skill Evals",
+      "description": "Validate skill outputs against assertions, diff vs prior eval to flag regressions, file issues for new failures, and queue concrete fixes",
+      "install": "./add-skill aaronjmars/aeon skill-evals"
+    },
+    {
+      "slug": "skill-health",
+      "name": "Skill Health",
+      "description": "Audit skill metrics, file/resolve issues in memory/issues/, and notify on state change only",
+      "install": "./add-skill aaronjmars/aeon skill-health"
+    },
+    {
+      "slug": "skill-leaderboard",
+      "name": "skill-leaderboard",
+      "description": "Weekly ranking of which skills are most popular across CONFIGURED Aeon forks (excludes untouched templates)",
+      "install": "./add-skill aaronjmars/aeon skill-leaderboard"
+    },
+    {
+      "slug": "smithery-manifest",
+      "name": "smithery-manifest",
+      "description": "Auto-generate Smithery + MCP Registry submission docs from skills.json and the aeon-mcp server — turns the 6-week-stuck \"submit Aeon to Smithery\" idea into a copy-paste form",
+      "install": "./add-skill aaronjmars/aeon smithery-manifest"
+    },
+    {
+      "slug": "v4-readiness",
+      "name": "v4-readiness",
+      "description": "Generate a per-fork v4 upgrade readiness checklist — reads the fork's aeon.yml, skills.json, and MEMORY.md, cross-references against the embedded v4 change manifest, emits Safe / Review / Custom / Action-items breakdown",
+      "install": "./add-skill aaronjmars/aeon v4-readiness"
+    },
+    {
+      "slug": "weekly-review",
+      "name": "Weekly Review",
+      "description": "KALM retrospective grounded in objective metrics, with closed-loop tracking of last week's actions and SMART next-week actions",
+      "install": "./add-skill aaronjmars/aeon weekly-review"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon action-converter",
+    "./add-skill aaronjmars/aeon cost-report",
+    "./add-skill aaronjmars/aeon evening-recap",
+    "./add-skill aaronjmars/aeon fork-skill-digest",
+    "./add-skill aaronjmars/aeon goal-tracker",
+    "./add-skill aaronjmars/aeon heartbeat",
+    "./add-skill aaronjmars/aeon janitor",
+    "./add-skill aaronjmars/aeon memory-flush",
+    "./add-skill aaronjmars/aeon morning-brief",
+    "./add-skill aaronjmars/aeon note-taking",
+    "./add-skill aaronjmars/aeon onboard",
+    "./add-skill aaronjmars/aeon operator-scorecard",
+    "./add-skill aaronjmars/aeon planner",
+    "./add-skill aaronjmars/aeon reflect",
+    "./add-skill aaronjmars/aeon run-frequency-guard",
+    "./add-skill aaronjmars/aeon search-skill",
+    "./add-skill aaronjmars/aeon self-improve",
+    "./add-skill aaronjmars/aeon self-review",
+    "./add-skill aaronjmars/aeon skill-analytics",
+    "./add-skill aaronjmars/aeon skill-evals",
+    "./add-skill aaronjmars/aeon skill-health",
+    "./add-skill aaronjmars/aeon skill-leaderboard",
+    "./add-skill aaronjmars/aeon smithery-manifest",
+    "./add-skill aaronjmars/aeon v4-readiness",
+    "./add-skill aaronjmars/aeon weekly-review"
+  ]
+}

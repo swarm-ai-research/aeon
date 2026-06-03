@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# find — semantic search across notes (and optionally skills).
+# Thin wrapper for scripts/find.mjs. Run from anywhere in the repo.
+#
+# Examples:
+#   ./find "fleet runner observability"
+#   ./find --scope skills "vulnerability triage"
+#   ./find --scope all --limit 5 "swarm safety"
+
+set -euo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec node "$ROOT/scripts/find.mjs" "$@"

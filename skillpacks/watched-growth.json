@@ -1,0 +1,162 @@
+{
+  "pack": "watched-growth",
+  "label": "watched · growth",
+  "cohesion": 1.28,
+  "topTerms": [
+    "watched",
+    "growth",
+    "triage",
+    "repos"
+  ],
+  "members": [
+    {
+      "slug": "changelog",
+      "name": "Changelog",
+      "description": "Generate a user-facing weekly changelog (Keep a Changelog format) from recent commits across watched repos",
+      "install": "./add-skill aaronjmars/aeon changelog"
+    },
+    {
+      "slug": "code-health",
+      "name": "Code Health",
+      "description": "Weekly report on TODOs, dead code, and test coverage gaps",
+      "install": "./add-skill aaronjmars/aeon code-health"
+    },
+    {
+      "slug": "fleet-control",
+      "name": "Fleet Control",
+      "description": "Monitor managed Aeon instances — check health, dispatch skills, aggregate status",
+      "install": "./add-skill aaronjmars/aeon fleet-control"
+    },
+    {
+      "slug": "fork-fleet",
+      "name": "fork-fleet",
+      "description": "Inventory active Aeon forks, detect diverged work, surface upstream contribution candidates",
+      "install": "./add-skill aaronjmars/aeon fork-fleet"
+    },
+    {
+      "slug": "github-issues",
+      "name": "GitHub Issues",
+      "description": "Daily digest of new open issues across your repos, ranked by signal (security/bug/feature/other)",
+      "install": "./add-skill aaronjmars/aeon github-issues"
+    },
+    {
+      "slug": "github-monitor",
+      "name": "GitHub Monitor",
+      "description": "Watch repos for stale PRs, new issues, and new releases — tiered by urgency with concrete next actions",
+      "install": "./add-skill aaronjmars/aeon github-monitor"
+    },
+    {
+      "slug": "github-releases",
+      "name": "GitHub Releases",
+      "description": "Upgrade-triage digest of new releases across watched AI/infra/crypto repos",
+      "install": "./add-skill aaronjmars/aeon github-releases"
+    },
+    {
+      "slug": "github-trending",
+      "name": "GitHub Trending",
+      "description": "Curated trending GitHub repos — clustered, filtered, and labeled by momentum",
+      "install": "./add-skill aaronjmars/aeon github-trending"
+    },
+    {
+      "slug": "issue-triage",
+      "name": "Issue Triage",
+      "description": "Decision-ready triage — classify, dedupe, and emit a verdict + next action per new GitHub issue",
+      "install": "./add-skill aaronjmars/aeon issue-triage"
+    },
+    {
+      "slug": "milestone-tracker",
+      "name": "milestone-tracker",
+      "description": "Weekly progress tracking for key product and growth milestones — celebrates crossings, alerts on approaches, surfaces stalls",
+      "install": "./add-skill aaronjmars/aeon milestone-tracker"
+    },
+    {
+      "slug": "pr-review",
+      "name": "PR Review",
+      "description": "Auto-review open PRs with severity-tagged findings, inline comments, and a one-line verdict",
+      "install": "./add-skill aaronjmars/aeon pr-review"
+    },
+    {
+      "slug": "pr-triage",
+      "name": "PR Triage",
+      "description": "First-touch triage for external pull requests — verdict + label + welcoming comment within minutes of open",
+      "install": "./add-skill aaronjmars/aeon pr-triage"
+    },
+    {
+      "slug": "product-hunt-launch",
+      "name": "product-hunt-launch",
+      "description": "Draft the full Product Hunt launch asset package (tagline, description, first comment, maker comment, six-bullet feature list) from live repo state — operator reviews and submits.",
+      "install": "./add-skill aaronjmars/aeon product-hunt-launch"
+    },
+    {
+      "slug": "push-recap",
+      "name": "push-recap",
+      "description": "Daily deep-dive recap of all pushes — reads diffs, ranks impact, separates user-visible shipments from internal work, delivers a verdict",
+      "install": "./add-skill aaronjmars/aeon push-recap"
+    },
+    {
+      "slug": "repo-actions",
+      "name": "repo-actions",
+      "description": "Generate 5 anchored, implementable action ideas for a watched repo — specificity-gated, priority-ranked, with a Top Pick verdict",
+      "install": "./add-skill aaronjmars/aeon repo-actions"
+    },
+    {
+      "slug": "repo-pulse",
+      "name": "repo-pulse",
+      "description": "Daily report on new stars, forks, and releases for watched repos — with notable-stargazer enrichment and a one-line growth verdict",
+      "install": "./add-skill aaronjmars/aeon repo-pulse"
+    },
+    {
+      "slug": "show-hn-draft",
+      "name": "show-hn-draft",
+      "description": "Draft a Show HN post (plus shorter Reddit r/MachineLearning + r/selfhosted variants) from the live repo state — README, SHOWCASE, recent repo-articles + project-lens, real autonomous behavior examples from logs, and current stars/forks/skill counts. Operator pastes; agent writes.",
+      "install": "./add-skill aaronjmars/aeon show-hn-draft"
+    },
+    {
+      "slug": "skill-security-scan",
+      "name": "Skill Security Scan",
+      "description": "Audit skills, workflows, and companion scripts for injection, exfiltration, traversal, and prompt-override risks with delta tracking, baseline suppression, issue filing, and per-finding remediation",
+      "install": "./add-skill aaronjmars/aeon skill-security-scan"
+    },
+    {
+      "slug": "spawn-instance",
+      "name": "Spawn Instance",
+      "description": "Clone this Aeon agent into a new GitHub repo — fork, configure skills, validate, register in fleet",
+      "install": "./add-skill aaronjmars/aeon spawn-instance"
+    },
+    {
+      "slug": "star-milestone",
+      "name": "star-milestone",
+      "description": "Announces when a watched repo crosses a star-count milestone (100, 150, 200, 250, 500, 1000, ...) with a velocity-shaped narrative — time-to-milestone, growth shape, projection, and a tight highlight reel",
+      "install": "./add-skill aaronjmars/aeon star-milestone"
+    },
+    {
+      "slug": "workflow-security-audit",
+      "name": "workflow-security-audit",
+      "description": "Audit .github/workflows and composite actions with zizmor + actionlint, classify findings against the prior audit, auto-fix Critical/High regressions, and open a PR only when something actually changed.",
+      "install": "./add-skill aaronjmars/aeon workflow-security-audit"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon changelog",
+    "./add-skill aaronjmars/aeon code-health",
+    "./add-skill aaronjmars/aeon fleet-control",
+    "./add-skill aaronjmars/aeon fork-fleet",
+    "./add-skill aaronjmars/aeon github-issues",
+    "./add-skill aaronjmars/aeon github-monitor",
+    "./add-skill aaronjmars/aeon github-releases",
+    "./add-skill aaronjmars/aeon github-trending",
+    "./add-skill aaronjmars/aeon issue-triage",
+    "./add-skill aaronjmars/aeon milestone-tracker",
+    "./add-skill aaronjmars/aeon pr-review",
+    "./add-skill aaronjmars/aeon pr-triage",
+    "./add-skill aaronjmars/aeon product-hunt-launch",
+    "./add-skill aaronjmars/aeon push-recap",
+    "./add-skill aaronjmars/aeon repo-actions",
+    "./add-skill aaronjmars/aeon repo-pulse",
+    "./add-skill aaronjmars/aeon show-hn-draft",
+    "./add-skill aaronjmars/aeon skill-security-scan",
+    "./add-skill aaronjmars/aeon spawn-instance",
+    "./add-skill aaronjmars/aeon star-milestone",
+    "./add-skill aaronjmars/aeon workflow-security-audit"
+  ]
+}

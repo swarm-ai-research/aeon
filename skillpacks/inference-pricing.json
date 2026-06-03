@@ -1,0 +1,29 @@
+{
+  "pack": "inference-pricing",
+  "label": "inference · pricing",
+  "cohesion": 3,
+  "topTerms": [
+    "inference",
+    "pricing",
+    "pulse",
+    "market"
+  ],
+  "members": [
+    {
+      "slug": "compute-pulse",
+      "name": "compute-pulse",
+      "description": "Weekly tracker for the AI compute market — GPU/hardware deals, inference pricing trends, decentralized compute token signals, and lab vs hyperscaler dynamics.",
+      "install": "./add-skill aaronjmars/aeon compute-pulse"
+    },
+    {
+      "slug": "surplus-pulse",
+      "name": "surplus-pulse",
+      "description": "Daily compute-futures pulse anchored to the Surplus Intelligence inference market — runs the prototype sim against the live Surplus spot feed, reports the curve re-pricing, the live anchor, and the real Base/USDC x402 rail.",
+      "install": "./add-skill aaronjmars/aeon surplus-pulse"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon compute-pulse",
+    "./add-skill aaronjmars/aeon surplus-pulse"
+  ]
+}

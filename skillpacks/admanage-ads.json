@@ -1,0 +1,43 @@
+{
+  "pack": "admanage-ads",
+  "label": "admanage · ads",
+  "cohesion": 2.18,
+  "topTerms": [
+    "admanage",
+    "ads",
+    "paused",
+    "declarative"
+  ],
+  "members": [
+    {
+      "slug": "create-campaign",
+      "name": "Create Campaign",
+      "description": "Provision Meta campaigns and ad sets on AdManage.ai from a declarative config. Runs on-demand — creates entities PAUSED, writes the returned IDs back into state so schedule-ads can launch into them.",
+      "install": "./add-skill aaronjmars/aeon create-campaign"
+    },
+    {
+      "slug": "repo-revive",
+      "name": "Repo Revive",
+      "description": "Pick the highest-★ dormant watched repo and make one targeted improvement to reactivate it — refresh stale model references, README, or metadata",
+      "install": "./add-skill aaronjmars/aeon repo-revive"
+    },
+    {
+      "slug": "schedule-ads",
+      "name": "Schedule Ads",
+      "description": "Schedule paid ads across Meta/TikTok/Snapchat/Pinterest/LinkedIn via the AdManage.ai API, driven by a declarative config file. Launches PAUSED by default — never auto-activates live spend.",
+      "install": "./add-skill aaronjmars/aeon schedule-ads"
+    },
+    {
+      "slug": "star-momentum-alert",
+      "name": "star-momentum-alert",
+      "description": "Project the date a watched repo crosses its next star milestone — alert only when projected date lands inside the Show HN dispatch window (7-14 days out, Tue/Wed/Thu)",
+      "install": "./add-skill aaronjmars/aeon star-momentum-alert"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon create-campaign",
+    "./add-skill aaronjmars/aeon repo-revive",
+    "./add-skill aaronjmars/aeon schedule-ads",
+    "./add-skill aaronjmars/aeon star-momentum-alert"
+  ]
+}

@@ -1,0 +1,264 @@
+name: Fleet Runner
+run-name: "fleet-runner: ${{ inputs.mode || 'once' }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run mode"
+        required: false
+        type: choice
+        default: "once"
+        options:
+          - once
+          - loop
+      agent:
+        description: "Run only this agent (blank = all)"
+        required: false
+        type: string
+      poll:
+        description: "Poll interval in seconds (loop mode only)"
+        required: false
+        default: "30"
+
+  schedule:
+    # Stretched from */5 to */15 to cut Actions burn ~3×. Fleet tasks are
+    # tolerant to a 15-min poll cadence; nothing in the deployer/reviewer
+    # pipeline assumes sub-15-min turnaround. workflow_dispatch is still
+    # available for ad-hoc runs that need immediate execution.
+    - cron: "*/15 * * * *"
+
+# Least-privilege: no permissions by default; the job grants only what it needs.
+permissions: {}
+
+env:
+  GITLAWB_NODE: https://node.gitlawb.com
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      # `gh pr create` (run by aeon-reviewer's code-passes via
+      # scripts/fleet-executors/claude-code-pass.mjs) hits the REST
+      # /repos/{owner}/{repo}/pulls endpoint, which requires this scope. Without it
+      # GH_TOKEN authenticates but the API returns 403.
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Code comes from main (reviewed). Runtime state is persisted on the
+          # fleet-state scratch branch (restored below) so the fleet never
+          # commits to main.
+          ref: main
+
+      - name: Configure git identity
+        # Set globally so the fleet task runner's internal `git commit` calls
+        # (aeon-reviewer code-pass / refactor-pass) don't fail with
+        # "Author identity unknown" before the Commit results step runs.
+        run: |
+          git config --global user.name "aeonframework"
+          git config --global user.email "aeonframework@proton.me"
+
+      - name: Restore fleet state
+        run: |
+          # Overlay persisted runtime state from the fleet-state branch onto the
+          # main checkout before the run. Falls back to a clean start (and the
+          # bootstrap steps below) when fleet-state doesn't exist yet.
+          git fetch origin fleet-state --depth=1 2>/dev/null || true
+          if git rev-parse --verify origin/fleet-state >/dev/null 2>&1; then
+            for p in \
+              memory/gitlawb-runner/ \
+              memory/instances.json \
+              memory/gitlawb-deploy-proofs/ \
+              memory/gitlawb-deployments/ \
+              memory/gitlawb-deploy-state.json \
+              memory/gitlawb-compute-futures-proofs/ \
+              memory/gitlawb-metrics.jsonl \
+              memory/fleet-task-generator-state.json; do
+              git checkout origin/fleet-state -- "$p" 2>/dev/null || true
+            done
+            git reset -q HEAD -- . 2>/dev/null || true
+          fi
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Install GitLawb CLI
+        run: |
+          curl -fsSL https://gitlawb.com/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Install Claude Code
+        # aeon-reviewer's code reviews run the pr-review methodology via the
+        # `claude` CLI (subscription auth, CLAUDE_CODE_OAUTH_TOKEN). If install
+        # or auth is absent, the reviewer falls back to its regex analysis.
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Restore fleet identities
+        run: |
+          mkdir -p ~/.gitlawb/fleet/{researcher,reviewer,deployer,sentinel}
+
+          echo '${{ secrets.GITLAWB_OPERATOR_PEM }}' > ~/.gitlawb/identity.pem
+          echo '${{ secrets.GITLAWB_OPERATOR_UCAN }}' > ~/.gitlawb/ucan.json
+
+          echo '${{ secrets.GITLAWB_RESEARCHER_PEM }}' > ~/.gitlawb/fleet/researcher/identity.pem
+          echo '${{ secrets.GITLAWB_REVIEWER_PEM }}' > ~/.gitlawb/fleet/reviewer/identity.pem
+          echo '${{ secrets.GITLAWB_DEPLOYER_PEM }}' > ~/.gitlawb/fleet/deployer/identity.pem
+          echo '${{ secrets.GITLAWB_SENTINEL_PEM }}' > ~/.gitlawb/fleet/sentinel/identity.pem
+
+          chmod 600 ~/.gitlawb/identity.pem ~/.gitlawb/fleet/*/identity.pem
+
+      - name: Bootstrap runner config
+        run: |
+          if [ ! -f memory/gitlawb-runner.json ] && [ -f memory/gitlawb-runner.example.json ]; then
+            cp memory/gitlawb-runner.example.json memory/gitlawb-runner.json
+          fi
+
+      - name: Bootstrap fleet registry
+        run: |
+          if [ ! -f memory/instances.json ]; then
+            mkdir -p memory
+            python3 -c "
+          import json
+          data = {'instances': [
+            {'name':'aeon-researcher','did':'did:key:z6MkfnrSDgdDbkvfCCnMyaR4HqoWfWEfGoTFajX1HGkSHRUH','host':'gitlawb','node':'https://node.gitlawb.com','capabilities':['git:fetch','issue:create'],'model':'aeon-researcher','trust':0.05,'status':'active','purpose':'Research and analysis'},
+            {'name':'aeon-reviewer','did':'did:key:z6Mks2KSBfbindXsw2SBEGfqdgMJ4HwxJPfPQjkPKHY7U7SZ','host':'gitlawb','node':'https://node.gitlawb.com','capabilities':['git:fetch','pr:open','pr:review'],'model':'aeon-reviewer','trust':0.05,'status':'active','purpose':'Code review'},
+            {'name':'aeon-deployer','did':'did:key:z6MknGJBoQsbNL956GNiTJRRWKJqMcprWmdYxJPbVGCwcAuS','host':'gitlawb','node':'https://node.gitlawb.com','capabilities':['git:push','pr:merge','agent:deploy'],'model':'aeon-deployer','trust':0.05,'status':'active','purpose':'Deploy and merge'},
+            {'name':'aeon-sentinel','did':'did:key:z6MksUuVYyp93QA6pc2qAnXFQZdaoHq46dugXVweeehX4S2M','host':'gitlawb','node':'https://node.gitlawb.com','capabilities':['repo:admin','git:push','agent:deploy'],'model':'aeon-sentinel','trust':0.05,'status':'active','purpose':'Security monitoring'}
+          ]}
+          print(json.dumps(data, indent=2))
+          " > memory/instances.json
+          fi
+
+      - name: Register fleet agents
+        run: |
+          for role in researcher reviewer deployer sentinel; do
+            case "$role" in
+              researcher) caps="git:fetch,issue:create" ;;
+              reviewer)   caps="git:fetch,pr:open,pr:review" ;;
+              deployer)   caps="git:push,pr:merge,agent:deploy" ;;
+              sentinel)   caps="repo:admin,git:push,agent:deploy" ;;
+            esac
+            gl register --dir ~/.gitlawb/fleet/$role --capabilities "$caps" 2>/dev/null || true
+          done
+          gl register --dir ~/.gitlawb --capabilities "git:push,git:fetch,issue:create,pr:open,pr:merge,pr:review,repo:admin,agent:deploy" 2>/dev/null || true
+
+      - name: Self-heal fleet
+        id: heal
+        run: |
+          # Fail loudly if the script is missing (it was silently absent before,
+          # masked by the tee pipe) rather than reporting a false success.
+          test -f prototypes/gitlawb-safety/fleet-heal.mjs
+          # ARMED: self-heal takes corrective action on the live fleet — renew
+          # (via fleet-cli, gated by the reviewer-routed red-team), respawn, or
+          # kill — but only for instances classified degraded/expiring/expired/
+          # revoked. Healthy instances are left untouched. Re-add --dry-run to
+          # disarm (classify + log intended actions without acting).
+          node prototypes/gitlawb-safety/fleet-heal.mjs 2>&1 | tee /tmp/heal-output.txt
+          RUN_EXIT=${PIPESTATUS[0]}
+          HEALED=$(grep "FLEET_HEAL" /tmp/heal-output.txt | grep -o "healed=[0-9]*" | cut -d= -f2 || true)
+          echo "healed=${HEALED:-0}" >> "$GITHUB_OUTPUT"
+          exit "$RUN_EXIT"
+
+      - name: Generate fleet tasks
+        id: generator
+        env:
+          GITLAWB_NODE: ${{ env.GITLAWB_NODE }}
+        run: |
+          node scripts/fleet-executors/task-generator.mjs 2>&1 | tee /tmp/generator-output.txt
+          TASKS_CREATED=$(grep "task(s) created" /tmp/generator-output.txt | grep -o "[0-9]*" | head -1 || echo "0")
+          echo "created=${TASKS_CREATED:-0}" >> "$GITHUB_OUTPUT"
+
+      - name: Prefetch live Surplus prices (best-effort, outside sandbox)
+        env:
+          SURPLUS_PRICING_URL: ${{ secrets.SURPLUS_PRICING_URL }}
+          SURPLUS_API_KEY: ${{ secrets.SURPLUS_API_KEY }}
+        run: |
+          # Populate .surplus-cache/ so the deployer's compute-futures-sim-surplus
+          # task reads a real live feed. No-ops (catalog fallback) if unset.
+          chmod +x scripts/prefetch-surplus.sh || true
+          ./scripts/prefetch-surplus.sh compute-futures-sim-surplus "" || echo "prefetch-surplus skipped (non-fatal)"
+
+      - name: Run fleet task runner
+        id: runner
+        env:
+          MODE: ${{ inputs.mode || 'once' }}
+          AGENT: ${{ inputs.agent }}
+          POLL: ${{ inputs.poll || '30' }}
+          # Subscription auth for the `claude` CLI — used by aeon-reviewer's
+          # review and by the autonomous aeon-researcher harness.
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Auth for `gh` invoked inside scripts/fleet-executors/claude-code-pass.mjs
+          # (aeon-reviewer's docs-pass/test-pass/refactor-pass open PRs via gh). Without
+          # this, every code-pass fails with "gh: To use GitHub CLI in a GitHub Actions
+          # workflow, set the GH_TOKEN environment variable", monopolizing the 10-min
+          # runner window and starving deployer tasks (compute-futures sweep, etc.).
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          ARGS=""
+          [ -n "$AGENT" ] && ARGS="$ARGS --agent $AGENT"
+
+          if [ "$MODE" = "loop" ]; then
+            timeout 480 node prototypes/gitlawb-safety/task-runner.mjs loop --poll "$POLL" $ARGS 2>&1 | tee /tmp/runner-output.txt
+            RUN_EXIT=${PIPESTATUS[0]}
+          else
+            node prototypes/gitlawb-safety/task-runner.mjs once $ARGS 2>&1 | tee /tmp/runner-output.txt
+            RUN_EXIT=${PIPESTATUS[0]}
+          fi
+
+          PROCESSED=$(awk '/TASK_OK/ {c++} END {print c+0}' /tmp/runner-output.txt 2>/dev/null)
+          echo "processed=$PROCESSED" >> "$GITHUB_OUTPUT"
+          exit "$RUN_EXIT"
+
+      - name: Commit results
+        run: |
+          git config user.name "aeonframework"
+          git config user.email "aeonframework@proton.me"
+          git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+
+          # Stage each path independently: `git add a b c` aborts and stages
+          # NOTHING if any pathspec is missing, so a not-yet-created optional
+          # dir would silently drop real updates (runner/generator state).
+          for p in \
+            memory/gitlawb-runner/ \
+            memory/instances.json \
+            memory/gitlawb-deploy-proofs/ \
+            memory/gitlawb-deployments/ \
+            memory/gitlawb-deploy-state.json \
+            memory/gitlawb-compute-futures-proofs/ \
+            memory/gitlawb-metrics.jsonl \
+            memory/fleet-task-generator-state.json; do
+            git add "$p" 2>/dev/null || true
+          done
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore(fleet-runner): processed ${{ steps.runner.outputs.processed }} tasks, generated ${{ steps.generator.outputs.created }}"
+            # Push runtime state to the fleet-state scratch branch, never main.
+            # The tree is main's code plus the full restored+updated state, so a
+            # force update keeps fleet-state a complete, current snapshot. On a
+            # rare race with a concurrent run, warn and let the next run refresh.
+            git push --force-with-lease origin HEAD:fleet-state \
+              || echo "::warning::fleet-state push raced with a concurrent run; state refreshes next run"
+          fi
+
+      - name: Notify
+        if: steps.runner.outputs.processed != '0'
+        run: |
+          PROCESSED="${{ steps.runner.outputs.processed }}"
+          GENERATED="${{ steps.generator.outputs.created }}"
+          echo "Fleet runner: $PROCESSED task(s) executed, $GENERATED task(s) generated"
+
+      - name: Sync state to aeon-private (Phase 1 dual-write)
+        if: always()
+        env:
+          AEON_PRIVATE_PAT: ${{ secrets.AEON_PRIVATE_PAT }}
+        run: bash scripts/sync-aeon-private.sh

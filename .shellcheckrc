@@ -1,0 +1,19 @@
+# ShellCheck configuration — see https://www.shellcheck.net/wiki
+# The CI workflow passes these same settings on the command line (it is the
+# authoritative gate); this file keeps local `shellcheck` runs consistent.
+
+# Flag genuine bugs and risky patterns; leave stylistic info/style suggestions
+# non-blocking. Tighten toward `style` once the scripts are cleaned up.
+severity=warning
+
+# Follow `source`/`.` includes when the target is resolvable.
+external-sources=true
+
+# Pre-existing, intentional patterns across the repo — excluded so the gate
+# stays meaningful rather than noisy:
+#   SC2034 (unused variable) — pervasive false positives: color-code vars,
+#           status counters consumed inside heredocs/templates, exported state.
+#   SC2088 (tilde does not expand in quotes) — false positive in
+#           skills/skill-security-scan/scan.sh, where '~/.ssh' etc. are literal
+#           regex patterns the secret scanner matches against (must NOT expand).
+disable=SC2034,SC2088

@@ -1,0 +1,127 @@
+{
+  "pack": "tweets-clustered",
+  "label": "tweets · clustered",
+  "cohesion": 2.25,
+  "topTerms": [
+    "tweets",
+    "clustered",
+    "twitter",
+    "tweet"
+  ],
+  "members": [
+    {
+      "slug": "agent-buzz",
+      "name": "Agent Buzz",
+      "description": "Curated AI-agent tweets, clustered into narratives with insight summaries",
+      "install": "./add-skill aaronjmars/aeon agent-buzz"
+    },
+    {
+      "slug": "builder-map",
+      "name": "builder-map",
+      "description": "Weekly map of who's building on top of watched repos — forks, third-party ecosystem repos, builder announcements. Answers the \"who's building on top\" question.",
+      "install": "./add-skill aaronjmars/aeon builder-map"
+    },
+    {
+      "slug": "engagement-act",
+      "name": "Engagement Act",
+      "description": "Turn flagged engagement opportunities into ready-to-post replies — read recent logs, draft specific responses, send as copy-paste-ready output",
+      "install": "./add-skill aaronjmars/aeon engagement-act"
+    },
+    {
+      "slug": "farcaster-digest",
+      "name": "Farcaster Digest",
+      "description": "Clustered, signal-scored digest of Farcaster casts with conversation-shape lead and insight-first editorial notes",
+      "install": "./add-skill aaronjmars/aeon farcaster-digest"
+    },
+    {
+      "slug": "fetch-tweets",
+      "name": "Fetch Tweets",
+      "description": "Search X/Twitter for tweets about a token, keyword, username, or topic — clustered by sub-narrative",
+      "install": "./add-skill aaronjmars/aeon fetch-tweets"
+    },
+    {
+      "slug": "last30",
+      "name": "Last 30 Days",
+      "description": "Cross-platform social research — narrative-first intelligence on what people are saying about a topic across Reddit, X, HN, Polymarket, and the web over the last 30 days",
+      "install": "./add-skill aaronjmars/aeon last30"
+    },
+    {
+      "slug": "list-digest",
+      "name": "List Digest",
+      "description": "Cross-list narrative resonance + signal-scored top tweets from tracked X lists in the past 24 hours",
+      "install": "./add-skill aaronjmars/aeon list-digest"
+    },
+    {
+      "slug": "refresh-x",
+      "name": "Refresh X",
+      "description": "Fetch a tracked X/Twitter account's latest tweets, cluster them, and save a decision-ready gist to memory",
+      "install": "./add-skill aaronjmars/aeon refresh-x"
+    },
+    {
+      "slug": "remix-tweets",
+      "name": "Remix Tweets",
+      "description": "Fetch ~30 older tweets, pre-filter for remixability, then produce 10 new rephrased versions across diverse strategies with post-write quality gates",
+      "install": "./add-skill aaronjmars/aeon remix-tweets"
+    },
+    {
+      "slug": "reply-maker",
+      "name": "Reply Maker",
+      "description": "Generate two reply options for 5 tweets from tracked X accounts or topics",
+      "install": "./add-skill aaronjmars/aeon reply-maker"
+    },
+    {
+      "slug": "telegram-digest",
+      "name": "Telegram Digest",
+      "description": "Cross-channel digest of public Telegram posts — ranked by signal, clustered by narrative, not by channel",
+      "install": "./add-skill aaronjmars/aeon telegram-digest"
+    },
+    {
+      "slug": "thread-formatter",
+      "name": "Thread Formatter",
+      "description": "Score the day's events from memory/logs and format the top one as a 5-tweet thread ready to paste",
+      "install": "./add-skill aaronjmars/aeon thread-formatter"
+    },
+    {
+      "slug": "tweet-digest",
+      "name": "Tweet Digest",
+      "description": "Account-based digest of recent tweets from tracked X/Twitter accounts. Sibling to fetch-tweets (keyword) and tweet-roundup (topic).",
+      "install": "./add-skill aaronjmars/aeon tweet-digest"
+    },
+    {
+      "slug": "tweet-roundup",
+      "name": "Tweet Roundup",
+      "description": "Gist of the latest tweets on configurable topics",
+      "install": "./add-skill aaronjmars/aeon tweet-roundup"
+    },
+    {
+      "slug": "write-tweet",
+      "name": "Write Tweet",
+      "description": "Generate 10 tweet drafts across 5 size tiers (2 variations each) on a topic from today's outputs",
+      "install": "./add-skill aaronjmars/aeon write-tweet"
+    },
+    {
+      "slug": "x402-monitor",
+      "name": "Protocol Monitor (x402 default)",
+      "description": "Weekly tracker for a configured protocol's ecosystem velocity — new GitHub integrations, npm adoption, notable announcements. Defaults to x402; operators swap in their own protocol via memory/topics/tracked-protocol.md.",
+      "install": "./add-skill aaronjmars/aeon x402-monitor"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon agent-buzz",
+    "./add-skill aaronjmars/aeon builder-map",
+    "./add-skill aaronjmars/aeon engagement-act",
+    "./add-skill aaronjmars/aeon farcaster-digest",
+    "./add-skill aaronjmars/aeon fetch-tweets",
+    "./add-skill aaronjmars/aeon last30",
+    "./add-skill aaronjmars/aeon list-digest",
+    "./add-skill aaronjmars/aeon refresh-x",
+    "./add-skill aaronjmars/aeon remix-tweets",
+    "./add-skill aaronjmars/aeon reply-maker",
+    "./add-skill aaronjmars/aeon telegram-digest",
+    "./add-skill aaronjmars/aeon thread-formatter",
+    "./add-skill aaronjmars/aeon tweet-digest",
+    "./add-skill aaronjmars/aeon tweet-roundup",
+    "./add-skill aaronjmars/aeon write-tweet",
+    "./add-skill aaronjmars/aeon x402-monitor"
+  ]
+}

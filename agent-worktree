@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# agent-worktree — isolate concurrent Claude sessions into per-session worktrees.
+# Thin wrapper for scripts/agent-worktree.mjs. Run from anywhere in the repo.
+#
+# Examples:
+#   ./agent-worktree spawn find         # creates ../aeon-find/ on branch agent/find
+#   ./agent-worktree list               # show worktrees + attached claude PIDs
+#   ./agent-worktree status             # exit 1 if any worktree has >1 claude
+#   ./agent-worktree remove find        # tear down (refuses if dirty)
+
+set -euo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec node "$ROOT/scripts/agent-worktree.mjs" "$@"

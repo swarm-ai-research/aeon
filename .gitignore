@@ -1,0 +1,60 @@
+# macOS
+.DS_Store
+
+# Secrets & local env
+.env
+.env.local
+.env.*.local
+
+# Claude Code local state
+.claude/
+
+# Caches (regenerated per run)
+.xai-cache/
+.bankr-cache/
+.surplus-cache/
+.pending-notify/
+.pending-replicate/
+.pending-supernotes/
+.pending-deploy/
+.pending-devto/
+.pending-farcaster/
+.tg_cache/
+
+# Skill provenance lock (per-repo, not committed)
+skills.lock
+
+# Scratch / temp files
+tmp_*
+*.tmp
+.tmp-*
+.pending-*.sh
+.run-*.sh
+.*-tmp.md
+.*-draft.md
+.*-msg.txt
+*_msg.txt
+*_raw.txt
+
+# Leaked creds scratch
+.xai_key
+.ghtoken
+
+# GitLawb capability key vault (Ed25519 private keys — never commit)
+.gitlawb-vault/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Stale artifacts
+.external-work
+.vuln-scan/
+.vuln-scan-workspace/
+
+# Stray local audit/debug artifacts (never commit)
+.audit-tmp/
+.audit*.py

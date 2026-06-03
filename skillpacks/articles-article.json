@@ -1,0 +1,106 @@
+{
+  "pack": "articles-article",
+  "label": "articles · article",
+  "cohesion": 1.61,
+  "topTerms": [
+    "articles",
+    "article",
+    "generate",
+    "narrative"
+  ],
+  "members": [
+    {
+      "slug": "article",
+      "name": "Daily Article",
+      "description": "Research trending topics and write a publication-ready article",
+      "install": "./add-skill aaronjmars/aeon article"
+    },
+    {
+      "slug": "channel-recap",
+      "name": "Channel Recap",
+      "description": "Weekly recap article from a public Telegram channel — rank posts by engagement, expand on the best",
+      "install": "./add-skill aaronjmars/aeon channel-recap"
+    },
+    {
+      "slug": "digest",
+      "name": "Daily Digest",
+      "description": "Generate and send a daily digest on a configurable topic",
+      "install": "./add-skill aaronjmars/aeon digest"
+    },
+    {
+      "slug": "project-lens",
+      "name": "project-lens",
+      "description": "Write an article about the project through a surprising lens — connecting it to current events, trends, philosophy, or comparable projects",
+      "install": "./add-skill aaronjmars/aeon project-lens"
+    },
+    {
+      "slug": "repo-article",
+      "name": "repo-article",
+      "description": "Thesis-driven article about a watched repo — falsifiable claim, cited evidence, self-edit quality gate",
+      "install": "./add-skill aaronjmars/aeon repo-article"
+    },
+    {
+      "slug": "rss-feed",
+      "name": "RSS Feed Generator",
+      "description": "Generate an Atom XML feed from articles, validate it, and notify only when it actually changes",
+      "install": "./add-skill aaronjmars/aeon rss-feed"
+    },
+    {
+      "slug": "signal-verdict",
+      "name": "signal-verdict",
+      "description": "Weekly accountability check on a configured set of tracker skills. Verifies each tracker is producing citable signals in articles/newsletters. Surfaces uncited trackers so the operator can demote or kill them.",
+      "install": "./add-skill aaronjmars/aeon signal-verdict"
+    },
+    {
+      "slug": "syndicate-article",
+      "name": "syndicate-article",
+      "description": "Cross-post articles to Dev.to and Farcaster with hook-driven copy and click-optimized metadata",
+      "install": "./add-skill aaronjmars/aeon syndicate-article"
+    },
+    {
+      "slug": "technical-explainer",
+      "name": "Technical Explainer",
+      "description": "Generate a visual technical explanation of a recent topic using Replicate for the hero image",
+      "install": "./add-skill aaronjmars/aeon technical-explainer"
+    },
+    {
+      "slug": "topic-momentum",
+      "name": "topic-momentum",
+      "description": "Weekly content-gap scanner — cross-references rising narrative signals (narrative-tracker, tweet-roundup, paper-pick, etc.) against recent article history and surfaces the top 3 uncovered angles to write next.",
+      "install": "./add-skill aaronjmars/aeon topic-momentum"
+    },
+    {
+      "slug": "update-gallery",
+      "name": "Update Gallery",
+      "description": "Publish new or changed articles to the GitHub Pages gallery with change detection, silent on no-op weeks",
+      "install": "./add-skill aaronjmars/aeon update-gallery"
+    },
+    {
+      "slug": "vibecoding-digest",
+      "name": "Vibecoding Digest",
+      "description": "Decision-ready pulse of r/vibecoding — ranked by signal score, narrative-clustered, with a one-line verdict and tools leaderboard",
+      "install": "./add-skill aaronjmars/aeon vibecoding-digest"
+    },
+    {
+      "slug": "weekly-shiplog",
+      "name": "weekly-shiplog",
+      "description": "Weekly narrative of everything shipped — features, fixes, and momentum, written as a compelling update",
+      "install": "./add-skill aaronjmars/aeon weekly-shiplog"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon article",
+    "./add-skill aaronjmars/aeon channel-recap",
+    "./add-skill aaronjmars/aeon digest",
+    "./add-skill aaronjmars/aeon project-lens",
+    "./add-skill aaronjmars/aeon repo-article",
+    "./add-skill aaronjmars/aeon rss-feed",
+    "./add-skill aaronjmars/aeon signal-verdict",
+    "./add-skill aaronjmars/aeon syndicate-article",
+    "./add-skill aaronjmars/aeon technical-explainer",
+    "./add-skill aaronjmars/aeon topic-momentum",
+    "./add-skill aaronjmars/aeon update-gallery",
+    "./add-skill aaronjmars/aeon vibecoding-digest",
+    "./add-skill aaronjmars/aeon weekly-shiplog"
+  ]
+}

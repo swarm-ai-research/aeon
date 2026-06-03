@@ -1,0 +1,29 @@
+# Each entry suppresses a specific (file, line_range, pattern) match that a human has reviewed.
+# Format:
+#   - file: <path>
+#     pattern: <regex pattern from scan.sh HIGH_PATTERNS/MEDIUM_PATTERNS/LOW_PATTERNS>
+#     lines: "15-25"          # optional line range; omit to suppress across whole file
+#     reason: "documentation in threat model section"
+#     reviewed_by: "rsavitt"
+#     reviewed_at: "2026-05-26"
+suppressions:
+  - file: skills/skill-security-scan/SKILL.md
+    pattern: ".*"
+    reason: "Threat-model documentation; lists prompt-override and exfil patterns as examples to detect, not payloads."
+    reviewed_by: "rsavitt"
+    reviewed_at: "2026-05-26"
+  - file: skills/skill-security-scan/scan.sh
+    pattern: ".*"
+    reason: "Pattern library itself; every HIGH/MEDIUM regex string matches as a literal but is detection logic, not payload."
+    reviewed_by: "rsavitt"
+    reviewed_at: "2026-05-26"
+  - file: skills/security-digest/SKILL.md
+    pattern: "curl.*\\$[A-Z_]"
+    reason: "Documents preferring `gh api` over raw curl with $GITHUB_TOKEN — an anti-pattern warning, not an exploit."
+    reviewed_by: "rsavitt"
+    reviewed_at: "2026-05-26"
+  - file: skills/skill-update-check/SKILL.md
+    pattern: ".*"
+    reason: "Documents the exfil regexes it checks for; example patterns, not payloads."
+    reviewed_by: "rsavitt"
+    reviewed_at: "2026-05-26"

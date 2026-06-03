@@ -1,0 +1,40 @@
+{
+  "pack": "digest",
+  "label": "digest",
+  "cohesion": 1.6,
+  "topTerms": [
+    "digest"
+  ],
+  "members": [
+    {
+      "slug": "daily-routine",
+      "name": "Daily Routine",
+      "description": "Morning briefing combining token movers, tweet roundup, paper pick, GitHub issues, and HN digest",
+      "install": "./add-skill aaronjmars/aeon daily-routine"
+    },
+    {
+      "slug": "reddit-digest",
+      "name": "Reddit Digest",
+      "description": "Detect cross-subreddit narratives — stories surfacing in multiple unrelated subs at once",
+      "install": "./add-skill aaronjmars/aeon reddit-digest"
+    },
+    {
+      "slug": "rss-digest",
+      "name": "RSS Digest",
+      "description": "Fetch, summarize, and deliver RSS feed highlights",
+      "install": "./add-skill aaronjmars/aeon rss-digest"
+    },
+    {
+      "slug": "security-digest",
+      "name": "Security Digest",
+      "description": "Lead with confirmed exploitation (CISA KEV), enrich with EPSS, filter GitHub Advisories to your tracked stack, output one action per item",
+      "install": "./add-skill aaronjmars/aeon security-digest"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon daily-routine",
+    "./add-skill aaronjmars/aeon reddit-digest",
+    "./add-skill aaronjmars/aeon rss-digest",
+    "./add-skill aaronjmars/aeon security-digest"
+  ]
+}

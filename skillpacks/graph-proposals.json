@@ -1,0 +1,34 @@
+{
+  "pack": "graph-proposals",
+  "label": "graph · proposals",
+  "cohesion": 4.63,
+  "topTerms": [
+    "graph",
+    "proposals"
+  ],
+  "members": [
+    {
+      "slug": "notegraph",
+      "name": "Note Graph",
+      "description": "Regenerate notegraph.json + docs/notegraph.md + docs/notegraph.html from memory/ and docs/, PR + notify only when the graph changes",
+      "install": "./add-skill aaronjmars/aeon notegraph"
+    },
+    {
+      "slug": "skillpacks",
+      "name": "Skillpacks",
+      "description": "Cluster the skills/ corpus into navigable packs (discovery view + install manifests + chain proposals); PR only when membership shifts",
+      "install": "./add-skill aaronjmars/aeon skillpacks"
+    },
+    {
+      "slug": "suggest-edges",
+      "name": "Suggest Edges",
+      "description": "Densify the note graph by proposing wikilinks for high-similarity pairs that aren't yet hard-linked; opens a PR with up to 3 edge proposals per run",
+      "install": "./add-skill aaronjmars/aeon suggest-edges"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon notegraph",
+    "./add-skill aaronjmars/aeon skillpacks",
+    "./add-skill aaronjmars/aeon suggest-edges"
+  ]
+}

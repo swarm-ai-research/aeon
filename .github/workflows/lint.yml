@@ -1,0 +1,109 @@
+name: Lint
+
+on:
+  push:
+    branches: [main]
+    # Skip lint runs on auto-commits from cron skills — those only touch state
+    # paths, never code under lint. Path-based filtering is the right gate
+    # (not author-based) because it catches the actual condition: changes that
+    # don't include any lintable code. Cron commits that DO accidentally edit
+    # a shell script will still trigger lint.
+    paths-ignore:
+      - 'memory/**'
+      - 'articles/**'
+      - 'soul/**'
+      - 'dashboard/outputs/**'
+      - 'data/**'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lint-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        run: |
+          # Collect every shell script: *.sh plus extensionless tracked files
+          # whose shebang invokes bash/sh (e.g. ./aeon, ./notify, ./onboard).
+          files=()
+          while IFS= read -r -d '' f; do
+            files+=("$f")
+          done < <(git ls-files -z '*.sh')
+
+          while IFS= read -r -d '' f; do
+            case "$f" in
+              *.*) continue ;;  # has an extension — not an extensionless script
+            esac
+            if IFS= read -r first < "$f" && [[ "$first" =~ ^#!.*(bash|sh)$ ]]; then
+              files+=("$f")
+            fi
+          done < <(git ls-files -z)
+
+          echo "Linting ${#files[@]} shell scripts:"
+          printf '  %s\n' "${files[@]}"
+          # Flags mirror .shellcheckrc (CLI is authoritative — rc auto-discovery
+          # is unreliable here). See that file for the rationale on each exclude.
+          shellcheck --severity=warning --exclude=SC2034,SC2088 "${files[@]}"
+
+  typecheck:
+    name: TypeScript (${{ matrix.project }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [a2a-server, mcp-server, dashboard]
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Type-check
+        run: npx tsc --noEmit
+
+  compute-futures-tests:
+    name: compute-futures tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: prototypes/compute-futures
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Two layers — both run; second catches inter-file races the first misses.
+      # Parallel (default): `node --test tests/*.test.mjs` runs files concurrently.
+      # Tests use $COMPUTE_FUTURES_OUT_DIR for sim-output isolation so the
+      # parallel runner doesn't race on out/last-run.json.
+      - name: Test (parallel)
+        run: node --test tests/*.test.mjs
+
+      # Serial: a regression catch for cases where parallel happened to schedule
+      # without overlap. If both pass, the suite is order-independent.
+      - name: Test (serial)
+        run: node --test --test-concurrency=1 tests/*.test.mjs

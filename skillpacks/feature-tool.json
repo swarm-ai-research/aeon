@@ -1,0 +1,42 @@
+{
+  "pack": "feature-tool",
+  "label": "feature · tool",
+  "cohesion": 2.88,
+  "topTerms": [
+    "feature",
+    "tool",
+    "watched"
+  ],
+  "members": [
+    {
+      "slug": "deploy-prototype",
+      "name": "Deploy Prototype",
+      "description": "Generate a small app or tool and deploy it live to Vercel via API",
+      "install": "./add-skill aaronjmars/aeon deploy-prototype"
+    },
+    {
+      "slug": "external-feature",
+      "name": "External Feature",
+      "description": "Proactively enhance watched repos — fix issues, add features, improve code",
+      "install": "./add-skill aaronjmars/aeon external-feature"
+    },
+    {
+      "slug": "feature",
+      "name": "Feature",
+      "description": "Build a feature for every watched repo in one run — iterates the full repo list, picks one feature per repo from yesterday's repo-actions ideas first",
+      "install": "./add-skill aaronjmars/aeon feature"
+    },
+    {
+      "slug": "tool-builder",
+      "name": "Tool Builder",
+      "description": "Build automation scripts from action-converter suggestions and recurring manual tasks",
+      "install": "./add-skill aaronjmars/aeon tool-builder"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon deploy-prototype",
+    "./add-skill aaronjmars/aeon external-feature",
+    "./add-skill aaronjmars/aeon feature",
+    "./add-skill aaronjmars/aeon tool-builder"
+  ]
+}

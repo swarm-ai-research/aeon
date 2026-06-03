@@ -1,0 +1,71 @@
+{
+  "pack": "fork-contributor",
+  "label": "fork · contributor",
+  "cohesion": 3.76,
+  "topTerms": [
+    "fork",
+    "contributor",
+    "cohort",
+    "spotlight"
+  ],
+  "members": [
+    {
+      "slug": "contributor-reward",
+      "name": "contributor-reward",
+      "description": "Closes the contributor flywheel — turns the weekly fork-contributor-leaderboard ranking into a tier-priced rewards plan, writes it into memory/distributions.yml, and hands off to distribute-tokens for the actual on-chain send",
+      "install": "./add-skill aaronjmars/aeon contributor-reward"
+    },
+    {
+      "slug": "contributor-spotlight",
+      "name": "contributor-spotlight",
+      "description": "Weekly recognition post for one fork operator — converts fork-cohort cohort data into a named human moment (POWER fork callout with their work, stars, and skills enabled)",
+      "install": "./add-skill aaronjmars/aeon contributor-spotlight"
+    },
+    {
+      "slug": "fleet-state",
+      "name": "fleet-state",
+      "description": "Weekly fleet-state digest — synthesises fork-cohort, contributor-spotlight, and fork-release-tracker into one \"state of the fleet\" narrative",
+      "install": "./add-skill aaronjmars/aeon fleet-state"
+    },
+    {
+      "slug": "fork-cohort",
+      "name": "fork-cohort",
+      "description": "Weekly fork-activation cohort tracker — buckets every fork by recent run activity (COLD / STALE / ACTIVE / POWER) with week-over-week deltas",
+      "install": "./add-skill aaronjmars/aeon fork-cohort"
+    },
+    {
+      "slug": "fork-contributor-leaderboard",
+      "name": "fork-contributor-leaderboard",
+      "description": "Weekly ranking of developers contributing to the fork fleet and back upstream",
+      "install": "./add-skill aaronjmars/aeon fork-contributor-leaderboard"
+    },
+    {
+      "slug": "fork-first-run-alert",
+      "name": "fork-first-run-alert",
+      "description": "Daily — named alert the day a fork completes its first ever workflow run. Fork-cohort runs weekly; this catches the activation moment.",
+      "install": "./add-skill aaronjmars/aeon fork-first-run-alert"
+    },
+    {
+      "slug": "fork-release-tracker",
+      "name": "fork-release-tracker",
+      "description": "Weekly scan — celebrate when any fork of the parent repo cuts a tagged GitHub release. Silent when no fork releases in the window.",
+      "install": "./add-skill aaronjmars/aeon fork-release-tracker"
+    },
+    {
+      "slug": "fork-skill-gap",
+      "name": "fork-skill-gap",
+      "description": "Weekly cross-fork skill adoption digest — per-fork table of upstream skills the fork hasn't enabled, top forks by gap size called out, silent on small-gap weeks",
+      "install": "./add-skill aaronjmars/aeon fork-skill-gap"
+    }
+  ],
+  "install_all": [
+    "./add-skill aaronjmars/aeon contributor-reward",
+    "./add-skill aaronjmars/aeon contributor-spotlight",
+    "./add-skill aaronjmars/aeon fleet-state",
+    "./add-skill aaronjmars/aeon fork-cohort",
+    "./add-skill aaronjmars/aeon fork-contributor-leaderboard",
+    "./add-skill aaronjmars/aeon fork-first-run-alert",
+    "./add-skill aaronjmars/aeon fork-release-tracker",
+    "./add-skill aaronjmars/aeon fork-skill-gap"
+  ]
+}
