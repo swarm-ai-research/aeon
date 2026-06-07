@@ -134,6 +134,7 @@ skills:
   code-health: { enabled: true, schedule: "0 16 * * *" }
   surplus-pulse: { enabled: true, schedule: "30 16 * * *", model: "claude-sonnet-4-6" }
   compute-pulse: { enabled: true, schedule: "0 11 * * 6", model: "claude-sonnet-4-6" } # Saturday 11:00 UTC — weekly AI-compute-market read (GPU/hardware deals, inference pricing, DePIN signals, lab vs hyperscaler); feeds memory/topics/compute-pulse.md + the compute-futures prototype goal
+  compute-macro-correlate: { enabled: true, schedule: "30 6 * * 0", model: "claude-sonnet-4-6" } # Sunday 06:30 UTC — weekly partial-correlation of compute economics vs Hyperliquid macro basket. Migrated from rsavitt/aeon 2026-06-07 — runs here on the public mirror for free Actions minutes.
   compute-futures-eda: { enabled: true, schedule: "0 6 * * *" } # daily 06:00 UTC — profile latest deployer sweep CSV from memory/gitlawb-compute-futures-proofs/, commit findings to memory/topics/compute-futures-eda/; deployer runs ~00:13 UTC so 6h is comfortable rsync margin
   changelog: { enabled: true, schedule: "0 16 * * 1" } # Mon 16:00 UTC — weekly user-facing changelog (Keep a Changelog) from watched-repo commits
   external-feature: { enabled: false, schedule: "30 16 * * *", var: "" }
