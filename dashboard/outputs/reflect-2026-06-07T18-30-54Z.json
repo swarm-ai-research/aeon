@@ -1,0 +1,105 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Memory Consolidated"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "date_section",
+        "stats_section",
+        "notes_section"
+      ]
+    },
+    "date_section": {
+      "type": "Text",
+      "props": {
+        "text": "2026-06-07",
+        "variant": "caption"
+      }
+    },
+    "stats_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_n",
+        "stat_e"
+      ]
+    },
+    "stat_n": {
+      "type": "Stat",
+      "props": {
+        "label": "New Notes",
+        "value": "+1"
+      }
+    },
+    "stat_e": {
+      "type": "Stat",
+      "props": {
+        "label": "Edits",
+        "value": "+14"
+      }
+    },
+    "notes_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "notes_heading",
+        "separator1",
+        "notes_list"
+      ]
+    },
+    "notes_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "New Atomic Notes",
+        "level": "h4"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "notes_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge1",
+        "badge2"
+      ]
+    },
+    "badge1": {
+      "type": "Badge",
+      "props": {
+        "text": "fleet-runner-timeout-starves-deployer"
+      }
+    },
+    "badge2": {
+      "type": "Badge",
+      "props": {
+        "text": "skillpacks-topterm-rename-false-positive"
+      }
+    }
+  }
+}

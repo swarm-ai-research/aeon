@@ -1,0 +1,209 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Control — 2026-06-07"
+      },
+      "children": [
+        "verdict",
+        "sep1",
+        "fleet-section",
+        "sep2",
+        "counts-section",
+        "sep3",
+        "sources-section"
+      ]
+    },
+    "verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "FLEET_OK",
+        "variant": "default"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fleet-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fleet-heading",
+        "fleet-table"
+      ]
+    },
+    "fleet-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet (4 total)",
+        "level": "h2"
+      }
+    },
+    "fleet-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Agent",
+          "Status",
+          "Key",
+          "Actions"
+        ],
+        "rows": [
+          [
+            "aeon-researcher",
+            "HEALTHY",
+            "gitlawb did:key:z6MkfnrS…",
+            "none"
+          ],
+          [
+            "aeon-reviewer",
+            "HEALTHY",
+            "gitlawb did:key:z6Mks2KS…",
+            "none"
+          ],
+          [
+            "aeon-deployer",
+            "HEALTHY",
+            "gitlawb did:key:z6MknGJB…",
+            "none"
+          ],
+          [
+            "aeon-sentinel",
+            "HEALTHY",
+            "gitlawb did:key:z6MksUuV…",
+            "none"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "counts-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "counts-heading",
+        "counts-grid"
+      ]
+    },
+    "counts-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Counts",
+        "level": "h2"
+      }
+    },
+    "counts-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 7,
+        "gap": "md"
+      },
+      "children": [
+        "count-healthy",
+        "count-warning",
+        "count-degraded",
+        "count-stale",
+        "count-pending",
+        "count-unreachable",
+        "count-archived"
+      ]
+    },
+    "count-healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Healthy",
+        "value": "4"
+      }
+    },
+    "count-warning": {
+      "type": "Stat",
+      "props": {
+        "label": "Warning",
+        "value": "0"
+      }
+    },
+    "count-degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded",
+        "value": "0"
+      }
+    },
+    "count-stale": {
+      "type": "Stat",
+      "props": {
+        "label": "Stale",
+        "value": "0"
+      }
+    },
+    "count-pending": {
+      "type": "Stat",
+      "props": {
+        "label": "Pending",
+        "value": "0"
+      }
+    },
+    "count-unreachable": {
+      "type": "Stat",
+      "props": {
+        "label": "Unreachable",
+        "value": "0"
+      }
+    },
+    "count-archived": {
+      "type": "Stat",
+      "props": {
+        "label": "Archived",
+        "value": "0"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sources-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sources-heading",
+        "sources-text"
+      ]
+    },
+    "sources-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h2"
+      }
+    },
+    "sources-text": {
+      "type": "Text",
+      "props": {
+        "text": "gh=skipped (gitlawb-only) · rate_remaining=n/a",
+        "variant": "body"
+      }
+    }
+  }
+}

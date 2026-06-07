@@ -1,0 +1,222 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Vuln Scanner — alibaba/open-code-review",
+        "description": "operator-invoked second run"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "grid-summary",
+        "link-pr65",
+        "sep1",
+        "heading-deps",
+        "stack-deps",
+        "sep2",
+        "heading-code",
+        "text-code-findings",
+        "sep3",
+        "heading-followup",
+        "alert-stdlib",
+        "sep4",
+        "heading-scanners",
+        "stack-scanners"
+      ]
+    },
+    "grid-summary": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-confirmed",
+        "stat-cleared",
+        "stat-code"
+      ]
+    },
+    "stat-confirmed": {
+      "type": "Stat",
+      "props": {
+        "label": "Confirmed",
+        "value": "1 (dep-bundle)"
+      }
+    },
+    "stat-cleared": {
+      "type": "Progress",
+      "props": {
+        "value": 41,
+        "max": 44,
+        "label": "Go CVEs Cleared"
+      }
+    },
+    "stat-code": {
+      "type": "Stat",
+      "props": {
+        "label": "Code Findings",
+        "value": "0"
+      }
+    },
+    "link-pr65": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Public PR #65 - Dependency Updates Disclosed",
+        "href": "https://github.com/alibaba/open-code-review/pull/65",
+        "source": "alibaba/open-code-review"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-deps": {
+      "type": "Heading",
+      "props": {
+        "text": "Dependency Updates",
+        "level": "h3"
+      }
+    },
+    "stack-deps": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "dep-go",
+        "dep-xnet",
+        "dep-xsys"
+      ]
+    },
+    "dep-go": {
+      "type": "Text",
+      "props": {
+        "text": "go 1.25.0 → 1.25.10 (33 stdlib)",
+        "variant": "body"
+      }
+    },
+    "dep-xnet": {
+      "type": "Text",
+      "props": {
+        "text": "x/net 0.52.0 → 0.55.0 (7 incl. HTTP/2 client loop + html parser XSS)",
+        "variant": "body"
+      }
+    },
+    "dep-xsys": {
+      "type": "Text",
+      "props": {
+        "text": "x/sys 0.42.0 → 0.45.0 (Windows int overflow)",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-code": {
+      "type": "Heading",
+      "props": {
+        "text": "Code Findings",
+        "level": "h3"
+      }
+    },
+    "text-code-findings": {
+      "type": "Text",
+      "props": {
+        "text": "0 code findings (manual internal/viewer + internal/llm spot-check clean)",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-followup": {
+      "type": "Heading",
+      "props": {
+        "text": "Follow-up",
+        "level": "h3"
+      }
+    },
+    "alert-stdlib": {
+      "type": "Alert",
+      "props": {
+        "title": "Pending Advisories",
+        "message": "3 stdlib advisories need 1.25.11 follow-up",
+        "type": "warning"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-scanners": {
+      "type": "Heading",
+      "props": {
+        "text": "Scanner Status",
+        "level": "h3"
+      }
+    },
+    "stack-scanners": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "status-semgrep",
+        "status-trufflehog",
+        "status-osv",
+        "status-slither"
+      ]
+    },
+    "status-semgrep": {
+      "type": "Badge",
+      "props": {
+        "text": "semgrep: ok",
+        "variant": "default"
+      }
+    },
+    "status-trufflehog": {
+      "type": "Badge",
+      "props": {
+        "text": "trufflehog: ok (fs+git)",
+        "variant": "default"
+      }
+    },
+    "status-osv": {
+      "type": "Badge",
+      "props": {
+        "text": "osv: ok",
+        "variant": "default"
+      }
+    },
+    "status-slither": {
+      "type": "Badge",
+      "props": {
+        "text": "slither: n/a",
+        "variant": "outline"
+      }
+    }
+  }
+}

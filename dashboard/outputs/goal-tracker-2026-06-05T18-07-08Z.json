@@ -1,0 +1,22 @@
+{
+  "root": "card-goal-tracker",
+  "state": {},
+  "elements": {
+    "card-goal-tracker": {
+      "type": "Card",
+      "props": {
+        "title": "goal-tracker"
+      },
+      "children": [
+        "text-diagnostic"
+      ]
+    },
+    "text-diagnostic": {
+      "type": "Text",
+      "props": {
+        "text": "DIAGNOSTIC PROBE goal-tracker integration sanity check long enough to bypass filter alpha bravo charlie delta echo foxtrot 2026"
+      },
+      "children": []
+    }
+  }
+}

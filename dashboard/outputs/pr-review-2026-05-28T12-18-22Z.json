@@ -1,0 +1,254 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-05-28"
+      },
+      "children": [
+        "summary_stack",
+        "pr_section",
+        "findings_section",
+        "details_section",
+        "note_text"
+      ]
+    },
+    "summary_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "1"
+      },
+      "children": []
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "0"
+      },
+      "children": []
+    },
+    "pr_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sep1",
+        "pr_link",
+        "approval_badges"
+      ]
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "pr_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm#471",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/471"
+      },
+      "children": []
+    },
+    "approval_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_approve",
+        "badge_merge_ready"
+      ]
+    },
+    "badge_approve": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "badge_merge_ready": {
+      "type": "Badge",
+      "props": {
+        "text": "merge-ready",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "findings_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sep2",
+        "issue_stats"
+      ]
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "issue_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_critical",
+        "stat_issues"
+      ]
+    },
+    "stat_critical": {
+      "type": "Stat",
+      "props": {
+        "label": "Critical",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat_issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Issues",
+        "value": "0"
+      },
+      "children": []
+    },
+    "details_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sep3",
+        "change_stack",
+        "ci_stack",
+        "assessment_stack"
+      ]
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "change_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "change_label",
+        "change_text"
+      ]
+    },
+    "change_label": {
+      "type": "Text",
+      "props": {
+        "text": "Change:",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "change_text": {
+      "type": "Text",
+      "props": {
+        "text": "Dependabot dev-dep patch bump (langgraph 1.2.1→1.2.2, exact-pinned, +1/-1 in pyproject.toml)",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "ci_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "ci_label",
+        "ci_text"
+      ]
+    },
+    "ci_label": {
+      "type": "Text",
+      "props": {
+        "text": "CI Status:",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "ci_text": {
+      "type": "Text",
+      "props": {
+        "text": "Full matrix green: tests 3.10/3.11/3.12, type-check, lint, quality-gate, CodeQL, memory tests, Vercel",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "assessment_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_low_risk",
+        "badge_sufficient_evidence"
+      ]
+    },
+    "badge_low_risk": {
+      "type": "Badge",
+      "props": {
+        "text": "Low risk",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "badge_sufficient_evidence": {
+      "type": "Badge",
+      "props": {
+        "text": "Sufficient evidence",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "note_text": {
+      "type": "Text",
+      "props": {
+        "text": "No PR comment posted (clean bot PR, no findings)",
+        "variant": "caption"
+      },
+      "children": []
+    }
+  }
+}

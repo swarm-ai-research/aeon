@@ -1,0 +1,391 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker — 2026-05-30"
+      },
+      "children": [
+        "summary-section",
+        "sep1",
+        "on-track-section",
+        "sep2",
+        "sources-section"
+      ]
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-title",
+        "summary-stats"
+      ]
+    },
+    "summary-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "summary-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-total-goals",
+        "stat-at-risk",
+        "stat-needs-attention",
+        "stat-on-track",
+        "stat-blocked",
+        "stat-done",
+        "overall-badge"
+      ]
+    },
+    "stat-total-goals": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Goals",
+        "value": "4"
+      },
+      "children": []
+    },
+    "stat-at-risk": {
+      "type": "Stat",
+      "props": {
+        "label": "At Risk",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat-needs-attention": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs Attention",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat-on-track": {
+      "type": "Stat",
+      "props": {
+        "label": "On Track",
+        "value": "4"
+      },
+      "children": []
+    },
+    "stat-blocked": {
+      "type": "Stat",
+      "props": {
+        "label": "Blocked",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat-done": {
+      "type": "Stat",
+      "props": {
+        "label": "Done",
+        "value": "0"
+      },
+      "children": []
+    },
+    "overall-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Overall: → flat",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "on-track-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "on-track-heading",
+        "goals-list"
+      ]
+    },
+    "on-track-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "ON TRACK",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "goals-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "goal-1",
+        "goal-2",
+        "goal-3",
+        "goal-4"
+      ]
+    },
+    "goal-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-1-text",
+        "goal-1-metrics",
+        "goal-1-status"
+      ]
+    },
+    "goal-1-text": {
+      "type": "Text",
+      "props": {
+        "text": "Keep engineering skill stack (pr-review, code-health, triage, security, health) running clean",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "goal-1-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 38 activity/14d",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "goal-1-status": {
+      "type": "Badge",
+      "props": {
+        "text": "→ flat",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "goal-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-2-text",
+        "goal-2-detail",
+        "goal-2-metrics",
+        "goal-2-status"
+      ]
+    },
+    "goal-2-text": {
+      "type": "Text",
+      "props": {
+        "text": "Run the day from intent (planner / self-improve / goal-tracker)",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "goal-2-detail": {
+      "type": "Text",
+      "props": {
+        "text": "self-improve shipped ZIZMOR 1.25.2 bump today via PR #68",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "goal-2-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 9 activity/14d",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "goal-2-status": {
+      "type": "Badge",
+      "props": {
+        "text": "→ flat",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "goal-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-3-text",
+        "goal-3-metrics",
+        "goal-3-status"
+      ]
+    },
+    "goal-3-text": {
+      "type": "Text",
+      "props": {
+        "text": "Iterate two prototypes (GitLawb safety layer, compute-futures)",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "goal-3-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 28 activity/14d",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "goal-3-status": {
+      "type": "Badge",
+      "props": {
+        "text": "→ flat",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "goal-4": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-4-text",
+        "goal-4-detail",
+        "goal-4-metrics",
+        "goal-4-status"
+      ]
+    },
+    "goal-4-text": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-ai-safety/swarm merge-gate queue drained to 2 open",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "goal-4-detail": {
+      "type": "Text",
+      "props": {
+        "text": "#480 knowledge-graph v2 APPROVE 5/5 merged 01:50Z, remaining: #472 docs-bridge RC 3/5 flaky-CI, #471 dependabot APPROVE 5/5 bot",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "goal-4-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 18 activity/14d",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "goal-4-status": {
+      "type": "Badge",
+      "props": {
+        "text": "→ flat",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "sources-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sources-heading",
+        "sources-badges"
+      ]
+    },
+    "sources-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h4"
+      },
+      "children": []
+    },
+    "sources-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "source-logs",
+        "source-git",
+        "source-gh-pr",
+        "source-gh-issue",
+        "source-cron-state"
+      ]
+    },
+    "source-logs": {
+      "type": "Badge",
+      "props": {
+        "text": "logs: ok",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "source-git": {
+      "type": "Badge",
+      "props": {
+        "text": "git: ok",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "source-gh-pr": {
+      "type": "Badge",
+      "props": {
+        "text": "gh_pr: ok",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "source-gh-issue": {
+      "type": "Badge",
+      "props": {
+        "text": "gh_issue: ok",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "source-cron-state": {
+      "type": "Badge",
+      "props": {
+        "text": "cron-state: ok",
+        "variant": "secondary"
+      },
+      "children": []
+    }
+  }
+}

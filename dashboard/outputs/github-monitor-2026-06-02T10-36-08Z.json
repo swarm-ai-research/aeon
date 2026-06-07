@@ -1,0 +1,54 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "GitHub Monitor",
+        "description": "1 repo scanned, 0 need action"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert_info",
+        "issue_link",
+        "sources_text"
+      ]
+    },
+    "alert_info": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "title": "INFO",
+        "message": "1 issue requires triage"
+      },
+      "children": []
+    },
+    "issue_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Triage aaronjmars/aeon!317 — new issue, no priority label, capabilities-map coverage gap",
+        "href": "https://github.com/aaronjmars/aeon/issues/317",
+        "source": "aaronjmars/aeon"
+      },
+      "children": []
+    },
+    "sources_text": {
+      "type": "Text",
+      "props": {
+        "text": "Scan results: aaronjmars/aeon (status: ok)",
+        "variant": "caption"
+      },
+      "children": []
+    }
+  }
+}

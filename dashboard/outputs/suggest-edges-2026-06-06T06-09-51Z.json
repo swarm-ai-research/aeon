@@ -1,0 +1,42 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_content",
+        "pr_link"
+      ]
+    },
+    "text_content": {
+      "type": "Text",
+      "props": {
+        "text": "3 missing links proposed (top: 2026-05-28)"
+      },
+      "children": []
+    },
+    "pr_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Review PR",
+        "href": "https://github.com/rsavitt/aeon/pull/204",
+        "source": "GitHub"
+      },
+      "children": []
+    }
+  }
+}

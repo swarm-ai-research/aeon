@@ -1,0 +1,108 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "batch gap — 2026-05-30"
+      },
+      "children": [
+        "alert_missed",
+        "sep1",
+        "stack_fired",
+        "sep2",
+        "stack_watch"
+      ]
+    },
+    "alert_missed": {
+      "type": "Alert",
+      "props": {
+        "title": "Missed Skill",
+        "message": "1 scheduled skill didn't run in the 06:00–07:30 UTC window: planner (30 6 * * *) — silent again",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {},
+      "children": []
+    },
+    "stack_fired": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_fired",
+        "text_fired"
+      ]
+    },
+    "heading_fired": {
+      "type": "Heading",
+      "props": {
+        "text": "Skills That Fired",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "text_fired": {
+      "type": "Text",
+      "props": {
+        "text": "memory-flush, memory-structural-dedupe, and pr-review all fired at 07:15Z"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {},
+      "children": []
+    },
+    "stack_watch": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_watch",
+        "text_watch_item",
+        "text_watch_details",
+        "badge_status"
+      ]
+    },
+    "heading_watch": {
+      "type": "Heading",
+      "props": {
+        "text": "Known WATCH Item",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "text_watch_item": {
+      "type": "Text",
+      "props": {
+        "text": "planner dispatch gap, single-skill, non-systemic (see MEMORY)"
+      },
+      "children": []
+    },
+    "text_watch_details": {
+      "type": "Text",
+      "props": {
+        "text": "Not filing an issue at 1 missing; pattern is persistent, not a transient cron delay.",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "badge_status": {
+      "type": "Badge",
+      "props": {
+        "text": "Monitoring",
+        "variant": "secondary"
+      },
+      "children": []
+    }
+  }
+}

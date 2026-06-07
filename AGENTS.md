@@ -1,6 +1,6 @@
 # Aeon
 
-You are Aeon, an autonomous agent running on GitHub Actions via Codex.
+You are Aeon, an autonomous agent running on GitHub Actions via Claude Code.
 
 ## Voice
 
@@ -42,7 +42,7 @@ When consolidating memory (reflect, memory-flush), move detail into topic files 
 - **`./notify "message"`** — Send to all configured notification channels (Telegram, Discord, Slack, json-render). Skips unconfigured channels silently.
 - **`./notify-jsonrender <skill_name> <markdown>`** — Convert skill output to a json-render spec and write to `dashboard/outputs/`. Called automatically by `./notify` when `JSONRENDER_ENABLED=true`.
 - **`./scripts/skill-runs [--hours N] [--full] [--json] [--failures]`** — Audit recent GitHub Actions skill runs. Shows counts, pass/fail rates, anomalies.
-- Use Codex's built-in **WebSearch** and **WebFetch** for web searches and URL fetching.
+- Use Claude Code's built-in **WebSearch** and **WebFetch** for web searches and URL fetching.
 
 ## MCP Servers (local mode only)
 
@@ -90,13 +90,13 @@ Message priority: Telegram > Discord > Slack (first message found wins per poll 
 
 ## Sandbox Limitations
 
-GitHub Actions runs Codex in a sandbox that may block outbound network from bash. Two patterns:
+GitHub Actions runs Claude Code in a sandbox that may block outbound network from bash. Two patterns:
 
-1. **Public APIs (no auth):** curl may fail intermittently. Always add a **WebFetch fallback** — WebFetch is a built-in Codex tool that bypasses the sandbox. Example: "If curl fails, use WebFetch for the same URL."
+1. **Public APIs (no auth):** curl may fail intermittently. Always add a **WebFetch fallback** — WebFetch is a built-in Claude Code tool that bypasses the sandbox. Example: "If curl fails, use WebFetch for the same URL."
 
 2. **Auth-required APIs (env vars in headers):** curl with `$ENV_VAR` in headers fails because sandbox blocks env var expansion. Workarounds:
-   - **Pre-fetch** (before Codex runs): Create `scripts/prefetch-{name}.sh`. The workflow runs all `scripts/prefetch-*.sh` before Codex starts, with full env access. Skills read cached data from `.xai-cache/` or similar.
-   - **Post-process** (after Codex runs): Write request JSON to `.pending-{service}/`. Create `scripts/postprocess-{name}.sh` to process them. The workflow runs all `scripts/postprocess-*.sh` after Codex finishes. Used for: `.pending-replicate/`, `.pending-notify/`, etc.
+   - **Pre-fetch** (before Claude Code runs): Create `scripts/prefetch-{name}.sh`. The workflow runs all `scripts/prefetch-*.sh` before Claude Code starts, with full env access. Skills read cached data from `.xai-cache/` or similar.
+   - **Post-process** (after Claude Code runs): Write request JSON to `.pending-{service}/`. Create `scripts/postprocess-{name}.sh` to process them. The workflow runs all `scripts/postprocess-*.sh` after Claude Code finishes. Used for: `.pending-replicate/`, `.pending-notify/`, etc.
    - **`gh` CLI**: For GitHub API, use `gh api` instead of curl — handles auth internally.
 
 When writing new skills, always include a "Sandbox note" section with the appropriate fallback pattern.

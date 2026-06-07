@@ -1,0 +1,132 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skillpacks Updated"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_new_packs",
+        "badges_section",
+        "text_relabel",
+        "separator1",
+        "stats_section",
+        "separator2",
+        "link_pr"
+      ]
+    },
+    "text_new_packs": {
+      "type": "Text",
+      "props": {
+        "text": "2 new pack(s):",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "badges_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_evolve",
+        "badge_profiling"
+      ]
+    },
+    "badge_evolve": {
+      "type": "Badge",
+      "props": {
+        "text": "evolve-fleet",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "badge_profiling": {
+      "type": "Badge",
+      "props": {
+        "text": "profiling-eda",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "text_relabel": {
+      "type": "Text",
+      "props": {
+        "text": "fleet-gitlawb relabeled as evolve-fleet",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stats_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_packs",
+        "stat_skills",
+        "stat_solos"
+      ]
+    },
+    "stat_packs": {
+      "type": "Stat",
+      "props": {
+        "label": "Packs",
+        "value": "16"
+      },
+      "children": []
+    },
+    "stat_skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills",
+        "value": "168"
+      },
+      "children": []
+    },
+    "stat_solos": {
+      "type": "Stat",
+      "props": {
+        "label": "Solos",
+        "value": "0"
+      },
+      "children": []
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "link_pr": {
+      "type": "Link",
+      "props": {
+        "label": "PR #98",
+        "href": "https://github.com/rsavitt/aeon/pull/98"
+      },
+      "children": []
+    }
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "content-engine — 2026-05-17",
+        "description": "Focus: AI agents, coding tools, automation, developer infrastructure, open-source devtools"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_exec",
+        "stack_executive",
+        "sep1",
+        "heading_drafts",
+        "stat_drafts",
+        "text_top_draft",
+        "sep2",
+        "heading_review",
+        "text_review_file"
+      ]
+    },
+    "heading_exec": {
+      "type": "Heading",
+      "props": {
+        "text": "Executive read",
+        "level": "h2"
+      }
+    },
+    "stack_executive": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item1",
+        "item2",
+        "item3",
+        "item4",
+        "item5"
+      ]
+    },
+    "item1": {
+      "type": "Text",
+      "props": {
+        "text": "xAI Grok Build launches with Arena Mode — 8 parallel agents auto-scored before human review"
+      }
+    },
+    "item2": {
+      "type": "Text",
+      "props": {
+        "text": "SWE-bench Verified abandoned: 59.4% of test cases were flawed; SWE-bench Pro now the standard (top score: 77.8%)"
+      }
+    },
+    "item3": {
+      "type": "Text",
+      "props": {
+        "text": "Scaffolding gap: same model, 3 frameworks = 17 problems apart on SWE-bench"
+      }
+    },
+    "item4": {
+      "type": "Text",
+      "props": {
+        "text": "Bun Rust codebase has dangling-reference UB in safe code; author attributes to AI-generated Rust"
+      }
+    },
+    "item5": {
+      "type": "Text",
+      "props": {
+        "text": "Frontier AI broke CTF competitions — now pay-to-win by token budget; elite teams withdrawing"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_drafts": {
+      "type": "Heading",
+      "props": {
+        "text": "Drafts",
+        "level": "h2"
+      }
+    },
+    "stat_drafts": {
+      "type": "Stat",
+      "props": {
+        "label": "ready",
+        "value": "5"
+      }
+    },
+    "text_top_draft": {
+      "type": "Text",
+      "props": {
+        "text": "Top draft: SWE-bench Verified is dead — what that means for benchmark claims",
+        "variant": "lead"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_review": {
+      "type": "Heading",
+      "props": {
+        "text": "Review",
+        "level": "h2"
+      }
+    },
+    "text_review_file": {
+      "type": "Text",
+      "props": {
+        "text": "articles/content-engine-2026-05-17.md"
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-05-25"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-health-ok",
+        "grid-health-stats",
+        "separator-1",
+        "section-nodata",
+        "separator-2",
+        "alert-config",
+        "separator-3",
+        "section-issues"
+      ]
+    },
+    "text-health-ok": {
+      "type": "Text",
+      "props": {
+        "text": "HEALTH: OK",
+        "variant": "lead"
+      }
+    },
+    "grid-health-stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-skills-healthy",
+        "stat-success-rate",
+        "stat-failures"
+      ]
+    },
+    "stat-skills-healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills healthy",
+        "value": "8"
+      }
+    },
+    "stat-success-rate": {
+      "type": "Stat",
+      "props": {
+        "label": "Success rate",
+        "value": "100%"
+      }
+    },
+    "stat-failures": {
+      "type": "Stat",
+      "props": {
+        "label": "Consecutive failures",
+        "value": "0"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section-nodata": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-nodata",
+        "text-nodata-list"
+      ]
+    },
+    "heading-nodata": {
+      "type": "Heading",
+      "props": {
+        "text": "No Data (3)",
+        "level": "h3"
+      }
+    },
+    "text-nodata-list": {
+      "type": "Text",
+      "props": {
+        "text": "workflow-security-audit (weekly, not yet run), skill-health (first run), skill-repair (reactive) — expected, no action."
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "alert-config": {
+      "type": "Alert",
+      "props": {
+        "title": "Config flag issue",
+        "message": "Committed root aeon.yml still carries conflict markers (lines 141/169/198), which makes enabled-skill detection unreliable. ISS-001 cleared the workflows copy but not the root file — recommend heartbeat/operator resolve the root conflict.",
+        "type": "warning"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section-issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-open-issues",
+        "stat-resolved"
+      ]
+    },
+    "stat-open-issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open issues",
+        "value": "0"
+      }
+    },
+    "stat-resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved this run",
+        "value": "0"
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat-added",
+        "text-state",
+        "link-pr"
+      ]
+    },
+    "stat-added": {
+      "type": "Stat",
+      "props": {
+        "label": "notes wired in",
+        "value": "+1",
+        "trend": "up"
+      }
+    },
+    "text-state": {
+      "type": "Text",
+      "props": {
+        "text": "53n / 386e, 0 orphans",
+        "variant": "muted"
+      }
+    },
+    "link-pr": {
+      "type": "Link",
+      "props": {
+        "label": "PR #205",
+        "href": "https://github.com/rsavitt/aeon/pull/205"
+      }
+    }
+  }
+}

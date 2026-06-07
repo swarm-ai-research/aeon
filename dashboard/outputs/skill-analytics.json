@@ -1,0 +1,73 @@
+{
+  "version": "1",
+  "generated_at": "2026-06-03T18:57:00Z",
+  "skill": "skill-analytics",
+  "title": "Skill Analytics — 2026-06-03",
+  "spec": {
+    "type": "Stack",
+    "props": {"direction": "vertical", "gap": "md"},
+    "children": [
+      {"type": "Alert", "props": {"variant": "destructive", "children": "2 anomaly flag(s) raised — see Anomalies section"}},
+      {"type": "Heading", "props": {"level": 2, "children": "Skill Analytics — 2026-06-03"}},
+      {"type": "Text", "props": {"variant": "muted", "children": "2 scheduled skill(s) didn't run this window — planner, ai-framework-watch"}},
+      {"type": "Grid", "props": {"columns": 4, "gap": "sm"}, "children": [
+        {"type": "Card", "props": {"children": [
+          {"type": "Text", "props": {"variant": "muted", "children": "Total runs"}},
+          {"type": "Heading", "props": {"level": 3, "children": "171"}}
+        ]}},
+        {"type": "Card", "props": {"children": [
+          {"type": "Text", "props": {"variant": "muted", "children": "Active skills"}},
+          {"type": "Heading", "props": {"level": 3, "children": "49"}}
+        ]}},
+        {"type": "Card", "props": {"children": [
+          {"type": "Text", "props": {"variant": "muted", "children": "Success rate"}},
+          {"type": "Heading", "props": {"level": 3, "children": "100%"}}
+        ]}},
+        {"type": "Card", "props": {"children": [
+          {"type": "Text", "props": {"variant": "muted", "children": "Anomalies"}},
+          {"type": "Heading", "props": {"level": 3, "children": "2"}}
+        ]}}
+      ]},
+      {"type": "Heading", "props": {"level": 3, "children": "Anomalies"}},
+      {"type": "Table", "props": {
+        "columns": [
+          {"key": "flag", "header": "Flag"},
+          {"key": "skill", "header": "Skill"},
+          {"key": "detail", "header": "Detail"},
+          {"key": "action", "header": "Action"}
+        ],
+        "rows": [
+          {"flag": "🔴 SILENT", "skill": "planner", "detail": "scheduled 30 6 * * * — zero runs in window (6+ consecutive misses)", "action": "check workflow / scheduler"},
+          {"flag": "🔴 SILENT", "skill": "ai-framework-watch", "detail": "scheduled 30 8 * * 1 — zero runs in window (never fired)", "action": "check workflow / scheduler"}
+        ]
+      }},
+      {"type": "Heading", "props": {"level": 3, "children": "Top runners"}},
+      {"type": "Table", "props": {
+        "columns": [
+          {"key": "rank", "header": "#"},
+          {"key": "skill", "header": "Skill"},
+          {"key": "runs", "header": "Runs"},
+          {"key": "success", "header": "Success"},
+          {"key": "exit", "header": "Dominant exit"}
+        ],
+        "rows": [
+          {"rank": "1", "skill": "pr-review (swarm-ai-safety/swarm)", "runs": "18", "success": "100%", "exit": "ok"},
+          {"rank": "2", "skill": "heartbeat", "runs": "13", "success": "100%", "exit": "ok"},
+          {"rank": "3", "skill": "fleet-control", "runs": "10", "success": "100%", "exit": "ok"},
+          {"rank": "4", "skill": "skill-freshness", "runs": "8", "success": "100%", "exit": "ok"},
+          {"rank": "5", "skill": "code-health", "runs": "7", "success": "100%", "exit": "ok"},
+          {"rank": "6", "skill": "github-monitor", "runs": "7", "success": "100%", "exit": "ok"},
+          {"rank": "7", "skill": "gitlawb-fleet-metrics", "runs": "7", "success": "100%", "exit": "skip_other"},
+          {"rank": "8", "skill": "issue-triage", "runs": "7", "success": "100%", "exit": "ok"},
+          {"rank": "9", "skill": "reflect", "runs": "7", "success": "100%", "exit": "ok"},
+          {"rank": "10", "skill": "skill-health", "runs": "7", "success": "100%", "exit": "partial"},
+          {"rank": "11", "skill": "batch-health", "runs": "6", "success": "100%", "exit": "ok"},
+          {"rank": "12", "skill": "goal-tracker", "runs": "6", "success": "100%", "exit": "ok"},
+          {"rank": "13", "skill": "surplus-pulse", "runs": "6", "success": "100%", "exit": "uncategorized"},
+          {"rank": "14", "skill": "notegraph", "runs": "5", "success": "100%", "exit": "ok"},
+          {"rank": "15", "skill": "pr-tracker", "runs": "5", "success": "100%", "exit": "ok"}
+        ]
+      }}
+    ]
+  }
+}

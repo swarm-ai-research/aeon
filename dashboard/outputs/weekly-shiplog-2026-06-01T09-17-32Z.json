@@ -1,0 +1,114 @@
+{
+  "root": "card-shiplog",
+  "state": {},
+  "elements": {
+    "card-shiplog": {
+      "type": "Card",
+      "props": {
+        "title": "Weekly Shiplog — 2026-06-01"
+      },
+      "children": [
+        "text-opening",
+        "heading-themes",
+        "stack-themes",
+        "separator-1",
+        "stack-stats",
+        "link-article"
+      ]
+    },
+    "text-opening": {
+      "type": "Text",
+      "props": {
+        "text": "AEON stopped being just a fleet this week and started being the place other fleets ship into — community skill packs poured in, the manifest grew the metadata fields to ingest them safely, and the dashboard got the visual identity to host them.",
+        "variant": "body"
+      }
+    },
+    "heading-themes": {
+      "type": "Heading",
+      "props": {
+        "text": "Themes",
+        "level": "h3"
+      }
+    },
+    "stack-themes": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-theme1",
+        "text-theme2",
+        "text-theme3"
+      ]
+    },
+    "text-theme1": {
+      "type": "Text",
+      "props": {
+        "text": "Community skill-pack flood + manifest infra to ingest it",
+        "variant": "body"
+      }
+    },
+    "text-theme2": {
+      "type": "Text",
+      "props": {
+        "text": "Fleet observability skills land (4 new health angles)",
+        "variant": "body"
+      }
+    },
+    "text-theme3": {
+      "type": "Text",
+      "props": {
+        "text": "Dashboard restyle to aeon.fun's editorial voice",
+        "variant": "body"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-commits",
+        "stat-prs",
+        "stat-changes"
+      ]
+    },
+    "stat-commits": {
+      "type": "Stat",
+      "props": {
+        "label": "Commits",
+        "value": "52"
+      }
+    },
+    "stat-prs": {
+      "type": "Stat",
+      "props": {
+        "label": "PRs",
+        "value": "49"
+      }
+    },
+    "stat-changes": {
+      "type": "Stat",
+      "props": {
+        "label": "Changes",
+        "value": "+5,684 / −666"
+      }
+    },
+    "link-article": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full article",
+        "href": "https://github.com/rsavitt/aeon/blob/main/articles/weekly-shiplog-2026-06-01.md",
+        "source": "GitHub"
+      }
+    }
+  }
+}

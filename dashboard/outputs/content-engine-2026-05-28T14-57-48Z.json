@@ -1,0 +1,198 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Content Engine — 2026-05-28"
+      },
+      "children": [
+        "focus_section",
+        "sep1",
+        "exec_section",
+        "sep2",
+        "drafts_section",
+        "sep3",
+        "review_section"
+      ]
+    },
+    "focus_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "focus_label",
+        "focus_badges"
+      ]
+    },
+    "focus_label": {
+      "type": "Text",
+      "props": {
+        "text": "Focus:",
+        "variant": "muted"
+      }
+    },
+    "focus_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_ai",
+        "badge_coding",
+        "badge_automation",
+        "badge_infra",
+        "badge_oss"
+      ]
+    },
+    "badge_ai": {
+      "type": "Badge",
+      "props": {
+        "text": "AI agents",
+        "variant": "default"
+      }
+    },
+    "badge_coding": {
+      "type": "Badge",
+      "props": {
+        "text": "coding tools",
+        "variant": "default"
+      }
+    },
+    "badge_automation": {
+      "type": "Badge",
+      "props": {
+        "text": "automation",
+        "variant": "default"
+      }
+    },
+    "badge_infra": {
+      "type": "Badge",
+      "props": {
+        "text": "developer infrastructure",
+        "variant": "default"
+      }
+    },
+    "badge_oss": {
+      "type": "Badge",
+      "props": {
+        "text": "open-source devtools",
+        "variant": "default"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "exec_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "exec_heading",
+        "exec_bullets"
+      ]
+    },
+    "exec_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Executive Read",
+        "level": "h3"
+      }
+    },
+    "exec_bullets": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "bullet1",
+        "bullet2",
+        "bullet3",
+        "bullet4"
+      ]
+    },
+    "bullet1": {
+      "type": "Text",
+      "props": {
+        "text": "Enterprise coding agents are the real PMF story — Anthropic $10.9B quarterly, one dev spending 10x their subscription in tokens",
+        "variant": "body"
+      }
+    },
+    "bullet2": {
+      "type": "Text",
+      "props": {
+        "text": "Claude Code is crossing to daily driver infrastructure — CLAUDE.md/skills/subagents guide hit 415 HN points today",
+        "variant": "body"
+      }
+    },
+    "bullet3": {
+      "type": "Text",
+      "props": {
+        "text": "n8n crossed 190k GitHub stars — the self-hostable automation layer where production AI agents actually run",
+        "variant": "body"
+      }
+    },
+    "bullet4": {
+      "type": "Text",
+      "props": {
+        "text": "jj/Jujutsu gains a champion: Steve Klabnik left Oxide to build a GitHub alternative around it (29k stars, used at Google)",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "drafts_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "drafts_stat",
+        "drafts_title"
+      ]
+    },
+    "drafts_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Drafts ready",
+        "value": "4"
+      }
+    },
+    "drafts_title": {
+      "type": "Text",
+      "props": {
+        "text": "Top draft: The Revenue Proof: Enterprise Coding Agents Have Found Their Margin",
+        "variant": "lead"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "review_section": {
+      "type": "StoryLink",
+      "props": {
+        "title": "articles/content-engine-2026-05-28.md",
+        "href": "articles/content-engine-2026-05-28.md",
+        "source": "Review file"
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "notegraph"
+      },
+      "children": [
+        "text_update",
+        "pr_link"
+      ]
+    },
+    "text_update": {
+      "type": "Text",
+      "props": {
+        "text": "Notegraph updated — +1 notes wired in."
+      },
+      "children": []
+    },
+    "pr_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #81",
+        "href": "https://github.com/rsavitt/aeon/pull/81",
+        "source": "GitHub"
+      },
+      "children": []
+    }
+  }
+}

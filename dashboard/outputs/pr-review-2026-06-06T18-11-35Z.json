@@ -1,0 +1,182 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review 2026-06-06"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-stats",
+        "repo-info",
+        "sep-1",
+        "pr-507",
+        "pr-508",
+        "pr-506",
+        "sep-2",
+        "summary-section"
+      ]
+    },
+    "summary-stats": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed 2 / Skipped 1",
+        "variant": "lead"
+      }
+    },
+    "repo-info": {
+      "type": "Link",
+      "props": {
+        "label": "swarm-ai-research/swarm",
+        "href": "https://github.com/swarm-ai-research/swarm"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-507": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-507-link",
+        "pr-507-status",
+        "pr-507-details"
+      ]
+    },
+    "pr-507-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#507",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/507"
+      }
+    },
+    "pr-507-status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES (3/5)",
+        "variant": "destructive"
+      }
+    },
+    "pr-507-details": {
+      "type": "Text",
+      "props": {
+        "text": "agentveil mapper, no tests, stack-vs-main CI gap",
+        "variant": "caption"
+      }
+    },
+    "pr-508": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-508-link",
+        "pr-508-status",
+        "pr-508-details"
+      ]
+    },
+    "pr-508-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#508",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/508"
+      }
+    },
+    "pr-508-status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES (3/5)",
+        "variant": "destructive"
+      }
+    },
+    "pr-508-details": {
+      "type": "Text",
+      "props": {
+        "text": "agentveil client, no tests, same CI gap",
+        "variant": "caption"
+      }
+    },
+    "pr-506": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-506-link",
+        "pr-506-status",
+        "pr-506-details"
+      ]
+    },
+    "pr-506-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#506",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/506"
+      }
+    },
+    "pr-506-status": {
+      "type": "Badge",
+      "props": {
+        "text": "skipped",
+        "variant": "secondary"
+      }
+    },
+    "pr-506-details": {
+      "type": "Text",
+      "props": {
+        "text": "copilot reviewed 17min ago",
+        "variant": "caption"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "alert-critical",
+        "action-text"
+      ]
+    },
+    "alert-critical": {
+      "type": "Alert",
+      "props": {
+        "title": "No CRITICAL issues",
+        "type": "success"
+      }
+    },
+    "action-text": {
+      "type": "Text",
+      "props": {
+        "text": "Rebase + tests unblocks both to APPROVE",
+        "variant": "body"
+      }
+    }
+  }
+}

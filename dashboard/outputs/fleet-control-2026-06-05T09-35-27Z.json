@@ -1,0 +1,220 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Control",
+        "description": "2026-06-05"
+      },
+      "children": [
+        "verdict",
+        "separator1",
+        "fleet_section",
+        "separator2",
+        "counts_section",
+        "separator3",
+        "caps_section",
+        "separator4",
+        "caveat"
+      ]
+    },
+    "verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "FLEET_OK",
+        "variant": "default"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fleet_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fleet_title",
+        "agent_1",
+        "agent_2",
+        "agent_3",
+        "agent_4"
+      ]
+    },
+    "fleet_title": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet (4 total, all GitLawb-hosted)",
+        "level": "h3"
+      }
+    },
+    "agent_1": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-researcher [HEALTHY]: did:key:z6Mkfnr…SHRUH — none",
+        "variant": "body"
+      }
+    },
+    "agent_2": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-reviewer [HEALTHY]: did:key:z6Mks2K…HY7U7SZ — none",
+        "variant": "body"
+      }
+    },
+    "agent_3": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-deployer [HEALTHY]: did:key:z6MknGJ…CwAuS — none",
+        "variant": "body"
+      }
+    },
+    "agent_4": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-sentinel [HEALTHY]: did:key:z6MksUu…X4S2M — none",
+        "variant": "body"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "counts_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "counts_title",
+        "counts_grid"
+      ]
+    },
+    "counts_title": {
+      "type": "Heading",
+      "props": {
+        "text": "Counts",
+        "level": "h3"
+      }
+    },
+    "counts_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_healthy",
+        "stat_warning",
+        "stat_degraded",
+        "stat_stale",
+        "stat_pending",
+        "stat_unreachable",
+        "stat_archived"
+      ]
+    },
+    "stat_healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Healthy",
+        "value": "4"
+      }
+    },
+    "stat_warning": {
+      "type": "Stat",
+      "props": {
+        "label": "Warning",
+        "value": "0"
+      }
+    },
+    "stat_degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded",
+        "value": "0"
+      }
+    },
+    "stat_stale": {
+      "type": "Stat",
+      "props": {
+        "label": "Stale",
+        "value": "0"
+      }
+    },
+    "stat_pending": {
+      "type": "Stat",
+      "props": {
+        "label": "Pending",
+        "value": "0"
+      }
+    },
+    "stat_unreachable": {
+      "type": "Stat",
+      "props": {
+        "label": "Unreachable",
+        "value": "0"
+      }
+    },
+    "stat_archived": {
+      "type": "Stat",
+      "props": {
+        "label": "Archived",
+        "value": "0"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "caps_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "caps_title",
+        "caps_text"
+      ]
+    },
+    "caps_title": {
+      "type": "Heading",
+      "props": {
+        "text": "Caps",
+        "level": "h3"
+      }
+    },
+    "caps_text": {
+      "type": "Text",
+      "props": {
+        "text": "All four active, expire 2026-06-24 (~19d)",
+        "variant": "body"
+      }
+    },
+    "separator4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "caveat": {
+      "type": "Alert",
+      "props": {
+        "title": "Caveat",
+        "message": "memory/gitlawb-fleet.json absent today — reading mirrored fields per skill contract. Sources: gh=skipped (GitLawb-only) · rate_remaining=n/a",
+        "type": "info"
+      }
+    }
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "root": "card-reflect",
+  "state": {},
+  "elements": {
+    "card-reflect": {
+      "type": "Card",
+      "props": {
+        "title": "Reflect"
+      },
+      "children": [
+        "text-date",
+        "badge-heartbeat",
+        "sep1",
+        "section-metrics",
+        "sep2",
+        "section-flags"
+      ]
+    },
+    "text-date": {
+      "type": "Text",
+      "props": {
+        "text": "Memory consolidated — 2026-06-05"
+      }
+    },
+    "badge-heartbeat": {
+      "type": "Badge",
+      "props": {
+        "text": "4th consecutive clean day",
+        "variant": "default"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-metrics",
+        "group-swarm",
+        "group-upstream",
+        "group-registry",
+        "group-planner"
+      ]
+    },
+    "heading-metrics": {
+      "type": "Heading",
+      "props": {
+        "text": "Metrics",
+        "level": "h3"
+      }
+    },
+    "group-swarm": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat-swarm",
+        "text-swarm-detail"
+      ]
+    },
+    "stat-swarm": {
+      "type": "Stat",
+      "props": {
+        "label": "Swarm queue",
+        "value": "3",
+        "delta": "-8",
+        "trend": "down"
+      }
+    },
+    "text-swarm-detail": {
+      "type": "Text",
+      "props": {
+        "text": "overnight: biggest 7d collapse",
+        "variant": "caption"
+      }
+    },
+    "group-upstream": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat-upstream",
+        "link-pr"
+      ]
+    },
+    "stat-upstream": {
+      "type": "Stat",
+      "props": {
+        "label": "Upstream queue",
+        "value": "0",
+        "delta": "-1",
+        "trend": "down"
+      }
+    },
+    "link-pr": {
+      "type": "Link",
+      "props": {
+        "label": "#342 atrium-catalog-watcher merged",
+        "href": "https://github.com/aeon-ai/aeon/pull/342"
+      }
+    },
+    "group-registry": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat-registry",
+        "text-registry-detail"
+      ]
+    },
+    "stat-registry": {
+      "type": "Stat",
+      "props": {
+        "label": "Registry-drift findings",
+        "value": "3"
+      }
+    },
+    "text-registry-detail": {
+      "type": "Text",
+      "props": {
+        "text": "skill-of-the-day undiscoverable",
+        "variant": "caption"
+      }
+    },
+    "group-planner": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-watch",
+        "stat-planner"
+      ]
+    },
+    "badge-watch": {
+      "type": "Badge",
+      "props": {
+        "text": "WATCH",
+        "variant": "secondary"
+      }
+    },
+    "stat-planner": {
+      "type": "Stat",
+      "props": {
+        "label": "Planner misses",
+        "value": "8",
+        "delta": "+1",
+        "trend": "up"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section-flags": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-flags",
+        "alert-flag1",
+        "alert-flag2",
+        "alert-flag3"
+      ]
+    },
+    "heading-flags": {
+      "type": "Heading",
+      "props": {
+        "text": "New P3 Flags",
+        "level": "h3"
+      }
+    },
+    "alert-flag1": {
+      "type": "Alert",
+      "props": {
+        "title": "run-frequency-guard",
+        "message": "STALE 6.4d",
+        "type": "warning"
+      }
+    },
+    "alert-flag2": {
+      "type": "Alert",
+      "props": {
+        "title": "stale-content-pr-sweeper",
+        "message": "missing cron-state entries",
+        "type": "warning"
+      }
+    },
+    "alert-flag3": {
+      "type": "Alert",
+      "props": {
+        "title": "compute-macro-correlate",
+        "message": "missing cron-state entries",
+        "type": "warning"
+      }
+    }
+  }
+}

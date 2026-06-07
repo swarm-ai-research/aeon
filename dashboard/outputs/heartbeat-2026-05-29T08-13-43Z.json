@@ -1,0 +1,178 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Heartbeat",
+        "description": "Fleet status: one gap (planner), three new skills awaiting first windows, otherwise clean"
+      },
+      "children": [
+        "alert-planner",
+        "separator1",
+        "new-skills-section",
+        "watchpoint",
+        "separator2",
+        "health-section",
+        "status-footer"
+      ]
+    },
+    "alert-planner": {
+      "type": "Alert",
+      "props": {
+        "title": "Planner: Missing First Window",
+        "message": "New daily 06:30 skill did not fire on its first window. No cron-state entry — scheduler hasn't picked it up.",
+        "type": "warning"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "new-skills-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "new-skills-heading",
+        "new-skills-intro",
+        "new-skills-list"
+      ]
+    },
+    "new-skills-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "New Skills (Enabled Yesterday)",
+        "level": "h3"
+      }
+    },
+    "new-skills-intro": {
+      "type": "Text",
+      "props": {
+        "text": "Awaiting first window — scheduled later today:",
+        "variant": "lead"
+      }
+    },
+    "new-skills-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "surplus-pulse-item",
+        "goal-tracker-item",
+        "self-improve-item"
+      ]
+    },
+    "surplus-pulse-item": {
+      "type": "Text",
+      "props": {
+        "text": "• surplus-pulse (16:30)",
+        "variant": "body"
+      }
+    },
+    "goal-tracker-item": {
+      "type": "Text",
+      "props": {
+        "text": "• goal-tracker (18:00)",
+        "variant": "body"
+      }
+    },
+    "self-improve-item": {
+      "type": "Text",
+      "props": {
+        "text": "• self-improve (18:00)",
+        "variant": "body"
+      }
+    },
+    "watchpoint": {
+      "type": "Alert",
+      "props": {
+        "title": "Watchpoint: 20:00 Check",
+        "message": "If any new skills are also missing at the 20:00 heartbeat, the dispatcher is dropping newly-added skills — registration debugging required.",
+        "type": "info"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "health-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "health-heading",
+        "health-stats"
+      ]
+    },
+    "health-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet Health",
+        "level": "h3"
+      }
+    },
+    "health-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "success-rate",
+        "no-issues-stat"
+      ]
+    },
+    "success-rate": {
+      "type": "Stat",
+      "props": {
+        "label": "Success Rate (with run history)",
+        "value": "100%",
+        "trend": "up"
+      }
+    },
+    "no-issues-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Open PRs / Issues",
+        "value": "0"
+      }
+    },
+    "status-footer": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "status-label",
+        "status-badge"
+      ]
+    },
+    "status-label": {
+      "type": "Text",
+      "props": {
+        "text": "Status Page:",
+        "variant": "body"
+      }
+    },
+    "status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "WATCH",
+        "variant": "outline"
+      }
+    }
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-05-30"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-text",
+        "sep-1",
+        "pr-480-section",
+        "pr-472-section",
+        "pr-471-section",
+        "sep-2",
+        "queue-section"
+      ]
+    },
+    "summary-text": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed 1, skipped 2 (dup-SHA: 2 — #472 unchanged red, #471 dependabot unchanged green).",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "pr-480-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-480-header",
+        "pr-480-details"
+      ]
+    },
+    "pr-480-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-480-link",
+        "badge-approve-480",
+        "badge-score-480"
+      ]
+    },
+    "pr-480-link": {
+      "type": "Link",
+      "props": {
+        "label": "swarm-ai-safety/swarm#480",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/480"
+      },
+      "children": []
+    },
+    "badge-approve-480": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "badge-score-480": {
+      "type": "Badge",
+      "props": {
+        "text": "5/5",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "pr-480-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-480-detail1",
+        "pr-480-detail2",
+        "pr-480-detail3"
+      ]
+    },
+    "pr-480-detail1": {
+      "type": "Text",
+      "props": {
+        "text": "knowledge-graph v2 (+861/-195)",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "pr-480-detail2": {
+      "type": "Text",
+      "props": {
+        "text": "full CI green incl. render-verify",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "pr-480-detail3": {
+      "type": "Text",
+      "props": {
+        "text": "all 5 bot-flagged threads triaged as not-real (XSS already escaped, semantic edges already excluded from in/out)",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "pr-472-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-472-header",
+        "pr-472-detail"
+      ]
+    },
+    "pr-472-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-472-link",
+        "badge-changes-472",
+        "badge-score-472"
+      ]
+    },
+    "pr-472-link": {
+      "type": "Link",
+      "props": {
+        "label": "swarm-ai-safety/swarm#472",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/472"
+      },
+      "children": []
+    },
+    "badge-changes-472": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      },
+      "children": []
+    },
+    "badge-score-472": {
+      "type": "Badge",
+      "props": {
+        "text": "3/5",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "pr-472-detail": {
+      "type": "Text",
+      "props": {
+        "text": "dup-SHA, still flaky-red",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "pr-471-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-471-header",
+        "pr-471-detail"
+      ]
+    },
+    "pr-471-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-471-link",
+        "badge-approve-471",
+        "badge-score-471"
+      ]
+    },
+    "pr-471-link": {
+      "type": "Link",
+      "props": {
+        "label": "swarm-ai-safety/swarm#471",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/471"
+      },
+      "children": []
+    },
+    "badge-approve-471": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "badge-score-471": {
+      "type": "Badge",
+      "props": {
+        "text": "5/5",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "pr-471-detail": {
+      "type": "Text",
+      "props": {
+        "text": "dup-SHA, dependabot, not posted",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "queue-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "queue-heading",
+        "queue-status-text",
+        "queue-prs"
+      ]
+    },
+    "queue-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Queue Status",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "queue-status-text": {
+      "type": "Text",
+      "props": {
+        "text": "The b61g queue cleared since yesterday.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "queue-prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-479-link",
+        "pr-478-link",
+        "pr-476-link"
+      ]
+    },
+    "pr-479-link": {
+      "type": "Link",
+      "props": {
+        "label": "#479",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/479"
+      },
+      "children": []
+    },
+    "pr-478-link": {
+      "type": "Link",
+      "props": {
+        "label": "#478",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/478"
+      },
+      "children": []
+    },
+    "pr-476-link": {
+      "type": "Link",
+      "props": {
+        "label": "#476",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/476"
+      },
+      "children": []
+    }
+  }
+}

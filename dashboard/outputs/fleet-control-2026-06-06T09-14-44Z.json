@@ -1,0 +1,216 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Control"
+      },
+      "children": [
+        "badge_verdict",
+        "text_date",
+        "sep1",
+        "heading_fleet",
+        "table_fleet",
+        "sep2",
+        "heading_counts",
+        "grid_counts",
+        "sep3",
+        "heading_gitlawb",
+        "text_gitlawb_status",
+        "text_gitlawb_expire",
+        "sep4",
+        "heading_sources",
+        "text_sources"
+      ]
+    },
+    "badge_verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "FLEET_OK",
+        "variant": "default"
+      }
+    },
+    "text_date": {
+      "type": "Text",
+      "props": {
+        "text": "2026-06-06",
+        "variant": "caption"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_fleet": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet (4 total)",
+        "level": "h2"
+      }
+    },
+    "table_fleet": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Agent",
+          "Status",
+          "DID Key",
+          "Alerts"
+        ],
+        "rows": [
+          [
+            "aeon-researcher",
+            "HEALTHY",
+            "gitlawb did:key:z6Mkfn…HRUH",
+            "none"
+          ],
+          [
+            "aeon-reviewer",
+            "HEALTHY",
+            "gitlawb did:key:z6Mks2…U7SZ",
+            "none"
+          ],
+          [
+            "aeon-deployer",
+            "HEALTHY",
+            "gitlawb did:key:z6MknG…cAuS",
+            "none"
+          ],
+          [
+            "aeon-sentinel",
+            "HEALTHY",
+            "gitlawb did:key:z6MksU…X4S2M",
+            "none"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_counts": {
+      "type": "Heading",
+      "props": {
+        "text": "Status Counts",
+        "level": "h2"
+      }
+    },
+    "grid_counts": {
+      "type": "Grid",
+      "props": {
+        "columns": 7,
+        "gap": "md"
+      },
+      "children": [
+        "stat_healthy",
+        "stat_warning",
+        "stat_degraded",
+        "stat_stale",
+        "stat_pending",
+        "stat_unreachable",
+        "stat_archived"
+      ]
+    },
+    "stat_healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Healthy",
+        "value": "4"
+      }
+    },
+    "stat_warning": {
+      "type": "Stat",
+      "props": {
+        "label": "Warning",
+        "value": "0"
+      }
+    },
+    "stat_degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded",
+        "value": "0"
+      }
+    },
+    "stat_stale": {
+      "type": "Stat",
+      "props": {
+        "label": "Stale",
+        "value": "0"
+      }
+    },
+    "stat_pending": {
+      "type": "Stat",
+      "props": {
+        "label": "Pending",
+        "value": "0"
+      }
+    },
+    "stat_unreachable": {
+      "type": "Stat",
+      "props": {
+        "label": "Unreachable",
+        "value": "0"
+      }
+    },
+    "stat_archived": {
+      "type": "Stat",
+      "props": {
+        "label": "Archived",
+        "value": "0"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_gitlawb": {
+      "type": "Heading",
+      "props": {
+        "text": "GitLawb Credentials",
+        "level": "h2"
+      }
+    },
+    "text_gitlawb_status": {
+      "type": "Text",
+      "props": {
+        "text": "Status: all active"
+      }
+    },
+    "text_gitlawb_expire": {
+      "type": "Text",
+      "props": {
+        "text": "Expiration: 2026-06-24T01:28Z (~18d runway)"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_sources": {
+      "type": "Heading",
+      "props": {
+        "text": "Data Sources",
+        "level": "h2"
+      }
+    },
+    "text_sources": {
+      "type": "Text",
+      "props": {
+        "text": "gh=skipped (GitLawb-only fleet) · gitlawb-fleet.json=absent → reading mirrored fields on instances.json",
+        "variant": "caption"
+      }
+    }
+  }
+}

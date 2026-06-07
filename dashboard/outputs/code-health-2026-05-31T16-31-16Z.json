@@ -1,0 +1,189 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "code-health"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_audit",
+        "stack_findings",
+        "separator1",
+        "heading_carryovers",
+        "stack_carryovers",
+        "separator2",
+        "heading_recommendations",
+        "stack_recommendations",
+        "separator3",
+        "storylink_report"
+      ]
+    },
+    "heading_audit": {
+      "type": "Heading",
+      "props": {
+        "text": "Audit Results",
+        "level": "h2"
+      }
+    },
+    "stack_findings": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_clean",
+        "text_findings"
+      ]
+    },
+    "badge_clean": {
+      "type": "Badge",
+      "props": {
+        "text": "Clean",
+        "variant": "default"
+      }
+    },
+    "text_findings": {
+      "type": "Text",
+      "props": {
+        "text": "Zero real TODOs, zero hardcoded secrets, zero commented-out code."
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_carryovers": {
+      "type": "Heading",
+      "props": {
+        "text": "Carryovers",
+        "level": "h2"
+      }
+    },
+    "stack_carryovers": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "carryover1",
+        "carryover2"
+      ]
+    },
+    "carryover1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "xs"
+      },
+      "children": [
+        "text_carryover1_title",
+        "text_carryover1_desc"
+      ]
+    },
+    "text_carryover1_title": {
+      "type": "Text",
+      "props": {
+        "text": "a2a-server/src/index.ts",
+        "variant": "lead"
+      }
+    },
+    "text_carryover1_desc": {
+      "type": "Text",
+      "props": {
+        "text": "Still 578 lines (single file)",
+        "variant": "body"
+      }
+    },
+    "carryover2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "xs"
+      },
+      "children": [
+        "text_carryover2_title",
+        "text_carryover2_desc"
+      ]
+    },
+    "text_carryover2_title": {
+      "type": "Text",
+      "props": {
+        "text": "dashboard/lib/security/api-gate.test.ts",
+        "variant": "lead"
+      }
+    },
+    "text_carryover2_desc": {
+      "type": "Text",
+      "props": {
+        "text": "Not wired into CI (no test script in dashboard/package.json)",
+        "variant": "body"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_recommendations": {
+      "type": "Heading",
+      "props": {
+        "text": "Recommendations",
+        "level": "h2"
+      }
+    },
+    "stack_recommendations": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rec1",
+        "rec2"
+      ]
+    },
+    "rec1": {
+      "type": "Text",
+      "props": {
+        "text": "Add a one-line CI step"
+      }
+    },
+    "rec2": {
+      "type": "Text",
+      "props": {
+        "text": "Drop the stale ZIZMOR_VERSION TODO in workflow-security-audit/SKILL.md:36"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "storylink_report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full code-health report",
+        "href": "articles/code-health-2026-05-31.md",
+        "source": "code-health"
+      }
+    }
+  }
+}

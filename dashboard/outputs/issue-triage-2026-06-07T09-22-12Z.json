@@ -1,0 +1,241 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Issue Triage"
+      },
+      "children": [
+        "date-text",
+        "sep1",
+        "summary-section",
+        "sep2",
+        "repo-section",
+        "sep3",
+        "issue-section"
+      ]
+    },
+    "date-text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-06-07",
+        "variant": "caption"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-text",
+        "stats-grid"
+      ]
+    },
+    "summary-text": {
+      "type": "Text",
+      "props": {
+        "text": "Triaged 1 across 1 repo (advisory-only — token lacks write access)",
+        "variant": "lead"
+      }
+    },
+    "stats-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-urgent",
+        "stat-duplicates",
+        "stat-needs-info"
+      ]
+    },
+    "stat-urgent": {
+      "type": "Stat",
+      "props": {
+        "label": "Urgent",
+        "value": "0"
+      }
+    },
+    "stat-duplicates": {
+      "type": "Stat",
+      "props": {
+        "label": "Duplicates",
+        "value": "0"
+      }
+    },
+    "stat-needs-info": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs-info",
+        "value": "0"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "repo-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "repo-heading",
+        "repo-item"
+      ]
+    },
+    "repo-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Repository",
+        "level": "h3"
+      }
+    },
+    "repo-item": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "repo-link",
+        "repo-verdict",
+        "repo-advisory-link"
+      ]
+    },
+    "repo-link": {
+      "type": "Link",
+      "props": {
+        "label": "aaronjmars/aeon",
+        "href": "https://github.com/aaronjmars/aeon"
+      }
+    },
+    "repo-verdict": {
+      "type": "Text",
+      "props": {
+        "text": "1 advisory verdict (no write access)",
+        "variant": "muted"
+      }
+    },
+    "repo-advisory-link": {
+      "type": "Link",
+      "props": {
+        "label": "memory/triage-advisory/aaronjmars-aeon.md",
+        "href": "memory/triage-advisory/aaronjmars-aeon.md"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issue-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issue-heading",
+        "issue-item"
+      ]
+    },
+    "issue-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues",
+        "level": "h3"
+      }
+    },
+    "issue-item": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue-link",
+        "issue-badges",
+        "issue-description",
+        "issue-notes"
+      ]
+    },
+    "issue-link": {
+      "type": "Link",
+      "props": {
+        "label": "aaronjmars/aeon#352",
+        "href": "https://github.com/aaronjmars/aeon/issues/352"
+      }
+    },
+    "issue-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-accept",
+        "badge-bug",
+        "badge-p1",
+        "badge-auth"
+      ]
+    },
+    "badge-accept": {
+      "type": "Badge",
+      "props": {
+        "text": "ACCEPT",
+        "variant": "secondary"
+      }
+    },
+    "badge-bug": {
+      "type": "Badge",
+      "props": {
+        "text": "bug",
+        "variant": "default"
+      }
+    },
+    "badge-p1": {
+      "type": "Badge",
+      "props": {
+        "text": "p1",
+        "variant": "destructive"
+      }
+    },
+    "badge-auth": {
+      "type": "Badge",
+      "props": {
+        "text": "auth-workflow",
+        "variant": "outline"
+      }
+    },
+    "issue-description": {
+      "type": "Text",
+      "props": {
+        "text": "OAuth refresh-token write-back fix for default aeon.yml",
+        "variant": "body"
+      }
+    },
+    "issue-notes": {
+      "type": "Text",
+      "props": {
+        "text": "Verified by author, in-scope for the template",
+        "variant": "muted"
+      }
+    }
+  }
+}

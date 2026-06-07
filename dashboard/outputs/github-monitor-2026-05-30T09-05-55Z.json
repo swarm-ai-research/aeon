@@ -1,0 +1,99 @@
+{
+  "root": "card1",
+  "state": {},
+  "elements": {
+    "card1": {
+      "type": "Card",
+      "props": {
+        "title": "GitHub Monitor",
+        "description": "1 repo scanned, 0 need action"
+      },
+      "children": [
+        "stack1"
+      ]
+    },
+    "stack1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert1",
+        "stack2",
+        "sep1",
+        "sourceText"
+      ]
+    },
+    "alert1": {
+      "type": "Alert",
+      "props": {
+        "title": "New Issue Requiring Triage",
+        "type": "info"
+      }
+    },
+    "stack2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "storylink1",
+        "badgeStack",
+        "timeText"
+      ]
+    },
+    "storylink1": {
+      "type": "StoryLink",
+      "props": {
+        "title": "aaronjmars/aeon#301",
+        "href": "https://github.com/aaronjmars/aeon/issues/301",
+        "source": "GitHub"
+      }
+    },
+    "badgeStack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge1",
+        "badge2"
+      ]
+    },
+    "badge1": {
+      "type": "Badge",
+      "props": {
+        "text": "new issue"
+      }
+    },
+    "badge2": {
+      "type": "Badge",
+      "props": {
+        "text": "no priority label"
+      }
+    },
+    "timeText": {
+      "type": "Text",
+      "props": {
+        "text": "Opened 8.7h ago",
+        "variant": "caption"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sourceText": {
+      "type": "Text",
+      "props": {
+        "text": "Source: aaronjmars/aeon=ok",
+        "variant": "muted"
+      }
+    }
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "root": "main_card",
+  "state": {},
+  "elements": {
+    "main_card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-06-07"
+      },
+      "children": [
+        "status_stack",
+        "sep1",
+        "stats_stack",
+        "sep2",
+        "compute_stack",
+        "sep3",
+        "nodata_stack",
+        "sep4",
+        "issues_stack",
+        "sep5",
+        "resolved_stack"
+      ]
+    },
+    "status_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status_alert"
+      ]
+    },
+    "status_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Overall Status",
+        "message": "OK",
+        "type": "success"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "stats_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_clean"
+      ]
+    },
+    "stat_clean": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills Clean",
+        "value": "40/43"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "compute_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "compute_heading",
+        "compute_text"
+      ]
+    },
+    "compute_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Positive Update: compute-macro-correlate",
+        "level": "h3"
+      }
+    },
+    "compute_text": {
+      "type": "Text",
+      "props": {
+        "text": "Self-resolved its NO DATA flag on the Sunday 06:30Z window (first cron-state entry: success at 06:53:02Z)."
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "nodata_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "nodata_heading",
+        "nodata_detail",
+        "nodata_skills"
+      ]
+    },
+    "nodata_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "NO DATA Issues (Trending Down)",
+        "level": "h3"
+      }
+    },
+    "nodata_detail": {
+      "type": "Stat",
+      "props": {
+        "label": "Affected Skills",
+        "value": "3",
+        "delta": "4 → 3",
+        "trend": "down"
+      }
+    },
+    "nodata_skills": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "skill1_stack",
+        "skill2_stack",
+        "skill3_stack"
+      ]
+    },
+    "skill1_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skill1_badge",
+        "skill1_text"
+      ]
+    },
+    "skill1_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "planner",
+        "variant": "secondary"
+      }
+    },
+    "skill1_text": {
+      "type": "Text",
+      "props": {
+        "text": "10th consecutive missed dispatch, single-skill gap on WATCH",
+        "variant": "caption"
+      }
+    },
+    "skill2_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skill2_badge",
+        "skill2_text"
+      ]
+    },
+    "skill2_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "secondary"
+      }
+    },
+    "skill2_text": {
+      "type": "Text",
+      "props": {
+        "text": "Next window Mon 08:30Z",
+        "variant": "caption"
+      }
+    },
+    "skill3_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skill3_badge",
+        "skill3_text"
+      ]
+    },
+    "skill3_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-repair",
+        "variant": "secondary"
+      }
+    },
+    "skill3_text": {
+      "type": "Text",
+      "props": {
+        "text": "Reactive",
+        "variant": "caption"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "issues_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues_heading",
+        "issues_count",
+        "issues_list"
+      ]
+    },
+    "issues_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Open Issues",
+        "level": "h3"
+      }
+    },
+    "issues_count": {
+      "type": "Stat",
+      "props": {
+        "label": "Count",
+        "value": "2"
+      }
+    },
+    "issues_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue_iss005",
+        "issue_iss009"
+      ]
+    },
+    "issue_iss005": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-005: rss-feed sandbox"
+      }
+    },
+    "issue_iss009": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-009: GitLawb code-review race"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "resolved_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "resolved_heading",
+        "resolved_count",
+        "resolved_detail"
+      ]
+    },
+    "resolved_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Resolutions",
+        "level": "h3"
+      }
+    },
+    "resolved_count": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      }
+    },
+    "resolved_detail": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-006 + ISS-007 closed earlier today by skill-evals."
+      }
+    }
+  }
+}

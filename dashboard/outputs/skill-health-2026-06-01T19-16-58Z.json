@@ -1,0 +1,201 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health",
+        "description": "2026-06-01 (re-issue)"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_health",
+        "text_audit",
+        "separator_1",
+        "section_no_data",
+        "separator_2",
+        "section_issues"
+      ]
+    },
+    "stat_health": {
+      "type": "Stat",
+      "props": {
+        "label": "Fleet Health Status",
+        "value": "37 of 41 healthy",
+        "delta": "4 NO DATA"
+      }
+    },
+    "text_audit": {
+      "type": "Text",
+      "props": {
+        "text": "Audited fleet from cron-state (skill-runs sandbox-denied). No CRITICAL, DEGRADED, FLAPPING, or WARNING. All skills with cron-state entries show success_rate=1, cf=0. Hash unchanged vs prev — this notify is the >24h confirmation that the audit ran.",
+        "variant": "body"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_no_data": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_no_data",
+        "stack_no_data_items",
+        "text_other_skills_note"
+      ]
+    },
+    "heading_no_data": {
+      "type": "Heading",
+      "props": {
+        "text": "No Data (4 skills)",
+        "level": "h3"
+      }
+    },
+    "stack_no_data_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item_ai_framework",
+        "item_planner",
+        "item_analytics",
+        "item_repair"
+      ]
+    },
+    "item_ai_framework": {
+      "type": "Alert",
+      "props": {
+        "title": "ai-framework-watch",
+        "message": "DISPATCH-SKILL — Mon 08:30 weekly first-window missed, ~10.7h past, isolated to this skill",
+        "type": "warning"
+      }
+    },
+    "item_planner": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_planner",
+        "text_planner_details"
+      ]
+    },
+    "badge_planner": {
+      "type": "Badge",
+      "props": {
+        "text": "planner",
+        "variant": "secondary"
+      }
+    },
+    "text_planner_details": {
+      "type": "Text",
+      "props": {
+        "text": "Stays WATCH (chronic, owned by heartbeat)",
+        "variant": "caption"
+      }
+    },
+    "item_analytics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_analytics",
+        "text_analytics_details"
+      ]
+    },
+    "badge_analytics": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-analytics",
+        "variant": "secondary"
+      }
+    },
+    "text_analytics_details": {
+      "type": "Text",
+      "props": {
+        "text": "Not yet due (Wed)",
+        "variant": "caption"
+      }
+    },
+    "item_repair": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_repair",
+        "text_repair_details"
+      ]
+    },
+    "badge_repair": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-repair",
+        "variant": "secondary"
+      }
+    },
+    "text_repair_details": {
+      "type": "Text",
+      "props": {
+        "text": "Reactive-only (expected)",
+        "variant": "caption"
+      }
+    },
+    "text_other_skills_note": {
+      "type": "Text",
+      "props": {
+        "text": "Note: Other Mon-AM skills (cost-report, weekly-shiplog, milestone-tracker, changelog) all fired successfully.",
+        "variant": "muted"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_issues",
+        "text_issues"
+      ]
+    },
+    "heading_issues": {
+      "type": "Heading",
+      "props": {
+        "text": "Open Issues",
+        "level": "h3"
+      }
+    },
+    "text_issues": {
+      "type": "Text",
+      "props": {
+        "text": "4 open issues: ISS-004, ISS-005, ISS-006, ISS-007 (unchanged). All detected by vuln-scanner, rss-feed, and skill-evals. Out of this skill's reconciliation scope. Resolved this run: 0.",
+        "variant": "body"
+      }
+    }
+  }
+}

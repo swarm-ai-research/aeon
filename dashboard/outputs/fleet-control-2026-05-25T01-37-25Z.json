@@ -1,0 +1,324 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Control",
+        "description": "2026-05-25 · Verdict: FLEET_OK"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-changed",
+        "stack-agents",
+        "sep-1",
+        "heading-fleet",
+        "table-fleet",
+        "sep-2",
+        "heading-counts",
+        "grid-counts",
+        "sep-3",
+        "text-sources"
+      ]
+    },
+    "heading-changed": {
+      "type": "Heading",
+      "props": {
+        "text": "What changed",
+        "level": "h3"
+      }
+    },
+    "stack-agents": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "agent-1",
+        "agent-2",
+        "agent-3",
+        "agent-4"
+      ]
+    },
+    "agent-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-new-1",
+        "text-agent-1",
+        "badge-healthy-1"
+      ]
+    },
+    "badge-new-1": {
+      "type": "Badge",
+      "props": {
+        "text": "NEW",
+        "variant": "secondary"
+      }
+    },
+    "text-agent-1": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-researcher (did:key:z6Mkfnr…SHRUH)"
+      }
+    },
+    "badge-healthy-1": {
+      "type": "Badge",
+      "props": {
+        "text": "healthy",
+        "variant": "default"
+      }
+    },
+    "agent-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-new-2",
+        "text-agent-2",
+        "badge-healthy-2"
+      ]
+    },
+    "badge-new-2": {
+      "type": "Badge",
+      "props": {
+        "text": "NEW",
+        "variant": "secondary"
+      }
+    },
+    "text-agent-2": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-reviewer (did:key:z6Mks2K…U7SZ)"
+      }
+    },
+    "badge-healthy-2": {
+      "type": "Badge",
+      "props": {
+        "text": "healthy",
+        "variant": "default"
+      }
+    },
+    "agent-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-new-3",
+        "text-agent-3",
+        "badge-healthy-3"
+      ]
+    },
+    "badge-new-3": {
+      "type": "Badge",
+      "props": {
+        "text": "NEW",
+        "variant": "secondary"
+      }
+    },
+    "text-agent-3": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-deployer (did:key:z6MknGJ…wAuS)"
+      }
+    },
+    "badge-healthy-3": {
+      "type": "Badge",
+      "props": {
+        "text": "healthy",
+        "variant": "default"
+      }
+    },
+    "agent-4": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-new-4",
+        "text-agent-4",
+        "badge-healthy-4"
+      ]
+    },
+    "badge-new-4": {
+      "type": "Badge",
+      "props": {
+        "text": "NEW",
+        "variant": "secondary"
+      }
+    },
+    "text-agent-4": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-sentinel (did:key:z6MksUu…X4S2M)"
+      }
+    },
+    "badge-healthy-4": {
+      "type": "Badge",
+      "props": {
+        "text": "healthy",
+        "variant": "default"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-fleet": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet (4 total, all GitLawb-hosted)",
+        "level": "h3"
+      }
+    },
+    "table-fleet": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Agent",
+          "Status",
+          "Host",
+          "Issues"
+        ],
+        "rows": [
+          [
+            "aeon-researcher",
+            "HEALTHY",
+            "gitlawb",
+            "none"
+          ],
+          [
+            "aeon-reviewer",
+            "HEALTHY",
+            "gitlawb",
+            "none"
+          ],
+          [
+            "aeon-deployer",
+            "HEALTHY",
+            "gitlawb",
+            "none"
+          ],
+          [
+            "aeon-sentinel",
+            "HEALTHY",
+            "gitlawb",
+            "none"
+          ]
+        ]
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-counts": {
+      "type": "Heading",
+      "props": {
+        "text": "Counts",
+        "level": "h3"
+      }
+    },
+    "grid-counts": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat-healthy",
+        "stat-warning",
+        "stat-degraded",
+        "stat-stale",
+        "stat-pending",
+        "stat-unreachable",
+        "stat-archived"
+      ]
+    },
+    "stat-healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Healthy",
+        "value": "4"
+      }
+    },
+    "stat-warning": {
+      "type": "Stat",
+      "props": {
+        "label": "Warning",
+        "value": "0"
+      }
+    },
+    "stat-degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded",
+        "value": "0"
+      }
+    },
+    "stat-stale": {
+      "type": "Stat",
+      "props": {
+        "label": "Stale",
+        "value": "0"
+      }
+    },
+    "stat-pending": {
+      "type": "Stat",
+      "props": {
+        "label": "Pending",
+        "value": "0"
+      }
+    },
+    "stat-unreachable": {
+      "type": "Stat",
+      "props": {
+        "label": "Unreachable",
+        "value": "0"
+      }
+    },
+    "stat-archived": {
+      "type": "Stat",
+      "props": {
+        "label": "Archived",
+        "value": "0"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text-sources": {
+      "type": "Text",
+      "props": {
+        "text": "Sources: gitlawb-mirror · gh skipped (GitLawb-only fleet)",
+        "variant": "caption"
+      }
+    }
+  }
+}

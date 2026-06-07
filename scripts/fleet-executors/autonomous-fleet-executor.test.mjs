@@ -183,6 +183,60 @@ console.log("\nOutput format:");
   assert(typeof out.actions.prompt === "string", "has action prompt");
 }
 
+// ── Goal context: sidecar written for goal-spawned tasks ─────
+//
+// Regression guard for PR #122 Codex review: live aeon-researcher runs THIS
+// executor (not researcher.mjs), so goal-spawned tasks must produce the
+// sidecar here too — otherwise next_action_hint / state never advance.
+
+console.log("\nGoal context sidecar:");
+{
+  try { rmSync(STATE_FILE); } catch {}
+  const { mkdtempSync: mk, existsSync, readFileSync, rmSync: rm } = await import("node:fs");
+  const goalRepo = mk(join(tmpdir(), "autonomous-fleet-goal-repo-"));
+  const taskId = "11111111-2222-3333-4444-555555555555";
+  const payload = { goal_id: "g-research-test", title: "T", objective: "obj", next_action_hint: "do X", state: { prev: 1 } };
+  const env = {
+    ...process.env,
+    GITLAWB_TASK_JSON: JSON.stringify({ id: taskId, kind: "research", payload }),
+    GITLAWB_AGENT_JSON: JSON.stringify({ name: "aeon-researcher", capabilities: ["issue:create"] }),
+    GITLAWB_REPO_DIR: goalRepo,
+    GITLAWB_AUTONOMOUS_STATE_FILE: STATE_FILE,
+  };
+  const r = spawnSync("node", ["scripts/fleet-executors/autonomous-fleet-executor.mjs"], { cwd: REPO, encoding: "utf8", timeout: 15000, env });
+  const out = JSON.parse(r.stdout);
+  assert(out.goalContext && out.goalContext.goal_id === "g-research-test", "goalContext surfaced in output");
+  assert(out.instructions.includes("Goal context"), "instructions mention goal context");
+  assert(out.instructions.includes("do X"), "instructions carry forward next_action_hint");
+
+  const sidecar = join(goalRepo, "memory/fleet-goals/updates", `${taskId}.json`);
+  assert(existsSync(sidecar), "sidecar written under repoDir");
+  const update = JSON.parse(readFileSync(sidecar, "utf8"));
+  assert(update.goal_id === "g-research-test", "sidecar carries goal id");
+  assert(update.state.prev === 1, "sidecar preserves prior state");
+  assert(typeof update.state.last_step_count === "number", "sidecar records step progress");
+  assert(typeof update.next_action_hint === "string" && update.next_action_hint.length > 0, "sidecar writes a next-action hint");
+  try { rm(goalRepo, { recursive: true, force: true }); } catch {}
+}
+
+// ── Goal context: no sidecar when task lacks goal_id ─────────
+console.log("\nNo sidecar without goal_id:");
+{
+  try { rmSync(STATE_FILE); } catch {}
+  const { mkdtempSync: mk, existsSync, rmSync: rm } = await import("node:fs");
+  const repo = mk(join(tmpdir(), "autonomous-fleet-nogoal-repo-"));
+  const env = {
+    ...process.env,
+    GITLAWB_TASK_JSON: JSON.stringify({ id: "no-goal", kind: "research", payload: { title: "plain task" } }),
+    GITLAWB_AGENT_JSON: JSON.stringify({ name: "aeon-researcher", capabilities: [] }),
+    GITLAWB_REPO_DIR: repo,
+    GITLAWB_AUTONOMOUS_STATE_FILE: STATE_FILE,
+  };
+  spawnSync("node", ["scripts/fleet-executors/autonomous-fleet-executor.mjs"], { cwd: REPO, encoding: "utf8", timeout: 15000, env });
+  assert(!existsSync(join(repo, "memory/fleet-goals/updates")), "no updates dir created for non-goal tasks");
+  try { rm(repo, { recursive: true, force: true }); } catch {}
+}
+
 // ── Results ──────────────────────────────────────────────────
 
 console.log(`\n${passed} passed, ${failed} failed`);

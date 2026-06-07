@@ -22,11 +22,12 @@ on:
         default: "30"
 
   schedule:
-    # Stretched from */5 to */15 to cut Actions burn ~3×. Fleet tasks are
-    # tolerant to a 15-min poll cadence; nothing in the deployer/reviewer
-    # pipeline assumes sub-15-min turnaround. workflow_dispatch is still
-    # available for ad-hoc runs that need immediate execution.
-    - cron: "*/15 * * * *"
+    # Stretched from */15 to hourly after the docs/refactor/test-pass executors
+    # piled 100+ unmerged PRs onto the queue in a day. Combined with the
+    # in-executor backlog gate (GITLAWB_CODE_PASS_BACKLOG_LIMIT, default 3),
+    # this cuts PR churn ~4× without changing task semantics. workflow_dispatch
+    # is still available for ad-hoc runs that need immediate execution.
+    - cron: "0 * * * *"
 
 # Least-privilege: no permissions by default; the job grants only what it needs.
 permissions: {}
@@ -37,7 +38,7 @@ env:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     permissions:
       contents: write
       # `gh pr create` (run by aeon-reviewer's code-passes via
@@ -79,7 +80,8 @@ jobs:
               memory/gitlawb-deploy-state.json \
               memory/gitlawb-compute-futures-proofs/ \
               memory/gitlawb-metrics.jsonl \
-              memory/fleet-task-generator-state.json; do
+              memory/fleet-task-generator-state.json \
+              memory/fleet-goals/; do
               git checkout origin/fleet-state -- "$p" 2>/dev/null || true
             done
             git reset -q HEAD -- . 2>/dev/null || true
@@ -91,8 +93,12 @@ jobs:
           node-version: "22"
 
       - name: Install GitLawb CLI
+        # Pin the version so install.sh skips the unauthenticated
+        # api.github.com call that resolves "latest" — shared GHA IPs
+        # routinely hit the 60/hr unauth rate limit and 403 the whole step.
+        # Bump this manually when picking up a new GitLawb release.
         run: |
-          curl -fsSL https://gitlawb.com/install.sh | bash
+          curl -fsSL https://gitlawb.com/install.sh | bash -s -- v0.3.8
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
       - name: Install Claude Code
@@ -122,20 +128,53 @@ jobs:
           fi
 
       - name: Bootstrap fleet registry
+        # Reconcile memory/instances.json against the actual key files.
+        #
+        # memory/instances.json is tracked on main with the private repo's
+        # DIDs. On the private repo, the Restore fleet state step overlays
+        # it from fleet-state (with runtime metadata: ucan_expires, health,
+        # etc.) and the DIDs already match the GITLAWB_*_PEM secrets, so
+        # this step is a no-op. On a fork/mirror with different keys, the
+        # tracked-from-main DIDs don't match the actual identities — so
+        # reconcile by patching each instance's `did` field to the DID
+        # derived from its identity_dir's PEM. Runtime metadata is
+        # preserved. Falls back to creating instances.json from scratch
+        # only if the file is missing entirely.
         run: |
-          if [ ! -f memory/instances.json ]; then
-            mkdir -p memory
-            python3 -c "
-          import json
-          data = {'instances': [
-            {'name':'aeon-researcher','did':'did:key:z6MkfnrSDgdDbkvfCCnMyaR4HqoWfWEfGoTFajX1HGkSHRUH','host':'gitlawb','node':'https://node.gitlawb.com','capabilities':['git:fetch','issue:create'],'model':'aeon-researcher','trust':0.05,'status':'active','purpose':'Research and analysis'},
-            {'name':'aeon-reviewer','did':'did:key:z6Mks2KSBfbindXsw2SBEGfqdgMJ4HwxJPfPQjkPKHY7U7SZ','host':'gitlawb','node':'https://node.gitlawb.com','capabilities':['git:fetch','pr:open','pr:review'],'model':'aeon-reviewer','trust':0.05,'status':'active','purpose':'Code review'},
-            {'name':'aeon-deployer','did':'did:key:z6MknGJBoQsbNL956GNiTJRRWKJqMcprWmdYxJPbVGCwcAuS','host':'gitlawb','node':'https://node.gitlawb.com','capabilities':['git:push','pr:merge','agent:deploy'],'model':'aeon-deployer','trust':0.05,'status':'active','purpose':'Deploy and merge'},
-            {'name':'aeon-sentinel','did':'did:key:z6MksUuVYyp93QA6pc2qAnXFQZdaoHq46dugXVweeehX4S2M','host':'gitlawb','node':'https://node.gitlawb.com','capabilities':['repo:admin','git:push','agent:deploy'],'model':'aeon-sentinel','trust':0.05,'status':'active','purpose':'Security monitoring'}
-          ]}
-          print(json.dumps(data, indent=2))
-          " > memory/instances.json
-          fi
+          mkdir -p memory
+          export RESEARCHER_DID=$(gl identity show --dir ~/.gitlawb/fleet/researcher)
+          export REVIEWER_DID=$(gl identity show --dir ~/.gitlawb/fleet/reviewer)
+          export DEPLOYER_DID=$(gl identity show --dir ~/.gitlawb/fleet/deployer)
+          export SENTINEL_DID=$(gl identity show --dir ~/.gitlawb/fleet/sentinel)
+          python3 <<'EOF'
+          import json, os, pathlib
+          desired = {
+            'aeon-researcher': os.environ['RESEARCHER_DID'],
+            'aeon-reviewer':   os.environ['REVIEWER_DID'],
+            'aeon-deployer':   os.environ['DEPLOYER_DID'],
+            'aeon-sentinel':   os.environ['SENTINEL_DID'],
+          }
+          path = pathlib.Path('memory/instances.json')
+          if path.exists():
+            data = json.loads(path.read_text())
+            changed = False
+            for inst in data.get('instances', []):
+              want = desired.get(inst.get('name'))
+              if want and inst.get('did') != want:
+                print(f"reconcile: {inst['name']} {inst.get('did')} -> {want}")
+                inst['did'] = want
+                changed = True
+            if changed:
+              path.write_text(json.dumps(data, indent=2) + '\n')
+          else:
+            data = {'instances': [
+              {'name':'aeon-researcher','did':desired['aeon-researcher'],'host':'gitlawb','node':'https://node.gitlawb.com','capabilities':['git:fetch','issue:create'],'model':'aeon-researcher','trust':0.05,'status':'active','identity_dir':'~/.gitlawb/fleet/researcher','purpose':'Research and analysis'},
+              {'name':'aeon-reviewer','did':desired['aeon-reviewer'],'host':'gitlawb','node':'https://node.gitlawb.com','capabilities':['git:fetch','pr:open','pr:review'],'model':'aeon-reviewer','trust':0.05,'status':'active','identity_dir':'~/.gitlawb/fleet/reviewer','purpose':'Code review'},
+              {'name':'aeon-deployer','did':desired['aeon-deployer'],'host':'gitlawb','node':'https://node.gitlawb.com','capabilities':['git:push','pr:merge','agent:deploy'],'model':'aeon-deployer','trust':0.05,'status':'active','identity_dir':'~/.gitlawb/fleet/deployer','purpose':'Deploy and merge'},
+              {'name':'aeon-sentinel','did':desired['aeon-sentinel'],'host':'gitlawb','node':'https://node.gitlawb.com','capabilities':['repo:admin','git:push','agent:deploy'],'model':'aeon-sentinel','trust':0.05,'status':'active','identity_dir':'~/.gitlawb/fleet/sentinel','purpose':'Security monitoring'}
+            ]}
+            path.write_text(json.dumps(data, indent=2) + '\n')
+          EOF
 
       - name: Register fleet agents
         run: |
@@ -175,6 +214,21 @@ jobs:
           node scripts/fleet-executors/task-generator.mjs 2>&1 | tee /tmp/generator-output.txt
           TASKS_CREATED=$(grep "task(s) created" /tmp/generator-output.txt | grep -o "[0-9]*" | head -1 || echo "0")
           echo "created=${TASKS_CREATED:-0}" >> "$GITHUB_OUTPUT"
+
+      - name: Reconcile goal backlog
+        id: reconciler
+        env:
+          GITLAWB_NODE: ${{ env.GITLAWB_NODE }}
+          # Cap goal-spawned tasks per cycle. Bump if the backlog grows and
+          # the reactive task-generator is no longer the main work source.
+          FLEET_GOALS_MAX_PER_CYCLE: "2"
+        run: |
+          # Drives memory/fleet-goals/backlog.json. Routes goal-driven work to
+          # existing kinds (research/code-review/deploy/audit) — no executor
+          # change needed to land. Outcome reconciliation ships in a follow-up.
+          node scripts/fleet-executors/goal-reconciler.mjs 2>&1 | tee /tmp/reconciler-output.txt
+          GOALS_SPAWNED=$(grep "goal(s) spawned" /tmp/reconciler-output.txt | grep -o "[0-9]*" | head -1 || echo "0")
+          echo "spawned=${GOALS_SPAWNED:-0}" >> "$GITHUB_OUTPUT"
 
       - name: Prefetch live Surplus prices (best-effort, outside sandbox)
         env:
@@ -235,7 +289,8 @@ jobs:
             memory/gitlawb-deploy-state.json \
             memory/gitlawb-compute-futures-proofs/ \
             memory/gitlawb-metrics.jsonl \
-            memory/fleet-task-generator-state.json; do
+            memory/fleet-task-generator-state.json \
+            memory/fleet-goals/; do
             git add "$p" 2>/dev/null || true
           done
           if git diff --staged --quiet; then

@@ -1,0 +1,328 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Startup Ideas — 2026-05-30"
+      },
+      "children": [
+        "intro-section",
+        "sep1",
+        "aegisloop-section",
+        "sep2",
+        "cubit-section",
+        "sep3",
+        "closing-section"
+      ]
+    },
+    "intro-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "intro-text"
+      ]
+    },
+    "intro-text": {
+      "type": "Text",
+      "props": {
+        "text": "Two memos anchored to the operator's actual earned secrets — GitLawb capability lifecycle and the compute-futures sim. Pain sourced from DEV, Register, leanopstech, makeuseof, FifthRow, and a Claude Code GitHub issue. Tarpits (AI wrappers, notetakers, SMB chatbots, crypto-community apps) filtered out.",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "aegisloop-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "aegisloop-heading",
+        "aegisloop-badges",
+        "aegisloop-desc",
+        "aegisloop-icp-label",
+        "aegisloop-icp-text",
+        "aegisloop-wedge-label",
+        "aegisloop-wedge-text",
+        "aegisloop-why-label",
+        "aegisloop-why-text",
+        "aegisloop-mvp-label",
+        "aegisloop-mvp-text",
+        "aegisloop-kill-label",
+        "aegisloop-kill-text"
+      ]
+    },
+    "aegisloop-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "1. AegisLoop",
+        "level": "h2"
+      }
+    },
+    "aegisloop-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "aegisloop-badge1",
+        "aegisloop-badge2",
+        "aegisloop-badge3"
+      ]
+    },
+    "aegisloop-badge1": {
+      "type": "Badge",
+      "props": {
+        "text": "executable",
+        "variant": "default"
+      }
+    },
+    "aegisloop-badge2": {
+      "type": "Badge",
+      "props": {
+        "text": "2–6 weeks solo",
+        "variant": "secondary"
+      }
+    },
+    "aegisloop-badge3": {
+      "type": "Badge",
+      "props": {
+        "text": "<$5K to MVP",
+        "variant": "secondary"
+      }
+    },
+    "aegisloop-desc": {
+      "type": "Text",
+      "props": {
+        "text": "Token-budget alerts fire after the spend; engineering orgs running Claude Code / Codex in CI need a sidecar that kills the loop the instant a token, dollar, step, or capability boundary is breached.",
+        "variant": "body"
+      }
+    },
+    "aegisloop-icp-label": {
+      "type": "Heading",
+      "props": {
+        "text": "ICP",
+        "level": "h4"
+      }
+    },
+    "aegisloop-icp-text": {
+      "type": "Text",
+      "props": {
+        "text": "DevEx / platform-eng lead at a 30–300-engineer org that just rolled out Claude Code or Codex and got a finance ticket about the LLM bill.",
+        "variant": "body"
+      }
+    },
+    "aegisloop-wedge-label": {
+      "type": "Heading",
+      "props": {
+        "text": "Wedge",
+        "level": "h4"
+      }
+    },
+    "aegisloop-wedge-text": {
+      "type": "Text",
+      "props": {
+        "text": "GitHub Action aegis/agent-guard@v0 wrapping claude-code-action / codex-action + an .aegis.yml policy modeled on the validated GitLawb capability schema (TTL-clamp, scoped writes, revocation) + free cloud dashboard for per-PR / per-engineer spend allocation.",
+        "variant": "body"
+      }
+    },
+    "aegisloop-why-label": {
+      "type": "Heading",
+      "props": {
+        "text": "Why now",
+        "level": "h4"
+      }
+    },
+    "aegisloop-why-text": {
+      "type": "Text",
+      "props": {
+        "text": "Anthropic flipped Claude enterprise to dynamic pricing on 2026-04-15 (could 2–3x bills); Claude Code's 2026-06-15 billing split forces every team to track Agent SDK credits; FinOps Foundation 2026 named AI cost the fastest-growing volatile category.",
+        "variant": "body"
+      }
+    },
+    "aegisloop-mvp-label": {
+      "type": "Heading",
+      "props": {
+        "text": "MVP test",
+        "level": "h4"
+      }
+    },
+    "aegisloop-mvp-text": {
+      "type": "Text",
+      "props": {
+        "text": "5 design-partner repos installed + ≥1 enforced kill event each in 14 days.",
+        "variant": "body"
+      }
+    },
+    "aegisloop-kill-label": {
+      "type": "Heading",
+      "props": {
+        "text": "Kill conditions",
+        "level": "h4"
+      }
+    },
+    "aegisloop-kill-text": {
+      "type": "Text",
+      "props": {
+        "text": "<10 Marketplace installs in 30 days OR <3 paid pilots ($500+ MRR) in 60 days.",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "cubit-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "cubit-heading",
+        "cubit-badge",
+        "cubit-desc",
+        "cubit-icp-label",
+        "cubit-icp-text",
+        "cubit-wedge-label",
+        "cubit-wedge-text",
+        "cubit-why-label",
+        "cubit-why-text",
+        "cubit-mvp-label",
+        "cubit-mvp-text",
+        "cubit-kill-label",
+        "cubit-kill-text"
+      ]
+    },
+    "cubit-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "2. Cubit",
+        "level": "h2"
+      }
+    },
+    "cubit-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ambitious — new category",
+        "variant": "default"
+      }
+    },
+    "cubit-desc": {
+      "type": "Text",
+      "props": {
+        "text": "Inference is ~67% of AI compute and per-token prices oscillate >90% within quarters, yet procurement has no way to forward-buy or hedge. Cubit is an OpenAI-compatible gateway that quotes a fixed monthly $/M-tokens against a multi-provider basket, routes across closed + DePIN supply, and pockets the basis.",
+        "variant": "body"
+      }
+    },
+    "cubit-icp-label": {
+      "type": "Heading",
+      "props": {
+        "text": "ICP",
+        "level": "h4"
+      }
+    },
+    "cubit-icp-text": {
+      "type": "Text",
+      "props": {
+        "text": "AI Platform Director or CFO-staff at a Fortune-2000 with >$2M/yr inference spend who's been asked to \"lock in pricing for FY27\" — a question no current vendor answers.",
+        "variant": "body"
+      }
+    },
+    "cubit-wedge-label": {
+      "type": "Heading",
+      "props": {
+        "text": "Wedge",
+        "level": "h4"
+      }
+    },
+    "cubit-wedge-text": {
+      "type": "Text",
+      "props": {
+        "text": "Drop-in router across ≥3 providers (frontier closed + commodity + Darkbloom or Surplus Intelligence DePIN), monthly fixed-rate quote against Cubit's basket index, USD or x402 USDC settlement on Base. Reuses the basket / spread / clearinghouse code already in prototypes/compute-futures/.",
+        "variant": "body"
+      }
+    },
+    "cubit-why-label": {
+      "type": "Heading",
+      "props": {
+        "text": "Why now",
+        "level": "h4"
+      }
+    },
+    "cubit-why-text": {
+      "type": "Text",
+      "props": {
+        "text": "Anthropic dynamic pricing + FinOps Foundation 2026 formalizing AI cost + real OpenAI-compatible DePIN venues (Surplus live May 2026 on x402/Base, Darkbloom audited) — none of these supply legs existed in 2024.",
+        "variant": "body"
+      }
+    },
+    "cubit-mvp-label": {
+      "type": "Heading",
+      "props": {
+        "text": "MVP test",
+        "level": "h4"
+      }
+    },
+    "cubit-mvp-text": {
+      "type": "Text",
+      "props": {
+        "text": "One design partner spending $30–80K/mo on direct API routes ≥25% of prod traffic through Cubit AND effective $/M-tokens lands ≥15% below their prior-month invoice.",
+        "variant": "body"
+      }
+    },
+    "cubit-kill-label": {
+      "type": "Heading",
+      "props": {
+        "text": "Kill conditions",
+        "level": "h4"
+      }
+    },
+    "cubit-kill-text": {
+      "type": "Text",
+      "props": {
+        "text": "<2 signed pilots at >$2M/yr scale in 90 days OR basis volatility >25% on the basket (can't underwrite fixed quote at margin).",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "closing-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "closing-text",
+        "memory-link"
+      ]
+    },
+    "closing-text": {
+      "type": "Text",
+      "props": {
+        "text": "Full memos with permalinks, monetization, moat, and expansion:",
+        "variant": "body"
+      }
+    },
+    "memory-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "memory/logs/2026-05-30.md",
+        "href": "memory/logs/2026-05-30.md",
+        "source": "Aeon Memory"
+      }
+    }
+  }
+}

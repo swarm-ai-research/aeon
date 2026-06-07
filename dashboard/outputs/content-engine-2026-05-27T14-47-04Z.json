@@ -1,0 +1,177 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Content Engine"
+      },
+      "children": [
+        "date_text",
+        "focus_badges",
+        "sep1",
+        "exec_heading",
+        "exec_points",
+        "sep2",
+        "drafts_section",
+        "sep3",
+        "review_section"
+      ]
+    },
+    "date_text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-05-27",
+        "variant": "muted"
+      }
+    },
+    "focus_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_ai",
+        "badge_coding",
+        "badge_automation",
+        "badge_infra",
+        "badge_oss"
+      ]
+    },
+    "badge_ai": {
+      "type": "Badge",
+      "props": {
+        "text": "AI agents"
+      }
+    },
+    "badge_coding": {
+      "type": "Badge",
+      "props": {
+        "text": "coding tools"
+      }
+    },
+    "badge_automation": {
+      "type": "Badge",
+      "props": {
+        "text": "automation"
+      }
+    },
+    "badge_infra": {
+      "type": "Badge",
+      "props": {
+        "text": "developer infrastructure"
+      }
+    },
+    "badge_oss": {
+      "type": "Badge",
+      "props": {
+        "text": "open-source devtools"
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "exec_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Executive read",
+        "level": "h2"
+      }
+    },
+    "exec_points": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "point1",
+        "point2",
+        "point3",
+        "point4"
+      ]
+    },
+    "point1": {
+      "type": "Text",
+      "props": {
+        "text": "Integration infra is the quiet agent bottleneck — Nango trending at 860 stars today, 800+ APIs, 7.5M seed while profitable"
+      }
+    },
+    "point2": {
+      "type": "Text",
+      "props": {
+        "text": "Microsoft open-sourced RAMPART (May 20) — pytest-style prompt injection testing for CI/CD, built on PyRIT"
+      }
+    },
+    "point3": {
+      "type": "Text",
+      "props": {
+        "text": "Coder Agents launched in beta — full self-hosted coding agent infra, model-agnostic; 70% of companies on wrong infra"
+      }
+    },
+    "point4": {
+      "type": "Text",
+      "props": {
+        "text": "Cursor + Claude Code + Codex assembling an unplanned stack — IDE layer, task executor, bulk generator"
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "drafts_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "drafts_stat",
+        "top_draft_link"
+      ]
+    },
+    "drafts_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Drafts ready",
+        "value": "4"
+      }
+    },
+    "top_draft_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Nango's 860-Star Day and the Integration Infrastructure Gap",
+        "href": "articles/content-engine-2026-05-27.md"
+      }
+    },
+    "sep3": {
+      "type": "Separator"
+    },
+    "review_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "review_label",
+        "review_link"
+      ]
+    },
+    "review_label": {
+      "type": "Text",
+      "props": {
+        "text": "Review file:",
+        "variant": "caption"
+      }
+    },
+    "review_link": {
+      "type": "Link",
+      "props": {
+        "label": "articles/content-engine-2026-05-27.md",
+        "href": "articles/content-engine-2026-05-27.md"
+      }
+    }
+  }
+}

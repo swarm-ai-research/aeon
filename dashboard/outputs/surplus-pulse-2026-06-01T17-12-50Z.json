@@ -1,0 +1,152 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse — 2026-06-01"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "spot_section",
+        "curve_section",
+        "rail_section",
+        "summary_section"
+      ]
+    },
+    "spot_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "spot_heading",
+        "spot_stat",
+        "spot_source"
+      ]
+    },
+    "spot_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h4"
+      }
+    },
+    "spot_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Llama 4 Scout",
+        "value": "$0.0764/M"
+      }
+    },
+    "spot_source": {
+      "type": "Text",
+      "props": {
+        "text": "catalog · Surplus Intelligence",
+        "variant": "caption"
+      }
+    },
+    "curve_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "curve_heading",
+        "curve_stat",
+        "curve_note"
+      ]
+    },
+    "curve_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h4"
+      }
+    },
+    "curve_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Hyperscaler H100 reserve at R30",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "curve_note": {
+      "type": "Text",
+      "props": {
+        "text": "Biggest single-event reprice of the run",
+        "variant": "caption"
+      }
+    },
+    "rail_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rail_heading",
+        "rail_endpoint",
+        "rail_url"
+      ]
+    },
+    "rail_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h4"
+      }
+    },
+    "rail_endpoint": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on Base/USDC"
+      }
+    },
+    "rail_url": {
+      "type": "Link",
+      "props": {
+        "label": "surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "summary_heading",
+        "summary_text"
+      ]
+    },
+    "summary_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "One-Line Read",
+        "level": "h4"
+      }
+    },
+    "summary_text": {
+      "type": "Text",
+      "props": {
+        "text": "catalog mode (SURPLUS_PRICING_URL not set); market tightens hard on H100 supply lock-in, partially flushed by open-weights drop — net bias long into expiry.",
+        "variant": "body"
+      }
+    }
+  }
+}

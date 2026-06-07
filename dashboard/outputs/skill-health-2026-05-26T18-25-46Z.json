@@ -1,0 +1,185 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health",
+        "description": "2026-05-26"
+      },
+      "children": [
+        "main"
+      ]
+    },
+    "main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status",
+        "sep1",
+        "no-data",
+        "sep2",
+        "issues"
+      ]
+    },
+    "status": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-ok",
+        "stat-healthy"
+      ]
+    },
+    "badge-ok": {
+      "type": "Badge",
+      "props": {
+        "text": "OK",
+        "variant": "default"
+      }
+    },
+    "stat-healthy": {
+      "type": "Stat",
+      "props": {
+        "value": "9",
+        "label": "Skills healthy"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "no-data": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "no-data-title",
+        "no-data-1",
+        "no-data-2"
+      ]
+    },
+    "no-data-title": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA (2)",
+        "level": "h3"
+      }
+    },
+    "no-data-1": {
+      "type": "Text",
+      "props": {
+        "text": "workflow-security-audit (weekly Sun) — expected, no action",
+        "variant": "body"
+      }
+    },
+    "no-data-2": {
+      "type": "Text",
+      "props": {
+        "text": "skill-repair (reactive) — expected, no action",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issues-title",
+        "issue-1",
+        "issue-2",
+        "issues-owner",
+        "stat-resolved"
+      ]
+    },
+    "issues-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Open issues: 2",
+        "level": "h3"
+      }
+    },
+    "issue-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "issue-1-id",
+        "issue-1-sev"
+      ]
+    },
+    "issue-1-id": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-002",
+        "variant": "body"
+      }
+    },
+    "issue-1-sev": {
+      "type": "Badge",
+      "props": {
+        "text": "critical",
+        "variant": "destructive"
+      }
+    },
+    "issue-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "issue-2-id",
+        "issue-2-sev"
+      ]
+    },
+    "issue-2-id": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-003",
+        "variant": "body"
+      }
+    },
+    "issue-2-sev": {
+      "type": "Badge",
+      "props": {
+        "text": "high",
+        "variant": "secondary"
+      }
+    },
+    "issues-owner": {
+      "type": "Text",
+      "props": {
+        "text": "Both pre-existing, owned by heartbeat/issue-triage",
+        "variant": "caption"
+      }
+    },
+    "stat-resolved": {
+      "type": "Stat",
+      "props": {
+        "value": "0",
+        "label": "Resolved this run"
+      }
+    }
+  }
+}

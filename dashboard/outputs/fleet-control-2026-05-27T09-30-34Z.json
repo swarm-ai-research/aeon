@@ -1,0 +1,296 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Control — 2026-05-27"
+      },
+      "children": [
+        "verdict_heading",
+        "fleet_section",
+        "counts_section",
+        "sources_text"
+      ]
+    },
+    "verdict_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Verdict: FLEET_OK",
+        "level": "h2"
+      }
+    },
+    "fleet_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fleet_label",
+        "agent_1",
+        "agent_2",
+        "agent_3",
+        "agent_4"
+      ]
+    },
+    "fleet_label": {
+      "type": "Text",
+      "props": {
+        "text": "Fleet (4 total):",
+        "variant": "lead"
+      }
+    },
+    "agent_1": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "agent_1_name",
+        "agent_1_status",
+        "agent_1_did",
+        "agent_1_note"
+      ]
+    },
+    "agent_1_name": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-researcher"
+      }
+    },
+    "agent_1_status": {
+      "type": "Badge",
+      "props": {
+        "text": "HEALTHY",
+        "variant": "default"
+      }
+    },
+    "agent_1_did": {
+      "type": "Text",
+      "props": {
+        "text": "did:key:z6Mkfnr…HGkSHRUH",
+        "variant": "caption"
+      }
+    },
+    "agent_1_note": {
+      "type": "Text",
+      "props": {
+        "text": "none",
+        "variant": "muted"
+      }
+    },
+    "agent_2": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "agent_2_name",
+        "agent_2_status",
+        "agent_2_did",
+        "agent_2_note"
+      ]
+    },
+    "agent_2_name": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-reviewer"
+      }
+    },
+    "agent_2_status": {
+      "type": "Badge",
+      "props": {
+        "text": "HEALTHY",
+        "variant": "default"
+      }
+    },
+    "agent_2_did": {
+      "type": "Text",
+      "props": {
+        "text": "did:key:z6Mks2K…PKHY7U7SZ",
+        "variant": "caption"
+      }
+    },
+    "agent_2_note": {
+      "type": "Text",
+      "props": {
+        "text": "none",
+        "variant": "muted"
+      }
+    },
+    "agent_3": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "agent_3_name",
+        "agent_3_status",
+        "agent_3_did",
+        "agent_3_note"
+      ]
+    },
+    "agent_3_name": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-deployer"
+      }
+    },
+    "agent_3_status": {
+      "type": "Badge",
+      "props": {
+        "text": "HEALTHY",
+        "variant": "default"
+      }
+    },
+    "agent_3_did": {
+      "type": "Text",
+      "props": {
+        "text": "did:key:z6MknGJ…VGCwcAuS",
+        "variant": "caption"
+      }
+    },
+    "agent_3_note": {
+      "type": "Text",
+      "props": {
+        "text": "none",
+        "variant": "muted"
+      }
+    },
+    "agent_4": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "agent_4_name",
+        "agent_4_status",
+        "agent_4_did",
+        "agent_4_note"
+      ]
+    },
+    "agent_4_name": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-sentinel"
+      }
+    },
+    "agent_4_status": {
+      "type": "Badge",
+      "props": {
+        "text": "HEALTHY",
+        "variant": "default"
+      }
+    },
+    "agent_4_did": {
+      "type": "Text",
+      "props": {
+        "text": "did:key:z6MksUu…eehX4S2M",
+        "variant": "caption"
+      }
+    },
+    "agent_4_note": {
+      "type": "Text",
+      "props": {
+        "text": "none",
+        "variant": "muted"
+      }
+    },
+    "counts_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "counts_label",
+        "counts_grid"
+      ]
+    },
+    "counts_label": {
+      "type": "Text",
+      "props": {
+        "text": "Counts:",
+        "variant": "lead"
+      }
+    },
+    "counts_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 7,
+        "gap": "sm"
+      },
+      "children": [
+        "stat_healthy",
+        "stat_warning",
+        "stat_degraded",
+        "stat_stale",
+        "stat_pending",
+        "stat_unreachable",
+        "stat_archived"
+      ]
+    },
+    "stat_healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "healthy",
+        "value": "4"
+      }
+    },
+    "stat_warning": {
+      "type": "Stat",
+      "props": {
+        "label": "warning",
+        "value": "0"
+      }
+    },
+    "stat_degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "degraded",
+        "value": "0"
+      }
+    },
+    "stat_stale": {
+      "type": "Stat",
+      "props": {
+        "label": "stale",
+        "value": "0"
+      }
+    },
+    "stat_pending": {
+      "type": "Stat",
+      "props": {
+        "label": "pending",
+        "value": "0"
+      }
+    },
+    "stat_unreachable": {
+      "type": "Stat",
+      "props": {
+        "label": "unreachable",
+        "value": "0"
+      }
+    },
+    "stat_archived": {
+      "type": "Stat",
+      "props": {
+        "label": "archived",
+        "value": "0"
+      }
+    },
+    "sources_text": {
+      "type": "Text",
+      "props": {
+        "text": "Sources: GitLawb-only fleet (gh skipped) · caps active through 2026-06-24",
+        "variant": "caption"
+      }
+    }
+  }
+}

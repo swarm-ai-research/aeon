@@ -1,0 +1,264 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Content Engine",
+        "description": "2026-05-20"
+      },
+      "children": [
+        "focus-section",
+        "sep1",
+        "exec-section",
+        "sep2",
+        "drafts-section"
+      ]
+    },
+    "focus-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "focus-heading",
+        "focus-text"
+      ]
+    },
+    "focus-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Focus",
+        "level": "h3"
+      }
+    },
+    "focus-text": {
+      "type": "Text",
+      "props": {
+        "text": "AI agents, coding tools, automation, developer infrastructure, open-source devtools"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "exec-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "exec-heading",
+        "item1",
+        "item2",
+        "item3",
+        "item4",
+        "item5"
+      ]
+    },
+    "exec-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Executive read",
+        "level": "h2"
+      }
+    },
+    "item1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item1-title",
+        "item1-desc",
+        "item1-badge"
+      ]
+    },
+    "item1-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Forge",
+        "level": "h4"
+      }
+    },
+    "item1-desc": {
+      "type": "Text",
+      "props": {
+        "text": "guardrails take an 8B model from 53% → 99% on agentic tasks — architecture around the model matters more than the model"
+      }
+    },
+    "item1-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Show HN • 577 pts",
+        "variant": "outline"
+      }
+    },
+    "item2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item2-title",
+        "item2-desc"
+      ]
+    },
+    "item2-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Google I/O 2026",
+        "level": "h4"
+      }
+    },
+    "item2-desc": {
+      "type": "Text",
+      "props": {
+        "text": "WebMCP proposed as web standard, Antigravity SDK shipped — Google contests the agent protocol layer"
+      }
+    },
+    "item3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item3-title",
+        "item3-desc",
+        "item3-badge"
+      ]
+    },
+    "item3-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Karpathy joins Anthropic",
+        "level": "h4"
+      }
+    },
+    "item3-desc": {
+      "type": "Text",
+      "props": {
+        "text": "highest-profile talent signal this year"
+      }
+    },
+    "item3-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "1,380 HN pts",
+        "variant": "outline"
+      }
+    },
+    "item4": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item4-title",
+        "item4-desc"
+      ]
+    },
+    "item4-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Notion launches Workers + External Agents API + CLI",
+        "level": "h4"
+      }
+    },
+    "item4-desc": {
+      "type": "Text",
+      "props": {
+        "text": "first-class agent substrate, typed structured access"
+      }
+    },
+    "item5": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item5-title",
+        "item5-desc"
+      ]
+    },
+    "item5-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Cursor Composer 2.5",
+        "level": "h4"
+      }
+    },
+    "item5-desc": {
+      "type": "Text",
+      "props": {
+        "text": "benchmarks on par with Opus 4.7 and GPT-5.5 at $0.50/M — model identity stops being a differentiator"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "drafts-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "drafts-stat",
+        "top-draft-group",
+        "review-link"
+      ]
+    },
+    "drafts-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Drafts ready",
+        "value": "5"
+      }
+    },
+    "top-draft-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "top-draft-label",
+        "top-draft-text"
+      ]
+    },
+    "top-draft-label": {
+      "type": "Text",
+      "props": {
+        "text": "Top draft",
+        "variant": "caption"
+      }
+    },
+    "top-draft-text": {
+      "type": "Text",
+      "props": {
+        "text": "Forge — guardrails take an 8B model from 53% to 99% on agentic tasks"
+      }
+    },
+    "review-link": {
+      "type": "Link",
+      "props": {
+        "label": "Review: articles/content-engine-2026-05-20.md",
+        "href": "articles/content-engine-2026-05-20.md"
+      }
+    }
+  }
+}

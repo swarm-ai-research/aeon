@@ -1,0 +1,190 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Issue Triage",
+        "description": "2026-06-01"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary_stats",
+        "sep1",
+        "repo_section",
+        "sep2",
+        "issue_section"
+      ]
+    },
+    "summary_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_triaged",
+        "stat_repos",
+        "stat_urgent",
+        "stat_duplicates",
+        "stat_needs_info"
+      ]
+    },
+    "stat_triaged": {
+      "type": "Stat",
+      "props": {
+        "label": "Triaged",
+        "value": "1"
+      }
+    },
+    "stat_repos": {
+      "type": "Stat",
+      "props": {
+        "label": "Repos",
+        "value": "1"
+      }
+    },
+    "stat_urgent": {
+      "type": "Stat",
+      "props": {
+        "label": "Urgent",
+        "value": "0"
+      }
+    },
+    "stat_duplicates": {
+      "type": "Stat",
+      "props": {
+        "label": "Duplicates Closed",
+        "value": "0"
+      }
+    },
+    "stat_needs_info": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs Info",
+        "value": "0"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "repo_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "repo_heading",
+        "repo_info",
+        "repo_memory"
+      ]
+    },
+    "repo_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "aaronjmars/aeon",
+        "level": "h3"
+      }
+    },
+    "repo_info": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text_advisory",
+        "badge_no_write"
+      ]
+    },
+    "text_advisory": {
+      "type": "Text",
+      "props": {
+        "text": "1 advisory verdict",
+        "variant": "body"
+      }
+    },
+    "badge_no_write": {
+      "type": "Badge",
+      "props": {
+        "text": "no write access",
+        "variant": "outline"
+      }
+    },
+    "repo_memory": {
+      "type": "Link",
+      "props": {
+        "label": "memory/triage-advisory/aaronjmars-aeon.md",
+        "href": "memory/triage-advisory/aaronjmars-aeon.md"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "issue_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue_link",
+        "issue_badges"
+      ]
+    },
+    "issue_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Support Anthropic-compatible providers via configurable base URL",
+        "href": "https://github.com/aaronjmars/aeon/issues/307",
+        "source": "aaronjmars/aeon#307"
+      }
+    },
+    "issue_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_accept",
+        "badge_priority",
+        "badge_category"
+      ]
+    },
+    "badge_accept": {
+      "type": "Badge",
+      "props": {
+        "text": "ACCEPT",
+        "variant": "default"
+      }
+    },
+    "badge_priority": {
+      "type": "Badge",
+      "props": {
+        "text": "feature/p2",
+        "variant": "secondary"
+      }
+    },
+    "badge_category": {
+      "type": "Badge",
+      "props": {
+        "text": "auth-config",
+        "variant": "outline"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_notes",
+        "link_pr"
+      ]
+    },
+    "stat_notes": {
+      "type": "Stat",
+      "props": {
+        "value": "+8",
+        "label": "notes wired in",
+        "trend": "up"
+      },
+      "children": []
+    },
+    "link_pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Pull Request #106",
+        "href": "https://github.com/rsavitt/aeon/pull/106",
+        "source": "GitHub"
+      },
+      "children": []
+    }
+  }
+}

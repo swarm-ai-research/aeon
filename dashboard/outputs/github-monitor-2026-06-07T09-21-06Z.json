@@ -1,0 +1,153 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "GitHub Monitor",
+        "description": "1 repo scanned, 0 need action"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "heading_info",
+        "issue_item",
+        "separator1",
+        "sources_section"
+      ]
+    },
+    "heading_info": {
+      "type": "Heading",
+      "props": {
+        "text": "INFO",
+        "level": "h3"
+      }
+    },
+    "issue_item": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issue_action",
+        "issue_details",
+        "issue_link"
+      ]
+    },
+    "issue_action": {
+      "type": "Text",
+      "props": {
+        "text": "Triage aaronjmars/aeon!352",
+        "variant": "lead"
+      }
+    },
+    "issue_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_new",
+        "badge_no_priority",
+        "text_time"
+      ]
+    },
+    "badge_new": {
+      "type": "Badge",
+      "props": {
+        "text": "new issue"
+      }
+    },
+    "badge_no_priority": {
+      "type": "Badge",
+      "props": {
+        "text": "no priority label",
+        "variant": "outline"
+      }
+    },
+    "text_time": {
+      "type": "Text",
+      "props": {
+        "text": "opened ~20h ago",
+        "variant": "caption"
+      }
+    },
+    "issue_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "aaronjmars/aeon#352",
+        "href": "https://github.com/aaronjmars/aeon/issues/352",
+        "source": "GitHub"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sources_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sources_label",
+        "sources_list"
+      ]
+    },
+    "sources_label": {
+      "type": "Text",
+      "props": {
+        "text": "sources:",
+        "variant": "muted"
+      }
+    },
+    "sources_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "source_item"
+      ]
+    },
+    "source_item": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "source_name",
+        "source_status"
+      ]
+    },
+    "source_name": {
+      "type": "Text",
+      "props": {
+        "text": "aaronjmars/aeon"
+      }
+    },
+    "source_status": {
+      "type": "Badge",
+      "props": {
+        "text": "ok",
+        "variant": "secondary"
+      }
+    }
+  }
+}

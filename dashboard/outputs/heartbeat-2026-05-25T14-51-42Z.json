@@ -1,0 +1,174 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Heartbeat Status Check"
+      },
+      "children": [
+        "alert",
+        "sep1",
+        "details-section",
+        "sep2",
+        "impact-section",
+        "sep3",
+        "other-section"
+      ]
+    },
+    "alert": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "🔴 DEGRADED",
+        "message": "aeon.yml is broken with unresolved git conflict markers leaving it invalid YAML"
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "details-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "details-h",
+        "pr8-info",
+        "conflict-lines",
+        "scheduler-impact",
+        "issue-ref"
+      ]
+    },
+    "details-h": {
+      "type": "Heading",
+      "props": {
+        "text": "Issue Details",
+        "level": "h3"
+      }
+    },
+    "pr8-info": {
+      "type": "Text",
+      "props": {
+        "text": "PR #8 (upstream sync, commit 140cdca) merged at 13:41 UTC"
+      }
+    },
+    "conflict-lines": {
+      "type": "Text",
+      "props": {
+        "text": "Unresolved git conflict markers at lines 141, 169, and 198 in aeon.yml"
+      }
+    },
+    "scheduler-impact": {
+      "type": "Text",
+      "props": {
+        "text": "Scheduler can't parse aeon.yml; scheduled skills may stop dispatching fleet-wide"
+      }
+    },
+    "issue-ref": {
+      "type": "Text",
+      "props": {
+        "text": "Filed ISS-001 with fix recipe; needs manual conflict resolution on main"
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "impact-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "impact-h",
+        "impact-items"
+      ]
+    },
+    "impact-h": {
+      "type": "Heading",
+      "props": {
+        "text": "Impact",
+        "level": "h3"
+      }
+    },
+    "impact-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "impact1",
+        "impact2",
+        "impact3"
+      ]
+    },
+    "impact1": {
+      "type": "Text",
+      "props": {
+        "text": "• content-engine already missed its 14:00 run"
+      }
+    },
+    "impact2": {
+      "type": "Text",
+      "props": {
+        "text": "• skill-repair won't auto-catch this (skills that never dispatch never log a failure)"
+      }
+    },
+    "impact3": {
+      "type": "Text",
+      "props": {
+        "text": "• Requires manual conflict resolution on main to restore scheduler function"
+      }
+    },
+    "sep3": {
+      "type": "Separator"
+    },
+    "other-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "other-h",
+        "status-items"
+      ]
+    },
+    "other-h": {
+      "type": "Heading",
+      "props": {
+        "text": "Other Status",
+        "level": "h3"
+      }
+    },
+    "status-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "status1",
+        "status2"
+      ]
+    },
+    "status1": {
+      "type": "Badge",
+      "props": {
+        "text": "P0/P1 skill health: Green",
+        "variant": "default"
+      }
+    },
+    "status2": {
+      "type": "Text",
+      "props": {
+        "text": "PR #1 still stalled (dedup, no re-alert)",
+        "variant": "muted"
+      }
+    }
+  }
+}

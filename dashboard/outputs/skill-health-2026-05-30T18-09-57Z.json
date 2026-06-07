@@ -1,0 +1,232 @@
+{
+  "root": "card_health",
+  "state": {},
+  "elements": {
+    "card_health": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health",
+        "description": "2026-05-30"
+      },
+      "children": [
+        "status_badge",
+        "separator1",
+        "metrics_stack",
+        "separator2",
+        "details_stack",
+        "separator3",
+        "issues_section",
+        "separator4",
+        "alert_partial"
+      ]
+    },
+    "status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "HEALTH: OK",
+        "variant": "default"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_healthy",
+        "stat_nodata",
+        "stat_issues",
+        "stat_resolved"
+      ]
+    },
+    "stat_healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills Healthy",
+        "value": "28"
+      }
+    },
+    "stat_nodata": {
+      "type": "Stat",
+      "props": {
+        "label": "No Data",
+        "value": "19"
+      }
+    },
+    "stat_issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "2"
+      }
+    },
+    "stat_resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "details_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "detail_hash",
+        "detail_cadence",
+        "detail_nodata_section"
+      ]
+    },
+    "detail_hash": {
+      "type": "Text",
+      "props": {
+        "text": "Empty-set classification, hash unchanged since 05-28",
+        "variant": "caption"
+      }
+    },
+    "detail_cadence": {
+      "type": "Text",
+      "props": {
+        "text": "Daily-cadence gate fired at 47h",
+        "variant": "caption"
+      }
+    },
+    "detail_nodata_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "detail_nodata_title",
+        "detail_nodata_content"
+      ]
+    },
+    "detail_nodata_title": {
+      "type": "Text",
+      "props": {
+        "text": "19 NO DATA — Reasons:",
+        "variant": "body"
+      }
+    },
+    "detail_nodata_content": {
+      "type": "Text",
+      "props": {
+        "text": "Planner window-miss tracked by heartbeat; 18 weekly skills not-yet-windowed — first fires Sun/Mon",
+        "variant": "caption"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues_title",
+        "issue_iss004",
+        "issue_iss005",
+        "issues_note"
+      ]
+    },
+    "issues_title": {
+      "type": "Heading",
+      "props": {
+        "text": "Open Issues",
+        "level": "h3"
+      }
+    },
+    "issue_iss004": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue_iss004_badge",
+        "issue_iss004_text"
+      ]
+    },
+    "issue_iss004_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-004: vuln-scanner",
+        "variant": "outline"
+      }
+    },
+    "issue_iss004_text": {
+      "type": "Text",
+      "props": {
+        "text": "Sandbox-allowlist gap, filed by skill itself",
+        "variant": "caption"
+      }
+    },
+    "issue_iss005": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue_iss005_badge",
+        "issue_iss005_text"
+      ]
+    },
+    "issue_iss005_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-005: rss-feed",
+        "variant": "outline"
+      }
+    },
+    "issue_iss005_text": {
+      "type": "Text",
+      "props": {
+        "text": "Sandbox-allowlist gap, filed by skill itself",
+        "variant": "caption"
+      }
+    },
+    "issues_note": {
+      "type": "Text",
+      "props": {
+        "text": "Both issues are out of skill-health's reconciliation scope",
+        "variant": "muted"
+      }
+    },
+    "separator4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_partial": {
+      "type": "Alert",
+      "props": {
+        "title": "SKILL_HEALTH_PARTIAL",
+        "message": "skill-runs sandbox-denied; classified from cron-state",
+        "type": "warning"
+      }
+    }
+  }
+}

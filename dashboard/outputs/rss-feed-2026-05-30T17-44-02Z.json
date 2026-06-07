@@ -1,0 +1,190 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "RSS Feed Error",
+        "description": "Sandbox blocked script execution"
+      },
+      "children": [
+        "alert_main",
+        "sep1",
+        "section_details"
+      ]
+    },
+    "alert_main": {
+      "type": "Alert",
+      "props": {
+        "title": "Sandbox Permission Denied",
+        "message": "scripts/generate-feed.sh blocked — bash invocations denied. No Bash(bash:*) or Bash(./scripts/*) entry in ALLOWED list (.github/workflows/aeon.yml, L463-L469).",
+        "type": "error"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues_stack",
+        "sep2",
+        "impact_section",
+        "sep3",
+        "fix_section"
+      ]
+    },
+    "issues_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issues_heading",
+        "issue_005_link",
+        "issue_004_link"
+      ]
+    },
+    "issues_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Related Issues",
+        "level": "h3"
+      }
+    },
+    "issue_005_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "ISS-005",
+        "href": "memory/issues/ISS-005.md",
+        "source": "High Severity, Sandbox-Limitation Category"
+      }
+    },
+    "issue_004_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "ISS-004",
+        "href": "memory/issues/ISS-004.md",
+        "source": "Similar Sandbox-Limitation (vuln-scanner)"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "impact_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "impact_heading",
+        "impact_stat",
+        "impact_feed_text"
+      ]
+    },
+    "impact_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Impact",
+        "level": "h3"
+      }
+    },
+    "impact_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Article Drafts Un-Syndicated",
+        "value": "26"
+      }
+    },
+    "impact_feed_text": {
+      "type": "Text",
+      "props": {
+        "text": "No feed committed"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fix_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "fix_heading",
+        "fix_location",
+        "fix_options_heading",
+        "fix_options_stack",
+        "fix_rerun"
+      ]
+    },
+    "fix_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Required Fix",
+        "level": "h3"
+      }
+    },
+    "fix_location": {
+      "type": "Text",
+      "props": {
+        "text": "Add permission to .github/workflows/aeon.yml (lines 463-469):"
+      }
+    },
+    "fix_options_heading": {
+      "type": "Text",
+      "props": {
+        "text": "Choose one of:",
+        "variant": "lead"
+      }
+    },
+    "fix_options_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "fix_option1",
+        "fix_option2"
+      ]
+    },
+    "fix_option1": {
+      "type": "Badge",
+      "props": {
+        "text": "Bash(bash scripts/generate-feed.sh:*)",
+        "variant": "outline"
+      }
+    },
+    "fix_option2": {
+      "type": "Badge",
+      "props": {
+        "text": "Bash(bash:*)",
+        "variant": "outline"
+      }
+    },
+    "fix_rerun": {
+      "type": "Text",
+      "props": {
+        "text": "Then re-run the skill"
+      }
+    }
+  }
+}

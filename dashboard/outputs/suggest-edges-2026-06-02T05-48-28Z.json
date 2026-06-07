@@ -1,0 +1,56 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges",
+        "description": "Missing links proposed"
+      },
+      "children": [
+        "stack"
+      ]
+    },
+    "stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat",
+        "date",
+        "separator",
+        "link"
+      ]
+    },
+    "stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing Links Proposed",
+        "value": "3"
+      }
+    },
+    "date": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-05-25",
+        "variant": "caption"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link": {
+      "type": "Link",
+      "props": {
+        "label": "Review PR",
+        "href": "https://github.com/rsavitt/aeon/pull/111"
+      }
+    }
+  }
+}

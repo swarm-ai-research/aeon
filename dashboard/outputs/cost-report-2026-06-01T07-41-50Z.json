@@ -1,0 +1,230 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Cost Report — 2026-06-01 (last 7 days)"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary_stats",
+        "sep1",
+        "top_costs_section",
+        "sep2",
+        "optimization_text",
+        "sep3",
+        "anomalies_alert",
+        "sep4",
+        "context_section",
+        "sep5",
+        "projection_section",
+        "sep6",
+        "fullreport_link"
+      ]
+    },
+    "summary_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat_spent",
+        "stat_runs",
+        "stat_wow",
+        "stat_anomalies",
+        "stat_projection"
+      ]
+    },
+    "stat_spent": {
+      "type": "Stat",
+      "props": {
+        "label": "Spent (7 days)",
+        "value": "$260.23"
+      }
+    },
+    "stat_runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs",
+        "value": "69"
+      }
+    },
+    "stat_wow": {
+      "type": "Stat",
+      "props": {
+        "label": "Week-over-Week",
+        "value": "↑1,288%",
+        "trend": "up"
+      }
+    },
+    "stat_anomalies": {
+      "type": "Stat",
+      "props": {
+        "label": "Anomalies flagged",
+        "value": "2"
+      }
+    },
+    "stat_projection": {
+      "type": "Stat",
+      "props": {
+        "label": "Projected monthly burn",
+        "value": "$1,115.27"
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "top_costs_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "top_costs_heading",
+        "top_costs_table"
+      ]
+    },
+    "top_costs_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top 3 by Cost",
+        "level": "h3"
+      }
+    },
+    "top_costs_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Cost",
+          "Runs"
+        ],
+        "rows": [
+          [
+            "pr-review",
+            "$62.69",
+            "15"
+          ],
+          [
+            "reflect",
+            "$31.92",
+            "4"
+          ],
+          [
+            "heartbeat",
+            "$30.80",
+            "8"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "optimization_text": {
+      "type": "Text",
+      "props": {
+        "text": "No optimization levers found this week.",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator"
+    },
+    "anomalies_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "2 Anomalies Flagged",
+        "message": "Both on 2026-05-25 (post-outage catch-up day): pr-review $10.91 vs weekly avg $4.18, heartbeat $9.77 vs weekly avg $3.85. Not a trend."
+      }
+    },
+    "sep4": {
+      "type": "Separator"
+    },
+    "context_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "context_heading",
+        "context_text"
+      ]
+    },
+    "context_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "WoW Context",
+        "level": "h3"
+      }
+    },
+    "context_text": {
+      "type": "Text",
+      "props": {
+        "text": "WoW jump reflects fleet activation breadth, not per-skill regression — prior window had only 2 active skills vs 22 this week.",
+        "variant": "body"
+      }
+    },
+    "sep5": {
+      "type": "Separator"
+    },
+    "projection_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "projection_heading",
+        "projection_alert",
+        "projection_detail"
+      ]
+    },
+    "projection_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "30-Day Projection",
+        "level": "h3"
+      }
+    },
+    "projection_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "message": "$1,115.27 — burn-rate watch"
+      }
+    },
+    "projection_detail": {
+      "type": "Text",
+      "props": {
+        "text": "Cache tokens dominate: $200.58 of $260.23 spent",
+        "variant": "caption"
+      }
+    },
+    "sep6": {
+      "type": "Separator"
+    },
+    "fullreport_link": {
+      "type": "Link",
+      "props": {
+        "label": "Full report",
+        "href": "articles/cost-report-2026-06-01.md"
+      }
+    }
+  }
+}

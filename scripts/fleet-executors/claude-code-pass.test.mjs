@@ -156,7 +156,10 @@ echo "nothing worth changing here"
 {
   const env = freshRepoWithRemote({
     claudeScript: CLAUDE_NOOP_STUB,
-    ghScript: `#!/usr/bin/env bash\necho "gh should not have been called: $@" >&2\nexit 99\n`,
+    // Allow `gh pr list` (used by the backlog gate) to succeed with an empty
+    // list; reject anything else so the test still catches an unintended
+    // `gh pr create`.
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "gh should not have been called: $@" >&2\nexit 99\n`,
   });
   try {
     const r1 = withStubbedEnv(env.binDir, env.ghLog, () =>
@@ -205,6 +208,156 @@ echo "nothing worth changing here"
     rmSync(env.work, { recursive: true, force: true });
   }
   console.log("OK  gh failure → branch preserved on remote, worktree cleaned up");
+}
+
+// 6. Backlog gate — when `gh pr list` reports ≥ BACKLOG_LIMIT open PRs of
+// this kind, runCodePass must return ok:true with no PR and never invoke
+// claude/git/gh-create.
+{
+  const env = freshRepoWithRemote({
+    // claude stub fails loudly — if the gate doesn't short-circuit, the test
+    // will surface that by exiting with a non-zero status from claude.
+    claudeScript: `#!/usr/bin/env bash\necho "claude should not have been called" >&2\nexit 77\n`,
+    // Three open docs-pass PRs in the listing — matches the default limit.
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '[{"headRefName":"aeon/docs-pass-2026-06-06-aaa"},{"headRefName":"aeon/docs-pass-2026-06-06-bbb"},{"headRefName":"aeon/docs-pass-2026-06-06-ccc"},{"headRefName":"main"}]'; exit 0; fi\necho "https://github.com/stub/repo/pull/42"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "gated" })
+    );
+    assert.equal(result.ok, true, `expected ok=true skip, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, null);
+    assert.match(result.summary, /skipped/i);
+    assert.match(result.summary, /backlog/i);
+    // No worktree should have been created.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should be created when gated");
+    // gh was called once (the list), never for create.
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /pr list/);
+    assert.doesNotMatch(ghLog, /pr create/);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  backlog gate skips PR creation when same-kind queue is at limit");
+}
+
+// 7. Backlog gate ignores unrelated open PRs — three open PRs of a *different*
+// kind must not block a docs-pass run.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '[{"headRefName":"aeon/refactor-pass-2026-06-06-aaa"},{"headRefName":"aeon/refactor-pass-2026-06-06-bbb"},{"headRefName":"aeon/refactor-pass-2026-06-06-ccc"}]'; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "cross" })
+    );
+    assert.equal(result.ok, true, `expected ok=true PR, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/99");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  backlog gate only counts same-kind PRs");
+}
+
+// 8. Claude CLI unavailable (--version exits non-zero) → ok:false, worktree
+//    created but cleaned up, ephemeral branch deleted.
+{
+  const CLAUDE_UNAVAILABLE = `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then exit 1; fi\ncat > /dev/null\necho "should not reach"\n`;
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_UNAVAILABLE });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "unavail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /claude invocation failed/);
+    // Worktree must be cleaned up even though claude never ran.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain");
+    // Ephemeral branch must also be deleted.
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain when claude is unavailable");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  claude CLI unavailable → ok:false, worktree and branch cleaned up");
+}
+
+// 9. git push failure → commit landed on the local branch but never reached
+//    origin. cleanup(false) keeps the branch ref so an operator can push it
+//    manually; the worktree is removed.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    // Backlog gate calls `gh pr list` before claude — let it succeed with an
+    // empty list so the test exercises the post-push gh-not-called check.
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "gh should not have been called after push failure: $@" >&2\nexit 99\n`,
+  });
+  // Point origin at a non-existent path to force push failure.
+  git(["remote", "set-url", "origin", "/tmp/aeon-bad-remote-nonexistent"], env.localDir);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "refactor-pass", repoDir: env.localDir, taskId: "pushfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git push failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after push failure");
+    // Branch ref must survive locally so the commit is not lost.
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.match(branches, /aeon\/refactor-pass-/, "branch should be kept locally after push failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  push failure → ok:false, branch kept locally, worktree removed");
+}
+
+// 10. git worktree add failure — pre-create the branch that runCodePass would
+//     generate so that `git worktree add -b <branch>` fails. The code must
+//     return ok:false, clean up the temp dir, and leave no stray worktree.
+{
+  const today = new Date().toISOString().slice(0, 10);
+  const taskId = "wtaddfail";
+  const branchName = `aeon/docs-pass-${today}-${taskId.replace(/[^a-zA-Z0-9]/g, "").slice(0, 10)}`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_NOOP_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/1"\n`,
+  });
+  git(["branch", branchName], env.localDir);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git worktree add failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no stray worktree should remain");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  worktree add failure (branch already exists) → ok:false, no leaked worktree");
+}
+
+// 11. gh pr list failure → null backlog → proceed anyway. When `gh pr list`
+//     exits non-zero, openPRsForKind returns null and the gate is skipped so
+//     real work still runs (null means "unknown", not "at limit").
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then exit 1; fi\necho "https://github.com/stub/repo/pull/55"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "prlistfail" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list fails, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/55");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
 console.log("\nAll claude-code-pass tests passed.");

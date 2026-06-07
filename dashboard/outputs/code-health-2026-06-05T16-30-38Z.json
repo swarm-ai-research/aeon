@@ -1,0 +1,307 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Code Health Report",
+        "description": "aaronjmars/aeon @ 9cb91a7"
+      },
+      "children": [
+        "heading_findings",
+        "stack_skill_of_day",
+        "stack_liquidpad",
+        "sep_1",
+        "heading_registry",
+        "grid_counts",
+        "alert_regenerator",
+        "sep_2",
+        "heading_carryovers",
+        "stack_carryovers",
+        "sep_3",
+        "heading_metrics",
+        "stack_metrics",
+        "sep_4",
+        "stack_output"
+      ]
+    },
+    "heading_findings": {
+      "type": "Heading",
+      "props": {
+        "text": "New Findings",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "stack_skill_of_day": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_skill_of_day",
+        "stack_skill_badges"
+      ]
+    },
+    "text_skill_of_day": {
+      "type": "Text",
+      "props": {
+        "text": "skill-of-the-day landed in aeon.yml via #341 but never made it into skills.json",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "stack_skill_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_day2_orphan",
+        "badge_both_registries"
+      ]
+    },
+    "badge_day2_orphan": {
+      "type": "Badge",
+      "props": {
+        "text": "Day 2 orphan",
+        "variant": "warning"
+      },
+      "children": []
+    },
+    "badge_both_registries": {
+      "type": "Badge",
+      "props": {
+        "text": "Missing from both registries",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "stack_liquidpad": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_liquidpad",
+        "badge_liquidpad"
+      ]
+    },
+    "text_liquidpad": {
+      "type": "Text",
+      "props": {
+        "text": "liquidpad-launch discoverable-but-undispatchable",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "badge_liquidpad": {
+      "type": "Badge",
+      "props": {
+        "text": "Day 8 unfixed",
+        "variant": "destructive"
+      },
+      "children": []
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_registry": {
+      "type": "Heading",
+      "props": {
+        "text": "Registry Status",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "grid_counts": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat_skill_md",
+        "stat_aeon_yml",
+        "stat_skills_json"
+      ]
+    },
+    "stat_skill_md": {
+      "type": "Stat",
+      "props": {
+        "label": "SKILL.md",
+        "value": "185"
+      },
+      "children": []
+    },
+    "stat_aeon_yml": {
+      "type": "Stat",
+      "props": {
+        "label": "aeon.yml",
+        "value": "183"
+      },
+      "children": []
+    },
+    "stat_skills_json": {
+      "type": "Stat",
+      "props": {
+        "label": "skills.json",
+        "value": "183"
+      },
+      "children": []
+    },
+    "alert_regenerator": {
+      "type": "Alert",
+      "props": {
+        "title": "Registry Regenerator Issue",
+        "message": "skills.json 'generated' timestamp still 2026-05-29 even though atrium-catalog-watcher's slug landed today — regenerator looks half-broken",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_carryovers": {
+      "type": "Heading",
+      "props": {
+        "text": "Carryovers (Week 8)",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "stack_carryovers": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_zizmor",
+        "text_a2a_server",
+        "text_validate_config",
+        "text_dashboard_tests"
+      ]
+    },
+    "text_zizmor": {
+      "type": "Text",
+      "props": {
+        "text": "ZIZMOR pin 1.24.1 at workflow-security-audit:29",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "text_a2a_server": {
+      "type": "Text",
+      "props": {
+        "text": "a2a-server/index.ts — 578 lines",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "text_validate_config": {
+      "type": "Text",
+      "props": {
+        "text": "validate-config.js + ci-config-validate.yml missing",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "text_dashboard_tests": {
+      "type": "Text",
+      "props": {
+        "text": "No CI step running dashboard tests",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_metrics": {
+      "type": "Heading",
+      "props": {
+        "text": "Metrics",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "stack_metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_secrets_todos",
+        "stat_code_todos"
+      ]
+    },
+    "stat_secrets_todos": {
+      "type": "Stat",
+      "props": {
+        "label": "Secrets TODOs",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat_code_todos": {
+      "type": "Stat",
+      "props": {
+        "label": "Code TODOs",
+        "value": "0"
+      },
+      "children": []
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stack_output": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "link_pr_341",
+        "link_article"
+      ]
+    },
+    "link_pr_341": {
+      "type": "Link",
+      "props": {
+        "label": "View PR #341",
+        "href": "https://github.com/aaronjmars/aeon/pull/341"
+      },
+      "children": []
+    },
+    "link_article": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report: code-health-2026-06-05.md",
+        "href": "articles/code-health-2026-06-05.md"
+      },
+      "children": []
+    }
+  }
+}

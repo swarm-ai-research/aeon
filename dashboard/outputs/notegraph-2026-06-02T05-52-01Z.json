@@ -1,0 +1,91 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_action",
+        "sep1",
+        "grid_stats",
+        "sep2",
+        "link_pr"
+      ]
+    },
+    "text_action": {
+      "type": "Text",
+      "props": {
+        "text": "+1 notes wired in",
+        "variant": "lead"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "grid_stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat_notes",
+        "stat_edges",
+        "stat_orphans"
+      ]
+    },
+    "stat_notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "51",
+        "delta": "+1",
+        "trend": "up"
+      }
+    },
+    "stat_edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "378"
+      }
+    },
+    "stat_orphans": {
+      "type": "Stat",
+      "props": {
+        "label": "Orphans",
+        "value": "0"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #112",
+        "href": "https://github.com/rsavitt/aeon/pull/112",
+        "source": "GitHub"
+      }
+    }
+  }
+}

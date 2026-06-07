@@ -1,0 +1,357 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker — 2026-06-06",
+        "description": "4 goals — 0 at risk, 0 needs attention, 4 on track, 0 blocked, 0 done (overall → flat)"
+      },
+      "children": [
+        "summary-grid",
+        "sep-1",
+        "on-track-section",
+        "sep-2",
+        "sources-text"
+      ]
+    },
+    "summary-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 6,
+        "gap": "md"
+      },
+      "children": [
+        "stat-total",
+        "stat-at-risk",
+        "stat-needs-attention",
+        "stat-on-track",
+        "stat-blocked",
+        "stat-done"
+      ]
+    },
+    "stat-total": {
+      "type": "Stat",
+      "props": {
+        "label": "Total",
+        "value": "4"
+      }
+    },
+    "stat-at-risk": {
+      "type": "Stat",
+      "props": {
+        "label": "At Risk",
+        "value": "0"
+      }
+    },
+    "stat-needs-attention": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs Attention",
+        "value": "0"
+      }
+    },
+    "stat-on-track": {
+      "type": "Stat",
+      "props": {
+        "label": "On Track",
+        "value": "4"
+      }
+    },
+    "stat-blocked": {
+      "type": "Stat",
+      "props": {
+        "label": "Blocked",
+        "value": "0"
+      }
+    },
+    "stat-done": {
+      "type": "Stat",
+      "props": {
+        "label": "Done",
+        "value": "0"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "on-track-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "on-track-heading",
+        "goal-1",
+        "goal-2",
+        "goal-3",
+        "goal-4"
+      ]
+    },
+    "on-track-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "ON TRACK",
+        "level": "h2"
+      }
+    },
+    "goal-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-1-title",
+        "goal-1-badge",
+        "goal-1-metrics",
+        "goal-1-details"
+      ]
+    },
+    "goal-1-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Keep the engineering skill stack running clean",
+        "level": "h3"
+      }
+    },
+    "goal-1-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "On Track",
+        "variant": "default"
+      }
+    },
+    "goal-1-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "goal-1-idle",
+        "goal-1-activity"
+      ]
+    },
+    "goal-1-idle": {
+      "type": "Stat",
+      "props": {
+        "label": "Idle",
+        "value": "0d"
+      }
+    },
+    "goal-1-activity": {
+      "type": "Stat",
+      "props": {
+        "label": "Activity (14d)",
+        "value": "95",
+        "trend": "neutral"
+      }
+    },
+    "goal-1-details": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-004 resolved by today's vuln-scanner cron; heartbeat fifth consecutive clean day.",
+        "variant": "body"
+      }
+    },
+    "goal-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-2-title",
+        "goal-2-badge",
+        "goal-2-metrics",
+        "goal-2-details"
+      ]
+    },
+    "goal-2-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Run the day from intent, not just cron",
+        "level": "h3"
+      }
+    },
+    "goal-2-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "On Track",
+        "variant": "default"
+      }
+    },
+    "goal-2-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "goal-2-idle",
+        "goal-2-activity"
+      ]
+    },
+    "goal-2-idle": {
+      "type": "Stat",
+      "props": {
+        "label": "Idle",
+        "value": "0d"
+      }
+    },
+    "goal-2-activity": {
+      "type": "Stat",
+      "props": {
+        "label": "Activity (14d)",
+        "value": "32",
+        "trend": "neutral"
+      }
+    },
+    "goal-2-details": {
+      "type": "Text",
+      "props": {
+        "text": "memory-flush + memory-structural-dedupe + goal-tracker firing; planner missed 9th consecutive window (sub-flag, single-skill dispatcher gap).",
+        "variant": "body"
+      }
+    },
+    "goal-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-3-title",
+        "goal-3-badge",
+        "goal-3-metrics",
+        "goal-3-details"
+      ]
+    },
+    "goal-3-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Iterate the two prototypes (GitLawb safety layer, compute-futures)",
+        "level": "h3"
+      }
+    },
+    "goal-3-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "On Track",
+        "variant": "default"
+      }
+    },
+    "goal-3-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "goal-3-idle",
+        "goal-3-activity"
+      ]
+    },
+    "goal-3-idle": {
+      "type": "Stat",
+      "props": {
+        "label": "Idle",
+        "value": "0d"
+      }
+    },
+    "goal-3-activity": {
+      "type": "Stat",
+      "props": {
+        "label": "Activity (14d)",
+        "value": "58",
+        "trend": "neutral"
+      }
+    },
+    "goal-3-details": {
+      "type": "Text",
+      "props": {
+        "text": "compute-futures-eda UNBLOCKED today via operator manual sweep — first CSV proof on `fleet-state` since 2026-05-30 (commit `0c43931`).",
+        "variant": "body"
+      }
+    },
+    "goal-4": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-4-title",
+        "goal-4-badge",
+        "goal-4-metrics",
+        "goal-4-details"
+      ]
+    },
+    "goal-4-title": {
+      "type": "Heading",
+      "props": {
+        "text": "swarm-ai-research/swarm merge-gate queue",
+        "level": "h3"
+      }
+    },
+    "goal-4-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "On Track",
+        "variant": "default"
+      }
+    },
+    "goal-4-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "goal-4-idle",
+        "goal-4-activity"
+      ]
+    },
+    "goal-4-idle": {
+      "type": "Stat",
+      "props": {
+        "label": "Idle",
+        "value": "0d"
+      }
+    },
+    "goal-4-activity": {
+      "type": "Stat",
+      "props": {
+        "label": "Activity (14d)",
+        "value": "50",
+        "trend": "neutral"
+      }
+    },
+    "goal-4-details": {
+      "type": "Text",
+      "props": {
+        "text": "Queue unchanged at 3 open (#501/#497/#472); pr-review dup-SHA × 3 today, no merges, no net-new.",
+        "variant": "body"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sources-text": {
+      "type": "Text",
+      "props": {
+        "text": "Sources: logs=ok, git=partial (shallow clone, 1 commit in 30d), gh_pr=ok, gh_issue=ok, cron-state=ok",
+        "variant": "caption"
+      }
+    }
+  }
+}

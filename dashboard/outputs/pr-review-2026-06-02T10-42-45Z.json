@@ -1,0 +1,182 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-06-02"
+      },
+      "children": [
+        "summary_stats",
+        "sep_1",
+        "prs_stack",
+        "sep_2",
+        "base_note"
+      ]
+    },
+    "summary_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "2"
+      }
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "2"
+      }
+    },
+    "skipped_detail": {
+      "type": "Text",
+      "props": {
+        "text": "bot: 1, dup-SHA: 1",
+        "variant": "caption"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "prs_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "pr_488_card",
+        "pr_487_card"
+      ]
+    },
+    "pr_488_card": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr_488_link",
+        "pr_488_meta",
+        "pr_488_issues"
+      ]
+    },
+    "pr_488_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm#488",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/488"
+      }
+    },
+    "pr_488_meta": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr_488_status",
+        "pr_488_score"
+      ]
+    },
+    "pr_488_status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      }
+    },
+    "pr_488_score": {
+      "type": "Text",
+      "props": {
+        "text": "2/5"
+      }
+    },
+    "pr_488_issues": {
+      "type": "Text",
+      "props": {
+        "text": "no CI matrix at HEAD + retry/regex/dispatch gaps in the new judge pipeline; 3 inline ISSUEs",
+        "variant": "body"
+      }
+    },
+    "pr_487_card": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr_487_link",
+        "pr_487_meta",
+        "pr_487_issues"
+      ]
+    },
+    "pr_487_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm#487",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/487"
+      }
+    },
+    "pr_487_meta": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr_487_status",
+        "pr_487_score"
+      ]
+    },
+    "pr_487_status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      }
+    },
+    "pr_487_score": {
+      "type": "Text",
+      "props": {
+        "text": "2/5"
+      }
+    },
+    "pr_487_issues": {
+      "type": "Text",
+      "props": {
+        "text": "no CI matrix at HEAD + p_true silent default + empty-CSV write; 2 inline ISSUEs",
+        "variant": "body"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "base_note": {
+      "type": "Alert",
+      "props": {
+        "title": "Base Mismatch",
+        "message": "Both PRs flag stack-with-#485 base mismatch",
+        "type": "warning"
+      }
+    }
+  }
+}

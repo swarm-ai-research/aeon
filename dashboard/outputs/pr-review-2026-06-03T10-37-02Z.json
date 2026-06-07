@@ -1,0 +1,352 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-06-03 (merge-gate)"
+      },
+      "children": [
+        "content_stack"
+      ]
+    },
+    "content_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "repo_info",
+        "sep1",
+        "summary_info",
+        "sep2",
+        "pr_490_group",
+        "pr_491_group",
+        "pr_492_group",
+        "pr_493_group",
+        "pr_494_group"
+      ]
+    },
+    "repo_info": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-ai-research/swarm",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "summary_info": {
+      "type": "Text",
+      "props": {
+        "text": "reviewed 5 / skipped 5 (dup-SHA)",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "pr_490_group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_490_header",
+        "pr_490_detail"
+      ]
+    },
+    "pr_490_header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr_490_link",
+        "pr_490_badge",
+        "pr_490_votes"
+      ]
+    },
+    "pr_490_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#490 PageRank + graph analytics",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/490",
+        "source": "swarm"
+      },
+      "children": []
+    },
+    "pr_490_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "pr_490_votes": {
+      "type": "Text",
+      "props": {
+        "text": "5/5",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "pr_490_detail": {
+      "type": "Text",
+      "props": {
+        "text": "full CI green",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "pr_491_group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_491_header",
+        "pr_491_detail"
+      ]
+    },
+    "pr_491_header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr_491_link",
+        "pr_491_badge",
+        "pr_491_votes"
+      ]
+    },
+    "pr_491_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#491 calibration pilot v1 docs",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/491",
+        "source": "swarm"
+      },
+      "children": []
+    },
+    "pr_491_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "pr_491_votes": {
+      "type": "Text",
+      "props": {
+        "text": "5/5",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "pr_491_detail": {
+      "type": "Text",
+      "props": {
+        "text": "docs-only ack",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "pr_492_group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_492_header",
+        "pr_492_detail1",
+        "pr_492_detail2"
+      ]
+    },
+    "pr_492_header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr_492_link",
+        "pr_492_badge",
+        "pr_492_votes"
+      ]
+    },
+    "pr_492_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#492 graph-structural sybil detector",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/492",
+        "source": "swarm"
+      },
+      "children": []
+    },
+    "pr_492_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "pr_492_votes": {
+      "type": "Text",
+      "props": {
+        "text": "5/5",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "pr_492_detail1": {
+      "type": "Text",
+      "props": {
+        "text": "full CI green",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "pr_492_detail2": {
+      "type": "Text",
+      "props": {
+        "text": "scope-bound",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "pr_493_group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_493_header",
+        "pr_493_alert"
+      ]
+    },
+    "pr_493_header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr_493_link",
+        "pr_493_badge",
+        "pr_493_votes"
+      ]
+    },
+    "pr_493_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#493 rubric v2",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/493",
+        "source": "swarm"
+      },
+      "children": []
+    },
+    "pr_493_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      },
+      "children": []
+    },
+    "pr_493_votes": {
+      "type": "Text",
+      "props": {
+        "text": "3/5",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "pr_493_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "message": "2 inline ISSUEs (activation_obfuscation 0.30 vs rubric 0.40; float optimization_depth → 0) + standard CI matrix missing at HEAD (stack-vs-main)"
+      },
+      "children": []
+    },
+    "pr_494_group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_494_header",
+        "pr_494_alert"
+      ]
+    },
+    "pr_494_header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr_494_link",
+        "pr_494_badge",
+        "pr_494_votes"
+      ]
+    },
+    "pr_494_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#494 rubric v3 + truncation parser",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/494",
+        "source": "swarm"
+      },
+      "children": []
+    },
+    "pr_494_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      },
+      "children": []
+    },
+    "pr_494_votes": {
+      "type": "Text",
+      "props": {
+        "text": "3/5",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "pr_494_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "message": "1 inline ISSUE (float-depth bug carries over) + standard CI matrix missing at HEAD"
+      },
+      "children": []
+    }
+  }
+}

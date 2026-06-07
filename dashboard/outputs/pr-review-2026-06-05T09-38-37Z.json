@@ -1,0 +1,226 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-06-05"
+      },
+      "children": [
+        "stats_stack",
+        "divider1",
+        "reviewed_heading",
+        "reviewed_stack",
+        "divider2",
+        "skipped_heading",
+        "skipped_stack"
+      ]
+    },
+    "stats_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_posted",
+        "stat_skipped"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "2"
+      }
+    },
+    "stat_posted": {
+      "type": "Stat",
+      "props": {
+        "label": "Posted",
+        "value": "2"
+      }
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "1"
+      }
+    },
+    "divider1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "reviewed_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Reviewed",
+        "level": "h3"
+      }
+    },
+    "reviewed_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr_497_card",
+        "pr_501_card"
+      ]
+    },
+    "pr_497_card": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_497_link",
+        "pr_497_badges",
+        "pr_497_description"
+      ]
+    },
+    "pr_497_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#497",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/497"
+      }
+    },
+    "pr_497_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_497_status",
+        "badge_497_score"
+      ]
+    },
+    "badge_497_status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      }
+    },
+    "badge_497_score": {
+      "type": "Badge",
+      "props": {
+        "text": "3/5",
+        "variant": "secondary"
+      }
+    },
+    "pr_497_description": {
+      "type": "Text",
+      "props": {
+        "text": "kb-graph ratchet new orphan blocks quality-gate; full CI matrix otherwise GREEN. Mechanical fix."
+      }
+    },
+    "pr_501_card": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_501_link",
+        "pr_501_badges",
+        "pr_501_description"
+      ]
+    },
+    "pr_501_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#501",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/501"
+      }
+    },
+    "pr_501_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_501_status",
+        "badge_501_score"
+      ]
+    },
+    "badge_501_status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      }
+    },
+    "badge_501_score": {
+      "type": "Badge",
+      "props": {
+        "text": "2/5",
+        "variant": "secondary"
+      }
+    },
+    "pr_501_description": {
+      "type": "Text",
+      "props": {
+        "text": "`mergeable_state: dirty` keeps the CI matrix from running; rebase against main to unblock and surface lint/type-check/test evidence."
+      }
+    },
+    "divider2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "skipped_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Skipped",
+        "level": "h3"
+      }
+    },
+    "skipped_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr_472_card"
+      ]
+    },
+    "pr_472_card": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_472_link",
+        "pr_472_reason"
+      ]
+    },
+    "pr_472_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#472",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/472"
+      }
+    },
+    "pr_472_reason": {
+      "type": "Text",
+      "props": {
+        "text": "(077d50dd) dup-SHA against 2026-06-04 log; #487–#496 all closed/merged overnight.",
+        "variant": "muted"
+      }
+    }
+  }
+}

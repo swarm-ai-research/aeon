@@ -1,0 +1,105 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "heartbeat",
+        "description": "Fleet health monitoring"
+      },
+      "children": [
+        "alert_degraded",
+        "stack_content"
+      ]
+    },
+    "alert_degraded": {
+      "type": "Alert",
+      "props": {
+        "title": "🔴 DEGRADED",
+        "message": "Fleet stalled since 2026-05-17",
+        "type": "error"
+      }
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "sep1",
+        "heading_issues",
+        "stack_issues",
+        "sep2",
+        "text_observation",
+        "sep3",
+        "text_status_page"
+      ]
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_issues": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues Detected",
+        "level": "h3"
+      }
+    },
+    "stack_issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue_heartbeat",
+        "issue_content_engine"
+      ]
+    },
+    "issue_heartbeat": {
+      "type": "Text",
+      "props": {
+        "text": "heartbeat self-check >80h stale (expected every 8h)",
+        "variant": "body"
+      }
+    },
+    "issue_content_engine": {
+      "type": "Text",
+      "props": {
+        "text": "content-engine missed 3 daily runs",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_observation": {
+      "type": "Text",
+      "props": {
+        "text": "No failed/stuck states logged — runs simply did not fire",
+        "variant": "muted"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_status_page": {
+      "type": "Text",
+      "props": {
+        "text": "Status page updated",
+        "variant": "lead"
+      }
+    }
+  }
+}

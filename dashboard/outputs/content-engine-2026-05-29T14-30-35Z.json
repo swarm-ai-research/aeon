@@ -1,0 +1,210 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Content Engine — 2026-05-29",
+        "description": "AI agents, coding tools, automation, developer infrastructure, open-source devtools"
+      },
+      "children": [
+        "exec-section",
+        "separator-1",
+        "drafts-section"
+      ]
+    },
+    "exec-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "exec-heading",
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4"
+      ]
+    },
+    "exec-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Executive read",
+        "level": "h3"
+      }
+    },
+    "item-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item-1-title",
+        "item-1-desc"
+      ]
+    },
+    "item-1-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Chrome DevTools MCP 1.0",
+        "level": "h4"
+      }
+    },
+    "item-1-desc": {
+      "type": "Text",
+      "props": {
+        "text": "official Google browser debugging for coding agents (Lighthouse, traces, console inspection via MCP)",
+        "variant": "body"
+      }
+    },
+    "item-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item-2-title",
+        "item-2-desc"
+      ]
+    },
+    "item-2-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Microsoft RAMPART",
+        "level": "h4"
+      }
+    },
+    "item-2-desc": {
+      "type": "Text",
+      "props": {
+        "text": "pytest safety testing for agents in CI, with statistical policies (≥80% pass rate thresholds)",
+        "variant": "body"
+      }
+    },
+    "item-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item-3-title",
+        "item-3-desc"
+      ]
+    },
+    "item-3-title": {
+      "type": "Heading",
+      "props": {
+        "text": "SubQ architecture claims",
+        "level": "h4"
+      }
+    },
+    "item-3-desc": {
+      "type": "Text",
+      "props": {
+        "text": "12M token context at 1/5 frontier cost, no independent benchmarks yet",
+        "variant": "body"
+      }
+    },
+    "item-4": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item-4-title",
+        "item-4-desc"
+      ]
+    },
+    "item-4-title": {
+      "type": "Heading",
+      "props": {
+        "text": "AWS MCP Server GA",
+        "level": "h4"
+      }
+    },
+    "item-4-desc": {
+      "type": "Text",
+      "props": {
+        "text": "15K+ API ops, IAM governance, CloudTrail logging; cloud goes agent-native",
+        "variant": "body"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "drafts-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "drafts-stat",
+        "separator-2",
+        "top-draft",
+        "separator-3",
+        "review-file"
+      ]
+    },
+    "drafts-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Drafts ready",
+        "value": "4"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "top-draft": {
+      "type": "Text",
+      "props": {
+        "text": "Top draft: Chrome DevTools MCP 1.0 — the browser is now part of the agent loop",
+        "variant": "lead"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "review-file": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "review-label",
+        "review-link"
+      ]
+    },
+    "review-label": {
+      "type": "Text",
+      "props": {
+        "text": "Review file:",
+        "variant": "caption"
+      }
+    },
+    "review-link": {
+      "type": "Link",
+      "props": {
+        "label": "articles/content-engine-2026-05-29.md",
+        "href": "articles/content-engine-2026-05-29.md"
+      }
+    }
+  }
+}

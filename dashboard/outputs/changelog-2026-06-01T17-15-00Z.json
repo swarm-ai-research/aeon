@@ -1,0 +1,168 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Changelog — Week of 2026-06-01"
+      },
+      "children": [
+        "header-section",
+        "separator-1",
+        "stats-section",
+        "separator-2",
+        "highlights-section",
+        "separator-3",
+        "article-link"
+      ]
+    },
+    "header-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "repo-badge",
+        "total-changes"
+      ]
+    },
+    "repo-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "aaronjmars/aeon",
+        "variant": "outline"
+      }
+    },
+    "total-changes": {
+      "type": "Text",
+      "props": {
+        "text": "16 user-facing changes",
+        "variant": "lead"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stats-section": {
+      "type": "Grid",
+      "props": {
+        "columns": 5,
+        "gap": "md"
+      },
+      "children": [
+        "stat-breaking",
+        "stat-added",
+        "stat-changed",
+        "stat-fixed",
+        "stat-security"
+      ]
+    },
+    "stat-breaking": {
+      "type": "Stat",
+      "props": {
+        "label": "Breaking",
+        "value": "0"
+      }
+    },
+    "stat-added": {
+      "type": "Stat",
+      "props": {
+        "label": "Added",
+        "value": "13"
+      }
+    },
+    "stat-changed": {
+      "type": "Stat",
+      "props": {
+        "label": "Changed",
+        "value": "2"
+      }
+    },
+    "stat-fixed": {
+      "type": "Stat",
+      "props": {
+        "label": "Fixed",
+        "value": "1"
+      }
+    },
+    "stat-security": {
+      "type": "Stat",
+      "props": {
+        "label": "Security",
+        "value": "0"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "highlights-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "hound-highlight",
+        "model-highlight",
+        "dashboard-highlight"
+      ]
+    },
+    "hound-highlight": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "hound-title",
+        "hound-content"
+      ]
+    },
+    "hound-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Hound onchain investigation pack",
+        "level": "h3"
+      }
+    },
+    "hound-content": {
+      "type": "Text",
+      "props": {
+        "text": "12 new skills: rug-scan, honeypot-check, lp-lock-check, fund-flow… plus composite report skill"
+      }
+    },
+    "model-highlight": {
+      "type": "Text",
+      "props": {
+        "text": "Default model jumped to Opus 4.8"
+      }
+    },
+    "dashboard-highlight": {
+      "type": "Text",
+      "props": {
+        "text": "Dashboard restyled to aeon.fun's voice"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "article-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full changelog",
+        "href": "articles/changelog-2026-06-01.md"
+      }
+    }
+  }
+}

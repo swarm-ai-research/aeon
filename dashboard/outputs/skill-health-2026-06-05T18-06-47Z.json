@@ -1,0 +1,284 @@
+{
+  "root": "card-health",
+  "state": {},
+  "elements": {
+    "card-health": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health",
+        "description": "2026-06-05"
+      },
+      "children": [
+        "status-line",
+        "sep1",
+        "stats-grid",
+        "sep2",
+        "nodata-section",
+        "sep3",
+        "issues-section"
+      ]
+    },
+    "status-line": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "health-text",
+        "ok-badge"
+      ]
+    },
+    "health-text": {
+      "type": "Text",
+      "props": {
+        "text": "HEALTH:",
+        "variant": "lead"
+      }
+    },
+    "ok-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "OK",
+        "variant": "default"
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "stats-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat-nodata",
+        "stat-healthy"
+      ]
+    },
+    "stat-nodata": {
+      "type": "Stat",
+      "props": {
+        "label": "No Data",
+        "value": "5"
+      }
+    },
+    "stat-healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Healthy",
+        "value": "38"
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "nodata-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "nodata-heading",
+        "nodata-skills",
+        "nodata-details"
+      ]
+    },
+    "nodata-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "No Data (5)",
+        "level": "h4"
+      }
+    },
+    "nodata-skills": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-planner",
+        "badge-aifw",
+        "badge-stale",
+        "badge-compute",
+        "badge-repair"
+      ]
+    },
+    "badge-planner": {
+      "type": "Badge",
+      "props": {
+        "text": "planner",
+        "variant": "outline"
+      }
+    },
+    "badge-aifw": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "outline"
+      }
+    },
+    "badge-stale": {
+      "type": "Badge",
+      "props": {
+        "text": "stale-content-pr-sweeper",
+        "variant": "outline"
+      }
+    },
+    "badge-compute": {
+      "type": "Badge",
+      "props": {
+        "text": "compute-macro-correlate",
+        "variant": "outline"
+      }
+    },
+    "badge-repair": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-repair",
+        "variant": "secondary"
+      }
+    },
+    "nodata-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "detail-dispatch",
+        "detail-gaps",
+        "detail-new",
+        "detail-heartbeat"
+      ]
+    },
+    "detail-dispatch": {
+      "type": "Text",
+      "props": {
+        "text": "DISPATCH-SKILL: skill-repair is reactive-only; rest are scheduler gaps",
+        "variant": "caption"
+      }
+    },
+    "detail-new": {
+      "type": "Text",
+      "props": {
+        "text": "stale-content-pr-sweeper + compute-macro-correlate are NEW vs prev run",
+        "variant": "caption"
+      }
+    },
+    "detail-heartbeat": {
+      "type": "Text",
+      "props": {
+        "text": "Heartbeat surfaced both at 08:18Z",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator"
+    },
+    "issues-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues-heading",
+        "issues-badges",
+        "issues-details"
+      ]
+    },
+    "issues-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Open Issues: 4",
+        "level": "h4"
+      }
+    },
+    "issues-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-iss004",
+        "badge-iss005",
+        "badge-iss006",
+        "badge-iss007"
+      ]
+    },
+    "badge-iss004": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-004",
+        "variant": "outline"
+      }
+    },
+    "badge-iss005": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-005",
+        "variant": "outline"
+      }
+    },
+    "badge-iss006": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-006",
+        "variant": "outline"
+      }
+    },
+    "badge-iss007": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-007",
+        "variant": "outline"
+      }
+    },
+    "issues-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue-fixing",
+        "issue-gates",
+        "issue-rss",
+        "issue-resolved"
+      ]
+    },
+    "issue-fixing": {
+      "type": "Text",
+      "props": {
+        "text": "All issues: fixing",
+        "variant": "body"
+      }
+    },
+    "issue-gates": {
+      "type": "Text",
+      "props": {
+        "text": "vuln-scanner gates Saturday; skill-evals gates Sunday",
+        "variant": "caption"
+      }
+    },
+    "issue-rss": {
+      "type": "Text",
+      "props": {
+        "text": "rss-feed disabled — ISS-005 won't self-confirm",
+        "variant": "caption"
+      }
+    },
+    "issue-resolved": {
+      "type": "Text",
+      "props": {
+        "text": "Resolved this run: 0",
+        "variant": "caption"
+      }
+    }
+  }
+}

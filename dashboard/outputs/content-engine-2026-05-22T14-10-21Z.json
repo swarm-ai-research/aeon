@@ -1,0 +1,111 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Content Engine — 2026-05-22",
+        "description": "Focus: AI agents, coding tools, automation, developer infrastructure, open-source devtools"
+      },
+      "children": [
+        "heading-exec",
+        "bullets-container",
+        "sep-1",
+        "drafts-section"
+      ]
+    },
+    "heading-exec": {
+      "type": "Heading",
+      "props": {
+        "text": "Executive read",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "bullets-container": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "bullet-1",
+        "bullet-2",
+        "bullet-3",
+        "bullet-4",
+        "bullet-5"
+      ]
+    },
+    "bullet-1": {
+      "type": "Text",
+      "props": {
+        "text": "Qwen3.7-Max: 35-hour autonomous run, 1,000+ tool calls, wrote chip firmware that got ~10x faster — long-horizon endurance is the new differentiator"
+      },
+      "children": []
+    },
+    "bullet-2": {
+      "type": "Text",
+      "props": {
+        "text": "Vercel Open Agents: forkable open-source blueprint (web UI + workflow runtime + sandboxed VM + GitHub integration) for self-hosted background coding agents"
+      },
+      "children": []
+    },
+    "bullet-3": {
+      "type": "Text",
+      "props": {
+        "text": "Activepieces: 280+ automation pieces now also MCP servers — community-maintained, MIT-licensed, auto-growing tool catalog for agents"
+      },
+      "children": []
+    },
+    "bullet-4": {
+      "type": "Text",
+      "props": {
+        "text": "Python 3.15 beta: Tachyon profiler (zero-overhead, 1M Hz, production-safe) + lazy imports land in stdlib; no new dependencies required"
+      },
+      "children": []
+    },
+    "bullet-5": {
+      "type": "Text",
+      "props": {
+        "text": "Gemma4-31B indexed a year of video on a 2021 MacBook overnight, 50 GB swap, $0 compute — the local inference floor dropped again"
+      },
+      "children": []
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "drafts-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "drafts-stat",
+        "top-draft-link"
+      ]
+    },
+    "drafts-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Drafts ready",
+        "value": "5"
+      },
+      "children": []
+    },
+    "top-draft-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Qwen3.7-Max — The 35-hour autonomous agent",
+        "href": "articles/content-engine-2026-05-22.md",
+        "source": "Top draft"
+      },
+      "children": []
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-05-26"
+      },
+      "children": [
+        "summary_section",
+        "separator_main",
+        "reviews_section"
+      ]
+    },
+    "summary_section": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed 1, skipped 1 (dup-SHA: 1)",
+        "variant": "lead"
+      }
+    },
+    "separator_main": {
+      "type": "Separator",
+      "props": {}
+    },
+    "reviews_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "pr_item"
+      ]
+    },
+    "pr_item": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr_link",
+        "metrics_row",
+        "findings"
+      ]
+    },
+    "pr_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm#466",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/466"
+      }
+    },
+    "metrics_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "status_badge",
+        "votes_badge",
+        "critical_badge",
+        "issue_badge"
+      ]
+    },
+    "status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      }
+    },
+    "votes_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "3/5",
+        "variant": "secondary"
+      }
+    },
+    "critical_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "0 critical",
+        "variant": "outline"
+      }
+    },
+    "issue_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "1 issue",
+        "variant": "outline"
+      }
+    },
+    "findings": {
+      "type": "Text",
+      "props": {
+        "text": "Fix is correct (closes get_store real-DB test hazard), but CI never ran on the head SHA, so the change to the shared autouse conftest fixture has no green test/lint evidence. Re-trigger CI to clear.",
+        "variant": "body"
+      }
+    }
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — swarm-ai-safety/swarm"
+      },
+      "children": [
+        "section_472",
+        "separator_1",
+        "section_471"
+      ]
+    },
+    "section_472": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_472",
+        "pr_link_472",
+        "badges_472",
+        "alert_flaky",
+        "content_472"
+      ]
+    },
+    "heading_472": {
+      "type": "Heading",
+      "props": {
+        "text": "#472: SWARM–AgentVeil bridge plan",
+        "level": "h3"
+      }
+    },
+    "pr_link_472": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm #472",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/472"
+      }
+    },
+    "badges_472": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_docs_only",
+        "badge_request_changes",
+        "badge_266_0"
+      ]
+    },
+    "badge_docs_only": {
+      "type": "Badge",
+      "props": {
+        "text": "docs-only",
+        "variant": "secondary"
+      }
+    },
+    "badge_request_changes": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      }
+    },
+    "badge_266_0": {
+      "type": "Badge",
+      "props": {
+        "text": "+266 / -0",
+        "variant": "outline"
+      }
+    },
+    "alert_flaky": {
+      "type": "Alert",
+      "props": {
+        "title": "Flaky test blocking merge",
+        "message": "test_sse_connects SSE timeout (>300s). Passed on 3.11 at same commit. Driven solely by required quality-gate red flag. CI re-run will clear to APPROVE.",
+        "type": "warning"
+      }
+    },
+    "content_472": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat_approval_472",
+        "text_quality",
+        "text_checks_green",
+        "text_review_note"
+      ]
+    },
+    "stat_approval_472": {
+      "type": "Stat",
+      "props": {
+        "label": "Approvals",
+        "value": "3/5"
+      }
+    },
+    "text_quality": {
+      "type": "Text",
+      "props": {
+        "text": "Content is merge-quality. No doc change needed.",
+        "variant": "body"
+      }
+    },
+    "text_checks_green": {
+      "type": "Text",
+      "props": {
+        "text": "All doc-relevant checks green: lint, render-verify, CodeQL.",
+        "variant": "body"
+      }
+    },
+    "text_review_note": {
+      "type": "Text",
+      "props": {
+        "text": "Posted COMMENTED review (cannot formally request-changes own PR).",
+        "variant": "caption"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_471": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_471",
+        "pr_link_471",
+        "badges_471",
+        "content_471"
+      ]
+    },
+    "heading_471": {
+      "type": "Heading",
+      "props": {
+        "text": "#471: dependabot langgraph 1.2.1→1.2.2",
+        "level": "h3"
+      }
+    },
+    "pr_link_471": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm #471",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/471"
+      }
+    },
+    "badges_471": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_approve",
+        "badge_dependabot"
+      ]
+    },
+    "badge_approve": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "badge_dependabot": {
+      "type": "Badge",
+      "props": {
+        "text": "dependabot",
+        "variant": "secondary"
+      }
+    },
+    "content_471": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat_approval_471",
+        "text_471_status",
+        "text_471_note"
+      ]
+    },
+    "stat_approval_471": {
+      "type": "Stat",
+      "props": {
+        "label": "Approvals",
+        "value": "5/5"
+      }
+    },
+    "text_471_status": {
+      "type": "Text",
+      "props": {
+        "text": "Re-ran clean on rebase. Trending APPROVE with only 3.12-full still in flight.",
+        "variant": "body"
+      }
+    },
+    "text_471_note": {
+      "type": "Text",
+      "props": {
+        "text": "Left unposted as a bot PR.",
+        "variant": "caption"
+      }
+    }
+  }
+}

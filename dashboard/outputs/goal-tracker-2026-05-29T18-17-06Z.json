@@ -1,0 +1,364 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker — 2026-05-29"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "stack-summary",
+        "separator-1",
+        "stack-goals",
+        "separator-2",
+        "stack-sources"
+      ]
+    },
+    "stack-summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-summary",
+        "stack-stats",
+        "text-snapshot"
+      ]
+    },
+    "heading-summary": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "stack-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-on-track",
+        "stat-at-risk",
+        "stat-needs-attention",
+        "stat-blocked",
+        "stat-done"
+      ]
+    },
+    "stat-on-track": {
+      "type": "Stat",
+      "props": {
+        "label": "On Track",
+        "value": "4"
+      },
+      "children": []
+    },
+    "stat-at-risk": {
+      "type": "Stat",
+      "props": {
+        "label": "At Risk",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat-needs-attention": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs Attention",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat-blocked": {
+      "type": "Stat",
+      "props": {
+        "label": "Blocked",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat-done": {
+      "type": "Stat",
+      "props": {
+        "label": "Done",
+        "value": "0"
+      },
+      "children": []
+    },
+    "text-snapshot": {
+      "type": "Text",
+      "props": {
+        "text": "First snapshot — no prior trend",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stack-goals": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "heading-goals",
+        "stack-goal1",
+        "stack-goal2",
+        "stack-goal3",
+        "stack-goal4"
+      ]
+    },
+    "heading-goals": {
+      "type": "Heading",
+      "props": {
+        "text": "On Track",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "stack-goal1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-goal1",
+        "text-goal1-metrics",
+        "text-goal1-details"
+      ]
+    },
+    "heading-goal1": {
+      "type": "Heading",
+      "props": {
+        "text": "Keep the engineering skill stack running clean",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "text-goal1-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, ~30 activity/14d (new)",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "text-goal1-details": {
+      "type": "Text",
+      "props": {
+        "text": "All 13 cron-state skills at 100% success, 0 failures; security PRs #44/#45/#48 + linting #46 merged in window."
+      },
+      "children": []
+    },
+    "stack-goal2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-goal2",
+        "text-goal2-metrics",
+        "text-goal2-details",
+        "text-goal2-watch"
+      ]
+    },
+    "heading-goal2": {
+      "type": "Heading",
+      "props": {
+        "text": "Run the day from intent, not just cron",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "text-goal2-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, ~6 activity/14d (new)",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "text-goal2-details": {
+      "type": "Text",
+      "props": {
+        "text": "Autonomy stack shipped (PR #53), fleet task-runner wired (#54), goal-tracker ran today."
+      },
+      "children": []
+    },
+    "text-goal2-watch": {
+      "type": "Text",
+      "props": {
+        "text": "Watch: planner enabled but its 06:30 window hasn't dispatched yet.",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "stack-goal3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-goal3",
+        "text-goal3-metrics",
+        "text-goal3-details"
+      ]
+    },
+    "heading-goal3": {
+      "type": "Heading",
+      "props": {
+        "text": "Iterate the two prototypes (GitLawb safety, compute-futures)",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "text-goal3-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, ~25 activity/14d (new)",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "text-goal3-details": {
+      "type": "Text",
+      "props": {
+        "text": "compute-futures #55/#52/#51, node-trust gate #50, autonomous executors (issue #22) all merged 05-28/29."
+      },
+      "children": []
+    },
+    "stack-goal4": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-goal4",
+        "text-goal4-metrics",
+        "text-goal4-details"
+      ]
+    },
+    "heading-goal4": {
+      "type": "Heading",
+      "props": {
+        "text": "swarm merge-gate queue cleared",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "text-goal4-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, ~15 activity/14d (new)",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "text-goal4-details": {
+      "type": "Text",
+      "props": {
+        "text": "State note: queue reopened — 4 human PRs (#472/#478/#476/#479) + 1 bot (#471) gated 05-29; the 'cleared' state no longer holds."
+      },
+      "children": []
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stack-sources": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-sources",
+        "stack-source-badges"
+      ]
+    },
+    "heading-sources": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "stack-source-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-logs",
+        "badge-git",
+        "badge-gh-pr",
+        "badge-gh-issue",
+        "badge-cron-state"
+      ]
+    },
+    "badge-logs": {
+      "type": "Badge",
+      "props": {
+        "text": "logs=ok"
+      },
+      "children": []
+    },
+    "badge-git": {
+      "type": "Badge",
+      "props": {
+        "text": "git=ok"
+      },
+      "children": []
+    },
+    "badge-gh-pr": {
+      "type": "Badge",
+      "props": {
+        "text": "gh_pr=ok"
+      },
+      "children": []
+    },
+    "badge-gh-issue": {
+      "type": "Badge",
+      "props": {
+        "text": "gh_issue=ok"
+      },
+      "children": []
+    },
+    "badge-cron-state": {
+      "type": "Badge",
+      "props": {
+        "text": "cron-state=ok"
+      },
+      "children": []
+    }
+  }
+}

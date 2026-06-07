@@ -1,0 +1,178 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Code Health",
+        "description": "aaronjmars/aeon — 2026-05-28"
+      },
+      "children": [
+        "mainStack"
+      ]
+    },
+    "mainStack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metricsGrid",
+        "sep1",
+        "detailsStack",
+        "sep2",
+        "actionsStack",
+        "sep3",
+        "reportLink"
+      ]
+    },
+    "metricsGrid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "statTodos",
+        "statSecrets",
+        "statLargeFiles",
+        "statTests"
+      ]
+    },
+    "statTodos": {
+      "type": "Stat",
+      "props": {
+        "label": "TODOs",
+        "value": "1"
+      }
+    },
+    "statSecrets": {
+      "type": "Stat",
+      "props": {
+        "label": "Hardcoded Secrets",
+        "value": "0"
+      }
+    },
+    "statLargeFiles": {
+      "type": "Stat",
+      "props": {
+        "label": "Files >500 lines",
+        "value": "1"
+      }
+    },
+    "statTests": {
+      "type": "Stat",
+      "props": {
+        "label": "Test Files",
+        "value": "2"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "detailsStack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "detailsHeading",
+        "todoDetail",
+        "largeFileDetail",
+        "codeQuality",
+        "debtNote"
+      ]
+    },
+    "detailsHeading": {
+      "type": "Heading",
+      "props": {
+        "text": "Details",
+        "level": "h3"
+      }
+    },
+    "todoDetail": {
+      "type": "Text",
+      "props": {
+        "text": "TODO: ZIZMOR bump (unchanged)"
+      }
+    },
+    "largeFileDetail": {
+      "type": "Text",
+      "props": {
+        "text": "Large file: a2a-server/src/index.ts (578 lines)"
+      }
+    },
+    "codeQuality": {
+      "type": "Text",
+      "props": {
+        "text": "Code quality: Clean on dead code + type hygiene (no any, no ts-ignore)"
+      }
+    },
+    "debtNote": {
+      "type": "Text",
+      "props": {
+        "text": "No new debt this week",
+        "variant": "lead"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "actionsStack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "actionsHeading",
+        "action1",
+        "action2"
+      ]
+    },
+    "actionsHeading": {
+      "type": "Heading",
+      "props": {
+        "text": "Carried-over Actions (Open)",
+        "level": "h3"
+      }
+    },
+    "action1": {
+      "type": "Badge",
+      "props": {
+        "text": "Split the a2a server",
+        "variant": "outline"
+      }
+    },
+    "action2": {
+      "type": "Badge",
+      "props": {
+        "text": "Wire api-gate.test.ts into CI",
+        "variant": "outline"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "reportLink": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/code-health-2026-05-28.md",
+        "source": "Code Health"
+      }
+    }
+  }
+}

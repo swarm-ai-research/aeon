@@ -1,0 +1,175 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Code Health",
+        "description": "2026-06-02"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status-badge",
+        "additions-text",
+        "separator-1",
+        "carryovers-section",
+        "separator-2",
+        "metrics-section",
+        "pr-link"
+      ]
+    },
+    "status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "quiet diff",
+        "variant": "secondary"
+      }
+    },
+    "additions-text": {
+      "type": "Text",
+      "props": {
+        "text": "Only material addition since yesterday: new 288-line pr-merge-queue/SKILL.md",
+        "variant": "body"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "carryovers-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "carryovers-heading",
+        "carryovers-list"
+      ]
+    },
+    "carryovers-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Week-5 Carryovers (all still open)",
+        "level": "h3"
+      }
+    },
+    "carryovers-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "carryover-1",
+        "carryover-2",
+        "carryover-3",
+        "carryover-4"
+      ]
+    },
+    "carryover-1": {
+      "type": "Text",
+      "props": {
+        "text": "dashboard test glob still misses 4/5 test files (821 of 870 lines unrun)",
+        "variant": "body"
+      }
+    },
+    "carryover-2": {
+      "type": "Text",
+      "props": {
+        "text": "CI still never invokes npm test",
+        "variant": "body"
+      }
+    },
+    "carryover-3": {
+      "type": "Text",
+      "props": {
+        "text": "a2a-server/src/index.ts still 578 lines",
+        "variant": "body"
+      }
+    },
+    "carryover-4": {
+      "type": "Text",
+      "props": {
+        "text": "ZIZMOR TODO still at workflow-security-audit/SKILL.md:36",
+        "variant": "body"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metrics-heading",
+        "metrics-stack"
+      ]
+    },
+    "metrics-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Metrics",
+        "level": "h3"
+      }
+    },
+    "metrics-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "metric-secrets",
+        "metric-unchanged",
+        "metric-deadcode"
+      ]
+    },
+    "metric-secrets": {
+      "type": "Stat",
+      "props": {
+        "label": "Secrets",
+        "value": "clean"
+      }
+    },
+    "metric-unchanged": {
+      "type": "Stat",
+      "props": {
+        "label": "Any unchanged",
+        "value": "13"
+      }
+    },
+    "metric-deadcode": {
+      "type": "Stat",
+      "props": {
+        "label": "Dead-code signals",
+        "value": "0"
+      }
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #113",
+        "href": "#113"
+      }
+    }
+  }
+}

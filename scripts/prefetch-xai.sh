@@ -31,12 +31,8 @@ xai_search() {
   local from_date="${3:-$YESTERDAY}" to_date="${4:-$TODAY}"
   local extra_tools="${5:-}"
 
-  local tools
-  if [ -n "$extra_tools" ]; then
-    tools="[{\"type\": \"x_search\", \"from_date\": \"$from_date\", \"to_date\": \"$to_date\", $extra_tools}]"
-  else
-    tools="[{\"type\": \"x_search\", \"from_date\": \"$from_date\", \"to_date\": \"$to_date\"}]"
-  fi
+  local extra_suffix="${extra_tools:+, $extra_tools}"
+  local tools="[{\"type\": \"x_search\", \"from_date\": \"$from_date\", \"to_date\": \"$to_date\"${extra_suffix}}]"
 
   echo "xai-prefetch: fetching $outfile ..."
   local response
@@ -79,7 +75,6 @@ xai_search() {
     # Log persistent errors to memory so skills and health checks can see them
     if [ "$http_code" = "429" ] || [ "$http_code" = "401" ] || [ "$http_code" = "403" ]; then
       mkdir -p memory/logs
-      TODAY=$(date -u +%Y-%m-%d)
       NOW=$(date -u +%H:%M)
       ERROR_MSG=$(echo "$response" | jq -r '.error // .message // "unknown"' 2>/dev/null | head -c 200)
       echo "" >> "memory/logs/${TODAY}.md"

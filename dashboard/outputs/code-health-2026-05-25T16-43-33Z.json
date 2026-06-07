@@ -1,0 +1,262 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Code Health",
+        "description": "aaronjmars/aeon — 4fb828fb"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status-badge",
+        "sep1",
+        "findings-section",
+        "sep2",
+        "gap-section",
+        "sep3",
+        "fix-section",
+        "sep4",
+        "report-link"
+      ]
+    },
+    "status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Clean repo, low debt",
+        "variant": "default"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "findings-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "findings-heading",
+        "findings-stack"
+      ]
+    },
+    "findings-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Positive Findings",
+        "level": "h3"
+      }
+    },
+    "findings-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-todos",
+        "badge-secrets",
+        "badge-files",
+        "badge-deadcode"
+      ]
+    },
+    "badge-todos": {
+      "type": "Badge",
+      "props": {
+        "text": "Zero substantive TODOs",
+        "variant": "secondary"
+      }
+    },
+    "badge-secrets": {
+      "type": "Badge",
+      "props": {
+        "text": "No hardcoded secrets",
+        "variant": "secondary"
+      }
+    },
+    "badge-files": {
+      "type": "Badge",
+      "props": {
+        "text": "No oversized files",
+        "variant": "secondary"
+      }
+    },
+    "badge-deadcode": {
+      "type": "Badge",
+      "props": {
+        "text": "No dead code",
+        "variant": "secondary"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "gap-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "gap-alert",
+        "gap-details"
+      ]
+    },
+    "gap-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Gap Identified",
+        "message": "No CI quality gate",
+        "type": "warning"
+      }
+    },
+    "gap-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "gap-text1",
+        "gap-text2"
+      ]
+    },
+    "gap-text1": {
+      "type": "Text",
+      "props": {
+        "text": "Nothing typechecks the TS services",
+        "variant": "body"
+      }
+    },
+    "gap-text2": {
+      "type": "Text",
+      "props": {
+        "text": "api-gate.test.ts security test not run on PRs",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fix-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fix-heading",
+        "fix-content"
+      ]
+    },
+    "fix-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Fix",
+        "level": "h3"
+      }
+    },
+    "fix-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fix-workflow",
+        "fix-script"
+      ]
+    },
+    "fix-workflow": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "fix-workflow-label",
+        "fix-workflow-badges"
+      ]
+    },
+    "fix-workflow-label": {
+      "type": "Text",
+      "props": {
+        "text": "Add a small CI workflow:",
+        "variant": "body"
+      }
+    },
+    "fix-workflow-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-tsc",
+        "badge-nodetest",
+        "badge-skillhealth"
+      ]
+    },
+    "badge-tsc": {
+      "type": "Badge",
+      "props": {
+        "text": "tsc --noEmit",
+        "variant": "outline"
+      }
+    },
+    "badge-nodetest": {
+      "type": "Badge",
+      "props": {
+        "text": "node --test",
+        "variant": "outline"
+      }
+    },
+    "badge-skillhealth": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-health smoke",
+        "variant": "outline"
+      }
+    },
+    "fix-script": {
+      "type": "Text",
+      "props": {
+        "text": "Add a test script in dashboard/package.json",
+        "variant": "body"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full report",
+        "href": "articles/code-health-2026-05-25.md"
+      }
+    }
+  }
+}

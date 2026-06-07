@@ -1,0 +1,231 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Code Health Report",
+        "description": "aaronjmars/aeon (HEAD 928c9ec)"
+      },
+      "children": [
+        "status_stack",
+        "sep_1",
+        "findings_section",
+        "sep_2",
+        "metrics_section",
+        "sep_3",
+        "recommendations_section",
+        "sep_4",
+        "report_link"
+      ]
+    },
+    "status_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "status_badge",
+        "concern_badge"
+      ]
+    },
+    "status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Clean: Secrets, Dead Code, Types",
+        "variant": "default"
+      }
+    },
+    "concern_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "⚠ New Untested Surface Area",
+        "variant": "warning"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "findings_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "findings_heading",
+        "alert_unvalidated",
+        "alert_import_route"
+      ]
+    },
+    "findings_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Key Findings",
+        "level": "h3"
+      }
+    },
+    "alert_unvalidated": {
+      "type": "Alert",
+      "props": {
+        "title": "New Untested Surface Area",
+        "message": "This week added dashboard import/sync/analytics routes and config.ts",
+        "type": "warning"
+      }
+    },
+    "alert_import_route": {
+      "type": "Alert",
+      "props": {
+        "title": "Security Concern: Unvalidated Import Route",
+        "message": "The import route commits files to the repo from an unvalidated request body, gated only by the same-origin api-gate",
+        "type": "error"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metrics_heading",
+        "metrics_grid"
+      ]
+    },
+    "metrics_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Metrics",
+        "level": "h3"
+      }
+    },
+    "metrics_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat_todos",
+        "stat_secrets",
+        "stat_large_files",
+        "stat_tests"
+      ]
+    },
+    "stat_todos": {
+      "type": "Stat",
+      "props": {
+        "label": "TODOs",
+        "value": "1",
+        "delta": "unchanged"
+      }
+    },
+    "stat_secrets": {
+      "type": "Stat",
+      "props": {
+        "label": "Hardcoded Secrets",
+        "value": "0"
+      }
+    },
+    "stat_large_files": {
+      "type": "Stat",
+      "props": {
+        "label": "Files Over 500 Lines",
+        "value": "1"
+      }
+    },
+    "stat_tests": {
+      "type": "Stat",
+      "props": {
+        "label": "Test Files",
+        "value": "2"
+      }
+    },
+    "large_file_detail": {
+      "type": "Text",
+      "props": {
+        "text": "a2a-server/src/index.ts (578 lines, unchanged)",
+        "variant": "caption"
+      }
+    },
+    "test_note": {
+      "type": "Text",
+      "props": {
+        "text": "No test script in any workspace",
+        "variant": "caption"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "recommendations_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "recs_heading",
+        "recs_note",
+        "rec_1",
+        "rec_2"
+      ]
+    },
+    "recs_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Outstanding Recommendations",
+        "level": "h3"
+      }
+    },
+    "recs_note": {
+      "type": "Text",
+      "props": {
+        "text": "Carried over from previous reports — still open",
+        "variant": "muted"
+      }
+    },
+    "rec_1": {
+      "type": "Text",
+      "props": {
+        "text": "1. Split index.ts",
+        "variant": "body"
+      }
+    },
+    "rec_2": {
+      "type": "Text",
+      "props": {
+        "text": "2. Wire api-gate.test.ts into CI",
+        "variant": "body"
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/code-health-2026-05-29.md",
+        "source": "code-health skill"
+      }
+    }
+  }
+}

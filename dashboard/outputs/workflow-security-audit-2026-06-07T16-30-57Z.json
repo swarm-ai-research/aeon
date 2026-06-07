@@ -1,0 +1,91 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Workflow Security Audit",
+        "description": "Workflow audit — 2026-06-07"
+      },
+      "children": [
+        "badge_status",
+        "stack_main"
+      ]
+    },
+    "badge_status": {
+      "type": "Badge",
+      "props": {
+        "text": "3 New Unpinned Uses - Manual SHA Pinning Required",
+        "variant": "destructive"
+      }
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert_critical",
+        "separator_1",
+        "stack_stats",
+        "separator_2",
+        "storylink_pr"
+      ]
+    },
+    "alert_critical": {
+      "type": "Alert",
+      "props": {
+        "title": "Top Chain: Unpinned actions/checkout",
+        "message": "compromised actions/checkout in sync-aeon-public.yml could exfiltrate AEON_PUBLIC_PAT (cross-repo write to swarm-ai-research/aeon)",
+        "type": "error"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_autofixed",
+        "stat_manual"
+      ]
+    },
+    "stat_autofixed": {
+      "type": "Stat",
+      "props": {
+        "label": "Auto-fixed",
+        "value": "0"
+      }
+    },
+    "stat_manual": {
+      "type": "Stat",
+      "props": {
+        "label": "Manual SHA Pinning",
+        "value": "3"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "storylink_pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Fix PR #265",
+        "href": "https://github.com/rsavitt/aeon/pull/265",
+        "source": "GitHub"
+      }
+    }
+  }
+}

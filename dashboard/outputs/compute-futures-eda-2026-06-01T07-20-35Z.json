@@ -1,0 +1,49 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "compute-futures-eda"
+      },
+      "children": [
+        "stack"
+      ]
+    },
+    "stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert",
+        "causes_heading",
+        "causes"
+      ]
+    },
+    "alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Skipped",
+        "message": "No CSV proofs yet at memory/gitlawb-compute-futures-proofs/",
+        "type": "info"
+      }
+    },
+    "causes_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Possible causes",
+        "level": "h4"
+      }
+    },
+    "causes": {
+      "type": "Text",
+      "props": {
+        "text": "• pre-CSV-emitter sweeps\n• deployer not running\n• fleet-state fetch failed",
+        "variant": "body"
+      }
+    }
+  }
+}

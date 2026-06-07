@@ -1,0 +1,211 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "code-health",
+        "description": "2026-06-07 · aaronjmars/aeon @ 973244d — same HEAD as yesterday"
+      },
+      "children": [
+        "heading-metrics",
+        "sep-1",
+        "stack-todos",
+        "sep-2",
+        "heading-registry",
+        "stack-registry",
+        "text-missing",
+        "sep-3",
+        "heading-carryovers",
+        "stack-carryovers",
+        "sep-4",
+        "heading-security",
+        "badge-secrets",
+        "sep-5",
+        "link-article"
+      ]
+    },
+    "heading-metrics": {
+      "type": "Heading",
+      "props": {
+        "text": "Metrics",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stack-todos": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-todos"
+      ]
+    },
+    "stat-todos": {
+      "type": "Stat",
+      "props": {
+        "label": "Real source TODOs",
+        "value": "0"
+      },
+      "children": []
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading-registry": {
+      "type": "Heading",
+      "props": {
+        "text": "Registry Status",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "stack-registry": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-skill-md",
+        "stat-aeon-yml",
+        "stat-skills-json"
+      ]
+    },
+    "stat-skill-md": {
+      "type": "Stat",
+      "props": {
+        "label": "SKILL.md",
+        "value": "193"
+      },
+      "children": []
+    },
+    "stat-aeon-yml": {
+      "type": "Stat",
+      "props": {
+        "label": "aeon.yml",
+        "value": "191"
+      },
+      "children": []
+    },
+    "stat-skills-json": {
+      "type": "Stat",
+      "props": {
+        "label": "skills.json",
+        "value": "193"
+      },
+      "children": []
+    },
+    "text-missing": {
+      "type": "Text",
+      "props": {
+        "text": "2 missing: liquidpad-launch (day 10), vigil (day 4)",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading-carryovers": {
+      "type": "Heading",
+      "props": {
+        "text": "Carryovers",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "stack-carryovers": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-zizmor",
+        "badge-a2a-server",
+        "badge-api-tests"
+      ]
+    },
+    "badge-zizmor": {
+      "type": "Badge",
+      "props": {
+        "text": "ZIZMOR 1.24.1 pin (week 6)",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "badge-a2a-server": {
+      "type": "Badge",
+      "props": {
+        "text": "a2a-server/src/index.ts 579 LOC (week 6, no drift)",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "badge-api-tests": {
+      "type": "Badge",
+      "props": {
+        "text": "0/18 API route tests",
+        "variant": "destructive"
+      },
+      "children": []
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading-security": {
+      "type": "Heading",
+      "props": {
+        "text": "Security",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "badge-secrets": {
+      "type": "Badge",
+      "props": {
+        "text": "Zero secret hits",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "sep-5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "link-article": {
+      "type": "Link",
+      "props": {
+        "label": "articles/code-health-2026-06-07.md",
+        "href": "articles/code-health-2026-06-07.md"
+      },
+      "children": []
+    }
+  }
+}

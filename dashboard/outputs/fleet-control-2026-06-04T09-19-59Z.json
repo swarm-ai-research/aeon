@@ -1,0 +1,217 @@
+{
+  "root": "card-fleet-control",
+  "state": {},
+  "elements": {
+    "card-fleet-control": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Control",
+        "description": "2026-06-04"
+      },
+      "children": [
+        "verdict-section",
+        "separator-1",
+        "fleet-section",
+        "separator-2",
+        "counts-section",
+        "separator-3",
+        "caps-section",
+        "separator-4",
+        "sources-section"
+      ]
+    },
+    "verdict-section": {
+      "type": "Alert",
+      "props": {
+        "title": "Verdict",
+        "message": "FLEET_OK",
+        "type": "success"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fleet-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fleet-heading",
+        "fleet-table"
+      ]
+    },
+    "fleet-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet (4 total, all GitLawb-hosted)",
+        "level": "h3"
+      }
+    },
+    "fleet-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Agent",
+          "Status",
+          "DID",
+          "Info"
+        ],
+        "rows": [
+          [
+            "aeon-researcher",
+            "HEALTHY",
+            "did:key:z6Mkf…HRUH",
+            "none"
+          ],
+          [
+            "aeon-reviewer",
+            "HEALTHY",
+            "did:key:z6Mks…U7SZ",
+            "none"
+          ],
+          [
+            "aeon-deployer",
+            "HEALTHY",
+            "did:key:z6Mkn…CAuS",
+            "none"
+          ],
+          [
+            "aeon-sentinel",
+            "HEALTHY",
+            "did:key:z6Mks…4S2M",
+            "none"
+          ]
+        ]
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "counts-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "counts-heading",
+        "counts-table"
+      ]
+    },
+    "counts-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Status Counts",
+        "level": "h3"
+      }
+    },
+    "counts-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Status",
+          "Count"
+        ],
+        "rows": [
+          [
+            "healthy",
+            "4"
+          ],
+          [
+            "warning",
+            "0"
+          ],
+          [
+            "degraded",
+            "0"
+          ],
+          [
+            "stale",
+            "0"
+          ],
+          [
+            "pending",
+            "0"
+          ],
+          [
+            "unreachable",
+            "0"
+          ],
+          [
+            "archived",
+            "0"
+          ]
+        ]
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "caps-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "caps-heading",
+        "caps-text"
+      ]
+    },
+    "caps-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Capabilities",
+        "level": "h3"
+      }
+    },
+    "caps-text": {
+      "type": "Text",
+      "props": {
+        "text": "Caps expire 2026-06-24 (20d out — renewal window clear)"
+      }
+    },
+    "separator-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sources-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sources-heading",
+        "sources-text"
+      ]
+    },
+    "sources-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h3"
+      }
+    },
+    "sources-text": {
+      "type": "Text",
+      "props": {
+        "text": "gh=skipped (gitlawb-only) · gitlawb-fleet.json=missing, read mirrored fields direct",
+        "variant": "caption"
+      }
+    }
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Control",
+        "description": "2026-06-01"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-verdict",
+        "badge-verdict",
+        "separator-1",
+        "heading-fleet",
+        "table-fleet",
+        "separator-2",
+        "heading-counts",
+        "table-counts",
+        "separator-3",
+        "heading-sources",
+        "stack-sources"
+      ]
+    },
+    "heading-verdict": {
+      "type": "Heading",
+      "props": {
+        "text": "Verdict",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "badge-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "FLEET_OK",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {},
+      "children": []
+    },
+    "heading-fleet": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet (4 total)",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "table-fleet": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Name",
+          "Status",
+          "Source",
+          "Notes"
+        ],
+        "rows": [
+          [
+            "aeon-researcher",
+            "HEALTHY",
+            "gitlawb/researcher",
+            "none"
+          ],
+          [
+            "aeon-reviewer",
+            "HEALTHY",
+            "gitlawb/reviewer",
+            "none"
+          ],
+          [
+            "aeon-deployer",
+            "HEALTHY",
+            "gitlawb/deployer",
+            "none"
+          ],
+          [
+            "aeon-sentinel",
+            "HEALTHY",
+            "gitlawb/sentinel",
+            "none"
+          ]
+        ]
+      },
+      "children": []
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {},
+      "children": []
+    },
+    "heading-counts": {
+      "type": "Heading",
+      "props": {
+        "text": "Health Counts",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "table-counts": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Status",
+          "Count"
+        ],
+        "rows": [
+          [
+            "healthy",
+            "4"
+          ],
+          [
+            "warning",
+            "0"
+          ],
+          [
+            "degraded",
+            "0"
+          ],
+          [
+            "stale",
+            "0"
+          ],
+          [
+            "pending",
+            "0"
+          ],
+          [
+            "unreachable",
+            "0"
+          ],
+          [
+            "archived",
+            "0"
+          ]
+        ]
+      },
+      "children": []
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {},
+      "children": []
+    },
+    "heading-sources": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "stack-sources": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-gitlawb",
+        "text-gh"
+      ]
+    },
+    "text-gitlawb": {
+      "type": "Text",
+      "props": {
+        "text": "gitlawb=ok"
+      },
+      "children": []
+    },
+    "text-gh": {
+      "type": "Text",
+      "props": {
+        "text": "gh=skipped (no GitHub-hosted entries)"
+      },
+      "children": []
+    }
+  }
+}

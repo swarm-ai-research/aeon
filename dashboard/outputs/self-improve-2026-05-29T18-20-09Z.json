@@ -1,0 +1,142 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "self-improve"
+      },
+      "children": [
+        "description",
+        "fix-type",
+        "separator1",
+        "problem-section",
+        "separator2",
+        "solution-section",
+        "separator3",
+        "pr-link",
+        "status"
+      ]
+    },
+    "description": {
+      "type": "Text",
+      "props": {
+        "text": "Fixed the heartbeat P3 missing-skill check"
+      }
+    },
+    "fix-type": {
+      "type": "Badge",
+      "props": {
+        "text": "Prompt-clarity fix",
+        "variant": "outline"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "problem-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "problem-heading",
+        "problem-text"
+      ]
+    },
+    "problem-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Problem",
+        "level": "h3"
+      }
+    },
+    "problem-text": {
+      "type": "Text",
+      "props": {
+        "text": "Flagged every newly-enabled skill with no cron-state entry as 'never dispatched' — no grace for skills whose first window hadn't fired, no carve-out for reactive/dispatch skills"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "solution-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "solution-heading",
+        "solution-item1",
+        "solution-item2"
+      ]
+    },
+    "solution-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Solution",
+        "level": "h3"
+      }
+    },
+    "solution-item1": {
+      "type": "Text",
+      "props": {
+        "text": "Only flag once the first cron window passed by >2h"
+      }
+    },
+    "solution-item2": {
+      "type": "Text",
+      "props": {
+        "text": "Never flag reactive/workflow_dispatch skills"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #58",
+        "href": "https://github.com/rsavitt/aeon/pull/58",
+        "source": "GitHub"
+      }
+    },
+    "status": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "status-label",
+        "status-badge"
+      ]
+    },
+    "status-label": {
+      "type": "Text",
+      "props": {
+        "text": "Status:",
+        "variant": "muted"
+      }
+    },
+    "status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "All skills green",
+        "variant": "default"
+      }
+    }
+  }
+}

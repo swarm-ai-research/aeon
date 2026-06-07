@@ -1,0 +1,159 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "batch-health"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "header",
+        "alert",
+        "missed_details",
+        "status_details"
+      ]
+    },
+    "header": {
+      "type": "Heading",
+      "props": {
+        "text": "batch gap — 2026-06-05",
+        "level": "h3"
+      }
+    },
+    "alert": {
+      "type": "Alert",
+      "props": {
+        "title": "1 scheduled skill didn't run (06:00–07:30 UTC window)",
+        "type": "warning"
+      }
+    },
+    "missed_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "planner_heading",
+        "planner_info"
+      ]
+    },
+    "planner_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "planner",
+        "level": "h4"
+      }
+    },
+    "planner_info": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "cron_badge",
+        "miss_text",
+        "cause_text"
+      ]
+    },
+    "cron_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "30 6 * * *",
+        "variant": "outline"
+      }
+    },
+    "miss_text": {
+      "type": "Text",
+      "props": {
+        "text": "8th consecutive morning miss"
+      }
+    },
+    "cause_text": {
+      "type": "Text",
+      "props": {
+        "text": "dispatcher-side"
+      }
+    },
+    "status_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "compute_stack",
+        "assessment_stack"
+      ]
+    },
+    "compute_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "compute_heading",
+        "compute_text"
+      ]
+    },
+    "compute_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "compute-futures-eda",
+        "level": "h4"
+      }
+    },
+    "compute_text": {
+      "type": "Text",
+      "props": {
+        "text": "fired 06:42Z. isolated miss"
+      }
+    },
+    "assessment_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "watch_text",
+        "threshold_text",
+        "monitoring_badge"
+      ]
+    },
+    "watch_text": {
+      "type": "Text",
+      "props": {
+        "text": "durable planner-dispatch WATCH per MEMORY.md",
+        "variant": "muted"
+      }
+    },
+    "threshold_text": {
+      "type": "Text",
+      "props": {
+        "text": "still single-skill so below the 3+ OUTAGE threshold",
+        "variant": "muted"
+      }
+    },
+    "monitoring_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "monitoring",
+        "variant": "default"
+      }
+    }
+  }
+}

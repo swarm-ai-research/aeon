@@ -1,0 +1,180 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review",
+        "description": "2026-05-27"
+      },
+      "children": [
+        "text_summary",
+        "sep1",
+        "pr466_section",
+        "sep2",
+        "pr415_section"
+      ]
+    },
+    "text_summary": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed 1, skipped 1 (dup-SHA: 1)",
+        "variant": "lead"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr466_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr466_link",
+        "pr466_badges",
+        "pr466_detail1",
+        "pr466_detail2",
+        "pr466_detail3"
+      ]
+    },
+    "pr466_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm#466",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/466",
+        "source": "GitHub"
+      }
+    },
+    "pr466_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_rc_466",
+        "badge_progress_466",
+        "badge_critical_466",
+        "badge_issue_466"
+      ]
+    },
+    "badge_rc_466": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "secondary"
+      }
+    },
+    "badge_progress_466": {
+      "type": "Badge",
+      "props": {
+        "text": "3/5",
+        "variant": "outline"
+      }
+    },
+    "badge_critical_466": {
+      "type": "Badge",
+      "props": {
+        "text": "0 critical"
+      }
+    },
+    "badge_issue_466": {
+      "type": "Badge",
+      "props": {
+        "text": "1 issue"
+      }
+    },
+    "pr466_detail1": {
+      "type": "Text",
+      "props": {
+        "text": "Implementation correct (closes get_store real-DB hazard)"
+      }
+    },
+    "pr466_detail2": {
+      "type": "Text",
+      "props": {
+        "text": "New commit 8999e1c finally re-triggered CI, but test matrix + type-check still in_progress",
+        "variant": "body"
+      }
+    },
+    "pr466_detail3": {
+      "type": "Alert",
+      "props": {
+        "message": "Hold for green CI, no code change needed",
+        "type": "info"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr415_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr415_link",
+        "pr415_badges",
+        "pr415_detail1"
+      ]
+    },
+    "pr415_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm#415",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/415",
+        "source": "GitHub"
+      }
+    },
+    "pr415_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_rc_415",
+        "badge_dup",
+        "badge_progress_415"
+      ]
+    },
+    "badge_rc_415": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES (standing)",
+        "variant": "secondary"
+      }
+    },
+    "badge_dup": {
+      "type": "Badge",
+      "props": {
+        "text": "skipped (dup-SHA)",
+        "variant": "outline"
+      }
+    },
+    "badge_progress_415": {
+      "type": "Badge",
+      "props": {
+        "text": "2/5",
+        "variant": "outline"
+      }
+    },
+    "pr415_detail1": {
+      "type": "Alert",
+      "props": {
+        "message": "lint + quality-gate still failing",
+        "type": "warning"
+      }
+    }
+  }
+}

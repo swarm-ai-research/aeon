@@ -1,0 +1,119 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "skill-graph"
+      },
+      "children": [
+        "heading",
+        "stats_main",
+        "separator1",
+        "metrics_stack",
+        "separator2",
+        "pr_link"
+      ]
+    },
+    "heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Skill Graph initialized",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "stats_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_total",
+        "stat_categories",
+        "stat_enabled"
+      ]
+    },
+    "stat_total": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills mapped",
+        "value": "168"
+      },
+      "children": []
+    },
+    "stat_categories": {
+      "type": "Stat",
+      "props": {
+        "label": "Categories",
+        "value": "6"
+      },
+      "children": []
+    },
+    "stat_enabled": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled",
+        "value": "41"
+      },
+      "children": []
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {},
+      "children": []
+    },
+    "metrics_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "metric_depends",
+        "metric_reactive",
+        "metric_shared"
+      ]
+    },
+    "metric_depends": {
+      "type": "Stat",
+      "props": {
+        "label": "depends_on",
+        "value": "5"
+      },
+      "children": []
+    },
+    "metric_reactive": {
+      "type": "Stat",
+      "props": {
+        "label": "reactive",
+        "value": "2"
+      },
+      "children": []
+    },
+    "metric_shared": {
+      "type": "Stat",
+      "props": {
+        "label": "shared_state",
+        "value": "22"
+      },
+      "children": []
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {},
+      "children": []
+    },
+    "pr_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #104",
+        "href": "https://github.com/rsavitt/aeon/pull/104",
+        "source": "GitHub"
+      },
+      "children": []
+    }
+  }
+}

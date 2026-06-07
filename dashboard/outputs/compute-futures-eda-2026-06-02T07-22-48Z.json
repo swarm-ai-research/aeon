@@ -1,0 +1,24 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "compute-futures-eda"
+      },
+      "children": [
+        "alert-skip"
+      ]
+    },
+    "alert-skip": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "title": "Skipped",
+        "message": "no CSV proofs yet at memory/gitlawb-compute-futures-proofs/ — pre-CSV-emitter sweeps, deployer not running, or fleet-state fetch failed"
+      },
+      "children": []
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Self Review",
+        "description": "2026-06-07"
+      },
+      "children": [
+        "quality-stack",
+        "sep1",
+        "reliability-stack",
+        "sep2",
+        "actions-stack",
+        "sep3",
+        "recommendations-stack"
+      ]
+    },
+    "quality-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "quality-heading",
+        "quality-text1",
+        "quality-text2"
+      ]
+    },
+    "quality-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Quality",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "quality-text1": {
+      "type": "Text",
+      "props": {
+        "text": "Engineering skills (code-health, pr-review, skill-evals, vuln-scanner) earned their slot"
+      },
+      "children": []
+    },
+    "quality-text2": {
+      "type": "Text",
+      "props": {
+        "text": "Content side empty — zero new docs/_posts/ essays, content-engine paused 7+ days"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "reliability-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "reliability-heading",
+        "cron-stat",
+        "heartbeat-text",
+        "issues-closed-text",
+        "issues-filed-text"
+      ]
+    },
+    "reliability-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Reliability",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "cron-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Cron-state entries",
+        "value": "49/49 clean"
+      },
+      "children": []
+    },
+    "heartbeat-text": {
+      "type": "Text",
+      "props": {
+        "text": "Sixth consecutive heartbeat day"
+      },
+      "children": []
+    },
+    "issues-closed-text": {
+      "type": "Text",
+      "props": {
+        "text": "Closed ISS-004/006/007 via PR #107"
+      },
+      "children": []
+    },
+    "issues-filed-text": {
+      "type": "Text",
+      "props": {
+        "text": "Filed ISS-009 (aeon-reviewer GitLawb race)"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "actions-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "actions-heading",
+        "action1-text",
+        "action2-text",
+        "action3-text",
+        "action4-text"
+      ]
+    },
+    "actions-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Actions taken",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "action1-text": {
+      "type": "Text",
+      "props": {
+        "text": "Pruned MEMORY.md 71→62 lines"
+      },
+      "children": []
+    },
+    "action2-text": {
+      "type": "Text",
+      "props": {
+        "text": "Created memory/topics/carry-over.md"
+      },
+      "children": []
+    },
+    "action3-text": {
+      "type": "Text",
+      "props": {
+        "text": "Fixed swarm-ai-safety→swarm-ai-research rename on line 47"
+      },
+      "children": []
+    },
+    "action4-text": {
+      "type": "Text",
+      "props": {
+        "text": "Rotated stale Completed Goals entry"
+      },
+      "children": []
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "recommendations-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "recommendations-heading",
+        "rec1-text",
+        "rec2-text",
+        "rec3-text"
+      ]
+    },
+    "recommendations-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Recommendations",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "rec1-text": {
+      "type": "Text",
+      "props": {
+        "text": "(1) Flip rss-feed enabled:true to close ISS-005"
+      },
+      "children": []
+    },
+    "rec2-text": {
+      "type": "Text",
+      "props": {
+        "text": "(2) Pick a fix for fleet-runner.yml 10-min timeout (8d compute-futures-eda silent-exits)"
+      },
+      "children": []
+    },
+    "rec3-text": {
+      "type": "Text",
+      "props": {
+        "text": "(3) Decide content-engine fate — re-enable with tighter quality bar or remove from roster"
+      },
+      "children": []
+    }
+  }
+}

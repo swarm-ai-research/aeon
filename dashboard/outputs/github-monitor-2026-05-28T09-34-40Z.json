@@ -1,0 +1,114 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "GitHub Monitor",
+        "description": "1 repo scanned, 0 need action"
+      },
+      "children": [
+        "main_content"
+      ]
+    },
+    "main_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "info_section",
+        "sources_section"
+      ]
+    },
+    "info_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "info_label",
+        "issue_block"
+      ]
+    },
+    "info_label": {
+      "type": "Badge",
+      "props": {
+        "text": "INFO",
+        "variant": "default"
+      }
+    },
+    "issue_block": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue_title_row",
+        "issue_description"
+      ]
+    },
+    "issue_title_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "triage_badge",
+        "issue_link"
+      ]
+    },
+    "triage_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Triage",
+        "variant": "outline"
+      }
+    },
+    "issue_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "aaronjmars/aeon!258",
+        "href": "https://github.com/aaronjmars/aeon/issues/258",
+        "source": "GitHub"
+      }
+    },
+    "issue_description": {
+      "type": "Text",
+      "props": {
+        "text": "new issue, no priority label, opened ~10h ago",
+        "variant": "caption"
+      }
+    },
+    "sources_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sources_label",
+        "sources_value"
+      ]
+    },
+    "sources_label": {
+      "type": "Text",
+      "props": {
+        "text": "sources:",
+        "variant": "muted"
+      }
+    },
+    "sources_value": {
+      "type": "Text",
+      "props": {
+        "text": "aaronjmars/aeon = ok",
+        "variant": "body"
+      }
+    }
+  }
+}

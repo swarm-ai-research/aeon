@@ -1,0 +1,158 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health",
+        "description": "2026-05-31"
+      },
+      "children": [
+        "status-alert",
+        "metrics",
+        "no-data-section",
+        "separator1",
+        "issues-section"
+      ]
+    },
+    "status-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Overall Status",
+        "message": "HEALTH: OK — No CRITICAL/DEGRADED/FLAPPING",
+        "type": "success"
+      }
+    },
+    "metrics": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "metric-healthy",
+        "metric-no-data",
+        "metric-issues"
+      ]
+    },
+    "metric-healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills Healthy",
+        "value": "32"
+      }
+    },
+    "metric-no-data": {
+      "type": "Stat",
+      "props": {
+        "label": "NO DATA",
+        "value": "9"
+      }
+    },
+    "metric-issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "4"
+      }
+    },
+    "no-data-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "no-data-heading",
+        "no-data-details"
+      ]
+    },
+    "no-data-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "NO DATA",
+        "level": "h3"
+      }
+    },
+    "no-data-details": {
+      "type": "Text",
+      "props": {
+        "text": "planner dispatch WATCH + 5 weekly-Mon first windows fire tomorrow + self-review 13min away + skill-analytics weekly-Wed + skill-repair reactive"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issues-heading",
+        "issues-list",
+        "issues-footer"
+      ]
+    },
+    "issues-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Open Issues",
+        "level": "h3"
+      }
+    },
+    "issues-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-iss004",
+        "badge-iss005",
+        "badge-iss006",
+        "badge-iss007"
+      ]
+    },
+    "badge-iss004": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-004 (sandbox)",
+        "variant": "outline"
+      }
+    },
+    "badge-iss005": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-005 (sandbox)",
+        "variant": "outline"
+      }
+    },
+    "badge-iss006": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-006 (skill-evals findings)",
+        "variant": "outline"
+      }
+    },
+    "badge-iss007": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-007 (skill-evals findings)",
+        "variant": "outline"
+      }
+    },
+    "issues-footer": {
+      "type": "Text",
+      "props": {
+        "text": "All out of scope (detected_by ≠ skill-health). Nothing filed, nothing resolved.",
+        "variant": "caption"
+      }
+    }
+  }
+}

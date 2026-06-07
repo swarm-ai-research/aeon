@@ -1,0 +1,113 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skillpacks updated",
+        "description": "3 new pack(s) + organizational changes"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_packs",
+        "sep1",
+        "heading_renames",
+        "stack_renames",
+        "sep2",
+        "stat_skills",
+        "sep3",
+        "link_pr"
+      ]
+    },
+    "stat_packs": {
+      "type": "Stat",
+      "props": {
+        "label": "New packs",
+        "value": "3"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_renames": {
+      "type": "Heading",
+      "props": {
+        "text": "Pack slug renames",
+        "level": "h3"
+      }
+    },
+    "stack_renames": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rename1",
+        "rename2",
+        "rename3"
+      ]
+    },
+    "rename1": {
+      "type": "Text",
+      "props": {
+        "text": "evolve-fleet → fleet-evolve",
+        "variant": "body"
+      }
+    },
+    "rename2": {
+      "type": "Text",
+      "props": {
+        "text": "graph-proposals → proposals-graph",
+        "variant": "body"
+      }
+    },
+    "rename3": {
+      "type": "Text",
+      "props": {
+        "text": "inference-pricing → pricing-gpu",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stat_skills": {
+      "type": "Stat",
+      "props": {
+        "label": "New skills slotted in",
+        "value": "4"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "View pull request #263",
+        "href": "https://github.com/rsavitt/aeon/pull/263",
+        "source": "GitHub"
+      }
+    }
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "root": "card_pr_review",
+  "state": {},
+  "elements": {
+    "card_pr_review": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review"
+      },
+      "children": [
+        "heading_main",
+        "stack_summary",
+        "sep_1",
+        "pr478_stack",
+        "sep_2",
+        "pr476_stack",
+        "sep_3",
+        "other_prs_stack",
+        "sep_4",
+        "note_reviews"
+      ]
+    },
+    "heading_main": {
+      "type": "Heading",
+      "props": {
+        "text": "PR Review — 2026-05-29 (merge-gate)",
+        "level": "h2"
+      }
+    },
+    "stack_summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped",
+        "stat_reverified"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "2"
+      }
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "0"
+      }
+    },
+    "stat_reverified": {
+      "type": "Stat",
+      "props": {
+        "label": "Re-verified",
+        "value": "2"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr478_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr478_title",
+        "pr478_status",
+        "pr478_details"
+      ]
+    },
+    "pr478_title": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm#478",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/478",
+        "source": "knowledge-graph docs"
+      }
+    },
+    "pr478_status": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE 5/5",
+        "variant": "default"
+      }
+    },
+    "pr478_details": {
+      "type": "Text",
+      "props": {
+        "text": "Full CI green; render-verify exercises the new mkdocs hook + graph builder end-to-end. Posted.",
+        "variant": "body"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr476_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr476_title",
+        "pr476_status",
+        "pr476_issue_count",
+        "pr476_tests_cov",
+        "pr476_problem",
+        "pr476_remedy"
+      ]
+    },
+    "pr476_title": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm#476",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/476",
+        "source": "agentgit policy engine + CI gate"
+      }
+    },
+    "pr476_status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES 3/5",
+        "variant": "destructive"
+      }
+    },
+    "pr476_issue_count": {
+      "type": "Text",
+      "props": {
+        "text": "1 issue found",
+        "variant": "body"
+      }
+    },
+    "pr476_tests_cov": {
+      "type": "Text",
+      "props": {
+        "text": "13 tests, 96% coverage, override-bypass closed + tested",
+        "variant": "body"
+      }
+    },
+    "pr476_problem": {
+      "type": "Text",
+      "props": {
+        "text": "Gate trusts agent-supplied bundle checks while correctly distrusting bundle overrides, so a check-based rule like the headline tests-must-pass is defeated by the exact untrusted agent the gate targets.",
+        "variant": "body"
+      }
+    },
+    "pr476_remedy": {
+      "type": "Text",
+      "props": {
+        "text": "Remedy: Source checks from a CI-trusted input (mirror --override). Posted inline + summary.",
+        "variant": "body"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "other_prs_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "pr472_stack",
+        "pr471_stack"
+      ]
+    },
+    "pr472_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr472_title",
+        "pr472_status",
+        "pr472_details"
+      ]
+    },
+    "pr472_title": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#472 (077d50d)",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/472"
+      }
+    },
+    "pr472_status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      }
+    },
+    "pr472_details": {
+      "type": "Text",
+      "props": {
+        "text": "Unchanged since this morning — quality-gate still red on a flaky SSE timeout; REQUEST_CHANGES stands, re-run flips it.",
+        "variant": "body"
+      }
+    },
+    "pr471_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr471_title",
+        "pr471_status",
+        "pr471_details"
+      ]
+    },
+    "pr471_title": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#471 (dependabot)",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/471"
+      }
+    },
+    "pr471_status": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE 5/5",
+        "variant": "default"
+      }
+    },
+    "pr471_details": {
+      "type": "Text",
+      "props": {
+        "text": "Now fully green. Not posted (clean bot PR).",
+        "variant": "body"
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "note_reviews": {
+      "type": "Alert",
+      "props": {
+        "title": "Review Format",
+        "message": "All verdicts posted as COMMENTED reviews (gh auth=rsavitt=author → GitHub blocks formal approve/request-changes on own PRs).",
+        "type": "info"
+      }
+    }
+  }
+}

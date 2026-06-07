@@ -1,0 +1,120 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Code Health Report — 2026-05-26",
+        "description": "aaronjmars/aeon"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-secrets",
+        "badge-secrets",
+        "separator-1",
+        "heading-filesize",
+        "text-filesize",
+        "separator-2",
+        "heading-coverage",
+        "alert-coverage",
+        "separator-3",
+        "heading-todo",
+        "text-todo",
+        "separator-4",
+        "heading-fullreport",
+        "link-fullreport"
+      ]
+    },
+    "heading-secrets": {
+      "type": "Heading",
+      "props": {
+        "text": "Secrets",
+        "level": "h3"
+      }
+    },
+    "badge-secrets": {
+      "type": "Badge",
+      "props": {
+        "text": "Clean — no hardcoded secrets",
+        "variant": "default"
+      }
+    },
+    "separator-1": {
+      "type": "Separator"
+    },
+    "heading-filesize": {
+      "type": "Heading",
+      "props": {
+        "text": "File Size",
+        "level": "h3"
+      }
+    },
+    "text-filesize": {
+      "type": "Text",
+      "props": {
+        "text": "Largest file: a2a-server/index.ts (498 lines)"
+      }
+    },
+    "separator-2": {
+      "type": "Separator"
+    },
+    "heading-coverage": {
+      "type": "Heading",
+      "props": {
+        "text": "Test Coverage",
+        "level": "h3"
+      }
+    },
+    "alert-coverage": {
+      "type": "Alert",
+      "props": {
+        "title": "Weak Spot",
+        "message": "Only 2 test files repo-wide. Dashboard api-gate test not wired into CI. No test script/runner in package.json. Sensitive API routes (auth, secrets, upload) and core libraries (memory.ts, github.ts) are untested.",
+        "type": "warning"
+      }
+    },
+    "separator-3": {
+      "type": "Separator"
+    },
+    "heading-todo": {
+      "type": "Heading",
+      "props": {
+        "text": "TODOs",
+        "level": "h3"
+      }
+    },
+    "text-todo": {
+      "type": "Text",
+      "props": {
+        "text": "1 genuine TODO"
+      }
+    },
+    "separator-4": {
+      "type": "Separator"
+    },
+    "heading-fullreport": {
+      "type": "Heading",
+      "props": {
+        "text": "Full Report",
+        "level": "h3"
+      }
+    },
+    "link-fullreport": {
+      "type": "Link",
+      "props": {
+        "label": "articles/code-health-2026-05-26.md",
+        "href": "https://github.com/aaronjmars/aeon/blob/main/articles/code-health-2026-05-26.md"
+      }
+    }
+  }
+}

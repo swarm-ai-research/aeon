@@ -1,0 +1,299 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Code Health"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "header-section",
+        "sep1",
+        "file-issue-section",
+        "sep2",
+        "stability-metrics-section",
+        "sep3",
+        "coverage-section",
+        "sep4",
+        "open-items-section",
+        "sep5",
+        "report-section"
+      ]
+    },
+    "header-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading",
+        "subheading"
+      ]
+    },
+    "heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Code Health (aaronjmars/aeon) — 2026-05-27",
+        "level": "h2"
+      }
+    },
+    "subheading": {
+      "type": "Text",
+      "props": {
+        "text": "Code quality analysis and maintenance status",
+        "variant": "muted"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "file-issue-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "file-alert",
+        "file-details"
+      ]
+    },
+    "file-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "File Size Threshold Exceeded",
+        "message": "a2a-server/src/index.ts crossed the 500-line threshold (498→578 lines) and should be split",
+        "type": "warning"
+      }
+    },
+    "file-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "file-detail-label",
+        "badges-container"
+      ]
+    },
+    "file-detail-label": {
+      "type": "Text",
+      "props": {
+        "text": "This file bundles the following concerns that should be separated:"
+      }
+    },
+    "badges-container": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-registry",
+        "badge-lifecycle",
+        "badge-sse",
+        "badge-rpc"
+      ]
+    },
+    "badge-registry": {
+      "type": "Badge",
+      "props": {
+        "text": "Skill registry"
+      }
+    },
+    "badge-lifecycle": {
+      "type": "Badge",
+      "props": {
+        "text": "Task lifecycle"
+      }
+    },
+    "badge-sse": {
+      "type": "Badge",
+      "props": {
+        "text": "SSE handlers"
+      }
+    },
+    "badge-rpc": {
+      "type": "Badge",
+      "props": {
+        "text": "JSON-RPC handlers"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stability-metrics-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stability-badge-section",
+        "metrics-grid"
+      ]
+    },
+    "stability-badge-section": {
+      "type": "Badge",
+      "props": {
+        "text": "Otherwise stable",
+        "variant": "secondary"
+      }
+    },
+    "metrics-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-todo",
+        "stat-secrets",
+        "stat-deadcode"
+      ]
+    },
+    "stat-todo": {
+      "type": "Stat",
+      "props": {
+        "label": "TODOs (Genuine)",
+        "value": "1"
+      }
+    },
+    "stat-secrets": {
+      "type": "Stat",
+      "props": {
+        "label": "Hardcoded Secrets",
+        "value": "0"
+      }
+    },
+    "stat-deadcode": {
+      "type": "Stat",
+      "props": {
+        "label": "Dead Code",
+        "value": "None"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "coverage-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "coverage-heading",
+        "coverage-alert",
+        "test-files-stat"
+      ]
+    },
+    "coverage-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Test Coverage",
+        "level": "h3"
+      }
+    },
+    "coverage-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Coverage is Thin",
+        "message": "Test coverage is thin — only 2 test files exist",
+        "type": "warning"
+      }
+    },
+    "test-files-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Test Files",
+        "value": "2"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "open-items-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "open-title",
+        "open-item"
+      ]
+    },
+    "open-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Open Items",
+        "level": "h3"
+      }
+    },
+    "open-item": {
+      "type": "Alert",
+      "props": {
+        "title": "Dashboard API-Gate Test Integration",
+        "message": "Last week's ask to wire the dashboard api-gate test into CI is still open",
+        "type": "info"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "report-heading",
+        "report-link-element"
+      ]
+    },
+    "report-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Full Report",
+        "level": "h3"
+      }
+    },
+    "report-link-element": {
+      "type": "Link",
+      "props": {
+        "label": "articles/code-health-2026-05-27.md",
+        "href": "articles/code-health-2026-05-27.md"
+      }
+    }
+  }
+}

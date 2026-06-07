@@ -1,0 +1,56 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_missing_links",
+        "text_top_date",
+        "separator_main",
+        "storylink_pr"
+      ]
+    },
+    "stat_missing_links": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3"
+      }
+    },
+    "text_top_date": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-05-28",
+        "variant": "caption"
+      }
+    },
+    "separator_main": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "storylink_pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Review PR #138",
+        "href": "https://github.com/rsavitt/aeon/pull/138",
+        "source": "GitHub"
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "compute-futures-eda"
+      },
+      "children": [
+        "alert",
+        "separator",
+        "details"
+      ]
+    },
+    "alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Skipped",
+        "message": "No CSV proofs available yet",
+        "type": "info"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {}
+    },
+    "details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "reason_section",
+        "blockers_section",
+        "next_section"
+      ]
+    },
+    "reason_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "reason_heading",
+        "reason_1",
+        "reason_2"
+      ]
+    },
+    "reason_heading": {
+      "type": "Text",
+      "props": {
+        "text": "Current state:",
+        "variant": "lead"
+      }
+    },
+    "reason_1": {
+      "type": "Text",
+      "props": {
+        "text": "No CSV proofs at memory/gitlawb-compute-futures-proofs/"
+      }
+    },
+    "reason_2": {
+      "type": "Text",
+      "props": {
+        "text": "Only older markdown proofs (2026-05-25→30) on fleet-state"
+      }
+    },
+    "blockers_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "blockers_heading",
+        "blocker_1",
+        "blocker_2"
+      ]
+    },
+    "blockers_heading": {
+      "type": "Text",
+      "props": {
+        "text": "Blockers:",
+        "variant": "lead"
+      }
+    },
+    "blocker_1": {
+      "type": "Text",
+      "props": {
+        "text": "Deployer still on pre-CSV-emitter sweeps"
+      }
+    },
+    "blocker_2": {
+      "type": "Text",
+      "props": {
+        "text": "PR #88 scenario-sweep CSV writer + deployer.mjs CSV proof-write not yet running"
+      }
+    },
+    "next_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "next_heading",
+        "next_text"
+      ]
+    },
+    "next_heading": {
+      "type": "Text",
+      "props": {
+        "text": "Next:",
+        "variant": "lead"
+      }
+    },
+    "next_text": {
+      "type": "Text",
+      "props": {
+        "text": "Re-checking tomorrow"
+      }
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "root": "main_card",
+  "state": {},
+  "elements": {
+    "main_card": {
+      "type": "Card",
+      "props": {
+        "title": "Heartbeat"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert_main",
+        "sep1",
+        "flags_section",
+        "sep2",
+        "carried_section",
+        "sep3",
+        "status_section"
+      ]
+    },
+    "alert_main": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "🟡 WATCH",
+        "message": "Three NEW P3 flags surfaced"
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "flags_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "flags_heading",
+        "flag1",
+        "flag2",
+        "flag3"
+      ]
+    },
+    "flags_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "NEW P3 Flags",
+        "level": "h3"
+      }
+    },
+    "flag1": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "run-frequency-guard",
+        "message": "last_success 2026-05-29 (~152h ago, 6.4d stale, daily skill)"
+      }
+    },
+    "flag2": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "stale-content-pr-sweeper",
+        "message": "has no cron-state entry (most recent 23:45 UTC window passed ~8.5h ago)"
+      }
+    },
+    "flag3": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "compute-macro-correlate",
+        "message": "has no entry from Sunday 2026-05-31 weekly window (5d past)"
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "carried_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "carried_heading",
+        "carried_items"
+      ]
+    },
+    "carried_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Carried Issues (dedup)",
+        "level": "h3"
+      }
+    },
+    "carried_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "carried_1",
+        "carried_2",
+        "carried_3"
+      ]
+    },
+    "carried_1": {
+      "type": "Text",
+      "props": {
+        "text": "planner 8th consecutive miss",
+        "variant": "body"
+      }
+    },
+    "carried_2": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch missing",
+        "variant": "body"
+      }
+    },
+    "carried_3": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-004→007 still fixing",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator"
+    },
+    "status_section": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Status page rewrote",
+        "message": "🟡 WATCH"
+      }
+    }
+  }
+}

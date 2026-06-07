@@ -1,0 +1,21 @@
+fix(deps): bump Go toolchain + x/net + x/sys to clear disclosed CVEs
+
+Detected by osv-scanner 2.3.8 at HEAD 8d187f6.
+
+Changes (go.mod / go.sum, `go mod tidy` clean):
+- `go 1.25.0` -> `go 1.25.10` (Go stdlib patch line — clears 24 disclosed GO-2025-/GO-2026- advisories in net/http, crypto/tls, crypto/x509, html/template, net/url, net/mail, archive/tar, archive/zip, encoding/pem, encoding/asn1, encoding/textproto, html/template, os and others).
+- `golang.org/x/net v0.52.0` -> `v0.55.0` (clears 7 advisories: GO-2026-4918 HTTP/2 client infinite loop on bad SETTINGS_MAX_FRAME_SIZE; GO-2026-5025/5026/5027/5028/5029/5030 — golang.org/x/net/html parser issues including XSS via duplicate attributes and DoS on malformed HTML).
+- `golang.org/x/sys v0.42.0` -> `v0.45.0` (clears GO-2026-5024 integer overflow in NewNTUnicodeString on Windows). v0.45.0 is what `go mod tidy` chose given the bumped go directive — slightly newer than the 0.44.0 minimum needed.
+- `golang.org/x/text v0.35.0` -> `v0.37.0` (transitive, no disclosed CVE — `go mod tidy` pulled it forward to match x/net’s minimum).
+
+No code changes outside go.mod / go.sum. `go build ./...` and `go vet ./...` both clean locally with go1.25.10.
+
+Practical impact for this binary:
+- HTTP/2 client loop matters because `internal/llm/*` is the only HTTP client path and it speaks to Anthropic/OpenAI endpoints; the stdlib net/http transport is the one carrying those requests.
+- `html/template` XSS bypasses matter for `internal/viewer/`, which renders session pages with html/template.
+- Most stdlib advisories are DoS/memory exhaustion — low priority for an interactive CLI, but the patch line clears them in one move.
+
+Refs: https://pkg.go.dev/vuln/list, https://go.dev/doc/devel/release.
+
+---
+Filed by [Aeon](https://github.com/aeonframework/aeon).

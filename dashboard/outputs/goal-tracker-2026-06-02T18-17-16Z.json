@@ -1,0 +1,250 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker — 2026-06-02",
+        "description": "4 goals: 0 at risk, 0 needs attention, 4 on track, 0 blocked, 0 done (overall → flat)"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "stack_summary",
+        "sep_1",
+        "stack_on_track",
+        "sep_2",
+        "stack_sources"
+      ]
+    },
+    "stack_summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_total",
+        "stat_at_risk",
+        "stat_attention",
+        "stat_blocked",
+        "stat_done"
+      ]
+    },
+    "stat_total": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Goals",
+        "value": "4"
+      }
+    },
+    "stat_at_risk": {
+      "type": "Stat",
+      "props": {
+        "label": "At Risk",
+        "value": "0"
+      }
+    },
+    "stat_attention": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs Attention",
+        "value": "0"
+      }
+    },
+    "stat_blocked": {
+      "type": "Stat",
+      "props": {
+        "label": "Blocked",
+        "value": "0"
+      }
+    },
+    "stat_done": {
+      "type": "Stat",
+      "props": {
+        "label": "Done",
+        "value": "0"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_on_track": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_on_track",
+        "goal_1",
+        "goal_2",
+        "goal_3",
+        "goal_4"
+      ]
+    },
+    "heading_on_track": {
+      "type": "Heading",
+      "props": {
+        "text": "ON TRACK",
+        "level": "h3"
+      }
+    },
+    "goal_1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal_1_text",
+        "goal_1_metrics"
+      ]
+    },
+    "goal_1_text": {
+      "type": "Text",
+      "props": {
+        "text": "Keep the engineering skill stack (pr-review, code-health, triage, security, health) running clean — 0d idle, 83 activity/14d (→ flat; 65→83 vs prior, PR #107 shipped ISS-004→007 fixes overnight)",
+        "variant": "body"
+      }
+    },
+    "goal_1_metrics": {
+      "type": "Badge",
+      "props": {
+        "text": "Activity: 83/14d",
+        "variant": "secondary"
+      }
+    },
+    "goal_2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal_2_text",
+        "goal_2_alert"
+      ]
+    },
+    "goal_2_text": {
+      "type": "Text",
+      "props": {
+        "text": "Run the day from intent, not just cron — 0d idle, 14 activity/14d (→ flat; planner still in chronic dispatch gap but reflect/memory-flush/goal-tracker/suggest-edges/notegraph all firing)",
+        "variant": "body"
+      }
+    },
+    "goal_2_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Planner Status",
+        "message": "Chronic dispatch gap",
+        "type": "warning"
+      }
+    },
+    "goal_3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal_3_text",
+        "goal_3_alert"
+      ]
+    },
+    "goal_3_text": {
+      "type": "Text",
+      "props": {
+        "text": "Iterate the two prototypes (GitLawb safety layer, compute-futures) — 0d idle, 36 activity/14d (→ flat; Conway/automaton comparison + article shipped today, compute-futures-eda still blocked on CSV proofs)",
+        "variant": "body"
+      }
+    },
+    "goal_3_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Blocker",
+        "message": "compute-futures-eda blocked on CSV proofs",
+        "type": "warning"
+      }
+    },
+    "goal_4": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal_4_text",
+        "goal_4_stat",
+        "goal_4_alert"
+      ]
+    },
+    "goal_4_text": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-ai-safety/swarm merge-gate queue (back to 4 open as of 2026-06-02) — 0d idle, 32 activity/14d (→ flat; live queue regressed 2→4 since prior run — net-new #488/#487 both RC 2/5)",
+        "variant": "body"
+      }
+    },
+    "goal_4_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Queue Items Open",
+        "value": "4",
+        "delta": "+2",
+        "trend": "down"
+      }
+    },
+    "goal_4_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Queue Regression",
+        "message": "Live queue regressed from 2→4 since prior run — net-new issues #488 and #487 (both RC 2/5)",
+        "type": "warning"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_sources": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_sources",
+        "text_sources"
+      ]
+    },
+    "heading_sources": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h4"
+      }
+    },
+    "text_sources": {
+      "type": "Text",
+      "props": {
+        "text": "logs=ok, git=partial (shallow CI clone), gh_pr=ok, gh_issue=ok, cron-state=ok",
+        "variant": "caption"
+      }
+    }
+  }
+}

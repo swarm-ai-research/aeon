@@ -1,0 +1,102 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "code-health",
+        "description": "2026-05-30 — aaronjmars/aeon"
+      },
+      "children": [
+        "text_churn",
+        "sep1",
+        "heading_findings",
+        "stack_findings",
+        "alert_debt",
+        "link_report"
+      ]
+    },
+    "text_churn": {
+      "type": "Text",
+      "props": {
+        "text": "100% docs/asset churn this week (13 commits, 0 code files)"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_findings": {
+      "type": "Heading",
+      "props": {
+        "text": "All findings carry over",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "stack_findings": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "finding_1",
+        "finding_2",
+        "finding_3",
+        "finding_4"
+      ]
+    },
+    "finding_1": {
+      "type": "Text",
+      "props": {
+        "text": "1 TODO unchanged"
+      },
+      "children": []
+    },
+    "finding_2": {
+      "type": "Text",
+      "props": {
+        "text": "a2a-server/src/index.ts still 578 lines"
+      },
+      "children": []
+    },
+    "finding_3": {
+      "type": "Text",
+      "props": {
+        "text": "dashboard tests still not wired into CI (3 weeks open)"
+      },
+      "children": []
+    },
+    "finding_4": {
+      "type": "Text",
+      "props": {
+        "text": "import/sync route observations stand"
+      },
+      "children": []
+    },
+    "alert_debt": {
+      "type": "Alert",
+      "props": {
+        "title": "Debt Status",
+        "message": "No new debt",
+        "type": "success"
+      },
+      "children": []
+    },
+    "link_report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/code-health-2026-05-30.md",
+        "source": "code-health"
+      },
+      "children": []
+    }
+  }
+}

@@ -1,0 +1,435 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker",
+        "description": "2026-06-03"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "heading-summary",
+        "summary-metrics-row1",
+        "summary-metrics-row2",
+        "separator-1",
+        "heading-on-track",
+        "goal-1-stack",
+        "separator-2",
+        "goal-2-stack",
+        "separator-3",
+        "goal-3-stack",
+        "separator-4",
+        "goal-4-stack",
+        "separator-5",
+        "sources-text"
+      ]
+    },
+    "heading-summary": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "summary-metrics-row1": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-total-goals",
+        "stat-at-risk",
+        "stat-needs-attention",
+        "stat-on-track"
+      ]
+    },
+    "summary-metrics-row2": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-blocked",
+        "stat-done",
+        "badge-overall-trend"
+      ]
+    },
+    "stat-total-goals": {
+      "type": "Stat",
+      "props": {
+        "label": "Total",
+        "value": "4"
+      },
+      "children": []
+    },
+    "stat-at-risk": {
+      "type": "Stat",
+      "props": {
+        "label": "At Risk",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat-needs-attention": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs Attention",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat-on-track": {
+      "type": "Stat",
+      "props": {
+        "label": "On Track",
+        "value": "4"
+      },
+      "children": []
+    },
+    "stat-blocked": {
+      "type": "Stat",
+      "props": {
+        "label": "Blocked",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat-done": {
+      "type": "Stat",
+      "props": {
+        "label": "Done",
+        "value": "0"
+      },
+      "children": []
+    },
+    "badge-overall-trend": {
+      "type": "Badge",
+      "props": {
+        "text": "Overall ↑ Improving",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading-on-track": {
+      "type": "Heading",
+      "props": {
+        "text": "ON TRACK",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "goal-1-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-1-heading",
+        "goal-1-metrics-row",
+        "goal-1-details"
+      ]
+    },
+    "goal-1-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Keep the engineering skill stack (pr-review, code-health, triage, security, health) running clean",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "goal-1-metrics-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "goal-1-stat-idle",
+        "goal-1-stat-activity",
+        "goal-1-badge-trend"
+      ]
+    },
+    "goal-1-stat-idle": {
+      "type": "Stat",
+      "props": {
+        "label": "Idle",
+        "value": "0d"
+      },
+      "children": []
+    },
+    "goal-1-stat-activity": {
+      "type": "Stat",
+      "props": {
+        "label": "Activity/14d",
+        "value": "~91"
+      },
+      "children": []
+    },
+    "goal-1-badge-trend": {
+      "type": "Badge",
+      "props": {
+        "text": "→ Flat",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "goal-1-details": {
+      "type": "Text",
+      "props": {
+        "text": "47/47 cron-state entries still success_rate=1; code-health 17:40Z + pr-review 5/5 today",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "goal-2-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-2-heading",
+        "goal-2-metrics-row",
+        "goal-2-details"
+      ]
+    },
+    "goal-2-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Run the day from intent, not just cron",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "goal-2-metrics-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "goal-2-stat-idle",
+        "goal-2-stat-activity",
+        "goal-2-badge-trend"
+      ]
+    },
+    "goal-2-stat-idle": {
+      "type": "Stat",
+      "props": {
+        "label": "Idle",
+        "value": "0d"
+      },
+      "children": []
+    },
+    "goal-2-stat-activity": {
+      "type": "Stat",
+      "props": {
+        "label": "Activity/14d",
+        "value": "~24"
+      },
+      "children": []
+    },
+    "goal-2-badge-trend": {
+      "type": "Badge",
+      "props": {
+        "text": "↑ Improving",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "goal-2-details": {
+      "type": "Text",
+      "props": {
+        "text": "fleet-runner PRs #120/#121/#122 wire goal-backlog scheduler, executors read goal context, auto-pause stuck goals; planner dispatch still WATCH, 6 consecutive misses",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "goal-3-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-3-heading",
+        "goal-3-metrics-row",
+        "goal-3-details"
+      ]
+    },
+    "goal-3-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Iterate the two prototypes (GitLawb safety layer, compute-futures)",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "goal-3-metrics-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "goal-3-stat-idle",
+        "goal-3-stat-activity",
+        "goal-3-badge-trend"
+      ]
+    },
+    "goal-3-stat-idle": {
+      "type": "Stat",
+      "props": {
+        "label": "Idle",
+        "value": "0d"
+      },
+      "children": []
+    },
+    "goal-3-stat-activity": {
+      "type": "Stat",
+      "props": {
+        "label": "Activity/14d",
+        "value": "~48"
+      },
+      "children": []
+    },
+    "goal-3-badge-trend": {
+      "type": "Badge",
+      "props": {
+        "text": "↑ Improving",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "goal-3-details": {
+      "type": "Text",
+      "props": {
+        "text": "compute-futures #102/#105/#116 merged + macro-correlate #123 opened; compute-futures-eda still skipped — needs deployer to land PR #88 CSV writer",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "separator-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "goal-4-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-4-heading",
+        "goal-4-metrics-row",
+        "goal-4-details"
+      ]
+    },
+    "goal-4-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "swarm-ai-safety/swarm merge-gate queue",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "goal-4-metrics-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "goal-4-stat-idle",
+        "goal-4-stat-activity",
+        "goal-4-badge-trend"
+      ]
+    },
+    "goal-4-stat-idle": {
+      "type": "Stat",
+      "props": {
+        "label": "Idle",
+        "value": "0d"
+      },
+      "children": []
+    },
+    "goal-4-stat-activity": {
+      "type": "Stat",
+      "props": {
+        "label": "Activity/14d",
+        "value": "~41"
+      },
+      "children": []
+    },
+    "goal-4-badge-trend": {
+      "type": "Badge",
+      "props": {
+        "text": "→ Flat",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "goal-4-details": {
+      "type": "Text",
+      "props": {
+        "text": "queue regressed 4→10 open this 24h, +5 net-new #494/#493/#492/#491/#490 — 2 APPROVE, 2 RC for stack-vs-main CI matrix gap, 1 docs ACK; repo renamed swarm-ai-safety → swarm-ai-research per merged PR #117",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "separator-5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "sources-text": {
+      "type": "Text",
+      "props": {
+        "text": "Sources: logs=ok, git=partial (shallow CI clone — 1 commit), gh_pr=ok, gh_issue=ok, cron-state=ok",
+        "variant": "muted"
+      },
+      "children": []
+    }
+  }
+}

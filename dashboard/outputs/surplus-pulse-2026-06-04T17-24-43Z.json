@@ -1,0 +1,248 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse — 2026-06-04"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "spot_section",
+        "sep1",
+        "curve_section",
+        "sep2",
+        "rail_section",
+        "sep3",
+        "summary_section"
+      ]
+    },
+    "spot_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_spot",
+        "badge_catalog",
+        "stat_llama"
+      ]
+    },
+    "heading_spot": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "badge_catalog": {
+      "type": "Badge",
+      "props": {
+        "text": "Catalog",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "stat_llama": {
+      "type": "Stat",
+      "props": {
+        "label": "Llama 4 Scout (Surplus Intelligence)",
+        "value": "$0.0764/M"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "curve_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_curve",
+        "curve_items"
+      ]
+    },
+    "heading_curve": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "curve_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_h100",
+        "stat_deepseek",
+        "stat_agent",
+        "stat_spot"
+      ]
+    },
+    "stat_h100": {
+      "type": "Stat",
+      "props": {
+        "label": "Hyperscaler H100 reserve at R30",
+        "value": "+88.7%",
+        "trend": "up"
+      },
+      "children": []
+    },
+    "stat_deepseek": {
+      "type": "Stat",
+      "props": {
+        "label": "DeepSeek V3.2 flush",
+        "value": "-44.2%",
+        "trend": "down"
+      },
+      "children": []
+    },
+    "stat_agent": {
+      "type": "Stat",
+      "props": {
+        "label": "Agent-demand surge",
+        "value": "+50.7%",
+        "trend": "up"
+      },
+      "children": []
+    },
+    "stat_spot": {
+      "type": "Stat",
+      "props": {
+        "label": "Spot closed",
+        "value": "$0.1149",
+        "delta": "+50%",
+        "trend": "up"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "rail_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_rail",
+        "rail_content"
+      ]
+    },
+    "heading_rail": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "rail_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_x402",
+        "link_x402",
+        "stat_delivered",
+        "stat_tx"
+      ]
+    },
+    "text_x402": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on Base/USDC",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "link_x402": {
+      "type": "Link",
+      "props": {
+        "label": "surplusintelligence.ai/x402",
+        "href": "https://surplusintelligence.ai/x402"
+      },
+      "children": []
+    },
+    "stat_delivered": {
+      "type": "Stat",
+      "props": {
+        "label": "Total delivered",
+        "value": "$198.43"
+      },
+      "children": []
+    },
+    "stat_tx": {
+      "type": "Stat",
+      "props": {
+        "label": "Cost per transaction",
+        "value": "$0.00025/tx"
+      },
+      "children": []
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_summary",
+        "text_summary"
+      ]
+    },
+    "heading_summary": {
+      "type": "Heading",
+      "props": {
+        "text": "One-Line Read",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "text_summary": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus inference tightened hard across the run — the H100 reserve shock held through the open-weights supply flush, with agent demand absorbing the gap; net spot up 50%.",
+        "variant": "body"
+      },
+      "children": []
+    }
+  }
+}

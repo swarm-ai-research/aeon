@@ -1,0 +1,184 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "reflect",
+        "description": "Memory consolidated — 2026-05-30"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "section-roster",
+        "sep1",
+        "section-issues",
+        "sep2",
+        "section-queue",
+        "sep3",
+        "section-planner"
+      ]
+    },
+    "section-roster": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-roster",
+        "stat-skill-roster",
+        "text-roster-examples"
+      ]
+    },
+    "heading-roster": {
+      "type": "Heading",
+      "props": {
+        "text": "Skill Roster Growth",
+        "level": "h3"
+      }
+    },
+    "stat-skill-roster": {
+      "type": "Stat",
+      "props": {
+        "label": "Total skills",
+        "value": "48",
+        "delta": "+26",
+        "trend": "up"
+      }
+    },
+    "text-roster-examples": {
+      "type": "Text",
+      "props": {
+        "text": "New skills: notegraph, vuln-scanner, rss-feed, et al.",
+        "variant": "muted"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-issues",
+        "text-new-issues",
+        "badge-iss004",
+        "badge-iss005",
+        "text-fix-status"
+      ]
+    },
+    "heading-issues": {
+      "type": "Heading",
+      "props": {
+        "text": "Sandbox-allowlist Issues",
+        "level": "h3"
+      }
+    },
+    "text-new-issues": {
+      "type": "Text",
+      "props": {
+        "text": "2 new issues:",
+        "variant": "body"
+      }
+    },
+    "badge-iss004": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-004: vuln-scanner",
+        "variant": "outline"
+      }
+    },
+    "badge-iss005": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-005: rss-feed",
+        "variant": "outline"
+      }
+    },
+    "text-fix-status": {
+      "type": "Text",
+      "props": {
+        "text": "One workflow fix closes both",
+        "variant": "muted"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-queue": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-queue",
+        "text-queue-status"
+      ]
+    },
+    "heading-queue": {
+      "type": "Heading",
+      "props": {
+        "text": "Swarm Queue",
+        "level": "h3"
+      }
+    },
+    "text-queue-status": {
+      "type": "Text",
+      "props": {
+        "text": "Drained to 2 dup-SHA",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-planner": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-planner",
+        "text-planner-status"
+      ]
+    },
+    "heading-planner": {
+      "type": "Heading",
+      "props": {
+        "text": "Planner Status",
+        "level": "h3"
+      }
+    },
+    "text-planner-status": {
+      "type": "Text",
+      "props": {
+        "text": "WATCH stands (single-skill, non-systemic)",
+        "variant": "body"
+      }
+    }
+  }
+}

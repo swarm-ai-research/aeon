@@ -1,0 +1,127 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "self-improve"
+      },
+      "children": [
+        "content-stack"
+      ]
+    },
+    "content-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary",
+        "versions",
+        "reason",
+        "audits",
+        "pr"
+      ]
+    },
+    "summary": {
+      "type": "Text",
+      "props": {
+        "text": "Bumped workflow-security-audit's ZIZMOR pin"
+      }
+    },
+    "versions": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "v-old",
+        "v-arrow",
+        "v-new"
+      ]
+    },
+    "v-old": {
+      "type": "Badge",
+      "props": {
+        "text": "1.24.1",
+        "variant": "secondary"
+      }
+    },
+    "v-arrow": {
+      "type": "Text",
+      "props": {
+        "text": "→",
+        "variant": "muted"
+      }
+    },
+    "v-new": {
+      "type": "Badge",
+      "props": {
+        "text": "1.25.2",
+        "variant": "default"
+      }
+    },
+    "reason": {
+      "type": "Alert",
+      "props": {
+        "title": "Reason",
+        "message": "code-health has flagged the stale TODO every weekly audit since 05-27",
+        "type": "info"
+      }
+    },
+    "audits": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "audits-label",
+        "audits-list"
+      ]
+    },
+    "audits-label": {
+      "type": "Text",
+      "props": {
+        "text": "v1.25.0 adds new audits:",
+        "variant": "muted"
+      }
+    },
+    "audits-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "audit-github-app",
+        "audit-unpinned-tools"
+      ]
+    },
+    "audit-github-app": {
+      "type": "Badge",
+      "props": {
+        "text": "github-app",
+        "variant": "outline"
+      }
+    },
+    "audit-unpinned-tools": {
+      "type": "Badge",
+      "props": {
+        "text": "unpinned-tools",
+        "variant": "outline"
+      }
+    },
+    "pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #68",
+        "href": "https://github.com/rsavitt/aeon/pull/68",
+        "source": "GitHub"
+      }
+    }
+  }
+}

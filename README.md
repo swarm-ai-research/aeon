@@ -259,7 +259,7 @@ The default model for all skills is set in `aeon.yml`:
 model: claude-opus-4-7
 ```
 
-You can change it from the dashboard header dropdown. Options: `claude-opus-4-7`, `claude-sonnet-4-6`, `claude-haiku-4-5-20251001`. Per-run overrides are also available via workflow dispatch.
+You can change it from the dashboard header dropdown or via the `workflow_dispatch` Model input. Options: `claude-opus-4-7`, `claude-sonnet-4-6`, `claude-haiku-4-5-20251001` (direct via Anthropic), plus `gemini-3-pro`, `gemini-3-flash`, `gpt-5.2`, `kimi-k2.5`, `qwen3-coder` (routed through the [Bankr LLM Gateway](#bankr-gateway-optional) — requires `BANKR_LLM_KEY`).
 
 Individual skills can override the default model to optimize cost:
 

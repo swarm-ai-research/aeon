@@ -12,6 +12,7 @@
 import { spawnSync } from "node:child_process";
 import { readFileSync, existsSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { getGoalContext, writeGoalUpdate } from "./goal-context.mjs";
 
 const repoDir = process.env.GITLAWB_REPO_DIR || ".";
 const task = JSON.parse(process.env.GITLAWB_TASK_JSON || "{}");
@@ -20,6 +21,12 @@ const agent = JSON.parse(process.env.GITLAWB_AGENT_JSON || "{}");
 const payload = typeof task.payload === "string" ? JSON.parse(task.payload) : (task.payload || {});
 const topic = payload.topic || payload.title || payload.prompt || task.kind || "fleet activity";
 const scope = payload.scope || "";
+
+// Goal context (non-null when this task was spawned by goal-reconciler).
+// When present, this run is one step toward a long-horizon goal and we should
+// (1) thread the objective/hint into the report and (2) write a goal-update
+// sidecar so the reconciler advances goal.state / next_action_hint.
+const goal = getGoalContext();
 
 function run(cmd, args, opts = {}) {
   const proc = spawnSync(cmd, args, { cwd: repoDir, encoding: "utf8", ...opts });
@@ -92,6 +99,20 @@ const body = [
   `**Agent:** ${agent.name} (${agent.did})`,
   `**Scope:** ${scope || "full repo"}`,
   `**Task:** ${task.id}`,
+];
+
+if (goal) {
+  body.push(
+    `**Goal:** \`${goal.goal_id}\``,
+    `**Objective:** ${goal.objective || "(unspecified)"}`,
+  );
+  if (goal.next_action_hint) body.push(`**Hint from prior cycle:** ${goal.next_action_hint}`);
+  if (goal.state && Object.keys(goal.state).length > 0) {
+    body.push(`**Prior state:** \`${JSON.stringify(goal.state)}\``);
+  }
+}
+
+body.push(
   ``,
   `### Recent Activity (${fileCount} commits in last 3 days)`,
   `\`\`\``,
@@ -102,7 +123,7 @@ const body = [
   `\`\`\``,
   recentFiles || "(no recent changes)",
   `\`\`\``,
-];
+);
 
 if (fileInsights.length > 0) {
   body.push(`### File Analysis`);
@@ -141,4 +162,33 @@ if (result.status !== 0) {
 }
 
 const issueUrl = (result.stdout || "").trim();
+
+// Goal-driven runs: tell the reconciler what we did so the next cycle of this
+// goal starts from where we left off instead of re-doing the same scan. The
+// hint is freeform — what we'd want the next attempt to focus on. The state
+// patch records progress markers (issue URL, the head we just analyzed) that
+// downstream cycles can read to avoid duplicate work.
+if (goal && goal.task_id) {
+  try {
+    const nextHint = issueUrl
+      ? `Last cycle filed ${issueUrl} covering ${fileCount} commits. Next: scan changes since ${(recentFiles.split("\n")[0] || "HEAD").slice(0, 80)} and surface any unresolved threads from prior reports.`
+      : `Last cycle analyzed ${fileCount} commits but failed to file an issue. Next: investigate why issue creation failed and retry.`;
+    writeGoalUpdate({
+      taskId: goal.task_id,
+      goalId: goal.goal_id,
+      next_action_hint: nextHint,
+      state: {
+        ...goal.state,
+        last_issue_url: issueUrl || null,
+        last_commit_count: fileCount,
+        last_run_at: new Date().toISOString(),
+      },
+      note: `Filed ${issueUrl || "(no url)"} for goal ${goal.goal_id}`,
+    }, repoDir);
+  } catch (err) {
+    // Sidecar failures should not poison a successful research run.
+    console.error(`[goal-context] writeGoalUpdate failed: ${err.message}`);
+  }
+}
+
 console.log(`Research complete: "${reportTitle}" — ${fileCount} commits analyzed, ${fileInsights.length} files scanned. Issue: ${issueUrl}`);

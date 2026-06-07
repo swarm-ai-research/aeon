@@ -1,0 +1,147 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading",
+        "description",
+        "separator1",
+        "topics-section",
+        "separator2",
+        "summary-section"
+      ]
+    },
+    "heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Memory consolidated — 2026-05-27",
+        "level": "h2"
+      }
+    },
+    "description": {
+      "type": "Text",
+      "props": {
+        "text": "Rewrote MEMORY.md as a lean index and moved detail into topic files."
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "topics-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "topics-heading",
+        "topics-grid"
+      ]
+    },
+    "topics-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Topic files",
+        "level": "h4"
+      }
+    },
+    "topics-grid": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "topic-1",
+        "topic-2",
+        "topic-3",
+        "topic-4",
+        "topic-5"
+      ]
+    },
+    "topic-1": {
+      "type": "Badge",
+      "props": {
+        "text": "projects",
+        "variant": "secondary"
+      }
+    },
+    "topic-2": {
+      "type": "Badge",
+      "props": {
+        "text": "external-prs",
+        "variant": "secondary"
+      }
+    },
+    "topic-3": {
+      "type": "Badge",
+      "props": {
+        "text": "infra",
+        "variant": "secondary"
+      }
+    },
+    "topic-4": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-health",
+        "variant": "secondary"
+      }
+    },
+    "topic-5": {
+      "type": "Badge",
+      "props": {
+        "text": "content",
+        "variant": "secondary"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pruned-text",
+        "issues-stat"
+      ]
+    },
+    "pruned-text": {
+      "type": "Text",
+      "props": {
+        "text": "Pruned stale entries.",
+        "variant": "muted"
+      }
+    },
+    "issues-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Open issues",
+        "value": "0"
+      }
+    }
+  }
+}

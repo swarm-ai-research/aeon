@@ -1,0 +1,181 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_consolidation",
+        "sep1",
+        "stat_queue",
+        "sep2",
+        "stack_issues",
+        "sep3",
+        "stack_confirmations",
+        "alert_planner"
+      ]
+    },
+    "text_consolidation": {
+      "type": "Text",
+      "props": {
+        "text": "Memory consolidated — 2026-06-02",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stat_queue": {
+      "type": "Stat",
+      "props": {
+        "label": "Upstream queue collapsed overnight",
+        "value": "1",
+        "delta": "-16",
+        "trend": "down"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stack_issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_issues_label",
+        "stack_badges"
+      ]
+    },
+    "text_issues_label": {
+      "type": "Text",
+      "props": {
+        "text": "Issue status: First heartbeat post-PR #107 clean",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "stack_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_issues",
+        "link_pr"
+      ]
+    },
+    "badge_issues": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-004→007",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "link_pr": {
+      "type": "Link",
+      "props": {
+        "label": "PR #107",
+        "href": "https://github.com/aeon/aeon/pull/107"
+      },
+      "children": []
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stack_confirmations": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_pending_label",
+        "stack_pending_items"
+      ]
+    },
+    "text_pending_label": {
+      "type": "Text",
+      "props": {
+        "text": "Confirmations still pending:",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "stack_pending_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_rss",
+        "badge_vuln",
+        "badge_evals"
+      ]
+    },
+    "badge_rss": {
+      "type": "Badge",
+      "props": {
+        "text": "rss-feed",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "badge_vuln": {
+      "type": "Badge",
+      "props": {
+        "text": "vuln-scanner",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "badge_evals": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-evals",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "alert_planner": {
+      "type": "Alert",
+      "props": {
+        "title": "Planner Status",
+        "message": "WATCH at 5 consecutive misses",
+        "type": "warning"
+      },
+      "children": []
+    }
+  }
+}

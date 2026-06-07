@@ -1,0 +1,269 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review",
+        "description": "2026-06-02 (operator merge-gate)"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stats_section",
+        "sep1",
+        "pr_items"
+      ]
+    },
+    "stats_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stats_row",
+        "skipped_section"
+      ]
+    },
+    "stats_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_posted",
+        "stat_skipped_count"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "3"
+      }
+    },
+    "stat_posted": {
+      "type": "Stat",
+      "props": {
+        "label": "Posted",
+        "value": "3"
+      }
+    },
+    "stat_skipped_count": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "2"
+      }
+    },
+    "skipped_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skipped_label",
+        "skipped_detail1",
+        "skipped_detail2"
+      ]
+    },
+    "skipped_label": {
+      "type": "Text",
+      "props": {
+        "text": "Skipped reasons:",
+        "variant": "caption"
+      }
+    },
+    "skipped_detail1": {
+      "type": "Badge",
+      "props": {
+        "text": "bot: #471 dependabot",
+        "variant": "secondary"
+      }
+    },
+    "skipped_detail2": {
+      "type": "Badge",
+      "props": {
+        "text": "dup-SHA: #472 077d50dd",
+        "variant": "secondary"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr_489",
+        "pr_488",
+        "pr_487"
+      ]
+    },
+    "pr_489": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_489_header",
+        "pr_489_status",
+        "pr_489_body"
+      ]
+    },
+    "pr_489_header": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm#489",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/489",
+        "source": "GitHub"
+      }
+    },
+    "pr_489_status": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE 5/5",
+        "variant": "default"
+      }
+    },
+    "pr_489_body": {
+      "type": "Text",
+      "props": {
+        "text": "clean helper-extraction refactor, full CI matrix green at HEAD",
+        "variant": "body"
+      }
+    },
+    "pr_488": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_488_header",
+        "pr_488_status",
+        "pr_488_body"
+      ]
+    },
+    "pr_488_header": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm#488",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/488",
+        "source": "GitHub"
+      }
+    },
+    "pr_488_status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES 3/5",
+        "variant": "destructive"
+      }
+    },
+    "pr_488_body": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_488_detail1",
+        "pr_488_detail2"
+      ]
+    },
+    "pr_488_detail1": {
+      "type": "Text",
+      "props": {
+        "text": "prior code findings all resolved at new SHA",
+        "variant": "body"
+      }
+    },
+    "pr_488_detail2": {
+      "type": "Text",
+      "props": {
+        "text": "standard CI matrix still missing at HEAD (stack-vs-main mismatch)",
+        "variant": "body"
+      }
+    },
+    "pr_487": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_487_header",
+        "pr_487_status",
+        "pr_487_body"
+      ]
+    },
+    "pr_487_header": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm#487",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/487",
+        "source": "GitHub"
+      }
+    },
+    "pr_487_status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES 3/5",
+        "variant": "destructive"
+      }
+    },
+    "pr_487_body": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_487_detail1",
+        "pr_487_detail2",
+        "pr_487_detail3"
+      ]
+    },
+    "pr_487_detail1": {
+      "type": "Text",
+      "props": {
+        "text": "prior code findings all resolved at new SHA",
+        "variant": "body"
+      }
+    },
+    "pr_487_detail2": {
+      "type": "Text",
+      "props": {
+        "text": "CI matrix missing at HEAD",
+        "variant": "body"
+      }
+    },
+    "pr_487_detail3": {
+      "type": "Text",
+      "props": {
+        "text": "_calibration_common.py duplicate-add with #489 and judge.py overlap with #488",
+        "variant": "body"
+      }
+    }
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Self Review — 2026-05-31"
+      },
+      "children": [
+        "quality-section",
+        "sep-1",
+        "reliability-section",
+        "sep-2",
+        "actions-section",
+        "sep-3",
+        "recommendations-section"
+      ]
+    },
+    "quality-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "quality-heading",
+        "quality-items"
+      ]
+    },
+    "quality-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Quality",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "quality-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "q-1",
+        "q-2",
+        "q-3"
+      ]
+    },
+    "q-1": {
+      "type": "Text",
+      "props": {
+        "text": "Engineering skills (code-health, workflow-security-audit, pr-review, surplus-pulse) producing specific, actionable output."
+      },
+      "children": []
+    },
+    "q-2": {
+      "type": "Text",
+      "props": {
+        "text": "content-engine cut on 2026-05-31 was the right call (formulaic + unused)."
+      },
+      "children": []
+    },
+    "q-3": {
+      "type": "Text",
+      "props": {
+        "text": "skill-evals BOOTSTRAP did its job — filed 2 real issues."
+      },
+      "children": []
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "reliability-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "reliability-heading",
+        "reliability-stat",
+        "reliability-items"
+      ]
+    },
+    "reliability-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Reliability",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "reliability-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills Success Rate",
+        "value": "41/41",
+        "trend": "up"
+      },
+      "children": []
+    },
+    "reliability-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "r-1",
+        "r-2",
+        "r-3",
+        "r-4",
+        "r-5"
+      ]
+    },
+    "r-1": {
+      "type": "Text",
+      "props": {
+        "text": "Success rate: 1 (100%)"
+      },
+      "children": []
+    },
+    "r-2": {
+      "type": "Text",
+      "props": {
+        "text": "0 consecutive failures."
+      },
+      "children": []
+    },
+    "r-3": {
+      "type": "Text",
+      "props": {
+        "text": "Heartbeat caught ISS-002 + planner gap + surfaced ISS-004/005"
+      },
+      "children": []
+    },
+    "r-4": {
+      "type": "Text",
+      "props": {
+        "text": "Missed the 2026-05-30→31 runner-allocation outage because it was itself affected (single-provider gap, not a fix)."
+      },
+      "children": []
+    },
+    "r-5": {
+      "type": "Alert",
+      "props": {
+        "title": "Single-provider gap",
+        "message": "Heartbeat outage affected monitoring of runner-allocation outage on 2026-05-30→31",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "actions-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "actions-heading",
+        "actions-items"
+      ]
+    },
+    "actions-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Actions Taken",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "actions-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "a-1",
+        "a-2"
+      ]
+    },
+    "a-1": {
+      "type": "Text",
+      "props": {
+        "text": "Wrote articles/self-review-2026-05-31.md"
+      },
+      "children": []
+    },
+    "a-2": {
+      "type": "Text",
+      "props": {
+        "text": "No silent edits — memory was already current after reflect."
+      },
+      "children": []
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "recommendations-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "recs-heading",
+        "recs-items"
+      ]
+    },
+    "recs-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top 3 Recommendations",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "recs-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "rec-item-1",
+        "rec-item-2",
+        "rec-item-3"
+      ]
+    },
+    "rec-item-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rec-1-badge",
+        "rec-1-text"
+      ]
+    },
+    "rec-1-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "1. Widen .github/workflows/aeon.yml ALLOWED list",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "rec-1-text": {
+      "type": "Text",
+      "props": {
+        "text": "Add Bash(./scripts/*) to close ISS-004 + ISS-005"
+      },
+      "children": []
+    },
+    "rec-item-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rec-2-badge",
+        "rec-2-text"
+      ]
+    },
+    "rec-2-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "2. Patch skills/skill-evals/evals.json",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "rec-2-text": {
+      "type": "Text",
+      "props": {
+        "text": "Apply fixes for ISS-006/007"
+      },
+      "children": []
+    },
+    "rec-item-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rec-3-badge",
+        "rec-3-text"
+      ]
+    },
+    "rec-3-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "3. Refresh .kb-graph-orphans baseline",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "rec-3-text": {
+      "type": "Text",
+      "props": {
+        "text": "Update baseline on swarm #481 to flip standing BLOCK → APPROVE"
+      },
+      "children": []
+    }
+  }
+}

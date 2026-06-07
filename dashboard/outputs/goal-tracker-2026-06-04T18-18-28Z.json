@@ -1,0 +1,456 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker",
+        "description": "2026-06-04"
+      },
+      "children": [
+        "stack-summary",
+        "separator-1",
+        "heading-on-track",
+        "goals-stack",
+        "separator-2",
+        "heading-notable",
+        "notable-stack",
+        "separator-3",
+        "heading-sources",
+        "sources-stack"
+      ]
+    },
+    "stack-summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-total-goals",
+        "stat-on-track",
+        "stat-needs-attention",
+        "stat-at-risk",
+        "stat-blocked",
+        "stat-done",
+        "trend-overall"
+      ]
+    },
+    "stat-total-goals": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Goals",
+        "value": "4"
+      }
+    },
+    "stat-on-track": {
+      "type": "Stat",
+      "props": {
+        "label": "On Track",
+        "value": "4"
+      }
+    },
+    "stat-needs-attention": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs Attention",
+        "value": "0"
+      }
+    },
+    "stat-at-risk": {
+      "type": "Stat",
+      "props": {
+        "label": "At Risk",
+        "value": "0"
+      }
+    },
+    "stat-blocked": {
+      "type": "Stat",
+      "props": {
+        "label": "Blocked",
+        "value": "0"
+      }
+    },
+    "stat-done": {
+      "type": "Stat",
+      "props": {
+        "label": "Done",
+        "value": "0"
+      }
+    },
+    "trend-overall": {
+      "type": "Badge",
+      "props": {
+        "text": "Overall: flat",
+        "variant": "secondary"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-on-track": {
+      "type": "Heading",
+      "props": {
+        "text": "ON TRACK",
+        "level": "h2"
+      }
+    },
+    "goals-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "goal-1",
+        "goal-2",
+        "goal-3",
+        "goal-4"
+      ]
+    },
+    "goal-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-1-text",
+        "goal-1-metrics"
+      ]
+    },
+    "goal-1-text": {
+      "type": "Text",
+      "props": {
+        "text": "Keep the engineering skill stack running clean",
+        "variant": "body"
+      }
+    },
+    "goal-1-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-1-idle",
+        "goal-1-activity",
+        "goal-1-trend"
+      ]
+    },
+    "goal-1-idle": {
+      "type": "Badge",
+      "props": {
+        "text": "0d idle",
+        "variant": "outline"
+      }
+    },
+    "goal-1-activity": {
+      "type": "Badge",
+      "props": {
+        "text": "~90 activity/14d",
+        "variant": "secondary"
+      }
+    },
+    "goal-1-trend": {
+      "type": "Badge",
+      "props": {
+        "text": "→ flat",
+        "variant": "secondary"
+      }
+    },
+    "goal-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-2-text",
+        "goal-2-metrics"
+      ]
+    },
+    "goal-2-text": {
+      "type": "Text",
+      "props": {
+        "text": "Run the day from intent, not just cron",
+        "variant": "body"
+      }
+    },
+    "goal-2-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-2-idle",
+        "goal-2-activity",
+        "goal-2-trend"
+      ]
+    },
+    "goal-2-idle": {
+      "type": "Badge",
+      "props": {
+        "text": "0d idle",
+        "variant": "outline"
+      }
+    },
+    "goal-2-activity": {
+      "type": "Badge",
+      "props": {
+        "text": "~26 activity/14d",
+        "variant": "secondary"
+      }
+    },
+    "goal-2-trend": {
+      "type": "Badge",
+      "props": {
+        "text": "→ flat",
+        "variant": "secondary"
+      }
+    },
+    "goal-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-3-text",
+        "goal-3-metrics"
+      ]
+    },
+    "goal-3-text": {
+      "type": "Text",
+      "props": {
+        "text": "Iterate the two prototypes (GitLawb, compute-futures)",
+        "variant": "body"
+      }
+    },
+    "goal-3-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-3-idle",
+        "goal-3-activity",
+        "goal-3-trend"
+      ]
+    },
+    "goal-3-idle": {
+      "type": "Badge",
+      "props": {
+        "text": "0d idle",
+        "variant": "outline"
+      }
+    },
+    "goal-3-activity": {
+      "type": "Badge",
+      "props": {
+        "text": "~50 activity/14d",
+        "variant": "secondary"
+      }
+    },
+    "goal-3-trend": {
+      "type": "Badge",
+      "props": {
+        "text": "→ flat",
+        "variant": "secondary"
+      }
+    },
+    "goal-4": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-4-text",
+        "goal-4-metrics"
+      ]
+    },
+    "goal-4-text": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-ai-research/swarm merge-gate queue cleared",
+        "variant": "body"
+      }
+    },
+    "goal-4-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-4-idle",
+        "goal-4-activity",
+        "goal-4-trend"
+      ]
+    },
+    "goal-4-idle": {
+      "type": "Badge",
+      "props": {
+        "text": "0d idle",
+        "variant": "outline"
+      }
+    },
+    "goal-4-activity": {
+      "type": "Badge",
+      "props": {
+        "text": "~44 activity/14d",
+        "variant": "secondary"
+      }
+    },
+    "goal-4-trend": {
+      "type": "Badge",
+      "props": {
+        "text": "→ flat",
+        "variant": "secondary"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-notable": {
+      "type": "Heading",
+      "props": {
+        "text": "Notable (not status-escalating)",
+        "level": "h2"
+      }
+    },
+    "notable-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "notable-1",
+        "notable-2",
+        "notable-3"
+      ]
+    },
+    "notable-1": {
+      "type": "Alert",
+      "props": {
+        "title": "planner dispatch",
+        "message": "7th consecutive miss",
+        "type": "warning"
+      }
+    },
+    "notable-2": {
+      "type": "Alert",
+      "props": {
+        "title": "compute-futures-eda + gitlawb-fleet-metrics",
+        "message": "empty 2d running (deployer CSV pending)",
+        "type": "info"
+      }
+    },
+    "notable-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "notable-3-main",
+        "notable-3-blocked",
+        "notable-3-ready"
+      ]
+    },
+    "notable-3-main": {
+      "type": "Text",
+      "props": {
+        "text": "swarm queue 10→11 open (+#495/#496 dependabot APPROVE'd, −#471 closed)",
+        "variant": "body"
+      }
+    },
+    "notable-3-blocked": {
+      "type": "Text",
+      "props": {
+        "text": "4 of 11 still blocked by stack-vs-main CI matrix gap",
+        "variant": "caption"
+      }
+    },
+    "notable-3-ready": {
+      "type": "Text",
+      "props": {
+        "text": "5 APPROVE-clean against main ready to merge",
+        "variant": "caption"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-sources": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h2"
+      }
+    },
+    "sources-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "source-logs",
+        "source-git",
+        "source-gh_pr",
+        "source-gh_issue",
+        "source-cron"
+      ]
+    },
+    "source-logs": {
+      "type": "Badge",
+      "props": {
+        "text": "logs=ok",
+        "variant": "default"
+      }
+    },
+    "source-git": {
+      "type": "Badge",
+      "props": {
+        "text": "git=partial (shallow CI clone)",
+        "variant": "secondary"
+      }
+    },
+    "source-gh_pr": {
+      "type": "Badge",
+      "props": {
+        "text": "gh_pr=ok",
+        "variant": "default"
+      }
+    },
+    "source-gh_issue": {
+      "type": "Badge",
+      "props": {
+        "text": "gh_issue=ok",
+        "variant": "default"
+      }
+    },
+    "source-cron": {
+      "type": "Badge",
+      "props": {
+        "text": "cron-state=ok",
+        "variant": "default"
+      }
+    }
+  }
+}

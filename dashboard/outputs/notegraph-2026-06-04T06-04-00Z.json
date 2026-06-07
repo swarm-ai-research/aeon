@@ -1,0 +1,92 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "notegraph"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-status",
+        "stat-notes",
+        "grid-metrics",
+        "text-new-file",
+        "link-pr"
+      ]
+    },
+    "text-status": {
+      "type": "Text",
+      "props": {
+        "text": "Notegraph updated",
+        "variant": "lead"
+      }
+    },
+    "stat-notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes wired in",
+        "value": "1",
+        "delta": "+1",
+        "trend": "up"
+      }
+    },
+    "grid-metrics": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-nodes",
+        "stat-edges",
+        "stat-orphans"
+      ]
+    },
+    "stat-nodes": {
+      "type": "Stat",
+      "props": {
+        "label": "Nodes",
+        "value": "52"
+      }
+    },
+    "stat-edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "376"
+      }
+    },
+    "stat-orphans": {
+      "type": "Stat",
+      "props": {
+        "label": "Orphans",
+        "value": "0"
+      }
+    },
+    "text-new-file": {
+      "type": "Text",
+      "props": {
+        "text": "New: memory/issues/ISS-008.md"
+      }
+    },
+    "link-pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Pull Request #126",
+        "href": "https://github.com/rsavitt/aeon/pull/126",
+        "source": "GitHub"
+      }
+    }
+  }
+}

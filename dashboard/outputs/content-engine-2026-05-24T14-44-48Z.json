@@ -1,0 +1,143 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Content Engine — 2026-05-24"
+      },
+      "children": [
+        "focus-text",
+        "sep1",
+        "exec-heading",
+        "bullets-stack",
+        "sep2",
+        "drafts-stat",
+        "sep3",
+        "draft-section"
+      ]
+    },
+    "focus-text": {
+      "type": "Text",
+      "props": {
+        "text": "Focus: AI agents, coding tools, automation, developer infrastructure, open-source devtools",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "exec-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Executive read",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "bullets-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "bullet1",
+        "bullet2",
+        "bullet3",
+        "bullet4"
+      ]
+    },
+    "bullet1": {
+      "type": "Text",
+      "props": {
+        "text": "Anthropic Glasswing: 10,000+ critical vulns found in one month — bottleneck has shifted from detection to verification/patching"
+      },
+      "children": []
+    },
+    "bullet2": {
+      "type": "Text",
+      "props": {
+        "text": "Microsoft cancels Claude Code licenses by June 30; Claude models stay via Azure — interface control, not capability removal"
+      },
+      "children": []
+    },
+    "bullet3": {
+      "type": "Text",
+      "props": {
+        "text": "KanBots v1.0: MIT-licensed kanban that runs parallel agents per card with git-worktree isolation and per-card cost tracking"
+      },
+      "children": []
+    },
+    "bullet4": {
+      "type": "Text",
+      "props": {
+        "text": "Anthropic acquires Stainless (built OpenAI's SDKs) — SDK developer experience now treated as competitive moat"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "drafts-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Drafts ready",
+        "value": "4"
+      },
+      "children": []
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "draft-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "draft-heading",
+        "draft-title",
+        "review-link"
+      ]
+    },
+    "draft-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top draft",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "draft-title": {
+      "type": "Text",
+      "props": {
+        "text": "Project Glasswing — When AI Finds Bugs Faster Than Humans Can Fix Them"
+      },
+      "children": []
+    },
+    "review-link": {
+      "type": "Link",
+      "props": {
+        "label": "articles/content-engine-2026-05-24.md",
+        "href": "articles/content-engine-2026-05-24.md"
+      },
+      "children": []
+    }
+  }
+}

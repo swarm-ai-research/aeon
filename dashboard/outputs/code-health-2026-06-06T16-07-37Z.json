@@ -1,0 +1,216 @@
+{
+  "root": "mainCard",
+  "state": {},
+  "elements": {
+    "mainCard": {
+      "type": "Card",
+      "props": {
+        "title": "Code Health",
+        "description": "Status report @ 973244d"
+      },
+      "children": [
+        "upstreamSection",
+        "sep1",
+        "metricsSection",
+        "sep2",
+        "carrySection",
+        "sep3",
+        "registrySection",
+        "sep4",
+        "skillBadge",
+        "sep5",
+        "testingAlert",
+        "sep6",
+        "reportLink"
+      ]
+    },
+    "upstreamSection": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "upstreamText"
+      ]
+    },
+    "upstreamText": {
+      "type": "Text",
+      "props": {
+        "text": "Code-health upstream @ 973244d (re-send after empty drop)",
+        "variant": "lead"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metricsSection": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metricsHeading",
+        "metricsStack"
+      ]
+    },
+    "metricsHeading": {
+      "type": "Heading",
+      "props": {
+        "text": "Clean Source",
+        "level": "h3"
+      }
+    },
+    "metricsStack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "todosStat",
+        "secretsStat",
+        "anyTypeStat"
+      ]
+    },
+    "todosStat": {
+      "type": "Stat",
+      "props": {
+        "label": "TODOs",
+        "value": "0"
+      }
+    },
+    "secretsStat": {
+      "type": "Stat",
+      "props": {
+        "label": "Secrets",
+        "value": "0"
+      }
+    },
+    "anyTypeStat": {
+      "type": "Stat",
+      "props": {
+        "label": "`: any` type hints",
+        "value": "0"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "carrySection": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "carryHeading",
+        "carryItem1",
+        "carryItem2"
+      ]
+    },
+    "carryHeading": {
+      "type": "Heading",
+      "props": {
+        "text": "Carry",
+        "level": "h3"
+      }
+    },
+    "carryItem1": {
+      "type": "Text",
+      "props": {
+        "text": "ZIZMOR pin 1.24.1 in workflow-security-audit (week 5)"
+      }
+    },
+    "carryItem2": {
+      "type": "Text",
+      "props": {
+        "text": "a2a-server/src/index.ts — 579 LOC"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "registrySection": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "registryHeading",
+        "registryStatus",
+        "registryMissing"
+      ]
+    },
+    "registryHeading": {
+      "type": "Heading",
+      "props": {
+        "text": "Registry Drift",
+        "level": "h3"
+      }
+    },
+    "registryStatus": {
+      "type": "Text",
+      "props": {
+        "text": "Status: 193/191/193"
+      }
+    },
+    "registryMissing": {
+      "type": "Text",
+      "props": {
+        "text": "Missing from aeon.yml: liquidpad-launch, vigil"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "skillBadge": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-of-the-day SELF-RESOLVED",
+        "variant": "default"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "testingAlert": {
+      "type": "Alert",
+      "props": {
+        "title": "Test Coverage",
+        "message": "18/18 dashboard API routes still untested",
+        "type": "warning"
+      }
+    },
+    "sep6": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "reportLink": {
+      "type": "Link",
+      "props": {
+        "label": "articles/code-health-2026-06-06.md",
+        "href": "articles/code-health-2026-06-06.md"
+      }
+    }
+  }
+}

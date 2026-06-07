@@ -1,0 +1,146 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Content Engine",
+        "description": "2026-05-21"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_focus",
+        "sep1",
+        "heading_exec",
+        "stack_exec_items",
+        "sep2",
+        "heading_status",
+        "stat_drafts",
+        "text_top_draft",
+        "sep3",
+        "heading_review",
+        "link_review"
+      ]
+    },
+    "text_focus": {
+      "type": "Text",
+      "props": {
+        "text": "Focus: AI agents, coding tools, automation, developer infrastructure, open-source devtools",
+        "variant": "lead"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_exec": {
+      "type": "Heading",
+      "props": {
+        "text": "Executive Read",
+        "level": "h2"
+      }
+    },
+    "stack_exec_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_grok",
+        "text_webmcp",
+        "text_karpathy",
+        "text_github",
+        "text_gemini"
+      ]
+    },
+    "text_grok": {
+      "type": "Text",
+      "props": {
+        "text": "xAI's Grok Build: 8-agent parallelism + Arena Mode auto-evaluation, local-first, 70.8% SWE-Bench, $99/mo intro"
+      }
+    },
+    "text_webmcp": {
+      "type": "Text",
+      "props": {
+        "text": "WebMCP enters Chrome 149 origin trial — structured agent interface standard; Shopify, Expedia, Instacart already in"
+      }
+    },
+    "text_karpathy": {
+      "type": "Text",
+      "props": {
+        "text": "Karpathy joins Anthropic pre-training to use Claude to accelerate pre-training research (feedback loop)"
+      }
+    },
+    "text_github": {
+      "type": "Text",
+      "props": {
+        "text": "GitHub breached via poisoned VSCode extension — TeamPCP accessed 3,800 internal repos, offered data for $50K"
+      }
+    },
+    "text_gemini": {
+      "type": "Text",
+      "props": {
+        "text": "Gemini 3.5 Flash GA: 289 tokens/sec, 76.2% Terminal-Bench, 40% cheaper than 3.1 Pro"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_status": {
+      "type": "Heading",
+      "props": {
+        "text": "Status",
+        "level": "h2"
+      }
+    },
+    "stat_drafts": {
+      "type": "Stat",
+      "props": {
+        "label": "Drafts ready",
+        "value": "5"
+      }
+    },
+    "text_top_draft": {
+      "type": "Text",
+      "props": {
+        "text": "Top draft: Grok Build — 8-agent Arena Mode is a structural bet against single-agent coding tools"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_review": {
+      "type": "Heading",
+      "props": {
+        "text": "Review",
+        "level": "h2"
+      }
+    },
+    "link_review": {
+      "type": "Link",
+      "props": {
+        "label": "articles/content-engine-2026-05-21.md",
+        "href": "articles/content-engine-2026-05-21.md"
+      }
+    }
+  }
+}

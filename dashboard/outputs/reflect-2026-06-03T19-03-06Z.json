@@ -1,0 +1,362 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Memory Consolidated — 2026-06-03"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "promoted-heading",
+        "promoted-items",
+        "sep1",
+        "queue-heading",
+        "queue-items",
+        "sep2",
+        "monitoring-heading",
+        "monitoring-items"
+      ]
+    },
+    "promoted-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Promoted Signals",
+        "level": "h3"
+      }
+    },
+    "promoted-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "sig-pr336",
+        "sig-org-rename",
+        "sig-queue"
+      ]
+    },
+    "sig-pr336": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr336-link",
+        "pr336-metrics"
+      ]
+    },
+    "pr336-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Dashboard test glob",
+        "href": "https://github.com/aeon/aeon/pull/336",
+        "source": "PR #336"
+      }
+    },
+    "pr336-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "Merged overnight — 821 of 870 test lines execute under npm test, half carryover closed",
+        "variant": "caption"
+      }
+    },
+    "sig-org-rename": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "org-rename-title",
+        "org-rename-detail"
+      ]
+    },
+    "org-rename-title": {
+      "type": "Text",
+      "props": {
+        "text": "Swarm organization renamed",
+        "variant": "lead"
+      }
+    },
+    "org-rename-detail": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-ai-safety → swarm-ai-research (caught by today's PR Tracker)",
+        "variant": "caption"
+      }
+    },
+    "sig-queue": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "queue-stat",
+        "queue-desc"
+      ]
+    },
+    "queue-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Swarm queue growth",
+        "value": "10",
+        "delta": "+6",
+        "trend": "up"
+      }
+    },
+    "queue-desc": {
+      "type": "Text",
+      "props": {
+        "text": "5 net-new PRs added (was 4)",
+        "variant": "caption"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "queue-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Queue PR Details",
+        "level": "h3"
+      }
+    },
+    "queue-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "approves-section",
+        "changes-section"
+      ]
+    },
+    "approves-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "approves-label",
+        "pr490",
+        "pr492",
+        "pr491"
+      ]
+    },
+    "approves-label": {
+      "type": "Text",
+      "props": {
+        "text": "Approved PRs:",
+        "variant": "lead"
+      }
+    },
+    "pr490": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr490-link",
+        "pr490-detail"
+      ]
+    },
+    "pr490-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PageRank",
+        "href": "https://github.com/aeon/aeon/pull/490",
+        "source": "PR #490"
+      }
+    },
+    "pr490-detail": {
+      "type": "Text",
+      "props": {
+        "text": "APPROVED, base=main",
+        "variant": "caption"
+      }
+    },
+    "pr492": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr492-link",
+        "pr492-detail"
+      ]
+    },
+    "pr492-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Sybil detector",
+        "href": "https://github.com/aeon/aeon/pull/492",
+        "source": "PR #492"
+      }
+    },
+    "pr492-detail": {
+      "type": "Text",
+      "props": {
+        "text": "APPROVED, base=main",
+        "variant": "caption"
+      }
+    },
+    "pr491": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr491-link",
+        "pr491-detail"
+      ]
+    },
+    "pr491-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Docs",
+        "href": "https://github.com/aeon/aeon/pull/491",
+        "source": "PR #491"
+      }
+    },
+    "pr491-detail": {
+      "type": "Text",
+      "props": {
+        "text": "APPROVED",
+        "variant": "caption"
+      }
+    },
+    "changes-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "changes-label",
+        "pr493-item",
+        "pr494-item",
+        "changes-detail"
+      ]
+    },
+    "changes-label": {
+      "type": "Text",
+      "props": {
+        "text": "Request Changes:",
+        "variant": "lead"
+      }
+    },
+    "pr493-item": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #493",
+        "href": "https://github.com/aeon/aeon/pull/493",
+        "source": "REQUEST_CHANGES"
+      }
+    },
+    "pr494-item": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #494",
+        "href": "https://github.com/aeon/aeon/pull/494",
+        "source": "REQUEST_CHANGES"
+      }
+    },
+    "changes-detail": {
+      "type": "Text",
+      "props": {
+        "text": "Both stacked on feature branches missing standard CI matrix",
+        "variant": "caption"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "monitoring-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "CI & Monitoring",
+        "level": "h3"
+      }
+    },
+    "monitoring-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "ci-gap",
+        "planner-item",
+        "heartbeat"
+      ]
+    },
+    "ci-gap": {
+      "type": "Alert",
+      "props": {
+        "title": "Stack-vs-main CI gap confirmed",
+        "message": "Confirmed across 4 PRs — added as Lesson Learned",
+        "type": "warning"
+      }
+    },
+    "planner-item": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "planner-stat",
+        "planner-detail"
+      ]
+    },
+    "planner-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Planner WATCH misses",
+        "value": "6",
+        "delta": "+1",
+        "trend": "up"
+      }
+    },
+    "planner-detail": {
+      "type": "Text",
+      "props": {
+        "text": "2 consecutive days (was 5)",
+        "variant": "caption"
+      }
+    },
+    "heartbeat": {
+      "type": "Alert",
+      "props": {
+        "title": "Issue tracking heartbeat: clean",
+        "message": "ISS-004→007 second consecutive day post-PR #107",
+        "type": "success"
+      }
+    }
+  }
+}

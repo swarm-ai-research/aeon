@@ -1,0 +1,173 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Issue Triage",
+        "description": "2026-05-30"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stack-stats",
+        "sep-1",
+        "heading-repo",
+        "text-advisory",
+        "sep-2",
+        "heading-issue",
+        "stack-issue-details"
+      ]
+    },
+    "stack-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-triaged",
+        "stat-repos",
+        "stat-urgent",
+        "stat-duplicates",
+        "stat-needs-info"
+      ]
+    },
+    "stat-triaged": {
+      "type": "Stat",
+      "props": {
+        "label": "Triaged",
+        "value": "1"
+      }
+    },
+    "stat-repos": {
+      "type": "Stat",
+      "props": {
+        "label": "Repos",
+        "value": "1"
+      }
+    },
+    "stat-urgent": {
+      "type": "Stat",
+      "props": {
+        "label": "Urgent",
+        "value": "0"
+      }
+    },
+    "stat-duplicates": {
+      "type": "Stat",
+      "props": {
+        "label": "Duplicates closed",
+        "value": "0"
+      }
+    },
+    "stat-needs-info": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs-info",
+        "value": "0"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-repo": {
+      "type": "Heading",
+      "props": {
+        "text": "aaronjmars/aeon",
+        "level": "h2"
+      }
+    },
+    "text-advisory": {
+      "type": "Text",
+      "props": {
+        "text": "1 advisory verdict (no write access) → memory/triage-advisory/aaronjmars-aeon.md",
+        "variant": "body"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-issue": {
+      "type": "Heading",
+      "props": {
+        "text": "#301",
+        "level": "h3"
+      }
+    },
+    "stack-issue-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "badge-status",
+        "stack-badges",
+        "text-issue-desc",
+        "link-issue"
+      ]
+    },
+    "badge-status": {
+      "type": "Badge",
+      "props": {
+        "text": "ACCEPT",
+        "variant": "default"
+      }
+    },
+    "stack-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-type",
+        "badge-area"
+      ]
+    },
+    "badge-type": {
+      "type": "Badge",
+      "props": {
+        "text": "chore/p2",
+        "variant": "secondary"
+      }
+    },
+    "badge-area": {
+      "type": "Badge",
+      "props": {
+        "text": "area=skill-packs",
+        "variant": "secondary"
+      }
+    },
+    "text-issue-desc": {
+      "type": "Text",
+      "props": {
+        "text": "capabilities taxonomy two-source drift (docs vs install-skill-pack); author offers PR.",
+        "variant": "body"
+      }
+    },
+    "link-issue": {
+      "type": "Link",
+      "props": {
+        "label": "#301",
+        "href": "https://github.com/aaronjmars/aeon/issues/301"
+      }
+    }
+  }
+}

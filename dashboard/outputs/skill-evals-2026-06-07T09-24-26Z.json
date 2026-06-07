@@ -1,0 +1,196 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Evals — SKILL_EVALS_RECOVERED"
+      },
+      "children": [
+        "status_stack",
+        "sep1",
+        "action_stack",
+        "sep2",
+        "article_stack",
+        "sep3",
+        "fixed_stack"
+      ]
+    },
+    "status_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_fails",
+        "stat_fixed",
+        "stat_coverage"
+      ]
+    },
+    "stat_fails": {
+      "type": "Stat",
+      "props": {
+        "label": "New fails",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat_fixed": {
+      "type": "Stat",
+      "props": {
+        "label": "Fixed",
+        "value": "4"
+      },
+      "children": []
+    },
+    "stat_coverage": {
+      "type": "Stat",
+      "props": {
+        "label": "Coverage",
+        "value": "12%"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "action_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action_label",
+        "action_text"
+      ]
+    },
+    "action_label": {
+      "type": "Heading",
+      "props": {
+        "text": "Top action",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "action_text": {
+      "type": "Text",
+      "props": {
+        "text": "Add evals.json entry for code-health — pattern: articles/code-health-*.md",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "article_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "article_label",
+        "article_link"
+      ]
+    },
+    "article_label": {
+      "type": "Heading",
+      "props": {
+        "text": "Article",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "article_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "articles/skill-evals-2026-06-07.md",
+        "href": "articles/skill-evals-2026-06-07.md"
+      },
+      "children": []
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "fixed_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "fixed_label",
+        "fixed_items"
+      ]
+    },
+    "fixed_label": {
+      "type": "Heading",
+      "props": {
+        "text": "Fixed",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "fixed_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "fixed_heartbeat",
+        "fixed_skill_health",
+        "fixed_changelog",
+        "fixed_cost_report"
+      ]
+    },
+    "fixed_heartbeat": {
+      "type": "Text",
+      "props": {
+        "text": "heartbeat (ISS-006 closed)",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "fixed_skill_health": {
+      "type": "Text",
+      "props": {
+        "text": "skill-health (ISS-007 closed)",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "fixed_changelog": {
+      "type": "Text",
+      "props": {
+        "text": "changelog (was STALE 73d)",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "fixed_cost_report": {
+      "type": "Text",
+      "props": {
+        "text": "cost-report (first run landed)",
+        "variant": "body"
+      },
+      "children": []
+    }
+  }
+}

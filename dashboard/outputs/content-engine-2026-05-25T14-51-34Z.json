@@ -1,0 +1,307 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Content Engine — 2026-05-25",
+        "description": "AI agents, coding tools, automation, developer infrastructure, open-source devtools"
+      },
+      "children": [
+        "grok_section",
+        "separator1",
+        "coder_section",
+        "separator2",
+        "research_section",
+        "separator3",
+        "deepseek_section",
+        "separator4",
+        "drafts_section"
+      ]
+    },
+    "grok_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "grok_heading",
+        "grok_stack"
+      ]
+    },
+    "grok_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "xAI Grok Build (May 14)",
+        "level": "h2"
+      }
+    },
+    "grok_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "grok_agents",
+        "grok_model_stat",
+        "grok_price",
+        "grok_local"
+      ]
+    },
+    "grok_agents": {
+      "type": "Text",
+      "props": {
+        "text": "8 parallel agents + Arena Mode auto-ranking before human review"
+      }
+    },
+    "grok_model_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "grok-code-fast-1",
+        "value": "70.8% SWE-Bench"
+      }
+    },
+    "grok_price": {
+      "type": "Stat",
+      "props": {
+        "label": "Token pricing",
+        "value": "$0.20/M"
+      }
+    },
+    "grok_local": {
+      "type": "Badge",
+      "props": {
+        "text": "Local-first",
+        "variant": "secondary"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "coder_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "coder_heading",
+        "coder_stack"
+      ]
+    },
+    "coder_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Coder Agents (May 6)",
+        "level": "h2"
+      }
+    },
+    "coder_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "coder_desc1",
+        "coder_desc2",
+        "coder_stat"
+      ]
+    },
+    "coder_desc1": {
+      "type": "Text",
+      "props": {
+        "text": "Self-hosted, model-agnostic coding agents inside your VPC"
+      }
+    },
+    "coder_desc2": {
+      "type": "Text",
+      "props": {
+        "text": "Agent Firewall enforces network allow lists"
+      }
+    },
+    "coder_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Teams running agents on non-optimized infra",
+        "value": "70%"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "research_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "research_heading",
+        "research_stack"
+      ]
+    },
+    "research_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Constraint Decay Research",
+        "level": "h2"
+      }
+    },
+    "research_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "research_link",
+        "research_impact",
+        "research_detail"
+      ]
+    },
+    "research_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "arxiv 2605.06445",
+        "href": "https://arxiv.org/abs/2605.06445",
+        "source": "arXiv"
+      }
+    },
+    "research_impact": {
+      "type": "Stat",
+      "props": {
+        "label": "Pass rate loss from constraint decay",
+        "value": "30 pts",
+        "delta": "−30",
+        "trend": "down"
+      }
+    },
+    "research_detail": {
+      "type": "Text",
+      "props": {
+        "text": "Framework impact: Flask > FastAPI/Django. ORM failures dominate.",
+        "variant": "body"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "deepseek_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "deepseek_heading",
+        "deepseek_stack"
+      ]
+    },
+    "deepseek_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "DeepSeek V4-Pro Pricing",
+        "level": "h2"
+      }
+    },
+    "deepseek_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "deepseek_status",
+        "deepseek_input",
+        "deepseek_cached",
+        "deepseek_comparison"
+      ]
+    },
+    "deepseek_status": {
+      "type": "Badge",
+      "props": {
+        "text": "Permanent pricing",
+        "variant": "default"
+      }
+    },
+    "deepseek_input": {
+      "type": "Stat",
+      "props": {
+        "label": "Input tokens",
+        "value": "$0.435/M"
+      }
+    },
+    "deepseek_cached": {
+      "type": "Stat",
+      "props": {
+        "label": "Cached tokens",
+        "value": "$0.003625/M"
+      }
+    },
+    "deepseek_comparison": {
+      "type": "Text",
+      "props": {
+        "text": "20x cheaper than GPT-5.5; promotional rate locked in as a durable floor"
+      }
+    },
+    "separator4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "drafts_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "drafts_heading",
+        "drafts_count",
+        "top_draft",
+        "review_link"
+      ]
+    },
+    "drafts_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Content Status",
+        "level": "h2"
+      }
+    },
+    "drafts_count": {
+      "type": "Stat",
+      "props": {
+        "label": "Drafts ready",
+        "value": "4"
+      }
+    },
+    "top_draft": {
+      "type": "Text",
+      "props": {
+        "text": "Top draft: Grok Build — 8 Parallel Agents and the Arena Mode Bet"
+      }
+    },
+    "review_link": {
+      "type": "Link",
+      "props": {
+        "label": "Review file: articles/content-engine-2026-05-25.md",
+        "href": "articles/content-engine-2026-05-25.md"
+      }
+    }
+  }
+}

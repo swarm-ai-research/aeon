@@ -14,6 +14,7 @@ skills:
   memory-flush: { enabled: true, schedule: "0 6 2/2 * *" } # every other day 06:00 UTC — promote important recent log entries into MEMORY.md
   memory-structural-dedupe: { enabled: true, schedule: "10 6 2/2 * *" } # every other day 06:10 UTC — collapse duplicate rows in MEMORY.md after memory-flush runs
   janitor: { enabled: true, schedule: "30 5 * * 0" } # Sunday 05:30 UTC — weekly cleanup of temp files (.notify-*, .pending-notify-temp/, stale .outputs/ artifacts past TTL)
+  stale-content-pr-sweeper: { enabled: true, schedule: "45 23 * * *" } # daily 23:45 UTC — close auto-generated content PRs (notegraph/, suggest-edges/, etc.) once a newer dated branch from the same skill exists; only sweeps conflicted PRs older than 2 days, with `[keep]` operator override
 
   # --- Morning aggregation (7 AM UTC) ---
   morning-brief: { enabled: false, schedule: "0 7 * * *" }
@@ -27,12 +28,12 @@ skills:
 
   # --- Mid-morning (9 AM UTC) ---
   issue-triage: { enabled: true, schedule: "0 9 * * *" }
-  pr-triage: { enabled: true, schedule: "30 9 * * *", var: "swarm-ai-safety/swarm" }
+  pr-triage: { enabled: true, schedule: "30 9 * * *", var: "swarm-ai-research/swarm" }
   pr-review:
     enabled: true
     schedule: "0 9,18 * * *"  # reduced from every 6h to 2×/day to cut Actions burn — still covers morning + evening review cycles
     var: |
-      swarm-ai-safety/swarm
+      swarm-ai-research/swarm
 
       You are acting as a merge gate reviewer.
       Your job is to decide: APPROVE, REQUEST_CHANGES, or BLOCK.
@@ -135,6 +136,8 @@ skills:
   surplus-pulse: { enabled: true, schedule: "30 16 * * *", model: "claude-sonnet-4-6" }
   compute-pulse: { enabled: true, schedule: "0 11 * * 6", model: "claude-sonnet-4-6" } # Saturday 11:00 UTC — weekly AI-compute-market read (GPU/hardware deals, inference pricing, DePIN signals, lab vs hyperscaler); feeds memory/topics/compute-pulse.md + the compute-futures prototype goal
   compute-futures-eda: { enabled: true, schedule: "0 6 * * *" } # daily 06:00 UTC — profile latest deployer sweep CSV from memory/gitlawb-compute-futures-proofs/, commit findings to memory/topics/compute-futures-eda/; deployer runs ~00:13 UTC so 6h is comfortable rsync margin
+  runpod-spot-pricing: { enabled: false, schedule: "0 13 * * *" } # daily 13:00 UTC — snapshot RunPod community-cloud (spot) vs secure-cloud (on-demand) GPU pricing to memory/topics/runpod-pricing.md, signal on >50% discount or >15% DoD spot moves. Off by default — flip on after adding RUNPOD_API_KEY secret
+  compute-macro-correlate: { enabled: true, schedule: "30 6 * * 0", model: "claude-sonnet-4-6" } # Sunday 06:30 UTC — weekly partial-correlation of sweep P&L vs Hyperliquid macro basket (NATGAS net of BTC); defers until ≥30 joined days. Findings → memory/topics/compute-futures-macro-correlations.md. Hypothesis pre-registered in [[compute-macro-correlation-findings]]
   changelog: { enabled: true, schedule: "0 16 * * 1" } # Mon 16:00 UTC — weekly user-facing changelog (Keep a Changelog) from watched-repo commits
   external-feature: { enabled: false, schedule: "30 16 * * *", var: "" }
   # --- Security / PVR disclosure subsystem (vuln-scanner is the producer; the rest are self-gating status trackers, silent until pending-disclosures exist) ---

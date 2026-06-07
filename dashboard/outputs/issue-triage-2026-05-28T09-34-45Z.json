@@ -1,0 +1,244 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Issue Triage",
+        "description": "2026-05-28"
+      },
+      "children": [
+        "stats-section",
+        "sep-1",
+        "advisory-status",
+        "sep-2",
+        "repo-section",
+        "sep-3",
+        "issues-section"
+      ]
+    },
+    "stats-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-triaged",
+        "stat-repos",
+        "stat-urgent",
+        "stat-dupes",
+        "stat-needs"
+      ]
+    },
+    "stat-triaged": {
+      "type": "Stat",
+      "props": {
+        "label": "Triaged",
+        "value": "1"
+      }
+    },
+    "stat-repos": {
+      "type": "Stat",
+      "props": {
+        "label": "Repos",
+        "value": "1"
+      }
+    },
+    "stat-urgent": {
+      "type": "Stat",
+      "props": {
+        "label": "Urgent",
+        "value": "0"
+      }
+    },
+    "stat-dupes": {
+      "type": "Stat",
+      "props": {
+        "label": "Duplicates closed",
+        "value": "0"
+      }
+    },
+    "stat-needs": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs-info",
+        "value": "0"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "advisory-status": {
+      "type": "Alert",
+      "props": {
+        "title": "Advisory-only mode",
+        "message": "Token lacks triage permission (ISS-003)",
+        "type": "info"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "repo-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "repo-heading",
+        "repo-body"
+      ]
+    },
+    "repo-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "aaronjmars/aeon",
+        "level": "h3"
+      }
+    },
+    "repo-body": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "repo-badges",
+        "repo-memory-link"
+      ]
+    },
+    "repo-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "repo-badge-verdict",
+        "repo-badge-access"
+      ]
+    },
+    "repo-badge-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "1 advisory verdict",
+        "variant": "default"
+      }
+    },
+    "repo-badge-access": {
+      "type": "Badge",
+      "props": {
+        "text": "No write access",
+        "variant": "outline"
+      }
+    },
+    "repo-memory-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "memory/triage-advisory/aaronjmars-aeon.md",
+        "href": "memory/triage-advisory/aaronjmars-aeon.md",
+        "source": "memory"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues-heading",
+        "issue-258-stack"
+      ]
+    },
+    "issues-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues",
+        "level": "h3"
+      }
+    },
+    "issue-258-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue-258-link",
+        "issue-258-verdict",
+        "issue-258-labels",
+        "issue-258-description"
+      ]
+    },
+    "issue-258-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "aaronjmars/aeon#258",
+        "href": "https://github.com/aaronjmars/aeon/issues/258",
+        "source": "GitHub"
+      }
+    },
+    "issue-258-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "ACCEPT",
+        "variant": "success"
+      }
+    },
+    "issue-258-labels": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "label-feature",
+        "label-p2",
+        "label-area"
+      ]
+    },
+    "label-feature": {
+      "type": "Badge",
+      "props": {
+        "text": "feature",
+        "variant": "secondary"
+      }
+    },
+    "label-p2": {
+      "type": "Badge",
+      "props": {
+        "text": "p2",
+        "variant": "secondary"
+      }
+    },
+    "label-area": {
+      "type": "Badge",
+      "props": {
+        "text": "area=skill-packs",
+        "variant": "secondary"
+      }
+    },
+    "issue-258-description": {
+      "type": "Text",
+      "props": {
+        "text": "manifest capabilities + secrets_required fields + re-scan on skill update"
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "missing-link-text",
+        "separator",
+        "pr-link"
+      ]
+    },
+    "missing-link-text": {
+      "type": "Text",
+      "props": {
+        "text": "1 missing link: gitlawb-demo-recap ↔ gitlawb-demo-script"
+      },
+      "children": []
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Pull Request #80",
+        "href": "https://github.com/rsavitt/aeon/pull/80",
+        "source": "GitHub"
+      },
+      "children": []
+    }
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "root": "card-fleet-control",
+  "state": {},
+  "elements": {
+    "card-fleet-control": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Control"
+      },
+      "children": [
+        "date-text",
+        "verdict",
+        "separator-1",
+        "heading-fleet",
+        "instances-table",
+        "separator-2",
+        "heading-counts",
+        "counts-grid",
+        "separator-3",
+        "info-stack"
+      ]
+    },
+    "date-text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-05-29",
+        "variant": "muted"
+      }
+    },
+    "verdict": {
+      "type": "Alert",
+      "props": {
+        "type": "success",
+        "title": "FLEET_OK",
+        "message": "All 4 instances healthy, nothing changed overnight. Routine daily rollup."
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-fleet": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet (4 total, GitLawb-hosted)",
+        "level": "h3"
+      }
+    },
+    "instances-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Instance",
+          "Status",
+          "DID Key",
+          "Issues"
+        ],
+        "rows": [
+          [
+            "aeon-researcher",
+            "HEALTHY",
+            "did:key:z6Mkfnr…",
+            "none"
+          ],
+          [
+            "aeon-reviewer",
+            "HEALTHY",
+            "did:key:z6Mks2K…",
+            "none"
+          ],
+          [
+            "aeon-deployer",
+            "HEALTHY",
+            "did:key:z6MknGJ…",
+            "none"
+          ],
+          [
+            "aeon-sentinel",
+            "HEALTHY",
+            "did:key:z6MksUu…",
+            "none"
+          ]
+        ]
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-counts": {
+      "type": "Heading",
+      "props": {
+        "text": "Status Counts",
+        "level": "h3"
+      }
+    },
+    "counts-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat-healthy",
+        "stat-warning",
+        "stat-degraded",
+        "stat-stale",
+        "stat-pending",
+        "stat-unreachable",
+        "stat-archived"
+      ]
+    },
+    "stat-healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Healthy",
+        "value": "4"
+      }
+    },
+    "stat-warning": {
+      "type": "Stat",
+      "props": {
+        "label": "Warning",
+        "value": "0"
+      }
+    },
+    "stat-degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded",
+        "value": "0"
+      }
+    },
+    "stat-stale": {
+      "type": "Stat",
+      "props": {
+        "label": "Stale",
+        "value": "0"
+      }
+    },
+    "stat-pending": {
+      "type": "Stat",
+      "props": {
+        "label": "Pending",
+        "value": "0"
+      }
+    },
+    "stat-unreachable": {
+      "type": "Stat",
+      "props": {
+        "label": "Unreachable",
+        "value": "0"
+      }
+    },
+    "stat-archived": {
+      "type": "Stat",
+      "props": {
+        "label": "Archived",
+        "value": "0"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "info-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "info-caps",
+        "info-sources"
+      ]
+    },
+    "info-caps": {
+      "type": "Text",
+      "props": {
+        "text": "Caps all active, expire 2026-06-24 (~26d out)",
+        "variant": "caption"
+      }
+    },
+    "info-sources": {
+      "type": "Text",
+      "props": {
+        "text": "Sources: gitlawb mirrored fields · registry=4",
+        "variant": "caption"
+      }
+    }
+  }
+}

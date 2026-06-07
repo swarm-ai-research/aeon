@@ -1,0 +1,116 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review",
+        "description": "2026-06-04"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_summary",
+        "badge_repo",
+        "separator_1",
+        "heading_reviewed",
+        "table_prs",
+        "separator_2",
+        "heading_carryover",
+        "text_carryover"
+      ]
+    },
+    "text_summary": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed 2 (both APPROVE), skipped 9 (dup-SHA: 9)",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "badge_repo": {
+      "type": "Badge",
+      "props": {
+        "text": "swarm-ai-research/swarm",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_reviewed": {
+      "type": "Heading",
+      "props": {
+        "text": "Reviewed",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "table_prs": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "PR",
+          "Title",
+          "Status",
+          "Score",
+          "CI"
+        ],
+        "rows": [
+          [
+            "#495",
+            "chore(deps-dev): langchain-anthropic 1.4.3→1.4.4",
+            "APPROVE",
+            "5/5",
+            "green"
+          ],
+          [
+            "#496",
+            "chore(deps-dev): langgraph 1.2.1→1.2.4",
+            "APPROVE",
+            "5/5",
+            "green"
+          ]
+        ]
+      },
+      "children": []
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_carryover": {
+      "type": "Heading",
+      "props": {
+        "text": "Carryover (dup-SHA, no re-post)",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "text_carryover": {
+      "type": "Text",
+      "props": {
+        "text": "#487/488/489/490/491/492/493/494, #472",
+        "variant": "body"
+      },
+      "children": []
+    }
+  }
+}

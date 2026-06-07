@@ -1,0 +1,268 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "surplus pulse",
+        "description": "2026-05-29"
+      },
+      "children": [
+        "spot_section",
+        "sep1",
+        "curve_section",
+        "sep2",
+        "rail_section",
+        "sep3",
+        "summary_section"
+      ]
+    },
+    "spot_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "spot_heading",
+        "spot_main",
+        "spot_badge"
+      ]
+    },
+    "spot_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "spot",
+        "level": "h3"
+      }
+    },
+    "spot_main": {
+      "type": "Text",
+      "props": {
+        "text": "catalog · Llama 4 Scout @ $0.0764/M (Surplus Intelligence — live feed not configured, set SURPLUS_PRICING_URL to go live)",
+        "variant": "body"
+      }
+    },
+    "spot_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Live feed not configured",
+        "variant": "outline"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "curve_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "curve_heading",
+        "curve_event1",
+        "curve_event2",
+        "curve_event3"
+      ]
+    },
+    "curve_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "curve",
+        "level": "h3"
+      }
+    },
+    "curve_event1": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "curve_text1",
+        "curve_stat1"
+      ]
+    },
+    "curve_text1": {
+      "type": "Text",
+      "props": {
+        "text": "hyperscaler H100 reserve tightened supply at R30",
+        "variant": "body"
+      }
+    },
+    "curve_stat1": {
+      "type": "Stat",
+      "props": {
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "curve_event2": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "curve_text2",
+        "curve_stat2"
+      ]
+    },
+    "curve_text2": {
+      "type": "Text",
+      "props": {
+        "text": "open-weights flood from DeepSeek V3.2 reversed it at R24",
+        "variant": "body"
+      }
+    },
+    "curve_stat2": {
+      "type": "Stat",
+      "props": {
+        "value": "−43.8%",
+        "trend": "down"
+      }
+    },
+    "curve_event3": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "curve_text3",
+        "curve_stat3"
+      ]
+    },
+    "curve_text3": {
+      "type": "Text",
+      "props": {
+        "text": "agent-platform demand surge lifted the back end again",
+        "variant": "body"
+      }
+    },
+    "curve_stat3": {
+      "type": "Stat",
+      "props": {
+        "value": "+51%",
+        "trend": "up"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "rail_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "rail_heading",
+        "rail_main_text",
+        "rail_link",
+        "rail_stats"
+      ]
+    },
+    "rail_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "rail",
+        "level": "h3"
+      }
+    },
+    "rail_main_text": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on Base/USDC",
+        "variant": "lead"
+      }
+    },
+    "rail_link": {
+      "type": "Link",
+      "props": {
+        "label": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "rail_stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "rail_stat1",
+        "rail_stat2",
+        "rail_stat3",
+        "rail_stat4"
+      ]
+    },
+    "rail_stat1": {
+      "type": "Stat",
+      "props": {
+        "label": "Total delivered",
+        "value": "$198.43"
+      }
+    },
+    "rail_stat2": {
+      "type": "Stat",
+      "props": {
+        "label": "Settlements",
+        "value": "19"
+      }
+    },
+    "rail_stat3": {
+      "type": "Stat",
+      "props": {
+        "label": "Cost per tx",
+        "value": "$0.00025"
+      }
+    },
+    "rail_stat4": {
+      "type": "Stat",
+      "props": {
+        "label": "Finality",
+        "value": "~400ms"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary_heading",
+        "summary_text"
+      ]
+    },
+    "summary_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "one-line read",
+        "level": "h3"
+      }
+    },
+    "summary_text": {
+      "type": "Text",
+      "props": {
+        "text": "catalog run, not live — but the curve cycled through three hard repricing events (squeeze → oversupply → demand surge), net spot +50% from open; market is actively hunting a clearing price, not in equilibrium.",
+        "variant": "body"
+      }
+    }
+  }
+}

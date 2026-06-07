@@ -1,0 +1,183 @@
+{
+  "root": "card-code-health",
+  "state": {},
+  "elements": {
+    "card-code-health": {
+      "type": "Card",
+      "props": {
+        "title": "code-health",
+        "description": "2026-06-04 | aaronjmars/aeon at 11062dc"
+      },
+      "children": [
+        "main-findings",
+        "sep1",
+        "stats-section",
+        "sep2",
+        "corrections-section",
+        "sep3",
+        "report-link"
+      ]
+    },
+    "main-findings": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "findings-heading",
+        "vigil-alert",
+        "liquidpad-alert",
+        "fix-info"
+      ]
+    },
+    "findings-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "New Finding — Two Unreachable SKILL.md Directories",
+        "level": "h2"
+      }
+    },
+    "vigil-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "skills/vigil/",
+        "message": "No aeon.yml, no skills.json",
+        "type": "warning"
+      }
+    },
+    "liquidpad-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "skills/liquidpad-launch/",
+        "message": "In skills.json since 2026-05-28 but never wired into aeon.yml",
+        "type": "warning"
+      }
+    },
+    "fix-info": {
+      "type": "Text",
+      "props": {
+        "text": "One-line fix in aeon.yml required for each.",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stats-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stats-heading",
+        "stats-grid"
+      ]
+    },
+    "stats-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Inventory",
+        "level": "h3"
+      }
+    },
+    "stats-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-dirs",
+        "stat-yml",
+        "stat-json"
+      ]
+    },
+    "stat-dirs": {
+      "type": "Stat",
+      "props": {
+        "label": "Skill Directories",
+        "value": "184"
+      }
+    },
+    "stat-yml": {
+      "type": "Stat",
+      "props": {
+        "label": "aeon.yml Keys",
+        "value": "182"
+      }
+    },
+    "stat-json": {
+      "type": "Stat",
+      "props": {
+        "label": "skills.json Slugs",
+        "value": "182"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "corrections-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "corrections-heading",
+        "correction-1",
+        "correction-2",
+        "correction-3"
+      ]
+    },
+    "corrections-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Corrections to Prior Findings",
+        "level": "h3"
+      }
+    },
+    "correction-1": {
+      "type": "Text",
+      "props": {
+        "text": "ZIZMOR pin at workflow-security-audit/SKILL.md:29 is still 1.24.1 (I claimed 1.25.2 yesterday), so the line-36 TODO is accurate",
+        "variant": "body"
+      }
+    },
+    "correction-2": {
+      "type": "Text",
+      "props": {
+        "text": "0 :any TS annotations, not 13",
+        "variant": "body"
+      }
+    },
+    "correction-3": {
+      "type": "Text",
+      "props": {
+        "text": "Carryovers unchanged",
+        "variant": "muted"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/code-health-2026-06-04.md",
+        "source": "code-health"
+      }
+    }
+  }
+}

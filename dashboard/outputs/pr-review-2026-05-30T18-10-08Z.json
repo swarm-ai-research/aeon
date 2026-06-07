@@ -1,0 +1,147 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-05-30 (merge-gate)"
+      },
+      "children": [
+        "summary",
+        "sep1",
+        "stats_container",
+        "sep2",
+        "pr481_container"
+      ]
+    },
+    "summary": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed 1, skipped 2 (dup-SHA: #472, bot+dup-SHA: #471).",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stats_container": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "1"
+      }
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "2"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr481_container": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr481_link",
+        "pr481_status",
+        "pr481_issues",
+        "pr481_problem",
+        "pr481_detail",
+        "pr481_context",
+        "pr481_fix"
+      ]
+    },
+    "pr481_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-safety/swarm#481",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/481",
+        "source": "GitHub"
+      }
+    },
+    "pr481_status": {
+      "type": "Badge",
+      "props": {
+        "text": "BLOCK — 2/5",
+        "variant": "destructive"
+      }
+    },
+    "pr481_issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "issue_critical",
+        "issue_others"
+      ]
+    },
+    "issue_critical": {
+      "type": "Stat",
+      "props": {
+        "label": "Critical",
+        "value": "1"
+      }
+    },
+    "issue_others": {
+      "type": "Stat",
+      "props": {
+        "label": "Other issues",
+        "value": "0"
+      }
+    },
+    "pr481_problem": {
+      "type": "Text",
+      "props": {
+        "text": "The new `kb-graph-check` gate this PR introduces is red on its own commit",
+        "variant": "body"
+      }
+    },
+    "pr481_detail": {
+      "type": "Text",
+      "props": {
+        "text": "14 new orphans not in the seeded `.kb-graph-orphans` baseline",
+        "variant": "body"
+      }
+    },
+    "pr481_context": {
+      "type": "Text",
+      "props": {
+        "text": "#480 landed new node kinds after the baseline was generated",
+        "variant": "muted"
+      }
+    },
+    "pr481_fix": {
+      "type": "Text",
+      "props": {
+        "text": "Fix is mechanical: rebase + `--update-baseline` + recommit, then flips to APPROVE",
+        "variant": "caption"
+      }
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "root": "analytics-card",
+  "state": {},
+  "elements": {
+    "analytics-card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Analytics — 2026-06-03"
+      },
+      "children": [
+        "summary-stack",
+        "separator-1",
+        "critical-heading",
+        "critical-issues",
+        "separator-2",
+        "top-heading",
+        "top-skills",
+        "separator-3",
+        "full-article-link"
+      ]
+    },
+    "summary-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-window",
+        "stat-runs",
+        "stat-skills",
+        "stat-success",
+        "stat-anomalies"
+      ]
+    },
+    "stat-window": {
+      "type": "Stat",
+      "props": {
+        "label": "Window",
+        "value": "last 7d"
+      }
+    },
+    "stat-runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs",
+        "value": "171"
+      }
+    },
+    "stat-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills",
+        "value": "49"
+      }
+    },
+    "stat-success": {
+      "type": "Stat",
+      "props": {
+        "label": "Success Rate",
+        "value": "100%"
+      }
+    },
+    "stat-anomalies": {
+      "type": "Stat",
+      "props": {
+        "label": "Anomalies",
+        "value": "2"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "critical-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🔴 Critical",
+        "level": "h2"
+      }
+    },
+    "critical-issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert-planner",
+        "alert-ai-framework"
+      ]
+    },
+    "alert-planner": {
+      "type": "Alert",
+      "props": {
+        "title": "planner — SILENT",
+        "message": "Scheduled `30 6 * * *`, zero runs this window (6+ consecutive misses, WATCH in MEMORY.md)",
+        "type": "error"
+      }
+    },
+    "alert-ai-framework": {
+      "type": "Alert",
+      "props": {
+        "title": "ai-framework-watch — SILENT",
+        "message": "Scheduled `30 8 * * 1`, never fired (no cron-state entry)",
+        "type": "error"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "top-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top by runs",
+        "level": "h2"
+      }
+    },
+    "top-skills": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "top-skill-1",
+        "top-skill-2",
+        "top-skill-3"
+      ]
+    },
+    "top-skill-1": {
+      "type": "Stat",
+      "props": {
+        "label": "pr-review/swarm-ai-safety",
+        "value": "18"
+      }
+    },
+    "top-skill-2": {
+      "type": "Stat",
+      "props": {
+        "label": "heartbeat",
+        "value": "13"
+      }
+    },
+    "top-skill-3": {
+      "type": "Stat",
+      "props": {
+        "label": "fleet-control",
+        "value": "10"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "full-article-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/skill-analytics-2026-06-03.md",
+        "source": "Skill Analytics"
+      }
+    }
+  }
+}

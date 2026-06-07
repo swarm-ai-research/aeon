@@ -1,0 +1,197 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Evals"
+      },
+      "children": [
+        "status-alert",
+        "metrics-stack",
+        "sep-1",
+        "top-action-heading",
+        "top-action-stack",
+        "article-link",
+        "sep-2",
+        "issues-heading",
+        "issues-stack"
+      ]
+    },
+    "status-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "SKILL_EVALS_REGRESSED",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "metrics-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-fails",
+        "stat-fixed",
+        "stat-coverage"
+      ]
+    },
+    "stat-fails": {
+      "type": "Stat",
+      "props": {
+        "label": "Actionable new fails",
+        "value": "2"
+      },
+      "children": []
+    },
+    "stat-fixed": {
+      "type": "Stat",
+      "props": {
+        "label": "Fixed",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat-coverage": {
+      "type": "Stat",
+      "props": {
+        "label": "Coverage",
+        "value": "13%"
+      },
+      "children": []
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "top-action-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Action",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "top-action-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "top-action-text",
+        "top-action-badge"
+      ]
+    },
+    "top-action-text": {
+      "type": "Text",
+      "props": {
+        "text": "Patch evals.json:heartbeat — timing issue"
+      },
+      "children": []
+    },
+    "top-action-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-006",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "article-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "articles/skill-evals-2026-05-31.md",
+        "href": "articles/skill-evals-2026-05-31.md",
+        "source": "skill-evals"
+      },
+      "children": []
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "issues-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "issues-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issue-1",
+        "issue-2"
+      ]
+    },
+    "issue-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue-1-text",
+        "issue-1-badge"
+      ]
+    },
+    "issue-1-text": {
+      "type": "Text",
+      "props": {
+        "text": "heartbeat: missing_pattern:heartbeat|Heartbeat|HEARTBEAT",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "issue-1-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-006",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "issue-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue-2-text",
+        "issue-2-badge"
+      ]
+    },
+    "issue-2-text": {
+      "type": "Text",
+      "props": {
+        "text": "skill-health: no_file_match — output goes to memory/ not articles/",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "issue-2-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-007",
+        "variant": "outline"
+      },
+      "children": []
+    }
+  }
+}

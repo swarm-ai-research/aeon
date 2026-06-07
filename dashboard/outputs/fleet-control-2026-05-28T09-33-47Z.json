@@ -1,0 +1,408 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Control — 2026-05-28"
+      },
+      "children": [
+        "verdict_section",
+        "separator1",
+        "fleet_section",
+        "separator2",
+        "counts_section",
+        "separator3",
+        "sources_section"
+      ]
+    },
+    "verdict_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "verdict_heading",
+        "verdict_badge"
+      ]
+    },
+    "verdict_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Verdict",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "verdict_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "FLEET_OK",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "fleet_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fleet_heading",
+        "agent_stack"
+      ]
+    },
+    "fleet_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet (4 total)",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "agent_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "agent1",
+        "agent2",
+        "agent3",
+        "agent4"
+      ]
+    },
+    "agent1": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "agent1_name",
+        "agent1_status",
+        "agent1_did",
+        "agent1_alerts"
+      ]
+    },
+    "agent1_name": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-researcher",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "agent1_status": {
+      "type": "Badge",
+      "props": {
+        "text": "HEALTHY",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "agent1_did": {
+      "type": "Text",
+      "props": {
+        "text": "did:key:z6Mkfnr…",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "agent1_alerts": {
+      "type": "Text",
+      "props": {
+        "text": "none",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "agent2": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "agent2_name",
+        "agent2_status",
+        "agent2_did",
+        "agent2_alerts"
+      ]
+    },
+    "agent2_name": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-reviewer",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "agent2_status": {
+      "type": "Badge",
+      "props": {
+        "text": "HEALTHY",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "agent2_did": {
+      "type": "Text",
+      "props": {
+        "text": "did:key:z6Mks2K…",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "agent2_alerts": {
+      "type": "Text",
+      "props": {
+        "text": "none",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "agent3": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "agent3_name",
+        "agent3_status",
+        "agent3_did",
+        "agent3_alerts"
+      ]
+    },
+    "agent3_name": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-deployer",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "agent3_status": {
+      "type": "Badge",
+      "props": {
+        "text": "HEALTHY",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "agent3_did": {
+      "type": "Text",
+      "props": {
+        "text": "did:key:z6MknGJ…",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "agent3_alerts": {
+      "type": "Text",
+      "props": {
+        "text": "none",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "agent4": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "agent4_name",
+        "agent4_status",
+        "agent4_did",
+        "agent4_alerts"
+      ]
+    },
+    "agent4_name": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-sentinel",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "agent4_status": {
+      "type": "Badge",
+      "props": {
+        "text": "HEALTHY",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "agent4_did": {
+      "type": "Text",
+      "props": {
+        "text": "did:key:z6MksUu…",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "agent4_alerts": {
+      "type": "Text",
+      "props": {
+        "text": "none",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "counts_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "counts_heading",
+        "counts_grid"
+      ]
+    },
+    "counts_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Counts",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "counts_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_healthy",
+        "stat_warning",
+        "stat_degraded",
+        "stat_stale",
+        "stat_pending",
+        "stat_unreachable",
+        "stat_archived"
+      ]
+    },
+    "stat_healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "healthy",
+        "value": "4"
+      },
+      "children": []
+    },
+    "stat_warning": {
+      "type": "Stat",
+      "props": {
+        "label": "warning",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat_degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "degraded",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat_stale": {
+      "type": "Stat",
+      "props": {
+        "label": "stale",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat_pending": {
+      "type": "Stat",
+      "props": {
+        "label": "pending",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat_unreachable": {
+      "type": "Stat",
+      "props": {
+        "label": "unreachable",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat_archived": {
+      "type": "Stat",
+      "props": {
+        "label": "archived",
+        "value": "0"
+      },
+      "children": []
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "sources_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sources_heading",
+        "source1",
+        "source2"
+      ]
+    },
+    "sources_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "source1": {
+      "type": "Text",
+      "props": {
+        "text": "gh=skipped (GitLawb-only fleet)",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "source2": {
+      "type": "Text",
+      "props": {
+        "text": "gitlawb-fleet.json=absent, used mirrored cap_status",
+        "variant": "body"
+      },
+      "children": []
+    }
+  }
+}

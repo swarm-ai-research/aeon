@@ -1,0 +1,188 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Code Health",
+        "description": "swarm-ai-safety/swarm (~130k LOC Python)"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "badge_status",
+        "separator_1",
+        "grid_metrics",
+        "separator_2",
+        "heading_positive",
+        "stack_positive",
+        "separator_3",
+        "heading_concern",
+        "stack_concern",
+        "separator_4",
+        "storylink_report"
+      ]
+    },
+    "badge_status": {
+      "type": "Badge",
+      "props": {
+        "text": "Healthy",
+        "variant": "default"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "grid_metrics": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat_loc",
+        "stat_todos",
+        "stat_files",
+        "stat_tests"
+      ]
+    },
+    "stat_loc": {
+      "type": "Stat",
+      "props": {
+        "label": "Lines of Code",
+        "value": "~130k"
+      }
+    },
+    "stat_todos": {
+      "type": "Stat",
+      "props": {
+        "label": "Substantive TODOs",
+        "value": "2"
+      }
+    },
+    "stat_files": {
+      "type": "Stat",
+      "props": {
+        "label": "Files >500 lines",
+        "value": "71"
+      }
+    },
+    "stat_tests": {
+      "type": "Stat",
+      "props": {
+        "label": "Test Files",
+        "value": "~210"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_positive": {
+      "type": "Heading",
+      "props": {
+        "text": "Positive Indicators",
+        "level": "h3"
+      }
+    },
+    "stack_positive": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_secrets",
+        "badge_deadcode",
+        "text_ci"
+      ]
+    },
+    "badge_secrets": {
+      "type": "Badge",
+      "props": {
+        "text": "No hardcoded secrets",
+        "variant": "secondary"
+      }
+    },
+    "badge_deadcode": {
+      "type": "Badge",
+      "props": {
+        "text": "No dead code",
+        "variant": "secondary"
+      }
+    },
+    "text_ci": {
+      "type": "Text",
+      "props": {
+        "text": "Strong CI gate: ruff + mypy + 70% coverage floor + CodeQL",
+        "variant": "body"
+      }
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_concern": {
+      "type": "Heading",
+      "props": {
+        "text": "Main Concern",
+        "level": "h3"
+      }
+    },
+    "stack_concern": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_bloat",
+        "text_orchestrator"
+      ]
+    },
+    "text_bloat": {
+      "type": "Text",
+      "props": {
+        "text": "Module bloat: ~71 files over 500 lines",
+        "variant": "body"
+      }
+    },
+    "text_orchestrator": {
+      "type": "Text",
+      "props": {
+        "text": "Primary bottleneck: core/orchestrator.py at 2,070 lines",
+        "variant": "body"
+      }
+    },
+    "separator_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "storylink_report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Code Health Report",
+        "href": "articles/code-health-2026-05-17.md",
+        "source": "code-health"
+      }
+    }
+  }
+}

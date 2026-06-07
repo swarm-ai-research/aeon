@@ -1,0 +1,96 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Memory Consolidation — 2026-06-01"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "swarm_badge",
+        "sep1",
+        "queue_stat",
+        "skills_badge",
+        "sep2",
+        "cost_alert",
+        "sep3",
+        "dashboard_text",
+        "sep4",
+        "issues_stat"
+      ]
+    },
+    "swarm_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Swarm #481 merged overnight (baseline fix)",
+        "variant": "secondary"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "queue_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Queue",
+        "value": "2",
+        "delta": "-1",
+        "trend": "down"
+      }
+    },
+    "skills_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Monday weekly skills shook out clean",
+        "variant": "default"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "cost_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Cost Report",
+        "message": "Projects $1,115/mo burn (watch)",
+        "type": "warning"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "dashboard_text": {
+      "type": "Text",
+      "props": {
+        "text": "Upstream dashboard tests half-wired (glob fix queued)"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "issues_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "4",
+        "delta": "0",
+        "trend": "neutral"
+      }
+    }
+  }
+}

@@ -1,0 +1,399 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker",
+        "description": "2026-05-31"
+      },
+      "children": [
+        "summary-stats",
+        "sep1",
+        "goals-section",
+        "sep2",
+        "sources-section"
+      ]
+    },
+    "summary-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-text",
+        "stats-grid"
+      ]
+    },
+    "summary-text": {
+      "type": "Text",
+      "props": {
+        "text": "4 goals",
+        "variant": "lead"
+      }
+    },
+    "stats-grid": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-at-risk",
+        "stat-needs-attention",
+        "stat-on-track",
+        "stat-blocked",
+        "stat-done",
+        "stat-overall"
+      ]
+    },
+    "stat-at-risk": {
+      "type": "Stat",
+      "props": {
+        "label": "At Risk",
+        "value": "0"
+      }
+    },
+    "stat-needs-attention": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs Attention",
+        "value": "0"
+      }
+    },
+    "stat-on-track": {
+      "type": "Stat",
+      "props": {
+        "label": "On Track",
+        "value": "4"
+      }
+    },
+    "stat-blocked": {
+      "type": "Stat",
+      "props": {
+        "label": "Blocked",
+        "value": "0"
+      }
+    },
+    "stat-done": {
+      "type": "Stat",
+      "props": {
+        "label": "Done",
+        "value": "0"
+      }
+    },
+    "stat-overall": {
+      "type": "Badge",
+      "props": {
+        "text": "Overall: flat",
+        "variant": "outline"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "goals-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "goals-header",
+        "goal-1",
+        "goal-2",
+        "goal-3",
+        "goal-4"
+      ]
+    },
+    "goals-header": {
+      "type": "Heading",
+      "props": {
+        "text": "On Track",
+        "level": "h3"
+      }
+    },
+    "goal-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-1-title",
+        "goal-1-metrics"
+      ]
+    },
+    "goal-1-title": {
+      "type": "Text",
+      "props": {
+        "text": "Keep the engineering skill stack running clean",
+        "variant": "body"
+      }
+    },
+    "goal-1-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "g1-idle",
+        "g1-activity",
+        "g1-trend"
+      ]
+    },
+    "g1-idle": {
+      "type": "Stat",
+      "props": {
+        "label": "Idle",
+        "value": "0d"
+      }
+    },
+    "g1-activity": {
+      "type": "Stat",
+      "props": {
+        "label": "Activity/14d",
+        "value": "40"
+      }
+    },
+    "g1-trend": {
+      "type": "Badge",
+      "props": {
+        "text": "flat",
+        "variant": "secondary"
+      }
+    },
+    "goal-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-2-title",
+        "goal-2-metrics"
+      ]
+    },
+    "goal-2-title": {
+      "type": "Text",
+      "props": {
+        "text": "Run the day from intent, not just cron",
+        "variant": "body"
+      }
+    },
+    "goal-2-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "g2-idle",
+        "g2-activity",
+        "g2-trend"
+      ]
+    },
+    "g2-idle": {
+      "type": "Stat",
+      "props": {
+        "label": "Idle",
+        "value": "0d"
+      }
+    },
+    "g2-activity": {
+      "type": "Stat",
+      "props": {
+        "label": "Activity/14d",
+        "value": "11"
+      }
+    },
+    "g2-trend": {
+      "type": "Badge",
+      "props": {
+        "text": "flat",
+        "variant": "secondary"
+      }
+    },
+    "goal-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-3-title",
+        "goal-3-metrics"
+      ]
+    },
+    "goal-3-title": {
+      "type": "Text",
+      "props": {
+        "text": "Iterate the two prototypes (GitLawb safety layer, compute-futures)",
+        "variant": "body"
+      }
+    },
+    "goal-3-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "g3-idle",
+        "g3-activity",
+        "g3-trend"
+      ]
+    },
+    "g3-idle": {
+      "type": "Stat",
+      "props": {
+        "label": "Idle",
+        "value": "0d"
+      }
+    },
+    "g3-activity": {
+      "type": "Stat",
+      "props": {
+        "label": "Activity/14d",
+        "value": "35"
+      }
+    },
+    "g3-trend": {
+      "type": "Badge",
+      "props": {
+        "text": "flat",
+        "variant": "secondary"
+      }
+    },
+    "goal-4": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal-4-title",
+        "goal-4-metrics"
+      ]
+    },
+    "goal-4-title": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-ai-safety/swarm merge-gate queue",
+        "variant": "body"
+      }
+    },
+    "goal-4-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "g4-idle",
+        "g4-activity",
+        "g4-trend"
+      ]
+    },
+    "g4-idle": {
+      "type": "Stat",
+      "props": {
+        "label": "Idle",
+        "value": "0d"
+      }
+    },
+    "g4-activity": {
+      "type": "Stat",
+      "props": {
+        "label": "Activity/14d",
+        "value": "19"
+      }
+    },
+    "g4-trend": {
+      "type": "Badge",
+      "props": {
+        "text": "flat",
+        "variant": "secondary"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sources-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sources-header",
+        "sources-row"
+      ]
+    },
+    "sources-header": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h4"
+      }
+    },
+    "sources-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "src-logs",
+        "src-git",
+        "src-gh-pr",
+        "src-gh-issue",
+        "src-cron"
+      ]
+    },
+    "src-logs": {
+      "type": "Badge",
+      "props": {
+        "text": "logs=ok",
+        "variant": "default"
+      }
+    },
+    "src-git": {
+      "type": "Badge",
+      "props": {
+        "text": "git=partial",
+        "variant": "secondary"
+      }
+    },
+    "src-gh-pr": {
+      "type": "Badge",
+      "props": {
+        "text": "gh_pr=ok",
+        "variant": "default"
+      }
+    },
+    "src-gh-issue": {
+      "type": "Badge",
+      "props": {
+        "text": "gh_issue=ok",
+        "variant": "default"
+      }
+    },
+    "src-cron": {
+      "type": "Badge",
+      "props": {
+        "text": "cron-state=ok",
+        "variant": "default"
+      }
+    }
+  }
+}

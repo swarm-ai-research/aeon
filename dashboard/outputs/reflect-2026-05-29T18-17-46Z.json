@@ -1,0 +1,169 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Memory consolidated — 2026-05-29",
+        "description": "Steady-state day: memory consolidated, system monitored"
+      },
+      "children": [
+        "status_section",
+        "divider_1",
+        "signals_section",
+        "divider_2",
+        "actions_section"
+      ]
+    },
+    "status_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status_heading",
+        "status_badges"
+      ]
+    },
+    "status_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "System Status",
+        "level": "h3"
+      }
+    },
+    "status_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_p0",
+        "badge_issues"
+      ]
+    },
+    "badge_p0": {
+      "type": "Badge",
+      "props": {
+        "text": "All P0 skills green",
+        "variant": "default"
+      }
+    },
+    "badge_issues": {
+      "type": "Badge",
+      "props": {
+        "text": "0 open issues",
+        "variant": "default"
+      }
+    },
+    "divider_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "signals_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "signals_heading",
+        "signal_1_stack",
+        "signal_2_stack"
+      ]
+    },
+    "signals_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Two Signals Carried Forward",
+        "level": "h3"
+      }
+    },
+    "signal_1_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "signal_1_heading",
+        "signal_1_text"
+      ]
+    },
+    "signal_1_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "1. Planner Dispatch Status",
+        "level": "h4"
+      }
+    },
+    "signal_1_text": {
+      "type": "Text",
+      "props": {
+        "text": "Planner still hasn't dispatched after 2 windows. The 20:00 heartbeat is the tiebreaker on whether the dispatcher is dropping newly-added skills.",
+        "variant": "body"
+      }
+    },
+    "signal_2_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "signal_2_heading",
+        "signal_2_text"
+      ]
+    },
+    "signal_2_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "2. Review Queue Status",
+        "level": "h4"
+      }
+    },
+    "signal_2_text": {
+      "type": "Text",
+      "props": {
+        "text": "Swarm review queue refilled from cleared to 5 open. Items: agentgit b61g policy engine #479 and docs PRs.",
+        "variant": "body"
+      }
+    },
+    "divider_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "actions_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "actions_heading",
+        "actions_text"
+      ]
+    },
+    "actions_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Actions Taken",
+        "level": "h3"
+      }
+    },
+    "actions_text": {
+      "type": "Text",
+      "props": {
+        "text": "Pruned stale entries from MEMORY.md and topic files.",
+        "variant": "body"
+      }
+    }
+  }
+}

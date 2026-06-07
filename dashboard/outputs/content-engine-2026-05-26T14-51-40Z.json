@@ -1,0 +1,136 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Content Engine — 2026-05-26"
+      },
+      "children": [
+        "focus_text",
+        "sep1",
+        "heading_executive",
+        "stack_items",
+        "sep2",
+        "heading_drafts",
+        "drafts_info",
+        "review_link"
+      ]
+    },
+    "focus_text": {
+      "type": "Text",
+      "props": {
+        "text": "Focus: AI agents, coding tools, automation, developer infrastructure, open-source devtools",
+        "variant": "muted"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_executive": {
+      "type": "Heading",
+      "props": {
+        "text": "Executive Summary",
+        "level": "h2"
+      }
+    },
+    "stack_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "item1",
+        "item2",
+        "item3",
+        "item4",
+        "item5"
+      ]
+    },
+    "item1": {
+      "type": "StoryLink",
+      "props": {
+        "title": "HN's top story: use AI as a parallel bug-reviewer, not a speed tool — write code more slowly, ship it cleaner",
+        "source": "Hacker News",
+        "score": "883 pts",
+        "href": "https://news.ycombinator.com/"
+      }
+    },
+    "item2": {
+      "type": "Alert",
+      "props": {
+        "title": "GitHub Actions Incident",
+        "message": "Actively down today — 3rd major incident in May, same cascade pattern each time: health-check removes pods, remaining capacity saturates.",
+        "type": "error"
+      }
+    },
+    "item3": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Vercel Open Agents (open-source): 3-layer reference arch for durable background coding agents that persist past session end",
+        "source": "Open-source",
+        "href": "https://github.com/vercel/open-agents"
+      }
+    },
+    "item4": {
+      "type": "StoryLink",
+      "props": {
+        "title": "OpenAI Daybreak: GPT-5.5-Cyber as a continuous agentic scanner — per-repo threat models + isolated exploit testing, 8 enterprise partners at launch",
+        "source": "OpenAI",
+        "href": "https://openai.com/"
+      }
+    },
+    "item5": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Nango (386 trending stars): serverless Lambda migration drops action latency 200ms → <50ms; the integration infra layer for AI agents is maturing",
+        "source": "GitHub Trending",
+        "href": "https://github.com/nangohq/nango"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_drafts": {
+      "type": "Heading",
+      "props": {
+        "text": "Drafts",
+        "level": "h2"
+      }
+    },
+    "drafts_info": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "drafts_count",
+        "top_draft"
+      ]
+    },
+    "drafts_count": {
+      "type": "Text",
+      "props": {
+        "text": "Drafts ready: 5"
+      }
+    },
+    "top_draft": {
+      "type": "Text",
+      "props": {
+        "text": "Top draft: The Speed Trap — AI as Quality Engine, Not Velocity Hack"
+      }
+    },
+    "review_link": {
+      "type": "Link",
+      "props": {
+        "label": "Review file: articles/content-engine-2026-05-26.md",
+        "href": "articles/content-engine-2026-05-26.md"
+      }
+    }
+  }
+}

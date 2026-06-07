@@ -183,6 +183,7 @@ jobs:
           REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
           SURPLUS_PRICING_URL: ${{ secrets.SURPLUS_PRICING_URL }}
           SURPLUS_API_KEY: ${{ secrets.SURPLUS_API_KEY }}
+          RUNPOD_API_KEY: ${{ secrets.RUNPOD_API_KEY }}
           SKILL_VAR: ${{ inputs.var }}
         run: |
           # Run all scripts/prefetch-*.sh before Claude starts (outside sandbox).

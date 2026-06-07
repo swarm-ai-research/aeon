@@ -1,0 +1,280 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Code Health"
+      },
+      "children": [
+        "header_stack",
+        "sep1",
+        "test_section",
+        "sep2",
+        "carryover_section",
+        "sep3",
+        "metrics_section",
+        "sep4",
+        "article_section"
+      ]
+    },
+    "header_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "repo_text",
+        "commit_badge"
+      ]
+    },
+    "repo_text": {
+      "type": "Text",
+      "props": {
+        "text": "Repository: aaronjmars/aeon",
+        "variant": "lead"
+      }
+    },
+    "commit_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "HEAD c9c33d5",
+        "variant": "secondary"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "test_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "test_heading",
+        "test_stat",
+        "test_progress",
+        "test_details",
+        "test_warning"
+      ]
+    },
+    "test_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Test Coverage",
+        "level": "h2"
+      }
+    },
+    "test_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Test Lines Executed",
+        "value": "821 of 870"
+      }
+    },
+    "test_progress": {
+      "type": "Progress",
+      "props": {
+        "value": 94,
+        "max": 100
+      }
+    },
+    "test_details": {
+      "type": "Text",
+      "props": {
+        "text": "PR #336 (our own upstream PR from yesterday) merged overnight, widening dashboard/package.json's test glob and adding tsx.",
+        "variant": "body"
+      }
+    },
+    "test_warning": {
+      "type": "Alert",
+      "props": {
+        "title": "CI Integration Pending",
+        "message": "The CI step that actually runs tests on PRs is still missing. Currently local-dev only. Awaiting workflow invocation: cd dashboard && npm ci && npm test",
+        "type": "warning"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "carryover_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "carryover_heading",
+        "closed_subheading",
+        "closed_stack",
+        "open_subheading",
+        "open_items"
+      ]
+    },
+    "carryover_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Carryovers (Week 6)",
+        "level": "h2"
+      }
+    },
+    "closed_subheading": {
+      "type": "Heading",
+      "props": {
+        "text": "Closed",
+        "level": "h3"
+      }
+    },
+    "closed_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "closed_item_1"
+      ]
+    },
+    "closed_item_1": {
+      "type": "Text",
+      "props": {
+        "text": "✓ PR #336 (our own upstream PR from yesterday) merged overnight"
+      }
+    },
+    "open_subheading": {
+      "type": "Heading",
+      "props": {
+        "text": "Open",
+        "level": "h3"
+      }
+    },
+    "open_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "open_item_1",
+        "open_item_2",
+        "open_item_3"
+      ]
+    },
+    "open_item_1": {
+      "type": "Text",
+      "props": {
+        "text": "a2a-server/src/index.ts at 578 lines"
+      }
+    },
+    "open_item_2": {
+      "type": "Text",
+      "props": {
+        "text": "Stale ZIZMOR TODO at workflow-security-audit/SKILL.md:36"
+      }
+    },
+    "open_item_3": {
+      "type": "Text",
+      "props": {
+        "text": "Missing scripts/validate-config.js + ci-config-validate.yml"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metrics_heading",
+        "metrics_grid"
+      ]
+    },
+    "metrics_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Health Summary",
+        "level": "h2"
+      }
+    },
+    "metrics_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "metric_todos",
+        "metric_secrets",
+        "metric_deadcode"
+      ]
+    },
+    "metric_todos": {
+      "type": "Stat",
+      "props": {
+        "label": "Source-code TODOs",
+        "value": "0"
+      }
+    },
+    "metric_secrets": {
+      "type": "Stat",
+      "props": {
+        "label": "Secrets Exposed",
+        "value": "0"
+      }
+    },
+    "metric_deadcode": {
+      "type": "Stat",
+      "props": {
+        "label": "Dead Code Signals",
+        "value": "0"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "article_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "article_heading",
+        "article_link"
+      ]
+    },
+    "article_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Full Report",
+        "level": "h2"
+      }
+    },
+    "article_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Code Health Report — 2026-06-03",
+        "href": "articles/code-health-2026-06-03.md",
+        "source": "aeon"
+      }
+    }
+  }
+}

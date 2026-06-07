@@ -1,0 +1,224 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Control — 2026-05-31"
+      },
+      "children": [
+        "verdict_badge",
+        "sep1",
+        "fleet_header",
+        "fleet_list",
+        "sep2",
+        "counts_header",
+        "counts_grid",
+        "sep3",
+        "caps_info",
+        "sep4",
+        "sources_info"
+      ]
+    },
+    "verdict_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "FLEET_OK",
+        "variant": "default"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fleet_header": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet (4 total, all GitLawb-hosted)",
+        "level": "h3"
+      }
+    },
+    "fleet_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "agent_1",
+        "agent_2",
+        "agent_3",
+        "agent_4"
+      ]
+    },
+    "agent_1": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-researcher [HEALTHY]: did:key:z6MkfnrS… — none",
+        "variant": "body"
+      }
+    },
+    "agent_2": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-reviewer [HEALTHY]: did:key:z6Mks2KS… — none",
+        "variant": "body"
+      }
+    },
+    "agent_3": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-deployer [HEALTHY]: did:key:z6MknGJB… — none",
+        "variant": "body"
+      }
+    },
+    "agent_4": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-sentinel [HEALTHY]: did:key:z6MksUuV… — none",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "counts_header": {
+      "type": "Heading",
+      "props": {
+        "text": "Counts",
+        "level": "h3"
+      }
+    },
+    "counts_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_healthy",
+        "stat_warning",
+        "stat_degraded",
+        "stat_stale",
+        "stat_pending",
+        "stat_unreachable",
+        "stat_archived"
+      ]
+    },
+    "stat_healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "healthy",
+        "value": "4"
+      }
+    },
+    "stat_warning": {
+      "type": "Stat",
+      "props": {
+        "label": "warning",
+        "value": "0"
+      }
+    },
+    "stat_degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "degraded",
+        "value": "0"
+      }
+    },
+    "stat_stale": {
+      "type": "Stat",
+      "props": {
+        "label": "stale",
+        "value": "0"
+      }
+    },
+    "stat_pending": {
+      "type": "Stat",
+      "props": {
+        "label": "pending",
+        "value": "0"
+      }
+    },
+    "stat_unreachable": {
+      "type": "Stat",
+      "props": {
+        "label": "unreachable",
+        "value": "0"
+      }
+    },
+    "stat_archived": {
+      "type": "Stat",
+      "props": {
+        "label": "archived",
+        "value": "0"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "caps_info": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "caps_label",
+        "caps_value"
+      ]
+    },
+    "caps_label": {
+      "type": "Heading",
+      "props": {
+        "text": "Caps",
+        "level": "h4"
+      }
+    },
+    "caps_value": {
+      "type": "Text",
+      "props": {
+        "text": "all active until 2026-06-24 (24d)"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sources_info": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sources_label",
+        "sources_value"
+      ]
+    },
+    "sources_label": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h4"
+      }
+    },
+    "sources_value": {
+      "type": "Text",
+      "props": {
+        "text": "gh=skipped (gitlawb-only fleet) · rate_remaining=n/a"
+      }
+    }
+  }
+}

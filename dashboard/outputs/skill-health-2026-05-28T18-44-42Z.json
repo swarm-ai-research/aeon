@@ -1,0 +1,90 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health",
+        "description": "2026-05-28"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status_heading",
+        "stat_healthy",
+        "status_alert",
+        "newly_enabled_text",
+        "separator_1",
+        "issues_grid"
+      ]
+    },
+    "status_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "HEALTH: OK",
+        "level": "h2"
+      }
+    },
+    "stat_healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills Healthy",
+        "value": "12"
+      }
+    },
+    "status_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "success",
+        "message": "No critical/degraded/flapping skills"
+      }
+    },
+    "newly_enabled_text": {
+      "type": "Text",
+      "props": {
+        "text": "5 newly-enabled weekly/reactive skills (config-validator, skill-evals, workflow-security-audit, weekly-shiplog, skill-repair) still awaiting first cron window — expected, not gaps.",
+        "variant": "body"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat_open_issues",
+        "stat_resolved"
+      ]
+    },
+    "stat_open_issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "0"
+      }
+    },
+    "stat_resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      }
+    }
+  }
+}

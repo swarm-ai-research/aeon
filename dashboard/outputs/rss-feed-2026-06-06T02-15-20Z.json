@@ -1,0 +1,116 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "RSS feed updated"
+      },
+      "children": [
+        "stat",
+        "sep1",
+        "heading-new",
+        "stack-items",
+        "sep2",
+        "link-sub"
+      ]
+    },
+    "stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Feed entries",
+        "value": "48"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading-new": {
+      "type": "Heading",
+      "props": {
+        "text": "New entries",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "stack-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item1",
+        "item2",
+        "item3",
+        "item4",
+        "item5",
+        "item-more"
+      ]
+    },
+    "item1": {
+      "type": "Text",
+      "props": {
+        "text": "Workflow Security Audit — 2026-05-31"
+      },
+      "children": []
+    },
+    "item2": {
+      "type": "Text",
+      "props": {
+        "text": "Workflow Security Audit — 2026-05-26"
+      },
+      "children": []
+    },
+    "item3": {
+      "type": "Text",
+      "props": {
+        "text": "Workflow Security Audit — 2026-04-11"
+      },
+      "children": []
+    },
+    "item4": {
+      "type": "Text",
+      "props": {
+        "text": "Week in Review: AEON Becomes a Skill-Pack Registry"
+      },
+      "children": []
+    },
+    "item5": {
+      "type": "Text",
+      "props": {
+        "text": "Vuln Scan — butterbase-ai/butterbase-oss (2026-05-30)"
+      },
+      "children": []
+    },
+    "item-more": {
+      "type": "Text",
+      "props": {
+        "text": "(+43 more entries)",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "link-sub": {
+      "type": "Link",
+      "props": {
+        "label": "Subscribe to feed",
+        "href": "https://raw.githubusercontent.com/rsavitt/aeon/main/articles/feed.xml"
+      },
+      "children": []
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-05-25"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary_text",
+        "sep1",
+        "pr450_section",
+        "sep2",
+        "pr415_section"
+      ]
+    },
+    "summary_text": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed 2 in swarm-ai-safety/swarm, skipped 0.",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr450_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr450_title",
+        "pr450_stats",
+        "pr450_note"
+      ]
+    },
+    "pr450_title": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#450 soft-vs-binary detection",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/450"
+      }
+    },
+    "pr450_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr450_status",
+        "pr450_score",
+        "pr450_critical",
+        "pr450_issues"
+      ]
+    },
+    "pr450_status": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "pr450_score": {
+      "type": "Stat",
+      "props": {
+        "label": "Score",
+        "value": "5/5"
+      }
+    },
+    "pr450_critical": {
+      "type": "Stat",
+      "props": {
+        "label": "Critical",
+        "value": "0"
+      }
+    },
+    "pr450_issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Issues",
+        "value": "0"
+      }
+    },
+    "pr450_note": {
+      "type": "Text",
+      "props": {
+        "text": "All CI green",
+        "variant": "muted"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr415_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr415_title",
+        "pr415_stats",
+        "pr415_alert"
+      ]
+    },
+    "pr415_title": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#415 resource negotiation",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/415"
+      }
+    },
+    "pr415_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr415_status",
+        "pr415_score",
+        "pr415_critical",
+        "pr415_issues"
+      ]
+    },
+    "pr415_status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      }
+    },
+    "pr415_score": {
+      "type": "Stat",
+      "props": {
+        "label": "Score",
+        "value": "2/5"
+      }
+    },
+    "pr415_critical": {
+      "type": "Stat",
+      "props": {
+        "label": "Critical",
+        "value": "0"
+      }
+    },
+    "pr415_issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Issues",
+        "value": "3"
+      }
+    },
+    "pr415_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Failing checks",
+        "message": "lint + quality-gate failing; deadline off-by-one",
+        "type": "warning"
+      }
+    }
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Workflow audit",
+        "description": "2026-05-31"
+      },
+      "children": [
+        "alert-main",
+        "sep1",
+        "new-issues-section",
+        "sep2",
+        "fixes-section",
+        "sep3",
+        "positive-delta-section",
+        "sep4",
+        "pr-link"
+      ]
+    },
+    "alert-main": {
+      "type": "Alert",
+      "props": {
+        "title": "WORKFLOW_AUDIT_NEW_HIGH",
+        "message": "3 new unpinned-uses detected in lint.yml",
+        "type": "warning"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "new-issues-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "new-issues-title",
+        "actions-stack"
+      ]
+    },
+    "new-issues-title": {
+      "type": "Heading",
+      "props": {
+        "text": "New unpinned actions in lint.yml",
+        "level": "h4"
+      }
+    },
+    "actions-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action-checkout",
+        "action-setup-node"
+      ]
+    },
+    "action-checkout": {
+      "type": "Badge",
+      "props": {
+        "text": "actions/checkout@v4 × 2",
+        "variant": "destructive"
+      }
+    },
+    "action-setup-node": {
+      "type": "Badge",
+      "props": {
+        "text": "actions/setup-node@v4 × 1",
+        "variant": "destructive"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fixes-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fixes-title",
+        "fixes-stats-row",
+        "fixes-note"
+      ]
+    },
+    "fixes-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Fix status",
+        "level": "h4"
+      }
+    },
+    "fixes-stats-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-auto-fixed",
+        "stat-manual"
+      ]
+    },
+    "stat-auto-fixed": {
+      "type": "Stat",
+      "props": {
+        "label": "Auto-fixed",
+        "value": "0"
+      }
+    },
+    "stat-manual": {
+      "type": "Stat",
+      "props": {
+        "label": "Manual required",
+        "value": "5"
+      }
+    },
+    "fixes-note": {
+      "type": "Text",
+      "props": {
+        "text": "Skill policy forbids auto-pinning; SHA needs operator verification",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "positive-delta-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "delta-title",
+        "delta-items"
+      ]
+    },
+    "delta-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Positive delta",
+        "level": "h4"
+      }
+    },
+    "delta-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "delta-excessive-stat",
+        "delta-excessive-note",
+        "delta-template-stat"
+      ]
+    },
+    "delta-excessive-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "excessive-permissions Highs",
+        "value": "RESOLVED",
+        "delta": "−10",
+        "trend": "down"
+      }
+    },
+    "delta-excessive-note": {
+      "type": "Text",
+      "props": {
+        "text": "Per-job narrow permissions stuck",
+        "variant": "caption"
+      }
+    },
+    "delta-template-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Auto-fixed template-injections",
+        "value": "5",
+        "delta": "Intact"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-link": {
+      "type": "Link",
+      "props": {
+        "label": "PR #103",
+        "href": "https://github.com/rsavitt/aeon/pull/103"
+      }
+    }
+  }
+}

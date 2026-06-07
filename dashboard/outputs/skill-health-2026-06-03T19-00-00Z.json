@@ -1,0 +1,175 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health",
+        "description": "2026-06-03"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_health",
+        "alert_status",
+        "sep1",
+        "section_nodata",
+        "sep2",
+        "section_issues"
+      ]
+    },
+    "stat_health": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills Healthy",
+        "value": "37"
+      }
+    },
+    "alert_status": {
+      "type": "Alert",
+      "props": {
+        "type": "success",
+        "message": "HEALTH: OK"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_nodata": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_nodata",
+        "stack_nodata_items"
+      ]
+    },
+    "heading_nodata": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA (4)",
+        "level": "h3"
+      }
+    },
+    "stack_nodata_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item_planner",
+        "item_skill_analytics",
+        "item_skill_repair",
+        "item_ai_framework"
+      ]
+    },
+    "item_planner": {
+      "type": "Text",
+      "props": {
+        "text": "planner — 7th missed window — WATCH",
+        "variant": "body"
+      }
+    },
+    "item_skill_analytics": {
+      "type": "Text",
+      "props": {
+        "text": "skill-analytics — first window in-progress now",
+        "variant": "body"
+      }
+    },
+    "item_skill_repair": {
+      "type": "Text",
+      "props": {
+        "text": "skill-repair — reactive (expected)",
+        "variant": "body"
+      }
+    },
+    "item_ai_framework": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch — missed Mon 08:30",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_issues",
+        "issues_stats",
+        "text_issue_status",
+        "link_pr"
+      ]
+    },
+    "heading_issues": {
+      "type": "Heading",
+      "props": {
+        "text": "Open Issues",
+        "level": "h3"
+      }
+    },
+    "issues_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_open",
+        "stat_resolved"
+      ]
+    },
+    "stat_open": {
+      "type": "Stat",
+      "props": {
+        "label": "Open",
+        "value": "4"
+      }
+    },
+    "stat_resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      }
+    },
+    "text_issue_status": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-004/005/006/007 all at status=fixing per PR #107 — awaiting next detected-by cron to flip resolved",
+        "variant": "body"
+      }
+    },
+    "link_pr": {
+      "type": "Link",
+      "props": {
+        "label": "View PR #107",
+        "href": "https://github.com/aeon/aeon/pull/107"
+      }
+    }
+  }
+}

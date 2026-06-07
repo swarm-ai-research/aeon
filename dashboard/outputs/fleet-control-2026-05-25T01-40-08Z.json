@@ -1,0 +1,238 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Control",
+        "description": "2026-05-25"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-verdict",
+        "badge-verdict",
+        "sep-1",
+        "heading-changes",
+        "table-changes",
+        "sep-2",
+        "heading-fleet",
+        "table-fleet",
+        "sep-3",
+        "heading-counts",
+        "grid-counts",
+        "sep-4",
+        "text-sources"
+      ]
+    },
+    "heading-verdict": {
+      "type": "Heading",
+      "props": {
+        "text": "Verdict",
+        "level": "h2"
+      }
+    },
+    "badge-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "FLEET_OK",
+        "variant": "default"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-changes": {
+      "type": "Heading",
+      "props": {
+        "text": "What changed",
+        "level": "h2"
+      }
+    },
+    "table-changes": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Agent",
+          "DID",
+          "Status"
+        ],
+        "rows": [
+          [
+            "aeon-researcher",
+            "did:key:z6Mkfnr…HRUH",
+            "healthy"
+          ],
+          [
+            "aeon-reviewer",
+            "did:key:z6Mks2K…U7SZ",
+            "healthy"
+          ],
+          [
+            "aeon-deployer",
+            "did:key:z6MknGJ…wAuS",
+            "healthy"
+          ],
+          [
+            "aeon-sentinel",
+            "did:key:z6MksUu…X4S2M",
+            "healthy"
+          ]
+        ]
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-fleet": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet",
+        "level": "h2"
+      }
+    },
+    "table-fleet": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Agent",
+          "Status",
+          "Cap Active",
+          "Notes"
+        ],
+        "rows": [
+          [
+            "aeon-researcher",
+            "HEALTHY",
+            "2026-06-24",
+            "none"
+          ],
+          [
+            "aeon-reviewer",
+            "HEALTHY",
+            "2026-06-24",
+            "none"
+          ],
+          [
+            "aeon-deployer",
+            "HEALTHY",
+            "2026-06-24",
+            "none"
+          ],
+          [
+            "aeon-sentinel",
+            "HEALTHY",
+            "2026-06-24",
+            "none"
+          ]
+        ]
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-counts": {
+      "type": "Heading",
+      "props": {
+        "text": "Counts",
+        "level": "h2"
+      }
+    },
+    "grid-counts": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat-healthy",
+        "stat-warning",
+        "stat-degraded",
+        "stat-stale",
+        "stat-pending",
+        "stat-unreachable",
+        "stat-archived"
+      ]
+    },
+    "stat-healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "healthy",
+        "value": "4"
+      }
+    },
+    "stat-warning": {
+      "type": "Stat",
+      "props": {
+        "label": "warning",
+        "value": "0"
+      }
+    },
+    "stat-degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "degraded",
+        "value": "0"
+      }
+    },
+    "stat-stale": {
+      "type": "Stat",
+      "props": {
+        "label": "stale",
+        "value": "0"
+      }
+    },
+    "stat-pending": {
+      "type": "Stat",
+      "props": {
+        "label": "pending",
+        "value": "0"
+      }
+    },
+    "stat-unreachable": {
+      "type": "Stat",
+      "props": {
+        "label": "unreachable",
+        "value": "0"
+      }
+    },
+    "stat-archived": {
+      "type": "Stat",
+      "props": {
+        "label": "archived",
+        "value": "0"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text-sources": {
+      "type": "Text",
+      "props": {
+        "text": "Sources: gitlawb mirror (gh skipped — GitLawb-only fleet)",
+        "variant": "caption"
+      }
+    }
+  }
+}

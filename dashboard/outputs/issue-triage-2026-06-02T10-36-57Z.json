@@ -1,0 +1,191 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Issue Triage — 2026-06-02",
+        "description": "Triaged 1 across 1 repo"
+      },
+      "children": [
+        "stats_grid",
+        "sep1",
+        "repo_section",
+        "sep2",
+        "issue_section"
+      ]
+    },
+    "stats_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_triaged",
+        "stat_urgent",
+        "stat_duplicates",
+        "stat_needs_info"
+      ]
+    },
+    "stat_triaged": {
+      "type": "Stat",
+      "props": {
+        "label": "Triaged",
+        "value": "1"
+      }
+    },
+    "stat_urgent": {
+      "type": "Stat",
+      "props": {
+        "label": "Urgent",
+        "value": "0"
+      }
+    },
+    "stat_duplicates": {
+      "type": "Stat",
+      "props": {
+        "label": "Duplicates closed",
+        "value": "0"
+      }
+    },
+    "stat_needs_info": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs-info",
+        "value": "0"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "repo_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "repo_heading",
+        "repo_verdict",
+        "repo_access_text",
+        "repo_link"
+      ]
+    },
+    "repo_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "aaronjmars/aeon",
+        "level": "h2"
+      }
+    },
+    "repo_verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "1 advisory verdict",
+        "variant": "outline"
+      }
+    },
+    "repo_access_text": {
+      "type": "Text",
+      "props": {
+        "text": "No write access",
+        "variant": "caption"
+      }
+    },
+    "repo_link": {
+      "type": "Link",
+      "props": {
+        "label": "View verdict: memory/triage-advisory/aaronjmars-aeon.md",
+        "href": "memory/triage-advisory/aaronjmars-aeon.md"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issue_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issue_header_row",
+        "issue_labels_row",
+        "issue_title_heading",
+        "issue_body_text"
+      ]
+    },
+    "issue_header_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "issue_ref",
+        "decision_badge"
+      ]
+    },
+    "issue_ref": {
+      "type": "Heading",
+      "props": {
+        "text": "aaronjmars/aeon#317",
+        "level": "h3"
+      }
+    },
+    "decision_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ACCEPT",
+        "variant": "default"
+      }
+    },
+    "issue_labels_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "label_chore_p2",
+        "label_area"
+      ]
+    },
+    "label_chore_p2": {
+      "type": "Badge",
+      "props": {
+        "text": "chore/p2",
+        "variant": "secondary"
+      }
+    },
+    "label_area": {
+      "type": "Badge",
+      "props": {
+        "text": "area=capabilities-map",
+        "variant": "secondary"
+      }
+    },
+    "issue_title_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "capabilities-map",
+        "level": "h4"
+      }
+    },
+    "issue_body_text": {
+      "type": "Text",
+      "props": {
+        "text": "PR #313, merged Mon, will report zero coverage on first weekly run because 0 of 179 first-party SKILL.md files declare `capabilities:` frontmatter. Author proposes Phase 1 PR annotating ~16 high-blast-radius skills (`liquidpad-launch` first — onchain writes, spends money), with a smaller alternative of adding an \"undeclared: N skills\" row to capabilities-map itself.",
+        "variant": "body"
+      }
+    }
+  }
+}

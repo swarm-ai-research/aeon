@@ -1,0 +1,299 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — swarm-ai-safety/swarm"
+      },
+      "children": [
+        "date-text",
+        "main-pr-stack",
+        "separator-1",
+        "related-prs-stack"
+      ]
+    },
+    "date-text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-05-29",
+        "variant": "caption"
+      }
+    },
+    "main-pr-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-479-title",
+        "pr-479-link",
+        "pr-479-status-group",
+        "pr-479-summary",
+        "issue-1",
+        "issue-2",
+        "issue-3",
+        "review-method",
+        "codex-note"
+      ]
+    },
+    "pr-479-title": {
+      "type": "Heading",
+      "props": {
+        "text": "#479 — b61g policy-engine (supersedes #476)",
+        "level": "h2"
+      }
+    },
+    "pr-479-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "View on GitHub",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/479",
+        "source": "swarm-ai-safety/swarm"
+      }
+    },
+    "pr-479-status-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "status-badge",
+        "ci-status"
+      ]
+    },
+    "status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES 3/5",
+        "variant": "destructive"
+      }
+    },
+    "ci-status": {
+      "type": "Badge",
+      "props": {
+        "text": "CI Green",
+        "variant": "default"
+      }
+    },
+    "pr-479-summary": {
+      "type": "Text",
+      "props": {
+        "text": "Full CI is green and tests are strong, but two real holes confirmed in new gate implementation",
+        "variant": "lead"
+      }
+    },
+    "issue-1": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "Unsigned Provenance Block",
+        "message": "Dependency facts come from unsigned v0 provenance block instead of signed diff — dependency rules never fire on v0 bundles"
+      }
+    },
+    "issue-2": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "Fails Open in Misconfigured CI",
+        "message": "Gate falls back to public dev signing key when none is configured"
+      }
+    },
+    "issue-3": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Unvalidated Rule Keys",
+        "message": "Rule `when` keys are not validated"
+      }
+    },
+    "review-method": {
+      "type": "Text",
+      "props": {
+        "text": "Posted as COMMENTED review (author cannot formally request changes)",
+        "variant": "caption"
+      }
+    },
+    "codex-note": {
+      "type": "Text",
+      "props": {
+        "text": "Confirms open codex/copilot threads",
+        "variant": "muted"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "related-prs-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "related-heading",
+        "related-note",
+        "pr-478-row",
+        "pr-476-row",
+        "pr-472-row",
+        "pr-471-row"
+      ]
+    },
+    "related-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Related PRs",
+        "level": "h3"
+      }
+    },
+    "related-note": {
+      "type": "Text",
+      "props": {
+        "text": "Re-affirmed 4 duplicate-SHA PRs without re-posting",
+        "variant": "caption"
+      }
+    },
+    "pr-478-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-478-link",
+        "pr-478-status",
+        "pr-478-detail"
+      ]
+    },
+    "pr-478-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#478",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/478",
+        "source": "swarm-ai-safety/swarm"
+      }
+    },
+    "pr-478-status": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE 5/5",
+        "variant": "secondary"
+      }
+    },
+    "pr-478-detail": {
+      "type": "Text",
+      "props": {
+        "text": "Green",
+        "variant": "caption"
+      }
+    },
+    "pr-476-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-476-link",
+        "pr-476-status",
+        "pr-476-detail"
+      ]
+    },
+    "pr-476-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#476",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/476",
+        "source": "swarm-ai-safety/swarm"
+      }
+    },
+    "pr-476-status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES 3/5",
+        "variant": "destructive"
+      }
+    },
+    "pr-476-detail": {
+      "type": "Text",
+      "props": {
+        "text": "Now green, superseded by #479",
+        "variant": "caption"
+      }
+    },
+    "pr-472-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-472-link",
+        "pr-472-status",
+        "pr-472-detail"
+      ]
+    },
+    "pr-472-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#472",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/472",
+        "source": "swarm-ai-safety/swarm"
+      }
+    },
+    "pr-472-status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES 3/5",
+        "variant": "destructive"
+      }
+    },
+    "pr-472-detail": {
+      "type": "Text",
+      "props": {
+        "text": "Failing on flaky SSE timeout",
+        "variant": "caption"
+      }
+    },
+    "pr-471-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-471-link",
+        "pr-471-status",
+        "pr-471-detail"
+      ]
+    },
+    "pr-471-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#471",
+        "href": "https://github.com/swarm-ai-safety/swarm/pull/471",
+        "source": "swarm-ai-safety/swarm"
+      }
+    },
+    "pr-471-status": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE 5/5",
+        "variant": "secondary"
+      }
+    },
+    "pr-471-detail": {
+      "type": "Text",
+      "props": {
+        "text": "Dependabot",
+        "variant": "caption"
+      }
+    }
+  }
+}

@@ -10,7 +10,7 @@ skills:
     enabled: true
     schedule: "0 */6 * * *"
     var: |
-      swarm-ai-safety/swarm
+      swarm-ai-research/swarm
 
       You are acting as a merge gate reviewer.
       Your job is to decide: APPROVE, REQUEST_CHANGES, or BLOCK.
@@ -29,7 +29,7 @@ skills:
     enabled: true
     schedule: "0 */6 * * *"
     var: |
-      swarm-ai-safety/swarm
+      swarm-ai-research/swarm
 
       You are a fast-lane PR reviewer.
       Goal: quickly approve genuinely low-risk changes while still catching real hazards.
@@ -48,7 +48,7 @@ skills:
     enabled: true
     schedule: "0 */6 * * *"
     var: |
-      swarm-ai-safety/swarm
+      swarm-ai-research/swarm
 
       You are an auto-routing PR reviewer and merge gate.
 

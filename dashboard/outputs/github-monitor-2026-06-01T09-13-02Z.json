@@ -1,0 +1,66 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "GitHub Monitor",
+        "description": "1 repos scanned, 0 need action"
+      },
+      "children": [
+        "info-heading",
+        "items-stack",
+        "separator-1",
+        "sources-text"
+      ]
+    },
+    "info-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "INFO",
+        "level": "h3"
+      }
+    },
+    "items-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-270",
+        "issue-307"
+      ]
+    },
+    "pr-270": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Review PR #270 — CHANGES_REQUESTED, 56h idle — docs(skill-packs)",
+        "href": "https://github.com/aaronjmars/aeon/pull/270",
+        "source": "aaronjmars/aeon"
+      }
+    },
+    "issue-307": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Triage Issue #307 — new issue, no priority label, ~18h old — Anthropic-compatible base URL",
+        "href": "https://github.com/aaronjmars/aeon/issues/307",
+        "source": "aaronjmars/aeon"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sources-text": {
+      "type": "Text",
+      "props": {
+        "text": "sources: aaronjmars/aeon=ok (PR fields reduced — token lacks read:org)",
+        "variant": "caption"
+      }
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health 2026-06-06",
+        "description": "System health status and diagnostics"
+      },
+      "children": [
+        "status-badge",
+        "metrics-stack",
+        "no-data-section",
+        "sep-1",
+        "state-change-alert",
+        "sep-2",
+        "issues-section"
+      ]
+    },
+    "status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "HEALTH: OK",
+        "variant": "default"
+      }
+    },
+    "metrics-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metric-healthy",
+        "metric-critical",
+        "metric-success"
+      ]
+    },
+    "metric-healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Healthy Skills",
+        "value": "39"
+      }
+    },
+    "metric-critical": {
+      "type": "Stat",
+      "props": {
+        "label": "Critical/Degraded/Flapping",
+        "value": "0"
+      }
+    },
+    "metric-success": {
+      "type": "Stat",
+      "props": {
+        "label": "Success Rate (168h)",
+        "value": "156/156"
+      }
+    },
+    "no-data-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "no-data-heading",
+        "no-data-items"
+      ]
+    },
+    "no-data-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "NO DATA at 4 Skills",
+        "level": "h3"
+      }
+    },
+    "no-data-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "no-data-1",
+        "no-data-2",
+        "no-data-3",
+        "no-data-4"
+      ]
+    },
+    "no-data-1": {
+      "type": "Text",
+      "props": {
+        "text": "planner — 9th miss, dispatcher-side",
+        "variant": "body"
+      }
+    },
+    "no-data-2": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch — Mon weekly",
+        "variant": "body"
+      }
+    },
+    "no-data-3": {
+      "type": "Text",
+      "props": {
+        "text": "compute-macro-correlate — Sun weekly",
+        "variant": "body"
+      }
+    },
+    "no-data-4": {
+      "type": "Text",
+      "props": {
+        "text": "skill-repair — reactive (expected)",
+        "variant": "body"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "state-change-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "State Change: stale-content-pr-sweeper",
+        "message": "Self-resolved from NO DATA → HEALTHY. First cron-state entry: 2026-06-06T00:11:40Z",
+        "type": "success"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues-heading",
+        "issues-counts",
+        "issues-detail"
+      ]
+    },
+    "issues-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues",
+        "level": "h3"
+      }
+    },
+    "issues-counts": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "open-stat",
+        "resolved-stat"
+      ]
+    },
+    "open-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "4"
+      }
+    },
+    "resolved-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved (this run)",
+        "value": "0"
+      }
+    },
+    "issues-detail": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-005/006/007/009 all owned by detector skills (rss-feed, skill-evals, skill-evals, manual respectively). Nothing filed by skill-health this run.",
+        "variant": "caption"
+      }
+    }
+  }
+}

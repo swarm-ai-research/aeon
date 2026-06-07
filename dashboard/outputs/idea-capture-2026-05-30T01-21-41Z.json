@@ -1,0 +1,24 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "idea-capture"
+      },
+      "children": [
+        "alert_missing_input"
+      ]
+    },
+    "alert_missing_input": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Missing Input",
+        "message": "idea-capture called without an idea — pass the note as var="
+      },
+      "children": []
+    }
+  }
+}

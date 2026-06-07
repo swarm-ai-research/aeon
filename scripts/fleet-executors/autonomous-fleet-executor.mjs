@@ -30,6 +30,7 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { DoomLoopDetector } from "./doom-loop.mjs";
 import { formatActionsForPrompt } from "./signal-action-map.mjs";
+import { getGoalContext, writeGoalUpdate } from "./goal-context.mjs";
 
 // ── Bootstrap ────────────────────────────────────────────────
 
@@ -157,6 +158,13 @@ function main() {
   const actions = getAgentActions();
   const context = gatherContext();
 
+  // Codex review on PR #122 flagged that goal-context wiring landed only in
+  // researcher.mjs, but the live aeon-researcher runs THIS script. So
+  // goal-spawned researcher tasks never produced a sidecar and the goal's
+  // next_action_hint / state never advanced between cycles. Pick up the goal
+  // context here too so the LLM prompt is goal-aware AND a sidecar is written.
+  const goalCtx = getGoalContext();
+
   // Record the action the harness executed since the last run, if it reported
   // one (GITLAWB_LAST_ACTION_JSON = {name, params?, description?}). Without this
   // the history never grows and doom-loop / previousActions stay empty.
@@ -216,9 +224,19 @@ function main() {
       message: doomResult.message,
       corrective: doomResult.corrective,
     } : { detected: false },
+    goalContext: goalCtx ? {
+      goal_id: goalCtx.goal_id,
+      objective: goalCtx.objective,
+      success_criteria: goalCtx.success_criteria,
+      next_action_hint: goalCtx.next_action_hint,
+      state: goalCtx.state,
+    } : null,
     instructions: [
       `You are ${agent.name || "a fleet agent"}. Your goal: ${goal}`,
       "",
+      goalCtx
+        ? `**Goal context:** \`${goalCtx.goal_id}\`. Carry-forward hint from last cycle: ${goalCtx.next_action_hint || "(none)"}. Prior state: ${JSON.stringify(goalCtx.state)}.`
+        : "",
       `Available actions: ${actions.join(", ")}`,
       "",
       doomResult
@@ -230,13 +248,45 @@ function main() {
       "artifact (issue, PR, or summary) and mark the task complete.",
       "",
       "If you cannot accomplish the goal, explain why and mark the task as failed.",
-    ].join("\n"),
+    ].filter(Boolean).join("\n"),
   };
 
   console.log(JSON.stringify(output, null, 2));
 
   state.stepCount++;
   saveState(state);
+
+  // Write a goal-update sidecar so the reconciler can advance the goal's
+  // next_action_hint / state between cycles. Each step rewrites it with the
+  // latest step count and most recent action history — even if Codex never
+  // explicitly writes one, the goal moves forward instead of resetting.
+  // Sidecar failures must not poison the step (executor stdout is the task
+  // artifact channel — silently swallow on write error).
+  if (goalCtx && goalCtx.task_id) {
+    try {
+      const recent = state.actions.slice(-5).map((a) => a.name).filter(Boolean);
+      const nextHint = doomResult
+        ? `Doom loop after step ${state.stepCount}: ${doomResult.message}. ${doomResult.corrective}`
+        : `Resume from step ${state.stepCount} on branch ${context.branch || "(unknown)"}. Recent actions: ${recent.join(" → ") || "(none)"}.`;
+      writeGoalUpdate({
+        taskId: goalCtx.task_id,
+        goalId: goalCtx.goal_id,
+        next_action_hint: nextHint,
+        state: {
+          ...goalCtx.state,
+          last_step_count: state.stepCount,
+          last_branch: context.branch || null,
+          last_recent_actions: recent,
+          last_run_at: new Date().toISOString(),
+        },
+        note: doomResult
+          ? `Autonomous executor flagged doom loop for ${goalCtx.goal_id} at step ${state.stepCount}.`
+          : `Autonomous executor advanced ${goalCtx.goal_id} to step ${state.stepCount}.`,
+      }, repoDir);
+    } catch (err) {
+      console.error(`[goal-context] writeGoalUpdate failed: ${err.message}`);
+    }
+  }
 }
 
 main();

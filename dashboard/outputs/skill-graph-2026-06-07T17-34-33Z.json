@@ -1,0 +1,120 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Graph updated"
+      },
+      "children": [
+        "content-stack"
+      ]
+    },
+    "content-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stats-section",
+        "skills-section",
+        "pr-link"
+      ]
+    },
+    "stats-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-new-skills",
+        "stat-new-deps",
+        "stat-dropped-deps",
+        "stat-mapped",
+        "stat-enabled"
+      ]
+    },
+    "stat-new-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "New Skills",
+        "value": "4"
+      }
+    },
+    "stat-new-deps": {
+      "type": "Stat",
+      "props": {
+        "label": "New Dependencies",
+        "value": "9"
+      }
+    },
+    "stat-dropped-deps": {
+      "type": "Stat",
+      "props": {
+        "label": "Dropped Dependencies",
+        "value": "17"
+      }
+    },
+    "stat-mapped": {
+      "type": "Stat",
+      "props": {
+        "label": "Mapped",
+        "value": "172"
+      }
+    },
+    "stat-enabled": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled",
+        "value": "43"
+      }
+    },
+    "skills-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "skill-1",
+        "skill-2",
+        "skill-3",
+        "skill-4"
+      ]
+    },
+    "skill-1": {
+      "type": "Badge",
+      "props": {
+        "text": "compute-macro-correlate"
+      }
+    },
+    "skill-2": {
+      "type": "Badge",
+      "props": {
+        "text": "frontier-eval"
+      }
+    },
+    "skill-3": {
+      "type": "Badge",
+      "props": {
+        "text": "runpod-spot-pricing"
+      }
+    },
+    "skill-4": {
+      "type": "Badge",
+      "props": {
+        "text": "stale-content-pr-sweeper"
+      }
+    },
+    "pr-link": {
+      "type": "Link",
+      "props": {
+        "label": "PR #266",
+        "href": "https://github.com/rsavitt/aeon/pull/266"
+      }
+    }
+  }
+}

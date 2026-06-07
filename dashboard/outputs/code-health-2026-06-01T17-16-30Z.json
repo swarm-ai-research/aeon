@@ -1,0 +1,220 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Code Health: aaronjmars/aeon"
+      },
+      "children": [
+        "headline",
+        "subheadline",
+        "sep_1",
+        "improvements_section",
+        "sep_2",
+        "issues_section",
+        "sep_3",
+        "fixes_section",
+        "sep_4",
+        "report_link"
+      ]
+    },
+    "headline": {
+      "type": "Heading",
+      "props": {
+        "text": "Real Movement on Tests",
+        "level": "h2"
+      }
+    },
+    "subheadline": {
+      "type": "Text",
+      "props": {
+        "text": "Dashboard improved with new test infrastructure and extracted auth-provider testing.",
+        "variant": "lead"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "improvements_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "imp_heading",
+        "stat_lines",
+        "imp_items"
+      ]
+    },
+    "imp_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Additions & Improvements",
+        "level": "h3"
+      }
+    },
+    "stat_lines": {
+      "type": "Stat",
+      "props": {
+        "label": "New test code lines in dashboard",
+        "value": "~870"
+      }
+    },
+    "imp_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "imp_item_1",
+        "imp_item_2",
+        "imp_item_3"
+      ]
+    },
+    "imp_item_1": {
+      "type": "Text",
+      "props": {
+        "text": "✓ Test files added: config, frontmatter, utils, api-gate"
+      }
+    },
+    "imp_item_2": {
+      "type": "Text",
+      "props": {
+        "text": "✓ Test script added"
+      }
+    },
+    "imp_item_3": {
+      "type": "Text",
+      "props": {
+        "text": "✓ auth-provider.mjs extracted and tested"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "issues_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues_heading",
+        "issue_1",
+        "issue_2",
+        "issue_3",
+        "issue_4"
+      ]
+    },
+    "issues_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues & Concerns",
+        "level": "h3"
+      }
+    },
+    "issue_1": {
+      "type": "Alert",
+      "props": {
+        "title": "Test Script Glob Too Narrow",
+        "message": "Pattern lib/*.test.mjs runs only 1 of 5 test files",
+        "type": "warning"
+      }
+    },
+    "issue_2": {
+      "type": "Alert",
+      "props": {
+        "title": "npm test Not Wired Into CI",
+        "message": "Test execution is not integrated into the CI pipeline",
+        "type": "warning"
+      }
+    },
+    "issue_3": {
+      "type": "Alert",
+      "props": {
+        "title": "Large Module: a2a-server/src/index.ts",
+        "message": "File is 578 lines — exceeds typical module size recommendations",
+        "type": "info"
+      }
+    },
+    "issue_4": {
+      "type": "Alert",
+      "props": {
+        "title": "Stale TODO: ZIZMOR",
+        "message": "Reference in skills/workflow-security-audit/SKILL.md:36 is outdated (PR #68 already shipped)",
+        "type": "info"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "fixes_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fixes_heading",
+        "fixes_intro",
+        "fixes_list"
+      ]
+    },
+    "fixes_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Quick Fixes Available",
+        "level": "h3"
+      }
+    },
+    "fixes_intro": {
+      "type": "Text",
+      "props": {
+        "text": "Two-line fix resolves the test coverage gaps:",
+        "variant": "body"
+      }
+    },
+    "fixes_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "fix_item_1",
+        "fix_item_2"
+      ]
+    },
+    "fix_item_1": {
+      "type": "Text",
+      "props": {
+        "text": "1. Widen test glob pattern to include all test files"
+      }
+    },
+    "fix_item_2": {
+      "type": "Text",
+      "props": {
+        "text": "2. Add CI step to wire npm test into the pipeline"
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "report_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Code Health Report",
+        "href": "articles/code-health-2026-06-01.md",
+        "source": "Generated Report"
+      }
+    }
+  }
+}

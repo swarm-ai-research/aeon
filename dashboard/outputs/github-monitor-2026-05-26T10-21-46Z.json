@@ -1,0 +1,97 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "GitHub Monitor"
+      },
+      "children": [
+        "stack_stats",
+        "separator1",
+        "stack_content"
+      ]
+    },
+    "stack_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_repos",
+        "stat_actions"
+      ]
+    },
+    "stat_repos": {
+      "type": "Stat",
+      "props": {
+        "label": "Repos scanned",
+        "value": "1"
+      }
+    },
+    "stat_actions": {
+      "type": "Stat",
+      "props": {
+        "label": "Need action",
+        "value": "0"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_info",
+        "storylink_issue",
+        "text_details",
+        "separator2",
+        "text_sources"
+      ]
+    },
+    "heading_info": {
+      "type": "Heading",
+      "props": {
+        "text": "INFO",
+        "level": "h3"
+      }
+    },
+    "storylink_issue": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Triage aaronjmars/aeon!244",
+        "href": "https://github.com/aaronjmars/aeon/issues/244",
+        "source": "GitHub"
+      }
+    },
+    "text_details": {
+      "type": "Text",
+      "props": {
+        "text": "New issue, no priority label, opened ~2h ago",
+        "variant": "caption"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_sources": {
+      "type": "Text",
+      "props": {
+        "text": "aaronjmars/aeon=ok (reduced fields, token lacks read:org)",
+        "variant": "muted"
+      }
+    }
+  }
+}

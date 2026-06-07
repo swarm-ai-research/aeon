@@ -1,0 +1,159 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "heartbeat",
+        "description": "System health check"
+      },
+      "children": [
+        "alert-status",
+        "sep1",
+        "stack-details"
+      ]
+    },
+    "alert-status": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "🔴 DEGRADED",
+        "message": "Config conflict in aeon.yml is REAL, not a false positive"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-background",
+        "heading-problem",
+        "text-conflict-markers",
+        "text-root-cause",
+        "heading-resolution",
+        "stack-iss002",
+        "stack-pr21",
+        "stack-pr1"
+      ]
+    },
+    "text-background": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-001 was closed after checking .github/workflows/aeon.yml, but the scheduler reads the repo-root aeon.yml.",
+        "variant": "body"
+      }
+    },
+    "heading-problem": {
+      "type": "Heading",
+      "props": {
+        "text": "Problem",
+        "level": "h4"
+      }
+    },
+    "text-conflict-markers": {
+      "type": "Text",
+      "props": {
+        "text": "Conflict markers on lines 141, 169, 198 committed on main.",
+        "variant": "body"
+      }
+    },
+    "text-root-cause": {
+      "type": "Text",
+      "props": {
+        "text": "Bash parser tolerated them so dispatch limped along, but the config is broken.",
+        "variant": "body"
+      }
+    },
+    "heading-resolution": {
+      "type": "Heading",
+      "props": {
+        "text": "Resolution",
+        "level": "h4"
+      }
+    },
+    "stack-iss002": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "link-iss002"
+      ]
+    },
+    "link-iss002": {
+      "type": "Link",
+      "props": {
+        "label": "ISS-002 filed",
+        "href": "https://github.com/aeon/aeon/issues/2"
+      }
+    },
+    "stack-pr21": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "link-pr21",
+        "text-pr21-contents",
+        "text-pr21-action"
+      ]
+    },
+    "link-pr21": {
+      "type": "Link",
+      "props": {
+        "label": "PR #21",
+        "href": "https://github.com/aeon/aeon/pull/21"
+      }
+    },
+    "text-pr21-contents": {
+      "type": "Text",
+      "props": {
+        "text": "Includes: upstream block + fork's enabled:true overrides + 3 GitLawb skills re-added",
+        "variant": "body"
+      }
+    },
+    "text-pr21-action": {
+      "type": "Text",
+      "props": {
+        "text": "Needs your review/merge",
+        "variant": "lead"
+      }
+    },
+    "stack-pr1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "link-pr1",
+        "text-pr1-status"
+      ]
+    },
+    "link-pr1": {
+      "type": "Link",
+      "props": {
+        "label": "PR #1",
+        "href": "https://github.com/aeon/aeon/pull/1"
+      }
+    },
+    "text-pr1-status": {
+      "type": "Text",
+      "props": {
+        "text": "Still open >24h (deduped)",
+        "variant": "muted"
+      }
+    }
+  }
+}

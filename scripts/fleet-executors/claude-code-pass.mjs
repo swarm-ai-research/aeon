@@ -28,6 +28,10 @@ const DEFAULT_MODEL = process.env.GITLAWB_CODE_PASS_MODEL || "claude-sonnet-4-6"
 // A patch pass involves Read/Grep/Edit cycles plus an explanation — give it
 // noticeably more headroom than the read-only review path (which uses 300s).
 const TIMEOUT_MS = Number(process.env.GITLAWB_CODE_PASS_TIMEOUT_MS || 600_000);
+// Skip opening a new pass-PR if there are already this many open PRs of the
+// same kind. Stops the */1h ticker from piling duplicates onto an unmerged
+// backlog when nothing is reviewing them. 0 disables the gate.
+const BACKLOG_LIMIT = Number(process.env.GITLAWB_CODE_PASS_BACKLOG_LIMIT || 3);
 
 const KIND_CONFIG = {
   "docs-pass": {
@@ -65,6 +69,23 @@ function run(cmd, args, opts = {}) {
 
 function shortTaskId(taskId) {
   return String(taskId || "").replace(/[^a-zA-Z0-9]/g, "").slice(0, 10) || "x";
+}
+
+// Count open PRs whose head branch starts with `aeon/${kind}-`. Returns null
+// when the query fails (gh missing, auth issue, malformed JSON) — callers
+// treat null as "unknown" and proceed rather than blocking work on a flaky
+// metadata check.
+function openPRsForKind(kind, repoDir) {
+  const r = run("gh", ["pr", "list", "--state", "open", "--json", "headRefName", "--limit", "200"], { cwd: repoDir });
+  if (!r.ok) return null;
+  try {
+    const arr = JSON.parse(r.stdout);
+    if (!Array.isArray(arr)) return null;
+    const prefix = `aeon/${kind}-`;
+    return arr.filter((p) => typeof p?.headRefName === "string" && p.headRefName.startsWith(prefix)).length;
+  } catch {
+    return null;
+  }
 }
 
 function workingTreeClean(repoDir) {
@@ -145,6 +166,18 @@ function extractSummary(stdout) {
 export function runCodePass({ kind, target = "", focus = "", repoDir = process.cwd(), taskId = "", model = DEFAULT_MODEL } = {}) {
   const cfg = KIND_CONFIG[kind];
   if (!cfg) return { ok: false, kind, reason: `unknown code-pass kind: ${kind}` };
+
+  if (BACKLOG_LIMIT > 0) {
+    const backlog = openPRsForKind(kind, repoDir);
+    if (backlog !== null && backlog >= BACKLOG_LIMIT) {
+      return {
+        ok: true,
+        kind,
+        prUrl: null,
+        summary: `${cfg.label}: skipped — ${backlog} open ${kind} PR(s) already in backlog (limit ${BACKLOG_LIMIT}).`,
+      };
+    }
+  }
 
   const today = new Date().toISOString().slice(0, 10);
   const branch = `aeon/${kind}-${today}-${shortTaskId(taskId)}`;

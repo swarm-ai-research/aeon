@@ -1,0 +1,149 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Content Engine"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-date",
+        "text-focus",
+        "sep-1",
+        "heading-executive",
+        "stack-bullets",
+        "sep-2",
+        "heading-status",
+        "stat-drafts",
+        "text-top-draft",
+        "link-review"
+      ]
+    },
+    "heading-date": {
+      "type": "Heading",
+      "props": {
+        "text": "2026-05-23",
+        "level": "h4"
+      },
+      "children": []
+    },
+    "text-focus": {
+      "type": "Text",
+      "props": {
+        "text": "Focus: AI agents, coding tools, automation, developer infrastructure, open-source devtools",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading-executive": {
+      "type": "Heading",
+      "props": {
+        "text": "Executive Read",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "stack-bullets": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-bullet-1",
+        "text-bullet-2",
+        "text-bullet-3",
+        "text-bullet-4"
+      ]
+    },
+    "text-bullet-1": {
+      "type": "Text",
+      "props": {
+        "text": "Google I/O 2026: Managed Agents API makes a sandboxed, tool-using agent a single Gemini call",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "text-bullet-2": {
+      "type": "Text",
+      "props": {
+        "text": "Deno 2.8: Node.js compatibility jumped 42% → 76.4%; npm installs 3.66x faster",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "text-bullet-3": {
+      "type": "Text",
+      "props": {
+        "text": "DeepSeek V4-Pro 75% price cut made permanent — input now $0.435/M token",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "text-bullet-4": {
+      "type": "Text",
+      "props": {
+        "text": "JetBrains survey: Claude Code grew 6x in 8 months (3% → 18%), tied with Cursor",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading-status": {
+      "type": "Heading",
+      "props": {
+        "text": "Status",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "stat-drafts": {
+      "type": "Stat",
+      "props": {
+        "label": "Drafts ready",
+        "value": "4"
+      },
+      "children": []
+    },
+    "text-top-draft": {
+      "type": "Text",
+      "props": {
+        "text": "Top draft: Google Antigravity 2.0 and the Managed Agents API",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "link-review": {
+      "type": "Link",
+      "props": {
+        "label": "Review file: articles/content-engine-2026-05-23.md",
+        "href": "articles/content-engine-2026-05-23.md"
+      },
+      "children": []
+    }
+  }
+}
