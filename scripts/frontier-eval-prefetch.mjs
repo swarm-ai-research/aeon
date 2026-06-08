@@ -117,7 +117,16 @@ async function callModel(model, prompt) {
       body: JSON.stringify({
         model,
         messages: [{ role: "user", content: prompt }],
-        max_tokens: 1024,
+        // 4096 not 1024: reasoning-tuned closed-source models (GPT-5
+        // reasoning tier, DeepSeek-r1/v4-pro) burn most of the budget
+        // inside the reasoning trace before emitting the user-visible
+        // answer, and OpenRouter does not strip reasoning from the
+        // completion budget the way some provider-native APIs do. A 1024
+        // cap empirically returned empty content on 13/50 (GPT-5.5) and
+        // 21/50 (DeepSeek-v4-pro) of the harder corpus tasks. Anthropic /
+        // Gemini / Grok aren't affected at 1024 but pay no real penalty at
+        // 4096 either, so bump unconditionally for consistency.
+        max_tokens: 4096,
         temperature: 0.0,
       }),
     });

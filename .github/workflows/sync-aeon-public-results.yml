@@ -1,0 +1,35 @@
+name: Sync from public mirror
+
+# Pulls the outputs of public-mirror-side skills (compute-pulse,
+# code-health, github-monitor, changelog, ai-framework-watch,
+# compute-macro-correlate) back into private memory/imports/ so private
+# consumers (planner, reflect, topic MOCs) see fresh data without
+# running the skills on private minutes.
+#
+# Reverse direction of sync-aeon-public.yml.
+
+on:
+  schedule:
+    - cron: '30 6 * * *'  # daily 06:30 UTC — after public mirror's 06:00 sync window settles
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: sync-aeon-public-results
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # need to commit memory/imports/ back to main
+    steps:
+      - name: Checkout aeon
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Import public-mirror results
+        run: bash scripts/sync-aeon-public-results.sh

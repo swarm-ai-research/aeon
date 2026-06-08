@@ -1,0 +1,277 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Planner"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "heading-priority",
+        "text-priority-item",
+        "text-priority-context",
+        "stat-projection",
+        "sep1",
+        "heading-decisions",
+        "stack-decisions",
+        "sep2",
+        "heading-investigating",
+        "text-investigating",
+        "sep3",
+        "heading-holding",
+        "stack-holding",
+        "sep4",
+        "heading-fleet",
+        "stack-fleet"
+      ]
+    },
+    "heading-priority": {
+      "type": "Heading",
+      "props": {
+        "text": "Today's Priority",
+        "level": "h2"
+      }
+    },
+    "text-priority-item": {
+      "type": "Text",
+      "props": {
+        "text": "cost-report",
+        "variant": "lead"
+      }
+    },
+    "text-priority-context": {
+      "type": "Text",
+      "props": {
+        "text": "Burn-rate re-check date set on 2026-06-01"
+      }
+    },
+    "stat-projection": {
+      "type": "Stat",
+      "props": {
+        "label": "Projected monthly burn",
+        "value": "$1,115/mo",
+        "delta": "77% cache"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-decisions": {
+      "type": "Heading",
+      "props": {
+        "text": "Operator Decisions",
+        "level": "h2"
+      }
+    },
+    "stack-decisions": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "decision-1",
+        "decision-2"
+      ]
+    },
+    "decision-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-dec1",
+        "text-dec1-action",
+        "text-dec1-closes",
+        "text-dec1-context"
+      ]
+    },
+    "badge-dec1": {
+      "type": "Badge",
+      "props": {
+        "text": "Decision 1",
+        "variant": "default"
+      }
+    },
+    "text-dec1-action": {
+      "type": "Text",
+      "props": {
+        "text": "flip rss-feed:enabled:true",
+        "variant": "lead"
+      }
+    },
+    "text-dec1-closes": {
+      "type": "Text",
+      "props": {
+        "text": "Closes ISS-005"
+      }
+    },
+    "text-dec1-context": {
+      "type": "Text",
+      "props": {
+        "text": "Manual run 06-06 produced 48 entries clean"
+      }
+    },
+    "decision-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-dec2",
+        "text-dec2-action",
+        "text-dec2-context"
+      ]
+    },
+    "badge-dec2": {
+      "type": "Badge",
+      "props": {
+        "text": "Decision 2",
+        "variant": "default"
+      }
+    },
+    "text-dec2-action": {
+      "type": "Text",
+      "props": {
+        "text": "Pick a fix for fleet-runner.yml's 10-min timeout",
+        "variant": "lead"
+      }
+    },
+    "text-dec2-context": {
+      "type": "Text",
+      "props": {
+        "text": "compute-futures-eda silent-exited 8 days running"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-investigating": {
+      "type": "Heading",
+      "props": {
+        "text": "Investigating",
+        "level": "h2"
+      }
+    },
+    "text-investigating": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-009 aeon-reviewer GitLawb race (third)"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-holding": {
+      "type": "Heading",
+      "props": {
+        "text": "Holding",
+        "level": "h2"
+      }
+    },
+    "stack-holding": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "holding-item-1",
+        "holding-item-2"
+      ]
+    },
+    "holding-item-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-holding-1-title",
+        "text-holding-1-context"
+      ]
+    },
+    "text-holding-1-title": {
+      "type": "Text",
+      "props": {
+        "text": "Planner dispatch gap",
+        "variant": "lead"
+      }
+    },
+    "text-holding-1-context": {
+      "type": "Text",
+      "props": {
+        "text": "11th miss today, running manually"
+      }
+    },
+    "holding-item-2": {
+      "type": "Text",
+      "props": {
+        "text": "Content-engine fate",
+        "variant": "lead"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-fleet": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet Status",
+        "level": "h2"
+      }
+    },
+    "stack-fleet": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat-fleet-health",
+        "stat-fleet-issues"
+      ]
+    },
+    "stat-fleet-health": {
+      "type": "Stat",
+      "props": {
+        "label": "Fleet health",
+        "value": "49/49",
+        "delta": "green",
+        "trend": "up"
+      }
+    },
+    "stat-fleet-issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open issues",
+        "value": "2"
+      }
+    }
+  }
+}

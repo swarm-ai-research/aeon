@@ -121,7 +121,13 @@ async function callModel(model, prompt) {
         model,
         messages: [{ role: "user", content: prompt }],
         stream: false,
-        options: { temperature: 0.0, num_predict: 1024 },
+        // 4096 not 1024: reasoning-tuned models (qwen3, deepseek-r1, etc.)
+        // burn 800+ tokens inside <think> before emitting the user-visible
+        // answer, so a 1024 cap returns empty content for harder tasks. The
+        // closed-frontier prefetch keeps 1024 because OpenRouter exposes
+        // reasoning tokens separately and they don't eat the completion
+        // budget the same way.
+        options: { temperature: 0.0, num_predict: 4096 },
       }),
       // Local-model inference can be slow on a laptop; give each call generous
       // headroom but cap so a single hung model doesn't block the whole run.

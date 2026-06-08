@@ -1,0 +1,48 @@
+{
+  "root": "card-notegraph",
+  "state": {},
+  "elements": {
+    "card-notegraph": {
+      "type": "Card",
+      "props": {
+        "title": "notegraph"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-status",
+        "text-details",
+        "link-pr"
+      ]
+    },
+    "heading-status": {
+      "type": "Heading",
+      "props": {
+        "text": "Notegraph updated",
+        "level": "h3"
+      }
+    },
+    "text-details": {
+      "type": "Text",
+      "props": {
+        "text": "+3 notes wired in"
+      }
+    },
+    "link-pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "aeon PR #272",
+        "href": "https://github.com/rsavitt/aeon/pull/272",
+        "source": "GitHub"
+      }
+    }
+  }
+}

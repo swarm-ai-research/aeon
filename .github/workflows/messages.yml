@@ -114,6 +114,13 @@ jobs:
           CURRENT_SKILL=""
           IN_VAR_BLOCK="false"
           VAR_BLOCK=""
+          # Track which top-level section we're in. Skill definitions only
+          # count inside `skills:` — other sections (`reactive:`, `chains:`)
+          # also have `skill_name:` keys but those are trigger/step refs,
+          # not skill definitions. Without this gate, the reactive block's
+          # `  planner:` entry was being parsed as a multi-line skill
+          # definition and clobbering planner's schedule with "".
+          IN_SKILLS="false"
 
           flush_var_block() {
             if [ "$IN_VAR_BLOCK" = "true" ] && [ -n "$CURRENT_SKILL" ]; then
@@ -124,6 +131,20 @@ jobs:
           }
 
           while IFS= read -r line; do
+            # Top-level section transitions (column-0 keys with a colon).
+            if [[ "$line" =~ ^skills:[[:space:]]*$ ]]; then
+              IN_SKILLS="true"
+              continue
+            fi
+            if [[ "$line" =~ ^[a-zA-Z0-9_-]+:[[:space:]]*$ ]]; then
+              # Some other top-level key (reactive:, chains:, etc.) — leave skills block.
+              IN_SKILLS="false"
+              flush_var_block
+              CURRENT_SKILL=""
+              continue
+            fi
+            [ "$IN_SKILLS" = "true" ] || continue
+
             if [ "$IN_VAR_BLOCK" = "true" ]; then
               if [[ "$line" =~ ^[[:space:]]*$ ]]; then
                 VAR_BLOCK+=$'\n'
