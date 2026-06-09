@@ -1,0 +1,129 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-06-08"
+      },
+      "children": [
+        "alert_critical",
+        "sep1",
+        "stack_overview",
+        "sep2",
+        "stack_findings",
+        "sep3",
+        "link_report"
+      ]
+    },
+    "alert_critical": {
+      "type": "Alert",
+      "props": {
+        "title": "CRITICAL: Deployer Emission Bug",
+        "message": "Raw CSV contained bit-exact duplicate batch. Flag to fleet.",
+        "type": "error"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "stack_overview": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_data",
+        "text_dedup"
+      ]
+    },
+    "heading_data": {
+      "type": "Heading",
+      "props": {
+        "text": "Data Overview",
+        "level": "h2"
+      }
+    },
+    "text_dedup": {
+      "type": "Text",
+      "props": {
+        "text": "144 deduped rows (12 seeds × 4 modes × 3 roles)"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "stack_findings": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_findings",
+        "badge_conservation",
+        "stat_plnl",
+        "text_plnl_detail",
+        "text_synthetic",
+        "text_correlation"
+      ]
+    },
+    "heading_findings": {
+      "type": "Heading",
+      "props": {
+        "text": "Key Findings",
+        "level": "h2"
+      }
+    },
+    "badge_conservation": {
+      "type": "Badge",
+      "props": {
+        "text": "Conservation: Clean (all 4 modes)",
+        "variant": "default"
+      }
+    },
+    "stat_plnl": {
+      "type": "Stat",
+      "props": {
+        "label": "Spread Analyst Role P&L Movement",
+        "value": "+$2,900",
+        "delta": "+16×"
+      }
+    },
+    "text_plnl_detail": {
+      "type": "Text",
+      "props": {
+        "text": "Previous: +$174 → Current: +$2,900. Conservation holds, indicating reallocation rather than leakage.",
+        "variant": "body"
+      }
+    },
+    "text_synthetic": {
+      "type": "Text",
+      "props": {
+        "text": "Synthetic value at role level: x402"
+      }
+    },
+    "text_correlation": {
+      "type": "Text",
+      "props": {
+        "text": "No within-mode correlations |r| ≥ 0.8"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "link_report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-06-08.md",
+        "source": "Compute-Futures EDA"
+      }
+    }
+  }
+}

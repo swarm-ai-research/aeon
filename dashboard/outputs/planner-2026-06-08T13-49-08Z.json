@@ -1,0 +1,239 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Planner — 13:44Z Run"
+      },
+      "children": [
+        "heading-primary",
+        "sep1",
+        "stack-issue",
+        "sep2",
+        "stack-execution",
+        "sep3",
+        "stack-fix",
+        "sep4",
+        "stack-runners",
+        "sep5",
+        "stat-health"
+      ]
+    },
+    "heading-primary": {
+      "type": "Heading",
+      "props": {
+        "text": "ISS-009: aeon-reviewer GitLawb race",
+        "level": "h2"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-issue": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-holding",
+        "stack-badges"
+      ]
+    },
+    "text-holding": {
+      "type": "Text",
+      "props": {
+        "text": "Holding the line on ISS-009 as today's one thing.",
+        "variant": "body"
+      }
+    },
+    "stack-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-streak",
+        "badge-investigation",
+        "badge-rank"
+      ]
+    },
+    "badge-streak": {
+      "type": "Badge",
+      "props": {
+        "text": "Streak: 2",
+        "variant": "default"
+      }
+    },
+    "badge-investigation": {
+      "type": "Badge",
+      "props": {
+        "text": "No investigation logged",
+        "variant": "outline"
+      }
+    },
+    "badge-rank": {
+      "type": "Badge",
+      "props": {
+        "text": "Rank: #1 (no re-rank)",
+        "variant": "secondary"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-execution": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-execution",
+        "text-runs",
+        "text-costReport",
+        "text-retry"
+      ]
+    },
+    "heading-execution": {
+      "type": "Heading",
+      "props": {
+        "text": "Execution Status",
+        "level": "h3"
+      }
+    },
+    "text-runs": {
+      "type": "Text",
+      "props": {
+        "text": "Fourth planner run today (13:44Z cron). Fifth retry scheduled.",
+        "variant": "body"
+      }
+    },
+    "text-costReport": {
+      "type": "Text",
+      "props": {
+        "text": "Cost-report cf=4. Fourth retry failed 12:36Z.",
+        "variant": "body"
+      }
+    },
+    "text-retry": {
+      "type": "Text",
+      "props": {
+        "text": "13:44Z fired a 5th retry that'll hit the same wall until #274 lands.",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-fix": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-fix",
+        "alert-blocker"
+      ]
+    },
+    "heading-fix": {
+      "type": "Heading",
+      "props": {
+        "text": "Fix Status",
+        "level": "h3"
+      }
+    },
+    "alert-blocker": {
+      "type": "Alert",
+      "props": {
+        "title": "Blocker: Operator Merge Required",
+        "message": "skill-repair shipped the fix as PR #274. Operator merge is the blocker, not skill-repair.",
+        "type": "warning"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-runners": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-runners",
+        "grid-runners"
+      ]
+    },
+    "heading-runners": {
+      "type": "Heading",
+      "props": {
+        "text": "Runners-Up",
+        "level": "h3"
+      }
+    },
+    "grid-runners": {
+      "type": "Grid",
+      "props": {
+        "columns": 1,
+        "gap": "sm"
+      },
+      "children": [
+        "badge-iss005",
+        "badge-fleet",
+        "badge-pr274"
+      ]
+    },
+    "badge-iss005": {
+      "type": "Badge",
+      "props": {
+        "text": "Re-surface ISS-005",
+        "variant": "outline"
+      }
+    },
+    "badge-fleet": {
+      "type": "Badge",
+      "props": {
+        "text": "fleet-runner timeout",
+        "variant": "outline"
+      }
+    },
+    "badge-pr274": {
+      "type": "Badge",
+      "props": {
+        "text": "Merge PR #274",
+        "variant": "outline"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stat-health": {
+      "type": "Stat",
+      "props": {
+        "label": "System Health",
+        "value": "45/49 green",
+        "trend": "neutral"
+      }
+    }
+  }
+}

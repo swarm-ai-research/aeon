@@ -1,0 +1,162 @@
+{
+  "root": "card-reflect",
+  "state": {},
+  "elements": {
+    "card-reflect": {
+      "type": "Card",
+      "props": {
+        "title": "Memory consolidated"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "header-section",
+        "sep-1",
+        "notes-section",
+        "sep-2",
+        "metrics-section"
+      ]
+    },
+    "header-section": {
+      "type": "Text",
+      "props": {
+        "text": "2026-06-08 · +4n / +88e",
+        "variant": "lead"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "notes-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "notes-title",
+        "notes-list",
+        "superseded-text"
+      ]
+    },
+    "notes-title": {
+      "type": "Heading",
+      "props": {
+        "text": "New atomic notes",
+        "level": "h3"
+      }
+    },
+    "notes-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "note-1",
+        "note-2",
+        "note-3",
+        "note-4"
+      ]
+    },
+    "note-1": {
+      "type": "Badge",
+      "props": {
+        "text": "cost-report-csv-timeout"
+      }
+    },
+    "note-2": {
+      "type": "Badge",
+      "props": {
+        "text": "last-error-truncation"
+      }
+    },
+    "note-3": {
+      "type": "Badge",
+      "props": {
+        "text": "gitlawb-claimed-no-reaper"
+      }
+    },
+    "note-4": {
+      "type": "Badge",
+      "props": {
+        "text": "planner-dispatcher-fix-#271"
+      }
+    },
+    "superseded-text": {
+      "type": "Text",
+      "props": {
+        "text": "Superseded: planner-dispatch-gap",
+        "variant": "muted"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "metrics-title",
+        "metrics-grid"
+      ]
+    },
+    "metrics-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Graph metrics",
+        "level": "h3"
+      }
+    },
+    "metrics-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-nodes",
+        "stat-edges",
+        "stat-orphans"
+      ]
+    },
+    "stat-nodes": {
+      "type": "Stat",
+      "props": {
+        "label": "Nodes",
+        "value": "110"
+      }
+    },
+    "stat-edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "788"
+      }
+    },
+    "stat-orphans": {
+      "type": "Stat",
+      "props": {
+        "label": "Orphans",
+        "value": "0"
+      }
+    }
+  }
+}

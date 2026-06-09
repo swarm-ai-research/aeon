@@ -1,0 +1,310 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Planner",
+        "description": "Daily priority re-rank with status update"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "priority",
+        "health-stat",
+        "sep1",
+        "failures-section",
+        "sep2",
+        "retry-section",
+        "sep3",
+        "decisions-section"
+      ]
+    },
+    "priority": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Priority: cost-report → burn-rate read",
+        "level": "h2"
+      }
+    },
+    "health-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "System Health",
+        "value": "48/49",
+        "delta": "cost-report red",
+        "trend": "down"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "failures-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "failures-heading",
+        "morning-fail",
+        "fail-0845"
+      ]
+    },
+    "failures-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Recent Failures",
+        "level": "h3"
+      }
+    },
+    "morning-fail": {
+      "type": "Alert",
+      "props": {
+        "title": "Morning window",
+        "message": "Timeout (cf=2, success_rate=0.33)",
+        "type": "warning"
+      }
+    },
+    "fail-0845": {
+      "type": "Alert",
+      "props": {
+        "title": "08:45Z window",
+        "message": "Hard-fail (cf=2, success_rate=0.33)",
+        "type": "warning"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "retry-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "retry-heading",
+        "retry-meta",
+        "retry-outcomes"
+      ]
+    },
+    "retry-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Third Retry In Flight",
+        "level": "h3"
+      }
+    },
+    "retry-meta": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "retry-run-id",
+        "retry-started"
+      ]
+    },
+    "retry-run-id": {
+      "type": "Text",
+      "props": {
+        "text": "Run 27131135044",
+        "variant": "body"
+      }
+    },
+    "retry-started": {
+      "type": "Text",
+      "props": {
+        "text": "Started 10:19:45Z",
+        "variant": "body"
+      }
+    },
+    "retry-outcomes": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "outcome-success",
+        "outcome-failure"
+      ]
+    },
+    "outcome-success": {
+      "type": "Text",
+      "props": {
+        "text": "✓ Success: Execute pruning decision from 06-01",
+        "variant": "lead"
+      }
+    },
+    "outcome-failure": {
+      "type": "Text",
+      "props": {
+        "text": "✗ Failure: cf=3 → skill-repair owns it (no duplicate work)",
+        "variant": "lead"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "decisions-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "decisions-heading",
+        "decision-iss005",
+        "decision-fleet",
+        "decision-planner"
+      ]
+    },
+    "decisions-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Standing Decisions & Changes",
+        "level": "h3"
+      }
+    },
+    "decision-iss005": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-unchanged-1",
+        "text-iss005"
+      ]
+    },
+    "badge-unchanged-1": {
+      "type": "Badge",
+      "props": {
+        "text": "Unchanged",
+        "variant": "secondary"
+      }
+    },
+    "text-iss005": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-005 rss-feed flip",
+        "variant": "body"
+      }
+    },
+    "decision-fleet": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-unchanged-2",
+        "text-fleet"
+      ]
+    },
+    "badge-unchanged-2": {
+      "type": "Badge",
+      "props": {
+        "text": "Unchanged",
+        "variant": "secondary"
+      }
+    },
+    "text-fleet": {
+      "type": "Text",
+      "props": {
+        "text": "fleet-runner 10-min timeout pick",
+        "variant": "body"
+      }
+    },
+    "decision-planner": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "planner-line1",
+        "planner-line2",
+        "planner-line3"
+      ]
+    },
+    "planner-line1": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-dropped",
+        "text-dropped"
+      ]
+    },
+    "badge-dropped": {
+      "type": "Badge",
+      "props": {
+        "text": "Dropped",
+        "variant": "outline"
+      }
+    },
+    "text-dropped": {
+      "type": "Text",
+      "props": {
+        "text": "Planner dispatch-gap watch",
+        "variant": "body"
+      }
+    },
+    "planner-line2": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text-recovery-narrative",
+        "link-pr271"
+      ]
+    },
+    "text-recovery-narrative": {
+      "type": "Text",
+      "props": {
+        "text": "Recovered 06:30Z window via 07:01Z batch:",
+        "variant": "body"
+      }
+    },
+    "link-pr271": {
+      "type": "Link",
+      "props": {
+        "label": "PR #271",
+        "href": "https://github.com/aeon/aeon/pull/271"
+      }
+    },
+    "planner-line3": {
+      "type": "Text",
+      "props": {
+        "text": "First cron-side fire in 11 misses",
+        "variant": "caption"
+      }
+    }
+  }
+}

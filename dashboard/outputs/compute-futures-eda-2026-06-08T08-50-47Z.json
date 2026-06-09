@@ -1,0 +1,165 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-06-07"
+      },
+      "children": [
+        "alert_deployer",
+        "stack_metrics",
+        "text_sources",
+        "separator_1",
+        "heading_conservation",
+        "text_conservation",
+        "separator_2",
+        "heading_quality",
+        "badge_synthetic",
+        "text_no_correlations",
+        "separator_3",
+        "heading_drift",
+        "text_drift",
+        "separator_4",
+        "link_report"
+      ]
+    },
+    "alert_deployer": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "message": "Deployer's back. First fleet-emitted CSV since 2026-05-30 (8 days dark)."
+      },
+      "children": []
+    },
+    "stack_metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      },
+      "children": []
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      },
+      "children": []
+    },
+    "text_sources": {
+      "type": "Text",
+      "props": {
+        "text": "Data sources: basket/spread on darkbloom live feeds, synthetic/x402 catalog",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_conservation": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "text_conservation": {
+      "type": "Text",
+      "props": {
+        "text": "Clean in every mode (|wallet_sum_pnl| ≤ 2.1e-12 even with spread role-P&L in the $10k range)",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_quality": {
+      "type": "Heading",
+      "props": {
+        "text": "Data Quality",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "badge_synthetic": {
+      "type": "Badge",
+      "props": {
+        "text": "Synthetic≡x402: exact match (max diff 0.0)",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "text_no_correlations": {
+      "type": "Text",
+      "props": {
+        "text": "No within-mode strong correlations",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_drift": {
+      "type": "Heading",
+      "props": {
+        "text": "Drift Analysis",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "text_drift": {
+      "type": "Text",
+      "props": {
+        "text": "`live` and `spotSource` went from constant to varied vs yesterday's manual baseline — that's the deployer's natural shape, not a regression.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "separator_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "link_report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report: memory/topics/compute-futures-eda/2026-06-07.md",
+        "href": "memory/topics/compute-futures-eda/2026-06-07.md",
+        "source": "Compute-Futures EDA"
+      },
+      "children": []
+    }
+  }
+}

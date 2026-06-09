@@ -1,0 +1,224 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "skill-repair",
+        "description": "REPAIR_OK_FIXED"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status_badge",
+        "separator1",
+        "target_row",
+        "root_cause_row",
+        "fix_row",
+        "pr_link",
+        "issue_row",
+        "separator2",
+        "verify_row",
+        "risk_row"
+      ]
+    },
+    "status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "REPAIR_OK_FIXED",
+        "variant": "success"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "target_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "target_label",
+        "target_value"
+      ]
+    },
+    "target_label": {
+      "type": "Text",
+      "props": {
+        "text": "Target:",
+        "variant": "lead"
+      }
+    },
+    "target_value": {
+      "type": "Text",
+      "props": {
+        "text": "cost-report (cf=3, sr=0.25)"
+      }
+    },
+    "root_cause_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "root_cause_label",
+        "root_cause_text"
+      ]
+    },
+    "root_cause_label": {
+      "type": "Text",
+      "props": {
+        "text": "Root cause:",
+        "variant": "lead"
+      }
+    },
+    "root_cause_text": {
+      "type": "Text",
+      "props": {
+        "text": "Sonnet was reasoning through 154-row CSV arithmetic in-context and tripping the 30-min job wall — three runs today landed at ~29m."
+      }
+    },
+    "fix_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "fix_label",
+        "fix_text1",
+        "fix_text2"
+      ]
+    },
+    "fix_label": {
+      "type": "Text",
+      "props": {
+        "text": "Fix:",
+        "variant": "lead"
+      }
+    },
+    "fix_text1": {
+      "type": "Text",
+      "props": {
+        "text": "Two prompt inserts (+3 lines) telling the skill to compute aggregates with `node -e` / `jq` instead of by hand"
+      }
+    },
+    "fix_text2": {
+      "type": "Text",
+      "props": {
+        "text": "Both already on the ALLOWED list, no workflow change",
+        "variant": "caption"
+      }
+    },
+    "pr_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #274",
+        "href": "https://github.com/rsavitt/aeon/pull/274",
+        "source": "rsavitt/aeon"
+      }
+    },
+    "issue_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "issue_label",
+        "issue_badge"
+      ]
+    },
+    "issue_label": {
+      "type": "Text",
+      "props": {
+        "text": "Issue:",
+        "variant": "lead"
+      }
+    },
+    "issue_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-010 (resolved)",
+        "variant": "secondary"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "verify_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "verify_label",
+        "verify_text",
+        "verify_expect"
+      ]
+    },
+    "verify_label": {
+      "type": "Text",
+      "props": {
+        "text": "Verify:",
+        "variant": "lead"
+      }
+    },
+    "verify_text": {
+      "type": "Text",
+      "props": {
+        "text": "workflow_dispatch skill=cost-report once #274 lands"
+      }
+    },
+    "verify_expect": {
+      "type": "Text",
+      "props": {
+        "text": "Expected: run conclusion success, articles/cost-report-2026-06-08.md written, wall time well under 30m",
+        "variant": "caption"
+      }
+    },
+    "risk_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "risk_label",
+        "risk_badge"
+      ]
+    },
+    "risk_label": {
+      "type": "Text",
+      "props": {
+        "text": "Risk:",
+        "variant": "lead"
+      }
+    },
+    "risk_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "LOW",
+        "variant": "default"
+      }
+    }
+  }
+}

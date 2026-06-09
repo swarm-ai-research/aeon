@@ -1,0 +1,374 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "skill-repair"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status-section",
+        "target-section",
+        "context-section",
+        "sep1",
+        "diagnosis-section",
+        "sep2",
+        "paths-section",
+        "final-section"
+      ]
+    },
+    "status-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "status-label",
+        "status-badge"
+      ]
+    },
+    "status-label": {
+      "type": "Text",
+      "props": {
+        "text": "Status:",
+        "variant": "body"
+      }
+    },
+    "status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "REPAIR_DIAGNOSED_NO_FIX",
+        "variant": "outline"
+      }
+    },
+    "target-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "target-heading",
+        "target-info",
+        "target-desc"
+      ]
+    },
+    "target-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Target Issue",
+        "level": "h3"
+      }
+    },
+    "target-info": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "target-id",
+        "target-title"
+      ]
+    },
+    "target-id": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-009",
+        "variant": "secondary"
+      }
+    },
+    "target-title": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-reviewer GitLawb race",
+        "variant": "body"
+      }
+    },
+    "target-desc": {
+      "type": "Text",
+      "props": {
+        "text": "Race condition in aeon-reviewer with GitHub Lawbench interactions",
+        "variant": "caption"
+      }
+    },
+    "context-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "context-heading",
+        "context-p1",
+        "context-p2"
+      ]
+    },
+    "context-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Why This Issue",
+        "level": "h3"
+      }
+    },
+    "context-p1": {
+      "type": "Text",
+      "props": {
+        "text": "cost-report is in 24h cooldown — PR #274 open",
+        "variant": "body"
+      }
+    },
+    "context-p2": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-005 fix already shipped (PR #107, operator-blocked on enabled:true)",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "diagnosis-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "diagnosis-heading",
+        "diagnosis-finding1",
+        "diagnosis-finding2",
+        "diagnosis-confirm"
+      ]
+    },
+    "diagnosis-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Diagnosis",
+        "level": "h3"
+      }
+    },
+    "diagnosis-finding1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "finding1-label",
+        "finding1-text"
+      ]
+    },
+    "finding1-label": {
+      "type": "Text",
+      "props": {
+        "text": "Hard-exit on empty body",
+        "variant": "lead"
+      }
+    },
+    "finding1-text": {
+      "type": "Text",
+      "props": {
+        "text": "gl issue create in reviewer.mjs:149-156 hard-exits with no empty-body retry",
+        "variant": "body"
+      }
+    },
+    "diagnosis-finding2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "finding2-label",
+        "finding2-text"
+      ]
+    },
+    "finding2-label": {
+      "type": "Text",
+      "props": {
+        "text": "Missing reaper",
+        "variant": "lead"
+      }
+    },
+    "finding2-text": {
+      "type": "Text",
+      "props": {
+        "text": "claimed row reaper absent from coordinator.mjs entirely",
+        "variant": "body"
+      }
+    },
+    "diagnosis-confirm": {
+      "type": "Badge",
+      "props": {
+        "text": "Hypothesis 2 confirmed",
+        "variant": "default"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "paths-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "paths-heading",
+        "path1",
+        "path2",
+        "path3"
+      ]
+    },
+    "paths-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Actionable Paths (Recommended Order)",
+        "level": "h3"
+      }
+    },
+    "path1": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "path1-order",
+        "path1-text",
+        "path1-risk"
+      ]
+    },
+    "path1-order": {
+      "type": "Badge",
+      "props": {
+        "text": "1.",
+        "variant": "default"
+      }
+    },
+    "path1-text": {
+      "type": "Text",
+      "props": {
+        "text": "node-side reaper first",
+        "variant": "body"
+      }
+    },
+    "path1-risk": {
+      "type": "Badge",
+      "props": {
+        "text": "MED risk",
+        "variant": "outline"
+      }
+    },
+    "path2": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "path2-order",
+        "path2-text",
+        "path2-risk"
+      ]
+    },
+    "path2-order": {
+      "type": "Badge",
+      "props": {
+        "text": "2.",
+        "variant": "default"
+      }
+    },
+    "path2-text": {
+      "type": "Text",
+      "props": {
+        "text": "reviewer retry-on-empty",
+        "variant": "body"
+      }
+    },
+    "path2-risk": {
+      "type": "Badge",
+      "props": {
+        "text": "LOW (band-aid)",
+        "variant": "secondary"
+      }
+    },
+    "path3": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "path3-order",
+        "path3-text",
+        "path3-risk"
+      ]
+    },
+    "path3-order": {
+      "type": "Badge",
+      "props": {
+        "text": "3.",
+        "variant": "default"
+      }
+    },
+    "path3-text": {
+      "type": "Text",
+      "props": {
+        "text": "fan-out reduction",
+        "variant": "body"
+      }
+    },
+    "path3-risk": {
+      "type": "Badge",
+      "props": {
+        "text": "MED risk",
+        "variant": "outline"
+      }
+    },
+    "final-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "final-heading",
+        "final-note"
+      ]
+    },
+    "final-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Next Steps",
+        "level": "h3"
+      }
+    },
+    "final-note": {
+      "type": "Text",
+      "props": {
+        "text": "No PR submitted. Category unknown — operator triages and chooses remediation path.",
+        "variant": "body"
+      }
+    }
+  }
+}

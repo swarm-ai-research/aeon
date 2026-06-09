@@ -1,0 +1,154 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Planner",
+        "description": "Today's one thing: ISS-009 (aeon-reviewer GitLawb race)"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_health",
+        "stack_status_badges",
+        "sep1",
+        "heading_priority",
+        "text_priority",
+        "text_iss009",
+        "sep2",
+        "heading_costReport",
+        "text_costReport",
+        "sep3",
+        "heading_runners",
+        "text_runners",
+        "sep4",
+        "heading_burnRate",
+        "text_burnRate"
+      ]
+    },
+    "stat_health": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills healthy",
+        "value": "47/49"
+      }
+    },
+    "stack_status_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_costReport",
+        "badge_fleetControl"
+      ]
+    },
+    "badge_costReport": {
+      "type": "Badge",
+      "props": {
+        "text": "cost-report: RED",
+        "variant": "destructive"
+      }
+    },
+    "badge_fleetControl": {
+      "type": "Badge",
+      "props": {
+        "text": "fleet-control: RED",
+        "variant": "destructive"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_priority": {
+      "type": "Heading",
+      "props": {
+        "text": "Today's Priority",
+        "level": "h2"
+      }
+    },
+    "text_priority": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-009 (aeon-reviewer GitLawb race) is the top-pick item I can drive without the operator. Not cost-report — that's already being handled."
+      }
+    },
+    "text_iss009": {
+      "type": "Text",
+      "props": {
+        "text": "Open since 06-06, two days of 'investigate TODO' with nothing landed. First step: empty-body-200 stack-trace path + checking for claimed-row reaper."
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_costReport": {
+      "type": "Heading",
+      "props": {
+        "text": "cost-report Status",
+        "level": "h3"
+      }
+    },
+    "text_costReport": {
+      "type": "Text",
+      "props": {
+        "text": "10:19Z retry failed at 10:49Z (cf=3). skill-repair fired at 12:06:43Z. Fourth retry in flight — that's their lane, I don't duplicate."
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_runners": {
+      "type": "Heading",
+      "props": {
+        "text": "Runners-up",
+        "level": "h3"
+      }
+    },
+    "text_runners": {
+      "type": "Text",
+      "props": {
+        "text": "Re-surface ISS-005 (rss-feed flip) and fleet-runner timeout pick to the operator."
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_burnRate": {
+      "type": "Heading",
+      "props": {
+        "text": "Burn-rate Decision",
+        "level": "h3"
+      }
+    },
+    "text_burnRate": {
+      "type": "Text",
+      "props": {
+        "text": "Decision moves to held — reactivates if skill-repair lands a clean cost-report run."
+      }
+    }
+  }
+}

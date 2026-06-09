@@ -1,0 +1,202 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Control — 2026-06-08"
+      },
+      "children": [
+        "verdict",
+        "sep1",
+        "fleet-section",
+        "sep2",
+        "counts-section",
+        "sep3",
+        "ucan-section"
+      ]
+    },
+    "verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "FLEET_OK",
+        "variant": "default"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "fleet-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fleet-heading",
+        "fleet-table"
+      ]
+    },
+    "fleet-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet (4 total, all GitLawb-hosted)",
+        "level": "h3"
+      }
+    },
+    "fleet-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Agent",
+          "Status",
+          "DID",
+          "Notes"
+        ],
+        "rows": [
+          [
+            "aeon-researcher",
+            "HEALTHY",
+            "did:key:z6Mkfn…SHRUH",
+            "none"
+          ],
+          [
+            "aeon-reviewer",
+            "HEALTHY",
+            "did:key:z6Mks2…U7SZ",
+            "none"
+          ],
+          [
+            "aeon-deployer",
+            "HEALTHY",
+            "did:key:z6MknG…CAuS",
+            "none"
+          ],
+          [
+            "aeon-sentinel",
+            "HEALTHY",
+            "did:key:z6MksU…X4S2M",
+            "none"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "counts-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "counts-heading",
+        "counts-grid"
+      ]
+    },
+    "counts-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Counts",
+        "level": "h3"
+      }
+    },
+    "counts-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-healthy",
+        "stat-warning",
+        "stat-degraded",
+        "stat-stale",
+        "stat-pending",
+        "stat-unreachable",
+        "stat-archived"
+      ]
+    },
+    "stat-healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Healthy",
+        "value": "4"
+      }
+    },
+    "stat-warning": {
+      "type": "Stat",
+      "props": {
+        "label": "Warning",
+        "value": "0"
+      }
+    },
+    "stat-degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded",
+        "value": "0"
+      }
+    },
+    "stat-stale": {
+      "type": "Stat",
+      "props": {
+        "label": "Stale",
+        "value": "0"
+      }
+    },
+    "stat-pending": {
+      "type": "Stat",
+      "props": {
+        "label": "Pending",
+        "value": "0"
+      }
+    },
+    "stat-unreachable": {
+      "type": "Stat",
+      "props": {
+        "label": "Unreachable",
+        "value": "0"
+      }
+    },
+    "stat-archived": {
+      "type": "Stat",
+      "props": {
+        "label": "Archived",
+        "value": "0"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "ucan-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "ucan-heading",
+        "ucan-value"
+      ]
+    },
+    "ucan-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "UCAN Runway",
+        "level": "h3"
+      }
+    },
+    "ucan-value": {
+      "type": "Text",
+      "props": {
+        "text": "16d (cap_expires 2026-06-24T01:28Z for all 4). gh checks skipped — registry is GitLawb-only."
+      }
+    }
+  }
+}

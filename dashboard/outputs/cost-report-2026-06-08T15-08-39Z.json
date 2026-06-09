@@ -1,0 +1,209 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Cost Report — 2026-06-08",
+        "description": "Last 7 days"
+      },
+      "children": [
+        "summary_stats",
+        "separator1",
+        "top3_section",
+        "separator2",
+        "anomalies_alert",
+        "anomalies_details_section",
+        "separator3",
+        "projection_alert",
+        "separator4",
+        "footer_section"
+      ]
+    },
+    "summary_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_spent",
+        "stat_runs",
+        "stat_wow",
+        "stat_projection"
+      ]
+    },
+    "stat_spent": {
+      "type": "Stat",
+      "props": {
+        "label": "Spent",
+        "value": "$409.70"
+      }
+    },
+    "stat_runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs",
+        "value": "69"
+      }
+    },
+    "stat_wow": {
+      "type": "Stat",
+      "props": {
+        "label": "WoW Change",
+        "value": "↑51%",
+        "trend": "up"
+      }
+    },
+    "stat_projection": {
+      "type": "Stat",
+      "props": {
+        "label": "Monthly Projection",
+        "value": "$1,755.88"
+      }
+    },
+    "separator1": {
+      "type": "Separator"
+    },
+    "top3_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "top3_heading",
+        "top3_item1",
+        "top3_item2",
+        "top3_item3"
+      ]
+    },
+    "top3_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top 3 by cost",
+        "level": "h3"
+      }
+    },
+    "top3_item1": {
+      "type": "Text",
+      "props": {
+        "text": "reflect — $77.98 (6 runs)"
+      }
+    },
+    "top3_item2": {
+      "type": "Text",
+      "props": {
+        "text": "code-health — $55.56 (5 runs)"
+      }
+    },
+    "top3_item3": {
+      "type": "Text",
+      "props": {
+        "text": "pr-review — $48.33 (4 runs)"
+      }
+    },
+    "separator2": {
+      "type": "Separator"
+    },
+    "anomalies_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "5 anomalies flagged",
+        "type": "warning"
+      }
+    },
+    "anomalies_details_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "anomaly1",
+        "wowspikes_heading",
+        "spike1",
+        "spike2",
+        "spike3",
+        "spike4"
+      ]
+    },
+    "anomaly1": {
+      "type": "Text",
+      "props": {
+        "text": "reflect/2026-06-07: $27.43 run (+111% above µ, 13.6M cache tokens)"
+      }
+    },
+    "wowspikes_heading": {
+      "type": "Text",
+      "props": {
+        "text": "WoW spikes:",
+        "variant": "lead"
+      }
+    },
+    "spike1": {
+      "type": "Text",
+      "props": {
+        "text": "notegraph 3.3×"
+      }
+    },
+    "spike2": {
+      "type": "Text",
+      "props": {
+        "text": "reflect 2.4×"
+      }
+    },
+    "spike3": {
+      "type": "Text",
+      "props": {
+        "text": "code-health 2.1×"
+      }
+    },
+    "spike4": {
+      "type": "Text",
+      "props": {
+        "text": "surplus-pulse 5.1×"
+      }
+    },
+    "separator3": {
+      "type": "Separator"
+    },
+    "projection_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "30-day projection: $1,755.88",
+        "message": "+57% vs 2026-06-01 estimate of $1,115",
+        "type": "warning"
+      }
+    },
+    "separator4": {
+      "type": "Separator"
+    },
+    "footer_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "footer_note",
+        "full_report_link"
+      ]
+    },
+    "footer_note": {
+      "type": "Text",
+      "props": {
+        "text": "No optimization levers hit defined filters; see report for operator-level frequency note.",
+        "variant": "muted"
+      }
+    },
+    "full_report_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full report",
+        "href": "articles/cost-report-2026-06-08.md"
+      }
+    }
+  }
+}
