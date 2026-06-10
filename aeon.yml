@@ -186,6 +186,7 @@ skills:
 
   # --- Evening / meta (6 PM UTC) ---
   goal-tracker: { enabled: true, schedule: "0 18 * * *" }
+  agi-tracker: { enabled: true, schedule: "0 13 * * 1" } # Mon 13:00 UTC — weekly: pull new METR time-horizon data, re-score Situational Awareness predictions, PR updates to docs/agi-tracker/
   milestone-tracker: { enabled: true, schedule: "0 12 * * 1" } # Mon 12:00 UTC — weekly product/growth milestone tracking; needs memory/milestones.md to be useful (thin until defined)
   skill-health: { enabled: true, schedule: "0 18 * * *" }
   config-validator: { enabled: true, schedule: "0 7 * * 0" } # Sunday 07:00 UTC — weekly safety net: duplicate keys, checkout ordering, missing skill files in aeon.yml

@@ -14,6 +14,7 @@ title: "Aeon — Skill Gallery"
     <a class="btn btn-primary" href="/articles">Browse Articles</a>
     <a class="btn btn-outline" href="/activity">Activity Log</a>
     <a class="btn btn-outline" href="/memory">Memory</a>
+    <a class="btn btn-outline" href="/agi-tracker/">AGI Tracker</a>
     <a class="btn btn-outline" href="https://github.com/aaronjmars/aeon" target="_blank" rel="noopener">Fork on GitHub</a>
   </div>
 </div>

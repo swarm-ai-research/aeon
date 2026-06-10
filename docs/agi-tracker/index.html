@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AGI Tracker — Where We Stand on the Situational Awareness Timeline</title>
+<meta name="description" content="Live model of AI agent capability (METR time horizons) extrapolated forward, scored against Leopold Aschenbrenner's Situational Awareness predictions.">
+<style>
+  :root {
+    --bg: #0b0e14; --panel: #11151f; --panel2: #161b28; --line: #232a3a;
+    --text: #dde3ee; --muted: #8b94a7; --accent: #5eead4; --accent2: #818cf8;
+    --warn: #fbbf24; --bad: #f87171; --good: #34d399;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 32px 20px 80px; }
+  header h1 { font-size: 1.9rem; margin: 0 0 4px; letter-spacing: -0.02em; }
+  header .sub { color: var(--muted); margin: 0 0 6px; }
+  .updated { font-size: 0.85rem; color: var(--muted); }
+  .updated b { color: var(--accent); font-weight: 600; }
+  h2 { font-size: 1.25rem; margin: 40px 0 12px; letter-spacing: -0.01em; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+  .verdict { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 16px; }
+  .verdict .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .card .k { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .card .v { font-size: 1.25rem; font-weight: 700; margin-top: 2px; }
+  .card .d { font-size: 0.83rem; color: var(--muted); margin-top: 4px; }
+
+  /* chart */
+  #chart { width: 100%; height: auto; display: block; }
+  .controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin: 14px 0 4px; }
+  .controls label { font-size: 0.9rem; color: var(--muted); }
+  .controls input[type=range] { width: 220px; accent-color: var(--accent); }
+  .controls .dt { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent); min-width: 9ch; }
+  .preset { background: var(--panel2); color: var(--text); border: 1px solid var(--line);
+            border-radius: 8px; padding: 4px 10px; font-size: 0.83rem; cursor: pointer; }
+  .preset:hover { border-color: var(--accent); }
+  .preset.active { border-color: var(--accent); color: var(--accent); }
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.8rem; color: var(--muted); margin-top: 8px; }
+  .legend span::before { content: "●"; margin-right: 5px; }
+  .lg-measured::before { color: var(--accent); }
+  .lg-estimate::before { color: var(--accent2); }
+  .lg-saturating::before { color: var(--warn); }
+  .lg-proj::before { content: "—"; color: var(--good); font-weight: 700; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700;
+           text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+  .badge.ahead   { background: rgba(52,211,153,.15); color: var(--good); }
+  .badge.on-track{ background: rgba(94,234,212,.15); color: var(--accent); }
+  .badge.partial { background: rgba(251,191,36,.15); color: var(--warn); }
+  .badge.behind  { background: rgba(248,113,113,.15); color: var(--bad); }
+  .badge.open    { background: rgba(129,140,248,.15); color: var(--accent2); }
+  ul.caveats { color: var(--muted); font-size: 0.92rem; padding-left: 20px; }
+  ul.caveats li { margin-bottom: 6px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .sources { font-size: 0.85rem; color: var(--muted); }
+  footer { margin-top: 48px; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>AGI Tracker</h1>
+  <p class="sub">METR agent time horizons, extrapolated — scored against
+    <a href="https://situational-awareness.ai/" target="_blank" rel="noopener">Situational Awareness</a> (Aschenbrenner, June&nbsp;2024).</p>
+  <p class="updated">Data last updated <b id="last-updated"></b> · maintained automatically by the <code>agi-tracker</code> skill</p>
+</header>
+
+<div class="verdict" id="verdict-cards"></div>
+
+<h2>The capability curve</h2>
+<div class="panel">
+  <div class="controls">
+    <label>Doubling time:
+      <input type="range" id="dt-slider">
+      <span class="dt" id="dt-readout"></span>
+    </label>
+    <span id="preset-buttons"></span>
+  </div>
+  <svg id="chart" viewBox="0 0 1000 560" role="img" aria-label="Log-scale chart of METR 50% time horizon by model release date, with projection"></svg>
+  <div class="legend">
+    <span class="lg-measured">METR measured</span>
+    <span class="lg-estimate">third-party estimate</span>
+    <span class="lg-saturating">above reliable range (suite saturated)</span>
+    <span class="lg-proj">projection at selected doubling time</span>
+  </div>
+</div>
+
+<h2>Projected milestones</h2>
+<div class="panel">
+  <table id="milestone-table">
+    <thead><tr>
+      <th>Milestone</th><th>Task length</th>
+      <th>Post-2024 trend (3.0&nbsp;mo)</th>
+      <th id="sel-col">Selected</th>
+      <th>Long-run trend (7.0&nbsp;mo)</th>
+      <th>What it means</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<h2>Situational Awareness scorecard</h2>
+<div class="panel">
+  <table id="scorecard-table">
+    <thead><tr><th>Prediction (June 2024)</th><th>Status</th><th>Evidence</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<h2>Caveats</h2>
+<ul class="caveats" id="caveats"></ul>
+
+<h2>Sources</h2>
+<p class="sources" id="sources"></p>
+
+<footer>
+  Built and maintained by <a href="https://github.com/aaronjmars/aeon">Aeon</a>, an autonomous agent on GitHub Actions.
+  The projection is a straight line on a log chart — exactly the bet Aschenbrenner described. Lines on graphs are not physics.
+</footer>
+
+</div>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  const D = window.AGI_TRACKER;
+  const MS_PER_DAY = 86400000;
+  const toT = s => new Date(s + "T00:00:00Z").getTime();
+  const fmtDate = t => new Date(t).toLocaleDateString("en-US", { year: "numeric", month: "short", timeZone: "UTC" });
+
+  document.getElementById("last-updated").textContent = D.meta.lastUpdated;
+
+  // ---- model: OLS fit of log2(minutes) vs time on post-2023 points (excluding saturating) ----
+  const fitPts = D.points.filter(p => toT(p.date) >= toT("2023-01-01") && p.reliability !== "saturating");
+  const xs = fitPts.map(p => toT(p.date) / MS_PER_DAY), ys = fitPts.map(p => Math.log2(p.horizonMinutes));
+  const n = xs.length, mx = xs.reduce((a,b)=>a+b)/n, my = ys.reduce((a,b)=>a+b)/n;
+  let sxy = 0, sxx = 0;
+  for (let i = 0; i < n; i++) { sxy += (xs[i]-mx)*(ys[i]-my); sxx += (xs[i]-mx)**2; }
+  const slope = sxy / sxx;                       // doublings per day, fitted
+  const fittedDoublingMonths = 1 / slope / 30.44;
+  // anchor: fitted value at the most recent fitted point's date
+  const anchorT = Math.max(...fitPts.map(p => toT(p.date)));
+  const anchorLog2 = my + slope * (anchorT / MS_PER_DAY - mx);
+
+  // horizon (minutes) at time t under doubling time dtMonths
+  const project = (t, dtMonths) =>
+    Math.pow(2, anchorLog2 + (t - anchorT) / MS_PER_DAY / (dtMonths * 30.44));
+  // date at which horizon reaches m minutes
+  const dateAt = (minutes, dtMonths) =>
+    anchorT + (Math.log2(minutes) - anchorLog2) * dtMonths * 30.44 * MS_PER_DAY;
+
+  // ---- controls ----
+  const slider = document.getElementById("dt-slider");
+  const r = D.scenarios.sliderRange;
+  slider.min = r.min; slider.max = r.max; slider.step = r.step;
+  slider.value = D.scenarios.default;
+  const readout = document.getElementById("dt-readout");
+
+  const presets = [D.scenarios.faster, D.scenarios.fast, D.scenarios.slow];
+  const presetWrap = document.getElementById("preset-buttons");
+  presets.forEach(p => {
+    const b = document.createElement("button");
+    b.className = "preset"; b.textContent = `${p.months} mo — ${p.label}`;
+    b.onclick = () => { slider.value = p.months; render(); };
+    b.dataset.months = p.months;
+    presetWrap.appendChild(b);
+  });
+  slider.addEventListener("input", render);
+
+  // ---- chart geometry ----
+  const W = 1000, H = 560, M = { l: 70, r: 24, t: 18, b: 42 };
+  const tMin = toT("2019-01-01"), tMax = toT("2035-01-01");
+  const yMinLog = Math.log2(0.02), yMaxLog = Math.log2(2000 * 60 * 4); // up to ~4 work-years
+  const X = t => M.l + (t - tMin) / (tMax - tMin) * (W - M.l - M.r);
+  const Y = mins => H - M.b - (Math.log2(mins) - yMinLog) / (yMaxLog - yMinLog) * (H - M.t - M.b);
+
+  const yTicks = [
+    [1/60, "1 sec"], [1, "1 min"], [60, "1 hour"], [480, "1 workday"],
+    [2400, "1 week"], [167*60, "1 month"], [2000*60, "1 work-year"]
+  ];
+
+  const svgNS = "http://www.w3.org/2000/svg";
+  const el = (tag, attrs, text) => {
+    const e = document.createElementNS(svgNS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text != null) e.textContent = text;
+    return e;
+  };
+  const chart = document.getElementById("chart");
+  const colors = { measured: "#5eead4", estimate: "#818cf8", saturating: "#fbbf24" };
+
+  function render() {
+    const dt = parseFloat(slider.value);
+    readout.textContent = dt.toFixed(1) + " months";
+    document.querySelectorAll(".preset").forEach(b =>
+      b.classList.toggle("active", Math.abs(parseFloat(b.dataset.months) - dt) < 0.05));
+
+    chart.innerHTML = "";
+
+    // gridlines + y labels
+    yTicks.forEach(([m, lab]) => {
+      const y = Y(m);
+      chart.appendChild(el("line", { x1: M.l, x2: W - M.r, y1: y, y2: y, stroke: "#232a3a", "stroke-width": 1 }));
+      chart.appendChild(el("text", { x: M.l - 8, y: y + 4, fill: "#8b94a7", "font-size": 11, "text-anchor": "end" }, lab));
+    });
+    for (let yr = 2019; yr <= 2034; yr += yr < 2024 ? 2 : 1) {
+      const x = X(toT(yr + "-01-01"));
+      chart.appendChild(el("line", { x1: x, x2: x, y1: M.t, y2: H - M.b, stroke: "#1a2030", "stroke-width": 1 }));
+      chart.appendChild(el("text", { x, y: H - M.b + 18, fill: "#8b94a7", "font-size": 11, "text-anchor": "middle" }, yr));
+    }
+
+    // "today" marker
+    const today = toT(D.meta.lastUpdated);
+    chart.appendChild(el("line", { x1: X(today), x2: X(today), y1: M.t, y2: H - M.b, stroke: "#8b94a7", "stroke-dasharray": "2 4" }));
+    chart.appendChild(el("text", { x: X(today) + 4, y: M.t + 12, fill: "#8b94a7", "font-size": 11 }, "today"));
+
+    // milestone bands
+    D.milestones.forEach(ms => {
+      const y = Y(ms.hours * 60);
+      chart.appendChild(el("line", { x1: M.l, x2: W - M.r, y1: y, y2: y, stroke: "#34d399", "stroke-width": 1, "stroke-dasharray": "6 5", opacity: 0.5 }));
+      chart.appendChild(el("text", { x: W - M.r - 4, y: y - 5, fill: "#34d399", "font-size": 11, "text-anchor": "end", opacity: 0.85 }, ms.label));
+    });
+
+    // reference projections (faster + slow), faint
+    [D.scenarios.faster.months, D.scenarios.slow.months].forEach(months => {
+      const pts = [];
+      for (let t = anchorT; t <= tMax; t += 30 * MS_PER_DAY) {
+        const m = project(t, months);
+        if (Math.log2(m) > yMaxLog) break;
+        pts.push(X(t).toFixed(1) + "," + Y(m).toFixed(1));
+      }
+      chart.appendChild(el("polyline", { points: pts.join(" "), fill: "none", stroke: "#34d399", "stroke-width": 1, opacity: 0.3, "stroke-dasharray": "3 5" }));
+    });
+
+    // fitted historical trend (post-2023 OLS), drawn over its span
+    {
+      const t0 = toT("2023-01-01");
+      const line = [[t0, Math.pow(2, my + slope * (t0/MS_PER_DAY - mx))], [anchorT, Math.pow(2, anchorLog2)]];
+      chart.appendChild(el("polyline", {
+        points: line.map(([t, m]) => X(t).toFixed(1) + "," + Y(m).toFixed(1)).join(" "),
+        fill: "none", stroke: "#5eead4", "stroke-width": 1.5, opacity: 0.55
+      }));
+    }
+
+    // selected projection
+    {
+      const pts = [];
+      for (let t = anchorT; t <= tMax; t += 15 * MS_PER_DAY) {
+        const m = project(t, dt);
+        if (Math.log2(m) > yMaxLog) break;
+        pts.push(X(t).toFixed(1) + "," + Y(m).toFixed(1));
+      }
+      chart.appendChild(el("polyline", { points: pts.join(" "), fill: "none", stroke: "#34d399", "stroke-width": 2.5 }));
+    }
+
+    // milestone intersections at selected dt
+    D.milestones.forEach(ms => {
+      const t = dateAt(ms.hours * 60, dt);
+      if (t < anchorT || t > tMax) return;
+      const x = X(t), y = Y(ms.hours * 60);
+      chart.appendChild(el("circle", { cx: x, cy: y, r: 4.5, fill: "#0b0e14", stroke: "#34d399", "stroke-width": 2 }));
+      chart.appendChild(el("text", { x: x, y: y + 18, fill: "#34d399", "font-size": 11, "text-anchor": "middle", "font-weight": 600 }, fmtDate(t)));
+    });
+
+    // data points
+    D.points.forEach(p => {
+      const x = X(toT(p.date)), y = Y(p.horizonMinutes);
+      const c = colors[p.reliability] || colors.measured;
+      const dot = el("circle", { cx: x, cy: y, r: 5, fill: c, opacity: p.reliability === "saturating" ? 0.85 : 1 });
+      dot.appendChild(el("title", {}, `${p.model} (${p.date}) — ${humanize(p.horizonMinutes)}${p.reliability !== "measured" ? " [" + p.reliability + "]" : ""}`));
+      chart.appendChild(dot);
+    });
+
+    // label the most recent few points
+    const recent = [...D.points].sort((a,b) => toT(b.date)-toT(a.date)).slice(0, 4);
+    recent.forEach(p => {
+      chart.appendChild(el("text", {
+        x: X(toT(p.date)) - 8, y: Y(p.horizonMinutes) + 4,
+        fill: "#dde3ee", "font-size": 10.5, "text-anchor": "end"
+      }, p.model));
+    });
+
+    renderMilestoneTable(dt);
+    renderVerdict(dt);
+  }
+
+  function humanize(mins) {
+    if (mins < 1) return Math.round(mins * 60) + " sec";
+    if (mins < 60) return Math.round(mins) + " min";
+    if (mins < 480) return (mins / 60).toFixed(1) + " hrs";
+    if (mins < 2400) return (mins / 480).toFixed(1) + " workdays";
+    if (mins < 167 * 60) return (mins / 2400).toFixed(1) + " weeks";
+    return (mins / (167 * 60)).toFixed(1) + " months";
+  }
+
+  function renderMilestoneTable(dt) {
+    document.getElementById("sel-col").textContent = `Selected (${dt.toFixed(1)} mo)`;
+    const tb = document.querySelector("#milestone-table tbody");
+    tb.innerHTML = "";
+    D.milestones.forEach(ms => {
+      const mins = ms.hours * 60;
+      const row = document.createElement("tr");
+      row.innerHTML =
+        `<td><b>${ms.label}</b></td><td class="num">${ms.hours} h</td>` +
+        `<td class="num">${fmtDate(dateAt(mins, D.scenarios.faster.months))}</td>` +
+        `<td class="num" style="color:var(--good);font-weight:700">${fmtDate(dateAt(mins, dt))}</td>` +
+        `<td class="num">${fmtDate(dateAt(mins, D.scenarios.slow.months))}</td>` +
+        `<td style="color:var(--muted)">${ms.meaning}</td>`;
+      tb.appendChild(row);
+    });
+  }
+
+  function renderVerdict(dt) {
+    const latest = [...D.points].sort((a,b) => toT(b.date)-toT(a.date))[0];
+    const agiMs = D.milestones[D.milestones.length - 1];
+    const cards = [
+      { k: "Latest frontier horizon", v: humanize(latest.horizonMinutes),
+        d: `${latest.model}, ${fmtDate(toT(latest.date))}${latest.reliability === "saturating" ? " — above the suite's reliable range" : ""}` },
+      { k: "Fitted doubling time (post-2023)", v: fittedDoublingMonths.toFixed(1) + " months",
+        d: "OLS fit on METR points in this dataset; METR TH1.1 reports ~4.3 mo" },
+      { k: `"${agiMs.label}" at ${dt.toFixed(1)} mo`, v: fmtDate(dateAt(agiMs.hours * 60, dt)),
+        d: "≈ Aschenbrenner's automated-AI-researcher threshold" },
+      { k: "Debate width", v: fmtDate(dateAt(agiMs.hours*60, D.scenarios.faster.months)) + " – " + fmtDate(dateAt(agiMs.hours*60, D.scenarios.slow.months)),
+        d: "Same milestone under the fastest vs slowest measured trend" }
+    ];
+    const wrap = document.getElementById("verdict-cards");
+    wrap.innerHTML = cards.map(c =>
+      `<div class="card"><div class="k">${c.k}</div><div class="v">${c.v}</div><div class="d">${c.d}</div></div>`).join("");
+  }
+
+  // scorecard
+  const sb = document.querySelector("#scorecard-table tbody");
+  D.scorecard.forEach(s => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${s.claim}</td>` +
+      `<td><span class="badge ${s.status}">${s.status.replace("-", " ")}</span></td>` +
+      `<td style="color:var(--muted)">${s.evidence}</td>`;
+    sb.appendChild(tr);
+  });
+
+  // caveats + sources
+  document.getElementById("caveats").innerHTML = D.meta.notes.map(c => `<li>${c}</li>`).join("");
+  document.getElementById("sources").innerHTML = D.meta.primarySources
+    .map(s => `<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`).join(" · ");
+
+  render();
+})();
+</script>
+</body>
+</html>
