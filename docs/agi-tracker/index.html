@@ -197,6 +197,12 @@
   const chart = document.getElementById("chart");
   const colors = { measured: "#5eead4", estimate: "#818cf8", saturating: "#fbbf24" };
 
+  // data.js fields are refreshed by the agi-tracker skill from web sources —
+  // treat them as untrusted before interpolating into HTML
+  const esc = s => String(s).replace(/[&<>"']/g, c =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const safeUrl = u => /^https?:\/\//i.test(String(u).trim()) ? String(u).trim() : "#";
+
   function render() {
     const dt = parseFloat(slider.value);
     readout.textContent = dt.toFixed(1) + " months";
@@ -309,11 +315,11 @@
       const mins = ms.hours * 60;
       const row = document.createElement("tr");
       row.innerHTML =
-        `<td><b>${ms.label}</b></td><td class="num">${ms.hours} h</td>` +
+        `<td><b>${esc(ms.label)}</b></td><td class="num">${esc(ms.hours)} h</td>` +
         `<td class="num">${fmtDate(dateAt(mins, D.scenarios.faster.months))}</td>` +
         `<td class="num" style="color:var(--good);font-weight:700">${fmtDate(dateAt(mins, dt))}</td>` +
         `<td class="num">${fmtDate(dateAt(mins, D.scenarios.slow.months))}</td>` +
-        `<td style="color:var(--muted)">${ms.meaning}</td>`;
+        `<td style="color:var(--muted)">${esc(ms.meaning)}</td>`;
       tb.appendChild(row);
     });
   }
@@ -333,23 +339,23 @@
     ];
     const wrap = document.getElementById("verdict-cards");
     wrap.innerHTML = cards.map(c =>
-      `<div class="card"><div class="k">${c.k}</div><div class="v">${c.v}</div><div class="d">${c.d}</div></div>`).join("");
+      `<div class="card"><div class="k">${esc(c.k)}</div><div class="v">${esc(c.v)}</div><div class="d">${esc(c.d)}</div></div>`).join("");
   }
 
   // scorecard
   const sb = document.querySelector("#scorecard-table tbody");
   D.scorecard.forEach(s => {
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${s.claim}</td>` +
-      `<td><span class="badge ${s.status}">${s.status.replace("-", " ")}</span></td>` +
-      `<td style="color:var(--muted)">${s.evidence}</td>`;
+    tr.innerHTML = `<td>${esc(s.claim)}</td>` +
+      `<td><span class="badge ${esc(s.status)}">${esc(s.status.replace("-", " "))}</span></td>` +
+      `<td style="color:var(--muted)">${esc(s.evidence)}</td>`;
     sb.appendChild(tr);
   });
 
   // caveats + sources
-  document.getElementById("caveats").innerHTML = D.meta.notes.map(c => `<li>${c}</li>`).join("");
+  document.getElementById("caveats").innerHTML = D.meta.notes.map(c => `<li>${esc(c)}</li>`).join("");
   document.getElementById("sources").innerHTML = D.meta.primarySources
-    .map(s => `<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`).join(" · ");
+    .map(s => `<a href="${esc(safeUrl(s.url))}" target="_blank" rel="noopener">${esc(s.label)}</a>`).join(" · ");
 
   render();
 })();
