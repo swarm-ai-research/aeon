@@ -697,10 +697,23 @@ function renderCommand(command, values) {
 
 function runGl(args, { cwd }) {
   const proc = spawnSync("gl", args, { cwd, encoding: "utf8" });
-  if (proc.status !== 0) {
-    throw new Error(proc.stderr.trim() || proc.stdout.trim() || `gl ${args.join(" ")} failed`);
+  // When the binary itself can't be launched (e.g. `gl` is not on PATH because
+  // the install step silently no-op'd), spawnSync sets proc.error and leaves
+  // status null with stdout/stderr null. Guard that explicitly — otherwise the
+  // `.trim()` calls below throw a cryptic "Cannot read properties of undefined"
+  // far from the real cause.
+  if (proc.error) {
+    throw new Error(
+      `gl ${args.join(" ")} could not be launched (${proc.error.code || proc.error.message}) — ` +
+        `is the GitLawb CLI installed and on PATH?`,
+    );
   }
-  return proc.stdout.trim();
+  if (proc.status !== 0) {
+    const stderr = (proc.stderr || "").trim();
+    const stdout = (proc.stdout || "").trim();
+    throw new Error(stderr || stdout || `gl ${args.join(" ")} failed (exit ${proc.status})`);
+  }
+  return (proc.stdout || "").trim();
 }
 
 function runGit(args, { home, cwd }) {
