@@ -97,9 +97,30 @@ jobs:
         # api.github.com call that resolves "latest" — shared GHA IPs
         # routinely hit the 60/hr unauth rate limit and 403 the whole step.
         # Bump this manually when picking up a new GitLawb release.
+        #
+        # `curl -fsSL | bash` silently no-ops when curl is rate-limited/blocked:
+        # curl writes nothing to stdout, bash reads empty input and exits 0, so
+        # the step "succeeds" while `gl` is never installed — surfacing later as
+        # a cryptic crash in task-runner's runGl. Use pipefail + retries, then
+        # verify the binary actually landed so any failure is loud and local.
         run: |
-          curl -fsSL https://gitlawb.com/install.sh | bash -s -- v0.3.8
+          set -euo pipefail
+          installed=0
+          for attempt in 1 2 3; do
+            if curl -fsSL https://gitlawb.com/install.sh | bash -s -- v0.3.8; then
+              installed=1
+              break
+            fi
+            echo "gl install attempt $attempt failed; retrying in $((attempt * 5))s"
+            sleep $((attempt * 5))
+          done
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          GL_BIN="$HOME/.local/bin/gl"
+          if [ "$installed" -ne 1 ] || [ ! -x "$GL_BIN" ]; then
+            echo "::error::GitLawb CLI install failed — $GL_BIN not found after 3 attempts"
+            exit 1
+          fi
+          "$GL_BIN" --version 2>/dev/null || echo "gl installed (version probe unavailable)"
 
       - name: Install Claude Code
         # aeon-reviewer's code reviews run the pr-review methodology via the
