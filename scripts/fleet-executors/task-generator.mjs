@@ -64,6 +64,29 @@ const agents = {
   },
 };
 
+// Overlay agent DIDs from memory/instances.json — the single source of truth
+// the fleet-runner reconciles from the actual GITLAWB_*_PEM secrets (see the
+// "Bootstrap fleet registry" step). On a fork/mirror (e.g. the public mirror
+// swarm-ai-research/aeon) the real identities differ from the private DIDs
+// hardcoded above; without this overlay the generator assigns tasks to the
+// private DIDs while the runner queries the mirror's DIDs, so nothing is ever
+// claimed (RUNNER_DONE processed=0). The hardcoded values remain as a fallback
+// when instances.json is absent or missing an entry.
+(() => {
+  const instancesFile = join(repoDir, "memory/instances.json");
+  if (!existsSync(instancesFile)) return;
+  let data;
+  try {
+    data = JSON.parse(readFileSync(instancesFile, "utf8"));
+  } catch {
+    return;
+  }
+  for (const inst of data.instances ?? []) {
+    const key = String(inst.name ?? "").replace(/^aeon-/, "");
+    if (agents[key] && inst.did) agents[key].did = inst.did;
+  }
+})();
+
 // Check existing pending tasks to avoid flooding
 function getPendingTasks(agentDid, limit = 5) {
   const result = run("gl", ["task", "list", "--status", "pending", "--assignee-did", agentDid, "--limit", String(limit), "--node", node]);
