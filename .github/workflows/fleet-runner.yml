@@ -93,34 +93,44 @@ jobs:
           node-version: "22"
 
       - name: Install GitLawb CLI
-        # Pin the version so install.sh skips the unauthenticated
-        # api.github.com call that resolves "latest" — shared GHA IPs
-        # routinely hit the 60/hr unauth rate limit and 403 the whole step.
-        # Bump this manually when picking up a new GitLawb release.
-        #
-        # `curl -fsSL | bash` silently no-ops when curl is rate-limited/blocked:
-        # curl writes nothing to stdout, bash reads empty input and exits 0, so
-        # the step "succeeds" while `gl` is never installed — surfacing later as
-        # a cryptic crash in task-runner's runGl. Use pipefail + retries, then
-        # verify the binary actually landed so any failure is loud and local.
+        # Install gl + git-remote-gitlawb from the pinned GitHub release
+        # (gitlawb/releases, public) using the authenticated GITHUB_TOKEN,
+        # NOT `curl gitlawb.com/install.sh`. That endpoint returns HTTP 429
+        # (rate-limited) from shared GHA IPs — and even silently no-ops when
+        # piped to bash (empty stdin → exit 0 → missing binary → cryptic crash
+        # later in task-runner's runGl). Downloading the release asset via `gh`
+        # hits GitHub's authenticated, high-rate-limit API/CDN and removes the
+        # gitlawb.com dependency entirely. Bump GL_VERSION for new releases.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GL_VERSION: v0.3.8
         run: |
           set -euo pipefail
-          installed=0
+          mkdir -p "$HOME/.local/bin"
+          asset="gitlawb-${GL_VERSION}-x86_64-unknown-linux-musl.tar.gz"
+          downloaded=0
           for attempt in 1 2 3; do
-            if curl -fsSL https://gitlawb.com/install.sh | bash -s -- v0.3.8; then
-              installed=1
+            if gh release download "$GL_VERSION" -R gitlawb/releases \
+                 --pattern "$asset" --output /tmp/gl.tar.gz --clobber; then
+              downloaded=1
               break
             fi
-            echo "gl install attempt $attempt failed; retrying in $((attempt * 5))s"
+            echo "gl download attempt $attempt failed; retrying in $((attempt * 5))s"
             sleep $((attempt * 5))
           done
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           GL_BIN="$HOME/.local/bin/gl"
-          if [ "$installed" -ne 1 ] || [ ! -x "$GL_BIN" ]; then
-            echo "::error::GitLawb CLI install failed — $GL_BIN not found after 3 attempts"
+          if [ "$downloaded" -ne 1 ]; then
+            echo "::error::GitLawb CLI download failed — $asset from gitlawb/releases after 3 attempts"
             exit 1
           fi
-          "$GL_BIN" --version 2>/dev/null || echo "gl installed (version probe unavailable)"
+          tar -xzf /tmp/gl.tar.gz -C "$HOME/.local/bin" gl git-remote-gitlawb
+          chmod +x "$GL_BIN" "$HOME/.local/bin/git-remote-gitlawb"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          if [ ! -x "$GL_BIN" ]; then
+            echo "::error::GitLawb CLI install failed — $GL_BIN not found after extract"
+            exit 1
+          fi
+          "$GL_BIN" --version
 
       - name: Install Claude Code
         # aeon-reviewer's code reviews run the pr-review methodology via the
