@@ -30,28 +30,24 @@ for req_file in "$PENDING_DIR"/*.json; do
   fi
 
   # Create the prediction
-  RESPONSE=$(curl -sf --max-time 60 -X POST \
-    -H "Authorization: Bearer $REPLICATE_API_TOKEN" \
-    -H "Content-Type: application/json" \
-    -H "Prefer: wait" \
-    -d "$(jq -n \
-      --arg prompt "$PROMPT" \
-      --arg aspect "$ASPECT" \
-      '{input: {prompt: $prompt, aspect_ratio: $aspect, number_of_images: 1, safety_tolerance: 5}}')" \
-    "https://api.replicate.com/v1/models/${MODEL}/predictions" 2>&1) || {
+  BASE_BODY=$(jq -n \
+    --arg prompt "$PROMPT" \
+    --arg aspect "$ASPECT" \
+    '{input: {prompt: $prompt, aspect_ratio: $aspect, number_of_images: 1, safety_tolerance: 5}}')
+  _replicate_curl() {
+    curl -sf --max-time 60 -X POST \
+      -H "Authorization: Bearer $REPLICATE_API_TOKEN" \
+      -H "Content-Type: application/json" \
+      -H "Prefer: wait" \
+      -d "$1" \
+      "https://api.replicate.com/v1/models/${MODEL}/predictions" 2>&1
+  }
+  RESPONSE=$(_replicate_curl "$BASE_BODY") || {
     echo "replicate-postprocess: API call failed for $(basename "$req_file")"
 
     # Retry with fallback model
     echo "replicate-postprocess: retrying with allow_fallback_model..."
-    RESPONSE=$(curl -sf --max-time 60 -X POST \
-      -H "Authorization: Bearer $REPLICATE_API_TOKEN" \
-      -H "Content-Type: application/json" \
-      -H "Prefer: wait" \
-      -d "$(jq -n \
-        --arg prompt "$PROMPT" \
-        --arg aspect "$ASPECT" \
-        '{input: {prompt: $prompt, aspect_ratio: $aspect, number_of_images: 1, safety_tolerance: 5, allow_fallback_model: true}}')" \
-      "https://api.replicate.com/v1/models/${MODEL}/predictions" 2>&1) || {
+    RESPONSE=$(_replicate_curl "$(echo "$BASE_BODY" | jq '.input.allow_fallback_model = true')") || {
       echo "replicate-postprocess: retry also failed, skipping"
       continue
     }
