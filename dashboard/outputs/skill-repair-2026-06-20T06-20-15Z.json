@@ -1,0 +1,281 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "skill-repair — Systemic Cluster Diagnosis",
+        "description": "REPAIR_DIAGNOSED_NO_FIX: Anthropic auth/availability incident with blocked fix"
+      },
+      "children": [
+        "alert_status",
+        "sep1",
+        "target_section",
+        "sep2",
+        "root_cause_section",
+        "sep3",
+        "recovery_section",
+        "sep4",
+        "fix_section",
+        "sep5",
+        "action_section"
+      ]
+    },
+    "alert_status": {
+      "type": "Alert",
+      "props": {
+        "title": "REPAIR_DIAGNOSED_NO_FIX",
+        "message": "Zero-token fail-fast across ≥30 skills. Recovery succeeded (34/34). Fix blocked pending workflow patch.",
+        "type": "error"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "target_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "target_heading",
+        "target_list"
+      ]
+    },
+    "target_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Affected Skills",
+        "level": "h3"
+      }
+    },
+    "target_list": {
+      "type": "Text",
+      "props": {
+        "text": "Systemic cluster: ≥30 skills including compute-futures-eda, notegraph, suggest-edges, and others (complete list in ISS-001)",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "root_cause_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "root_cause_heading",
+        "root_cause_type",
+        "root_cause_detail",
+        "root_cause_window"
+      ]
+    },
+    "root_cause_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Root Cause",
+        "level": "h3"
+      }
+    },
+    "root_cause_type": {
+      "type": "Badge",
+      "props": {
+        "text": "0.7s zero-token fail-fast",
+        "variant": "destructive"
+      }
+    },
+    "root_cause_detail": {
+      "type": "Text",
+      "props": {
+        "text": "Likely Anthropic auth/availability incident",
+        "variant": "body"
+      }
+    },
+    "root_cause_window": {
+      "type": "Text",
+      "props": {
+        "text": "Impact window: 2026-06-19 20:25Z → 2026-06-20 01:53Z (~5.5 hours)",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "recovery_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "recovery_heading",
+        "recovery_stat",
+        "recovery_detail"
+      ]
+    },
+    "recovery_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Recovery Status",
+        "level": "h3"
+      }
+    },
+    "recovery_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Recovery batch (started 06:05Z)",
+        "value": "34/34",
+        "trend": "up"
+      }
+    },
+    "recovery_detail": {
+      "type": "Text",
+      "props": {
+        "text": "All recovered skills now succeeding",
+        "variant": "caption"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fix_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fix_heading",
+        "fix_status_badge",
+        "fix_blocker",
+        "fix_location",
+        "fix_branch",
+        "fix_issue"
+      ]
+    },
+    "fix_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Fix Status",
+        "level": "h3"
+      }
+    },
+    "fix_status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "BLOCKED",
+        "variant": "destructive"
+      }
+    },
+    "fix_blocker": {
+      "type": "Text",
+      "props": {
+        "text": "Actual fix required in `.github/workflows/aeon.yml` lines 511–521. Error capture currently strips `result` field; only JSON envelope tail reaches cron-state.last_error. Workflow file is off-limits to skill-repair.",
+        "variant": "body"
+      }
+    },
+    "fix_location": {
+      "type": "Text",
+      "props": {
+        "text": "File location: .github/workflows/aeon.yml (lines 511–521)",
+        "variant": "caption"
+      }
+    },
+    "fix_branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed: fix/skill-repair-systemic-2026-06-20 — operator must open PR (gh-actions bot lacks permission)",
+        "variant": "caption"
+      }
+    },
+    "fix_issue": {
+      "type": "StoryLink",
+      "props": {
+        "title": "ISS-001",
+        "href": "memory/issues/ISS-001.md",
+        "source": "Issue tracker"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "action_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "action_heading",
+        "action_stack"
+      ]
+    },
+    "action_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Operator Action Required",
+        "level": "h3"
+      }
+    },
+    "action_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action_read",
+        "action_patch",
+        "action_redispatch",
+        "action_verify"
+      ]
+    },
+    "action_read": {
+      "type": "Text",
+      "props": {
+        "text": "1. Read memory/issues/ISS-001.md for full context and required patch details",
+        "variant": "body"
+      }
+    },
+    "action_patch": {
+      "type": "Text",
+      "props": {
+        "text": "2. Open PR for branch fix/skill-repair-systemic-2026-06-20 (operator permission required to merge into aeon.yml)",
+        "variant": "body"
+      }
+    },
+    "action_redispatch": {
+      "type": "Text",
+      "props": {
+        "text": "3. After aeon.yml patch is merged, re-dispatch any affected skill to validate fix",
+        "variant": "body"
+      }
+    },
+    "action_verify": {
+      "type": "Text",
+      "props": {
+        "text": "4. Verify: new last_error field should now contain human-readable error messages (not truncated JSON envelope)",
+        "variant": "body"
+      }
+    }
+  }
+}
