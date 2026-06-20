@@ -1,8 +1,10 @@
 ## Summary
 
-Executed `skills/github-monitor/SKILL.md`. Config file `memory/watched-repos.md` is missing, so per the skill spec I logged `GITHUB_MONITOR_EMPTY_CONFIG` and ended without sending a notification.
+Executed `skills/github-monitor/SKILL.md`. Per the skill's own config gate:
 
-**Files created:**
-- `memory/logs/2026-06-20.md` — daily log with the empty-config entry
+- **Config check**: `memory/watched-repos.md` is absent (confirmed via `Read` and `ls memory/`).
+- **Action taken**: Logged `GITHUB_MONITOR_EMPTY_CONFIG` and ended per spec.
+- **No notification sent** (skill's "silence is the correct signal" rule for empty config).
+- **Files modified**: appended a re-run entry to `memory/logs/2026-06-20.md` (an earlier github-monitor run today logged the same outcome).
 
-**Follow-up:** To activate this skill, create `memory/watched-repos.md` listing the repos to monitor (one `owner/repo` per line, markdown bullets).
+**Follow-up for operator**: create `memory/watched-repos.md` with one `- owner/repo` per line to activate this skill (also unlocks `issue-triage`, `code-health`, `changelog`, and `repo-revive`, which all share the same gate).
