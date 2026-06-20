@@ -1,0 +1,139 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Workflow Security Audit — 2026-06-20"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_findings",
+        "stat_high_count",
+        "text_breakdown",
+        "text_baseline",
+        "separator_1",
+        "heading_fix_status",
+        "stat_auto_fixed",
+        "stat_manual",
+        "text_action_requirements",
+        "separator_2",
+        "alert_pr_failure",
+        "text_branch_pushed",
+        "heading_solutions",
+        "text_solution_1",
+        "text_solution_2"
+      ]
+    },
+    "heading_findings": {
+      "type": "Heading",
+      "props": {
+        "text": "WORKFLOW_AUDIT_NEW_HIGH",
+        "level": "h2"
+      }
+    },
+    "stat_high_count": {
+      "type": "Stat",
+      "props": {
+        "value": "60",
+        "label": "New High Severity Issues"
+      }
+    },
+    "text_breakdown": {
+      "type": "Text",
+      "props": {
+        "text": "16 unpinned-uses + 44 secrets-outside-env",
+        "variant": "lead"
+      }
+    },
+    "text_baseline": {
+      "type": "Text",
+      "props": {
+        "text": "First-run baseline; future runs delta against it.",
+        "variant": "body"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_fix_status": {
+      "type": "Heading",
+      "props": {
+        "text": "Fix Status",
+        "level": "h3"
+      }
+    },
+    "stat_auto_fixed": {
+      "type": "Stat",
+      "props": {
+        "value": "0",
+        "label": "Auto-fixed"
+      }
+    },
+    "stat_manual": {
+      "type": "Stat",
+      "props": {
+        "value": "60",
+        "label": "Manual Fixes Required"
+      }
+    },
+    "text_action_requirements": {
+      "type": "Text",
+      "props": {
+        "text": "All NEW Highs are manual-only per skill (SHA-pinning is operator-pick; secrets-outside-env requires repo Environments). The April-11 toJson-into-shell pattern is already fixed.",
+        "variant": "body"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "alert_pr_failure": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "PR Could Not Be Created",
+        "message": "Repo policy blocks the GitHub Actions identity from opening PRs ('GitHub Actions is not permitted to create or approve pull requests')"
+      }
+    },
+    "text_branch_pushed": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed: fix/workflow-security-audit",
+        "variant": "lead"
+      }
+    },
+    "heading_solutions": {
+      "type": "Heading",
+      "props": {
+        "text": "Solutions",
+        "level": "h4"
+      }
+    },
+    "text_solution_1": {
+      "type": "Text",
+      "props": {
+        "text": "Enable repo setting 'Allow GitHub Actions to create or approve pull requests'",
+        "variant": "body"
+      }
+    },
+    "text_solution_2": {
+      "type": "Text",
+      "props": {
+        "text": "Open the PR manually from the branch",
+        "variant": "body"
+      }
+    }
+  }
+}
