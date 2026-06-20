@@ -1,0 +1,169 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Graph Initialized",
+        "description": "174 skills mapped across 5 categories (44 enabled)"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "grid-overview",
+        "sep-1",
+        "text-branch",
+        "link-branch",
+        "alert-perms",
+        "sep-2",
+        "text-edges",
+        "grid-edges",
+        "sep-3",
+        "badge-mode"
+      ]
+    },
+    "grid-overview": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-total-skills",
+        "stat-categories",
+        "stat-enabled"
+      ]
+    },
+    "stat-total-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Skills",
+        "value": "174"
+      },
+      "children": []
+    },
+    "stat-categories": {
+      "type": "Stat",
+      "props": {
+        "label": "Categories",
+        "value": "5"
+      },
+      "children": []
+    },
+    "stat-enabled": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled",
+        "value": "44"
+      },
+      "children": []
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "text-branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed:",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "link-branch": {
+      "type": "Link",
+      "props": {
+        "label": "https://github.com/swarm-ai-research/aeon/pull/new/skill-graph/2026-06-20",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/skill-graph/2026-06-20"
+      },
+      "children": []
+    },
+    "alert-perms": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Auto-Create Blocked",
+        "message": "PR auto-create blocked by Actions perms — open manually",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "text-edges": {
+      "type": "Text",
+      "props": {
+        "text": "Edges:",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "grid-edges": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-depends-on",
+        "stat-reactive",
+        "stat-shared-state"
+      ]
+    },
+    "stat-depends-on": {
+      "type": "Stat",
+      "props": {
+        "label": "Depends On",
+        "value": "5"
+      },
+      "children": []
+    },
+    "stat-reactive": {
+      "type": "Stat",
+      "props": {
+        "label": "Reactive",
+        "value": "2"
+      },
+      "children": []
+    },
+    "stat-shared-state": {
+      "type": "Stat",
+      "props": {
+        "label": "Shared-State",
+        "value": "23"
+      },
+      "children": []
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "badge-mode": {
+      "type": "Badge",
+      "props": {
+        "text": "Mode: SKILL_GRAPH_NEW",
+        "variant": "secondary"
+      },
+      "children": []
+    }
+  }
+}

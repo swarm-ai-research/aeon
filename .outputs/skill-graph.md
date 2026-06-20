@@ -1,0 +1,1 @@
+*Skill Graph initialized* — 174 skills mapped across 5 categories (44 enabled). Branch pushed: https://github.com/swarm-ai-research/aeon/pull/new/skill-graph/2026-06-20 (PR auto-create blocked by Actions perms — open manually). Edges: 5 depends_on, 2 reactive, 23 shared-state. Mode: SKILL_GRAPH_NEW.
