@@ -2,6 +2,10 @@
 
 *Last run: 2026-06-20*
 
+## Durable claims
+- [[inference-cost-1000x-collapse]] — ~1,000× cost collapse since 2022; Gartner forecasts 90%+ further drop by 2030
+- [[anthropic-xai-1-25b-month-lease]] — $1.25B/month Colossus lease through May 2029, largest publicly disclosed AI compute deal
+
 ## Inference Pricing Baseline
 
 Current prices ($/1M tokens in/out) as of 2026-06-20:
