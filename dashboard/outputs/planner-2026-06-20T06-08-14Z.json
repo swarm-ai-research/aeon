@@ -1,0 +1,230 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Status — Critical Outage",
+        "description": "All 38 tracked skills at 100% failure with zero-token errors; operator diagnosis required"
+      },
+      "children": [
+        "alert-outage",
+        "sep-1",
+        "grid-metrics",
+        "sep-2",
+        "stack-situation",
+        "sep-3",
+        "stack-factors",
+        "sep-4",
+        "stack-action",
+        "sep-5",
+        "stack-status"
+      ]
+    },
+    "alert-outage": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "Fleet Outage — All Skills Failed",
+        "message": "Every tracked skill reporting 100% failure with zero-token errors. All last_failed within 3-minute window earlier today."
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "grid-metrics": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-skills",
+        "stat-failure-rate",
+        "stat-window"
+      ]
+    },
+    "stat-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Tracked Skills",
+        "value": "38"
+      }
+    },
+    "stat-failure-rate": {
+      "type": "Stat",
+      "props": {
+        "label": "Failure Rate",
+        "value": "100%",
+        "trend": "down"
+      }
+    },
+    "stat-window": {
+      "type": "Stat",
+      "props": {
+        "label": "Failure Window",
+        "value": "3 minutes"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-situation": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-situation",
+        "text-error-type"
+      ]
+    },
+    "heading-situation": {
+      "type": "Heading",
+      "props": {
+        "text": "Situation",
+        "level": "h3"
+      }
+    },
+    "text-error-type": {
+      "type": "Text",
+      "props": {
+        "text": "Error type: zero-token errors across all failures",
+        "variant": "body"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-factors": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-factors",
+        "text-repair-offline",
+        "text-harness-exit"
+      ]
+    },
+    "heading-factors": {
+      "type": "Heading",
+      "props": {
+        "text": "Contributing Factors",
+        "level": "h3"
+      }
+    },
+    "text-repair-offline": {
+      "type": "Text",
+      "props": {
+        "text": "skill-repair is in the wreckage — no self-healing capability",
+        "variant": "body"
+      }
+    },
+    "text-harness-exit": {
+      "type": "Text",
+      "props": {
+        "text": "Harness exits before invoking Claude",
+        "variant": "body"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-action": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-action",
+        "text-action-needed",
+        "text-diagnostic-command"
+      ]
+    },
+    "heading-action": {
+      "type": "Heading",
+      "props": {
+        "text": "Action Required",
+        "level": "h3"
+      }
+    },
+    "text-action-needed": {
+      "type": "Text",
+      "props": {
+        "text": "Operator must pull a real runner log to diagnose the failure.",
+        "variant": "lead"
+      }
+    },
+    "text-diagnostic-command": {
+      "type": "Text",
+      "props": {
+        "text": "Command: gh run view --log on one of the runs queued at 06:06Z. Goal: Find why the harness exits before invoking Claude.",
+        "variant": "body"
+      }
+    },
+    "sep-5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-status": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-status",
+        "badge-mode",
+        "text-hold",
+        "text-strategy"
+      ]
+    },
+    "heading-status": {
+      "type": "Heading",
+      "props": {
+        "text": "Current Status",
+        "level": "h3"
+      }
+    },
+    "badge-mode": {
+      "type": "Badge",
+      "props": {
+        "text": "Plan-only mode",
+        "variant": "secondary"
+      }
+    },
+    "text-hold": {
+      "type": "Text",
+      "props": {
+        "text": "Holding all content/digest/triage work pending diagnosis",
+        "variant": "body"
+      }
+    },
+    "text-strategy": {
+      "type": "Text",
+      "props": {
+        "text": "Not dispatching to broken runner — would burn failure counters. Awaiting one skill to report non-zero tokens before resuming.",
+        "variant": "muted"
+      }
+    }
+  }
+}
