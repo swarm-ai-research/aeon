@@ -1,0 +1,1 @@
+compute-macro-correlate 2026-06-20: Track A all null. RENDER ρ=-0.145 p=0.139, TAO ρ=-0.121 p=0.217, IO ρ=-0.069 p=0.480 — no DePIN token shows meaningful partial correlation with NATGAS after removing {BTC,SOL} crypto-beta (n=108 NATGAS trading days). Track B deferring: n=1 joined sweep day, need ≥30.

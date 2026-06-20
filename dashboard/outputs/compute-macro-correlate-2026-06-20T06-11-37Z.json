@@ -1,0 +1,107 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "compute-macro-correlate",
+        "description": "2026-06-20"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "track_a_status",
+        "sep1",
+        "correlations_heading",
+        "correlations_table",
+        "finding_text",
+        "sep2",
+        "track_b_heading",
+        "track_b_status"
+      ]
+    },
+    "track_a_status": {
+      "type": "Text",
+      "props": {
+        "text": "Track A all null",
+        "variant": "muted"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "correlations_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Correlations with NATGAS",
+        "level": "h3"
+      }
+    },
+    "correlations_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Token",
+          "ρ (rho)",
+          "p-value"
+        ],
+        "rows": [
+          [
+            "RENDER",
+            "-0.145",
+            "0.139"
+          ],
+          [
+            "TAO",
+            "-0.121",
+            "0.217"
+          ],
+          [
+            "IO",
+            "-0.069",
+            "0.480"
+          ]
+        ]
+      }
+    },
+    "finding_text": {
+      "type": "Text",
+      "props": {
+        "text": "Finding: no DePIN token shows meaningful partial correlation with NATGAS after removing {BTC,SOL} crypto-beta (n=108 NATGAS trading days)",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "track_b_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Track B",
+        "level": "h3"
+      }
+    },
+    "track_b_status": {
+      "type": "Text",
+      "props": {
+        "text": "Deferring: n=1 joined sweep day, need ≥30",
+        "variant": "muted"
+      }
+    }
+  }
+}
