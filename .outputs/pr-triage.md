@@ -1,0 +1,1 @@
+PR Triage 2026-06-20 — swarm-ai-research/swarm: triaged 2 (ACCEPTED #518 first PR by @go165; DEFER #517 size 710>500). Comments/labels NOT posted — agent token lacks write access on that repo (PR_TRIAGE_NO_PERMISSION on both). Verdicts recorded locally; grant the bot access on that repo if you want them on-PR.

@@ -1,0 +1,131 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Triage 2026-06-20"
+      },
+      "children": [
+        "text-repo",
+        "text-summary",
+        "alert-permission",
+        "stack-prs",
+        "text-followup"
+      ]
+    },
+    "text-repo": {
+      "type": "Text",
+      "props": {
+        "text": "Repository: swarm-ai-research/swarm"
+      },
+      "children": []
+    },
+    "text-summary": {
+      "type": "Text",
+      "props": {
+        "text": "Triaged 2 pull requests"
+      },
+      "children": []
+    },
+    "alert-permission": {
+      "type": "Alert",
+      "props": {
+        "title": "Permission Issue",
+        "message": "Comments and labels were NOT posted — agent token lacks write access on this repo (PR_TRIAGE_NO_PERMISSION on both PRs). Grant the bot access if you want verdicts posted on-PR.",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "stack-prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-518",
+        "pr-517"
+      ]
+    },
+    "pr-518": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-accepted",
+        "link-518",
+        "text-author-518"
+      ]
+    },
+    "badge-accepted": {
+      "type": "Badge",
+      "props": {
+        "text": "ACCEPTED",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "link-518": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#518",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518"
+      },
+      "children": []
+    },
+    "text-author-518": {
+      "type": "Text",
+      "props": {
+        "text": "first PR by @go165"
+      },
+      "children": []
+    },
+    "pr-517": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-defer",
+        "link-517",
+        "text-size-517"
+      ]
+    },
+    "badge-defer": {
+      "type": "Badge",
+      "props": {
+        "text": "DEFER",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "link-517": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#517",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517"
+      },
+      "children": []
+    },
+    "text-size-517": {
+      "type": "Text",
+      "props": {
+        "text": "size 710 > 500 (exceeds threshold)"
+      },
+      "children": []
+    },
+    "text-followup": {
+      "type": "Text",
+      "props": {
+        "text": "Verdicts recorded locally. To post on-PR, grant write access to the bot on swarm-ai-research/swarm.",
+        "variant": "muted"
+      },
+      "children": []
+    }
+  }
+}
