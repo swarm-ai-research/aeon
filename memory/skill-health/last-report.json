@@ -1,20 +1,21 @@
 {
-  "hash": "dd1702e325a568e5",
-  "last_notified_at": "2026-06-20T06:11:00Z",
-  "last_run_at": "2026-06-20T06:11:00Z",
+  "hash": "89b162470bb193b6",
+  "last_notified_at": "2026-06-20T18:05:00Z",
+  "last_run_at": "2026-06-20T18:05:00Z",
   "classification": {
-    "critical": [
-      "compute-futures-eda", "gitlawb-fleet-metrics", "pr-review", "skill-health",
-      "notegraph", "skill-analytics", "suggest-edges", "goal-tracker", "reflect",
-      "code-health", "pr-tracker", "surplus-pulse", "issue-triage", "github-monitor",
-      "batch-health", "fleet-control", "skill-freshness", "pr-triage", "skill-repair",
-      "planner", "heartbeat", "compute-pulse", "repo-revive", "skill-update-check",
-      "skill-evals", "skillpacks", "skill-graph", "self-review", "memory-flush",
-      "memory-structural-dedupe", "workflow-security-audit", "janitor",
-      "vuln-scanner", "changelog", "stale-content-pr-sweeper",
-      "compute-macro-correlate", "cost-report", "milestone-tracker"
+    "critical": [],
+    "degraded": [
+      "batch-health", "changelog", "code-health", "compute-futures-eda",
+      "compute-macro-correlate", "compute-pulse", "cost-report", "fleet-control",
+      "github-monitor", "gitlawb-fleet-metrics", "goal-tracker", "heartbeat",
+      "issue-triage", "janitor", "memory-flush", "memory-structural-dedupe",
+      "milestone-tracker", "notegraph", "planner", "pr-review", "pr-tracker",
+      "pr-triage", "reflect", "repo-revive", "self-review", "skill-analytics",
+      "skill-evals", "skill-freshness", "skill-graph", "skill-health",
+      "skill-repair", "skill-update-check", "skillpacks",
+      "stale-content-pr-sweeper", "suggest-edges", "surplus-pulse",
+      "vuln-scanner", "workflow-security-audit"
     ],
-    "degraded": [],
     "flapping": [],
     "warning": [],
     "healthy_count": 0,
@@ -23,6 +24,10 @@
       "run-frequency-guard", "swarm-safety-eval", "weekly-shiplog"
     ]
   },
-  "systemic": "SYSTEMIC: 38 skills failing with zero-token result_json (Claude Code producing no output on cron runs)",
-  "issue_tracker_status": "missing — skipped issue filing/resolution per precondition guard"
+  "systemic": "SYSTEMIC: 38 skills DEGRADED — cumulative success_rate <0.6 from 2026-06-06→06-20 OAuth outage (ISS-001); all now recovered (last_status=success, consecutive_failures=0). Counters need ~weeks of healthy runs to exceed 0.6 threshold.",
+  "issues_filed_this_run": [],
+  "issues_resolved_this_run": [],
+  "open_issues_per_index": 1,
+  "open_issues_per_filesystem": 5,
+  "index_drift_note": "INDEX.md lists only ISS-001 open; ISS-002 through ISS-005 (filed by skill-evals) are status:open on disk but missing from INDEX.md — sync drift, not skill-health's contract to fix."
 }

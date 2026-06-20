@@ -1,16 +1,16 @@
-*Skill Health — 2026-06-20*
-HEALTH: CRITICAL(38)  [systemic: zero-token result_json across 38 skills — Claude Code producing no output on cron runs]
+*Skill Health — 2026-06-20 18:05Z*
+HEALTH: DEGRADED(38) — recovery from ISS-001 underway
 
-🔴 CRITICAL (top 5 by consecutive_failures)
-- compute-futures-eda — 202 fails — INVESTIGATE
-- gitlawb-fleet-metrics — 196 fails — INVESTIGATE
-- pr-review — 196 fails — INVESTIGATE
-- skill-health — 195 fails — INVESTIGATE
-- notegraph — 188 fails — INVESTIGATE
-+33 more — see memory/cron-state.json
+🟡 DEGRADED (38, sample of top 5 by prior-fail count):
+- compute-futures-eda — recovered 06:12Z, sr=0% (1/203)
+- gitlawb-fleet-metrics — recovered 09:34Z, sr=1% (2/198)
+- pr-review — recovered 09:35Z, sr=1% (2/198)
+- skill-health — recovered 06:12Z, sr=1% (1/196)
+- notegraph — recovered 06:14Z, sr=1% (1/189)
++33 more — all show consecutive_failures=0, last_status=success today
 
-⚪ NO DATA (6): agi-tracker, ai-framework-watch, config-validator, run-frequency-guard, swarm-safety-eval, weekly-shiplog — DISPATCH-SKILL
-🟢 HEALTHY: 0 of 44 enabled
+⚪ NO DATA (6): agi-tracker, ai-framework-watch, config-validator, run-frequency-guard, swarm-safety-eval, weekly-shiplog → DISPATCH-SKILL
 
-Corroboration: scripts/skill-runs shows 899/942 workflow runs failed in last 7d (95%).
-Issue tracker (memory/issues/INDEX.md) is absent — filing/resolution skipped. Open: 0 · Resolved this run: 0.
+SYSTEMIC: previous outage (zero-token cron runs, 2026-06-06→06-20) ended at 06:05Z when CLAUDE_CODE_OAUTH_TOKEN was restored. All 38 are healthy NOW; cumulative success_rate stays <60% (DEGRADED threshold) until ~weeks of clean runs raise the counters.
+
+Open issues: 1 per INDEX.md (ISS-001 still 'investigating'; INDEX drift — ISS-002–005 are open on disk, missing from index). Resolved this run: 0. hash=89b162470bb193b6

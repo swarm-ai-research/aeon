@@ -1,0 +1,237 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health",
+        "description": "2026-06-20 18:05Z"
+      },
+      "children": [
+        "alert-status",
+        "stat-degraded",
+        "sep-1",
+        "heading-degraded",
+        "table-degraded",
+        "text-more-degraded",
+        "sep-2",
+        "heading-nodata",
+        "stack-nodata",
+        "sep-3",
+        "heading-systemic",
+        "text-systemic",
+        "sep-4",
+        "heading-issues",
+        "text-issues",
+        "text-hash"
+      ]
+    },
+    "alert-status": {
+      "type": "Alert",
+      "props": {
+        "title": "Recovery from ISS-001 underway",
+        "type": "warning"
+      }
+    },
+    "stat-degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Affected Skills",
+        "value": "38"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-degraded": {
+      "type": "Heading",
+      "props": {
+        "text": "Degraded Skills (sample of top 5 by prior-fail count)",
+        "level": "h3"
+      }
+    },
+    "table-degraded": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Recovered",
+          "Success Rate"
+        ],
+        "rows": [
+          [
+            "compute-futures-eda",
+            "06:12Z",
+            "0% (1/203)"
+          ],
+          [
+            "gitlawb-fleet-metrics",
+            "09:34Z",
+            "1% (2/198)"
+          ],
+          [
+            "pr-review",
+            "09:35Z",
+            "1% (2/198)"
+          ],
+          [
+            "skill-health",
+            "06:12Z",
+            "1% (1/196)"
+          ],
+          [
+            "notegraph",
+            "06:14Z",
+            "1% (1/189)"
+          ]
+        ]
+      }
+    },
+    "text-more-degraded": {
+      "type": "Text",
+      "props": {
+        "text": "+33 more — all show consecutive_failures=0, last_status=success today",
+        "variant": "caption"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-nodata": {
+      "type": "Heading",
+      "props": {
+        "text": "No Data",
+        "level": "h3"
+      }
+    },
+    "stack-nodata": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "badges-nodata",
+        "text-dispatch"
+      ]
+    },
+    "badges-nodata": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-agi-tracker",
+        "badge-ai-framework-watch",
+        "badge-config-validator",
+        "badge-run-frequency-guard",
+        "badge-swarm-safety-eval",
+        "badge-weekly-shiplog"
+      ]
+    },
+    "badge-agi-tracker": {
+      "type": "Badge",
+      "props": {
+        "text": "agi-tracker",
+        "variant": "outline"
+      }
+    },
+    "badge-ai-framework-watch": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "outline"
+      }
+    },
+    "badge-config-validator": {
+      "type": "Badge",
+      "props": {
+        "text": "config-validator",
+        "variant": "outline"
+      }
+    },
+    "badge-run-frequency-guard": {
+      "type": "Badge",
+      "props": {
+        "text": "run-frequency-guard",
+        "variant": "outline"
+      }
+    },
+    "badge-swarm-safety-eval": {
+      "type": "Badge",
+      "props": {
+        "text": "swarm-safety-eval",
+        "variant": "outline"
+      }
+    },
+    "badge-weekly-shiplog": {
+      "type": "Badge",
+      "props": {
+        "text": "weekly-shiplog",
+        "variant": "outline"
+      }
+    },
+    "text-dispatch": {
+      "type": "Text",
+      "props": {
+        "text": "→ DISPATCH-SKILL",
+        "variant": "caption"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-systemic": {
+      "type": "Heading",
+      "props": {
+        "text": "Systemic Issue",
+        "level": "h3"
+      }
+    },
+    "text-systemic": {
+      "type": "Text",
+      "props": {
+        "text": "Previous outage (zero-token cron runs, 2026-06-06→06-20) ended at 06:05Z when CLAUDE_CODE_OAUTH_TOKEN was restored. All 38 are healthy NOW; cumulative success_rate stays <60% (DEGRADED threshold) until ~weeks of clean runs raise the counters.",
+        "variant": "body"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-issues": {
+      "type": "Heading",
+      "props": {
+        "text": "Open Issues",
+        "level": "h3"
+      }
+    },
+    "text-issues": {
+      "type": "Text",
+      "props": {
+        "text": "1 per INDEX.md (ISS-001 still 'investigating'; INDEX drift — ISS-002–005 are open on disk, missing from index). Resolved this run: 0.",
+        "variant": "body"
+      }
+    },
+    "text-hash": {
+      "type": "Text",
+      "props": {
+        "text": "hash=89b162470bb193b6",
+        "variant": "caption"
+      }
+    }
+  }
+}
