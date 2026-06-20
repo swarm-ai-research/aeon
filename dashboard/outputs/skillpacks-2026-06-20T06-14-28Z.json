@@ -1,0 +1,125 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "skillpacks"
+      },
+      "children": [
+        "heading",
+        "content_stack"
+      ]
+    },
+    "heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Skillpacks updated",
+        "level": "h2"
+      }
+    },
+    "content_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "update_summary",
+        "sep1",
+        "branch_section",
+        "sep2",
+        "pr_section"
+      ]
+    },
+    "update_summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "packs_stat",
+        "pack_name"
+      ]
+    },
+    "packs_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "New Packs",
+        "value": "3"
+      }
+    },
+    "pack_name": {
+      "type": "Text",
+      "props": {
+        "text": "Includes: fleet-evolve…",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "branch_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "branch_label",
+        "branch_badge"
+      ]
+    },
+    "branch_label": {
+      "type": "Text",
+      "props": {
+        "text": "Branch:",
+        "variant": "muted"
+      }
+    },
+    "branch_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "skillpacks/2026-06-20",
+        "variant": "outline"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr_alert",
+        "pr_link"
+      ]
+    },
+    "pr_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Creation Blocked",
+        "message": "PR creation blocked by GHA permissions",
+        "type": "warning"
+      }
+    },
+    "pr_link": {
+      "type": "Link",
+      "props": {
+        "label": "Open PR Manually",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/skillpacks/2026-06-20"
+      }
+    }
+  }
+}
