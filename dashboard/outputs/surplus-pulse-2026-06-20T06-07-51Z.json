@@ -1,0 +1,227 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "surplus-pulse",
+        "description": "2026-06-20"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "section_spot",
+        "sep1",
+        "section_curve",
+        "sep2",
+        "section_rail",
+        "sep3",
+        "section_summary"
+      ]
+    },
+    "section_spot": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_spot",
+        "text_spot_model",
+        "stat_price"
+      ]
+    },
+    "heading_spot": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h2"
+      }
+    },
+    "text_spot_model": {
+      "type": "Text",
+      "props": {
+        "text": "Llama 4 Scout by Surplus Intelligence",
+        "variant": "body"
+      }
+    },
+    "stat_price": {
+      "type": "Stat",
+      "props": {
+        "label": "Price",
+        "value": "$0.0764/M"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_curve",
+        "text_curve_note",
+        "stat_supply_crunch",
+        "stat_open_weights",
+        "stat_demand_surge"
+      ]
+    },
+    "heading_curve": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h2"
+      }
+    },
+    "text_curve_note": {
+      "type": "Text",
+      "props": {
+        "text": "Market movements at R30:",
+        "variant": "caption"
+      }
+    },
+    "stat_supply_crunch": {
+      "type": "Stat",
+      "props": {
+        "label": "Supply crunch (hyperscaler H100 reserve event)",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "stat_open_weights": {
+      "type": "Stat",
+      "props": {
+        "label": "Open-weights flood (partial reversal at R30)",
+        "value": "-44.2%",
+        "trend": "down"
+      }
+    },
+    "stat_demand_surge": {
+      "type": "Stat",
+      "props": {
+        "label": "Agent-platform demand surge",
+        "value": "+50.7%",
+        "trend": "up"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_rail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_rail",
+        "text_rail_identifier",
+        "text_rail_chain",
+        "stack_rail_badges",
+        "link_rail_url"
+      ]
+    },
+    "heading_rail": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h2"
+      }
+    },
+    "text_rail_identifier": {
+      "type": "Text",
+      "props": {
+        "text": "x402",
+        "variant": "lead"
+      }
+    },
+    "text_rail_chain": {
+      "type": "Text",
+      "props": {
+        "text": "Base/USDC",
+        "variant": "body"
+      }
+    },
+    "stack_rail_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_chain_id",
+        "badge_call_cost"
+      ]
+    },
+    "badge_chain_id": {
+      "type": "Badge",
+      "props": {
+        "text": "eip155:8453",
+        "variant": "outline"
+      }
+    },
+    "badge_call_cost": {
+      "type": "Badge",
+      "props": {
+        "text": "Base call $0.0033",
+        "variant": "outline"
+      }
+    },
+    "link_rail_url": {
+      "type": "Link",
+      "props": {
+        "label": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_summary",
+        "text_summary"
+      ]
+    },
+    "heading_summary": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h2"
+      }
+    },
+    "text_summary": {
+      "type": "Text",
+      "props": {
+        "text": "The Surplus inference market is volatile and supply-constrained — H100 reservation events can spike near-term curve prices by ~90%, but open-weight drops provide rapid relief.",
+        "variant": "body"
+      }
+    }
+  }
+}
