@@ -1,0 +1,175 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Cost Report"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_main",
+        "summary_stats",
+        "text_baseline",
+        "sep1",
+        "heading_top",
+        "table_top",
+        "sep2",
+        "text_no_opt",
+        "sep3",
+        "stat_projection",
+        "sep4",
+        "link_full"
+      ]
+    },
+    "heading_main": {
+      "type": "Heading",
+      "props": {
+        "text": "Cost Report — 2026-06-20 (last 7 days)",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "summary_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_spent",
+        "stat_runs",
+        "stat_anomalies",
+        "stat_burn"
+      ]
+    },
+    "stat_spent": {
+      "type": "Stat",
+      "props": {
+        "label": "Spent (7 days)",
+        "value": "$0.83"
+      },
+      "children": []
+    },
+    "stat_runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs",
+        "value": "1"
+      },
+      "children": []
+    },
+    "stat_anomalies": {
+      "type": "Stat",
+      "props": {
+        "label": "Anomalies",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat_burn": {
+      "type": "Stat",
+      "props": {
+        "label": "Projected Monthly Burn",
+        "value": "$3.56"
+      },
+      "children": []
+    },
+    "text_baseline": {
+      "type": "Text",
+      "props": {
+        "text": "(no prior-week baseline)",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_top": {
+      "type": "Heading",
+      "props": {
+        "text": "Top by cost",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "table_top": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Cost",
+          "Runs"
+        ],
+        "rows": [
+          [
+            "memory-structural-dedupe",
+            "$0.83",
+            "1"
+          ]
+        ]
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "text_no_opt": {
+      "type": "Text",
+      "props": {
+        "text": "No optimization levers found this week.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stat_projection": {
+      "type": "Stat",
+      "props": {
+        "label": "30-day projection",
+        "value": "$3.56"
+      },
+      "children": []
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "link_full": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full report",
+        "href": "articles/cost-report-2026-06-20.md"
+      },
+      "children": []
+    }
+  }
+}
