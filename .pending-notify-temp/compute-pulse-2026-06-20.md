@@ -8,12 +8,13 @@ inference pricing:
 - deepseek v4-pro permanent −75% → $0.89/1M output (april 26)
 
 hardware signals:
+- anthropic → xai: $1.25B/month for 300 MW / 220k+ NVIDIA GPUs on Colossus through may 2029 — largest publicly disclosed compute lease in AI
 - stargate phase 2 on track: 1.2 GW / 6 buildings / ~400k B200s, mid-2026
-- xai colossus: 555k GPUs / 2 GW — largest single AI compute site
+- vera rubin in full production (computex may 2026): 5× blackwell perf, 10× lower cost/token
 
 decentralized compute:
 - io.net: IDE live, first token burn june 11 — revenue→burn loop now active
-- render: $1.72 (~$932M mcap) — holding
-- akt (akash): $0.74, ~$130M mcap — down from $1.2B peak
+- akt (akash): +72% YTD — mainnet 17 BME live, $5M Q1 record, 428% usage growth
+- render: ~$1.80, −17% in june — compressed
 
-read: advancing — 1,000× inference cost collapse in 3 years documented; gartner forecasts 90%+ further drop by 2030.
+read: advancing — anthropic's $15B/year compute bill to xai crystallizes who holds the upstream relationship; decentralized layer showing first institutional traction
