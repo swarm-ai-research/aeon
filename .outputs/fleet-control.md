@@ -1,11 +1,8 @@
 ## Summary
 
-Ran `fleet-control` in Health Check Mode (default — no `var` supplied). The pre-flight registry load found `memory/instances.json` missing, so I bootstrapped it with `{"instances": []}` per spec. With zero managed instances, the skill stops silently without notifying.
+Ran `fleet-control` in default Health Check Mode. Registry `memory/instances.json` is `{"instances": []}` — per the skill's pre-flight gate, this is the `FLEET_EMPTY` path: log and stop silently, no notification sent. This is the second `FLEET_EMPTY` entry today (an earlier run hit the same gate).
 
 **Files modified:**
-- `memory/instances.json` — created with empty instances list
-- `memory/logs/2026-06-20.md` — appended `FLEET_EMPTY` log entry
+- `memory/logs/2026-06-20.md` — appended `fleet-control (health check, second run)` block with verdict `FLEET_EMPTY`.
 
-**Notification:** skipped (per spec, empty registry is a silent no-op).
-
-**Follow-up:** Register Aeon instances in `memory/instances.json` to begin fleet monitoring.
+**Follow-up for operator:** The fleet is empty by registry; if Aeon instances exist that should be managed, populate `memory/instances.json` with their entries (host/repo or host: gitlawb + DID) before the next 15:00 UTC run.
