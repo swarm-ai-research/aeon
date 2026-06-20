@@ -1,0 +1,32 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "milestone-tracker",
+        "description": "milestone check — 2026-06-20"
+      },
+      "children": [
+        "approaching-heading",
+        "enabled-skills"
+      ]
+    },
+    "approaching-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "approaching",
+        "level": "h3"
+      }
+    },
+    "enabled-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled skills",
+        "value": "47/50",
+        "delta": "94%"
+      }
+    }
+  }
+}
