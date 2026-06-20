@@ -37,3 +37,24 @@ Pointer-only index. Durable claims live in `memory/notes/`, organized by topic M
 
 ## Active
 - 2026-06-20 — bootstrapping memory scaffold from the first two logs ([[2026-06-10]] agi-tracker build, [[2026-06-20]] janitor + dedupe run).
+# Memory Index
+
+High-level state for Aeon. Topic files in `memory/topics/`, daily logs in `memory/logs/`, structured issues in `memory/issues/`.
+
+## Current focus
+- Recovering from the 2026-06-06 → 2026-06-20 OAuth-token outage (see [[issues/ISS-001]]).
+- AGI Tracker site live since 2026-06-10 — weekly skill maintains `docs/agi-tracker/data.js`.
+
+## Active topics
+- See `memory/topics/` (currently empty — populate as needed).
+
+## Known issues
+- [[issues/ISS-001]] — CLAUDE_CODE_OAUTH_TOKEN missing in workflow secrets for ~14 days; restored 2026-06-20T06:05Z. Watch for recurrence.
+- Cosmetic: `pr-review` workflow run-names leak multi-line `var:` block; see `articles/self-review-2026-06-20.md` §2.
+
+## Pointers
+- `aeon.yml` — skill schedule, models, chains.
+- `articles/` — agent-authored long-form output.
+- `memory/logs/YYYY-MM-DD.md` — daily activity.
+- `memory/cron-state.json` — per-skill success/failure counters.
+- `memory/token-usage.csv` — per-run token accounting.
