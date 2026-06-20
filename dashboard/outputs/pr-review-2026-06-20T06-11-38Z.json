@@ -1,0 +1,158 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-06-20",
+        "description": "Reviewed 2 PRs in swarm-ai-research/swarm."
+      },
+      "children": [
+        "pr518_stack",
+        "sep1",
+        "pr517_stack",
+        "sep2",
+        "blocked_alert"
+      ]
+    },
+    "pr518_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr518_link",
+        "pr518_status_row",
+        "pr518_issues_text",
+        "pr518_desc_text"
+      ]
+    },
+    "pr518_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#518",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518",
+        "source": "GitHub"
+      }
+    },
+    "pr518_status_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr518_badge",
+        "pr518_score"
+      ]
+    },
+    "pr518_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "BLOCK",
+        "variant": "destructive"
+      }
+    },
+    "pr518_score": {
+      "type": "Stat",
+      "props": {
+        "label": "Score",
+        "value": "0/5"
+      }
+    },
+    "pr518_issues_text": {
+      "type": "Text",
+      "props": {
+        "text": "1 critical, 2 issues"
+      }
+    },
+    "pr518_desc_text": {
+      "type": "Text",
+      "props": {
+        "text": "New scenario YAML schema's `extra=\"forbid\"` is missing real top-level fields (`kernel_oracle`, `work_regime`, ...); CI shows 16 existing scenario-loader tests failing with ValidationError on this head SHA.",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr517_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr517_link",
+        "pr517_status_row",
+        "pr517_issues_text",
+        "pr517_desc_text"
+      ]
+    },
+    "pr517_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#517",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517",
+        "source": "GitHub"
+      }
+    },
+    "pr517_status_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr517_badge",
+        "pr517_score"
+      ]
+    },
+    "pr517_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "secondary"
+      }
+    },
+    "pr517_score": {
+      "type": "Stat",
+      "props": {
+        "label": "Score",
+        "value": "3/5"
+      }
+    },
+    "pr517_issues_text": {
+      "type": "Text",
+      "props": {
+        "text": "0 critical, 1 issue"
+      }
+    },
+    "pr517_desc_text": {
+      "type": "Text",
+      "props": {
+        "text": "Tests pass on 3.10/3.11/3.12, type-check green. Lint fails on a trivial I001 import-sort in `swarm/replay/__init__.py`; quality-gate fails downstream of lint.",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "blocked_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Review posting blocked",
+        "message": "aeon's GitHub App token has no write access to swarm-ai-research/swarm (403 on reviews, inline comments, and pr comment). Verdicts emitted via this notify + memory log only.",
+        "type": "warning"
+      }
+    }
+  }
+}
