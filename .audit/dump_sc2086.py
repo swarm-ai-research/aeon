@@ -1,3 +1,4 @@
+"""Print every actionlint finding that contains SC2086 (word-splitting risk)."""
 import json
 data = json.load(open('.audit/actionlint.json'))
 for f in data:

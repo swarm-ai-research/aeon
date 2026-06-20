@@ -1,3 +1,4 @@
+"""Summarize actionlint findings by shellcheck code, flagging SC2086/SC2046 over github.* as HIGH candidates."""
 import json
 from collections import Counter
 data = json.load(open('.audit/actionlint.json'))

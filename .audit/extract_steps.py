@@ -1,3 +1,4 @@
+"""Enrich parsed SARIF findings with step names and fingerprints; writes .audit/classified.json."""
 import json
 import re
 import os
