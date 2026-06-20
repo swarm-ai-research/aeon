@@ -1,0 +1,25 @@
+{
+  "repoDir": ".",
+  "repoUrl": "gitlawb://did:key:z6MkpiXbCJzXGLw9bQXw5t8ja734YsrhYWEQMqsicwUcjHbH/aeon",
+  "branch": "main",
+  "agents": {
+    "aeon-researcher": {
+      "executor": "autonomous",
+      "command": "node scripts/fleet-executors/autonomous-fleet-executor.mjs",
+      "harnessCommand": "claude -p - --model claude-sonnet-4-6 --allowedTools 'Read,Grep,Glob,Bash(git:*),Bash(gl:*),Bash(node:*),Bash(rg:*)' --output-format json",
+      "maxSteps": 3
+    },
+    "aeon-reviewer": {
+      "executor": "command",
+      "command": "node scripts/fleet-executors/reviewer.mjs"
+    },
+    "aeon-deployer": {
+      "executor": "command",
+      "command": "node scripts/fleet-executors/deployer.mjs"
+    },
+    "aeon-sentinel": {
+      "executor": "command",
+      "command": "node scripts/fleet-executors/sentinel.mjs"
+    }
+  }
+}
