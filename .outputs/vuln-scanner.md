@@ -1,0 +1,2 @@
+*Vuln Scanner — omnigent-ai/omnigent*
+Clean SAST + zero verified secrets after triage (47 candidates reviewed, 0 confirmed). 9 production dep CVEs identified across uv.lock / ap-web / electron — disclosure path is public PR. Workflow token lacks fork scope, so the bundled PR body is staged at .pending-disclosure/omnigent-ai-omnigent-2026-06-20T060000Z.md for manual submission. Scanners: semgrep=ok, trufflehog=ok, osv=ok.
