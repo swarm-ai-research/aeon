@@ -1,0 +1,171 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-06-20"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stack_overview",
+        "sep1",
+        "alert_artifact",
+        "sep2",
+        "stack_conservation",
+        "sep3",
+        "text_correlation",
+        "sep4",
+        "link_report"
+      ]
+    },
+    "stack_overview": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      }
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_artifact": {
+      "type": "Alert",
+      "props": {
+        "title": "Seed-Encoding Artifact Detected",
+        "message": "Three seeds are 10-digit vs nine 9-digit. Deployer pads index inconsistently, flagging 25% false-positive outliers per mode.",
+        "type": "warning"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_conservation": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_conservation_title",
+        "grid_conservation_items",
+        "text_conservation_note"
+      ]
+    },
+    "text_conservation_title": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Validation",
+        "level": "h3"
+      }
+    },
+    "grid_conservation_items": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "sm"
+      },
+      "children": [
+        "badge_basket",
+        "badge_spread",
+        "badge_synthetic",
+        "badge_x402"
+      ]
+    },
+    "badge_basket": {
+      "type": "Badge",
+      "props": {
+        "text": "Basket OK",
+        "variant": "secondary"
+      }
+    },
+    "badge_spread": {
+      "type": "Badge",
+      "props": {
+        "text": "Spread OK",
+        "variant": "secondary"
+      }
+    },
+    "badge_synthetic": {
+      "type": "Badge",
+      "props": {
+        "text": "Synthetic OK",
+        "variant": "secondary"
+      }
+    },
+    "badge_x402": {
+      "type": "Badge",
+      "props": {
+        "text": "x402 OK",
+        "variant": "secondary"
+      }
+    },
+    "text_conservation_note": {
+      "type": "Text",
+      "props": {
+        "text": "All at floating-point noise",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_correlation": {
+      "type": "Text",
+      "props": {
+        "text": "No within-mode |r| ≥ 0.8",
+        "variant": "body"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_report": {
+      "type": "Link",
+      "props": {
+        "label": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-06-20.md"
+      }
+    }
+  }
+}
