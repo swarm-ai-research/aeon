@@ -1,13 +1,16 @@
 ## Summary
 
-Ran the `pr-tracker` skill. No `pr_tracker:` block in `aeon.yml` and `gh api user` returned 403 under the Actions token, so I resolved `AUTHOR=aeonframework` from `git config user.name` and used the default `BRANCH_PREFIX=ai/`.
+Ran `pr-tracker` for 2026-06-20 (second run today).
 
-`gh api graphql` search `author:aeonframework is:pr` returned `issueCount: 0` — no cross-repo bot PRs exist yet under this identity.
+- **Config**: author=`aeonframework`, branch_prefix=`ai/`, no email filter (matches the morning run; no `pr_tracker.*` keys in `aeon.yml`, no env overrides set).
+- **Query**: `gh api graphql` with `author:aeonframework is:pr sort:updated-desc` → `issueCount: 0`, no nodes.
+- **Buckets**: 0 recent merges, 0 stale open, 0 active open, 0 closed-no-merge.
+- **Notification**: skipped per skill rule (all four categories zero).
 
-**Files written:**
-- `memory/topics/pr-status.md` — fresh status page, empty tables, note explaining the empty state
-- `memory/logs/2026-06-20.md` — daily log entry with `PR_TRACKER_OK`
+Files modified:
+- `memory/topics/pr-status.md` — refreshed `*Last updated*` line to flag re-run; tables unchanged (still empty).
+- `memory/logs/2026-06-20.md` — appended `## PR Tracker (re-run)` block.
 
-**Notification:** skipped (zero merges, zero stale open, zero closed-no-merge — matches the skill's skip rule).
+No follow-up needed. Same observation as the morning run: either no `ai/`-branch PRs have been filed yet, or the operator's bot identity differs from `aeonframework`. To activate this skill, set `pr_tracker.author:` in `aeon.yml` or `AEON_PR_AUTHOR` env to the correct account.
 
-**Follow-up worth flagging:** If aeon should be tracking PRs filed under a different account (e.g. a dedicated bot, or `rsavitt` whose `claude/*`-branch PRs show up in `swarm-ai-research/swarm`), add `pr_tracker: { author: "...", branch_prefix: "claude/" }` to `aeon.yml`. The current default of `ai/` doesn't match any PRs in the visible history.
+`PR_TRACKER_OK`
