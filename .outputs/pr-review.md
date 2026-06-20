@@ -1,6 +1,10 @@
-*PR Review — 2026-06-20*
-Reviewed 2 PRs in swarm-ai-research/swarm.
-- swarm-ai-research/swarm#518: BLOCK (0/5) — 1 critical, 2 issues. New scenario YAML schema's `extra="forbid"` is missing real top-level fields (`kernel_oracle`, `work_regime`, ...); CI shows 16 existing scenario-loader tests failing with ValidationError on this head SHA.
-- swarm-ai-research/swarm#517: REQUEST_CHANGES (3/5) — 0 critical, 1 issue. Tests pass on 3.10/3.11/3.12, type-check green. Lint fails on a trivial I001 import-sort in `swarm/replay/__init__.py`; quality-gate fails downstream of lint.
+Both open PRs in `swarm-ai-research/swarm` (#518 and #517) carry the exact `headRefOid` SHAs already reviewed earlier today (BLOCK and REQUEST_CHANGES respectively). Per the skill's dedup rule, both skip with reason `dup-SHA`. No new commits since the prior run (`updatedAt` 2026-06-19 on both).
 
-Review posting was blocked — aeon's GitHub App token has no write access to swarm-ai-research/swarm (403 on reviews, inline comments, and pr comment). Verdicts emitted via this notify + memory log only.
+## Summary
+
+- **Reviewed:** 0
+- **Skipped:** 2 (both `dup-SHA` against earlier-today log)
+  - swarm-ai-research/swarm#518 (SHA `79d73af5`) — prior verdict **BLOCK** stands (critical: pydantic `extra="forbid"` schema missing real top-level fields, breaks 16 scenario-loader tests)
+  - swarm-ai-research/swarm#517 (SHA `3149e2bf`) — prior verdict **REQUEST_CHANGES** stands (lint I001 / quality-gate failure)
+- **Notify:** skipped — every PR was skipped, per skill spec ("If every PR was skipped, do not notify — just log").
+- **Log:** appended a re-run entry to `memory/logs/2026-06-20.md`.
