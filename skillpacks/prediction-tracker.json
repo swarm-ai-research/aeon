@@ -1,7 +1,7 @@
 {
   "pack": "prediction-tracker",
   "label": "prediction · tracker",
-  "cohesion": 1.45,
+  "cohesion": 1.4,
   "topTerms": [
     "prediction",
     "tracker",
@@ -14,6 +14,12 @@
       "name": "agent-displacement",
       "description": "Weekly tracker of AI agent substitution signals — which roles, companies, and industries show real headcount displacement. Named roles + real deployments only.",
       "install": "./add-skill aaronjmars/aeon agent-displacement"
+    },
+    {
+      "slug": "agi-tracker",
+      "name": "AGI Tracker",
+      "description": "Keep the public AGI capability tracker (docs/agi-tracker/) current — pull new METR time-horizon measurements, re-score the Situational Awareness predictions, and open a PR updating the data model",
+      "install": "./add-skill aaronjmars/aeon agi-tracker"
     },
     {
       "slug": "ai-framework-watch",
@@ -56,6 +62,12 @@
       "name": "ecosystem-pulse",
       "description": "Weekly liveness check of the projects listed in ECOSYSTEM.md — stars/forks/last-commit recency + new releases for any project that can be matched to a GitHub repo",
       "install": "./add-skill aaronjmars/aeon ecosystem-pulse"
+    },
+    {
+      "slug": "frontier-eval",
+      "name": "Frontier Eval",
+      "description": "Score frontier LLMs (Claude, GPT, Gemini, DeepSeek, Grok) on a private compute-markets task corpus, track score deltas across releases, flag public-vs-private divergence",
+      "install": "./add-skill aaronjmars/aeon frontier-eval"
     },
     {
       "slug": "hacker-news-digest",
@@ -132,6 +144,7 @@
   ],
   "install_all": [
     "./add-skill aaronjmars/aeon agent-displacement",
+    "./add-skill aaronjmars/aeon agi-tracker",
     "./add-skill aaronjmars/aeon ai-framework-watch",
     "./add-skill aaronjmars/aeon aixbt-pulse",
     "./add-skill aaronjmars/aeon competitor-launch-radar",
@@ -139,6 +152,7 @@
     "./add-skill aaronjmars/aeon deal-flow",
     "./add-skill aaronjmars/aeon deep-research",
     "./add-skill aaronjmars/aeon ecosystem-pulse",
+    "./add-skill aaronjmars/aeon frontier-eval",
     "./add-skill aaronjmars/aeon hacker-news-digest",
     "./add-skill aaronjmars/aeon huggingface-trending",
     "./add-skill aaronjmars/aeon monitor-kalshi",

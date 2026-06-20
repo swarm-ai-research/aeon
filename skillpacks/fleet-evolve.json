@@ -1,10 +1,10 @@
 {
-  "pack": "evolve-fleet",
-  "label": "evolve · fleet",
-  "cohesion": 1.29,
+  "pack": "fleet-evolve",
+  "label": "fleet · evolve",
+  "cohesion": 1.27,
   "topTerms": [
-    "evolve",
     "fleet",
+    "evolve",
     "gitlawb",
     "instances"
   ],
@@ -94,6 +94,12 @@
       "install": "./add-skill aaronjmars/aeon skill-repair"
     },
     {
+      "slug": "stale-content-pr-sweeper",
+      "name": "Stale Content PR Sweeper",
+      "description": "Close auto-generated content PRs (notegraph/, suggest-edges/, etc.) once a newer run of the same skill has opened its successor — keeps the queue clear and stops conflict-rebase work that would only reach broken intermediate states",
+      "install": "./add-skill aaronjmars/aeon stale-content-pr-sweeper"
+    },
+    {
       "slug": "swarm-safety-eval",
       "name": "SWARM Safety Eval",
       "description": "Grade the fleet's own multi-agent safety dynamics with SWARM soft-metrics (toxicity, quality gap, welfare), diff vs the prior eval, and notify on regression",
@@ -121,6 +127,7 @@
     "./add-skill aaronjmars/aeon skill-freshness",
     "./add-skill aaronjmars/aeon skill-graph",
     "./add-skill aaronjmars/aeon skill-repair",
+    "./add-skill aaronjmars/aeon stale-content-pr-sweeper",
     "./add-skill aaronjmars/aeon swarm-safety-eval",
     "./add-skill aaronjmars/aeon vercel-projects"
   ]

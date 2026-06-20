@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-31T06:50:12.470Z",
+  "generatedAt": "2026-06-20T06:10:18.374Z",
   "stats": {
-    "skills": 168,
-    "edges": 1256,
+    "skills": 173,
+    "edges": 1295,
     "packs": 16,
     "solos": 0
   },
@@ -13,8 +13,8 @@
       "topTerms": [
         "review",
         "manifest",
-        "improve",
-        "health"
+        "atomic",
+        "improve"
       ],
       "members": [
         "action-converter",
@@ -44,6 +44,41 @@
         "weekly-review"
       ],
       "cohesion": 1.26
+    },
+    {
+      "slug": "prediction-tracker",
+      "label": "prediction · tracker",
+      "topTerms": [
+        "prediction",
+        "tracker",
+        "regulatory",
+        "pulse"
+      ],
+      "members": [
+        "agent-displacement",
+        "agi-tracker",
+        "ai-framework-watch",
+        "aixbt-pulse",
+        "competitor-launch-radar",
+        "content-engine",
+        "deal-flow",
+        "deep-research",
+        "ecosystem-pulse",
+        "frontier-eval",
+        "hacker-news-digest",
+        "huggingface-trending",
+        "monitor-kalshi",
+        "narrative-tracker",
+        "paper-digest",
+        "paper-pick",
+        "pm-intel",
+        "pm-manipulation",
+        "pm-pulse",
+        "reg-monitor",
+        "research-brief",
+        "rwa-pulse"
+      ],
+      "cohesion": 1.4
     },
     {
       "slug": "watched-growth",
@@ -78,39 +113,6 @@
         "workflow-security-audit"
       ],
       "cohesion": 1.28
-    },
-    {
-      "slug": "prediction-tracker",
-      "label": "prediction · tracker",
-      "topTerms": [
-        "prediction",
-        "tracker",
-        "regulatory",
-        "pulse"
-      ],
-      "members": [
-        "agent-displacement",
-        "ai-framework-watch",
-        "aixbt-pulse",
-        "competitor-launch-radar",
-        "content-engine",
-        "deal-flow",
-        "deep-research",
-        "ecosystem-pulse",
-        "hacker-news-digest",
-        "huggingface-trending",
-        "monitor-kalshi",
-        "narrative-tracker",
-        "paper-digest",
-        "paper-pick",
-        "pm-intel",
-        "pm-manipulation",
-        "pm-pulse",
-        "reg-monitor",
-        "research-brief",
-        "rwa-pulse"
-      ],
-      "cohesion": 1.45
     },
     {
       "slug": "monitor-movers",
@@ -170,14 +172,14 @@
         "write-tweet",
         "x402-monitor"
       ],
-      "cohesion": 2.25
+      "cohesion": 2.27
     },
     {
-      "slug": "evolve-fleet",
-      "label": "evolve · fleet",
+      "slug": "fleet-evolve",
+      "label": "fleet · evolve",
       "topTerms": [
-        "evolve",
         "fleet",
+        "evolve",
         "gitlawb",
         "instances"
       ],
@@ -195,11 +197,12 @@
         "skill-freshness",
         "skill-graph",
         "skill-repair",
+        "stale-content-pr-sweeper",
         "swarm-safety-eval",
         "vercel-projects",
         "memory-structural-dedupe"
       ],
-      "cohesion": 1.29
+      "cohesion": 1.27
     },
     {
       "slug": "articles-article",
@@ -225,7 +228,7 @@
         "weekly-shiplog",
         "signal-verdict"
       ],
-      "cohesion": 1.61
+      "cohesion": 1.59
     },
     {
       "slug": "fork-contributor",
@@ -301,7 +304,7 @@
         "schedule-ads",
         "star-momentum-alert"
       ],
-      "cohesion": 2.18
+      "cohesion": 2.19
     },
     {
       "slug": "digest",
@@ -334,46 +337,50 @@
       "cohesion": 2.88
     },
     {
-      "slug": "graph-proposals",
-      "label": "graph · proposals",
+      "slug": "profiling-eda",
+      "label": "profiling · eda",
       "topTerms": [
-        "graph",
-        "proposals"
+        "profiling",
+        "eda",
+        "correlation",
+        "sweep"
+      ],
+      "members": [
+        "compute-futures-eda",
+        "compute-macro-correlate",
+        "programmatic-eda"
+      ],
+      "cohesion": 7.29
+    },
+    {
+      "slug": "pricing-gpu",
+      "label": "pricing · gpu",
+      "topTerms": [
+        "pricing",
+        "gpu",
+        "inference",
+        "spot"
+      ],
+      "members": [
+        "compute-pulse",
+        "runpod-spot-pricing",
+        "surplus-pulse"
+      ],
+      "cohesion": 3.32
+    },
+    {
+      "slug": "proposals-graph",
+      "label": "proposals · graph",
+      "topTerms": [
+        "proposals",
+        "graph"
       ],
       "members": [
         "notegraph",
         "skillpacks",
         "suggest-edges"
       ],
-      "cohesion": 4.63
-    },
-    {
-      "slug": "profiling-eda",
-      "label": "profiling · eda",
-      "topTerms": [
-        "profiling",
-        "eda"
-      ],
-      "members": [
-        "compute-futures-eda",
-        "programmatic-eda"
-      ],
-      "cohesion": 13.85
-    },
-    {
-      "slug": "inference-pricing",
-      "label": "inference · pricing",
-      "topTerms": [
-        "inference",
-        "pricing",
-        "pulse",
-        "market"
-      ],
-      "members": [
-        "compute-pulse",
-        "surplus-pulse"
-      ],
-      "cohesion": 3
+      "cohesion": 3.84
     }
   ]
 }

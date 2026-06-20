@@ -5,8 +5,8 @@
   "topTerms": [
     "review",
     "manifest",
-    "improve",
-    "health"
+    "atomic",
+    "improve"
   ],
   "members": [
     {
@@ -54,7 +54,7 @@
     {
       "slug": "memory-flush",
       "name": "Memory Flush",
-      "description": "Promote important recent log entries into MEMORY.md",
+      "description": "Promote important recent log entries into MEMORY.md, resolve contradictions, and decay stale detail",
       "install": "./add-skill aaronjmars/aeon memory-flush"
     },
     {
@@ -66,7 +66,7 @@
     {
       "slug": "note-taking",
       "name": "Note Taking",
-      "description": "Save a note as a Supernotes card (if configured) or to a local memory/notes/ file",
+      "description": "Save a note as one or more atomic notes under memory/notes/ (and optionally Supernotes). Splits bundled inputs into separate atomic files.",
       "install": "./add-skill aaronjmars/aeon note-taking"
     },
     {
@@ -90,7 +90,7 @@
     {
       "slug": "reflect",
       "name": "Weekly Reflect",
-      "description": "Review recent activity, consolidate memory, and prune stale entries",
+      "description": "Review recent activity, consolidate memory into atomic notes + MOCs, and prune stale entries",
       "install": "./add-skill aaronjmars/aeon reflect"
     },
     {
