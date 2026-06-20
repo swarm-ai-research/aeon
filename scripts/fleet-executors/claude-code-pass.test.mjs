@@ -360,4 +360,42 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. git commit failure — a pre-commit hook that always exits 1 causes
+//     `git commit` to fail after `git add -A` succeeds. cleanup(true) must
+//     remove the worktree AND delete the local branch (no dangling ref).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    // Log all gh calls; succeed for `pr list`, reject anything else so that
+    // an unexpected `gh pr create` causes the test to surface a non-zero exit.
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "unexpected gh call: $@" >&2\nexit 99\n`,
+  });
+  // Worktrees share the hooks directory with the main repo's .git, so a
+  // pre-commit hook here fires inside the ephemeral worktree too.
+  const hooksDir = join(env.localDir, ".git", "hooks");
+  mkdirSync(hooksDir, { recursive: true });
+  const hookPath = join(hooksDir, "pre-commit");
+  writeFileSync(hookPath, "#!/usr/bin/env bash\nexit 1\n");
+  chmodSync(hookPath, 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be gone.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    // Branch must be deleted locally (cleanup(true) path).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "aeon/* branch must be deleted locally after commit failure");
+    // gh pr create must never have been invoked (only pr list was called).
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.doesNotMatch(ghLog, /pr create/, "gh pr create must not have been called");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, worktree and branch cleaned up");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
