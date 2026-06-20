@@ -1,0 +1,191 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-06-20"
+      },
+      "children": [
+        "alert_critical",
+        "sep1",
+        "heading_critical",
+        "table_critical",
+        "text_more",
+        "sep2",
+        "heading_nodata",
+        "badge_nodata",
+        "text_nodata_skills",
+        "sep3",
+        "heading_health",
+        "stat_healthy",
+        "sep4",
+        "heading_corr",
+        "text_corr",
+        "stat_failures",
+        "sep5",
+        "heading_issues",
+        "text_issues"
+      ]
+    },
+    "alert_critical": {
+      "type": "Alert",
+      "props": {
+        "title": "CRITICAL HEALTH STATUS",
+        "message": "CRITICAL(38) — Systemic issue: Zero-token result_json across 38 skills. Claude Code producing no output on cron runs.",
+        "type": "error"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_critical": {
+      "type": "Heading",
+      "props": {
+        "text": "🔴 CRITICAL (top 5 by consecutive_failures)",
+        "level": "h2"
+      }
+    },
+    "table_critical": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Consecutive Failures",
+          "Action"
+        ],
+        "rows": [
+          [
+            "compute-futures-eda",
+            "202",
+            "INVESTIGATE"
+          ],
+          [
+            "gitlawb-fleet-metrics",
+            "196",
+            "INVESTIGATE"
+          ],
+          [
+            "pr-review",
+            "196",
+            "INVESTIGATE"
+          ],
+          [
+            "skill-health",
+            "195",
+            "INVESTIGATE"
+          ],
+          [
+            "notegraph",
+            "188",
+            "INVESTIGATE"
+          ]
+        ]
+      }
+    },
+    "text_more": {
+      "type": "Text",
+      "props": {
+        "text": "+33 more — see memory/cron-state.json",
+        "variant": "muted"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_nodata": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA",
+        "level": "h2"
+      }
+    },
+    "badge_nodata": {
+      "type": "Badge",
+      "props": {
+        "text": "6 skills",
+        "variant": "secondary"
+      }
+    },
+    "text_nodata_skills": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker, ai-framework-watch, config-validator, run-frequency-guard, swarm-safety-eval, weekly-shiplog — DISPATCH-SKILL"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_health": {
+      "type": "Heading",
+      "props": {
+        "text": "Overall Health",
+        "level": "h2"
+      }
+    },
+    "stat_healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Healthy Skills of Enabled",
+        "value": "0/44"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_corr": {
+      "type": "Heading",
+      "props": {
+        "text": "Corroboration",
+        "level": "h2"
+      }
+    },
+    "text_corr": {
+      "type": "Text",
+      "props": {
+        "text": "scripts/skill-runs shows workflow failure data from last 7 days:"
+      }
+    },
+    "stat_failures": {
+      "type": "Stat",
+      "props": {
+        "label": "Failed Workflow Runs",
+        "value": "899/942",
+        "delta": "95%",
+        "trend": "down"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_issues": {
+      "type": "Heading",
+      "props": {
+        "text": "Issue Tracker",
+        "level": "h2"
+      }
+    },
+    "text_issues": {
+      "type": "Text",
+      "props": {
+        "text": "memory/issues/INDEX.md is absent — filing/resolution skipped. Open: 0 · Resolved this run: 0."
+      }
+    }
+  }
+}
