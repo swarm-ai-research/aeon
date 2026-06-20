@@ -1,15 +1,36 @@
+All outputs are correct. Here's the summary:
+
 ## Summary
 
-**Verdict: ✅ FRESHNESS_OK** — 44 enabled skills audited, 0 dependencies flagged.
+**Skill**: `skill-freshness` | **Date**: 2026-06-20
 
-**What was found:**
-- No active `chains: consume:` edges (all chain blocks are commented out), so zero explicit cross-skill dependencies to check.
-- 11 implicit cross-skill dependencies discovered via SKILL.md grep. All 11 are either files that skills initialize on first run ("create-if-missing"), optional reads from disabled producers (token-report, github-trending, push-recap), or conditional fallbacks.
-- All 9 files that actually exist on disk are fresh: 8 `.outputs/` files (age ~1 min, threshold 4h) and `memory/topics/agi-tracker.md` (age ~1 min, threshold 168h) — all OK.
+**Verdict: ✅ FRESHNESS_OK** — 9 dependencies checked across 8 enabled consumers, 0 flagged.
 
-**No notification sent** (silence is the signal for FRESHNESS_OK).
+**What was audited:**
+- 44 enabled skills parsed from `aeon.yml`
+- 0 explicit chain consume edges (the daily-routine chain block is commented out)
+- 9 implicit dependencies discovered via SKILL.md grep (20 missing-implicit skipped per spec)
+- All 9 exist on disk and have age ≈ 0h (fresh from git checkout)
+
+**All 9 deps are OK — no WARN, STALE, or MISSING:**
+
+| Consumer | Dep | Class | Severity |
+|---|---|---|---|
+| agi-tracker | memory/topics/agi-tracker.md | topics | ✅ OK |
+| compute-pulse | memory/topics/compute-pulse.md | topics | ✅ OK |
+| notegraph | memory/state/notegraph.json | state | ✅ OK |
+| planner | memory/state/planner-state.json | state | ✅ OK |
+| pr-tracker | memory/topics/pr-status.md | topics | ✅ OK |
+| skillpacks | memory/state/skillpacks.json | state | ✅ OK |
+| stale-content-pr-sweeper | memory/state/notegraph.json | state | ✅ OK |
+| surplus-pulse | memory/topics/surplus-pulse.md | topics | ✅ OK |
+| vuln-scanner | articles/vuln-scan-2026-06-20.md | articles | ✅ OK |
+
+**No notification sent** (FRESHNESS_OK = silence is the signal).
 
 **Files written:**
-- `articles/skill-freshness-2026-06-20.md` — full audit report
-- `memory/topics/skill-freshness-state.json` — run state + dedup fingerprint
+- `articles/skill-freshness-2026-06-20.md` — updated report
+- `memory/topics/skill-freshness-state.json` — updated state (last_run_at: 09:33:45Z)
 - `memory/logs/2026-06-20.md` — log entry appended
+
+**Note:** `skills/skill-freshness/run_scan.py` was created as a temporary scan helper and left as a stub — safe to delete manually.
