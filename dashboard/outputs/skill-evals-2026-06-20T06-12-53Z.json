@@ -1,0 +1,116 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Evals"
+      },
+      "children": [
+        "status_badge",
+        "stats_section",
+        "sep1",
+        "top_action",
+        "article_link",
+        "sep2",
+        "failures_heading",
+        "failures_table"
+      ]
+    },
+    "status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "SKILL_EVALS_REGRESSED",
+        "variant": "destructive"
+      }
+    },
+    "stats_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_new_fail",
+        "stat_fixed",
+        "stat_coverage"
+      ]
+    },
+    "stat_new_fail": {
+      "type": "Stat",
+      "props": {
+        "label": "New Fail",
+        "value": "15"
+      }
+    },
+    "stat_fixed": {
+      "type": "Stat",
+      "props": {
+        "label": "Fixed",
+        "value": "0"
+      }
+    },
+    "stat_coverage": {
+      "type": "Stat",
+      "props": {
+        "label": "Coverage",
+        "value": "28%"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "top_action": {
+      "type": "Alert",
+      "props": {
+        "title": "Top Action",
+        "message": "Investigate heartbeat — missing_pattern:heartbeat|Heartbeat|HEARTBEAT (ISS-001)",
+        "type": "warning"
+      }
+    },
+    "article_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Skill Evals Report — 2026-06-20",
+        "href": "articles/skill-evals-2026-06-20.md",
+        "source": "articles"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "failures_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Failed Patterns",
+        "level": "h3"
+      }
+    },
+    "failures_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Pattern"
+        ],
+        "rows": [
+          [
+            "heartbeat",
+            "missing_pattern:heartbeat|Heartbeat|HEARTBEAT"
+          ],
+          [
+            "changelog",
+            "no_file_match"
+          ],
+          [
+            "cost-report",
+            "no_file_match"
+          ]
+        ]
+      }
+    }
+  }
+}
