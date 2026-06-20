@@ -1,0 +1,139 @@
+{
+  "root": "card_reflect",
+  "state": {},
+  "elements": {
+    "card_reflect": {
+      "type": "Card",
+      "props": {
+        "title": "reflect",
+        "description": "Memory consolidation completed"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "header_stack",
+        "metrics_grid",
+        "separator_1",
+        "actions_heading",
+        "actions_stack"
+      ]
+    },
+    "header_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "status_badge",
+        "date_text"
+      ]
+    },
+    "status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "memory consolidated",
+        "variant": "success"
+      }
+    },
+    "date_text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-06-20",
+        "variant": "lead"
+      }
+    },
+    "metrics_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_new_notes",
+        "stat_edits",
+        "stat_splits",
+        "stat_new_items"
+      ]
+    },
+    "stat_new_notes": {
+      "type": "Stat",
+      "props": {
+        "label": "New notes",
+        "value": "+11"
+      }
+    },
+    "stat_edits": {
+      "type": "Stat",
+      "props": {
+        "label": "Edits",
+        "value": "+78"
+      }
+    },
+    "stat_splits": {
+      "type": "Stat",
+      "props": {
+        "label": "Splits",
+        "value": "0"
+      }
+    },
+    "stat_new_items": {
+      "type": "Stat",
+      "props": {
+        "label": "New items",
+        "value": "8"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "actions_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Actions completed",
+        "level": "h3"
+      }
+    },
+    "actions_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action_1",
+        "action_2",
+        "action_3"
+      ]
+    },
+    "action_1": {
+      "type": "Text",
+      "props": {
+        "text": "Bootstrapped MEMORY.md"
+      }
+    },
+    "action_2": {
+      "type": "Text",
+      "props": {
+        "text": "Created agi-tracker Map of Content (MOC)"
+      }
+    },
+    "action_3": {
+      "type": "Text",
+      "props": {
+        "text": "Extracted 8 atomic notes from 2026-06-10 build log"
+      }
+    }
+  }
+}

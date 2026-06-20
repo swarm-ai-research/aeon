@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-20T06:09:58.452Z",
+  "generatedAt": "2026-06-20T06:10:37.503Z",
   "stats": {
-    "nodes": 26,
-    "edges": 104,
-    "hard": 65,
-    "soft": 39,
+    "nodes": 35,
+    "edges": 170,
+    "hard": 106,
+    "soft": 64,
     "orphans": 1,
-    "atomic": 0,
+    "atomic": 8,
     "bundled": 0
   },
   "nodes": [
@@ -87,7 +87,7 @@
       "title": "Activity",
       "dir": "docs",
       "tags": [],
-      "inDegree": 6,
+      "inDegree": 7,
       "outDegree": 2,
       "atomic": false,
       "bundleRawScore": null,
@@ -183,7 +183,7 @@
       "title": "Aeon — Skill Gallery",
       "dir": "docs",
       "tags": [],
-      "inDegree": 6,
+      "inDegree": 7,
       "outDegree": 6,
       "atomic": false,
       "bundleRawScore": null,
@@ -195,8 +195,8 @@
       "title": "Memory",
       "dir": "docs",
       "tags": [],
-      "inDegree": 14,
-      "outDegree": 1,
+      "inDegree": 16,
+      "outDegree": 3,
       "atomic": false,
       "bundleRawScore": null,
       "bundleScore": null,
@@ -255,7 +255,7 @@
       "title": "Skills",
       "dir": "docs",
       "tags": [],
-      "inDegree": 19,
+      "inDegree": 21,
       "outDegree": 8,
       "atomic": false,
       "bundleRawScore": null,
@@ -300,14 +300,122 @@
     },
     {
       "id": "memory/MEMORY.md",
-      "title": "Aeon Memory Index",
+      "title": "Memory Index",
       "dir": "memory",
       "tags": [],
-      "inDegree": 6,
-      "outDegree": 5,
+      "inDegree": 7,
+      "outDegree": 9,
       "atomic": false,
       "bundleRawScore": null,
       "bundleScore": null,
+      "bundled": false
+    },
+    {
+      "id": "memory/notes/agi-tracker-data-model.md",
+      "title": "agi-tracker-data-model",
+      "dir": "memory",
+      "tags": [],
+      "inDegree": 4,
+      "outDegree": 3,
+      "atomic": true,
+      "bundleRawScore": 0,
+      "bundleScore": 0,
+      "bundled": false
+    },
+    {
+      "id": "memory/notes/agi-tracker-site.md",
+      "title": "agi-tracker-site",
+      "dir": "memory",
+      "tags": [],
+      "inDegree": 8,
+      "outDegree": 3,
+      "atomic": true,
+      "bundleRawScore": 0,
+      "bundleScore": 0,
+      "bundled": false
+    },
+    {
+      "id": "memory/notes/agi-tracker-weekly-skill.md",
+      "title": "agi-tracker-weekly-skill",
+      "dir": "memory",
+      "tags": [],
+      "inDegree": 5,
+      "outDegree": 4,
+      "atomic": true,
+      "bundleRawScore": 0,
+      "bundleScore": 0,
+      "bundled": false
+    },
+    {
+      "id": "memory/notes/aschenbrenner-8-claim-scorecard.md",
+      "title": "aschenbrenner-8-claim-scorecard",
+      "dir": "memory",
+      "tags": [],
+      "inDegree": 6,
+      "outDegree": 3,
+      "atomic": true,
+      "bundleRawScore": 0,
+      "bundleScore": 0,
+      "bundled": false
+    },
+    {
+      "id": "memory/notes/daily/2026-06-20.md",
+      "title": "Notes — 2026-06-20",
+      "dir": "memory",
+      "tags": [],
+      "inDegree": 10,
+      "outDegree": 21,
+      "atomic": false,
+      "bundleRawScore": null,
+      "bundleScore": null,
+      "bundled": false
+    },
+    {
+      "id": "memory/notes/generate-skills-json-newline-bug.md",
+      "title": "generate-skills-json-newline-bug",
+      "dir": "memory",
+      "tags": [],
+      "inDegree": 6,
+      "outDegree": 0,
+      "atomic": true,
+      "bundleRawScore": 0,
+      "bundleScore": 0,
+      "bundled": false
+    },
+    {
+      "id": "memory/notes/metr-doubling-4-38mo.md",
+      "title": "metr-doubling-4-38mo",
+      "dir": "memory",
+      "tags": [],
+      "inDegree": 5,
+      "outDegree": 2,
+      "atomic": true,
+      "bundleRawScore": 0,
+      "bundleScore": 0,
+      "bundled": false
+    },
+    {
+      "id": "memory/notes/metr-saturates-above-16h.md",
+      "title": "metr-saturates-above-16h",
+      "dir": "memory",
+      "tags": [],
+      "inDegree": 5,
+      "outDegree": 2,
+      "atomic": true,
+      "bundleRawScore": 0,
+      "bundleScore": 0,
+      "bundled": false
+    },
+    {
+      "id": "memory/notes/skills-json-count-drift.md",
+      "title": "skills-json-count-drift",
+      "dir": "memory",
+      "tags": [],
+      "inDegree": 4,
+      "outDegree": 4,
+      "atomic": true,
+      "bundleRawScore": 0,
+      "bundleScore": 0,
       "bundled": false
     },
     {
@@ -315,8 +423,8 @@
       "title": "AGI Tracker",
       "dir": "memory",
       "tags": [],
-      "inDegree": 3,
-      "outDegree": 2,
+      "inDegree": 9,
+      "outDegree": 20,
       "atomic": false,
       "bundleRawScore": null,
       "bundleScore": null,
@@ -753,6 +861,27 @@
     },
     {
       "source": "memory/MEMORY.md",
+      "target": "memory/notes/daily/2026-06-20.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/MEMORY.md",
+      "target": "docs/activity.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/MEMORY.md",
+      "target": "docs/index.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/MEMORY.md",
       "target": "docs/memory.md",
       "type": "name-mention",
       "weight": 0.5,
@@ -760,7 +889,7 @@
     },
     {
       "source": "memory/MEMORY.md",
-      "target": "docs/skills.md",
+      "target": "memory/notes/daily/2026-06-20.md",
       "type": "name-mention",
       "weight": 0.5,
       "hardness": "hard"
@@ -773,8 +902,274 @@
       "hardness": "hard"
     },
     {
+      "source": "memory/notes/agi-tracker-weekly-skill.md",
+      "target": "docs/skills.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/agi-tracker-site.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/agi-tracker-data-model.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/agi-tracker-weekly-skill.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/metr-doubling-4-38mo.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/metr-saturates-above-16h.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/aschenbrenner-8-claim-scorecard.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/generate-skills-json-newline-bug.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/skills-json-count-drift.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "docs/skills.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/agi-tracker-data-model.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/agi-tracker-site.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/agi-tracker-weekly-skill.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/aschenbrenner-8-claim-scorecard.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/generate-skills-json-newline-bug.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/metr-doubling-4-38mo.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/metr-saturates-above-16h.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/skills-json-count-drift.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/topics/agi-tracker.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/skills-json-count-drift.md",
+      "target": "memory/notes/generate-skills-json-newline-bug.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/skills-json-count-drift.md",
+      "target": "docs/skills.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/skills-json-count-drift.md",
+      "target": "memory/notes/generate-skills-json-newline-bug.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/agi-tracker-site.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/agi-tracker-data-model.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/agi-tracker-weekly-skill.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/aschenbrenner-8-claim-scorecard.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/metr-doubling-4-38mo.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/metr-saturates-above-16h.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/generate-skills-json-newline-bug.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/skills-json-count-drift.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
       "source": "memory/topics/agi-tracker.md",
       "target": "docs/skills.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/agi-tracker-data-model.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/agi-tracker-site.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/agi-tracker-weekly-skill.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/aschenbrenner-8-claim-scorecard.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/generate-skills-json-newline-bug.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/metr-doubling-4-38mo.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/metr-saturates-above-16h.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/skills-json-count-drift.md",
       "type": "name-mention",
       "weight": 0.5,
       "hardness": "hard"
@@ -822,16 +1217,30 @@
       "hardness": "soft"
     },
     {
+      "source": "docs/memory.md",
+      "target": "memory/MEMORY.md",
+      "type": "co-heading",
+      "weight": 0.3,
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/MEMORY.md",
+      "target": "docs/memory.md",
+      "type": "co-heading",
+      "weight": 0.3,
+      "hardness": "soft"
+    },
+    {
       "source": "docs/_posts/2026-05-24-aeon-on-gitlawb.md",
       "target": "docs/_posts/2026-06-02-earn-or-die-vs-lent-authority.md",
       "type": "similar",
-      "weight": 0.377,
+      "weight": 0.401,
       "shared": [
         "rsavitt",
         "pull",
         "https",
         "com",
-        "prototype"
+        "gitlawb"
       ],
       "hardness": "soft"
     },
@@ -839,13 +1248,13 @@
       "source": "docs/_posts/2026-05-24-aeon-on-gitlawb.md",
       "target": "docs/gitlawb-demo-recap.md",
       "type": "similar",
-      "weight": 0.344,
+      "weight": 0.373,
       "shared": [
         "large",
         "gitlawb",
         "authority",
-        "power",
-        "prototype"
+        "prototype",
+        "instance"
       ],
       "hardness": "soft"
     },
@@ -853,13 +1262,13 @@
       "source": "docs/_posts/2026-05-24-aeon-on-gitlawb.md",
       "target": "docs/gitlawb-demo-script.md",
       "type": "similar",
-      "weight": 0.322,
+      "weight": 0.347,
       "shared": [
         "gitlawb",
         "authority",
-        "become",
         "safety",
-        "capability"
+        "capability",
+        "fleet"
       ],
       "hardness": "soft"
     },
@@ -867,12 +1276,12 @@
       "source": "docs/_posts/2026-05-25-autonomous-agents-on-gitlawb.md",
       "target": "docs/fleet-runner.md",
       "type": "similar",
-      "weight": 0.327,
+      "weight": 0.338,
       "shared": [
         "runner",
         "task",
-        "researcher",
         "identity",
+        "researcher",
         "reviewer"
       ],
       "hardness": "soft"
@@ -881,13 +1290,13 @@
       "source": "docs/_posts/2026-05-25-autonomous-agents-on-gitlawb.md",
       "target": "docs/_posts/2026-06-02-earn-or-die-vs-lent-authority.md",
       "type": "similar",
-      "weight": 0.277,
+      "weight": 0.296,
       "shared": [
         "ucan",
         "built",
-        "rsavitt",
-        "identity",
-        "agents"
+        "agents",
+        "prototype",
+        "rsavitt"
       ],
       "hardness": "soft"
     },
@@ -895,12 +1304,12 @@
       "source": "docs/_posts/2026-05-25-autonomous-agents-on-gitlawb.md",
       "target": "docs/gitlawb-demo-script.md",
       "type": "similar",
-      "weight": 0.268,
+      "weight": 0.287,
       "shared": [
+        "safety",
         "caps",
         "enforcement",
-        "safety",
-        "denied",
+        "gitlawb",
         "authority"
       ],
       "hardness": "soft"
@@ -909,13 +1318,13 @@
       "source": "docs/_posts/2026-06-02-earn-or-die-vs-lent-authority.md",
       "target": "docs/_posts/2026-05-24-aeon-on-gitlawb.md",
       "type": "similar",
-      "weight": 0.377,
+      "weight": 0.401,
       "shared": [
         "rsavitt",
         "pull",
         "https",
         "com",
-        "prototype"
+        "gitlawb"
       ],
       "hardness": "soft"
     },
@@ -923,13 +1332,13 @@
       "source": "docs/_posts/2026-06-02-earn-or-die-vs-lent-authority.md",
       "target": "docs/_posts/2026-05-25-autonomous-agents-on-gitlawb.md",
       "type": "similar",
-      "weight": 0.277,
+      "weight": 0.296,
       "shared": [
         "ucan",
         "built",
-        "rsavitt",
-        "identity",
-        "agents"
+        "agents",
+        "prototype",
+        "rsavitt"
       ],
       "hardness": "soft"
     },
@@ -937,10 +1346,10 @@
       "source": "docs/_posts/2026-06-02-earn-or-die-vs-lent-authority.md",
       "target": "docs/gitlawb-demo-script.md",
       "type": "similar",
-      "weight": 0.257,
+      "weight": 0.277,
       "shared": [
-        "say",
         "exact",
+        "say",
         "authority",
         "gitlawb",
         "renewal"
@@ -951,12 +1360,12 @@
       "source": "docs/fleet-runner.md",
       "target": "docs/_posts/2026-05-25-autonomous-agents-on-gitlawb.md",
       "type": "similar",
-      "weight": 0.327,
+      "weight": 0.338,
       "shared": [
         "runner",
         "task",
-        "researcher",
         "identity",
+        "researcher",
         "reviewer"
       ],
       "hardness": "soft"
@@ -965,13 +1374,13 @@
       "source": "docs/gitlawb-demo-recap.md",
       "target": "docs/gitlawb-demo-script.md",
       "type": "similar",
-      "weight": 0.585,
+      "weight": 0.602,
       "shared": [
         "takeaway",
         "expiring",
-        "approval",
         "authority",
-        "denied"
+        "approval",
+        "gitlawb"
       ],
       "hardness": "soft"
     },
@@ -979,13 +1388,13 @@
       "source": "docs/gitlawb-demo-recap.md",
       "target": "docs/gitlawb-pr-body.md",
       "type": "similar",
-      "weight": 0.4,
+      "weight": 0.426,
       "shared": [
         "prototype",
-        "approval",
+        "gitlawb",
         "demo",
-        "recap",
-        "gitlawb"
+        "approval",
+        "renewal"
       ],
       "hardness": "soft"
     },
@@ -993,13 +1402,13 @@
       "source": "docs/gitlawb-demo-recap.md",
       "target": "docs/_posts/2026-05-24-aeon-on-gitlawb.md",
       "type": "similar",
-      "weight": 0.344,
+      "weight": 0.373,
       "shared": [
         "large",
         "gitlawb",
         "authority",
-        "power",
-        "prototype"
+        "prototype",
+        "instance"
       ],
       "hardness": "soft"
     },
@@ -1007,13 +1416,13 @@
       "source": "docs/gitlawb-demo-script.md",
       "target": "docs/gitlawb-demo-recap.md",
       "type": "similar",
-      "weight": 0.585,
+      "weight": 0.602,
       "shared": [
         "takeaway",
         "expiring",
-        "approval",
         "authority",
-        "denied"
+        "approval",
+        "gitlawb"
       ],
       "hardness": "soft"
     },
@@ -1021,13 +1430,13 @@
       "source": "docs/gitlawb-demo-script.md",
       "target": "docs/_posts/2026-05-24-aeon-on-gitlawb.md",
       "type": "similar",
-      "weight": 0.322,
+      "weight": 0.347,
       "shared": [
         "gitlawb",
         "authority",
-        "become",
         "safety",
-        "capability"
+        "capability",
+        "fleet"
       ],
       "hardness": "soft"
     },
@@ -1035,13 +1444,13 @@
       "source": "docs/gitlawb-demo-script.md",
       "target": "docs/gitlawb-pr-body.md",
       "type": "similar",
-      "weight": 0.292,
+      "weight": 0.315,
       "shared": [
         "prototype",
-        "larger",
-        "walkthrough",
-        "gives",
-        "expiry"
+        "gitlawb",
+        "expiry",
+        "renewal",
+        "larger"
       ],
       "hardness": "soft"
     },
@@ -1049,13 +1458,13 @@
       "source": "docs/gitlawb-pr-body.md",
       "target": "docs/gitlawb-demo-recap.md",
       "type": "similar",
-      "weight": 0.4,
+      "weight": 0.426,
       "shared": [
         "prototype",
-        "approval",
+        "gitlawb",
         "demo",
-        "recap",
-        "gitlawb"
+        "approval",
+        "renewal"
       ],
       "hardness": "soft"
     },
@@ -1063,13 +1472,13 @@
       "source": "docs/gitlawb-pr-body.md",
       "target": "docs/_posts/2026-05-24-aeon-on-gitlawb.md",
       "type": "similar",
-      "weight": 0.293,
+      "weight": 0.321,
       "shared": [
         "prototype",
         "gitlawb",
-        "credible",
+        "fleet",
         "observability",
-        "healing"
+        "credible"
       ],
       "hardness": "soft"
     },
@@ -1077,13 +1486,13 @@
       "source": "docs/gitlawb-pr-body.md",
       "target": "docs/gitlawb-demo-script.md",
       "type": "similar",
-      "weight": 0.292,
+      "weight": 0.315,
       "shared": [
         "prototype",
-        "larger",
-        "walkthrough",
-        "gives",
-        "expiry"
+        "gitlawb",
+        "expiry",
+        "renewal",
+        "larger"
       ],
       "hardness": "soft"
     },
@@ -1091,13 +1500,13 @@
       "source": "docs/index.md",
       "target": "docs/skills.md",
       "type": "similar",
-      "weight": 0.281,
+      "weight": 0.303,
       "shared": [
         "markets",
         "articles",
         "summarize",
-        "top",
-        "papers"
+        "papers",
+        "top"
       ],
       "hardness": "soft"
     },
@@ -1105,7 +1514,7 @@
       "source": "docs/index.md",
       "target": "docs/smithery-submission.md",
       "type": "similar",
-      "weight": 0.276,
+      "weight": 0.295,
       "shared": [
         "markets",
         "crypto",
@@ -1116,16 +1525,30 @@
       "hardness": "soft"
     },
     {
+      "source": "docs/memory.md",
+      "target": "memory/MEMORY.md",
+      "type": "similar",
+      "weight": 0.287,
+      "shared": [
+        "topic",
+        "organized",
+        "memory",
+        "topics",
+        "live"
+      ],
+      "hardness": "soft"
+    },
+    {
       "source": "docs/skillpacks-chains.md",
       "target": "docs/skillpacks.md",
       "type": "similar",
-      "weight": 0.262,
+      "weight": 0.263,
       "shared": [
         "contributor",
         "vulnerability",
         "admanage",
-        "pvr",
-        "ads"
+        "feature",
+        "pvr"
       ],
       "hardness": "soft"
     },
@@ -1133,13 +1556,13 @@
       "source": "docs/skillpacks.md",
       "target": "docs/smithery-submission.md",
       "type": "similar",
-      "weight": 0.695,
+      "weight": 0.701,
       "shared": [
         "tweets",
         "trending",
         "top",
-        "tracked",
-        "forks"
+        "forks",
+        "tracked"
       ],
       "hardness": "soft"
     },
@@ -1147,7 +1570,7 @@
       "source": "docs/skillpacks.md",
       "target": "docs/skills.md",
       "type": "similar",
-      "weight": 0.475,
+      "weight": 0.486,
       "shared": [
         "tweets",
         "trending",
@@ -1161,13 +1584,13 @@
       "source": "docs/skillpacks.md",
       "target": "docs/skillpacks-chains.md",
       "type": "similar",
-      "weight": 0.262,
+      "weight": 0.263,
       "shared": [
         "contributor",
         "vulnerability",
         "admanage",
-        "pvr",
-        "ads"
+        "feature",
+        "pvr"
       ],
       "hardness": "soft"
     },
@@ -1175,7 +1598,7 @@
       "source": "docs/skills.md",
       "target": "docs/smithery-submission.md",
       "type": "similar",
-      "weight": 0.583,
+      "weight": 0.594,
       "shared": [
         "trending",
         "tweets",
@@ -1189,7 +1612,7 @@
       "source": "docs/skills.md",
       "target": "docs/skillpacks.md",
       "type": "similar",
-      "weight": 0.475,
+      "weight": 0.486,
       "shared": [
         "tweets",
         "trending",
@@ -1203,13 +1626,13 @@
       "source": "docs/skills.md",
       "target": "docs/index.md",
       "type": "similar",
-      "weight": 0.281,
+      "weight": 0.303,
       "shared": [
         "markets",
         "articles",
         "summarize",
-        "top",
-        "papers"
+        "papers",
+        "top"
       ],
       "hardness": "soft"
     },
@@ -1217,13 +1640,13 @@
       "source": "docs/smithery-submission.md",
       "target": "docs/skillpacks.md",
       "type": "similar",
-      "weight": 0.695,
+      "weight": 0.701,
       "shared": [
         "tweets",
         "trending",
         "top",
-        "tracked",
-        "forks"
+        "forks",
+        "tracked"
       ],
       "hardness": "soft"
     },
@@ -1231,7 +1654,7 @@
       "source": "docs/smithery-submission.md",
       "target": "docs/skills.md",
       "type": "similar",
-      "weight": 0.583,
+      "weight": 0.594,
       "shared": [
         "trending",
         "tweets",
@@ -1245,7 +1668,7 @@
       "source": "docs/smithery-submission.md",
       "target": "docs/index.md",
       "type": "similar",
-      "weight": 0.276,
+      "weight": 0.295,
       "shared": [
         "markets",
         "crypto",
@@ -1257,29 +1680,337 @@
     },
     {
       "source": "memory/MEMORY.md",
-      "target": "memory/topics/agi-tracker.md",
+      "target": "docs/memory.md",
       "type": "similar",
-      "weight": 0.331,
+      "weight": 0.287,
       "shared": [
+        "topic",
+        "organized",
+        "memory",
+        "topics",
+        "live"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/agi-tracker-data-model.md",
+      "target": "memory/notes/agi-tracker-site.md",
+      "type": "similar",
+      "weight": 0.369,
+      "shared": [
+        "presets",
+        "milestone",
+        "table",
+        "agi",
+        "time"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/agi-tracker-data-model.md",
+      "target": "memory/notes/daily/2026-06-20.md",
+      "type": "similar",
+      "weight": 0.318,
+      "shared": [
+        "truth",
         "agi",
         "metr",
+        "source",
+        "tracker"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/agi-tracker-data-model.md",
+      "target": "memory/topics/agi-tracker.md",
+      "type": "similar",
+      "weight": 0.306,
+      "shared": [
+        "year",
+        "horizon",
+        "data",
+        "opus",
+        "agi"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/agi-tracker-site.md",
+      "target": "memory/topics/agi-tracker.md",
+      "type": "similar",
+      "weight": 0.47,
+      "shared": [
+        "projection",
+        "doubling",
+        "site",
+        "agi",
+        "time"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/agi-tracker-site.md",
+      "target": "memory/notes/aschenbrenner-8-claim-scorecard.md",
+      "type": "similar",
+      "weight": 0.422,
+      "shared": [
+        "chart",
         "scorecard",
+        "aschenbrenner",
+        "situational",
+        "agi"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/agi-tracker-site.md",
+      "target": "memory/notes/daily/2026-06-20.md",
+      "type": "similar",
+      "weight": 0.419,
+      "shared": [
+        "site",
+        "agi",
+        "doubling",
         "tracker",
-        "aschenbrenner"
+        "metr"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/agi-tracker-weekly-skill.md",
+      "target": "memory/notes/aschenbrenner-8-claim-scorecard.md",
+      "type": "similar",
+      "weight": 0.324,
+      "shared": [
+        "scorecard",
+        "aschenbrenner",
+        "scores",
+        "metr",
+        "agi"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/agi-tracker-weekly-skill.md",
+      "target": "memory/notes/daily/2026-06-20.md",
+      "type": "similar",
+      "weight": 0.321,
+      "shared": [
+        "weekly",
+        "mon",
+        "agi",
+        "metr",
+        "utc"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/agi-tracker-weekly-skill.md",
+      "target": "memory/topics/agi-tracker.md",
+      "type": "similar",
+      "weight": 0.313,
+      "shared": [
+        "measurements",
+        "scores",
+        "weekly",
+        "mon",
+        "agi"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/aschenbrenner-8-claim-scorecard.md",
+      "target": "memory/notes/agi-tracker-site.md",
+      "type": "similar",
+      "weight": 0.422,
+      "shared": [
+        "chart",
+        "scorecard",
+        "aschenbrenner",
+        "situational",
+        "agi"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/aschenbrenner-8-claim-scorecard.md",
+      "target": "memory/notes/daily/2026-06-20.md",
+      "type": "similar",
+      "weight": 0.332,
+      "shared": [
+        "scorecard",
+        "agi",
+        "metr",
+        "aschenbrenner",
+        "scores"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/aschenbrenner-8-claim-scorecard.md",
+      "target": "memory/notes/agi-tracker-weekly-skill.md",
+      "type": "similar",
+      "weight": 0.324,
+      "shared": [
+        "scorecard",
+        "aschenbrenner",
+        "scores",
+        "metr",
+        "agi"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/topics/agi-tracker.md",
+      "type": "similar",
+      "weight": 0.623,
+      "shared": [
+        "doubling",
+        "agi",
+        "site",
+        "metr",
+        "tracker"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/agi-tracker-site.md",
+      "type": "similar",
+      "weight": 0.419,
+      "shared": [
+        "site",
+        "agi",
+        "doubling",
+        "tracker",
+        "metr"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-20.md",
+      "target": "memory/notes/metr-saturates-above-16h.md",
+      "type": "similar",
+      "weight": 0.364,
+      "shared": [
+        "above",
+        "saturates",
+        "metr",
+        "estimates",
+        "unreliable"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/metr-doubling-4-38mo.md",
+      "target": "memory/topics/agi-tracker.md",
+      "type": "similar",
+      "weight": 0.55,
+      "shared": [
+        "doubling",
+        "programs",
+        "fitted",
+        "year",
+        "metr"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/metr-doubling-4-38mo.md",
+      "target": "memory/notes/daily/2026-06-20.md",
+      "type": "similar",
+      "weight": 0.307,
+      "shared": [
+        "doubling",
+        "metr",
+        "fits",
+        "38mo",
+        "horizon"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/metr-saturates-above-16h.md",
+      "target": "memory/notes/daily/2026-06-20.md",
+      "type": "similar",
+      "weight": 0.364,
+      "shared": [
+        "above",
+        "saturates",
+        "metr",
+        "estimates",
+        "unreliable"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/metr-saturates-above-16h.md",
+      "target": "memory/topics/agi-tracker.md",
+      "type": "similar",
+      "weight": 0.257,
+      "shared": [
+        "saturates",
+        "metr",
+        "benchmark",
+        "horizon",
+        "above"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/skills-json-count-drift.md",
+      "target": "memory/notes/daily/2026-06-20.md",
+      "type": "similar",
+      "weight": 0.355,
+      "shared": [
+        "committed",
+        "count",
+        "drift",
+        "lags",
+        "json"
       ],
       "hardness": "soft"
     },
     {
       "source": "memory/topics/agi-tracker.md",
-      "target": "memory/MEMORY.md",
+      "target": "memory/notes/daily/2026-06-20.md",
       "type": "similar",
-      "weight": 0.331,
+      "weight": 0.623,
       "shared": [
+        "doubling",
         "agi",
+        "site",
         "metr",
-        "scorecard",
-        "tracker",
-        "aschenbrenner"
+        "tracker"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/metr-doubling-4-38mo.md",
+      "type": "similar",
+      "weight": 0.55,
+      "shared": [
+        "doubling",
+        "programs",
+        "fitted",
+        "year",
+        "metr"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/topics/agi-tracker.md",
+      "target": "memory/notes/agi-tracker-site.md",
+      "type": "similar",
+      "weight": 0.47,
+      "shared": [
+        "projection",
+        "doubling",
+        "site",
+        "agi",
+        "time"
       ],
       "hardness": "soft"
     }

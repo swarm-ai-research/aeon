@@ -23,3 +23,17 @@ Short-lived high-level state. Detail lives in `topics/`; full history in `logs/`
 
 ## Open Improvement PRs
 _None as of 2026-06-20._
+# Memory Index
+
+Pointer-only index. Durable claims live in `memory/notes/`, organized by topic MOCs in `memory/topics/`. See `memory/logs/` for daily activity.
+
+## Topics
+- [[agi-tracker]] — frontier-agent capability tracking + Aschenbrenner *Situational Awareness* scoring
+
+## Conventions
+- Atomic notes: one claim per file, ≤3 sentences, frontmatter (`id`, `created`, `type`, `links`).
+- Topic files in `memory/topics/` are MOCs — pointers + inline snapshots only.
+- Daily indexes at `memory/notes/daily/${date}.md`.
+
+## Active
+- 2026-06-20 — bootstrapping memory scaffold from the first two logs ([[2026-06-10]] agi-tracker build, [[2026-06-20]] janitor + dedupe run).
