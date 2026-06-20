@@ -360,4 +360,53 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. openPRsForKind: gh pr list exits zero but returns valid JSON that is not
+//     an array (e.g. an object). The !Array.isArray guard returns null so the
+//     backlog gate is skipped and the pass proceeds normally.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{"error":"unexpected shape"}'; exit 0; fi\necho "https://github.com/stub/repo/pull/72"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nonarr" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when pr list returns object, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/72");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  openPRsForKind: valid JSON non-array → null → backlog gate skipped, pass proceeds");
+}
+
+// 13. extractSummary long-line fallback: when claude's final output line exceeds
+//     400 chars the function falls back to joining the last 3 lines and capping
+//     at 400. Verify result.summary never exceeds 400 chars.
+{
+  const longLine = "L".repeat(450);
+  const CLAUDE_LONGLINE_STUB = [
+    "#!/usr/bin/env bash",
+    'if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi',
+    "cat > /dev/null",
+    'echo "added a note" >> "$(pwd)/lib.mjs"',
+    'echo "brief preamble"',
+    `echo "${longLine}"`,
+  ].join("\n");
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_LONGLINE_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "longsum" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.ok(
+      result.summary.length <= 400,
+      `summary should be capped at 400 chars, got ${result.summary.length}: "${result.summary.slice(0, 60)}..."`,
+    );
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  extractSummary: last line >400 chars → summary capped at 400 via slice(-3) fallback");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
