@@ -1,0 +1,64 @@
+{
+  "root": "card-notegraph",
+  "state": {},
+  "elements": {
+    "card-notegraph": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat-added",
+        "stat-graph",
+        "separator-1",
+        "link-branch",
+        "alert-limitation"
+      ]
+    },
+    "stat-added": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes wired in",
+        "value": "+9"
+      }
+    },
+    "stat-graph": {
+      "type": "Stat",
+      "props": {
+        "label": "Graph state",
+        "value": "57n / 329e"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link-branch": {
+      "type": "Link",
+      "props": {
+        "label": "Branch pushed: notegraph/2026-06-21",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-06-21"
+      }
+    },
+    "alert-limitation": {
+      "type": "Alert",
+      "props": {
+        "title": "PR creation blocked",
+        "message": "GHA can't open PR",
+        "type": "warning"
+      }
+    }
+  }
+}

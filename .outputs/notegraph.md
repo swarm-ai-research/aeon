@@ -1,1 +1,1 @@
-*Notegraph updated* — 1 new orphan: docs/telegram-instant.md (24n / 92e / 0b). PR couldn't be opened (Actions blocked); branch pushed: https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-06-20
+*Notegraph updated* — +9 notes wired in (57n / 329e). Branch pushed: https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-06-21 (GHA can't open PR)
