@@ -1,6 +1,6 @@
 # PR Status
 
-*Last updated: 2026-06-20*
+*Last updated: 2026-06-21*
 
 Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch prefix: `ai/`.
 
@@ -24,4 +24,4 @@ Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch pref
 
 ---
 
-Searched `gh api graphql` with `author:aeonframework is:pr` — `issueCount: 0`. Either no `ai/`-branch bot PRs have been filed yet, or they live under a different author identity. If you expect entries here, set `pr_tracker.author:` in `aeon.yml` or `AEON_PR_AUTHOR` env to the correct account.
+GraphQL `author:aeonframework is:pr` → `issueCount: 0`. Fallback `gh search prs --author aeonframework` (open + closed) → 0 / 0. Either no `ai/`-branch bot PRs have been filed yet, or they live under a different author identity. If you expect entries here, set `pr_tracker.author:` in `aeon.yml` or `AEON_PR_AUTHOR` env to the correct account.

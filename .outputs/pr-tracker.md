@@ -1,16 +1,13 @@
 ## Summary
 
-Ran `pr-tracker` for 2026-06-20 (second run today).
+Ran `pr-tracker` for 2026-06-21. Config resolved to author `aeonframework` + branch prefix `ai/` (defaults; no `pr_tracker:` block in `aeon.yml`, no `AEON_*` env vars, and the integration token can't hit `gh api user` so the documented fallback chain ends at the existing pr-status.md identity).
 
-- **Config**: author=`aeonframework`, branch_prefix=`ai/`, no email filter (matches the morning run; no `pr_tracker.*` keys in `aeon.yml`, no env overrides set).
-- **Query**: `gh api graphql` with `author:aeonframework is:pr sort:updated-desc` → `issueCount: 0`, no nodes.
-- **Buckets**: 0 recent merges, 0 stale open, 0 active open, 0 closed-no-merge.
-- **Notification**: skipped per skill rule (all four categories zero).
+- GraphQL `author:aeonframework is:pr` → `issueCount: 0`
+- Fallback `gh search prs --author aeonframework` → 0 open / 0 closed
+- All three notify-categories empty → notification **skipped** per step 5
 
-Files modified:
-- `memory/topics/pr-status.md` — refreshed `*Last updated*` line to flag re-run; tables unchanged (still empty).
-- `memory/logs/2026-06-20.md` — appended `## PR Tracker (re-run)` block.
+Files updated:
+- `memory/topics/pr-status.md` — rewrote with today's date; queue still empty, footer now records both the GraphQL and fallback confirmations
+- `memory/logs/2026-06-21.md` — appended `## PR Tracker` block ending `PR_TRACKER_OK`
 
-No follow-up needed. Same observation as the morning run: either no `ai/`-branch PRs have been filed yet, or the operator's bot identity differs from `aeonframework`. To activate this skill, set `pr_tracker.author:` in `aeon.yml` or `AEON_PR_AUTHOR` env to the correct account.
-
-`PR_TRACKER_OK`
+No follow-ups. State matches 2026-06-20; if PRs ever land under a different identity, set `pr_tracker.author:` in `aeon.yml`.
