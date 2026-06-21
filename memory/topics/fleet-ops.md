@@ -3,7 +3,8 @@
 Cross-cutting operational lessons and constraints for the Aeon fleet: credential outages, monitoring-loop hazards, GitHub App permission boundaries, and cron-state pathologies.
 
 ## Open incidents
-- [[issues/ISS-001]] — CLAUDE_CODE_OAUTH_TOKEN missing 2026-06-06 → 2026-06-20T06:05Z; investigating, awaiting 3 clean days before resolved.
+- [[issues/ISS-001]] — CLAUDE_CODE_OAUTH_TOKEN missing 2026-06-06 → 2026-06-20T06:05Z; investigating, day 1 of 3 clean days completed.
+- [[issues/ISS-006]] — GHA cron tick dropped 2026-06-21 05:30–08:00Z; 6 skills missed morning slots. Distinct signature from ISS-001 (no auth failure — skills never started).
 
 ## Lessons (durable)
 - [[oauth-outage-zero-token-signature]] — zero-token `result_json` = missing CLI auth, not a model error
@@ -11,16 +12,21 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 - [[github-actions-cannot-create-prs]] — default Actions token cannot open PRs; surface compare links instead
 - [[aeon-app-no-write-on-swarm-repo]] — pr-triage/pr-review verdicts on swarm-ai-research/swarm cannot post on-PR
 - [[notegraph-phantom-file-refs]] — committed `notegraph.json` can reference files no longer on disk
+- [[gha-inputs-unquoted-shell-rce]] — `inputs.*` flowing unquoted into `run:` shell commands is an RCE channel
+- [[sandbox-blocks-piped-curl-installers]] — sandbox blocks `bash <(curl)` installers; audit skills degrade to hand-rolled fallbacks
 
-## Snapshot (2026-06-20)
+## Snapshot (2026-06-21)
 | Signal | Value |
 |---|---|
-| 7d workflow runs | 942 |
-| 7d success rate | ~1.1% (chronic from OAuth outage) |
-| Recovery batch | 2026-06-20T06:05–06:33Z (all skills back to `last_status: success`) |
+| 7d workflow runs | ~931 (53/931 successes = 5.7%; recovery dominates last 12h) |
+| Today's status | 🔴 DEGRADED — cron tick drop ISS-006 + cumulative success_rate still under 0.5 from ISS-001 backlog |
+| Recovery batch | 2026-06-20T06:05–06:33Z (all skills back to `last_status: success`, `consecutive_failures: 0`) |
 | Enabled skills | 44 (38 with cron-state rows; 6 never dispatched) |
-| Open issues | 1 (ISS-001) |
+| Open issues | 3 (ISS-001 investigating; ISS-002, ISS-005 open; ISS-006 open new) |
+| Resolved today | ISS-003 (cost-report), ISS-004 (skill-health) — both recovered with OAuth restore |
 | `last_error` cron-state field | storing JSON tail (cost block), not actual error — orthogonal logging bug |
+| Pending branches | `fix/workflow-security-audit-2026-06-21` (RCE patch for fleet-runner.yml, App lacks `workflows` write perm); `notegraph/2026-06-21` (+9n/+65e) |
+| Notegraph state | 57 nodes · 236 hard · 93 soft · 1 orphan · 0 bundled (2026-06-21) |
 
 ## Permission constraints (current)
 - aeon GitHub App: no write on `swarm-ai-research/swarm` (labels, comments, reviews 403). Verdicts run, posts blocked.
