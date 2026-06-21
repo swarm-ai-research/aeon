@@ -1,16 +1,14 @@
-*Skill Health — 2026-06-20 18:05Z*
-HEALTH: DEGRADED(38) — recovery from ISS-001 underway
+*Skill Health — 2026-06-21*
+HEALTH: DEGRADED(38) [systemic: OAuth-outage residue → ISS-001]
 
-🟡 DEGRADED (38, sample of top 5 by prior-fail count):
-- compute-futures-eda — recovered 06:12Z, sr=0% (1/203)
-- gitlawb-fleet-metrics — recovered 09:34Z, sr=1% (2/198)
-- pr-review — recovered 09:35Z, sr=1% (2/198)
-- skill-health — recovered 06:12Z, sr=1% (1/196)
-- notegraph — recovered 06:14Z, sr=1% (1/189)
-+33 more — all show consecutive_failures=0, last_status=success today
+🟡 DEGRADED (38) — all share one root cause
+- success_rate <0.6 from 2026-06-06→06-20 OAuth outage; counters lag the recovery.
+- All 38 now last_status=success, consecutive_failures=0 (~1.5 days clean since 2026-06-20T06:05Z restore).
+- Sample (oldest last_success): memory-structural-dedupe, memory-flush, changelog, skill-update-check, planner
+- +33 more — see memory/issues/ISS-001
 
-⚪ NO DATA (6): agi-tracker, ai-framework-watch, config-validator, run-frequency-guard, swarm-safety-eval, weekly-shiplog → DISPATCH-SKILL
+⚪ NO DATA (6): agi-tracker, ai-framework-watch, config-validator, run-frequency-guard, swarm-safety-eval, weekly-shiplog — DISPATCH-SKILL
 
-SYSTEMIC: previous outage (zero-token cron runs, 2026-06-06→06-20) ended at 06:05Z when CLAUDE_CODE_OAUTH_TOKEN was restored. All 38 are healthy NOW; cumulative success_rate stays <60% (DEGRADED threshold) until ~weeks of clean runs raise the counters.
+🟢 HEALTHY: 0
 
-Open issues: 1 per INDEX.md (ISS-001 still 'investigating'; INDEX drift — ISS-002–005 are open on disk, missing from index). Resolved this run: 0. hash=89b162470bb193b6
+Open issues: 4 (ISS-001/002/005/006) · Resolved this run: 0

@@ -1,7 +1,7 @@
 {
-  "hash": "89b162470bb193b6",
-  "last_notified_at": "2026-06-20T18:05:00Z",
-  "last_run_at": "2026-06-20T18:05:00Z",
+  "hash": "64c4e67f087532a9",
+  "last_notified_at": "2026-06-21T18:23:45Z",
+  "last_run_at": "2026-06-21T18:23:45Z",
   "classification": {
     "critical": [],
     "degraded": [
@@ -24,10 +24,11 @@
       "run-frequency-guard", "swarm-safety-eval", "weekly-shiplog"
     ]
   },
-  "systemic": "SYSTEMIC: 38 skills DEGRADED — cumulative success_rate <0.6 from 2026-06-06→06-20 OAuth outage (ISS-001); all now recovered (last_status=success, consecutive_failures=0). Counters need ~weeks of healthy runs to exceed 0.6 threshold.",
+  "systemic": "SYSTEMIC: OAuth-outage residue (ISS-001) — all 38 DEGRADED skills recovered (last_status=success, consecutive_failures=0); cumulative success_rate <0.6 will take ~weeks of healthy runs to cross threshold. ~1.5 days since OAuth restore at 2026-06-20T06:05Z.",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
-  "open_issues_per_index": 1,
-  "open_issues_per_filesystem": 5,
-  "index_drift_note": "INDEX.md lists only ISS-001 open; ISS-002 through ISS-005 (filed by skill-evals) are status:open on disk but missing from INDEX.md — sync drift, not skill-health's contract to fix."
+  "open_issues_per_index": 3,
+  "open_issues_per_filesystem": 4,
+  "index_drift_note": "INDEX.md missing ISS-006 (filed by batch-health 2026-06-21T08:00Z, status:open on disk). Not skill-health's contract to fix.",
+  "notify_decision": "notify — daily cadence elapsed (~24h 15m since 2026-06-20T18:05Z); classification unchanged vs prior run"
 }
