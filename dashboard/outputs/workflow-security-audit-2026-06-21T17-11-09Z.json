@@ -1,0 +1,190 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Workflow Security Audit",
+        "description": "2026-06-21"
+      },
+      "children": [
+        "alert-high-severity",
+        "sep-1",
+        "stats-stack",
+        "sep-2",
+        "finding-stack",
+        "sep-3",
+        "branch-stack",
+        "sep-4",
+        "report-link"
+      ]
+    },
+    "alert-high-severity": {
+      "type": "Alert",
+      "props": {
+        "title": "WORKFLOW_AUDIT_NEW_HIGH",
+        "message": "1 new high-severity finding (manual landing required)",
+        "type": "error"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stats-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-auto-fixed",
+        "stat-manual"
+      ]
+    },
+    "stat-auto-fixed": {
+      "type": "Stat",
+      "props": {
+        "label": "Auto-fixed",
+        "value": "0"
+      }
+    },
+    "stat-manual": {
+      "type": "Stat",
+      "props": {
+        "label": "Manual",
+        "value": "3"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "finding-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "finding-heading",
+        "finding-text",
+        "severity-label",
+        "exposures"
+      ]
+    },
+    "finding-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Chain Finding",
+        "level": "h3"
+      }
+    },
+    "finding-text": {
+      "type": "Text",
+      "props": {
+        "text": "inputs.agent → unquoted shell arg in fleet-runner Run-step",
+        "variant": "body"
+      }
+    },
+    "severity-label": {
+      "type": "Text",
+      "props": {
+        "text": "Severity: RCE on runner",
+        "variant": "lead"
+      }
+    },
+    "exposures": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "exp-github-token",
+        "exp-oauth",
+        "exp-pems"
+      ]
+    },
+    "exp-github-token": {
+      "type": "Badge",
+      "props": {
+        "text": "GITHUB_TOKEN",
+        "variant": "destructive"
+      }
+    },
+    "exp-oauth": {
+      "type": "Badge",
+      "props": {
+        "text": "CLAUDE_CODE_OAUTH_TOKEN",
+        "variant": "destructive"
+      }
+    },
+    "exp-pems": {
+      "type": "Badge",
+      "props": {
+        "text": "5 GitLawb PEMs",
+        "variant": "destructive"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "branch-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "branch-heading",
+        "branch-name",
+        "pr-status"
+      ]
+    },
+    "branch-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Branch Status",
+        "level": "h3"
+      }
+    },
+    "branch-name": {
+      "type": "Badge",
+      "props": {
+        "text": "fix/workflow-security-audit-2026-06-21",
+        "variant": "outline"
+      }
+    },
+    "pr-status": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Creation Blocked",
+        "message": "github-actions[bot] lacks pull-request permission. Open the PR manually under GH_GLOBAL.",
+        "type": "warning"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/workflow-security-audit-2026-06-21.md",
+        "source": "Workflow Security Audit"
+      }
+    }
+  }
+}
