@@ -1,12 +1,7 @@
-Task is a one-step skip — no task tracking needed.
+The task was small and linear (single gate → skip → log); a task list wouldn't have added value here.
 
 ## Summary
 
-Skill `skills/code-health/SKILL.md` skipped. `memory/watched-repos.md` is still absent (no `${var}` override), so per the skill's own instructions, the audit has no targets and exits cleanly.
+Skill `code-health` could not run: `memory/watched-repos.md` is absent, and the SKILL.md contract says "create it or skip" when missing. Following the silence-on-empty convention already used by `issue-triage` and `github-monitor` in today's run, I skipped the audit and logged `CODE_HEALTH_EMPTY_CONFIG` to `memory/logs/2026-06-21.md`. No notification sent, no report written.
 
-- **Files modified:** `memory/logs/2026-06-20.md` (appended re-run entry under existing `## code-health (skipped)` block)
-- **Notification:** none (state unchanged since earlier same-day skip; same operator ask)
-- **Articles authored:** none
-- **Verdict:** `CODE_HEALTH_NO_CONFIG`
-
-**Follow-up for operator:** create `memory/watched-repos.md` with one `- owner/repo` per line to activate this skill (also unblocks `issue-triage`, `github-monitor`, `changelog`, and `repo-revive`, which all share the same prerequisite per today's earlier logs).
+**Follow-up:** if weekly code-health is wanted, seed `memory/watched-repos.md` with one or more `owner/repo` lines — that will also unblock `issue-triage` and `github-monitor`.
