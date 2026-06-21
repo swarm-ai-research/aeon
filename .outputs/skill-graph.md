@@ -1,0 +1,1 @@
+*Skill Graph initialized* — 173 skills mapped across 6 categories, 42 enabled. State baseline persisted; future runs will exit silently on no-change. Branch: https://github.com/swarm-ai-research/aeon/tree/skill-graph/2026-06-21 (PR creation blocked by GHA App perms)

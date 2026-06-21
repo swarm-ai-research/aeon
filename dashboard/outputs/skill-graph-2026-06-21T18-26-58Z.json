@@ -1,0 +1,131 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Graph Initialized"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "description",
+        "sep1",
+        "stats-grid",
+        "sep2",
+        "status-text",
+        "sep3",
+        "branch-section"
+      ]
+    },
+    "description": {
+      "type": "Text",
+      "props": {
+        "text": "Skill mapping and baseline initialization complete.",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stats-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-skills",
+        "stat-categories",
+        "stat-enabled"
+      ]
+    },
+    "stat-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills Mapped",
+        "value": "173"
+      },
+      "children": []
+    },
+    "stat-categories": {
+      "type": "Stat",
+      "props": {
+        "label": "Categories",
+        "value": "6"
+      },
+      "children": []
+    },
+    "stat-enabled": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled",
+        "value": "42"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "status-text": {
+      "type": "Text",
+      "props": {
+        "text": "State baseline persisted; future runs will exit silently on no-change.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "branch-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "branch-link",
+        "pr-alert"
+      ]
+    },
+    "branch-link": {
+      "type": "Link",
+      "props": {
+        "label": "Branch: skill-graph/2026-06-21",
+        "href": "https://github.com/swarm-ai-research/aeon/tree/skill-graph/2026-06-21"
+      },
+      "children": []
+    },
+    "pr-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "message": "PR creation blocked by GHA App perms"
+      },
+      "children": []
+    }
+  }
+}
