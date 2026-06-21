@@ -1,8 +1,15 @@
 ## Summary
 
-Ran `fleet-control` in default Health Check Mode. Registry `memory/instances.json` is `{"instances": []}` — per the skill's pre-flight gate, this is the `FLEET_EMPTY` path: log and stop silently, no notification sent. This is the second `FLEET_EMPTY` entry today (an earlier run hit the same gate).
+**Mode:** Health Check (default — empty `var`)
+**Verdict:** `FLEET_EMPTY` — silent stop per pre-flight contract.
+
+**What I did:**
+- Read `memory/instances.json` → `instances: []`.
+- Pre-flight terminated at step 1: no managed instances, so gh auth check, rate-limit probe, and registry/state updates were correctly skipped.
+- Appended a `fleet-control (health check)` block to `memory/logs/2026-06-21.md` recording the `FLEET_EMPTY` outcome.
+- **No notification sent** — the skill explicitly forbids notifying on an empty registry.
 
 **Files modified:**
-- `memory/logs/2026-06-20.md` — appended `fleet-control (health check, second run)` block with verdict `FLEET_EMPTY`.
+- `memory/logs/2026-06-21.md` — appended fleet-control log entry.
 
-**Follow-up for operator:** The fleet is empty by registry; if Aeon instances exist that should be managed, populate `memory/instances.json` with their entries (host/repo or host: gitlawb + DID) before the next 15:00 UTC run.
+**Follow-up:** None required. To activate Fleet Control, populate `memory/instances.json` with one or more entries (either GitHub-hosted with a `repo`, or GitLawb-hosted with `host: "gitlawb"`).
