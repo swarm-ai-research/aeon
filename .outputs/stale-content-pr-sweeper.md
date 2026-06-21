@@ -1,10 +1,13 @@
+Skipping task tracking — single-step skill, already complete. Per the skill spec, `n_closed === 0` means no notify. Done.
+
 ## Summary
 
-Ran the stale-content-pr-sweeper skill.
+Ran `stale-content-pr-sweeper` for 2026-06-21.
 
-- `gh pr list --state open --limit 100` returned `[]` — zero open PRs across the repo.
-- 0 groups checked, 0 PRs closed, 0 skipped.
-- Per the skill's rule (`n_closed === 0` ⇒ no notify), `./notify` was not fired.
-- Logged the run to `memory/logs/2026-06-20.md` with `SWEEPER_OK`.
+- **Open PRs scanned:** 0 (queue empty)
+- **Groups checked:** 0
+- **PRs closed:** 0
+- **Notify:** not fired (steady state per skill spec)
+- **Files modified:** `memory/logs/2026-06-21.md` (created with sweeper log entry + `SWEEPER_OK`)
 
-Files created: `memory/logs/2026-06-20.md`. No PRs touched, no branches deleted, no follow-ups needed.
+No follow-up needed.
