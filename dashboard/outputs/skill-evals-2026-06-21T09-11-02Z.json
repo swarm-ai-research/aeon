@@ -1,0 +1,104 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Evals",
+        "description": "SKILL_EVALS_RECOVERED"
+      },
+      "children": [
+        "metrics_section",
+        "separator_1",
+        "action_section",
+        "separator_2",
+        "article_section"
+      ]
+    },
+    "metrics_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_new_fail",
+        "stat_fixed",
+        "stat_coverage"
+      ]
+    },
+    "stat_new_fail": {
+      "type": "Stat",
+      "props": {
+        "label": "new fail",
+        "value": "0"
+      }
+    },
+    "stat_fixed": {
+      "type": "Stat",
+      "props": {
+        "label": "fixed",
+        "value": "2"
+      }
+    },
+    "stat_coverage": {
+      "type": "Stat",
+      "props": {
+        "label": "coverage",
+        "value": "28%"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "action_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action_heading",
+        "action_details",
+        "issue_badge"
+      ]
+    },
+    "action_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Action",
+        "level": "h3"
+      }
+    },
+    "action_details": {
+      "type": "Text",
+      "props": {
+        "text": "Investigate heartbeat — missing_pattern:heartbeat|Heartbeat|HEARTBEAT"
+      }
+    },
+    "issue_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-001",
+        "variant": "secondary"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "article_section": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Article: skill-evals-2026-06-21",
+        "href": "articles/skill-evals-2026-06-21.md"
+      }
+    }
+  }
+}
