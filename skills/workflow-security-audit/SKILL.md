@@ -21,28 +21,37 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 
 ### 0b. Install scanners
 
-Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
+Check `.audit-bin/` first (pre-built binaries committed to the repo). Fall back to pip/curl only when the binaries are absent (e.g. a fresh fork). If both tools still fail after all fallbacks, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
-# Pin to a specific version for reproducibility — bump this when upgrading.
+# .audit-bin/ holds pre-built binaries committed to the repo — prefer them over network installs.
+# The sandbox blocks both pipx and bash <(curl …); see memory/notes/sandbox-blocks-piped-curl-installers.md.
 ZIZMOR_VERSION="1.25.2"
 if ! command -v zizmor >/dev/null 2>&1; then
-  pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
-    || python3 -m pip install --user "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
-    || true
-  export PATH="$HOME/.local/bin:$PATH"
+  if [ -x ".audit-bin/zizmor" ]; then
+    export PATH="$PWD/.audit-bin:$PATH"
+  else
+    pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
+      || python3 -m pip install --user "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
+      || true
+    export PATH="$HOME/.local/bin:$PATH"
+  fi
 fi
 # When auditing this skill, verify ZIZMOR_VERSION is still on the latest stable
-# (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
-# actionlint (Rhymond's syntax-level workflow linter)
+# (https://github.com/zizmorcore/zizmor/releases) and bump the binary + this pin together.
+# actionlint (rhysd's syntax-level workflow linter)
 if ! command -v actionlint >/dev/null 2>&1; then
-  bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
-  export PATH="$PWD:$PATH"
+  if [ -x ".audit-bin/actionlint" ]; then
+    export PATH="$PWD/.audit-bin:$PATH"
+  else
+    bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
+    export PATH="$PWD:$PATH"
+  fi
 fi
 ```
 
-If the sandbox blocks the download, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
+If all install paths fail, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
 
 ## Steps
 
@@ -352,7 +361,8 @@ Append to `memory/logs/${today}.md`:
 
 ## Sandbox note
 
-- `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
+- **`.audit-bin/` (primary):** `zizmor` and `actionlint` binaries are committed to `.audit-bin/` for sandbox-safe execution. The install step in `0b` adds `.audit-bin/` to `PATH` before attempting any network install. This is the expected path on standard Aeon runners; the pip/curl fallbacks exist only for forks that don't have `.audit-bin/` yet.
+- **Network fallbacks (degraded):** `pipx install zizmor` and `bash <(curl …)` both fail in the Aeon sandbox — the sandbox blocks outbound installs and piped-curl execution. If `.audit-bin/` is absent, the skill degrades to hand-rolled checks and exits `WORKFLOW_AUDIT_TOOL_DEGRADED`. See `memory/notes/sandbox-blocks-piped-curl-installers.md`.
 - `gh` CLI uses existing `GITHUB_TOKEN` / `GH_GLOBAL` — no extra auth setup needed.
 - No new secrets required. zizmor and actionlint are offline-only static analyzers.
 
