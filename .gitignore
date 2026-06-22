@@ -61,4 +61,6 @@ vuln-scan-work/
 
 # Stray local audit/debug artifacts (never commit)
 .audit-tmp/
-.audit*.py
+.audit/*.py
+.audit/*.json
+.audit-bin/
