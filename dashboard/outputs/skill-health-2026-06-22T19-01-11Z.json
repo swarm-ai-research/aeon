@@ -1,0 +1,336 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-06-22"
+      },
+      "children": [
+        "status-alert",
+        "stats-row",
+        "separator-1",
+        "degraded-section",
+        "no-data-section",
+        "healthy-section",
+        "separator-2",
+        "delta-section",
+        "issues-section",
+        "drift-alert"
+      ]
+    },
+    "status-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "DEGRADED (38)",
+        "message": "Systemic: OAuth-outage residue — ISS-001",
+        "type": "warning"
+      }
+    },
+    "stats-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-degraded",
+        "stat-no-data",
+        "stat-healthy"
+      ]
+    },
+    "stat-degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "DEGRADED",
+        "value": "38"
+      }
+    },
+    "stat-no-data": {
+      "type": "Stat",
+      "props": {
+        "label": "NO DATA",
+        "value": "5"
+      }
+    },
+    "stat-healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "HEALTHY",
+        "value": "1"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "degraded-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded-heading",
+        "degraded-text-1",
+        "degraded-text-2",
+        "degraded-text-3"
+      ]
+    },
+    "degraded-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "DEGRADED (38, collapsed)",
+        "level": "h3"
+      }
+    },
+    "degraded-text-1": {
+      "type": "Text",
+      "props": {
+        "text": "All 38 carry-over skills from the 2026-06-06→2026-06-20 OAuth outage. Every one now last_status=success, consecutive_failures=0 — but cumulative success_rate stays <0.6 for ~weeks of clean runs."
+      }
+    },
+    "degraded-text-2": {
+      "type": "Text",
+      "props": {
+        "text": "WAIT — no per-skill action."
+      }
+    },
+    "degraded-text-3": {
+      "type": "Text",
+      "props": {
+        "text": "See ISS-001.",
+        "variant": "muted"
+      }
+    },
+    "no-data-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "no-data-heading",
+        "no-data-note",
+        "no-data-skills"
+      ]
+    },
+    "no-data-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "NO DATA (5)",
+        "level": "h3"
+      }
+    },
+    "no-data-note": {
+      "type": "Text",
+      "props": {
+        "text": "DISPATCH-SKILL (still never run since cron-state was last cleaned)",
+        "variant": "muted"
+      }
+    },
+    "no-data-skills": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-1",
+        "badge-2",
+        "badge-3",
+        "badge-4",
+        "badge-5"
+      ]
+    },
+    "badge-1": {
+      "type": "Badge",
+      "props": {
+        "text": "agi-tracker",
+        "variant": "secondary"
+      }
+    },
+    "badge-2": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "secondary"
+      }
+    },
+    "badge-3": {
+      "type": "Badge",
+      "props": {
+        "text": "config-validator",
+        "variant": "secondary"
+      }
+    },
+    "badge-4": {
+      "type": "Badge",
+      "props": {
+        "text": "run-frequency-guard",
+        "variant": "secondary"
+      }
+    },
+    "badge-5": {
+      "type": "Badge",
+      "props": {
+        "text": "swarm-safety-eval",
+        "variant": "secondary"
+      }
+    },
+    "healthy-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "healthy-heading",
+        "healthy-text"
+      ]
+    },
+    "healthy-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "HEALTHY (1)",
+        "level": "h3"
+      }
+    },
+    "healthy-text": {
+      "type": "Text",
+      "props": {
+        "text": "weekly-shiplog promoted from NO DATA after first run 10:17Z"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "delta-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "delta-heading",
+        "delta-stats"
+      ]
+    },
+    "delta-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Change vs yesterday",
+        "level": "h3"
+      }
+    },
+    "delta-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "delta-no-data",
+        "delta-healthy",
+        "delta-degraded"
+      ]
+    },
+    "delta-no-data": {
+      "type": "Stat",
+      "props": {
+        "label": "NO DATA",
+        "value": "5",
+        "delta": "6 → 5",
+        "trend": "down"
+      }
+    },
+    "delta-healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "HEALTHY",
+        "value": "1",
+        "delta": "0 → 1",
+        "trend": "up"
+      }
+    },
+    "delta-degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "DEGRADED",
+        "value": "38",
+        "delta": "unchanged",
+        "trend": "neutral"
+      }
+    },
+    "issues-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues-heading",
+        "issues-open-summary",
+        "issues-table",
+        "issues-resolved"
+      ]
+    },
+    "issues-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Open issues",
+        "level": "h3"
+      }
+    },
+    "issues-open-summary": {
+      "type": "Text",
+      "props": {
+        "text": "4 open"
+      }
+    },
+    "issues-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Issue",
+          "Status"
+        ],
+        "rows": [
+          [
+            "ISS-001",
+            "investigating"
+          ],
+          [
+            "ISS-002",
+            "changelog"
+          ],
+          [
+            "ISS-005",
+            "swarm-safety-eval"
+          ],
+          [
+            "ISS-006",
+            "batch outage"
+          ]
+        ]
+      }
+    },
+    "issues-resolved": {
+      "type": "Text",
+      "props": {
+        "text": "Resolved this run: 0",
+        "variant": "muted"
+      }
+    },
+    "drift-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "INDEX.md drift",
+        "message": "ISS-006 on disk but missing from Open table — operator fix.",
+        "type": "info"
+      }
+    }
+  }
+}
