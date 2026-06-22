@@ -1,13 +1,11 @@
-Skipping task tracking — single-step skill, already complete. Per the skill spec, `n_closed === 0` means no notify. Done.
+No notify fires (n_closed = 0 is the steady state per the skill).
 
 ## Summary
 
-Ran `stale-content-pr-sweeper` for 2026-06-21.
-
-- **Open PRs scanned:** 0 (queue empty)
-- **Groups checked:** 0
+- **Skill executed:** `stale-content-pr-sweeper`
+- **Groups scanned:** 0 (no open PRs in the repo)
 - **PRs closed:** 0
-- **Notify:** not fired (steady state per skill spec)
-- **Files modified:** `memory/logs/2026-06-21.md` (created with sweeper log entry + `SWEEPER_OK`)
-
-No follow-up needed.
+- **Skips:** none (no candidates entered the gates)
+- **`./notify` fired:** no — steady state per skill spec (notify only on `n_closed > 0`)
+- **Files written:** `memory/logs/2026-06-22.md`
+- **Verdict:** `SWEEPER_OK`
