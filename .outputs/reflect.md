@@ -1,1 +1,1 @@
-memory consolidated — 2026-06-21 · +1n / +17e (0 splits, 2 new)
+memory consolidated — 2026-06-22 · +3n / +37e

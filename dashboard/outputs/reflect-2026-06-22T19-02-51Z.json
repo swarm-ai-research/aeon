@@ -1,0 +1,61 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading",
+        "details_row"
+      ]
+    },
+    "heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Memory consolidated",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "details_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "date_badge",
+        "stats_badge"
+      ]
+    },
+    "date_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "2026-06-22",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "stats_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "+3n / +37e",
+        "variant": "outline"
+      },
+      "children": []
+    }
+  }
+}

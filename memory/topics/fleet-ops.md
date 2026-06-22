@@ -3,8 +3,8 @@
 Cross-cutting operational lessons and constraints for the Aeon fleet: credential outages, monitoring-loop hazards, GitHub App permission boundaries, and cron-state pathologies.
 
 ## Open incidents
-- [[issues/ISS-001]] — CLAUDE_CODE_OAUTH_TOKEN missing 2026-06-06 → 2026-06-20T06:05Z; investigating, day 1 of 3 clean days completed.
-- [[issues/ISS-006]] — GHA cron tick dropped 2026-06-21 05:30–08:00Z; 6 skills missed morning slots. Distinct signature from ISS-001 (no auth failure — skills never started).
+- [[issues/ISS-001]] — CLAUDE_CODE_OAUTH_TOKEN missing 2026-06-06 → 2026-06-20T06:05Z; investigating, day 2 of 3 clean days completed (target close 2026-06-23).
+- [[issues/ISS-006]] — GHA cron tick dropped 2026-06-21 05:30–08:00Z; 6 skills missed morning slots. Distinct signature from ISS-001 (no auth failure — skills never started). 2026-06-22: no batch-health/heartbeat in today's log to confirm one-off vs recurring.
 
 ## Lessons (durable)
 - [[oauth-outage-zero-token-signature]] — zero-token `result_json` = missing CLI auth, not a model error
@@ -15,18 +15,19 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 - [[gha-inputs-unquoted-shell-rce]] — `inputs.*` flowing unquoted into `run:` shell commands is an RCE channel
 - [[sandbox-blocks-piped-curl-installers]] — sandbox blocks `bash <(curl)` installers; audit skills degrade to hand-rolled fallbacks
 
-## Snapshot (2026-06-21)
+## Snapshot (2026-06-22)
 | Signal | Value |
 |---|---|
-| 7d workflow runs | ~931 (53/931 successes = 5.7%; recovery dominates last 12h) |
-| Today's status | 🔴 DEGRADED — cron tick drop ISS-006 + cumulative success_rate still under 0.5 from ISS-001 backlog |
+| 7d workflow runs | ~931 (53/931 successes = 5.7% as of 2026-06-21; recovery dominates last 36h) |
+| Today's status | 🟡 DEGRADED-fading — no new failures, but day 2/3 of clean-run window and cumulative `success_rate` still under 0.6 from ISS-001 backlog |
 | Recovery batch | 2026-06-20T06:05–06:33Z (all skills back to `last_status: success`, `consecutive_failures: 0`) |
 | Enabled skills | 44 (38 with cron-state rows; 6 never dispatched) |
-| Open issues | 3 (ISS-001 investigating; ISS-002, ISS-005 open; ISS-006 open new) |
-| Resolved today | ISS-003 (cost-report), ISS-004 (skill-health) — both recovered with OAuth restore |
+| Open issues | 4 on disk / 3 in INDEX.md (drift: ISS-001 investigating; ISS-002, ISS-005 open; ISS-006 open — not in INDEX) |
+| Resolved | ISS-003 (cost-report), ISS-004 (skill-health) — both recovered with OAuth restore on 2026-06-21 |
 | `last_error` cron-state field | storing JSON tail (cost block), not actual error — orthogonal logging bug |
 | Pending branches | `fix/workflow-security-audit-2026-06-21` (RCE patch for fleet-runner.yml, App lacks `workflows` write perm); `notegraph/2026-06-21` (+9n/+65e) |
-| Notegraph state | 57 nodes · 236 hard · 93 soft · 1 orphan · 0 bundled (2026-06-21) |
+| Notegraph state | 58 nodes · 346 edges · 1 orphan · 0 bundled (2026-06-21 post-reflect) |
+| 2026-06-22 activity | sweeper / issue-triage / github-monitor / fleet-control / weekly-shiplog / pr-review / pr-tracker / pr-triage — all steady state; no batch-health / heartbeat / skill-health entries today |
 
 ## Permission constraints (current)
 - aeon GitHub App: no write on `swarm-ai-research/swarm` (labels, comments, reviews 403). Verdicts run, posts blocked.
