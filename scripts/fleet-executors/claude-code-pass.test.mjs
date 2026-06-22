@@ -360,4 +360,72 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. extractSummary: last line > 400 chars → falls back to last-3 lines joined
+//     and sliced. This tests the second branch of extractSummary which was
+//     previously unreachable in the test suite.
+{
+  const longLine = "x".repeat(401);
+  const CLAUDE_LONG_SUMMARY = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+echo "added a docstring" >> "$(pwd)/lib.mjs"
+printf 'second-to-last\\nthird-to-last\\n${longLine}\\n'
+`;
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_LONG_SUMMARY });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "longsummary" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    // summary must be at most 400 chars (the fallback slice limit)
+    assert.ok(
+      result.summary.length <= 400,
+      `summary should be ≤400 chars, got ${result.summary.length}: ${result.summary.slice(0, 60)}…`
+    );
+    // fallback joins last 3 lines — the joined string includes "second-to-last"
+    assert.match(result.summary, /second-to-last/, "fallback should incorporate earlier lines when last line is too long");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  extractSummary truncates long last line → fallback to last-3 lines joined");
+}
+
+// 13. gh pr list exits 0 but returns malformed JSON → JSON.parse throws →
+//     openPRsForKind returns null → backlog gate skipped → pass proceeds.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "not valid json at all"; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "badjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns malformed JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list malformed JSON → null backlog → pass proceeds");
+}
+
+// 14. gh pr list exits 0 but returns a non-array JSON value (e.g. an object)
+//     → !Array.isArray branch → openPRsForKind returns null → gate skipped.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{"headRefName":"aeon/docs-pass-2026-06-01-abc"}'; exit 0; fi\necho "https://github.com/stub/repo/pull/88"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nonarr" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns non-array, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/88");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list non-array JSON → null backlog → pass proceeds");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
