@@ -1,8 +1,8 @@
+No notification per §9 (nothing actionable), and no state to write to `triaged-issues.json` since no repos were processed.
+
 ## Summary
 
-Executed `skills/issue-triage/SKILL.md`. No work to do: the configured target list is empty.
+Issue Triage executed against no targets — `memory/watched-repos.md` is absent and `${var}` was empty, so per §Config the skill logged `ISSUE_TRIAGE_OK no-watched-repos` and exited without classifying, labeling, or notifying.
 
-- **Targets**: `${var}` is empty and `memory/watched-repos.md` does not exist — per §Config the skill logs `ISSUE_TRIAGE_OK no-watched-repos` and exits.
-- **Files modified**: `memory/logs/2026-06-21.md` — appended the `### issue-triage` entry per §10.
-- **Notifications**: none (nothing actionable to fan out).
-- **Follow-up**: if issue triage is wanted, create `memory/watched-repos.md` listing repos as `- owner/repo`, or invoke this skill with `var=owner/repo`.
+- **Files modified:** `memory/logs/2026-06-22.md` — appended `### issue-triage` block with terminal `ISSUE_TRIAGE_OK no-watched-repos`.
+- **Follow-up:** Create `memory/watched-repos.md` listing `- owner/repo` entries (or invoke the skill with `var: owner/repo`) to actually triage anything on the next run.
