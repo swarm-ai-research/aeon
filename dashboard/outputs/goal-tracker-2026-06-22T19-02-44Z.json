@@ -1,0 +1,310 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker — 2026-06-22"
+      },
+      "children": [
+        "summary_section",
+        "sep1",
+        "needs_attention_section",
+        "sep2",
+        "blocked_section",
+        "sep3",
+        "on_track_section",
+        "sep4",
+        "caveats_section",
+        "sep5",
+        "sources_section"
+      ]
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary_heading",
+        "summary_text",
+        "status_grid",
+        "trend_text"
+      ]
+    },
+    "summary_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h3"
+      }
+    },
+    "summary_text": {
+      "type": "Text",
+      "props": {
+        "text": "5 goals — 0 at risk, 1 needs attention, 3 on track, 1 blocked, 0 done"
+      }
+    },
+    "status_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat_risk",
+        "stat_attention",
+        "stat_track",
+        "stat_blocked",
+        "stat_done"
+      ]
+    },
+    "stat_risk": {
+      "type": "Stat",
+      "props": {
+        "label": "At Risk",
+        "value": "0"
+      }
+    },
+    "stat_attention": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs Attention",
+        "value": "1"
+      }
+    },
+    "stat_track": {
+      "type": "Stat",
+      "props": {
+        "label": "On Track",
+        "value": "3"
+      }
+    },
+    "stat_blocked": {
+      "type": "Stat",
+      "props": {
+        "label": "Blocked",
+        "value": "1"
+      }
+    },
+    "stat_done": {
+      "type": "Stat",
+      "props": {
+        "label": "Done",
+        "value": "0"
+      }
+    },
+    "trend_text": {
+      "type": "Text",
+      "props": {
+        "text": "Overall: flat — goal set expanded by 2, no regressions on carried goals",
+        "variant": "caption"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "needs_attention_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "needs_attention_heading",
+        "needs_attention_item1",
+        "needs_attention_action1"
+      ]
+    },
+    "needs_attention_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Needs Attention",
+        "level": "h3"
+      }
+    },
+    "needs_attention_item1": {
+      "type": "Text",
+      "props": {
+        "text": "Watch for ISS-006 repeat tomorrow morning; if isolated, mark `wontfix` as GHA infra transient — 1d idle, 1 activity/14d (new)"
+      }
+    },
+    "needs_attention_action1": {
+      "type": "Text",
+      "props": {
+        "text": "Action: Trigger today's batch-health audit; if no cron-drop repeat, mark ISS-006 `wontfix`.",
+        "variant": "caption"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "blocked_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "blocked_heading",
+        "blocked_item1",
+        "blocked_action1"
+      ]
+    },
+    "blocked_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Blocked",
+        "level": "h3"
+      }
+    },
+    "blocked_item1": {
+      "type": "Text",
+      "props": {
+        "text": "Open the staged workflow-audit PR from `fix/workflow-security-audit-2026-06-21` via PAT (App perm gap) — waiting on operator with GH_GLOBAL PAT since 2026-06-21"
+      }
+    },
+    "blocked_action1": {
+      "type": "Text",
+      "props": {
+        "text": "Action: Open PR manually with GH_GLOBAL PAT — branch already pushed.",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "on_track_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "on_track_heading",
+        "on_track_item1",
+        "on_track_item2",
+        "on_track_item3"
+      ]
+    },
+    "on_track_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "On Track",
+        "level": "h3"
+      }
+    },
+    "on_track_item1": {
+      "type": "Text",
+      "props": {
+        "text": "File `./generate-skills-json` bugs as structured issues — 1d idle, 3 activity/14d (↑ improving)"
+      }
+    },
+    "on_track_item2": {
+      "type": "Text",
+      "props": {
+        "text": "Confirm first weekly `agi-tracker` run after 2026-06-15 produced a clean PR — 1d idle, 4 activity/14d (→ flat)"
+      }
+    },
+    "on_track_item3": {
+      "type": "Text",
+      "props": {
+        "text": "Move ISS-001 to resolved after 3 consecutive days of healthy runs — 1d idle, 2 activity/14d (→ flat)"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "caveats_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "caveats_heading",
+        "caveats_intro",
+        "caveat_item1",
+        "caveat_item2",
+        "caveat_item3"
+      ]
+    },
+    "caveats_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Caveats",
+        "level": "h3"
+      }
+    },
+    "caveats_intro": {
+      "type": "Text",
+      "props": {
+        "text": "Mechanical ON TRACK masks pending deliverables",
+        "variant": "muted"
+      }
+    },
+    "caveat_item1": {
+      "type": "Text",
+      "props": {
+        "text": "Goal 1: `./generate-skills-json` bugs still not filed as `ISS-NNN.md` despite atomic notes existing (carried over from 2026-06-21)."
+      }
+    },
+    "caveat_item2": {
+      "type": "Text",
+      "props": {
+        "text": "Goal 2: agi-tracker still absent from cron-state; next weekly slot is today 2026-06-22 13:00 UTC (Mon)."
+      }
+    },
+    "caveat_item3": {
+      "type": "Text",
+      "props": {
+        "text": "Goal 3: day 2/3 of clean-run window; earliest legitimate close 2026-06-23."
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sources_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "sources_heading",
+        "sources_text"
+      ]
+    },
+    "sources_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h3"
+      }
+    },
+    "sources_text": {
+      "type": "Text",
+      "props": {
+        "text": "logs=ok, git=ok, gh_pr=ok, gh_issue=ok (empty), cron-state=ok",
+        "variant": "caption"
+      }
+    }
+  }
+}

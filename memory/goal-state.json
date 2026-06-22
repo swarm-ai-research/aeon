@@ -1,19 +1,30 @@
 {
-  "run_at": "2026-06-21T18:18:00Z",
+  "run_at": "2026-06-22T19:01:23Z",
   "goals": {
     "file-generate-skills-json-bugs-as-structured-issues": {
       "status": "ON_TRACK",
-      "activity_count_14d": 2,
-      "last_activity_date": "2026-06-20"
+      "activity_count_14d": 3,
+      "last_activity_date": "2026-06-21"
     },
     "confirm-first-weekly-agi-tracker-run-after-2026-06-15-clean-pr": {
       "status": "ON_TRACK",
-      "activity_count_14d": 6,
+      "activity_count_14d": 4,
       "last_activity_date": "2026-06-21"
     },
     "move-iss-001-to-resolved-after-3-consecutive-days-healthy-runs": {
       "status": "ON_TRACK",
-      "activity_count_14d": 3,
+      "activity_count_14d": 2,
+      "last_activity_date": "2026-06-21"
+    },
+    "open-staged-workflow-audit-pr-via-pat": {
+      "status": "BLOCKED",
+      "activity_count_14d": 1,
+      "last_activity_date": "2026-06-21",
+      "blocker": "Aeon GitHub App lacks workflows write — needs GH_GLOBAL PAT"
+    },
+    "watch-iss-006-repeat-mark-wontfix": {
+      "status": "NEEDS_ATTENTION",
+      "activity_count_14d": 1,
       "last_activity_date": "2026-06-21"
     }
   }

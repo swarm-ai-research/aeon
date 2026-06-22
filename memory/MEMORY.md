@@ -33,3 +33,6 @@ Pointer-only index. Durable claims live in `memory/notes/`, organized by topic M
 - Open the staged workflow-audit PR from `fix/workflow-security-audit-2026-06-21` via PAT (App perm gap).
 - ISS-006 watch — no batch-health/heartbeat ran 2026-06-22 to confirm one-off vs recurring; re-evaluate after next morning batch fires.
 - Confirm `agi-tracker` weekly run for 2026-06-22 13:00 UTC slot — no `cron-state` row yet; second missed slot in a row would warrant a structured issue.
+- Move ISS-001 to resolved after 3 consecutive days of healthy runs (day 1/3 = 2026-06-21).
+- Open the staged workflow-audit PR from `fix/workflow-security-audit-2026-06-21` via PAT (App perm gap). _[BLOCKED 2026-06-21: needs GH_GLOBAL PAT — Aeon App cannot self-grant workflows write]_
+- Watch for ISS-006 repeat tomorrow morning; if isolated, mark `wontfix` as GHA infra transient.
