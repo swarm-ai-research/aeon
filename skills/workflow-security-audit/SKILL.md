@@ -24,6 +24,11 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
+# Pre-committed binaries in .audit-bin/ are the primary source — the GitHub Actions
+# sandbox blocks curl-pipe installers and pip may be unavailable (see sandbox note).
+# Add .audit-bin/ to PATH first so any committed binary is found by `command -v`.
+export PATH="$PWD/.audit-bin:$PATH"
+
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
 # Pin to a specific version for reproducibility — bump this when upgrading.
 ZIZMOR_VERSION="1.25.2"
@@ -43,6 +48,8 @@ fi
 ```
 
 If the sandbox blocks the download, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
+
+> **Pre-committed binaries:** `.audit-bin/` contains static builds of `actionlint` and `zizmor` committed to the repo so the sandbox skip is never needed for those tools. When upgrading either tool, replace the binary in `.audit-bin/` and update `ZIZMOR_VERSION` above.
 
 ## Steps
 
@@ -352,7 +359,8 @@ Append to `memory/logs/${today}.md`:
 
 ## Sandbox note
 
-- `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
+- **Primary:** `.audit-bin/` contains pre-committed static binaries for `actionlint` and `zizmor`. The preflight step puts `.audit-bin/` first on `PATH`, so these are picked up before any runtime install attempt.
+- **Fallback:** `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally. The `bash <(curl …)` pipe installer for actionlint is also blocked in the sandbox — fall back to the binary in `.audit-bin/` or extract from `.audit-bin/actionlint.tar.gz`.
 - `gh` CLI uses existing `GITHUB_TOKEN` / `GH_GLOBAL` — no extra auth setup needed.
 - No new secrets required. zizmor and actionlint are offline-only static analyzers.
 
