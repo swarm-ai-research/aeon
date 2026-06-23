@@ -1,7 +1,7 @@
 {
-  "hash": "7a4e381656140f05",
+  "hash": "f5003713d229ccd6",
   "last_notified_at": "2026-06-22T19:00:04Z",
-  "last_run_at": "2026-06-22T19:00:04Z",
+  "last_run_at": "2026-06-23T18:20:29Z",
   "classification": {
     "critical": [],
     "degraded": [
@@ -25,12 +25,12 @@
       "run-frequency-guard", "swarm-safety-eval"
     ]
   },
-  "systemic": "SYSTEMIC: OAuth-outage residue (ISS-001) — all 38 DEGRADED skills recovered (last_status=success, consecutive_failures=0); cumulative success_rate <0.6 will take ~weeks of healthy runs to cross threshold. ~2.5 days since OAuth restore at 2026-06-20T06:05Z.",
-  "delta_vs_prev": "weekly-shiplog moved NO DATA → HEALTHY after first successful run today (06-22T10:17Z); NO DATA count 6 → 5. DEGRADED list unchanged (same 38).",
+  "systemic": "SYSTEMIC: OAuth-outage residue (ISS-001) — all 38 DEGRADED skills have last_status=success, consecutive_failures=0; cumulative success_rate <0.6 will take weeks of healthy runs to cross threshold. ~3.5 days since OAuth restore at 2026-06-20T06:05Z.",
+  "delta_vs_prev": "no structural change since 2026-06-22T19:00:04Z run — same 38 DEGRADED, same 1 HEALTHY (weekly-shiplog), same 5 NO DATA. No new failures, no recoveries.",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
-  "open_issues_per_index": 3,
+  "open_issues_per_index": 4,
   "open_issues_per_filesystem": 4,
-  "index_drift_note": "INDEX.md still missing ISS-006 (filed by batch-health 2026-06-21T08:00Z, status:open on disk). Not skill-health's contract to fix — flagged for operator.",
-  "notify_decision": "notify — daily cadence elapsed (~24h 36m since 2026-06-21T18:23:45Z); also hash diff vs prev (classification structurally identical, hash signature recomputed)"
+  "index_drift_note": "INDEX.md now lists ISS-001, 002, 005, 006 in Open (drift from prev run was repaired by heartbeat/batch-health on 2026-06-23 — see memory/logs/2026-06-23.md).",
+  "notify_decision": "NOOP — structural classification unchanged AND 23h 20m elapsed since 2026-06-22T19:00:04Z notify (<24h cadence). Hash recomputed: f5003713d229ccd6. Per skill-health step-5 gate, suppress notify."
 }
