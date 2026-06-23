@@ -360,4 +360,49 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. focus parameter flows into the PR body. No existing test passes a
+//     non-empty focus, so the `focus ? \`**Focus:** ${focus}\` : ""` branch in
+//     the body builder is uncovered. Verify the text appears in the gh call.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", focus: "edge cases for tokenizer", repoDir: env.localDir, taskId: "focustest" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /edge cases for tokenizer/, "focus text should appear in gh pr create body");
+    assert.match(ghLog, /lib\.mjs/, "target should appear in gh pr create body");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  focus parameter flows into PR body");
+}
+
+// 13. target omitted → happy path still opens a PR and no 'Target files' line
+//     is passed to gh. All existing happy-path tests supply a target; this
+//     exercises the `target ? ... : ""` branch in the body builder.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\necho "https://github.com/stub/repo/pull/78"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "notarget" })
+    );
+    assert.equal(result.ok, true, `expected ok=true with no target, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/78");
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.doesNotMatch(ghLog, /\*\*Target files\*\*/, "Target files line should be absent when target omitted");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  no target → PR still opens, Target files line absent from body");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
