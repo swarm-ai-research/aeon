@@ -1,0 +1,140 @@
+{
+  "root": "main_card",
+  "state": {},
+  "elements": {
+    "main_card": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "header_stack",
+        "separator1",
+        "metrics_stack",
+        "activity_text",
+        "separator2",
+        "issue_alert",
+        "separator3",
+        "lesson_stack"
+      ]
+    },
+    "header_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "heading",
+        "date_badge"
+      ]
+    },
+    "heading": {
+      "type": "Heading",
+      "props": {
+        "text": "memory consolidated",
+        "level": "h3"
+      }
+    },
+    "date_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "2026-06-23"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_new",
+        "stat_expanded"
+      ]
+    },
+    "stat_new": {
+      "type": "Stat",
+      "props": {
+        "label": "New entries",
+        "value": "1",
+        "delta": "+1n"
+      }
+    },
+    "stat_expanded": {
+      "type": "Stat",
+      "props": {
+        "label": "Entries expanded",
+        "value": "33",
+        "delta": "+33e"
+      }
+    },
+    "activity_text": {
+      "type": "Text",
+      "props": {
+        "text": "2 splits, 2 new",
+        "variant": "body"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issue_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "ISS-006 escalated to high",
+        "type": "warning"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "lesson_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "lesson_label",
+        "lesson_content"
+      ]
+    },
+    "lesson_label": {
+      "type": "Text",
+      "props": {
+        "text": "New lesson:",
+        "variant": "lead"
+      }
+    },
+    "lesson_content": {
+      "type": "Text",
+      "props": {
+        "text": "messages.yml dispatch implicates window-wide silences",
+        "variant": "body"
+      }
+    }
+  }
+}

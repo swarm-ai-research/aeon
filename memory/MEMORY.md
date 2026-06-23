@@ -3,14 +3,14 @@
 Pointer-only index. Durable claims live in `memory/notes/`, organized by topic MOCs in `memory/topics/`. Daily activity in `memory/logs/`. Structured issues in `memory/issues/`.
 
 ## Current focus
-- Recovering from 2026-06-06 → 2026-06-20 OAuth-token outage — see [[issues/ISS-001]] and [[fleet-ops]]. Day 3/3 clean today (2026-06-23) — eligible to close after confirming healthy morning runs.
-- ⚠ [[issues/ISS-006]] now **recurring** (day 3): `planner` + `compute-futures-eda` missed morning batch 2026-06-21, 06-22 (batch-health coverage gap), 06-23. Severity medium→high, status investigating. Likely targeted workflow auto-disable or schedule-field drift — NOT wholesale cron silence (other morning skills fired).
-- Pending operator action: land `fix/workflow-security-audit-2026-06-21` RCE patch on `fleet-runner.yml`; aeon App lacks `workflows` write so auto-fix blocked.
-- AGI Tracker live since 2026-06-10 — weekly skill maintains `docs/agi-tracker/data.js`. See [[agi-tracker]].
+- ⚠ [[issues/ISS-006]] **escalated** (severity medium→high, status investigating, day 3 of recurring): `planner` + `compute-futures-eda` missed morning batch 2026-06-21, 06-22, 06-23. Working hypothesis: `messages.yml` `*/5` cron-tick drop in the 05:30–07:30 UTC window — see [[aeon-skills-dispatch-via-messages-yml]]. 08:00 batch did fire today; only the 06:00 group is dropping.
+- [[issues/ISS-001]] OAuth outage (2026-06-06 → 2026-06-20T06:05Z) — recovery batch holding, all 38 tracked skills at `last_status: success`. Cumulative `success_rate` < 0.6 takes weeks to clear by design; close decision deferred until morning batch ([[issues/ISS-006]]) stabilizes.
+- Pending operator action: land `fix/workflow-security-audit-2026-06-21` RCE patch on `fleet-runner.yml`; aeon App lacks `workflows` write so auto-fix blocked — needs `GH_GLOBAL` PAT.
+- AGI Tracker live since 2026-06-10 — weekly skill maintains `docs/agi-tracker/data.js`. See [[agi-tracker]]. Still no `cron-state` row after 2026-06-15 and 2026-06-22 Mon slots.
 
 ## Topics
 - [[agi-tracker]] — frontier-agent capability tracking + Aschenbrenner *Situational Awareness* scoring
-- [[fleet-ops]] — OAuth outage, monitor/repair coupling, GitHub App permission constraints
+- [[fleet-ops]] — OAuth outage, morning-batch silence, monitor/repair coupling, GitHub App perms
 - [[compute-pulse]] — inference pricing, hardware deals, DePIN tokens (weekly snapshot)
 - [[surplus-pulse]] — surplus-mode pricing simulator runs
 - [[pr-status]] — cross-repo PR queue for the aeonframework author
@@ -27,12 +27,9 @@ Pointer-only index. Durable claims live in `memory/notes/`, organized by topic M
 - `memory/token-usage.csv` — per-run token accounting.
 
 ## Next priorities
+- ISS-006: inspect `messages.yml` cron block + Actions tab history for the 06:00–07:30 UTC window across 2026-06-21..23. Per [[aeon-skills-dispatch-via-messages-yml]], no per-skill workflow exists — check the `*/5` ticks first. `git log --since=2026-06-19 -- .github/workflows/messages.yml aeon.yml` to spot any recent edits.
 - File `./generate-skills-json` bugs as structured issues (see [[generate-skills-json-newline-bug]], [[skills-json-count-drift]]).
-- Confirm first weekly `agi-tracker` run after 2026-06-15 produced a clean PR (still no `cron-state` row).
-- Move ISS-001 to resolved after 3 consecutive days of healthy runs (day 2/3 = 2026-06-22, earliest close 2026-06-23).
-- Open the staged workflow-audit PR from `fix/workflow-security-audit-2026-06-21` via PAT (App perm gap).
-- ISS-006: inspect Actions tab for `planner` + `compute-futures-eda` workflow enablement (likely auto-disabled or schedule-field drift); `gh workflow enable` if so. `git log --since=2026-06-19 -- .github/workflows/planner.yml .github/workflows/compute-futures-eda.yml aeon.yml` to spot any recent edits.
-- Confirm `agi-tracker` weekly run for 2026-06-22 13:00 UTC slot — no `cron-state` row yet; second missed slot in a row would warrant a structured issue.
-- Move ISS-001 to resolved after 3 consecutive days of healthy runs (day 1/3 = 2026-06-21).
-- Open the staged workflow-audit PR from `fix/workflow-security-audit-2026-06-21` via PAT (App perm gap). _[BLOCKED 2026-06-21: needs GH_GLOBAL PAT — Aeon App cannot self-grant workflows write]_
-- Watch for ISS-006 repeat tomorrow morning; if isolated, mark `wontfix` as GHA infra transient.
+- Patch `pr-tracker` SKILL.md fallback per [[gh-search-prs-api-drift]] (`--merged` flag, drop `headRefName`).
+- Confirm `agi-tracker` weekly run for 2026-06-22 13:00 UTC slot — still no `cron-state` row; second consecutive Mon miss warrants its own structured issue if it persists.
+- Open the staged workflow-audit PR from `fix/workflow-security-audit-2026-06-21` via PAT (App perm gap). _[BLOCKED 2026-06-21: needs `GH_GLOBAL` PAT — Aeon App cannot self-grant workflows write]_
+- Defer ISS-001 close until ISS-006 morning-batch silence is resolved — recovery confidence is fragile while the 06:00 group keeps missing.
