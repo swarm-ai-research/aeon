@@ -24,6 +24,9 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
+# Use pre-committed binaries when available (avoids pip/curl on every run)
+export PATH="$PWD/.audit-bin:$PATH"
+
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
 # Pin to a specific version for reproducibility — bump this when upgrading.
 ZIZMOR_VERSION="1.25.2"
