@@ -360,4 +360,59 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. git add -A failure → cleanup(true), ok:false, worktree and branch removed.
+//     A git stub passes everything through to the real binary except the `add`
+//     subcommand, which exits 1. Mirrors the existing gh/claude stub pattern.
+{
+  const realGit = spawnSync("which", ["git"], { encoding: "utf8" }).stdout.trim();
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  writeFileSync(
+    join(env.binDir, "git"),
+    `#!/usr/bin/env bash\nif [ "$1" = "add" ]; then\n  echo "simulated git add failure" >&2\n  exit 1\nfi\nexec "${realGit}" "$@"\n`,
+  );
+  chmodSync(join(env.binDir, "git"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "addfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git add failed/);
+    // Worktree must be removed and the ephemeral branch deleted.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after git add failure");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain after git add failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git add failure → ok:false, worktree and branch cleaned up");
+}
+
+// 13. git commit failure → cleanup(true), ok:false, worktree and branch removed.
+//     git add -A succeeds; git commit exits 1. Verifies the second early-return
+//     path in runCodePass (line after the add check).
+{
+  const realGit = spawnSync("which", ["git"], { encoding: "utf8" }).stdout.trim();
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  writeFileSync(
+    join(env.binDir, "git"),
+    `#!/usr/bin/env bash\nif [ "$1" = "commit" ]; then\n  echo "simulated git commit failure" >&2\n  exit 1\nfi\nexec "${realGit}" "$@"\n`,
+  );
+  chmodSync(join(env.binDir, "git"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after git commit failure");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain after git commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure → ok:false, worktree and branch cleaned up");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
