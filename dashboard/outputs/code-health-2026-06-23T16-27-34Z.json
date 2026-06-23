@@ -1,0 +1,31 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "code-health"
+      },
+      "children": [
+        "alert",
+        "instructions"
+      ]
+    },
+    "alert": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "title": "No watched repos configured",
+        "message": "memory/watched-repos.md is missing and environment variable empty. Skill exited per spec, no audit run."
+      }
+    },
+    "instructions": {
+      "type": "Text",
+      "props": {
+        "text": "Add repos to memory/watched-repos.md (one owner/repo per line) to enable",
+        "variant": "body"
+      }
+    }
+  }
+}
