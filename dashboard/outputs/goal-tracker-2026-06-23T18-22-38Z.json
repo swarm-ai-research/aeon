@@ -1,0 +1,166 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker — 2026-06-23",
+        "description": "6 goals — 0 at risk, 0 needs attention, 5 on track, 1 blocked, 0 done (overall → flat)"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_blocked",
+        "stack_blocked",
+        "separator_1",
+        "heading_on_track",
+        "stack_on_track",
+        "separator_2",
+        "heading_caveats",
+        "alert_caveats",
+        "separator_3",
+        "sources_text"
+      ]
+    },
+    "heading_blocked": {
+      "type": "Heading",
+      "props": {
+        "text": "BLOCKED",
+        "level": "h2"
+      }
+    },
+    "stack_blocked": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "goal_blocked_1"
+      ]
+    },
+    "goal_blocked_1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_blocked_1",
+        "text_blocked_1_action"
+      ]
+    },
+    "text_blocked_1": {
+      "type": "Text",
+      "props": {
+        "text": "Open the staged workflow-audit PR from fix/workflow-security-audit-2026-06-21 via PAT — waiting on GH_GLOBAL PAT (Aeon App lacks `workflows` write) since 2026-06-21"
+      }
+    },
+    "text_blocked_1_action": {
+      "type": "Text",
+      "props": {
+        "text": "→ Action: Provision GH_GLOBAL PAT secret, then `gh pr create` on the staged branch",
+        "variant": "lead"
+      }
+    },
+    "heading_on_track": {
+      "type": "Heading",
+      "props": {
+        "text": "ON TRACK",
+        "level": "h2"
+      }
+    },
+    "stack_on_track": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_on_track_1",
+        "text_on_track_2",
+        "text_on_track_3",
+        "text_on_track_4",
+        "text_on_track_5"
+      ]
+    },
+    "text_on_track_1": {
+      "type": "Text",
+      "props": {
+        "text": "File `./generate-skills-json` bugs as structured issues — 0d idle, 3 activity/14d (→ flat)"
+      }
+    },
+    "text_on_track_2": {
+      "type": "Text",
+      "props": {
+        "text": "Confirm first weekly `agi-tracker` run after 2026-06-15 produced a clean PR — 0d idle, 5 activity/14d (→ flat)"
+      }
+    },
+    "text_on_track_3": {
+      "type": "Text",
+      "props": {
+        "text": "Move ISS-001 to resolved after 3 consecutive days of healthy runs — 0d idle, 6 activity/14d (→ flat; day 3/3 eligible to close today)"
+      }
+    },
+    "text_on_track_4": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-006: inspect Actions tab for `planner` + `compute-futures-eda` workflow enablement — 0d idle, 3 activity/14d (new)"
+      }
+    },
+    "text_on_track_5": {
+      "type": "Text",
+      "props": {
+        "text": "Watch for ISS-006 repeat tomorrow morning; if isolated, mark `wontfix` — 0d idle, 4 activity/14d (↑ improving; recurrence confirmed 2026-06-23 — `wontfix` path now ruled out)"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_caveats": {
+      "type": "Heading",
+      "props": {
+        "text": "Operator caveats (status rule says ON TRACK, reality is thinner):",
+        "level": "h3"
+      }
+    },
+    "alert_caveats": {
+      "type": "Alert",
+      "props": {
+        "message": "• generate-skills-json bugs still unfiled despite 3 days of mentions\n• agi-tracker missed 2nd consecutive Monday slot (2026-06-15, 2026-06-22) — no cron-state row yet\n• ISS-001 eligible to close today, but not yet actioned\n• ISS-006 watch goal's premise is moot (recurring not isolated); the inspect goal supersedes it",
+        "type": "warning"
+      }
+    },
+    "sources_text": {
+      "type": "Text",
+      "props": {
+        "text": "Sources: logs=ok, git=ok, gh_pr=ok, gh_issue=ok, cron-state=ok",
+        "variant": "caption"
+      }
+    }
+  }
+}
