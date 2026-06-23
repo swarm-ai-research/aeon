@@ -1,17 +1,16 @@
 ## Summary
 
-**Skill:** `pr-review` re-run with `var=swarm-ai-research/swarm` and the operator's merge-gate policy (BLOCK / REQUEST_CHANGES / APPROVE).
+Executed `skills/pr-review/SKILL.md` against `swarm-ai-research/swarm` under the merge-gate operator policy (APPROVE / REQUEST_CHANGES / BLOCK).
 
-**Outcome:** Both open PRs are at the same head SHAs as the 2026-06-19 reviews and have been re-confirmed every day since (including a prior run earlier today). Per skill skip-rules (dup-SHA + no-pile-on), both are skipped at this commit. The maintainer `rsavitt` has also already weighed in on both.
+- **Scanned:** 2 open PRs (#518, #517 — both by `@go165`)
+- **Reviewed:** 0
+- **Skipped:** 2 (both dup-SHA — unchanged since 2026-06-19, already reviewed at these heads on 2026-06-20, 06-21, and 06-22 twice)
+- **Standing verdicts** (carried forward from prior runs at these same SHAs):
+  - `#518` (79d73af5) — **BLOCK** / 0/5 — `extra="forbid"` schema in `swarm/models/scenario.py` rejects existing scenario YAMLs (16 loader tests fail). Maintainer `rsavitt` CHANGES_REQUESTED 2026-06-19.
+  - `#517` (3149e2bf) — **REQUEST_CHANGES** / 3/5 — ruff I001 import-sort failure in `swarm/replay/__init__.py:3-7` (quality-gate red). Maintainer `rsavitt` COMMENTED 2026-06-19.
+- **Posting:** still log-only — aeon GitHub App lacks PR-write on this repo (prior runs hit 403 `Resource not accessible by integration`).
+- **Notification:** suppressed per skill rule (every PR skipped).
 
-**Standing verdicts under the merge-gate policy** (held authoritative until the next non-dup SHA):
-- `swarm-ai-research/swarm#518` → **BLOCK** (0/5) — `extra="forbid"` schema in `swarm/models/scenario.py` rejects existing scenario YAMLs; 16 loader tests fail at this head.
-- `swarm-ai-research/swarm#517` → **REQUEST_CHANGES** (3/5) — ruff I001 import-sort in `swarm/replay/__init__.py:3-7` fails `quality-gate`; no test coverage for the new diff utility.
+Files modified: `memory/logs/2026-06-23.md` (appended `pr-review` section).
 
-**Posting:** Still log-only — aeon GitHub App has no PR-write on this repo (`Resource not accessible by integration` 403 on every prior attempt). Will retry on the next non-dup SHA.
-
-**Notification:** Skipped per skill rule (every PR skipped).
-
-**Files modified:** `memory/logs/2026-06-22.md` (appended re-run entry).
-
-**Follow-up:** Grant the aeon GitHub App PR-review/write scope on `swarm-ai-research/swarm` so the standing verdicts can publish.
+Follow-up: verdicts will be republished automatically when either PR receives a new commit (new headRefOid breaks the dup-SHA skip), assuming write access is granted.
