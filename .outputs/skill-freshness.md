@@ -1,16 +1,18 @@
-Done. Here's the summary:
-
 ## Summary
 
-**Verdict: ✅ FRESHNESS_OK**
+**Verdict: ✅ FRESHNESS_OK** — no notification sent (silence is the signal).
 
-- **Audited**: 44 enabled skills, 9 tracked dependencies, 0 flagged
-- **Chains**: no active `consume:` edges (daily-routine chain is commented out)
-- **All 9 deps are within thresholds**: topics (0h vs 168h), state files (0h vs 720h), and the weekly vuln-scanner article (0h vs 192h). On-disk mtimes reflect the git checkout at 09:05:28 UTC; even measuring by actual git-commit age (~3h 42m), every dep clears its threshold.
-- **Dedup**: fingerprint unchanged from yesterday's run (`da39a3ee…` — sha1 of empty flagged set); however FRESHNESS_OK always suppresses notification regardless.
-- **Notification**: none sent — silence is the signal for a clean fleet.
+**Audited:** 44 enabled skills · 9 dependencies · 0 flagged
+
+All 9 tracked dependencies are within their freshness thresholds:
+- 4 `memory/topics/*.md` files (168h threshold) — all fresh
+- 3 `memory/state/*.json` files (720h threshold) — all fresh
+- 1 `articles/vuln-scan-2026-06-20.md` (weekly producer, 192h threshold) — ~64h old by estimated commit age, well within window
+- 35 enabled consumers have no discovered implicit deps
 
 **Files written:**
-- `articles/skill-freshness-2026-06-21.md` — today's report (corrects vuln-scanner threshold from 28h → 192h, since it's a weekly skill)
-- `memory/topics/skill-freshness-state.json` — state updated with `last_run_at: 2026-06-21T09:07:00Z`
-- `memory/logs/2026-06-21.md` — log block appended
+- `articles/skill-freshness-2026-06-23.md` — report
+- `memory/topics/skill-freshness-state.json` — state updated (`last_run_at` bumped, fingerprint unchanged)
+- `memory/logs/2026-06-23.md` — log entry appended
+
+No chains: consume: edges exist (daily-routine chain is still commented out). The mtime-based ages all read 0h due to git checkout timing; by estimated commit age the oldest dependency (vuln-scan, 3 days) clears its 192h weekly threshold with ~128h to spare.
