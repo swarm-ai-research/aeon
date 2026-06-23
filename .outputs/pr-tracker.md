@@ -1,12 +1,13 @@
 ## Summary
 
-Ran `pr-tracker` skill.
+Executed `pr-tracker` skill for 2026-06-23.
 
-- **Config**: AUTHOR=`aeonframework` (no `pr_tracker:` block in `aeon.yml`, no env override; resolved via git user — token lacks `read:user` so `gh api user` 403s, fell back to known operator handle). BRANCH_PREFIX=`ai/`. BOT_EMAIL unset.
-- **Fetch**: GraphQL `author:aeonframework is:pr` → `issueCount: 0`. No PRs to categorize.
-- **Categories**: 0 recent merges, 0 stale open, 0 active open, 0 closed-no-merge.
-- **Notification**: Skipped per step 5 (all zero).
+- **Author**: `aeonframework` (no `pr_tracker.author` in `aeon.yml`; `gh api user` returns 403 for GitHub App, so used the value already in `memory/topics/pr-status.md`).
+- **Branch prefix**: `ai/` (default).
+- **GraphQL primary**: `issueCount: 0`. **Fallback `gh search prs`** (open / merged / closed): `0 / 0 / 0`.
+- **Categorization**: merged-7d=0, stale-open>7d=0, active-open=0, closed-no-merge-7d=0.
+- **Notification**: skipped per SKILL rule (all categories empty).
 - **Files modified**:
-  - `memory/topics/pr-status.md` — bumped *Last updated* to 2026-06-22.
-  - `memory/logs/2026-06-22.md` — appended `## PR Tracker` block with `PR_TRACKER_OK`.
-- **Follow-up**: If aeon-originated PRs are expected to be tracked under a different handle (e.g. commits authored by a bot email but PRs filed under a different account), set `pr_tracker.author:` in `aeon.yml` or `AEON_PR_AUTHOR` env.
+  - `memory/topics/pr-status.md` — refreshed timestamp to 2026-06-23, kept "none" tables, added note about broken fallback queries.
+  - `memory/logs/2026-06-23.md` — appended PR Tracker section, `PR_TRACKER_OK`.
+- **Follow-up flagged** (not auto-fixed): `skills/pr-tracker/SKILL.md` fallback queries reference unsupported `headRefName` JSON field and invalid `--state merged`; current `gh` CLI rejects both. Should patch to use `--merged` flag and drop `headRefName` (or rely solely on the GraphQL primary, which works).
