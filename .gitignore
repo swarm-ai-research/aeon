@@ -60,5 +60,8 @@ node_modules/
 vuln-scan-work/
 
 # Stray local audit/debug artifacts (never commit)
+# Note: .audit-bin/ is intentionally NOT ignored — it holds pre-committed
+# zizmor and actionlint binaries so workflow-security-audit runs without
+# network access inside the GitHub Actions sandbox.
 .audit-tmp/
 .audit*.py
