@@ -1,22 +1,18 @@
-*Goal Tracker — 2026-06-23*
+Goal-tracker complete. Skipping MEMORY.md edit per spec (no status changes vs prior snapshot).
 
-Summary: 6 goals — 0 at risk, 0 needs attention, 5 on track, 1 blocked, 0 done (overall → flat)
+## Summary
 
-BLOCKED
-• Open the staged workflow-audit PR from `fix/workflow-security-audit-2026-06-21` via PAT — waiting on GH_GLOBAL PAT (Aeon App lacks `workflows` write) since 2026-06-21
-  → Action: Provision GH_GLOBAL PAT secret, then `gh pr create` on the staged branch
+Ran the goal-tracker skill against the 6 goals in `memory/MEMORY.md`'s `## Next priorities` section (no `## Goals` section — used documented fallback).
 
-ON TRACK
-• File `./generate-skills-json` bugs as structured issues — 0d idle, 3 activity/14d (→ flat)
-• Confirm first weekly `agi-tracker` run after 2026-06-15 produced a clean PR — 0d idle, 5 activity/14d (→ flat)
-• Move ISS-001 to resolved after 3 consecutive days of healthy runs — 0d idle, 6 activity/14d (→ flat; day 3/3 eligible to close today)
-• ISS-006: inspect Actions tab for `planner` + `compute-futures-eda` workflow enablement — 0d idle, 3 activity/14d (new)
-• Watch for ISS-006 repeat tomorrow morning; if isolated, mark `wontfix` — 0d idle, 4 activity/14d (↑ improving; recurrence confirmed 2026-06-23 — `wontfix` path now ruled out)
+**Scoring**: 5 ON TRACK, 1 BLOCKED, 0 at risk / needs attention / done. Overall trend: flat with 2 improving (ISS-006 inspect — today's batch-health narrowed the hypothesis to a 06:00–06:30 hour-field-`6` matcher bug; generate-skills-json — by mention count only, ISS-NNN file still uncreated).
 
-Operator caveats (status rule says ON TRACK, reality is thinner):
-- generate-skills-json bugs still unfiled despite 3 days of mentions
-- agi-tracker missed 2nd consecutive Monday slot (2026-06-15, 2026-06-22) — no cron-state row yet
-- ISS-001 eligible to close today, but not yet actioned
-- ISS-006 watch goal's premise is moot (recurring not isolated); the inspect goal supersedes it
+**Single action proposed** (only BLOCKED goal gets one): Add `GH_GLOBAL` PAT with workflows-write so Aeon can open the staged `fix/workflow-security-audit-2026-06-21` branch.
 
-Sources: logs=ok, git=ok, gh_pr=ok, gh_issue=ok, cron-state=ok
+**Files written**:
+- `memory/goal-state.json` — overwrote with 2026-06-24 snapshot (6 goals)
+- `memory/logs/2026-06-24.md` — appended `### goal-tracker` entry with status, trend, sources, and operator caveats
+- `.pending-notify/goal-tracker-2026-06-24.md` — full formatted report (sandbox blocked `./notify "$(cat ...)"` command substitution, so used the documented `.pending-notify/` fallback)
+
+**MEMORY.md**: untouched per spec — no status changes vs the 2026-06-23 prior snapshot (4 continuing goals all held; 2 new goals already present from the 2026-06-23 reflect; no DONE moves, no new BLOCKED annotations).
+
+**Caveat for operator**: 2 of 5 ON TRACK verdicts are mention-only carry-over (generate-skills-json bugs, agi-tracker 2nd-Mon-miss confirmation) — strict per-rule classification masks under-delivery. The pr-tracker SKILL patch and ISS-006 messages.yml inspection also remain code-side untouched despite improving activity scores.
