@@ -1,0 +1,151 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges",
+        "description": "3 missing links proposed, branch pushed for manual PR creation"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "findings-section",
+        "sep1",
+        "branch-section",
+        "sep2",
+        "issue-alert",
+        "sep3",
+        "action-section"
+      ]
+    },
+    "findings-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "findings-heading",
+        "findings-content"
+      ]
+    },
+    "findings-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Findings",
+        "level": "h3"
+      }
+    },
+    "findings-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-count",
+        "badge-top"
+      ]
+    },
+    "stat-count": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3"
+      }
+    },
+    "badge-top": {
+      "type": "Badge",
+      "props": {
+        "text": "Top: ISS-002",
+        "variant": "secondary"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "branch-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "branch-heading",
+        "branch-badge"
+      ]
+    },
+    "branch-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Branch Pushed",
+        "level": "h3"
+      }
+    },
+    "branch-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "suggest-edges/2026-06-24",
+        "variant": "outline"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issue-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Creation Failed",
+        "message": "gh pr create denied (Actions can't open PRs — same GH_GLOBAL PAT gap as the workflow-audit)",
+        "type": "warning"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "action-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "action-heading",
+        "pr-link"
+      ]
+    },
+    "action-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Manual Action",
+        "level": "h3"
+      }
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Open PR manually",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-06-24"
+      }
+    }
+  }
+}
