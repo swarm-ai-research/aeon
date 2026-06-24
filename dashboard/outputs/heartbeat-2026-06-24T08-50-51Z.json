@@ -1,0 +1,169 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Heartbeat"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert_degraded",
+        "section_iss006",
+        "sep1",
+        "section_recovered",
+        "sep2",
+        "section_stuck",
+        "sep3",
+        "footer"
+      ]
+    },
+    "alert_degraded": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "🔴 DEGRADED",
+        "message": "4 open issues"
+      }
+    },
+    "section_iss006": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_iss006",
+        "text_window_silent",
+        "text_diagnosis",
+        "text_day4"
+      ]
+    },
+    "badge_iss006": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-006 refinement",
+        "variant": "destructive"
+      }
+    },
+    "text_window_silent": {
+      "type": "Text",
+      "props": {
+        "text": "06:00–06:30 window still silent"
+      }
+    },
+    "text_diagnosis": {
+      "type": "Text",
+      "props": {
+        "text": "Cron-tick drop narrowed to the 06:00–06:30 messages.yml window only",
+        "variant": "caption"
+      }
+    },
+    "text_day4": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-006 day 4",
+        "variant": "caption"
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "section_recovered": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_recovered",
+        "text_notegraph",
+        "text_suggest_edges"
+      ]
+    },
+    "heading_recovered": {
+      "type": "Heading",
+      "props": {
+        "text": "05:00 Batch — ✓ RECOVERED",
+        "level": "h3"
+      }
+    },
+    "text_notegraph": {
+      "type": "Text",
+      "props": {
+        "text": "notegraph 05:59"
+      }
+    },
+    "text_suggest_edges": {
+      "type": "Text",
+      "props": {
+        "text": "suggest-edges 05:56 today"
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "section_stuck": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_stuck",
+        "text_stuck_services",
+        "text_stuck_date"
+      ]
+    },
+    "heading_stuck": {
+      "type": "Heading",
+      "props": {
+        "text": "Stuck Services",
+        "level": "h3"
+      }
+    },
+    "text_stuck_services": {
+      "type": "Text",
+      "props": {
+        "text": "planner, compute-futures-eda, memory-flush, memory-structural-dedupe"
+      }
+    },
+    "text_stuck_date": {
+      "type": "Text",
+      "props": {
+        "text": "All stuck since 2026-06-20",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator"
+    },
+    "footer": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_open_issues"
+      ]
+    },
+    "stat_open_issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "4"
+      }
+    }
+  }
+}
