@@ -1,0 +1,90 @@
+{
+  "root": "card_notegraph",
+  "state": {},
+  "elements": {
+    "card_notegraph": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph Updated"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_update",
+        "stack_stats",
+        "link_branch",
+        "alert_perms"
+      ]
+    },
+    "text_update": {
+      "type": "Text",
+      "props": {
+        "text": "Notegraph updated — +3 notes wired in",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "stack_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_notes",
+        "stat_edges",
+        "stat_breaks"
+      ]
+    },
+    "stat_notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "65"
+      },
+      "children": []
+    },
+    "stat_edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "462"
+      },
+      "children": []
+    },
+    "stat_breaks": {
+      "type": "Stat",
+      "props": {
+        "label": "Breaks",
+        "value": "0"
+      },
+      "children": []
+    },
+    "link_branch": {
+      "type": "StoryLink",
+      "props": {
+        "title": "View branch on GitHub",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-06-24",
+        "source": "GitHub"
+      },
+      "children": []
+    },
+    "alert_perms": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Creation Blocked",
+        "message": "PR creation blocked by Actions perms",
+        "type": "warning"
+      },
+      "children": []
+    }
+  }
+}
