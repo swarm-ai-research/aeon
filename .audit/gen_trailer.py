@@ -11,7 +11,7 @@ import hashlib
 import os
 from collections import defaultdict, Counter
 
-d = json.load(open('.audit/final.json'))
+d = json.load(open('.audit/final2.json'))
 findings = d['findings']
 
 def base(p):
