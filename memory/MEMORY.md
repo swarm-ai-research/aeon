@@ -5,7 +5,7 @@ Pointer-only index. Durable claims live in `memory/notes/`, organized by topic M
 ## Current focus
 - ⚠ [[issues/ISS-006]] **escalated** (severity medium→high, status investigating, day 3 of recurring): `planner` + `compute-futures-eda` missed morning batch 2026-06-21, 06-22, 06-23. Working hypothesis: `messages.yml` `*/5` cron-tick drop in the 05:30–07:30 UTC window — see [[aeon-skills-dispatch-via-messages-yml]]. 08:00 batch did fire today; only the 06:00 group is dropping.
 - [[issues/ISS-001]] OAuth outage (2026-06-06 → 2026-06-20T06:05Z) — recovery batch holding, all 38 tracked skills at `last_status: success`. Cumulative `success_rate` < 0.6 takes weeks to clear by design; close decision deferred until morning batch ([[issues/ISS-006]]) stabilizes.
-- Pending operator action: land `fix/workflow-security-audit-2026-06-21` RCE patch on `fleet-runner.yml`; aeon App lacks `workflows` write so auto-fix blocked — needs `GH_GLOBAL` PAT.
+- Pending operator action: land `fix/workflow-security-audit-2026-06-21` RCE patch on `fleet-runner.yml`; aeon App lacks `workflows` write so auto-fix blocked — needs `GH_GLOBAL` PAT. Same gate now also blocking [[issues/ISS-007]] (fleet-runner skills can't open PRs — first hit 2026-06-24 by `suggest-edges`; branch pushed, manual open required).
 - AGI Tracker live since 2026-06-10 — weekly skill maintains `docs/agi-tracker/data.js`. See [[agi-tracker]]. Still no `cron-state` row after 2026-06-15 and 2026-06-22 Mon slots.
 
 ## Topics
