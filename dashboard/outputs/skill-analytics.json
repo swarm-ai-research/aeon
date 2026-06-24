@@ -1,62 +1,47 @@
 {
   "version": "1",
-  "generated_at": "2026-06-20T06:08:00Z",
+  "generated_at": "2026-06-24T19:22:00Z",
   "skill": "skill-analytics",
-  "title": "Skill Analytics — 2026-06-20",
+  "title": "Skill Analytics — 2026-06-24",
   "spec": {
     "type": "Stack",
     "props": {"direction": "vertical", "gap": "md"},
     "children": [
-      {"type": "Alert", "props": {"variant": "destructive", "children": "44 anomaly flag(s) raised — 6 🔴 SILENT + 38 🟠 CONSECUTIVE_FAILURES — see Anomalies section"}},
-      {"type": "Heading", "props": {"level": 2, "children": "Skill Analytics — 2026-06-20"}},
-      {"type": "Text", "props": {"variant": "muted", "children": "6 scheduled skill(s) didn't run this window — agi-tracker"}},
+      {"type": "Alert", "props": {"variant": "destructive", "children": "43 anomaly flag(s) raised — 5 🔴 SILENT + 38 🟠 LOW_SUCCESS (ISS-001 residue) — see Anomalies section"}},
+      {"type": "Heading", "props": {"level": 2, "children": "Skill Analytics — 2026-06-24"}},
+      {"type": "Text", "props": {"variant": "muted", "children": "5 scheduled skill(s) didn't run this window — agi-tracker"}},
       {"type": "Grid", "props": {"columns": 4, "gap": "sm"}, "children": [
         {"type": "Card", "props": {"children": [
           {"type": "Text", "props": {"variant": "muted", "children": "Total runs"}},
-          {"type": "Heading", "props": {"level": 3, "children": "942"}}
+          {"type": "Heading", "props": {"level": 3, "children": "862"}}
         ]}},
         {"type": "Card", "props": {"children": [
           {"type": "Text", "props": {"variant": "muted", "children": "Active skills"}},
-          {"type": "Heading", "props": {"level": 3, "children": "38"}}
+          {"type": "Heading", "props": {"level": 3, "children": "39"}}
         ]}},
         {"type": "Card", "props": {"children": [
           {"type": "Text", "props": {"variant": "muted", "children": "Success rate"}},
-          {"type": "Heading", "props": {"level": 3, "children": "1.1%"}}
+          {"type": "Heading", "props": {"level": 3, "children": "13.0%"}}
         ]}},
         {"type": "Card", "props": {"children": [
           {"type": "Text", "props": {"variant": "muted", "children": "Anomalies"}},
-          {"type": "Heading", "props": {"level": 3, "children": "44"}}
+          {"type": "Heading", "props": {"level": 3, "children": "43"}}
         ]}}
       ]},
-      {"type": "Heading", "props": {"level": 3, "children": "Anomalies"}},
+      {"type": "Heading", "props": {"level": 3, "children": "Silent scheduled skills"}},
       {"type": "Table", "props": {
         "columns": [
           {"key": "flag", "header": "Flag"},
           {"key": "skill", "header": "Skill"},
-          {"key": "detail", "header": "Detail"},
-          {"key": "action", "header": "Action"}
+          {"key": "schedule", "header": "Schedule"},
+          {"key": "note", "header": "Note"}
         ],
         "rows": [
-          {"flag": "🔴 SILENT", "skill": "agi-tracker", "detail": "scheduled `0 13 * * 1` — zero runs in window", "action": "check workflow / scheduler"},
-          {"flag": "🔴 SILENT", "skill": "config-validator", "detail": "scheduled `0 7 * * 0` — zero runs in window", "action": "check workflow / scheduler"},
-          {"flag": "🔴 SILENT", "skill": "ai-framework-watch", "detail": "scheduled `30 8 * * 1` — zero runs in window", "action": "check workflow / scheduler"},
-          {"flag": "🔴 SILENT", "skill": "swarm-safety-eval", "detail": "scheduled `30 7 * * 0` — zero runs in window", "action": "check workflow / scheduler"},
-          {"flag": "🔴 SILENT", "skill": "run-frequency-guard", "detail": "scheduled `0 23 * * *` — zero runs in window", "action": "check workflow / scheduler"},
-          {"flag": "🔴 SILENT", "skill": "weekly-shiplog", "detail": "scheduled `0 9 * * 1` — zero runs in window", "action": "check workflow / scheduler"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "compute-futures-eda", "detail": "202-run streak (success_rate: 0)", "action": "see skill-health for filed issue"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "pr-review", "detail": "196-run streak (success_rate: 0)", "action": "see skill-health for filed issue"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "gitlawb-fleet-metrics", "detail": "196-run streak (success_rate: 0)", "action": "see skill-health for filed issue"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "skill-health", "detail": "195-run streak (success_rate: 0)", "action": "see skill-health for filed issue"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "skill-analytics", "detail": "188-run streak (success_rate: 0)", "action": "see skill-health for filed issue"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "notegraph", "detail": "188-run streak (success_rate: 0)", "action": "see skill-health for filed issue"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "suggest-edges", "detail": "187-run streak (success_rate: 0)", "action": "see skill-health for filed issue"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "goal-tracker", "detail": "185-run streak (success_rate: 0)", "action": "see skill-health for filed issue"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "reflect", "detail": "185-run streak (success_rate: 0)", "action": "see skill-health for filed issue"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "code-health", "detail": "184-run streak (success_rate: 0)", "action": "see skill-health for filed issue"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "pr-tracker", "detail": "181-run streak (success_rate: 0)", "action": "see skill-health for filed issue"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "surplus-pulse", "detail": "180-run streak (success_rate: 0)", "action": "see skill-health for filed issue"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "issue-triage", "detail": "178-run streak (success_rate: 0)", "action": "see skill-health for filed issue"},
-          {"flag": "🟠 CONSECUTIVE_FAILURES", "skill": "github-monitor", "detail": "176-run streak (success_rate: 0)", "action": "see skill-health for filed issue"}
+          {"flag": "🔴 SILENT", "skill": "agi-tracker", "schedule": "0 13 * * 1", "note": "Mon 13:00 UTC — 2nd consecutive Mon miss"},
+          {"flag": "🔴 SILENT", "skill": "config-validator", "schedule": "0 7 * * 0", "note": "Sun 07:00 UTC — ISS-006 window"},
+          {"flag": "🔴 SILENT", "skill": "swarm-safety-eval", "schedule": "30 7 * * 0", "note": "Sun 07:30 UTC — ISS-006 window"},
+          {"flag": "🔴 SILENT", "skill": "ai-framework-watch", "schedule": "30 8 * * 1", "note": "Mon 08:30 UTC — unconfirmed cause"},
+          {"flag": "🔴 SILENT", "skill": "run-frequency-guard", "schedule": "0 23 * * *", "note": "Never dispatched since enable"}
         ]
       }},
       {"type": "Heading", "props": {"level": 3, "children": "Top runners"}},
@@ -70,23 +55,25 @@
           {"key": "exit", "header": "Dominant exit"}
         ],
         "rows": [
-          {"rank": "1", "skill": "changelog", "runs": "25", "success": "4%", "last_status": "success", "exit": "uncategorized"},
-          {"rank": "2", "skill": "code-health", "runs": "25", "success": "4%", "last_status": "success", "exit": "uncategorized"},
-          {"rank": "3", "skill": "github-monitor", "runs": "25", "success": "4%", "last_status": "success", "exit": "uncategorized"},
-          {"rank": "4", "skill": "goal-tracker", "runs": "25", "success": "4%", "last_status": "success", "exit": "uncategorized"},
-          {"rank": "5", "skill": "repo-revive", "runs": "25", "success": "4%", "last_status": "success", "exit": "uncategorized"},
-          {"rank": "6", "skill": "compute-futures-eda", "runs": "25", "success": "0%", "last_status": "pending", "exit": "uncategorized"},
-          {"rank": "7", "skill": "compute-macro-correlate", "runs": "25", "success": "0%", "last_status": "pending", "exit": "uncategorized"},
-          {"rank": "8", "skill": "compute-pulse", "runs": "25", "success": "0%", "last_status": "pending", "exit": "uncategorized"},
-          {"rank": "9", "skill": "cost-report", "runs": "25", "success": "0%", "last_status": "pending", "exit": "uncategorized"},
-          {"rank": "10", "skill": "fleet-control", "runs": "25", "success": "0%", "last_status": "pending", "exit": "uncategorized"},
-          {"rank": "11", "skill": "gitlawb-fleet-metrics", "runs": "25", "success": "0%", "last_status": "pending", "exit": "uncategorized"},
-          {"rank": "12", "skill": "heartbeat", "runs": "25", "success": "0%", "last_status": "pending", "exit": "uncategorized"},
-          {"rank": "13", "skill": "milestone-tracker", "runs": "25", "success": "0%", "last_status": "pending", "exit": "uncategorized"},
-          {"rank": "14", "skill": "notegraph", "runs": "25", "success": "0%", "last_status": "pending", "exit": "uncategorized"},
-          {"rank": "15", "skill": "pr-review", "runs": "25", "success": "0%", "last_status": "pending", "exit": "uncategorized"}
+          {"rank": "1", "skill": "pr-review", "runs": "28", "success": "28.6%", "last_status": "pending", "exit": "ok"},
+          {"rank": "2", "skill": "goal-tracker", "runs": "26", "success": "19.2%", "last_status": "pending", "exit": "ok"},
+          {"rank": "3", "skill": "reflect", "runs": "26", "success": "19.2%", "last_status": "pending", "exit": "ok"},
+          {"rank": "4", "skill": "skill-health", "runs": "26", "success": "19.2%", "last_status": "pending", "exit": "uncategorized"},
+          {"rank": "5", "skill": "gitlawb-fleet-metrics", "runs": "25", "success": "20.0%", "last_status": "success", "exit": "uncategorized"},
+          {"rank": "6", "skill": "heartbeat", "runs": "25", "success": "20.0%", "last_status": "success", "exit": "ok"},
+          {"rank": "7", "skill": "pr-tracker", "runs": "25", "success": "24.0%", "last_status": "success", "exit": "ok"},
+          {"rank": "8", "skill": "skill-freshness", "runs": "25", "success": "20.0%", "last_status": "success", "exit": "ok"},
+          {"rank": "9", "skill": "batch-health", "runs": "24", "success": "20.8%", "last_status": "success", "exit": "ok"},
+          {"rank": "10", "skill": "code-health", "runs": "24", "success": "20.8%", "last_status": "success", "exit": "uncategorized"},
+          {"rank": "11", "skill": "fleet-control", "runs": "24", "success": "16.7%", "last_status": "success", "exit": "uncategorized"},
+          {"rank": "12", "skill": "stale-content-pr-sweeper", "runs": "24", "success": "20.8%", "last_status": "success", "exit": "ok"},
+          {"rank": "13", "skill": "github-monitor", "runs": "23", "success": "17.4%", "last_status": "success", "exit": "uncategorized"},
+          {"rank": "14", "skill": "issue-triage", "runs": "23", "success": "17.4%", "last_status": "success", "exit": "ok"},
+          {"rank": "15", "skill": "notegraph", "runs": "23", "success": "13.0%", "last_status": "success", "exit": "uncategorized"}
         ]
-      }}
+      }},
+      {"type": "Heading", "props": {"level": 3, "children": "Fleet context"}},
+      {"type": "Text", "props": {"variant": "muted", "children": "Low success rates fleet-wide are ISS-001 residue (OAuth outage 2026-06-06→20). All 39 skills show last_status: success or pending (in-progress) and consecutive_failures: 0. Success rates will recover over ~3–4 weeks as the historical denominator fills with clean runs."}}
     ]
   }
 }
