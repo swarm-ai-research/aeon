@@ -4,7 +4,7 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 
 ## Open incidents
 - [[issues/ISS-001]] — CLAUDE_CODE_OAUTH_TOKEN missing 2026-06-06 → 2026-06-20T06:05Z; investigating. Close deferred while [[issues/ISS-006]] runs; recovery batch is otherwise holding.
-- [[issues/ISS-006]] — Morning-batch silence on 2026-06-21, 06-22, 06-23 (planner + compute-futures-eda + earlier 05:00–07:30 UTC window). Severity high, status investigating. Working hypothesis: `messages.yml` `*/5` cron-tick drop in the 06:00 window — see [[aeon-skills-dispatch-via-messages-yml]]. 08:00 batch fired today; only the early window is affected.
+- [[issues/ISS-006]] — Morning-batch silence day 4: today (2026-06-24) the 05:00 + 05:30 daily skills recovered while 06:00–06:30 stayed dead. Refined hypothesis is a hour-field bug in the `messages.yml` schedule-matcher specifically around `6` — see [[narrow-cron-pocket-vs-window-drop]] + [[aeon-skills-dispatch-via-messages-yml]].
 
 ## Lessons (durable)
 - [[oauth-outage-zero-token-signature]] — zero-token `result_json` = missing CLI auth, not a model error
@@ -15,21 +15,22 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 - [[gha-inputs-unquoted-shell-rce]] — `inputs.*` flowing unquoted into `run:` shell commands is an RCE channel
 - [[sandbox-blocks-piped-curl-installers]] — sandbox blocks `bash <(curl)` installers; audit skills degrade to hand-rolled fallbacks
 - [[aeon-skills-dispatch-via-messages-yml]] — no per-skill workflow files; a window-wide silence implicates `messages.yml`, not per-skill auto-disable
+- [[narrow-cron-pocket-vs-window-drop]] — a recurring ~30-min pocket silence with clean neighbors is a schedule-matcher bug, not a tick drop
 - [[gh-search-prs-api-drift]] — `gh search prs` dropped `--state merged` and `headRefName`; SKILL.md fallback queries need patching
 
-## Snapshot (2026-06-23)
+## Snapshot (2026-06-24)
 | Signal | Value |
 |---|---|
-| Today's status | 🔴 DEGRADED — recurring morning-batch silence (ISS-006 day 3); 08:00 batch fired, 06:00 group still missing |
+| Today's status | 🔴 DEGRADED — ISS-006 day 4; dead zone narrowed to 06:00–06:30 UTC pocket (05:00 + 05:30 recovered) |
 | Cron-state | all 38 tracked skills at `last_status: success`, `consecutive_failures: 0`; cumulative `success_rate` still <0.6 (ISS-001 backlog) |
-| Heartbeat self-check | STALE on entry — last_success 2026-06-21T09:08:51Z (~47h); this run resumes the trail |
-| Enabled skills | 44 (38 with cron-state rows; 5 never dispatched — `weekly-shiplog` moved to HEALTHY 2026-06-22) |
-| Open issues | 4 on disk, 4 in INDEX.md (ISS-006 added 2026-06-23 to close the prior drift) |
+| Heartbeat self-check | OK on entry — last_success 2026-06-23T08:09:43Z (~24h 38m), well under 36h threshold; this run was ~47m late vs 08:00 dispatch |
+| Enabled skills | 44 (38 with cron-state rows; 5 never dispatched: agi-tracker, ai-framework-watch, config-validator, run-frequency-guard, swarm-safety-eval) |
+| Open issues | 4 on disk, 4 in INDEX.md (ISS-001, 002, 005, 006); INDEX.md title for ISS-006 bumped today |
 | Resolved | ISS-003 (cost-report), ISS-004 (skill-health) — both lifted on OAuth restore |
 | `last_error` cron-state field | still storing JSON tail (cost block) instead of stderr — orthogonal logging bug |
-| Pending branches | `fix/workflow-security-audit-2026-06-21` (RCE patch, blocked by App `workflows` write perm); `notegraph/2026-06-21` (+9n/+65e) |
-| Notegraph state | 61 nodes · 383 edges · 1 orphan · 0 bundled (2026-06-22 post-reflect) |
-| 2026-06-23 activity | skill-freshness OK · sweeper OK · gitlawb-fleet-metrics empty · heartbeat resumed (STALE → DEGRADED) · batch-health WARN→recurring · code-health no-repos · pr-tracker OK (gh CLI drift patched inline) |
+| Pending branches | `fix/workflow-security-audit-2026-06-21` (RCE patch, blocked by App `workflows` write perm); `notegraph/2026-06-24` (+3n/+46e) |
+| Notegraph state | 65 nodes · 343 hard · 119 soft · 1 orphan · 0 bundled (2026-06-24 morning notegraph run) |
+| 2026-06-24 activity | notegraph +3n/+46e · gitlawb-fleet-metrics empty · batch-health OUTAGE (4 missing, ISS-006 day-4) · heartbeat DEGRADED ~47m late · skill-freshness OK · code-health SKIPPED · pr-tracker OK · surplus-pulse catalog |
 
 ## Permission constraints (current)
 - aeon GitHub App: no write on `swarm-ai-research/swarm` (labels, comments, reviews 403). Verdicts run, posts blocked.
