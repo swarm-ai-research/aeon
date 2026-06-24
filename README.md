@@ -352,6 +352,7 @@ scripts/
   postprocess-replicate.sh ← generate images via Replicate after Claude runs
   skill-runs             ← audit recent GitHub Actions skill runs
   sync-site-data.sh      ← sync memory/logs to docs site data
+.audit-bin/              ← pre-fetched scanner binaries (actionlint, zizmor) for workflow-security-audit; avoids pip/curl inside the sandbox
 .github/workflows/
   aeon.yml               ← skill runner (workflow_dispatch, issues, quality scoring)
   chain-runner.yml       ← skill chain executor (parallel + sequential pipelines)
