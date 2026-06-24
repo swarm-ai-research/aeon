@@ -60,5 +60,8 @@ node_modules/
 vuln-scan-work/
 
 # Stray local audit/debug artifacts (never commit)
+# .audit-bin/ is intentionally tracked — pre-cached scanner binaries for sandbox runs.
 .audit-tmp/
+.audit/
 .audit*.py
+.audit-tools/
