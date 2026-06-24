@@ -360,4 +360,54 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. gh pr list returns valid JSON but not an array (e.g. an object) —
+//     openPRsForKind hits !Array.isArray(arr) → returns null → gate skipped →
+//     pass proceeds. This is distinct from test 11 (gh exits non-zero) and from
+//     the incidental invalid-JSON path exercised by the default gh stub.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{"prs":[]}'; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nonarrjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns non-array JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list non-array JSON → !Array.isArray → null backlog → pass proceeds");
+}
+
+// 13. extractSummary fallback: when claude's final line exceeds 400 chars the
+//     function falls through to `lines.slice(-3).join(" ").slice(0, 400)`.
+//     Verify the returned summary is capped at 400 chars.
+{
+  const CLAUDE_LONG_SUMMARY_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+echo "changed" >> "$(pwd)/lib.mjs"
+printf '%401s' '' | tr ' ' 'A'
+echo
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_LONG_SUMMARY_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/13"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "longsum" })
+    );
+    assert.equal(result.ok, true, `expected ok=true with long summary, got ${JSON.stringify(result)}`);
+    assert.ok(result.prUrl !== null, "should have opened a PR");
+    assert.ok(result.summary !== undefined, "summary should be defined");
+    assert.ok(result.summary.length <= 400, `summary exceeds 400 chars: ${result.summary.length}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  extractSummary truncates long final line to ≤ 400 chars");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
