@@ -360,4 +360,77 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. openPRsForKind — gh pr list exits 0 but returns malformed (non-JSON)
+//     output → JSON.parse throws → catch block returns null → gate skipped →
+//     pass proceeds. Tests the catch-return-null branch in openPRsForKind.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "not-valid-json at all"; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "malformed" })
+    );
+    assert.equal(result.ok, true, `expected ok=true on malformed gh pr list, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list malformed JSON (exit 0) → catch → null backlog → pass proceeds");
+}
+
+// 13. openPRsForKind — gh pr list exits 0 and returns valid JSON that is not
+//     an array → !Array.isArray check returns null → gate skipped → proceeds.
+//     Tests the non-array branch distinct from the catch branch.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{"error":"not an array"}'; exit 0; fi\necho "https://github.com/stub/repo/pull/88"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nonarray" })
+    );
+    assert.equal(result.ok, true, `expected ok=true on non-array gh pr list, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/88");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list non-array JSON → !Array.isArray → null backlog → pass proceeds");
+}
+
+// 14. git commit failure — a pre-commit hook installed in the main repo's
+//     .git/hooks/ is shared with all its worktrees. When it rejects every
+//     commit, runCodePass must return ok:false, remove the worktree, and never
+//     reach git push or gh pr create.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "gh should not have been called: $@" >&2\nexit 99\n`,
+  });
+  // Pre-commit hooks are shared between a repo and all its linked worktrees
+  // because worktrees resolve hooks relative to the main .git/hooks/ dir.
+  const hooksDir = join(env.localDir, ".git", "hooks");
+  mkdirSync(hooksDir, { recursive: true });
+  writeFileSync(join(hooksDir, "pre-commit"), "#!/usr/bin/env bash\necho 'rejected by pre-commit hook' >&2\nexit 1\n");
+  chmodSync(join(hooksDir, "pre-commit"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be cleaned up even though the commit was rejected.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no stray worktree after commit failure");
+    // Push was never attempted so no aeon/* branch should appear on the remote.
+    const refs = spawnSync("git", ["ls-remote", env.remoteDir], { encoding: "utf8" }).stdout;
+    assert.doesNotMatch(refs, /aeon\/test-pass-/, "branch must not reach remote when commit fails");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, worktree removed, no remote branch");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
