@@ -172,6 +172,9 @@ LOW_PATTERNS=(
   '>[[:space:]]+/'
 )
 
+# Convert stdin lines to a JSON array, filtering blanks.
+arr_to_json() { jq -R -s 'split("\n") | map(select(length > 0))'; }
+
 # ---------- Scanner ----------
 
 TOTAL_PASS=0
@@ -254,13 +257,13 @@ scan_file() {
   if [[ "$JSON_OUTPUT" == "true" ]]; then
     local json_highs="[]" json_mediums="[]" json_lows="[]"
     if [[ ${#highs[@]} -gt 0 ]]; then
-      json_highs=$(printf '%s\n' "${highs[@]}" | jq -R -s 'split("\n") | map(select(length > 0))')
+      json_highs=$(printf '%s\n' "${highs[@]}" | arr_to_json)
     fi
     if [[ ${#mediums[@]} -gt 0 ]]; then
-      json_mediums=$(printf '%s\n' "${mediums[@]}" | jq -R -s 'split("\n") | map(select(length > 0))')
+      json_mediums=$(printf '%s\n' "${mediums[@]}" | arr_to_json)
     fi
     if [[ ${#lows[@]} -gt 0 ]]; then
-      json_lows=$(printf '%s\n' "${lows[@]}" | jq -R -s 'split("\n") | map(select(length > 0))')
+      json_lows=$(printf '%s\n' "${lows[@]}" | arr_to_json)
     fi
     local entry
     entry=$(jq -n \
