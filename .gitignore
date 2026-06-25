@@ -60,5 +60,7 @@ node_modules/
 vuln-scan-work/
 
 # Stray local audit/debug artifacts (never commit)
+.audit/
+.audit-bin/
 .audit-tmp/
 .audit*.py
