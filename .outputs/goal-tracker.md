@@ -1,18 +1,19 @@
-Goal-tracker complete. Skipping MEMORY.md edit per spec (no status changes vs prior snapshot).
+*Goal Tracker — 2026-06-25*
 
-## Summary
+Summary: 7 goals — 0 at risk, 0 needs attention, 6 on track, 1 blocked, 0 done (overall → flat; 1 new goal, 1 improving by mentions, 5 flat)
 
-Ran the goal-tracker skill against the 6 goals in `memory/MEMORY.md`'s `## Next priorities` section (no `## Goals` section — used documented fallback).
+BLOCKED
+• Open staged workflow-audit PR via PAT — waiting on GH_GLOBAL PAT (Aeon App lacks workflows write) since 2026-06-21
+  → Action: Operator grants GH_GLOBAL PAT secret, or manually opens PR from `fix/workflow-security-audit-2026-06-21`.
 
-**Scoring**: 5 ON TRACK, 1 BLOCKED, 0 at risk / needs attention / done. Overall trend: flat with 2 improving (ISS-006 inspect — today's batch-health narrowed the hypothesis to a 06:00–06:30 hour-field-`6` matcher bug; generate-skills-json — by mention count only, ISS-NNN file still uncreated).
+ON TRACK
+• ISS-006 diagnostic — `gh run list --workflow=messages.yml` — 0d idle, 6 activity/14d (→ flat by metric; diagnostic was executed today and matcher bug ruled out — hypothesis shifted to GHA-side cron drop; goal effectively answered)
+• ISS-006 follow-up: manual `workflow_dispatch` of planner + memory-flush — 0d idle, 2 activity/14d (new since 2026-06-24 reflect; still pending — refined hypothesis lowers urgency)
+• File `generate-skills-json` bugs as structured issues — 0d idle, 6 activity/14d (→ flat; mentions only, ISS-NNN files still uncreated 5+ days running)
+• Patch `pr-tracker` SKILL.md fallback (gh-search-prs API drift) — 0d idle, 3 activity/14d (→ flat; inline workaround in pr-tracker exists, SKILL.md still unpatched)
+• File structured issue for `agi-tracker` if 2026-06-29 Mon also misses — 0d idle, 6 activity/14d (↑ improving by mention count; trigger date still 4 days out)
+• Defer ISS-001 close until ISS-006 resolved — 0d idle, 5 activity/14d (→ flat; defer being honored)
 
-**Single action proposed** (only BLOCKED goal gets one): Add `GH_GLOBAL` PAT with workflows-write so Aeon can open the staged `fix/workflow-security-audit-2026-06-21` branch.
+Caveats: 2 (carry-over) — `generate-skills-json` and `pr-tracker` SKILL patch ON TRACK only by mention count (no file/PR landed). Goal 1's diagnostic executed today; held as ON TRACK (no completion phrase) per skill rule favoring false negatives.
 
-**Files written**:
-- `memory/goal-state.json` — overwrote with 2026-06-24 snapshot (6 goals)
-- `memory/logs/2026-06-24.md` — appended `### goal-tracker` entry with status, trend, sources, and operator caveats
-- `.pending-notify/goal-tracker-2026-06-24.md` — full formatted report (sandbox blocked `./notify "$(cat ...)"` command substitution, so used the documented `.pending-notify/` fallback)
-
-**MEMORY.md**: untouched per spec — no status changes vs the 2026-06-23 prior snapshot (4 continuing goals all held; 2 new goals already present from the 2026-06-23 reflect; no DONE moves, no new BLOCKED annotations).
-
-**Caveat for operator**: 2 of 5 ON TRACK verdicts are mention-only carry-over (generate-skills-json bugs, agi-tracker 2nd-Mon-miss confirmation) — strict per-rule classification masks under-delivery. The pr-tracker SKILL patch and ISS-006 messages.yml inspection also remain code-side untouched despite improving activity scores.
+Sources: logs=ok, git=ok (1 commit in window: chore(cron) code-health success), gh_pr=ok (7 PRs all merged 2026-06-07..19, none match workflow-audit branch — confirms BLOCKED), gh_issue=ok (empty), cron-state=ok (planner/compute-futures-eda/memory-flush/memory-structural-dedupe all last_success 2026-06-20T06:06–12Z, ~5 days dead → confirms ISS-006 goals; agi-tracker still no row → confirms goal 6 watch).
