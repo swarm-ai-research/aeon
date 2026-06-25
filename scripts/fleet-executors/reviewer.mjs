@@ -171,8 +171,8 @@ const removedLines = diffLines.filter(l => l.startsWith("-") && !l.startsWith("-
 // Pattern-based analysis
 const findings = [];
 
-// Security patterns
-const securityPatterns = [
+// Security and error-handling patterns checked against every added line
+const allPatterns = [
   [/\beval\s*\(/, "eval() call — potential code injection", "high"],
   [/\bexec\s*\(/, "exec() call — potential command injection", "high"],
   [/PRIVATE\s*KEY|private_key|privkey/i, "private key reference — verify it's not exposed", "critical"],
@@ -180,10 +180,6 @@ const securityPatterns = [
   [/rm\s+-rf?\s+\//, "destructive filesystem operation", "critical"],
   [/curl\s.*\$[{(]/, "curl with variable expansion — sandbox may block", "low"],
   [/\bTODO\b|\bFIXME\b|\bHACK\b/, "technical debt marker", "low"],
-];
-
-// Error handling patterns
-const errorPatterns = [
   [/catch\s*\(\s*\w*\s*\)\s*\{\s*\}/, "empty catch block — silently swallows errors", "medium"],
   [/\.catch\s*\(\s*\(\)\s*=>/, "promise catch with empty handler", "medium"],
   [/\bprocess\.exit\s*\(\s*0\s*\)/, "process.exit(0) in error path — may hide failures", "low"],
@@ -191,15 +187,8 @@ const errorPatterns = [
 
 // Check added lines for issues
 for (const line of addedLines) {
-  for (const [pattern, desc, severity] of securityPatterns) {
-    if (pattern.test(line)) {
-      findings.push({ severity, description: desc, line: line.trim().slice(0, 120) });
-    }
-  }
-  for (const [pattern, desc, severity] of errorPatterns) {
-    if (pattern.test(line)) {
-      findings.push({ severity, description: desc, line: line.trim().slice(0, 120) });
-    }
+  for (const [pattern, desc, severity] of allPatterns) {
+    if (pattern.test(line)) findings.push({ severity, description: desc, line: line.trim().slice(0, 120) });
   }
 }
 
