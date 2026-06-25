@@ -1,18 +1,15 @@
 ## Summary
 
-Scanned `swarm-ai-research/swarm` (2 open PRs). Both head SHAs match prior reviews in the 2-day dedup window — skipped per the skill's `headRefOid` rule. No new commits since 2026-06-19 on either. Per skill, no notification sent when every PR is skipped; log appended to `memory/logs/2026-06-24.md`.
+Executed `pr-review` skill for `swarm-ai-research/swarm` under merge-gate operator policy (APPROVE / REQUEST_CHANGES / BLOCK).
 
-**Merge-gate verdicts (carried over, still authoritative):**
+**Result:** 5 open PRs, all skipped — no review posted, no notification sent (per skill: "If every PR was skipped, do not notify — just log.").
 
-- **swarm-ai-research/swarm#518** — *"Add scenario YAML schema validation"* by @go165, head `79d73af5` — **BLOCK** · confidence **0/5**
-  - [CRITICAL] `swarm/models/scenario.py` — new pydantic schema uses `extra="forbid"` but omits real top-level fields (`kernel_oracle`, `work_regime`, ...); 16 existing scenario-loader tests fail at this head with `pydantic_core.ValidationError`.
-  - [ISSUE] `test_all_checked_in_scenarios_pass_schema_validation` uses non-recursive `Path("scenarios").glob("*.yaml")` — misses nested fixtures, same blind spot as the PR author's local smoke.
-  - [ISSUE] No migration / compat path for in-tree scenarios; merging breaks main.
-  - Maintainer `rsavitt` already `CHANGES_REQUESTED` on 2026-06-19.
+**Skip breakdown:**
+- **3 bot PRs** (dependabot): #526 langchain-anthropic 1.4.6→1.4.7, #525 langgraph 1.2.5→1.2.6, #524 actions/checkout 6→7
+- **2 dup-SHA** (already reviewed at this head; carrying prior merge-gate verdicts):
+  - #518 (`79d73af5`) — **BLOCK** / 0/5: `extra="forbid"` in `swarm/models/scenario.py` rejects existing scenario YAMLs, 16 loader tests fail
+  - #517 (`3149e2bf`) — **REQUEST_CHANGES** / 3/5: ruff I001 import-sort in `swarm/replay/__init__.py:3-7` fails `quality-gate`
 
-- **swarm-ai-research/swarm#517** — *"Add run directory diff utility"* by @go165, head `3149e2bf` — **REQUEST_CHANGES** · confidence **3/5**
-  - [ISSUE] `swarm/replay/__init__.py:3-7` — ruff `I001` import-sort fails, downstreams the `quality-gate` job. Trivial `ruff check --fix`.
-  - Implementation otherwise clean; tests pass on 3.10/3.11/3.12, type-check green. No CRITICAL.
-  - Maintainer `rsavitt` `COMMENTED` on 2026-06-19.
+**Files modified:** `memory/logs/2026-06-25.md` (appended `## PR Review` section).
 
-**Posting status:** Aeon GitHub App still has no PR-write on this repo (`Resource not accessible by integration` 403 on `gh api .../comments`, `gh pr review`, `gh pr comment` — confirmed across 2026-06-20..23 runs). Did not re-attempt to avoid noise. Verdicts will publish on the next non-dup SHA once permissions are granted.
+**Follow-up:** Verdicts on #518/#517 remain authoritative but unposted — aeon App still lacks PR-write on `swarm-ai-research/swarm` (403). Next non-dup SHA will retry publishing.
