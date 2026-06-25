@@ -62,3 +62,5 @@ vuln-scan-work/
 # Stray local audit/debug artifacts (never commit)
 .audit-tmp/
 .audit*.py
+# .audit-bin/ is intentionally tracked — pre-cached actionlint/zizmor binaries
+# let workflow-security-audit run offline in the GHA sandbox without network downloads.
