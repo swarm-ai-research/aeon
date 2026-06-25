@@ -360,4 +360,78 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. gh pr list exits 0 but returns a JSON object (not an array) → openPRsForKind
+//     hits the !Array.isArray branch and returns null → gate is bypassed → pass proceeds.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{"count":0}'; exit 0; fi\necho "https://github.com/stub/repo/pull/88"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nonarr" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns non-array JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/88");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list returns non-array JSON → null backlog → gate bypassed, pass proceeds");
+}
+
+// 13. Pre-commit hook rejects the commit → git commit failure → ok:false;
+//     worktree and ephemeral branch are cleaned up so nothing is leaked.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/1"\n`,
+  });
+  mkdirSync(join(env.localDir, ".git/hooks"), { recursive: true });
+  writeFileSync(join(env.localDir, ".git/hooks/pre-commit"), "#!/bin/sh\necho 'pre-commit blocked' >&2\nexit 1\n");
+  chmodSync(join(env.localDir, ".git/hooks/pre-commit"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "hookfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no stray worktree after commit hook failure");
+    // Ephemeral branch must be deleted (cleanup(true) was called).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  pre-commit hook rejection → git commit failed → ok:false, worktree and branch cleaned up");
+}
+
+// 14. Claude returns a very long final line (> 400 chars) — extractSummary hits the
+//     fallback path (last-3-lines join) rather than returning the long line verbatim.
+//     The resulting summary must be ≤ 400 chars and must not equal the raw long line.
+{
+  const longLine = "X".repeat(450);
+  const claudeLongSummaryStub = [
+    "#!/usr/bin/env bash",
+    'if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi',
+    "cat > /dev/null",
+    'echo "modified" >> "$(pwd)/lib.mjs"',
+    'echo "context line"',
+    `echo "${longLine}"`,
+  ].join("\n") + "\n";
+  const env = freshRepoWithRemote({ claudeScript: claudeLongSummaryStub });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "longsum" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.ok(result.summary.length <= 400, `summary should be ≤ 400 chars, got ${result.summary.length}`);
+    assert.notEqual(result.summary, longLine, "summary should not be the raw long line verbatim");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  very long last line → extractSummary fallback path → summary ≤ 400 chars");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
