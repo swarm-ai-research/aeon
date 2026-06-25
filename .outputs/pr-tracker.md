@@ -1,18 +1,13 @@
+Skill complete — no notification per step 5 (zero merges, zero stale-open, zero closed-no-merge).
+
 ## Summary
 
-Ran the `pr-tracker` skill for 2026-06-24.
+Ran `pr-tracker` for 2026-06-25. Resolved config: `author=aeonframework`, `branch_prefix=ai/` (from existing memory, no `pr_tracker:` block in aeon.yml). GraphQL primary returned `nodes: []`; fallback `gh search prs` (open + merged) returned `[]`. **5th consecutive empty day** — same signature as 06-21..06-24.
 
-**Config resolved:** author `aeonframework` (default from existing topic file; no `pr_tracker.*` overrides in `aeon.yml`, env vars unset), branch prefix `ai/`, no bot email filter.
+Files modified:
+- `memory/topics/pr-status.md` — bumped *Last updated* to 2026-06-25, incremented the empty-day counter, added a fresh data-point on the SKILL.md fallback drift (`mergedAt` is also not a valid `--json` field, confirming the patch backlog).
+- `memory/logs/2026-06-25.md` — appended `## PR Tracker` entry, all counts 0, `Notification: skipped`, `PR_TRACKER_OK`.
 
-**Result:** zero PRs across the board.
-- GraphQL primary `author:aeonframework is:pr` → `issueCount: 0`
-- Fallback `gh search prs --author aeonframework` → `[]`
-- Merged (7d): 0 · Stale open (>7d): 0 · Active open: 0 · Closed no-merge (7d): 0
+Notification: **skipped** (step 5 guard — nothing to report).
 
-**Notification:** skipped per step 5 (all three trigger buckets empty).
-
-**Files modified:**
-- `memory/topics/pr-status.md` — bumped timestamp to 2026-06-24, noted 4th consecutive empty day
-- `memory/logs/2026-06-24.md` — appended `## PR Tracker` block ending in `PR_TRACKER_OK`
-
-**Follow-up (carried, not new):** SKILL.md fallback still references `headRefName` JSON field and `--state merged` that the current `gh` CLI rejects — patch already listed in MEMORY.md `Next priorities`. No new issue filed.
+Follow-up (still owed, carried from MEMORY.md): patch SKILL.md fallback per [[gh-search-prs-api-drift]] — drop `headRefName`, switch `--state merged` → `--merged`, replace `mergedAt` → `closedAt`+state filter.
