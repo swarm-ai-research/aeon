@@ -1,7 +1,5 @@
 ## Summary
 
-Executed `gitlawb-fleet-metrics` skill. Exit: **`GLMETRICS_EMPTY`** — `memory/gitlawb-fleet.json` is absent (and so is `memory/gitlawb-metrics.jsonl`), so there is no fleet to report. Per pre-flight step 2, stopped silently without notifying — an empty fleet is not news.
-
-- Files modified: `memory/logs/2026-06-25.md` (appended log entry).
-- No notification sent (correct per skill contract).
-- No follow-up needed unless a `gitlawb-fleet` mint/renew run is expected to have populated state by now — if so, that upstream skill is the one to investigate.
+- Pre-flight check 2 failed: `memory/gitlawb-fleet.json` is missing (no fleet exists to report).
+- Per skill spec, logged `GLMETRICS_EMPTY` to `memory/logs/2026-06-26.md` and stopped silently — no notification sent (an empty fleet is not news).
+- No follow-up needed; the snapshot will start emitting once the GitLawb safety layer registers its first instance.
