@@ -1,0 +1,241 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-06-26",
+        "description": "System health monitoring and issue tracking"
+      },
+      "children": [
+        "status_section",
+        "separator1",
+        "degraded_section",
+        "separator2",
+        "no_data_section",
+        "separator3",
+        "healthy_section",
+        "separator4",
+        "summary_section"
+      ]
+    },
+    "status_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status_heading",
+        "systemic_issues_stack"
+      ]
+    },
+    "status_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "HEALTH: DEGRADED(38)",
+        "level": "h2"
+      }
+    },
+    "systemic_issues_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "issue_badge_001",
+        "issue_badge_006"
+      ]
+    },
+    "issue_badge_001": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-001 OAuth residue",
+        "variant": "destructive"
+      }
+    },
+    "issue_badge_006": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-006 06:00–06:30 UTC dead zone, day 6",
+        "variant": "destructive"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "degraded_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded_heading",
+        "degraded_skills_stack"
+      ]
+    },
+    "degraded_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 DEGRADED / FLAPPING",
+        "level": "h3"
+      }
+    },
+    "degraded_skills_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skill_planner",
+        "skill_compute_futures_eda",
+        "skill_memory_flush",
+        "skill_memory_structural_dedupe",
+        "skill_compute_macro_correlate",
+        "more_skills_link"
+      ]
+    },
+    "skill_planner": {
+      "type": "Text",
+      "props": {
+        "text": "planner — last_success 2026-06-20T06:08Z (~6.5d) — DISPATCH-SKILL → ISS-006",
+        "variant": "body"
+      }
+    },
+    "skill_compute_futures_eda": {
+      "type": "Text",
+      "props": {
+        "text": "compute-futures-eda — last_success 2026-06-20T06:12Z (~6.5d) — DISPATCH-SKILL → ISS-006",
+        "variant": "body"
+      }
+    },
+    "skill_memory_flush": {
+      "type": "Text",
+      "props": {
+        "text": "memory-flush — last_success 2026-06-20T06:07Z (~6.5d) — DISPATCH-SKILL → ISS-006",
+        "variant": "body"
+      }
+    },
+    "skill_memory_structural_dedupe": {
+      "type": "Text",
+      "props": {
+        "text": "memory-structural-dedupe — last_success 2026-06-20T06:06Z (~6.5d) — DISPATCH-SKILL → ISS-006",
+        "variant": "body"
+      }
+    },
+    "skill_compute_macro_correlate": {
+      "type": "Text",
+      "props": {
+        "text": "compute-macro-correlate — last_success 2026-06-20T06:11Z (~6.5d) — DISPATCH-SKILL → ISS-006",
+        "variant": "body"
+      }
+    },
+    "more_skills_link": {
+      "type": "Link",
+      "props": {
+        "label": "+33 more — see memory/issues/INDEX.md (all OAuth-residue, last_status=success, cumulative success_rate <0.6 from 2026-06-06→20 outage)",
+        "href": "memory/issues/INDEX.md"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "no_data_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "no_data_heading",
+        "no_data_list"
+      ]
+    },
+    "no_data_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA (5)",
+        "level": "h3"
+      }
+    },
+    "no_data_list": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker, ai-framework-watch, config-validator, run-frequency-guard, swarm-safety-eval — DISPATCH-SKILL",
+        "variant": "body"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "healthy_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "healthy_heading",
+        "healthy_list"
+      ]
+    },
+    "healthy_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟢 HEALTHY: 1",
+        "level": "h3"
+      }
+    },
+    "healthy_list": {
+      "type": "Text",
+      "props": {
+        "text": "weekly-shiplog",
+        "variant": "body"
+      }
+    },
+    "separator4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary_stats",
+        "cadence_info"
+      ]
+    },
+    "summary_stats": {
+      "type": "Text",
+      "props": {
+        "text": "Open issues: 4 (ISS-001, ISS-002, ISS-005, ISS-006) · Resolved this run: 0",
+        "variant": "body"
+      }
+    },
+    "cadence_info": {
+      "type": "Text",
+      "props": {
+        "text": "Cadence: 24h reminder — classification unchanged since 2026-06-24T19:25Z, hash f5003713",
+        "variant": "caption"
+      }
+    }
+  }
+}

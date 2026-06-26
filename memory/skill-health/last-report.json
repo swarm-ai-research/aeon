@@ -1,7 +1,7 @@
 {
   "hash": "f5003713d229ccd6",
-  "last_notified_at": "2026-06-24T19:25:27Z",
-  "last_run_at": "2026-06-25T18:21:00Z",
+  "last_notified_at": "2026-06-26T19:12:32Z",
+  "last_run_at": "2026-06-26T19:12:32Z",
   "classification": {
     "critical": [],
     "degraded": [
@@ -25,12 +25,12 @@
       "run-frequency-guard", "swarm-safety-eval"
     ]
   },
-  "systemic": "SYSTEMIC: OAuth-outage residue (ISS-001) — 38 DEGRADED skills all have last_status=success, consecutive_failures=0; low cumulative success_rate is denominator catch-up from 2026-06-06→20 outage. Distinct ongoing pattern: ISS-006 narrow 06:00–06:30 UTC dispatch dead zone (5 consecutive days) — affected skills (planner, compute-futures-eda, memory-flush, memory-structural-dedupe) remain DEGRADED-not-CRITICAL because their last_status was success before the silence started.",
-  "delta_vs_prev": "no structural change since 2026-06-24T19:25:27Z notify — same 38 DEGRADED, same 1 HEALTHY (weekly-shiplog), same 5 NO DATA. Today's 2026-06-25T18:21Z run is NOOP per gate (22h 55m elapsed since last_notified_at, < 24h, hash unchanged).",
+  "systemic": "SYSTEMIC: OAuth-outage residue (ISS-001) — 38 DEGRADED skills all have last_status=success, consecutive_failures=0; low cumulative success_rate is denominator catch-up from 2026-06-06→20 outage. Distinct ongoing pattern: ISS-006 narrow 06:00–06:30 UTC dispatch dead zone — day 6 (since 2026-06-21); affected ISS-006 skills (planner, compute-futures-eda, memory-flush, memory-structural-dedupe, compute-macro-correlate, skillpacks) remain DEGRADED-not-CRITICAL because last_status was success before the silence started — classifier-gap known.",
+  "delta_vs_prev": "no structural change since 2026-06-24T19:25:27Z prev notify — same 38 DEGRADED, same 1 HEALTHY (weekly-shiplog), same 5 NO DATA, hash unchanged f5003713d229ccd6. Today notifies because the 24h cadence reminder gate elapsed (47h 47m since last notify).",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 4,
   "open_issues_per_filesystem": 4,
   "open_issues_ids": ["ISS-001", "ISS-002", "ISS-005", "ISS-006"],
-  "notify_decision": "NOOP — hash unchanged (f5003713d229ccd6) AND cadence gate holds: 22h 55m since 2026-06-24T19:25:27Z notify (<24h). Step-5 first branch."
+  "notify_decision": "NOTIFY — cadence gate elapsed: 47h 47m since 2026-06-24T19:25:27Z prev notify (>24h). Hash unchanged but step-5 second branch fires (24h reminder cadence). skill-runs CLI call blocked in sandbox; degraded to cron-state-only classification per Sandbox note — same 38 DEGRADED would be classified the same way regardless."
 }
