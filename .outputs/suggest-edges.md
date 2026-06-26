@@ -1,1 +1,1 @@
-*Suggest-edges* — 3 missing links proposed (top: ISS-002). PR auto-create blocked (Aeon App lacks PR-create perm); open manually: https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-06-25
+*Suggest-edges* — 3 missing links proposed (top: ISS-002 ↔ ISS-003). Branch pushed but `gh pr create` blocked by App perms — open manually: https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-06-26
