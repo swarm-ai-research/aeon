@@ -8,7 +8,7 @@ import json
 import re
 import os
 import hashlib
-from collections import Counter
+from collections import Counter, defaultdict
 
 findings = json.load(open('.audit/classified.json'))
 
@@ -99,19 +99,15 @@ print(f'\nTotals: NEW={new_count} UNCHANGED={unchanged_count} RESOLVED={resolved
 # findings (sorted by line) are UNCHANGED, the rest NEW.
 new_findings = []
 unchanged_findings = []
-for (rule, fname) in {(f['short_rule'], base(f['file'])) for f in findings}:
-    pair_findings = sorted(
-        [f for f in findings if f['short_rule'] == rule and base(f['file']) == fname],
-        key=lambda x: x['line']
-    )
-    p = prior_counts.get((rule, fname), 0)
-    for i, f in enumerate(pair_findings):
-        if i < p:
-            f['delta'] = 'UNCHANGED'
-            unchanged_findings.append(f)
-        else:
-            f['delta'] = 'NEW'
-            new_findings.append(f)
+groups = defaultdict(list)
+for f in findings:
+    groups[(f['short_rule'], base(f['file']))].append(f)
+for key, group in groups.items():
+    group.sort(key=lambda x: x['line'])
+    p = prior_counts.get(key, 0)
+    for i, f in enumerate(group):
+        f['delta'] = 'UNCHANGED' if i < p else 'NEW'
+        (unchanged_findings if i < p else new_findings).append(f)
 
 print(f'\nNEW count by severity:')
 for s, n in Counter(f['severity'] for f in new_findings).most_common():
