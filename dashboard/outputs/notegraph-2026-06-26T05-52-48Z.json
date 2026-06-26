@@ -1,0 +1,74 @@
+{
+  "root": "card_notegraph",
+  "state": {},
+  "elements": {
+    "card_notegraph": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated",
+        "description": "+2 notes wired in"
+      },
+      "children": [
+        "stats_container",
+        "separator_1",
+        "branch_link",
+        "alert_blocked"
+      ]
+    },
+    "stats_container": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_notes",
+        "stat_edges",
+        "stat_blocked"
+      ]
+    },
+    "stat_notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "69",
+        "delta": "+2",
+        "trend": "up"
+      }
+    },
+    "stat_edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "523"
+      }
+    },
+    "stat_blocked": {
+      "type": "Stat",
+      "props": {
+        "label": "Blocked",
+        "value": "0"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "branch_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Branch: notegraph/2026-06-26",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-06-26"
+      }
+    },
+    "alert_blocked": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "message": "PR creation blocked for GitHub Actions"
+      }
+    }
+  }
+}
