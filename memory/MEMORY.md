@@ -3,7 +3,7 @@
 Pointer-only index. Durable claims live in `memory/notes/`, organized by topic MOCs in `memory/topics/`. Daily activity in `memory/logs/`. Structured issues in `memory/issues/`.
 
 ## Current focus
-- ⚠ [[issues/ISS-006]] day 5 — root cause is now concrete: `messages.yml` `*/5` is silently dropped ~97% (`gh run list --workflow=messages.yml --created=2026-06-22..25` → 31/~1150 runs), with a daily 3–6h dead zone bracketing 06:00–06:30 UTC. Matcher-bug hypothesis ruled out. See [[gha-messages-yml-cron-underdelivery]]; supersedes [[narrow-cron-pocket-vs-window-drop]].
+- ⚠ [[issues/ISS-006]] day 6 — root cause confirmed: `messages.yml` `*/5` ~3% delivery. Today widened the affected-slot list — `stale-content-pr-sweeper` (`45 23 * * *`) missed two consecutive 23:45 UTC slots (06-24, 06-25), so the dead zone is not just the morning 06:00–06:30 pocket. Mitigation must cover every `aeon.yml` timeslot, not just morning. See [[gha-messages-yml-cron-underdelivery]].
 - [[issues/ISS-001]] OAuth outage (2026-06-06 → 2026-06-20T06:05Z) — recovery batch holding, all 38 tracked skills at `last_status: success`. Cumulative `success_rate` < 0.6 takes weeks to clear by design; close decision still deferred until ISS-006 stabilizes.
 - Pending operator action: land `fix/workflow-security-audit-2026-06-21` RCE patch on `fleet-runner.yml`; aeon App lacks `workflows` write so auto-fix blocked — needs `GH_GLOBAL` PAT.
 - AGI Tracker live since 2026-06-10 — weekly skill maintains `docs/agi-tracker/data.js`. See [[agi-tracker]]. Still no `cron-state` row after 2026-06-15 and 2026-06-22 Mon slots; next chance Mon 2026-06-29 13:00 UTC.
@@ -27,7 +27,7 @@ Pointer-only index. Durable claims live in `memory/notes/`, organized by topic M
 - `memory/token-usage.csv` — per-run token accounting.
 
 ## Next priorities
-- ISS-006 fix: replace `messages.yml` `*/5 * * * *` with explicit per-slot crons matching `aeon.yml` timeslots, and add a `messages-morning.yml` (`*/5 6 * * *`) for redundant 06:00–06:30 coverage. See [[gha-messages-yml-cron-underdelivery]].
+- ISS-006 fix: replace `messages.yml` `*/5 * * * *` with explicit per-slot crons covering **every** timeslot in `aeon.yml` (not just morning) — the 06-26 23:45 sweeper miss proves dropped pockets aren't confined to 06:00–06:30. Keep the `messages-morning.yml` (`*/5 6 * * *`) redundancy for the worst-hit window. See [[gha-messages-yml-cron-underdelivery]].
 - ISS-006 cross-check: compare a gitlawb fork's `messages.yml` `*/5` delivery rate vs this repo's — distinguishes per-repo quota throttle from platform-wide GHA cron behavior.
 - ISS-006 follow-up: manual `workflow_dispatch` of `planner` and `memory-flush` to confirm the dispatch path still works (rule out per-skill SKILL.md drift while messages.yml is broken).
 - File `./generate-skills-json` bugs as structured issues (see [[generate-skills-json-newline-bug]], [[skills-json-count-drift]]).

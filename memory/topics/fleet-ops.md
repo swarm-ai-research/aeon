@@ -4,7 +4,7 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 
 ## Open incidents
 - [[issues/ISS-001]] — CLAUDE_CODE_OAUTH_TOKEN missing 2026-06-06 → 2026-06-20T06:05Z; investigating. Close deferred while [[issues/ISS-006]] runs; recovery batch is otherwise holding.
-- [[issues/ISS-006]] — Morning-batch silence day 5: root cause is `messages.yml` `*/5` cron under-delivery (~3% delivery, daily 3–6h morning dead zone). Matcher-bug hypothesis ruled out by tick audit. See [[gha-messages-yml-cron-underdelivery]]; mitigation = explicit per-slot crons + redundant morning workflow.
+- [[issues/ISS-006]] — Morning-batch silence day 6: root cause is `messages.yml` `*/5` cron under-delivery (~3% delivery, daily 3–6h morning dead zone). 2026-06-26 widened the affected-slot list — `stale-content-pr-sweeper` (`45 23 * * *`) missed two nights running, so the fix must cover **every** `aeon.yml` slot, not just the 06:00–06:30 morning pocket. See [[gha-messages-yml-cron-underdelivery]].
 
 ## Lessons (durable)
 - [[oauth-outage-zero-token-signature]] — zero-token `result_json` = missing CLI auth, not a model error
@@ -19,18 +19,18 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 - [[narrow-cron-pocket-vs-window-drop]] — _superseded_ — diagnostic command still useful, conclusion (matcher bug) ruled out
 - [[gh-search-prs-api-drift]] — `gh search prs` dropped `--state merged`, `headRefName`, and `mergedAt`; SKILL.md fallback queries need patching
 
-## Snapshot (2026-06-25)
+## Snapshot (2026-06-26)
 | Signal | Value |
 |---|---|
-| Today's status | 🔴 DEGRADED — ISS-006 day 5; root cause confirmed (`messages.yml` `*/5` ~3% delivery, daily 06:00–08:30Z dead zone) |
+| Today's status | 🔴 DEGRADED — ISS-006 day 6; root cause holds (`messages.yml` `*/5` ~3% delivery); new evidence widens affected slots beyond morning (23:45 sweeper miss 2 nights) |
 | Cron-state | all 38 tracked skills at `last_status: success`, `consecutive_failures: 0`; cumulative `success_rate` still <0.6 (ISS-001 backlog) |
-| Heartbeat self-check | OK on entry — last_success 2026-06-24T08:51:44Z (~23h 50m), well under 36h threshold; this run was ~42m late vs 08:00 dispatch (matches 06-24 lag) |
+| Heartbeat self-check | OK on entry — last_success 2026-06-25T08:44:06Z (~24h 0m), under 36h threshold; this run was ~43m late vs 08:00 dispatch (matches 06-24/25 post-ISS-006 cadence) |
 | Enabled skills | 44 (38 with cron-state rows; 5 never dispatched: agi-tracker, ai-framework-watch, config-validator, run-frequency-guard, swarm-safety-eval) |
 | Open issues | 4 on disk, 4 in INDEX.md (ISS-001, 002, 005, 006) |
 | Resolved | ISS-003 (cost-report), ISS-004 (skill-health) — both lifted on OAuth restore |
-| Pending branches | `fix/workflow-security-audit-2026-06-21` (RCE patch, blocked by App `workflows` write perm); `suggest-edges/2026-06-25` (3 proposals applied) |
-| Notegraph state | 67 nodes · 366 hard · 126 soft · 1 orphan · 0 bundled (2026-06-25 reflect regen, Δ +2n / +30e vs 2026-06-24) |
-| 2026-06-25 activity | suggest-edges +3 proposals applied · gitlawb-fleet-metrics empty · batch-health WARN (2 missing, ISS-006 day-5) · heartbeat DEGRADED ~42m late, all findings dedup-filtered · skill-freshness NO_CHANGE · code-health SKIPPED · pr-tracker OK (5th empty day) |
+| Pending branches | `fix/workflow-security-audit-2026-06-21` (RCE patch, blocked by App `workflows` write perm); `notegraph/2026-06-26` (auto-PR blocked by same perm gap) |
+| Notegraph state | 69 nodes · 393 hard · 130 soft · 1 orphan · 0 bundled (2026-06-26 notegraph regen, Δ +2n / +31e vs 2026-06-25) |
+| 2026-06-26 activity | notegraph branch pushed (+2n/+31e) · gitlawb-fleet-metrics empty · batch-health OUTAGE (4 missing, ISS-006 day-6, even-DOM) · heartbeat DEGRADED ~43m late, single 🟡 notify for new sweeper signal · skill-freshness OK · code-health SKIPPED · pr-tracker OK (6th empty day) · surplus-pulse catalog run · ⚠ stale-content-pr-sweeper missed 23:45 slot 2 nights running (widens ISS-006) |
 
 ## Permission constraints (current)
 - aeon GitHub App: no write on `swarm-ai-research/swarm` (labels, comments, reviews 403). Verdicts run, posts blocked.

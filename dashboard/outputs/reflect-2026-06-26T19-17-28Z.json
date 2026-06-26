@@ -1,0 +1,80 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "header-stack",
+        "metrics-text",
+        "changes-stack"
+      ]
+    },
+    "header-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "status-text",
+        "date-badge"
+      ]
+    },
+    "status-text": {
+      "type": "Text",
+      "props": {
+        "text": "memory consolidated"
+      }
+    },
+    "date-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "2026-06-26"
+      }
+    },
+    "metrics-text": {
+      "type": "Text",
+      "props": {
+        "text": "+0n / −1e",
+        "variant": "muted"
+      }
+    },
+    "changes-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "change-1-text",
+        "change-2-text"
+      ]
+    },
+    "change-1-text": {
+      "type": "Text",
+      "props": {
+        "text": "rewrite-in-place"
+      }
+    },
+    "change-2-text": {
+      "type": "Text",
+      "props": {
+        "text": "widened gha-messages-yml-cron-underdelivery to cover non-morning slot drops after 23:45 sweeper miss"
+      }
+    }
+  }
+}
