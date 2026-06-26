@@ -360,4 +360,48 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. test-pass kind — happy path smoke test. This is the kind the executor
+//     itself runs as; verifies KIND_CONFIG registration and the PR title label.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "tpsmoke" })
+    );
+    assert.equal(result.ok, true, `expected ok=true for test-pass, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/42");
+    assert.match(result.branch, /^aeon\/test-pass-\d{4}-\d{2}-\d{2}-tpsmoke$/);
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /Test pass/);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  test-pass kind is registered and produces a correctly labelled PR");
+}
+
+// 13. gh pr list returns valid non-array JSON (null) → !Array.isArray branch →
+//     null backlog → pass proceeds. Distinct from test 11 (gh exits non-zero)
+//     and from the default stub (which returns an invalid URL that throws on
+//     JSON.parse). Here JSON.parse succeeds but the value isn't an array.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash
+echo "gh: $@" >> "$GH_LOG"
+if [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo 'null'; exit 0; fi
+echo "https://github.com/stub/repo/pull/77"
+`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nullpr" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns null JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list returns non-array JSON (null) → !Array.isArray branch → pass proceeds");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
