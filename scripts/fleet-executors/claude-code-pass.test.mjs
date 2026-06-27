@@ -360,4 +360,54 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. git commit fails (pre-commit hook rejects) → ok:false, ephemeral branch
+//     deleted, worktree removed. Covers the `git commit failed` error path which
+//     has no test — git add succeeds but commit is gated by the hook.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    // Allow the backlog-gate pr list; reject anything else (push/create must not run).
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "gh should not be called after commit failure: $@" >&2\nexit 99\n`,
+  });
+  const hooksDir = join(env.localDir, ".git", "hooks");
+  mkdirSync(hooksDir, { recursive: true });
+  writeFileSync(join(hooksDir, "pre-commit"), "#!/usr/bin/env bash\necho 'commit rejected by hook' >&2\nexit 1\n");
+  chmodSync(join(hooksDir, "pre-commit"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree and branch must be cleaned up (cleanup(true) path).
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  commit failure (pre-commit hook) → ok:false, branch and worktree cleaned up");
+}
+
+// 13. gh pr list returns valid but non-array JSON (e.g. an error object) →
+//     openPRsForKind hits the !Array.isArray() branch → returns null → backlog
+//     gate is skipped → pass proceeds and opens a PR.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{"error":"unauthorized"}'; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nonarrjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns non-array JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list non-array JSON → null backlog → gate skipped, pass proceeds");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
