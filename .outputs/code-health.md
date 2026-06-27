@@ -1,15 +1,8 @@
 ## Summary
 
-**Skill**: code-health  
-**Status**: CODE_HEALTH_SKIPPED
+Skipped Code Health skill — required config file `memory/watched-repos.md` is missing and `${var}` is empty, so no repos are resolvable. Per the skill spec ("If the file doesn't exist yet, create it or skip this skill"), exited cleanly with no clone, no scan, no article, no notification.
 
-The skill requires `memory/watched-repos.md` to define repos to audit. That file does not exist, and SKILL.md explicitly permits skipping in that case ("If the file doesn't exist yet, create it or skip this skill"). I did not create an empty file because there is no operator-defined repo list to seed from — fabricating one would be worse than skipping.
+**Files modified:**
+- `memory/logs/2026-06-27.md` — appended `CODE_HEALTH_NO_CONFIG` entry
 
-**Actions taken**:
-- Read SKILL.md, MEMORY.md, today's log
-- Confirmed `memory/watched-repos.md` absent and `soul/` absent (neutral tone, no notify needed)
-- Appended skip entry to `memory/logs/2026-06-26.md`
-
-**No notification sent** — silent skip per skill semantics (no actionable signal).
-
-**Follow-up for operator**: if you want this skill active, create `memory/watched-repos.md` with `owner/repo` lines (one per repo) and the next weekly run will produce a report.
+**Follow-up:** Operator can activate by creating `memory/watched-repos.md` with one `- owner/repo` per line. Three other skills today hit the same missing-config skip (`github-monitor`, `issue-triage`, `repo-revive`) — one file would unblock all four.
