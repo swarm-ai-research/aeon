@@ -1,0 +1,183 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA"
+      },
+      "children": [
+        "heading_date",
+        "sep_1",
+        "grid_overview",
+        "sep_2",
+        "alert_high",
+        "sep_3",
+        "heading_conservation",
+        "grid_checks",
+        "text_means",
+        "sep_4",
+        "text_confirmation",
+        "sep_5",
+        "link_report"
+      ]
+    },
+    "heading_date": {
+      "type": "Heading",
+      "props": {
+        "text": "2026-06-26",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "grid_overview": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      },
+      "children": []
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      },
+      "children": []
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "alert_high": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "[HIGH] spread minCurve outlier",
+        "message": "outlier_pct=25% (3 of 12 seeds at IQR fence, likely small-sample artifact)"
+      },
+      "children": []
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_conservation": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Checks",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "grid_checks": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "badge_basket",
+        "badge_spread",
+        "badge_synthetic",
+        "badge_x402"
+      ]
+    },
+    "badge_basket": {
+      "type": "Badge",
+      "props": {
+        "text": "basket — OK",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "badge_spread": {
+      "type": "Badge",
+      "props": {
+        "text": "spread — OK",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "badge_synthetic": {
+      "type": "Badge",
+      "props": {
+        "text": "synthetic — OK",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "badge_x402": {
+      "type": "Badge",
+      "props": {
+        "text": "x402 — OK",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "text_means": {
+      "type": "Text",
+      "props": {
+        "text": "All means ≤ 2.4e-12",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "text_confirmation": {
+      "type": "Text",
+      "props": {
+        "text": "✓ synthetic ≡ x402 reconfirmed",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "sep_5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "link_report": {
+      "type": "Link",
+      "props": {
+        "label": "Full Report: 2026-06-26",
+        "href": "memory/topics/compute-futures-eda/2026-06-26.md"
+      },
+      "children": []
+    }
+  }
+}
