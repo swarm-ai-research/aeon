@@ -360,4 +360,68 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. gh pr list exits 0 but returns malformed JSON → JSON.parse throws →
+//     catch block returns null → gate skipped → pass proceeds.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "not-valid-json"; exit 0; fi\necho "https://github.com/stub/repo/pull/66"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "malformedjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns malformed JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/66");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list malformed JSON → catch → null backlog → pass proceeds");
+}
+
+// 13. gh pr list exits 0 but returns a JSON object (not array) → Array.isArray
+//     check fails → returns null → gate skipped → pass proceeds.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{"total_count":5}'; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nonarrayjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns non-array JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list non-array JSON → !Array.isArray → null backlog → pass proceeds");
+}
+
+// 14. extractSummary fallback — when claude's last output line exceeds 400
+//     chars, the function joins the last 3 lines and truncates to 400.
+//     Verifies result.summary length is ≤ 400 and ok=true.
+{
+  const CLAUDE_LONG_SUMMARY_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+echo "appended long summary" >> "$(pwd)/lib.mjs"
+echo "short line one"
+echo "short line two"
+python3 -c "print('L' * 450)"
+`;
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_LONG_SUMMARY_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "longsummary" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.ok(result.summary.length <= 400, `summary should be ≤400 chars but got ${result.summary.length}`);
+    assert.match(result.summary, /short line/, "fallback should include earlier lines when last line is truncated");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  extractSummary fallback → last line >400 chars → joined+truncated to ≤400");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
