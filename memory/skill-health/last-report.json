@@ -1,7 +1,7 @@
 {
   "hash": "f5003713d229ccd6",
   "last_notified_at": "2026-06-26T19:12:32Z",
-  "last_run_at": "2026-06-26T19:12:32Z",
+  "last_run_at": "2026-06-27T18:53:24Z",
   "classification": {
     "critical": [],
     "degraded": [
@@ -25,12 +25,12 @@
       "run-frequency-guard", "swarm-safety-eval"
     ]
   },
-  "systemic": "SYSTEMIC: OAuth-outage residue (ISS-001) — 38 DEGRADED skills all have last_status=success, consecutive_failures=0; low cumulative success_rate is denominator catch-up from 2026-06-06→20 outage. Distinct ongoing pattern: ISS-006 narrow 06:00–06:30 UTC dispatch dead zone — day 6 (since 2026-06-21); affected ISS-006 skills (planner, compute-futures-eda, memory-flush, memory-structural-dedupe, compute-macro-correlate, skillpacks) remain DEGRADED-not-CRITICAL because last_status was success before the silence started — classifier-gap known.",
-  "delta_vs_prev": "no structural change since 2026-06-24T19:25:27Z prev notify — same 38 DEGRADED, same 1 HEALTHY (weekly-shiplog), same 5 NO DATA, hash unchanged f5003713d229ccd6. Today notifies because the 24h cadence reminder gate elapsed (47h 47m since last notify).",
+  "systemic": "SYSTEMIC: OAuth-outage residue (ISS-001) — 38 DEGRADED skills all have last_status=success, consecutive_failures=0; low cumulative success_rate is denominator catch-up from 2026-06-06→20 outage. skill-runs (last 168h) shows 102/102 success across 36 active skills with 4 in-progress and 0 failures — runtime fleet is healthy. Distinct ongoing pattern: ISS-006 narrow 06:00–06:30 UTC dispatch dead zone — day 7 (since 2026-06-21); morning 06:00–06:30 pocket recovered today (planner + compute-futures-eda both fired 07:34Z ~64-min late), but heartbeat surfaced NEW SIGNAL: 09:00 UTC slot dead 5 days (fleet-control, github-monitor, issue-triage, pr-triage, pr-review 09:00 — all last_dispatch 2026-06-22T10:14Z) widening the messages.yml `*/5` underdelivery dead zone. Classifier-gap unchanged: these skills remain DEGRADED-not-CRITICAL because last_status was success before silence started (no consecutive_failures, success_rate < 0.6 from ISS-001 denominator only).",
+  "delta_vs_prev": "no structural change since 2026-06-26T19:12:32Z prev notify — same 38 DEGRADED, same 1 HEALTHY (weekly-shiplog), same 5 NO DATA, hash unchanged f5003713d229ccd6. New runtime evidence (skill-runs 7d: 102/102 success, 0 failures) reinforces ISS-001 residue diagnosis. Heartbeat's 09:00-UTC-dead-pocket finding (today) widens ISS-006 affected slots beyond morning/sweeper pockets but does not change skill-health's formal classification (those skills still have last_status=success).",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 4,
   "open_issues_per_filesystem": 4,
   "open_issues_ids": ["ISS-001", "ISS-002", "ISS-005", "ISS-006"],
-  "notify_decision": "NOTIFY — cadence gate elapsed: 47h 47m since 2026-06-24T19:25:27Z prev notify (>24h). Hash unchanged but step-5 second branch fires (24h reminder cadence). skill-runs CLI call blocked in sandbox; degraded to cron-state-only classification per Sandbox note — same 38 DEGRADED would be classified the same way regardless."
+  "notify_decision": "SKIP — hash unchanged AND 23h 41m since 2026-06-26T19:12:32Z prev notify (<24h cadence gate). Per SKILL.md step 5 first branch: do not notify. NOOP logged to memory/logs/2026-06-27.md. Next gate elapses at 2026-06-27T19:12:32Z (~19 min from now); next scheduled skill-health run is 2026-06-28T18:00Z."
 }
