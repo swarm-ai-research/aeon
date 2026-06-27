@@ -4,7 +4,7 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 
 ## Open incidents
 - [[issues/ISS-001]] — CLAUDE_CODE_OAUTH_TOKEN missing 2026-06-06 → 2026-06-20T06:05Z; investigating. Close deferred while [[issues/ISS-006]] runs; recovery batch is otherwise holding.
-- [[issues/ISS-006]] — Morning-batch silence day 6: root cause is `messages.yml` `*/5` cron under-delivery (~3% delivery, daily 3–6h morning dead zone). 2026-06-26 widened the affected-slot list — `stale-content-pr-sweeper` (`45 23 * * *`) missed two nights running, so the fix must cover **every** `aeon.yml` slot, not just the 06:00–06:30 morning pocket. See [[gha-messages-yml-cron-underdelivery]].
+- [[issues/ISS-006]] — Day 7: morning pocket recovered today (planner + compute-futures-eda fired ~07:34Z, 7-day silence broken); 23:45 sweeper pocket also self-resolved (last_success 2026-06-27T00:19Z). NEW dead zone surfaced: 09:00 UTC batch silent 5 days (fleet-control, github-monitor, issue-triage, pr-triage, pr-review's 09:00-only slot) — pr-review's 18:00 sister fires fine, ruling out skill-level breakage. Root cause unchanged; mitigation must cover every `aeon.yml` slot. See [[gha-messages-yml-cron-underdelivery]].
 
 ## Lessons (durable)
 - [[oauth-outage-zero-token-signature]] — zero-token `result_json` = missing CLI auth, not a model error
@@ -18,19 +18,20 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 - [[gha-messages-yml-cron-underdelivery]] — GHA silently drops ~97% of `messages.yml` `*/5` ticks in this repo with a daily 06:00–08:30Z dead zone (supersedes [[narrow-cron-pocket-vs-window-drop]])
 - [[narrow-cron-pocket-vs-window-drop]] — _superseded_ — diagnostic command still useful, conclusion (matcher bug) ruled out
 - [[gh-search-prs-api-drift]] — `gh search prs` dropped `--state merged`, `headRefName`, and `mergedAt`; SKILL.md fallback queries need patching
+- [[pr-tracker-branch-prefix-misses-bot-identity]] — `ai/`-only branch filter drops `security/`-prefixed bot PRs under the same author identity; filter by commit-author email instead
 
-## Snapshot (2026-06-26)
+## Snapshot (2026-06-27)
 | Signal | Value |
 |---|---|
-| Today's status | 🔴 DEGRADED — ISS-006 day 6; root cause holds (`messages.yml` `*/5` ~3% delivery); new evidence widens affected slots beyond morning (23:45 sweeper miss 2 nights) |
+| Today's status | 🔴 DEGRADED — ISS-006 day 7; morning pocket recovered (planner + compute-futures-eda fired ~07:34Z, 7-day silence broken); 23:45 sweeper pocket also self-resolved; NEW 09:00 dead zone (5 days, fleet-control / github-monitor / issue-triage / pr-triage / pr-review-09:00-slot) |
 | Cron-state | all 38 tracked skills at `last_status: success`, `consecutive_failures: 0`; cumulative `success_rate` still <0.6 (ISS-001 backlog) |
-| Heartbeat self-check | OK on entry — last_success 2026-06-25T08:44:06Z (~24h 0m), under 36h threshold; this run was ~43m late vs 08:00 dispatch (matches 06-24/25 post-ISS-006 cadence) |
+| Heartbeat self-check | OK on entry — last_success 2026-06-26T08:47:21Z (~24h 53m), under 36h threshold; this run was ~1h 40m late vs 08:00 dispatch (worse than 06-24/25/26 42–47m — cadence still drifting) |
 | Enabled skills | 44 (38 with cron-state rows; 5 never dispatched: agi-tracker, ai-framework-watch, config-validator, run-frequency-guard, swarm-safety-eval) |
 | Open issues | 4 on disk, 4 in INDEX.md (ISS-001, 002, 005, 006) |
 | Resolved | ISS-003 (cost-report), ISS-004 (skill-health) — both lifted on OAuth restore |
-| Pending branches | `fix/workflow-security-audit-2026-06-21` (RCE patch, blocked by App `workflows` write perm); `notegraph/2026-06-26` (auto-PR blocked by same perm gap) |
-| Notegraph state | 69 nodes · 393 hard · 130 soft · 1 orphan · 0 bundled (2026-06-26 notegraph regen, Δ +2n / +31e vs 2026-06-25) |
-| 2026-06-26 activity | notegraph branch pushed (+2n/+31e) · gitlawb-fleet-metrics empty · batch-health OUTAGE (4 missing, ISS-006 day-6, even-DOM) · heartbeat DEGRADED ~43m late, single 🟡 notify for new sweeper signal · skill-freshness OK · code-health SKIPPED · pr-tracker OK (6th empty day) · surplus-pulse catalog run · ⚠ stale-content-pr-sweeper missed 23:45 slot 2 nights running (widens ISS-006) |
+| Pending branches | `fix/workflow-security-audit-2026-06-21` (RCE patch, blocked by App `workflows` write perm); `notegraph/2026-06-26` (auto-PR blocked by same perm gap); `suggest-edges/2026-06-25` (same perm gap) |
+| Notegraph state | 69 nodes · 390 hard · 132 soft · 1 orphan · 0 bundled (post-reflect 2026-06-26 numbers; 2026-06-27 regen pending this reflect) |
+| 2026-06-27 activity | first planner run since 2026-06-20 (7-day silence broken, plan-only, top-priority `iss-006-messages-yml-per-slot-crons`) · compute-futures-eda first run since 2026-06-20 (144 rows, conservation healthy) · vuln-scanner first run since 2026-06-20 (vercel/eve, 0 code findings, 72 dep advisories, bundled draft PR pending operator) · batch-health OK (both morning slots fired) · heartbeat DEGRADED ~1h 40m late, single 🔴 notify for NEW 09:00 dead zone · pr-tracker 7th empty day post-filter BUT 1 real bot-authored PR at `Panniantong/Agent-Reach#436` filtered out (security/ branch, [[pr-tracker-branch-prefix-misses-bot-identity]]) · surplus-pulse catalog run · stale-content-pr-sweeper recovered (steady state) |
 
 ## Permission constraints (current)
 - aeon GitHub App: no write on `swarm-ai-research/swarm` (labels, comments, reviews 403). Verdicts run, posts blocked.

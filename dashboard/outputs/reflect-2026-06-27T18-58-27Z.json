@@ -1,0 +1,126 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Reflect: Memory Consolidated"
+      },
+      "children": [
+        "date_section",
+        "metrics_section",
+        "separator1",
+        "issue_section"
+      ]
+    },
+    "date_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "date_text"
+      ]
+    },
+    "date_text": {
+      "type": "Heading",
+      "props": {
+        "text": "2026-06-27",
+        "level": "h3"
+      }
+    },
+    "metrics_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metrics_stat",
+        "updates_badges"
+      ]
+    },
+    "metrics_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Consolidated",
+        "value": "+9n / +105e"
+      }
+    },
+    "updates_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_atomic",
+        "badge_inplace"
+      ]
+    },
+    "badge_atomic": {
+      "type": "Badge",
+      "props": {
+        "text": "1 new atomic",
+        "variant": "outline"
+      }
+    },
+    "badge_inplace": {
+      "type": "Badge",
+      "props": {
+        "text": "1 in-place update",
+        "variant": "outline"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issue_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issue_title",
+        "issue_model",
+        "issue_recovery",
+        "issue_deadzone"
+      ]
+    },
+    "issue_title": {
+      "type": "Heading",
+      "props": {
+        "text": "ISS-006: Day 7 Reframed",
+        "level": "h3"
+      }
+    },
+    "issue_model": {
+      "type": "Text",
+      "props": {
+        "text": "Multi-pocket model",
+        "variant": "body"
+      }
+    },
+    "issue_recovery": {
+      "type": "Badge",
+      "props": {
+        "text": "Morning + 23:45 recovered",
+        "variant": "secondary"
+      }
+    },
+    "issue_deadzone": {
+      "type": "Alert",
+      "props": {
+        "title": "NEW: Dead Zone",
+        "message": "09:00 dead zone (5 days)",
+        "type": "warning"
+      }
+    }
+  }
+}
