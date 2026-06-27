@@ -1,11 +1,12 @@
+No notify per spec (n_closed === 0 → no notify).
+
 ## Summary
 
-Ran stale-content-pr-sweeper. `gh pr list --state open` returned `[]` — zero open PRs in the repo, so no grouping, gates, or close operations executed. Steady state — third consecutive day at zero open PRs (2026-06-21, 22, 23).
-
-- **Eligible content PRs scanned:** 0
-- **Groups checked:** 0
+- **Groups scanned:** 0 (no eligible PRs)
+- **Open PRs in repo:** 0 — `gh pr list --state open --limit 100` returned `[]`
 - **PRs closed:** 0
-- **Skips:** 0 across all three reasons (no candidates to skip)
-- **Notify fired:** no (only fires on `n_closed > 0`)
-- **Files modified:** `memory/logs/2026-06-23.md` — appended re-run note to the existing sweeper entry (skill had already run earlier today; this was an idempotent re-execution)
-- **Verdict:** SWEEPER_OK
+- **Skips:** none (nothing to skip)
+- **`./notify` fired:** no (steady state per spec — only notify on close)
+- **Log:** appended `memory/logs/2026-06-27.md` with `SWEEPER_OK`
+
+Steady state — the PR queue is empty, so the sweeper has nothing to do.
