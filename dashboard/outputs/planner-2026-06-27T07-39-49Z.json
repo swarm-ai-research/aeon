@@ -1,0 +1,357 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Planner",
+        "description": "Daily task prioritization and tracking"
+      },
+      "children": [
+        "priority-section",
+        "separator1",
+        "status-section",
+        "separator2",
+        "tasks-section",
+        "separator3",
+        "hold-section",
+        "separator4",
+        "mode-section"
+      ]
+    },
+    "priority-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "priority-heading",
+        "priority-issue",
+        "priority-desc"
+      ]
+    },
+    "priority-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Priority: ISS-006 Fix",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "priority-issue": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-006",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "priority-desc": {
+      "type": "Text",
+      "props": {
+        "text": "Replace messages.yml's lone */5 cron with explicit per-slot crons covering every aeon.yml slot. Keep the morning-redundancy workflow."
+      },
+      "children": []
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "status-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status-heading",
+        "last-run",
+        "compute-alert"
+      ]
+    },
+    "status-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Status",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "last-run": {
+      "type": "Text",
+      "props": {
+        "text": "Last successful run: 2026-06-20 (7 days ago)"
+      },
+      "children": []
+    },
+    "compute-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "compute-futures-eda",
+        "message": "Still silent at 06:00 — root cause persists",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "tasks-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "tasks-heading",
+        "gitlawb-task",
+        "bugs-task"
+      ]
+    },
+    "tasks-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Active Tasks",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "gitlawb-task": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "gitlawb-badge",
+        "gitlawb-text"
+      ]
+    },
+    "gitlawb-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "gitlawb",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "gitlawb-text": {
+      "type": "Text",
+      "props": {
+        "text": "Fork delivery cross-check"
+      },
+      "children": []
+    },
+    "bugs-task": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "bugs-badge",
+        "bugs-text"
+      ]
+    },
+    "bugs-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-007/008",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "bugs-text": {
+      "type": "Text",
+      "props": {
+        "text": "File generate-skills-json bugs (6 days paper-only)"
+      },
+      "children": []
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "hold-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "hold-heading",
+        "hold-items"
+      ]
+    },
+    "hold-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "On Hold",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "hold-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "hold-1",
+        "hold-2",
+        "hold-3",
+        "hold-4"
+      ]
+    },
+    "hold-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "hold-1-badge",
+        "hold-1-text"
+      ]
+    },
+    "hold-1-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "workflow-audit PR",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "hold-1-text": {
+      "type": "Text",
+      "props": {
+        "text": "PAT block"
+      },
+      "children": []
+    },
+    "hold-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "hold-2-badge",
+        "hold-2-text"
+      ]
+    },
+    "hold-2-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "pr-tracker patch",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "hold-2-text": {
+      "type": "Text",
+      "props": {
+        "text": "No breakage"
+      },
+      "children": []
+    },
+    "hold-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "hold-3-badge",
+        "hold-3-text"
+      ]
+    },
+    "hold-3-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "agi-tracker watch",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "hold-3-text": {
+      "type": "Text",
+      "props": {
+        "text": "Next test Mon 06-29 13:00"
+      },
+      "children": []
+    },
+    "hold-4": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "hold-4-badge",
+        "hold-4-text"
+      ]
+    },
+    "hold-4-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-001",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "hold-4-text": {
+      "type": "Text",
+      "props": {
+        "text": "Close"
+      },
+      "children": []
+    },
+    "separator4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "mode-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "mode-heading",
+        "mode-text"
+      ]
+    },
+    "mode-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Mode",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "mode-text": {
+      "type": "Text",
+      "props": {
+        "text": "Plan-only — no dispatch"
+      },
+      "children": []
+    }
+  }
+}
