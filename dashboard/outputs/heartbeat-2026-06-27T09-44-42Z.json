@@ -1,0 +1,336 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Heartbeat Status — System Health Report",
+        "description": "Cron dispatch degradation detected across morning batch window"
+      },
+      "children": [
+        "alert_status",
+        "separator_1",
+        "section_issue",
+        "separator_2",
+        "section_affected",
+        "separator_3",
+        "section_timeline",
+        "separator_4",
+        "section_recovery"
+      ]
+    },
+    "alert_status": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "🔴 DEGRADED",
+        "message": "ISS-006 dead zone widened: 09:00 UTC batch silent for 5 days"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_issue": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issue_heading",
+        "issue_number",
+        "issue_description"
+      ]
+    },
+    "issue_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issue Details",
+        "level": "h3"
+      }
+    },
+    "issue_number": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-006",
+        "variant": "destructive"
+      }
+    },
+    "issue_description": {
+      "type": "Text",
+      "props": {
+        "text": "09:00 UTC batch remained silent for 5 days. Heartbeat itself ran 1 hour 40 minutes late at 09:40 UTC.",
+        "variant": "body"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_affected": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "affected_heading",
+        "affected_list"
+      ]
+    },
+    "affected_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Affected Services",
+        "level": "h3"
+      }
+    },
+    "affected_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "service_1",
+        "service_2",
+        "service_3",
+        "service_4",
+        "service_5"
+      ]
+    },
+    "service_1": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_fleet",
+        "cron_fleet"
+      ]
+    },
+    "badge_fleet": {
+      "type": "Badge",
+      "props": {
+        "text": "fleet-control",
+        "variant": "outline"
+      }
+    },
+    "cron_fleet": {
+      "type": "Text",
+      "props": {
+        "text": "0 9 * * *",
+        "variant": "caption"
+      }
+    },
+    "service_2": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_github",
+        "cron_github"
+      ]
+    },
+    "badge_github": {
+      "type": "Badge",
+      "props": {
+        "text": "github-monitor",
+        "variant": "outline"
+      }
+    },
+    "cron_github": {
+      "type": "Text",
+      "props": {
+        "text": "0 9 * * *",
+        "variant": "caption"
+      }
+    },
+    "service_3": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_triage",
+        "cron_triage"
+      ]
+    },
+    "badge_triage": {
+      "type": "Badge",
+      "props": {
+        "text": "issue-triage",
+        "variant": "outline"
+      }
+    },
+    "cron_triage": {
+      "type": "Text",
+      "props": {
+        "text": "0 9 * * *",
+        "variant": "caption"
+      }
+    },
+    "service_4": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_pr_triage",
+        "cron_pr_triage"
+      ]
+    },
+    "badge_pr_triage": {
+      "type": "Badge",
+      "props": {
+        "text": "pr-triage",
+        "variant": "outline"
+      }
+    },
+    "cron_pr_triage": {
+      "type": "Text",
+      "props": {
+        "text": "0 9 * * *",
+        "variant": "caption"
+      }
+    },
+    "service_5": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_pr_review",
+        "cron_pr_review"
+      ]
+    },
+    "badge_pr_review": {
+      "type": "Badge",
+      "props": {
+        "text": "pr-review",
+        "variant": "outline"
+      }
+    },
+    "cron_pr_review": {
+      "type": "Text",
+      "props": {
+        "text": "09:00 slot",
+        "variant": "caption"
+      }
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_timeline": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "timeline_heading",
+        "timeline_last_dispatch",
+        "timeline_missed",
+        "timeline_heartbeat_delay"
+      ]
+    },
+    "timeline_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Timeline",
+        "level": "h3"
+      }
+    },
+    "timeline_last_dispatch": {
+      "type": "Text",
+      "props": {
+        "text": "Last successful dispatch: 2026-06-22T10:14Z",
+        "variant": "body"
+      }
+    },
+    "timeline_missed": {
+      "type": "Text",
+      "props": {
+        "text": "Missed dispatches: 2026-06-23, 2026-06-24, 2026-06-25, 2026-06-26, and today (2026-06-27) at 09:00 UTC",
+        "variant": "body"
+      }
+    },
+    "timeline_heartbeat_delay": {
+      "type": "Text",
+      "props": {
+        "text": "Heartbeat check itself ran 1 hour 40 minutes late at 09:40 UTC today",
+        "variant": "body"
+      }
+    },
+    "separator_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_recovery": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "recovery_heading",
+        "recovery_morning",
+        "recovery_services",
+        "recovery_mitigation",
+        "status_page"
+      ]
+    },
+    "recovery_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Recovery & Mitigation",
+        "level": "h3"
+      }
+    },
+    "recovery_morning": {
+      "type": "Text",
+      "props": {
+        "text": "Morning 06:00–06:30 UTC pocket recovered today",
+        "variant": "body"
+      }
+    },
+    "recovery_services": {
+      "type": "Text",
+      "props": {
+        "text": "Services recovered: planner, compute-futures-eda dispatched at 07:34 UTC",
+        "variant": "body"
+      }
+    },
+    "recovery_mitigation": {
+      "type": "Text",
+      "props": {
+        "text": "Mitigation in progress: messages.yml per-slot cron configuration must be extended to cover 09:00 UTC slot (currently covers morning window only)",
+        "variant": "body"
+      }
+    },
+    "status_page": {
+      "type": "Text",
+      "props": {
+        "text": "Status page regenerated and marked DEGRADED",
+        "variant": "body"
+      }
+    }
+  }
+}
