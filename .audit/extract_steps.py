@@ -4,21 +4,9 @@ import os
 import hashlib
 from collections import Counter, defaultdict
 
-findings = json.load(open('.audit/parsed.json'))
+from lib import our_severity
 
-# Apply severity mapping (re-applied since we save back)
-def our_severity(f):
-    level = f['level']
-    conf = f.get('confidence', '').lower()
-    if level == 'error' and conf == 'high':
-        return 'Critical'
-    if level == 'error':
-        return 'High'
-    if level == 'warning' and conf == 'high':
-        return 'High'
-    if level == 'warning':
-        return 'Medium'
-    return 'Low'
+findings = json.load(open('.audit/parsed.json'))
 
 # Normalize file paths: zizmor SARIF gives basenames; resolve to workflow dir
 def resolve_path(basename):
