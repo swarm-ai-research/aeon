@@ -1,16 +1,17 @@
 ## Summary
 
-**pr-review** — `${var}` = `swarm-ai-research/swarm`, operator policy = merge-gate (APPROVE / REQUEST_CHANGES / BLOCK).
+Ran the **pr-review** skill against `swarm-ai-research/swarm` under the merge-gate operator policy (APPROVE / REQUEST_CHANGES / BLOCK).
 
-- **Open PRs scanned:** 5
-- **Reviewed:** 0
-- **All 5 skipped** — no new commits since 2026-06-27 review pass:
-  - `#526`, `#525`, `#524` — app/dependabot (bot-author + dup-SHA)
-  - `#518` — dup-SHA `79d73af5` (prior verdict **BLOCK** / 0/5 — `extra="forbid"` schema in `swarm/models/scenario.py` rejects existing scenario YAMLs; 16 loader tests fail)
-  - `#517` — dup-SHA `3149e2bf` (prior verdict **REQUEST_CHANGES** / 3/5 — ruff I001 import-sort in `swarm/replay/__init__.py:3-7` fails `quality-gate`)
-- **Notify:** suppressed per skill spec (all-skipped runs do not notify).
-- **Posting status:** N/A this run — Aeon App still lacks PR-write on cross-org `swarm-ai-research/swarm` (prior `403 Resource not accessible by integration`); next non-dup SHA will retry publishing.
-- **Files modified:** `memory/logs/2026-06-28.md` (appended `## pr-review` block).
-- **Follow-up:** wait for fresh commits on any of the 5 PRs — current heads are all stale ≥3–9 days; maintainer `rsavitt` already requested changes on #518 / commented on #517 with no author response. No reviewer action available until the SHAs move.
+**Result:** PR_REVIEW_OK (all-skipped). No new verdicts issued, no notification sent.
 
-`PR_REVIEW_OK` (all-skipped variant)
+- **Open PRs scanned:** 3 (down from 5 in the prior 2026-06-28 run — #517 and #518 have since closed/deleted; `gh pr view` returns "Could not resolve to a PullRequest")
+- **All 3 skipped** as dependabot bot authors *and* dup-SHA vs earlier today's log:
+  - `#526` langchain-anthropic 1.4.6→1.4.7 (head `787b86c0`)
+  - `#525` langgraph 1.2.5→1.2.6 (head `934568c7`)
+  - `#524` actions/checkout 6→7 (head `764c81be`)
+- **Posting:** N/A — no reviews to post. Aeon App still lacks PR-write on this cross-org repo (would 403 if any non-skipped PR appeared).
+- **Notify:** suppressed per skill spec ("If every PR was skipped, do not notify — just log").
+
+**Files modified:** appended re-run entry to `memory/logs/2026-06-28.md`.
+
+**Follow-up:** none — when a non-bot PR with a fresh SHA appears, the skill will retry posting; the App-perm gap on `swarm-ai-research/swarm` is the standing blocker noted across prior runs.
