@@ -1,12 +1,11 @@
-No notify per spec (n_closed === 0 → no notify).
-
 ## Summary
 
-- **Groups scanned:** 0 (no eligible PRs)
-- **Open PRs in repo:** 0 — `gh pr list --state open --limit 100` returned `[]`
-- **PRs closed:** 0
-- **Skips:** none (nothing to skip)
-- **`./notify` fired:** no (steady state per spec — only notify on close)
-- **Log:** appended `memory/logs/2026-06-27.md` with `SWEEPER_OK`
+Ran the stale-content-pr-sweeper skill against the repo on 2026-06-28.
 
-Steady state — the PR queue is empty, so the sweeper has nothing to do.
+- **Open PRs scanned:** 0 (`gh pr list --state open` returned `[]`)
+- **Groups checked:** 0 — nothing matched any tracked content-skill prefix because there are no open PRs at all
+- **PRs closed:** 0
+- **Skips:** none (no candidates to skip)
+- **Notify fired:** no — skill rule says steady state (`n_closed === 0`) does not notify
+
+Logged the run to `memory/logs/2026-06-28.md` with the `SWEEPER_OK` marker. No follow-up actions.
