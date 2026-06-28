@@ -360,4 +360,49 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. PR body contains focus and target when both are supplied. The
+//     conditional branches `target ? ... : ""` and `focus ? ... : ""`
+//     inside buildPrompt's body template are exercised here.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    // Write the body arg ($6) to a separate file so we can assert on it.
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\nprintf '%s' "$6" > "$GH_LOG.body"\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "src/util.mjs", focus: "edge-case-null-input", repoDir: env.localDir, taskId: "focustest" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    const body = readFileSync(env.ghLog + ".body", "utf8");
+    assert.match(body, /\*\*Target files:\*\* src\/util\.mjs/, "target should appear in PR body");
+    assert.match(body, /\*\*Focus:\*\* edge-case-null-input/, "focus should appear in PR body");
+    assert.match(body, /test-pass/, "kind should appear in PR body");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  PR body includes target and focus when both are supplied");
+}
+
+// 13. PR body omits target and focus lines when neither is supplied. The
+//     `filter(Boolean)` removes the empty strings produced by the ternaries.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\nprintf '%s' "$6" > "$GH_LOG.body"\necho "https://github.com/stub/repo/pull/88"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "refactor-pass", repoDir: env.localDir, taskId: "nobody" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    const body = readFileSync(env.ghLog + ".body", "utf8");
+    assert.doesNotMatch(body, /\*\*Target files:\*\*/, "target line should be absent when target is empty");
+    assert.doesNotMatch(body, /\*\*Focus:\*\*/, "focus line should be absent when focus is empty");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  PR body omits target and focus lines when neither is provided");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
