@@ -172,6 +172,38 @@ LOW_PATTERNS=(
   '>[[:space:]]+/'
 )
 
+# ---------- Helpers ----------
+
+# Scan $3 for every pattern in the array named $1; append findings to array named $2.
+# Requires bash 4.3+ (declare -n nameref). GitHub Actions provides bash 5+.
+collect_matches() {
+  local -n _patterns=$1
+  local -n _results=$2
+  local file=$3
+  for pattern in "${_patterns[@]}"; do
+    local matches
+    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
+    if [[ -n "$matches" ]]; then
+      while IFS= read -r match; do
+        local line_num="${match%%:*}"
+        local line_content="${match#*:}"
+        line_content="${line_content:0:120}"
+        _results+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
+      done <<< "$matches"
+    fi
+  done
+}
+
+# Convert the bash array named $1 to a JSON array string.
+to_json_array() {
+  local -n _arr=$1
+  if [[ ${#_arr[@]} -gt 0 ]]; then
+    printf '%s\n' "${_arr[@]}" | jq -R -s 'split("\n") | map(select(length > 0))'
+  else
+    echo "[]"
+  fi
+}
+
 # ---------- Scanner ----------
 
 TOTAL_PASS=0
@@ -196,47 +228,9 @@ scan_file() {
   local mediums=()
   local lows=()
 
-  # Check HIGH patterns
-  for pattern in "${HIGH_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"  # truncate
-        highs+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
-
-  # Check MEDIUM patterns
-  for pattern in "${MEDIUM_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        mediums+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
-
-  # Check LOW patterns
-  for pattern in "${LOW_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        lows+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  collect_matches HIGH_PATTERNS highs "$file"
+  collect_matches MEDIUM_PATTERNS mediums "$file"
+  collect_matches LOW_PATTERNS lows "$file"
 
   # Determine result
   local status="PASS"
@@ -252,16 +246,10 @@ scan_file() {
 
   # Output
   if [[ "$JSON_OUTPUT" == "true" ]]; then
-    local json_highs="[]" json_mediums="[]" json_lows="[]"
-    if [[ ${#highs[@]} -gt 0 ]]; then
-      json_highs=$(printf '%s\n' "${highs[@]}" | jq -R -s 'split("\n") | map(select(length > 0))')
-    fi
-    if [[ ${#mediums[@]} -gt 0 ]]; then
-      json_mediums=$(printf '%s\n' "${mediums[@]}" | jq -R -s 'split("\n") | map(select(length > 0))')
-    fi
-    if [[ ${#lows[@]} -gt 0 ]]; then
-      json_lows=$(printf '%s\n' "${lows[@]}" | jq -R -s 'split("\n") | map(select(length > 0))')
-    fi
+    local json_highs json_mediums json_lows
+    json_highs=$(to_json_array highs)
+    json_mediums=$(to_json_array mediums)
+    json_lows=$(to_json_array lows)
     local entry
     entry=$(jq -n \
       --arg skill "$skill_name" \
