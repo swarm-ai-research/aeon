@@ -360,4 +360,72 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. git commit failure (pre-commit hook rejects) → ok:false, worktree and
+//     branch cleaned up. Exercises the `if (!commit.ok) { cleanup(true); ... }`
+//     branch that no prior test reaches.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  mkdirSync(join(env.localDir, ".git", "hooks"), { recursive: true });
+  writeFileSync(
+    join(env.localDir, ".git", "hooks", "pre-commit"),
+    "#!/usr/bin/env bash\necho 'commit rejected by hook' >&2\nexit 1\n",
+  );
+  chmodSync(join(env.localDir, ".git", "hooks", "pre-commit"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "cmtfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "branch should be deleted after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, worktree and branch cleaned up");
+}
+
+// 13. gh pr list returns valid but non-array JSON → openPRsForKind hits the
+//     `!Array.isArray(arr)` branch and returns null → backlog gate skipped.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{"message":"Not Found"}'; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "narray" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns non-array, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list non-array JSON → null backlog (Array.isArray branch) → pass proceeds");
+}
+
+// 14. gh pr list returns malformed JSON → openPRsForKind catch block returns
+//     null → backlog gate skipped, pass proceeds.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo 'not valid json {{{'; exit 0; fi\necho "https://github.com/stub/repo/pull/88"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "refactor-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "badjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns malformed JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/88");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list malformed JSON → null backlog (catch branch) → pass proceeds");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
