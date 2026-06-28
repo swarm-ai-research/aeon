@@ -1,8 +1,10 @@
+Task complete — no progress tracking needed for this short single-action run.
+
 ## Summary
 
-Skipped Code Health skill — required config file `memory/watched-repos.md` is missing and `${var}` is empty, so no repos are resolvable. Per the skill spec ("If the file doesn't exist yet, create it or skip this skill"), exited cleanly with no clone, no scan, no article, no notification.
+Ran the `code-health` skill. `memory/watched-repos.md` does not exist and `${var}` is empty, so per the SKILL.md fallback ("create it or skip this skill") the audit was skipped — no repos to clone, no article written, no notification sent. This matches the silent-skip pattern that `issue-triage` and `github-monitor` already followed in today's log (both gated on the same absent config file).
 
-**Files modified:**
-- `memory/logs/2026-06-27.md` — appended `CODE_HEALTH_NO_CONFIG` entry
+**Modified:**
+- `memory/logs/2026-06-28.md` — appended `## code-health` entry with verdict `CODE_HEALTH_EMPTY_CONFIG no-watched-repos`.
 
-**Follow-up:** Operator can activate by creating `memory/watched-repos.md` with one `- owner/repo` per line. Three other skills today hit the same missing-config skip (`github-monitor`, `issue-triage`, `repo-revive`) — one file would unblock all four.
+**Follow-up (optional, operator action):** Create `memory/watched-repos.md` listing `owner/repo` targets to unblock `code-health`, `issue-triage`, and `github-monitor` together. They all gate on this single file.
