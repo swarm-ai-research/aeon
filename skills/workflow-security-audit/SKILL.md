@@ -24,6 +24,10 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
+# Pre-fetched binaries live in .audit-bin/ (committed to avoid sandbox network blocks).
+# Prepend it first so these are found before attempting any network installs.
+export PATH="$PWD/.audit-bin:$PATH"
+
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
 # Pin to a specific version for reproducibility — bump this when upgrading.
 ZIZMOR_VERSION="1.25.2"
@@ -42,7 +46,7 @@ if ! command -v actionlint >/dev/null 2>&1; then
 fi
 ```
 
-If the sandbox blocks the download, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
+If the sandbox blocks the download, the pre-fetched binaries in `.audit-bin/` (see `.audit-bin/README.md`) should already be on PATH from the step above. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
 
 ## Steps
 
@@ -352,7 +356,8 @@ Append to `memory/logs/${today}.md`:
 
 ## Sandbox note
 
-- `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
+- The primary fallback for sandbox-blocked installs is `.audit-bin/` — pre-fetched binaries committed to the repo (see `.audit-bin/README.md`). Step 0b prepends `.audit-bin` to PATH before any network install attempt, so the sandbox constraint is transparent.
+- `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them the `.audit-bin/zizmor` binary takes over automatically.
 - `gh` CLI uses existing `GITHUB_TOKEN` / `GH_GLOBAL` — no extra auth setup needed.
 - No new secrets required. zizmor and actionlint are offline-only static analyzers.
 
