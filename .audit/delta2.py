@@ -54,24 +54,12 @@ for pf in prior_indiv:
     r = pf['rule']
     fname = base(pf.get('file', ''))
     prior_counts[(r, fname)] += 1
+_agg_rmap = {'template-injection-note': 'template-injection'}
 for a in prior_aggregates:
-    rmap = {
-        'secrets-outside-env': 'secrets-outside-env',
-        'template-injection-note': 'template-injection',
-        'undocumented-permissions': 'undocumented-permissions',
-        'anonymous-definition': 'anonymous-definition',
-        'concurrency-limits': 'concurrency-limits',
-    }
-    actual_rule = rmap.get(a['rule'], a['rule'])
+    actual_rule = _agg_rmap.get(a['rule'], a['rule'])
     files = a.get('files', '').split(',')
-    count_per_file = {}
-    # crude — total count not split by file in the aggregate string;
-    # use file list, distributing count evenly by file presence (approx)
-    total = int(a.get('count', 0))
     if not files or files == ['']:
         continue
-    # Use prior detail: parse "(N)" suffix where present from the report body
-    # — for now treat aggregate as "at least 1 finding per listed file"
     for fl in files:
         if fl:
             prior_counts[(actual_rule, fl)] += 1
