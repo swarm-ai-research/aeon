@@ -1,0 +1,49 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "content_stack"
+      ]
+    },
+    "content_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "notes_stat",
+        "alert_pr",
+        "branch_link"
+      ]
+    },
+    "notes_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes wired in",
+        "value": "3"
+      }
+    },
+    "alert_pr": {
+      "type": "Alert",
+      "props": {
+        "title": "PR creation blocked",
+        "message": "PR creation blocked by repo policy",
+        "type": "warning"
+      }
+    },
+    "branch_link": {
+      "type": "Link",
+      "props": {
+        "label": "Branch ready",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-06-29"
+      }
+    }
+  }
+}
