@@ -1,0 +1,22 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "changelog"
+      },
+      "children": [
+        "alert_missing"
+      ]
+    },
+    "alert_missing": {
+      "type": "Alert",
+      "props": {
+        "message": "`memory/watched-repos.md` missing — nothing to scan.",
+        "type": "info"
+      }
+    }
+  }
+}
