@@ -36,5 +36,7 @@ Pointer-only index. Durable claims live in `memory/notes/`, organized by topic M
 - Patch `pr-tracker` SKILL.md: drop `headRefName` / `mergedAt` / `--state merged` per [[gh-search-prs-api-drift]], AND replace `ai/`-only branch filter with commit-author email filter (`BOT_EMAIL=aeonframework@users.noreply.github.com`) per [[pr-tracker-branch-prefix-misses-bot-identity]].
 - File `./generate-skills-json` bugs as structured issues (see [[generate-skills-json-newline-bug]], [[skills-json-count-drift]]).
 - Open the staged workflow-audit PRs via PAT — both `fix/workflow-security-audit-2026-06-21` (old) AND `fix/workflow-security-audit-2026-06-28` (new today, 16C/36H) — plus `skill-graph/2026-06-28` (INIT). All three blocked by repo policy "GitHub Actions is not permitted to create or approve pull requests" — same App perm gap.
-- File a structured issue for `agi-tracker`'s 2nd consecutive Mon miss (2026-06-15, 2026-06-22) if Mon 2026-06-29 also misses.
 - Defer ISS-001 close until ISS-006 is resolved.
+
+## Completed Goals
+- File a structured issue for `agi-tracker`'s 2nd consecutive Mon miss (2026-06-15, 2026-06-22) if Mon 2026-06-29 also misses. — completed 2026-06-29 (Mon 13:00 UTC slot fired; conditional trigger no longer met)
