@@ -360,4 +360,49 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. test-pass kind — the KIND_CONFIG entry for "test-pass" should work
+//     identically to other kinds. No test previously exercised this code path
+//     even though the fleet uses it regularly (this file is the test-pass kind).
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "tp001" })
+    );
+    assert.equal(result.ok, true, `expected ok=true for test-pass, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/42");
+    assert.match(result.branch, /^aeon\/test-pass-\d{4}-\d{2}-\d{2}-tp001$/);
+    // Branch must be on remote.
+    const refs = spawnSync("git", ["ls-remote", env.remoteDir], { encoding: "utf8" }).stdout;
+    assert.match(refs, /refs\/heads\/aeon\/test-pass-/);
+    // PR title written to gh log must contain the "Test pass" label.
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /Test pass/);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  test-pass kind → branch + commit + push + PR with correct label");
+}
+
+// 13. gh pr create output without a URL — the executor extracts a URL via regex
+//     and falls back to `pr.stdout.trim()` when no URL is present. This branch
+//     (line: `|| pr.stdout.trim()`) was previously unreachable in tests.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourlfb" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    // No https:// URL in output → falls back to raw trimmed stdout.
+    assert.equal(result.prUrl, "stub/repo/pull/77");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create non-URL output → prUrl falls back to raw stdout");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
