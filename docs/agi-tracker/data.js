@@ -7,18 +7,20 @@
 //              "saturating" (above the suite's reliable range, treat as fuzzy).
 window.AGI_TRACKER = {
   meta: {
-    lastUpdated: "2026-06-10",
+    lastUpdated: "2026-06-29",
     maintainer: "aeon agi-tracker skill",
     primarySources: [
       { label: "METR Time Horizons", url: "https://metr.org/time-horizons/" },
       { label: "METR TH1.1 update (Jan 2026)", url: "https://metr.org/blog/2026-1-29-time-horizon-1-1/" },
       { label: "METR: limitations of time horizon", url: "https://metr.org/notes/2026-01-22-time-horizon-limitations/" },
+      { label: "METR predeployment of GPT-5.6 Sol (Jun 2026)", url: "https://metr.org/blog/2026-06-26-gpt-5-6-sol/" },
       { label: "Situational Awareness (Aschenbrenner, June 2024)", url: "https://situational-awareness.ai/" },
       { label: "Epoch AI: METR Time Horizons", url: "https://epoch.ai/benchmarks/metr-time-horizons" }
     ],
     notes: [
-      "Doubling times per METR TH1.1: ~7 months over 2019–2025, 129 days (~4.3 months) post-2023, ~89 days (~3 months) post-2024.",
-      "METR flags 50%-horizon estimates above ~16 hours as unreliable with the current task suite (saturation).",
+      "Doubling times per METR (Jan 2024 – Feb 2026 fit): ~105 days (~3.5 months, ≈10×/yr); 2025-only trend ~3 months; long-run 2019–2025 ~7 months.",
+      "METR flags 50%-horizon estimates above ~16 hours as unreliable with the current task suite (saturation); only 5 of 228 tasks are ≥16 h.",
+      "GPT-5.6 Sol (Jun 2026 predeployment) returned a 50%-horizon point of ~11.3 h (CI 5–40 h), but METR explicitly does not treat it as a robust measurement due to reward-hacking behaviour.",
       "Benchmark horizons are clean, well-specified software tasks — real-world messy work lags these numbers."
     ]
   },
@@ -43,8 +45,11 @@ window.AGI_TRACKER = {
     { model: "Claude Sonnet 4.5",        date: "2025-09-29", horizonMinutes: 113,    reliability: "measured" },
     { model: "Claude Opus 4.5",          date: "2025-11-24", horizonMinutes: 289,    reliability: "measured" },
     { model: "Gemini 3 Pro",             date: "2025-11-18", horizonMinutes: 390,    reliability: "estimate" },
-    { model: "GPT-5.3 Codex",            date: "2026-03-01", horizonMinutes: 390,    reliability: "estimate" },
-    { model: "Claude Opus 4.6",          date: "2026-02-05", horizonMinutes: 870,    reliability: "saturating" }
+    { model: "GPT-5.2 (high)",           date: "2025-12-11", horizonMinutes: 352,    reliability: "measured" },
+    { model: "Claude Opus 4.6",          date: "2026-02-05", horizonMinutes: 719,    reliability: "saturating" },
+    { model: "Gemini 3.1 Pro",           date: "2026-02-19", horizonMinutes: 384,    reliability: "measured" },
+    { model: "GPT-5.3 Codex",            date: "2026-03-01", horizonMinutes: 350,    reliability: "measured" },
+    { model: "Claude Mythos Preview",    date: "2026-04-07", horizonMinutes: 1045,   reliability: "saturating" }
   ],
 
   // Capability milestones expressed as human-expert task length.
@@ -71,7 +76,7 @@ window.AGI_TRACKER = {
     {
       claim: "Compute buildout: ~0.5 OOM/yr, $100B–$1T clusters, national mobilization of capital",
       status: "ahead",
-      evidence: "Stargate at $500B / 10 GW; hyperscaler data-center capex approaching ~$700B planned for 2026; Anthropic's $50B US buildout."
+      evidence: "Stargate at $500B / 10 GW — ~7 GW now planned across announced sites (10 GW commitment hit 4 years early, +3 GW in last 90 days). Vera Rubin powers the first GW H2 2026; OpenAI/Broadcom 'Titan' custom silicon mass-production targeted H2 2026."
     },
     {
       claim: "Models outpace many college graduates by 2025/26",
@@ -81,32 +86,32 @@ window.AGI_TRACKER = {
     {
       claim: "Unhobbling: chatbots become agents",
       status: "ahead",
-      evidence: "METR 50%-horizon doubling every ~4.3 months post-2023 (vs ~7-month long-run); frontier agents at multi-workday horizons by early 2026, saturating the task suite."
+      evidence: "METR's Jan-2024→Feb-2026 fit shows ~105-day doubling (~10×/yr); 2025-only trend tightens to ~3 months. Mythos Preview's 50%-horizon point lands ~17 h (CI 8.5–55 h, suite saturating). GPT-5.6 Sol predeployment ~11.3 h but METR flags reward-hacking as unrobust."
     },
     {
       claim: "Drop-in remote worker by ~2027",
       status: "partial",
-      evidence: "Benchmark horizons say yes; real-world reliability, messy context, and long-tail failure modes still gate deployment. Self-reported practitioner uplift ~1.4–2x, well below benchmark implication."
+      evidence: "Project Glasswing (Anthropic + AWS/Apple/Google/MSFT/NVIDIA/JPMC/Cisco/Palo Alto/CrowdStrike/Linux Foundation) used Mythos Preview to surface 10k+ high/critical-severity vulnerabilities by May 2026 — first sustained real-world frontier-agent deployment at scale. Practitioner uplift still lags benchmark horizons."
     },
     {
       claim: "AGI (automated AI researcher) by 2027",
       status: "open",
-      evidence: "At the 4.3-month doubling, year-long-task capability lands ~2028–29; at 7 months, early 2030s. No longer consensus, no longer dismissible."
+      evidence: "At the new ~3.5-month doubling, year-long-task capability lands ~late 2028; 2025-only 3-month trend pulls it into 2027/28. Long-run 7-month trend still puts it early 2030s. Aschenbrenner's 2027 timeline is now an aggressive-but-defensible read on the data."
     },
     {
       claim: "Intelligence explosion 2027–28 (automated AI research → superintelligence)",
       status: "open",
-      evidence: "Premise (AI accelerating AI R&D) partially visible — labs report large internal coding/automation gains — but no runaway dynamics observed."
+      evidence: "Anthropic's Mythos system card cites two of three >40-h AI R&D tasks completed; METR is publishing AI-R&D-risk reviews of frontier labs. Premise (AI accelerating AI R&D) increasingly visible, no runaway dynamics yet."
     },
     {
       claim: "The Project: USG-led national AGI effort by 2027/28",
       status: "behind",
-      evidence: "Heavy government engagement (export controls, compute diplomacy, defense contracts) but no nationalization; labs remain private and commercially driven."
+      evidence: "USG export-blocked then conditionally permitted Mythos's release to trusted partners (June 2026) — first time export controls hit a specific frontier model. Compute diplomacy, defense contracts continue. Still no nationalization; labs remain private and commercially driven."
     },
     {
       claim: "Lab security hardened to state-actor level",
       status: "behind",
-      evidence: "Security improved (weights custody, insider-threat programs) but independent assessments still rate frontier labs below state-actor-proof; the gap Aschenbrenner flagged remains."
+      evidence: "METR has been red-teaming Anthropic's internal agent monitoring (Mar 2026) and reviewing Anthropic's automated-R&D risk reporting (May 2026). Lab security posture is improving and being independently scrutinised but still rated below state-actor-proof."
     }
   ]
 };
