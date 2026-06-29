@@ -1,0 +1,71 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Suggest-edges"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-finding",
+        "text-date",
+        "sep-1",
+        "alert-blocker",
+        "sep-2",
+        "link-pr"
+      ]
+    },
+    "heading-finding": {
+      "type": "Heading",
+      "props": {
+        "text": "3 missing links proposed",
+        "level": "h3"
+      }
+    },
+    "text-date": {
+      "type": "Text",
+      "props": {
+        "text": "Top proposal date: 2026-06-20",
+        "variant": "caption"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert-blocker": {
+      "type": "Alert",
+      "props": {
+        "title": "PR creation blocked",
+        "message": "GHA repo policy — same App permission gap as workflow-audit branches",
+        "type": "warning"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link-pr": {
+      "type": "Link",
+      "props": {
+        "label": "Branch pushed: suggest-edges/2026-06-29",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-06-29"
+      }
+    }
+  }
+}
