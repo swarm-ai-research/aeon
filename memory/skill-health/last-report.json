@@ -1,7 +1,7 @@
 {
-  "hash": "1ee3baf2f91c73e1",
-  "last_notified_at": "2026-06-28T19:00:00Z",
-  "last_run_at": "2026-06-28T19:00:00Z",
+  "hash": "34a83aca5dc92776",
+  "last_notified_at": "2026-06-29T19:25:00Z",
+  "last_run_at": "2026-06-29T19:25:00Z",
   "classification": {
     "critical": [],
     "degraded": [
@@ -18,18 +18,16 @@
     ],
     "flapping": [],
     "warning": [],
-    "healthy_count": 3,
-    "healthy": ["config-validator", "swarm-safety-eval", "weekly-shiplog"],
-    "no_data": [
-      "agi-tracker", "ai-framework-watch", "run-frequency-guard"
-    ]
+    "healthy_count": 4,
+    "healthy": ["agi-tracker", "config-validator", "swarm-safety-eval", "weekly-shiplog"],
+    "no_data": ["ai-framework-watch", "run-frequency-guard"]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage residue (2026-06-06 to 2026-06-20) drives all 38 DEGRADED classifications — every skill has last_status=success and consecutive_failures=0; cumulative success_rate <0.6 is denominator catch-up after ~200 zero-token CLI failures per skill during the outage. Runtime fleet over last 168h (per ./scripts/skill-runs): 104/109 success, 0 failures, 5 in-progress — runtime is healthy. Distinct ongoing pattern: ISS-006 multi-pocket dispatch dead zones (day 8). Heartbeat's 06-28 NEW SIGNAL: 05:00 UTC pocket (notegraph, suggest-edges, ~50h stale) widens ISS-006 affected slots. skill-health does not reclassify those as DEGRADED-vs-CRITICAL — they all retain last_status=success from before the silence; the silence is a dispatch problem, not a run problem.",
-  "delta_vs_prev": "Structural change vs 2026-06-27 run: 2 skills moved NO_DATA -> HEALTHY (config-validator, swarm-safety-eval — both fired today at 08:14Z, weekly Sunday slots). DEGRADED list of 38 unchanged. NO_DATA shrunk from 5 to 3. Notify gated by cadence: prev notify was 2026-06-26T19:12:32Z (~47h 48m ago, well past the 24h reminder cadence) — notifying this run even though substantive classification is largely steady-state. Hash advanced 1ee3baf2f91c73e1 (prev f5003713d229ccd6) due to systemic-text rewording; CRITICAL+FLAPPING+DEGRADED set is identical.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage residue (2026-06-06 to 2026-06-20) still drives all 38 DEGRADED classifications — every skill has last_status=success and consecutive_failures=0; cumulative success_rate <0.6 is denominator catch-up after ~195 zero-token CLI failures per skill during the outage. Runtime fleet 168h (./scripts/skill-runs): 105/109 success, 0 failures, 4 in-progress — runtime healthy. Last cluster-wide failure timestamp: 2026-06-20T01:5x:xxZ, 9 days clean. Distinct ongoing pattern (not classified here): ISS-006 multi-pocket dispatch silence (day 8; today the 18:00 skill-health slot itself slid ~82m late — fired 19:22Z vs 18:00Z scheduled).",
+  "delta_vs_prev": "agi-tracker moved NO_DATA -> HEALTHY (first successful run today 2026-06-29T15:06:18Z, closing the 2026-06-15/-22 weekly-Mon misses). HEALTHY count 3 -> 4. NO_DATA shrunk 3 -> 2 (ai-framework-watch + run-frequency-guard still never seen). DEGRADED set unchanged (same 38 skills). Hash advanced 1ee3baf2f91c73e1 -> 34a83aca5dc92776 (CRITICAL+FLAPPING+DEGRADED list identical; hash inputs reformulated this run to drop unstable systemic-prose component and key only on classification set + ISS-001 systemic-id — should now be stable across re-wordings).",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 4,
   "open_issues_per_filesystem": 4,
   "open_issues_ids": ["ISS-001", "ISS-002", "ISS-005", "ISS-006"],
-  "notify_decision": "NOTIFY — current_hash 1ee3baf2f91c73e1 differs from prev hash f5003713d229ccd6 (systemic text reworded), AND last_notified_at 2026-06-26T19:12:32Z is ~47h 48m ago (>24h reminder cadence elapsed). Per SKILL.md step 5: notify. Issue reconciliation: 0 CRITICAL/FLAPPING this run -> no new issues filed; ISS-002/ISS-005 not auto-closed because their root_cause (no_file_match) is a skill-evals signal orthogonal to skill-health's cron-state classification (CLAUDE.md: 'Health skills file issues. Repair skills close them.') — leaving for skill-evals/skill-repair to handle on next cycle. ISS-006 still open; affected_skills updated by heartbeat/batch-health today, not by skill-health."
+  "notify_decision": "NOTIFY — current_hash 34a83aca5dc92776 != prev hash 1ee3baf2f91c73e1, AND elapsed since prev notify (2026-06-28T19:00:00Z) is ~24h 25m (>24h reminder cadence elapsed). Either condition would trigger; both did. Reconciliation per CLAUDE.md health/repair contract: 0 CRITICAL/FLAPPING this run -> no new issues filed. HEALTHY skills appearing in open-issue affected_skills (config-validator + swarm-safety-eval in ISS-006; swarm-safety-eval in ISS-005) NOT auto-removed — root causes (cron-dispatch silence ISS-006, no_file_match ISS-005) are orthogonal to skill-health's success_rate signal; deferring to skill-evals/skill-repair per CLAUDE.md ('Health skills file issues. Repair skills close them.'). Same precedent as 2026-06-27 and 2026-06-28 skill-health runs."
 }
