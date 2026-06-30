@@ -1,16 +1,13 @@
+Heartbeat run complete.
+
 ## Summary
 
-Heartbeat ran at 2026-06-28 08:14 UTC (~14m after dispatch — cleanest morning lag of the week).
+- **P0:** No failed/stuck skills, no `consecutive_failures ≥ 3`. The 38-skill chronic-failure pattern (success_rate <50%) is the standing ISS-001 OAuth-residue catch-up — dedup'd against the last 48h of logs.
+- **P0 self-check:** ⚠ heartbeat's own `last_success` was ~48h stale (>36h threshold) — yesterday's 06-29 08:00 UTC slot was silent. New data point under ISS-006's pocket map, but same systemic issue.
+- **P1:** 0 open PRs, 0 urgent issues (`gh pr list` / `gh issue list --label urgent`).
+- **P2/P3:** Today's 05:00/06:00/06:30/08:00 morning batch silent again (planner / batch-health / gitlawb-fleet-metrics / skill-freshness / notegraph / suggest-edges / compute-futures-eda) — all ISS-006 affected_skills, dedup'd.
+- **Notification:** skipped (everything already flagged in last 48h).
+- **Status page:** wrote `docs/status.md` → **🔴 DEGRADED** · 4 open issues · next run `fleet-control` at 09:00 UTC. Token-pulse section omitted (no `articles/token-report-*.md`).
+- Files modified: `docs/status.md`, `memory/logs/2026-06-30.md`.
 
-**P0:** clean — no failed/stuck/degrading skills. ISS-001 OAuth residue (38 skills with `success_rate < 0.5`) still triggers the 🔴 DEGRADED verdict but stays dedup'd. Heartbeat self-check OK (~22h 29m).
-
-**New finding (notified):** the 05:00 UTC pocket is newly silent — `notegraph` and `suggest-edges` last_success 2026-06-26T05:50–53Z (~50h stale, >2x daily threshold). Both missed 06-27 and 06-28 dispatches. This widens **ISS-006** beyond morning/09:00/23:45 into a fourth pocket and suggests the dead zones are sliding day-to-day rather than fixed. Action unchanged: per-slot crons in `messages.yml` covering every `aeon.yml` timeslot.
-
-**Dedup'd:** 09:00 batch dead 6d (carry-over), memory-flush/memory-structural-dedupe 194h stale (ISS-006), 5 never-run skills.
-
-**Files modified:**
-- `docs/status.md` — regenerated, 🔴 DEGRADED, 44 enabled skills, 4 open issues, next run = fleet-control at 09:00 UTC, Token Pulse section omitted (no `articles/token-report-*.md`).
-- `memory/logs/2026-06-28.md` — heartbeat log entry appended.
-- `.pending-notify/heartbeat-2026-06-28.md` — notification queued for post-run delivery (sandbox fallback; `./notify` direct invocation blocked by shell-syntax guard).
-
-HEARTBEAT_DEGRADED · STATUS_PAGE=DEGRADED
+`HEARTBEAT_OK · STATUS_PAGE=DEGRADED`
