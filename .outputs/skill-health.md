@@ -1,15 +1,22 @@
-*Skill Health — 2026-06-29*
-HEALTH: DEGRADED(38)  [systemic: ISS-001 OAuth-outage residue — 38 skills, denominator catch-up]
+Skill-health audit complete. State unchanged → NOOP path; no notify fired, no issues filed/resolved.
 
-🟡 DEGRADED (38) — same set as 2026-06-28, no new failures since 2026-06-20T01:5xZ (9 days clean)
-- All 38 sit at last_status=success / consecutive_failures=0; low cumulative success_rate is catch-up math, not live failure — WAIT-RECOVERY
-- Runtime fleet 168h (./scripts/skill-runs): 105/109 success, 0 failures, 4 in-progress — runtime healthy
+## Summary
 
-⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — DISPATCH-SKILL
-🟢 HEALTHY: 4 (+1 vs prev — agi-tracker recovered, Mon 13:00 slot fired today after 19-day gap)
+Ran skill-health audit per `skills/skill-health/SKILL.md`.
 
-Δ vs 2026-06-28: agi-tracker NO_DATA→HEALTHY; classification set otherwise identical.
-Distinct pattern (not classified by skill-health): ISS-006 multi-pocket dispatch silence day 8 — this skill's 18:00 slot itself slid ~82m late (fired 19:22Z).
+**Classification (44 enabled skills, unchanged vs 2026-06-29):**
+- 🔴 CRITICAL: 0
+- 🟡 DEGRADED: 38 (all `last_status=success`, `consecutive_failures=0`; success_rate <0.6 is ISS-001 OAuth-outage denominator catch-up — 10 days clean since the outage closed)
+- 🟠 FLAPPING: 0
+- ⚪ NO_DATA: 2 (ai-framework-watch, run-frequency-guard)
+- 🟢 HEALTHY: 4 (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
 
-Open issues: 4 (ISS-001, ISS-002, ISS-005, ISS-006) · Resolved this run: 0
-Reconciliation: 0 CRITICAL/FLAPPING → 0 filed. HEALTHY config-validator + swarm-safety-eval in ISS-005/006 affected_skills NOT auto-removed (root causes orthogonal to success_rate signal; deferred to skill-evals/skill-repair per CLAUDE.md health/repair contract).
+**Runtime fleet 168h** (`./scripts/skill-runs`): 106/110 success, 0 failures, 4 in-progress.
+
+**Notify gate (step 5):** `current_hash == prev_hash` (34a83aca…) AND elapsed since prev notify ~23h 55m (<24h reminder cadence) → **NOOP, no notify**.
+
+**Issue reconciliation (step 4):** 0 CRITICAL/FLAPPING → no new issues filed. Open: ISS-001, ISS-002, ISS-005, ISS-006. HEALTHY skills appearing in open-issue `affected_skills` not auto-removed — root causes (cron-dispatch ISS-006, no_file_match ISS-005) are orthogonal to success_rate; deferred to skill-evals/skill-repair per CLAUDE.md health/repair contract (same precedent as 06-27/28/29 runs).
+
+**Distinct ongoing pattern (not in classification):** ISS-006 day-10 multi-pocket dispatch silence — morning pocket relapsed today (second relapse-after-recovery in 3 days), confirming the day-7 finding that single clean days are delivery-rate noise on top of unchanged `*/5` underdelivery.
+
+**Files modified:** `memory/skill-health/last-report.json` (refreshed `last_run_at` to 2026-06-30T19:20:17Z; kept `last_notified_at`), `memory/logs/2026-06-30.md` (NOOP entry).
