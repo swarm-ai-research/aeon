@@ -1,1 +1,1 @@
-Skill skipped per spec — `memory/watched-repos.md` is absent and `${var}` is empty, so the audit has no inputs. Logged the skip to `memory/logs/2026-06-29.md` (matching yesterday's `CODE_HEALTH_EMPTY_CONFIG` outcome). No article, no notify. Follow-up unchanged: operator either populates `memory/watched-repos.md` or disables the watched-repos-dependent skills.
+Code Health: skipped — `memory/watched-repos.md` missing and `${var}` empty. No repos to audit. (CODE_HEALTH_NO_REPOS — same as 2026-06-23.)

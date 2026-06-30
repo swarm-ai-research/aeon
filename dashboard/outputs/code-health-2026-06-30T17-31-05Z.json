@@ -1,0 +1,23 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Code Health"
+      },
+      "children": [
+        "alert_skip"
+      ]
+    },
+    "alert_skip": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "message": "Skipped — `memory/watched-repos.md` missing and `${var}` empty. No repos to audit. (CODE_HEALTH_NO_REPOS — same as 2026-06-23.)"
+      },
+      "children": []
+    }
+  }
+}
