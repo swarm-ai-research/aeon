@@ -1,21 +1,11 @@
 ## Summary
 
-Ran `pr-tracker` for 2026-06-29.
+Ran pr-tracker. GraphQL `author:aeonframework is:pr` returned 1 PR — `Panniantong/Agent-Reach#436` (security/bump-vulnerable-deps), the same single node as the prior 11 daily runs. It passes the inline OR-widened filter (branch-prefix OR bot-email) via its commit-author email.
 
-**Result:** 1 PR found across the `aeonframework` bot author — `Panniantong/Agent-Reach#436` (3d old, OPEN, 0 reviews / 0 comments, branch `security/bump-vulnerable-deps`). Categorizes as **active open** (not yet stale at 7d).
+Categorization (today = 2026-06-30): 0 merges (7d), 0 stale-open (>7d), 1 active-open (4d old), 0 closed-no-merge (7d). Notification **skipped** per step 5.
 
-**Categorization**
-- Recent merges (7d): 0
-- Stale open (>7d): 0
-- Active open: 1
-- Closed no-merge (7d): 0
+Files modified:
+- `memory/topics/pr-status.md` — rewrote with 2026-06-30 stamp, age bumped 3d→4d
+- `memory/logs/2026-06-30.md` — appended PR Tracker entry
 
-**Notification:** skipped per step 5 (no merges/stale/closed signals).
-
-**Filter widening (inline):** Applied the documented [[pr-tracker-branch-prefix-misses-bot-identity]] patch intent — OR'd the branch-prefix and commit-email checks so the `security/...` PR no longer drops silently (it had been filtered out for nine consecutive runs).
-
-**Files modified**
-- `memory/topics/pr-status.md` — rewritten
-- `memory/logs/2026-06-29.md` — appended PR_TRACKER_OK block
-
-**Follow-up:** SKILL.md still hard-codes `prefix AND email` in step 2's jq; durable patch (AND → OR, or drop prefix entirely) is still pending. Fallback `gh search prs` block still references drift-y `headRefName` / `mergedAt` / `--state merged`.
+Follow-up: Agent-Reach#436 crosses the >7d stale threshold on **2026-07-03** if still untouched, which would trigger a notify on that run. Durable SKILL.md patch (jq AND→OR; drop `headRefName`/`mergedAt`/`--state merged` from the `gh search prs` fallback per [[gh-search-prs-api-drift]]) still pending — this run continues to apply the fix inline.
