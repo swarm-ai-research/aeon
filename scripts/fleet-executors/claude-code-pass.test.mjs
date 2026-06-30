@@ -360,4 +360,33 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. git commit failure — a pre-commit hook rejects every commit after claude
+//     has already staged changes. Git worktrees share the parent repo's
+//     .git/hooks directory, so the hook fires inside the ephemeral worktree.
+//     Expect ok:false with "git commit failed", worktree removed, and the
+//     ephemeral branch deleted (no commit landed, nothing to preserve).
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  const hooksDir = join(env.localDir, ".git", "hooks");
+  mkdirSync(hooksDir, { recursive: true });
+  writeFileSync(join(hooksDir, "pre-commit"), "#!/usr/bin/env bash\nexit 1\n");
+  chmodSync(join(hooksDir, "pre-commit"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "hookfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be removed after the commit failure.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    // Branch must be deleted — commit never landed so there is nothing to preserve.
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (hook reject) → ok:false, worktree and branch cleaned up");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
