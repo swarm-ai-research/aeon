@@ -1,0 +1,195 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse — 2026-06-30"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "spot-section",
+        "sep-1",
+        "curve-section",
+        "sep-2",
+        "rail-section",
+        "sep-3",
+        "read-section"
+      ]
+    },
+    "spot-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "spot-heading",
+        "spot-content"
+      ]
+    },
+    "spot-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h3"
+      }
+    },
+    "spot-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "catalog-badge",
+        "llama-text"
+      ]
+    },
+    "catalog-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "catalog"
+      }
+    },
+    "llama-text": {
+      "type": "Text",
+      "props": {
+        "text": "Llama 4 Scout @ $0.0764/M (Surplus Intelligence)"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "curve-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "curve-heading",
+        "curve-event-1",
+        "curve-event-2",
+        "curve-event-3"
+      ]
+    },
+    "curve-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h3"
+      }
+    },
+    "curve-event-1": {
+      "type": "Text",
+      "props": {
+        "text": "hyperscaler H100 reserve at R30 +88.7% (round 6 supply crunch)"
+      }
+    },
+    "curve-event-2": {
+      "type": "Text",
+      "props": {
+        "text": "partially reversed by DeepSeek V3.2 open-weights drop at R13 (−44.2%)"
+      }
+    },
+    "curve-event-3": {
+      "type": "Text",
+      "props": {
+        "text": "then agent platform demand surge at R20 reasserted to +50.7%"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "rail-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rail-heading",
+        "rail-content"
+      ]
+    },
+    "rail-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h3"
+      }
+    },
+    "rail-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "rail-label",
+        "rail-link"
+      ]
+    },
+    "rail-label": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on Base/USDC —",
+        "variant": "muted"
+      }
+    },
+    "rail-link": {
+      "type": "Link",
+      "props": {
+        "label": "surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "read-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "read-heading",
+        "read-text"
+      ]
+    },
+    "read-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "One-line Read",
+        "level": "h3"
+      }
+    },
+    "read-text": {
+      "type": "Text",
+      "props": {
+        "text": "market is supply-shock prone — a single hyperscaler move reprices the whole curve +88%; open-weights releases remain the primary relief valve, but agent platform demand rebounds within 7 rounds"
+      }
+    }
+  }
+}
