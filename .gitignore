@@ -62,3 +62,6 @@ vuln-scan-work/
 # Stray local audit/debug artifacts (never commit)
 .audit-tmp/
 .audit*.py
+# NOTE: .audit-bin/ and .audit-tools/ are intentionally tracked — they hold
+# pre-cached actionlint and zizmor binaries committed after each successful
+# workflow-security-audit run, used by the skill to skip re-downloading in CI.
