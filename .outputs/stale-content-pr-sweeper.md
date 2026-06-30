@@ -1,12 +1,11 @@
 ## Summary
 
-Ran `stale-content-pr-sweeper` for 2026-06-30.
+Ran `stale-content-pr-sweeper`. `gh pr list --state open --limit 100` returned `[]` — zero open PRs in the repo, so no groups to form, no candidates to evaluate, nothing to close.
 
-- **Open PRs scanned**: 0 (`gh pr list --state open` returned `[]`)
-- **Groups checked**: 0
-- **PRs closed**: 0
-- **Skips by reason**: none — there were no candidates to begin with
-- **Notify fired**: no (per skill rule, `n_closed == 0` is silent steady state)
-- **Files written**: `memory/logs/2026-06-30.md` (new daily log with `SWEEPER_OK` block)
+- Eligible content PRs scanned: 0
+- Groups checked: 0
+- PRs closed: 0
+- Skips by reason: all 0 (no candidates reached gates)
+- `./notify` fired: no (n_closed=0 — steady-state silence per spec)
 
-Note on context: MEMORY.md flagged that today's `notegraph/2026-06-29`, `agi-tracker/2026-06-29`, `skill-graph/2026-06-28`, and the two `fix/workflow-security-audit-*` branches are all *queued* but blocked from opening as PRs by the repo policy "GitHub Actions is not permitted to create or approve pull requests." That's why the open-PR queue is empty even though content skills ran — the sweeper has nothing to act on, which is the expected outcome here, not a malfunction.
+Note: an earlier 2026-06-30 run already logged the same zero-state at `memory/logs/2026-06-30.md` lines 3–12. This invocation is the idempotent no-op the skill design anticipates — logged as a re-run entry for honesty without duplicating the original block. Files modified: `memory/logs/2026-06-30.md` only. No follow-up actions.
