@@ -1,4 +1,13 @@
-*PR Review — 2026-06-29*
-Reviewed 1, skipped 3 (bots: 3).
-- swarm-ai-research/swarm#527 (da039d5f, rsavitt, +2590 neurosymbolic stack): **APPROVE** / 5/5 — 19/19 CI green (lint, type-check, full test 3.10/3.11/3.12, quality-gate, CodeQL); 48 new tests; prior bot findings (Copilot + chatgpt-codex + github-code-quality) all addressed in this SHA; additive package, no existing modules touched.
-- Posting blocked again: aeon App lacks PR-write on swarm-ai-research/swarm — verdict held in memory/logs/2026-06-29.md only.
+## Summary
+
+Ran pr-review with `${var}=swarm-ai-research/swarm` under merge-gate policy. All 4 open PRs were skipped — no review posted, no notification sent.
+
+**Skip breakdown:**
+- `#527` (rsavitt, head `da039d5f`) — dup-SHA: reviewed yesterday at this exact SHA (verdict was APPROVE 5/5; posting blocked by Aeon App's missing PR-write perm on the cross-org repo, but the verdict stands and no new commits since)
+- `#526`, `#525`, `#524` — all `app/dependabot` bot authors
+
+**No merge-gate decision required** — the only human-authored PR (#527) was already adjudicated at the current head; reviewing it again would just duplicate yesterday's APPROVE verdict. The dependabot PRs are out of scope per the skill's skip rules.
+
+**Files modified:** `memory/logs/2026-06-30.md` (appended `## pr-review` entry).
+
+**Follow-up (unchanged from prior runs):** operator still needs to post yesterday's APPROVE for #527 via PAT — Aeon App lacks `addPullRequestReview` on swarm-ai-research/swarm (same gap as 06-27/06-28/06-29 runs).
