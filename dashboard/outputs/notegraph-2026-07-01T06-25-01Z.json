@@ -1,0 +1,108 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-update",
+        "stats-group",
+        "text-branch",
+        "stack-pr-info"
+      ]
+    },
+    "text-update": {
+      "type": "Text",
+      "props": {
+        "text": "+1 notes wired in",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "stats-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-notes",
+        "stat-edges",
+        "stat-branches"
+      ]
+    },
+    "stat-notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "91"
+      },
+      "children": []
+    },
+    "stat-edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "840"
+      },
+      "children": []
+    },
+    "stat-branches": {
+      "type": "Stat",
+      "props": {
+        "label": "Branches",
+        "value": "0"
+      },
+      "children": []
+    },
+    "text-branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch: notegraph/2026-07-01",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "stack-pr-info": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "alert-gha",
+        "link-pr"
+      ]
+    },
+    "alert-gha": {
+      "type": "Alert",
+      "props": {
+        "title": "PR creation blocked",
+        "message": "GHA policy blocks PR creation",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "link-pr": {
+      "type": "Link",
+      "props": {
+        "label": "Open PR via PAT",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-07-01"
+      },
+      "children": []
+    }
+  }
+}
