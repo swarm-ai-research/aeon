@@ -39,7 +39,7 @@ When consolidating memory (reflect, memory-flush), move detail into topic files 
 
 ## Tools
 
-- **`./notify "message"`** — Send to all configured notification channels (Telegram, Discord, Slack, json-render). Skips unconfigured channels silently.
+- **`./notify "message"`** — Send to all configured notification channels (Telegram, Discord, Slack, Email, json-render). Skips unconfigured channels silently.
 - **`./notify-jsonrender <skill_name> <markdown>`** — Convert skill output to a json-render spec and write to `dashboard/outputs/`. Called automatically by `./notify` when `JSONRENDER_ENABLED=true`.
 - **`./scripts/skill-runs [--hours N] [--full] [--json] [--failures]`** — Audit recent GitHub Actions skill runs. Shows counts, pass/fail rates, anomalies.
 - Use Claude Code's built-in **WebSearch** and **WebFetch** for web searches and URL fetching.
@@ -84,9 +84,11 @@ Always use `./notify "message"` for notifications. It fans out to every configur
 | Telegram | `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` | Same secrets (offset-based polling) |
 | Discord | `DISCORD_WEBHOOK_URL` | `DISCORD_BOT_TOKEN` + `DISCORD_CHANNEL_ID` (reaction-based ack) |
 | Slack | `SLACK_WEBHOOK_URL` | `SLACK_BOT_TOKEN` + `SLACK_CHANNEL_ID` (reaction-based ack) |
+| Email | `SENDGRID_API_KEY` + `NOTIFY_EMAIL_TO` | — |
 
 Each channel is opt-in — set the secret(s) and it activates. No secrets = silently skipped.
 Message priority: Telegram > Discord > Slack (first message found wins per poll cycle).
+Email uses SendGrid; optional vars `NOTIFY_EMAIL_FROM` (default: `aeon@notifications.aeon.bot`) and `NOTIFY_EMAIL_SUBJECT_PREFIX` (default: `[Aeon]`) control sender and subject prefix.
 
 ## Sandbox Limitations
 

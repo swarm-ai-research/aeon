@@ -1,0 +1,209 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker — 2026-06-09"
+      },
+      "children": [
+        "summary-stack",
+        "sep1",
+        "on-track-stack",
+        "sep2",
+        "done-stack",
+        "sep3",
+        "sources-stack"
+      ]
+    },
+    "summary-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "summary-text"
+      ]
+    },
+    "summary-text": {
+      "type": "Text",
+      "props": {
+        "text": "4 goals — 0 at risk, 0 needs attention, 3 on track, 0 blocked, 1 done (overall ↑ improving)",
+        "variant": "lead"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "on-track-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "on-track-heading",
+        "goal1-stack",
+        "goal2-stack",
+        "goal3-stack"
+      ]
+    },
+    "on-track-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "ON TRACK",
+        "level": "h2"
+      }
+    },
+    "goal1-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal1-text",
+        "goal1-metrics"
+      ]
+    },
+    "goal1-text": {
+      "type": "Text",
+      "props": {
+        "text": "Keep the engineering skill stack (pr-review, code-health, triage, security, health) running clean"
+      }
+    },
+    "goal1-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 433 activity/14d (↑ improving)",
+        "variant": "caption"
+      }
+    },
+    "goal2-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal2-text",
+        "goal2-metrics"
+      ]
+    },
+    "goal2-text": {
+      "type": "Text",
+      "props": {
+        "text": "Run the day from intent, not just cron (planner / self-improve / goal-tracker)"
+      }
+    },
+    "goal2-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 188 activity/14d (↑ improving)",
+        "variant": "caption"
+      }
+    },
+    "goal3-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal3-text",
+        "goal3-metrics"
+      ]
+    },
+    "goal3-text": {
+      "type": "Text",
+      "props": {
+        "text": "Iterate the two prototypes (GitLawb safety layer, compute-futures)"
+      }
+    },
+    "goal3-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 224 activity/14d (↑ improving)",
+        "variant": "caption"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "done-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "done-heading",
+        "goal4-stack"
+      ]
+    },
+    "done-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "DONE",
+        "level": "h2"
+      }
+    },
+    "goal4-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "goal4-text",
+        "goal4-metrics"
+      ]
+    },
+    "goal4-text": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-ai-research/swarm merge-gate queue cleared"
+      }
+    },
+    "goal4-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "completed 2026-06-06",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "sources-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sources-heading",
+        "sources-text"
+      ]
+    },
+    "sources-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h3"
+      }
+    },
+    "sources-text": {
+      "type": "Text",
+      "props": {
+        "text": "logs=ok, git=degraded (shallow clone, 1 commit visible), gh_pr=ok, gh_issue=ok, cron-state=ok",
+        "variant": "caption"
+      }
+    }
+  }
+}

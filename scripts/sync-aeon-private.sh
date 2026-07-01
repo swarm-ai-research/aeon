@@ -44,16 +44,12 @@ MIRRORED_DIRS=(memory articles soul dashboard/outputs)
 # the combined operational view that skills actually read at runtime.
 if [ -d "$REPO_DIR/.git" ]; then
   ( cd "$REPO_DIR" && git fetch origin main --depth=1 --quiet 2>/dev/null ) || true
-  local_head=$( cd "$REPO_DIR" && git rev-parse HEAD 2>/dev/null || echo "" )
-  remote_head=$( cd "$REPO_DIR" && git rev-parse origin/main 2>/dev/null || echo "" )
-  if [ -n "$local_head" ] && [ -n "$remote_head" ] && [ "$local_head" != "$remote_head" ]; then
-    # Allow the case where local is BEHIND remote (clean) — only refuse when
-    # local has commits AHEAD of remote that aren't reachable from origin/main.
-    ahead=$( cd "$REPO_DIR" && git rev-list --count "origin/main..HEAD" 2>/dev/null || echo "0" )
-    if [ "$ahead" != "0" ]; then
-      echo "[sync-aeon-private] local HEAD has $ahead unpushed commit(s) vs origin/main — skipping mirror (primary write didn't land; will retry next run)"
-      exit 0
-    fi
+  # rev-list --count is 0 when local is behind or equal (both safe); only positive
+  # when local has commits not yet on origin/main — the case we must block.
+  ahead=$( cd "$REPO_DIR" && git rev-list --count "origin/main..HEAD" 2>/dev/null || echo "0" )
+  if [ "$ahead" != "0" ]; then
+    echo "[sync-aeon-private] local HEAD has $ahead unpushed commit(s) vs origin/main — skipping mirror (primary write didn't land; will retry next run)"
+    exit 0
   fi
 fi
 

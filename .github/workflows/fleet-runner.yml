@@ -22,12 +22,17 @@ on:
         default: "30"
 
   schedule:
-    # Stretched from */15 to hourly after the docs/refactor/test-pass executors
-    # piled 100+ unmerged PRs onto the queue in a day. Combined with the
-    # in-executor backlog gate (GITLAWB_CODE_PASS_BACKLOG_LIMIT, default 3),
-    # this cuts PR churn ~4× without changing task semantics. workflow_dispatch
-    # is still available for ad-hoc runs that need immediate execution.
-    - cron: "0 * * * *"
+    # History: */15 → hourly (PR-queue control), then hourly → every 4h
+    # (2026-06-11) to cut Actions-minute burn. With a 20-min timeout this is the
+    # heaviest job per run, so its cadence dominates minute spend. Hourly ran
+    # 24×/day; every 4h runs 6×/day (4× cut). This stretch landed alongside
+    # messages.yml's */5 → */15 after the private repo exhausted its monthly
+    # Actions-minutes quota and jobs began failing at setup (no runner assigned).
+    # The in-executor backlog gate (GITLAWB_CODE_PASS_BACKLOG_LIMIT, default 3)
+    # still bounds PR churn. workflow_dispatch remains available for ad-hoc runs
+    # that need immediate execution — dial the cron back up once minutes are
+    # healthy if fleet throughput needs it.
+    - cron: "0 */4 * * *"
 
 # Least-privilege: no permissions by default; the job grants only what it needs.
 permissions: {}
@@ -49,7 +54,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # Code comes from main (reviewed). Runtime state is persisted on the
@@ -88,7 +93,7 @@ jobs:
           fi
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: "22"
 

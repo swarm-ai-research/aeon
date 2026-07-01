@@ -1,0 +1,218 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Planner"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "heading-one-thing",
+        "stack-one-thing",
+        "sep-1",
+        "heading-runners",
+        "stack-runners",
+        "sep-2",
+        "heading-holding",
+        "stack-holding"
+      ]
+    },
+    "heading-one-thing": {
+      "type": "Heading",
+      "props": {
+        "text": "One Thing",
+        "level": "h2"
+      }
+    },
+    "stack-one-thing": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-one-thing-main",
+        "badge-streak",
+        "text-yesterday-context",
+        "text-task-today"
+      ]
+    },
+    "text-one-thing-main": {
+      "type": "Text",
+      "props": {
+        "text": "Ship ISS-009 reaper patch in prototypes/gitlawb-safety/src/coordinator.mjs",
+        "variant": "lead"
+      }
+    },
+    "badge-streak": {
+      "type": "Badge",
+      "props": {
+        "text": "Streak: 2 days",
+        "variant": "outline"
+      }
+    },
+    "text-yesterday-context": {
+      "type": "Text",
+      "props": {
+        "text": "Second day running. Yesterday promised a draft PR; only commit overnight was a notegraph cron stamp — no branch, no PR."
+      }
+    },
+    "text-task-today": {
+      "type": "Text",
+      "props": {
+        "text": "Open branch and draft today before writing another planner artifact."
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-runners": {
+      "type": "Heading",
+      "props": {
+        "text": "Runners-Up",
+        "level": "h2"
+      }
+    },
+    "stack-runners": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "runner-1",
+        "runner-2",
+        "runner-3"
+      ]
+    },
+    "runner-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "runner-1-title",
+        "runner-1-meta"
+      ]
+    },
+    "runner-1-title": {
+      "type": "Text",
+      "props": {
+        "text": "Merge PR #274 (cost-report)",
+        "variant": "lead"
+      }
+    },
+    "runner-1-meta": {
+      "type": "Text",
+      "props": {
+        "text": "sr=0.29, ~46h OPEN",
+        "variant": "caption"
+      }
+    },
+    "runner-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "runner-2-title",
+        "runner-2-meta"
+      ]
+    },
+    "runner-2-title": {
+      "type": "Text",
+      "props": {
+        "text": "Flip ISS-005 rss-feed enabled:true",
+        "variant": "lead"
+      }
+    },
+    "runner-2-meta": {
+      "type": "Text",
+      "props": {
+        "text": "11 days carried",
+        "variant": "caption"
+      }
+    },
+    "runner-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "runner-3-title"
+      ]
+    },
+    "runner-3-title": {
+      "type": "Text",
+      "props": {
+        "text": "Pick a/b/c on fleet-runner timeout",
+        "variant": "lead"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-holding": {
+      "type": "Heading",
+      "props": {
+        "text": "Holding",
+        "level": "h2"
+      }
+    },
+    "stack-holding": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "holding-1"
+      ]
+    },
+    "holding-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "holding-1-title",
+        "holding-1-detail"
+      ]
+    },
+    "holding-1-title": {
+      "type": "Text",
+      "props": {
+        "text": "cost-report (PR #274)",
+        "variant": "lead"
+      }
+    },
+    "holding-1-detail": {
+      "type": "Text",
+      "props": {
+        "text": "Holding until 2026-06-15 Monday window",
+        "variant": "caption"
+      }
+    }
+  }
+}

@@ -21,28 +21,14 @@ import {
 import { readFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { spawnSync } from "child_process";
+import type { ManifestSkill as Skill, SkillsManifest } from "./skills.types.js";
+import { runPrompt, type LlmPlan } from "./llm-runner.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // mcp-server/dist/index.js → mcp-server/ → repo root
 const REPO_ROOT = join(__dirname, "..", "..");
-
-interface Skill {
-  slug: string;
-  name: string;
-  description: string;
-  category: string;
-  schedule: string;
-  var: string;
-}
-
-interface SkillsManifest {
-  version: string;
-  repo: string;
-  skills: Skill[];
-}
 
 function loadSkills(): Skill[] {
   const manifestPath = join(REPO_ROOT, "skills.json");
@@ -71,6 +57,9 @@ function buildTools(skills: Skill[]) {
     name: skillToToolName(skill.slug),
     description: buildDescription(skill),
     inputSchema: {
+      $schema: "http://json-schema.org/draft-07/schema#" as const,
+      title: skill.name,
+      description: skill.description,
       type: "object" as const,
       properties: {
         var: {
@@ -79,6 +68,7 @@ function buildTools(skills: Skill[]) {
         },
       },
       required: [],
+      additionalProperties: false,
     },
   }));
 }
@@ -118,6 +108,21 @@ function categoryName(category: string): string {
   return labels[category] ?? category;
 }
 
+function defaultPlan(): LlmPlan {
+  const primaryModel = process.env.AEON_LLM_MODEL ?? "claude-opus-4-7";
+  const primaryGateway = process.env.AEON_LLM_GATEWAY === "bankr" ? "bankr" : "direct";
+  const plan: LlmPlan = {
+    primary: { provider: "claude", model: primaryModel, gateway: primaryGateway },
+  };
+  // If a bankr key exists and primary is direct, fall back to bankr on failure (and vice versa).
+  if (primaryGateway === "direct" && process.env.BANKR_LLM_KEY) {
+    plan.fallbacks = [{ provider: "claude", model: primaryModel, gateway: "bankr" }];
+  } else if (primaryGateway === "bankr" && process.env.ANTHROPIC_API_KEY) {
+    plan.fallbacks = [{ provider: "claude", model: primaryModel, gateway: "direct" }];
+  }
+  return plan;
+}
+
 async function runSkill(slug: string, varValue: string): Promise<string> {
   const skillFile = join(REPO_ROOT, "skills", slug, "SKILL.md");
   if (!existsSync(skillFile)) {
@@ -137,38 +142,18 @@ async function runSkill(slug: string, varValue: string): Promise<string> {
 
   process.stderr.write(`[aeon-mcp] Running skill: ${slug}${varValue ? ` (var=${varValue})` : ""}\n`);
 
-  const result = spawnSync("claude", ["-p", "-", "--output-format", "json"], {
-    input: prompt,
+  const result = await runPrompt(prompt, defaultPlan(), {
     cwd: REPO_ROOT,
-    timeout: 600_000, // 10 minutes — same as GitHub Actions timeout
-    maxBuffer: 10 * 1024 * 1024, // 10 MB
-    encoding: "utf-8",
+    onFailure: ({ index, target, error }) =>
+      process.stderr.write(
+        `[aeon-mcp] attempt ${index + 1} (${target.model}@${target.gateway ?? "direct"}) failed: ${error}\n`
+      ),
   });
 
-  if (result.error) {
-    const msg = (result.error as NodeJS.ErrnoException).code === "ENOENT"
-      ? `'claude' command not found. Install it with: npm install -g @anthropic-ai/claude-code`
-      : `Failed to spawn claude: ${result.error.message}`;
-    return `Error: ${msg}`;
+  if (!result.ok) {
+    return `Skill '${slug}' failed across ${result.attempts.length} target(s): ${result.error}`;
   }
-
-  if (result.status !== 0) {
-    const output = (result.stderr || result.stdout || "").trim();
-    return `Skill '${slug}' failed (exit ${result.status}):\n${output}`;
-  }
-
-  const stdout = (result.stdout || "").trim();
-  if (!stdout) {
-    return `Skill '${slug}' produced no output.`;
-  }
-
-  // The claude CLI with --output-format json wraps result in { result: "..." }
-  try {
-    const parsed = JSON.parse(stdout) as { result?: string };
-    return parsed.result ?? stdout;
-  } catch {
-    return stdout;
-  }
+  return result.output || `Skill '${slug}' produced no output.`;
 }
 
 // ---- Server setup ----

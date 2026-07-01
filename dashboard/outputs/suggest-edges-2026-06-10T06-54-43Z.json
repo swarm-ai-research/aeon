@@ -1,0 +1,34 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges",
+        "description": "3 missing links proposed"
+      },
+      "children": [
+        "date-info",
+        "pr-link"
+      ]
+    },
+    "date-info": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-06-06",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Review PR",
+        "href": "https://github.com/rsavitt/aeon/pull/279",
+        "source": "GitHub"
+      },
+      "children": []
+    }
+  }
+}

@@ -13,7 +13,7 @@
 
 <p align="center">
   <strong>The most autonomous agent framework.</strong><br>
-  Give it a direction — it'll leverage 121 skills like deep research, PR reviews, market monitoring, Vercel deploys, and more to get it done. No approval loops. No babysitting. Configure once, forget forever.
+  Give it a direction — it'll leverage 160+ skills like deep research, PR reviews, market monitoring, Vercel deploys, and more to get it done. No approval loops. No babysitting. Configure once, forget forever.
 </p>
 
 <p align="center">
@@ -317,7 +317,7 @@ Claude only installs and runs when a skill actually matches.
 ```
 CLAUDE.md                ← agent identity (auto-loaded by Claude Code)
 aeon.yml                 ← skill schedules, chains, reactive triggers, and enabled flags
-skills.json              ← machine-readable skill catalog (121 skills)
+skills.json              ← machine-readable skill catalog (auto-generated; count grows as skills are added)
 ./aeon                   ← launch the local dashboard (Next.js on port 5555)
 ./onboard                ← validate the fork's setup (secrets, workflows, channels) — see Quick start
 ./notify                 ← multi-channel notifications (Telegram, Discord, Slack, Email, json-render)
@@ -352,6 +352,7 @@ scripts/
   postprocess-replicate.sh ← generate images via Replicate after Claude runs
   skill-runs             ← audit recent GitHub Actions skill runs
   sync-site-data.sh      ← sync memory/logs to docs site data
+  memory-checkpoint.sh   ← git-backed memory snapshots (rollback/fork; see docs/memory-checkpoints.md)
 .github/workflows/
   aeon.yml               ← skill runner (workflow_dispatch, issues, quality scoring)
   chain-runner.yml       ← skill chain executor (parallel + sequential pipelines)
@@ -511,6 +512,28 @@ Aeon skills work outside GitHub Actions too — use them from Claude or any AI a
 ./add-a2a                    # starts on port 41241
 ./add-a2a --print-config     # LangChain/Python client examples
 ```
+
+**Plain REST + SSE** — the same gateway also exposes a framework-agnostic REST API under `/api/v1`, with live progress streamed over Server-Sent Events. Use this when you want to invoke a skill and watch it work without the A2A JSON-RPC envelope or `.outputs/` file polling:
+
+```bash
+# List skills
+curl localhost:41241/api/v1/skills
+
+# Start a run (returns 201 with a run id)
+curl -X POST localhost:41241/api/v1/runs \
+  -H 'Content-Type: application/json' -d '{"skill":"deep-research","var":"AI agents"}'
+
+# Stream live progress (queued → running → tool_use/tool_result → completed)
+curl -N localhost:41241/api/v1/runs/<id>/stream
+
+# Or poll incrementally instead of streaming
+curl 'localhost:41241/api/v1/runs/<id>/events?since=4'
+
+# Cancel an in-flight run
+curl -X POST localhost:41241/api/v1/runs/<id>/cancel
+```
+
+Every run keeps a sequence-numbered event log, so SSE clients can reconnect with `Last-Event-ID` (or `?since=N`) to replay only what they missed. Endpoints: `GET /skills`, `GET /skills/:slug`, `POST /runs`, `GET /runs`, `GET /runs/:id`, `GET /runs/:id/events`, `GET /runs/:id/stream`, `POST /runs/:id/cancel`.
 
 Skills run locally via `claude -p -`, identical to Actions. API keys read from your environment or a `.env` file in the repo root.
 

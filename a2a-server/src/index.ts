@@ -11,6 +11,7 @@
  *   GET  /.well-known/agent.json   — Agent card advertising all skills
  *   POST /                          — JSON-RPC: tasks/send, tasks/get, tasks/cancel
  *   POST /tasks/sendSubscribe       — SSE streaming for long-running skills
+ *   *    /api/v1/*                   — plain REST + SSE API (see rest-api.ts)
  *
  * Usage:
  *   node dist/index.js              # default port 41241
@@ -19,36 +20,23 @@
  */
 
 import { createServer, IncomingMessage, ServerResponse } from "http";
-import { readFileSync, existsSync } from "fs";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
-import { spawn, ChildProcess } from "child_process";
+import { existsSync } from "fs";
+import { join } from "path";
 import { randomUUID } from "crypto";
+import { runPrompt } from "./llm-runner.js";
+import {
+  REPO_ROOT,
+  getSkills,
+  getSkillBySlug,
+  buildSkillPrompt,
+  defaultPlan,
+} from "./core.js";
+import { handleRestRequest } from "./rest-api.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-// a2a-server/dist/index.js → a2a-server/ → repo root
-const REPO_ROOT = join(__dirname, "..", "..");
 const DEFAULT_PORT = parseInt(process.env.A2A_PORT ?? "41241", 10);
 const SERVER_URL = process.env.A2A_URL ?? `http://localhost:${DEFAULT_PORT}`;
 
 // ── Types ────────────────────────────────────────────────────────────────────
-
-interface Skill {
-  slug: string;
-  name: string;
-  description: string;
-  category: string;
-  schedule: string;
-  var: string;
-}
-
-interface SkillsManifest {
-  version: string;
-  repo: string;
-  skills: Skill[];
-}
 
 type TaskState = "submitted" | "working" | "completed" | "failed" | "canceled";
 
@@ -83,7 +71,7 @@ interface Task {
   metadata?: Record<string, unknown>;
   skillSlug?: string;
   _subscribers: ServerResponse[];
-  _childProcess?: ChildProcess;
+  _abort?: AbortController;
   _completedAt?: number;
 }
 
@@ -97,7 +85,7 @@ interface JsonRpcRequest {
 // ── State ─────────────────────────────────────────────────────────────────────
 
 const tasks = new Map<string, Task>();
-const skills = loadSkills();
+const skills = getSkills();
 
 const TASK_TTL_MS = 30 * 60 * 1000; // 30 minutes
 const MAX_TASKS = 1000;
@@ -121,21 +109,7 @@ function evictStaleTasks(): void {
   }
 }
 
-// ── Skill loading ─────────────────────────────────────────────────────────────
-
-function loadSkills(): Skill[] {
-  const manifestPath = join(REPO_ROOT, "skills.json");
-  if (!existsSync(manifestPath)) {
-    process.stderr.write(`[aeon-a2a] skills.json not found at ${manifestPath}\n`);
-    return [];
-  }
-  const manifest: SkillsManifest = JSON.parse(readFileSync(manifestPath, "utf-8"));
-  return manifest.skills ?? [];
-}
-
-function getSkillBySlug(slug: string): Skill | undefined {
-  return skills.find((s) => s.slug === slug);
-}
+// ── Skill resolution ──────────────────────────────────────────────────────────
 
 /**
  * Parse a skill slug and optional var from an A2A message.
@@ -167,11 +141,7 @@ function runSkillAsync(task: Task, slug: string, varValue: string): void {
     return;
   }
 
-  const today = new Date().toISOString().split("T")[0];
-  let prompt = `Today is ${today}. Read and execute the skill defined in skills/${slug}/SKILL.md`;
-  if (varValue) {
-    prompt += `\n\nUse this variable (override the default in the skill file):\nvar=${varValue}`;
-  }
+  const prompt = buildSkillPrompt(slug, varValue);
 
   process.stderr.write(
     `[aeon-a2a] Starting skill: ${slug}${varValue ? ` (var=${varValue})` : ""}\n`
@@ -179,42 +149,28 @@ function runSkillAsync(task: Task, slug: string, varValue: string): void {
 
   setTaskState(task, "working");
 
-  const chunks: string[] = [];
-  const child = spawn("claude", ["-p", "-", "--output-format", "json"], {
+  const abort = new AbortController();
+  task._abort = abort;
+
+  runPrompt(prompt, defaultPlan(), {
     cwd: REPO_ROOT,
-    env: { ...process.env },
-  });
-  task._childProcess = child;
-
-  child.stdin.write(prompt);
-  child.stdin.end();
-
-  child.stdout.on("data", (chunk: Buffer) => chunks.push(chunk.toString()));
-
-  child.on("close", (code) => {
-    const raw = chunks.join("").trim();
-    if (code !== 0) {
-      completeTask(task, "failed", `Skill '${slug}' failed (exit ${code}):\n${raw}`);
-      return;
-    }
-    let result = raw;
-    try {
-      const parsed = JSON.parse(raw) as { result?: string };
-      result = parsed.result ?? raw;
-    } catch {
-      // use raw output
-    }
-    completeTask(task, "completed", result);
-  });
-
-  child.on("error", (err) => {
-    const code = (err as NodeJS.ErrnoException).code;
-    const msg =
-      code === "ENOENT"
-        ? "'claude' CLI not found. Install: npm install -g @anthropic-ai/claude-code"
-        : `Failed to spawn claude: ${err.message}`;
-    completeTask(task, "failed", msg);
-  });
+    signal: abort.signal,
+    onFailure: ({ index, target, error }) =>
+      process.stderr.write(
+        `[aeon-a2a] attempt ${index + 1} (${target.model}@${target.gateway ?? "direct"}) failed: ${error}\n`
+      ),
+  })
+    .then((result) => {
+      if (result.ok) {
+        completeTask(task, "completed", result.output);
+      } else {
+        completeTask(task, "failed", `Skill '${slug}' failed: ${result.error}`);
+      }
+    })
+    .catch((err: unknown) => {
+      const msg = err instanceof Error ? err.message : String(err);
+      completeTask(task, "failed", `Unexpected error running skill '${slug}': ${msg}`);
+    });
 }
 
 function setTaskState(task: Task, state: TaskState): void {
@@ -227,7 +183,7 @@ function completeTask(task: Task, state: TaskState, text: string): void {
   task.status = { state, timestamp: new Date().toISOString() };
   task.history.push(msg);
   task._completedAt = Date.now();
-  task._childProcess = undefined;
+  task._abort = undefined;
 
   if (state === "completed") {
     task.artifacts = [{ mimeType: "text/plain", parts: [{ type: "text", text }] }];
@@ -380,9 +336,7 @@ function handleTasksCancel(params: Record<string, unknown>): RpcResult<Record<st
     return { error: { code: -32602, message: `Task not found: ${id}` } };
   }
   if (task.status.state === "submitted" || task.status.state === "working") {
-    if (task._childProcess) {
-      task._childProcess.kill("SIGTERM");
-    }
+    task._abort?.abort();
     completeTask(task, "canceled", "Task canceled by caller.");
   }
   const { _subscribers: _, ...safe } = task;
@@ -434,6 +388,11 @@ async function handleRequest(req: IncomingMessage, res: ServerResponse): Promise
   if (method === "OPTIONS") {
     res.writeHead(204, CORS_HEADERS);
     res.end();
+    return;
+  }
+
+  // REST + SSE API (hxmp.4): /api/v1/* — skills, runs, live progress streaming.
+  if (await handleRestRequest(req, res, url)) {
     return;
   }
 
@@ -562,7 +521,9 @@ httpServer.listen(DEFAULT_PORT, () => {
   process.stderr.write(`[aeon-a2a] Server running on port ${DEFAULT_PORT}\n`);
   process.stderr.write(`[aeon-a2a] Agent card : ${SERVER_URL}/.well-known/agent.json\n`);
   process.stderr.write(`[aeon-a2a] JSON-RPC   : POST ${SERVER_URL}/\n`);
-  process.stderr.write(`[aeon-a2a] SSE stream : POST ${SERVER_URL}/tasks/sendSubscribe\n`);
+  process.stderr.write(`[aeon-a2a] A2A stream : POST ${SERVER_URL}/tasks/sendSubscribe\n`);
+  process.stderr.write(`[aeon-a2a] REST API   : ${SERVER_URL}/api/v1/skills · POST /api/v1/runs\n`);
+  process.stderr.write(`[aeon-a2a] REST stream: GET ${SERVER_URL}/api/v1/runs/<id>/stream\n`);
   process.stderr.write(`[aeon-a2a] Loaded ${skills.length} skills\n`);
 });
 

@@ -360,4 +360,83 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list failure → null backlog → pass proceeds rather than blocking");
 }
 
+// 12. gh pr list returns valid but non-array JSON → openPRsForKind returns null →
+//     gate is skipped and the pass proceeds (null = "unknown", not "at limit").
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{"error":"unexpected"}'; exit 0; fi\necho "https://github.com/stub/repo/pull/66"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nonarray" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns non-array JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/66");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list returns non-array JSON → null backlog → pass proceeds");
+}
+
+// 13. focus param flows into the prompt text passed to claude via stdin.
+//     The extraFocus truthy branch of buildPrompt() is exercised.
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-focus-cap-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "focus-test", focus: "check null safety" })
+    );
+    assert.equal(result.ok, true);
+    assert.equal(result.prUrl, null, "no-op run should return prUrl:null");
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /Additional focus from task payload:/);
+    assert.match(captured, /check null safety/);
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  focus param is included in the prompt text passed to claude");
+}
+
+// 14. extractSummary fallback — when the final line is > 400 chars the function
+//     falls back to slice(-3).join(" ").slice(0, 400), which prepends the
+//     preceding lines. Verify by checking the summary starts with the short
+//     leading line that would be lost if the main branch had been taken instead.
+{
+  const CLAUDE_LONG_OUTPUT_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+echo "added a docstring" >> "$(pwd)/lib.mjs"
+echo "short leading line"
+printf '%401s\\n' '' | tr ' ' 'x'
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_LONG_OUTPUT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/88"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "longsumm" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/88");
+    // Fallback joins last 3 lines: summary must start with the short leading line.
+    assert.match(result.summary, /^short leading line/,
+      `summary should start with leading line when fallback fires; got: ${result.summary.slice(0, 60)}`);
+    assert.ok(result.summary.length <= 400, `summary must be ≤ 400 chars, got ${result.summary.length}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
+}
+
 console.log("\nAll claude-code-pass tests passed.");

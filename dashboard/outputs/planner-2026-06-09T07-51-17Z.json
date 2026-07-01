@@ -1,0 +1,205 @@
+{
+  "root": "card-planner",
+  "state": {},
+  "elements": {
+    "card-planner": {
+      "type": "Card",
+      "props": {
+        "title": "planner"
+      },
+      "children": [
+        "heading-today",
+        "sep1",
+        "task-primary",
+        "sep2",
+        "heading-runners-up",
+        "runners-list",
+        "sep3",
+        "heading-holding",
+        "holding-content"
+      ]
+    },
+    "heading-today": {
+      "type": "Heading",
+      "props": {
+        "text": "Today's one thing",
+        "level": "h2"
+      }
+    },
+    "task-primary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "task-primary-header",
+        "text-file-path",
+        "text-context",
+        "text-action"
+      ]
+    },
+    "task-primary-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-iss009",
+        "text-primary-desc"
+      ]
+    },
+    "badge-iss009": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-009",
+        "variant": "default"
+      }
+    },
+    "text-primary-desc": {
+      "type": "Text",
+      "props": {
+        "text": "shipping the reaper patch",
+        "variant": "lead"
+      }
+    },
+    "text-file-path": {
+      "type": "Text",
+      "props": {
+        "text": "File: prototypes/gitlawb-safety/src/coordinator.mjs",
+        "variant": "caption"
+      }
+    },
+    "text-context": {
+      "type": "Text",
+      "props": {
+        "text": "Yesterday's skill-repair dossier confirmed at file level there's no coordinator sweep for stuck claimed rows",
+        "variant": "body"
+      }
+    },
+    "text-action": {
+      "type": "Text",
+      "props": {
+        "text": "Action: writing coordinator sweep for stuck claimed rows",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-runners-up": {
+      "type": "Heading",
+      "props": {
+        "text": "Runners-up",
+        "level": "h2"
+      }
+    },
+    "runners-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "runner-unlocks",
+        "runner-pr274",
+        "runner-iss005",
+        "runner-fleet"
+      ]
+    },
+    "runner-unlocks": {
+      "type": "Text",
+      "props": {
+        "text": "re-surfacing three operator-only unlocks",
+        "variant": "body"
+      }
+    },
+    "runner-pr274": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-pr274",
+        "text-pr274-desc"
+      ]
+    },
+    "badge-pr274": {
+      "type": "Badge",
+      "props": {
+        "text": "PR #274",
+        "variant": "default"
+      }
+    },
+    "text-pr274-desc": {
+      "type": "Text",
+      "props": {
+        "text": "merge (cost-report fix)",
+        "variant": "body"
+      }
+    },
+    "runner-iss005": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-iss005",
+        "text-iss005-desc"
+      ]
+    },
+    "badge-iss005": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-005",
+        "variant": "default"
+      }
+    },
+    "text-iss005-desc": {
+      "type": "Text",
+      "props": {
+        "text": "flip rss-feed enabled:true",
+        "variant": "body"
+      }
+    },
+    "runner-fleet": {
+      "type": "Text",
+      "props": {
+        "text": "pick a/b/c on the fleet-runner timeout",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-holding": {
+      "type": "Heading",
+      "props": {
+        "text": "Holding",
+        "level": "h2"
+      }
+    },
+    "holding-content": {
+      "type": "Text",
+      "props": {
+        "text": "cost-report passively until PR #274 lands",
+        "variant": "body"
+      }
+    }
+  }
+}

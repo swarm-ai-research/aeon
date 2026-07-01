@@ -89,6 +89,22 @@ echo "Local skills: $(jq '.total' "$LOCAL_JSON")"
 echo "Upstream skills: $(jq '.total' "$UPSTREAM_TMP")"
 echo ""
 
+# Helper: run add-skill for one slug, auto or interactively.
+_apply_skill() {
+  local slug="$1" auto_label="$2" prompt_text="$3"
+  if [[ "$AUTO" == "true" ]]; then
+    echo "$auto_label $slug"
+    "$ROOT/add-skill" "$UPSTREAM" "$slug"
+  else
+    read -rp "$prompt_text [y/N] " confirm
+    if [[ "$confirm" =~ ^[Yy] ]]; then
+      "$ROOT/add-skill" "$UPSTREAM" "$slug"
+    else
+      echo "  Skipped: $slug"
+    fi
+  fi
+}
+
 # Report outdated
 if [[ ${#OUTDATED_SLUGS[@]} -eq 0 ]]; then
   echo "All installed skills are up-to-date with upstream."
@@ -101,17 +117,7 @@ else
 
   if [[ "$DRY_RUN" == "false" ]]; then
     for slug in "${OUTDATED_SLUGS[@]}"; do
-      if [[ "$AUTO" == "true" ]]; then
-        echo "Updating: $slug"
-        "$ROOT/add-skill" "$UPSTREAM" "$slug"
-      else
-        read -rp "Update $slug from upstream? [y/N] " confirm
-        if [[ "$confirm" =~ ^[Yy] ]]; then
-          "$ROOT/add-skill" "$UPSTREAM" "$slug"
-        else
-          echo "  Skipped: $slug"
-        fi
-      fi
+      _apply_skill "$slug" "Updating:" "Update $slug from upstream?"
     done
   fi
 fi
@@ -127,17 +133,7 @@ if [[ ${#MISSING_SLUGS[@]} -gt 0 ]]; then
   if [[ "$INCLUDE_MISSING" == "true" && "$DRY_RUN" == "false" ]]; then
     echo ""
     for slug in "${MISSING_SLUGS[@]}"; do
-      if [[ "$AUTO" == "true" ]]; then
-        echo "Installing: $slug"
-        "$ROOT/add-skill" "$UPSTREAM" "$slug"
-      else
-        read -rp "Install $slug? [y/N] " confirm
-        if [[ "$confirm" =~ ^[Yy] ]]; then
-          "$ROOT/add-skill" "$UPSTREAM" "$slug"
-        else
-          echo "  Skipped: $slug"
-        fi
-      fi
+      _apply_skill "$slug" "Installing:" "Install $slug?"
     done
   elif [[ "$INCLUDE_MISSING" == "false" ]]; then
     echo "Run with --missing to install missing skills."

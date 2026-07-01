@@ -43,6 +43,10 @@ IMPORTS=(
   'memory/topics/ai-framework-watch.md::ai-framework-watch.md'
   'memory/topics/changelog.md::changelog.md'
   'memory/topics/compute-futures-macro-correlations.md::compute-futures-macro-correlations.md'
+  # Third-wave migration (2026-06-18): compute-futures-eda moved to public.
+  # Its findings live in a dated directory (compute-futures-eda/{date}.md);
+  # cp -R in the import loop handles the directory copy.
+  'memory/topics/compute-futures-eda::compute-futures-eda'
   # Second-wave migration (2026-06-07): pr-review tier moved to public.
   # Triage state files are the dedup source-of-truth — sync them back so
   # the operator can see triage history without browsing the public repo,

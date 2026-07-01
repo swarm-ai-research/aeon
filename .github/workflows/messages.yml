@@ -3,13 +3,21 @@ run-name: "${{ inputs.message && format('msg ({0}): {1}', inputs.source || 'user
 
 on:
   schedule:
-    # Stays at */5 — this workflow ALSO polls non-webhook Discord/Slack/Telegram
-    # messages (see the "Collect and dispatch messages" step). Stretching this
-    # cron would make chat acks wait up to the cron interval. The bigger burner
-    # is fleet-runner.yml's */5 → */15 stretch in this same PR. Splitting the
-    # poll-vs-dispatch logic so only the dispatch path slows down is the right
-    # future move; for now keep parity with chat UX.
-    - cron: '*/5 * * * *'
+    # Stretched */5 → */15 (2026-06-11) to cut Actions-minute burn. At */5 this
+    # tick fired 288×/day and was the single largest consumer on the private
+    # repo's monthly Actions-minutes quota — once that quota was exhausted,
+    # GitHub stopped assigning runners and every scheduled job failed at setup
+    # (no runner, ~2s, no steps). */15 is a 3× cut (96×/day).
+    #
+    # Why this is safe for the two jobs this cron drives:
+    #   - Chat acks: webhook channels (repository_dispatch) are unaffected and
+    #     still instant. Only the non-webhook poll fallback waits up to 15 min.
+    #   - Skill dispatch: the matcher fires a skill on the first tick at or
+    #     after its scheduled minute (C_MIN <= MINUTE) and catches up missed
+    #     windows from the previous hour, so coarser ticks only add minor
+    #     latency — no skill is dropped. Every enabled skill sits at :00/:10/
+    #     :30/:45, all covered by */15 + catch-up.
+    - cron: '*/15 * * * *'
   workflow_dispatch:
     inputs:
       message:
@@ -46,7 +54,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
           token: ${{ secrets.GH_GLOBAL || secrets.GITHUB_TOKEN }}
 
@@ -682,7 +690,7 @@ jobs:
 
       - name: Checkout repo
         if: steps.msg.outputs.source != ''
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
           token: ${{ secrets.GH_GLOBAL || secrets.GITHUB_TOKEN }}
 
@@ -694,7 +702,7 @@ jobs:
 
       - name: Setup Node.js
         if: steps.msg.outputs.source != ''
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: '22'
 

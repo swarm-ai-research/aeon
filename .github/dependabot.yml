@@ -1,0 +1,27 @@
+version: 2
+updates:
+  # Keep GitHub Actions pinned to commit SHAs and current.
+  # Actions are pinned to SHAs (with a `# vN` comment) per ISS-012; Dependabot's
+  # github-actions updater bumps the SHA and refreshes the comment, so the
+  # SHA-pinning convention stays maintained as new releases land.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "ci"
+    # Only refresh the pinned SHA within the current major (security/patch
+    # hygiene). Major-version upgrades (e.g. checkout v5 -> v7) can carry
+    # breaking changes and can't be validated by CI while Actions billing is
+    # blocked, so they stay a manual, reviewed decision rather than an
+    # auto-opened PR.
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      # One PR per week for all action bumps instead of one PR per action.
+      github-actions:
+        patterns:
+          - "*"

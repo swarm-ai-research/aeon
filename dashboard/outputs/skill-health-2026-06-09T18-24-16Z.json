@@ -1,0 +1,200 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-06-09",
+        "description": "HEALTH: DEGRADED(1)"
+      },
+      "children": [
+        "heading_status",
+        "alert_degraded",
+        "stack_cost_report",
+        "sep_1",
+        "heading_summary",
+        "grid_summary",
+        "sep_2",
+        "heading_issues",
+        "stack_issues",
+        "sep_3",
+        "text_reminder"
+      ]
+    },
+    "heading_status": {
+      "type": "Heading",
+      "props": {
+        "text": "Status",
+        "level": "h3"
+      }
+    },
+    "alert_degraded": {
+      "type": "Alert",
+      "props": {
+        "title": "Degraded",
+        "message": "1 skill with degraded success rate",
+        "type": "warning"
+      }
+    },
+    "stack_cost_report": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_cost_report",
+        "stat_cost_report",
+        "text_recovery",
+        "badge_status",
+        "text_note"
+      ]
+    },
+    "heading_cost_report": {
+      "type": "Heading",
+      "props": {
+        "text": "cost-report",
+        "level": "h4"
+      }
+    },
+    "stat_cost_report": {
+      "type": "Stat",
+      "props": {
+        "label": "Success rate",
+        "value": "0.29",
+        "delta": "7 runs"
+      }
+    },
+    "text_recovery": {
+      "type": "Text",
+      "props": {
+        "text": "Recovered 2026-06-08 15:10Z post PR #274"
+      }
+    },
+    "badge_status": {
+      "type": "Badge",
+      "props": {
+        "text": "WAIT-ROLL-OFF",
+        "variant": "outline"
+      }
+    },
+    "text_note": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-010 already resolved; aggregate still hung over from 2026-06-08 morning burst",
+        "variant": "caption"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_summary": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h3"
+      }
+    },
+    "grid_summary": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_healthy",
+        "stat_no_data",
+        "stat_critical",
+        "stat_flapping"
+      ]
+    },
+    "stat_healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Healthy",
+        "value": "32"
+      }
+    },
+    "stat_no_data": {
+      "type": "Stat",
+      "props": {
+        "label": "No Data",
+        "value": "0"
+      }
+    },
+    "stat_critical": {
+      "type": "Stat",
+      "props": {
+        "label": "Critical",
+        "value": "0"
+      }
+    },
+    "stat_flapping": {
+      "type": "Stat",
+      "props": {
+        "label": "Flapping",
+        "value": "0"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_issues": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues & Actions",
+        "level": "h3"
+      }
+    },
+    "stack_issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_open_issues",
+        "text_filed",
+        "text_resolved"
+      ]
+    },
+    "text_open_issues": {
+      "type": "Text",
+      "props": {
+        "text": "Open issues: 2 (ISS-005 fixing, ISS-009 open)"
+      }
+    },
+    "text_filed": {
+      "type": "Text",
+      "props": {
+        "text": "Filed this run: 0"
+      }
+    },
+    "text_resolved": {
+      "type": "Text",
+      "props": {
+        "text": "Resolved this run: 0"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_reminder": {
+      "type": "Text",
+      "props": {
+        "text": "Signature unchanged from yesterday; this is the 24h reminder ping.",
+        "variant": "muted"
+      }
+    }
+  }
+}

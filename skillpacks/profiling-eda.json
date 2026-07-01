@@ -1,10 +1,12 @@
 {
   "pack": "profiling-eda",
   "label": "profiling · eda",
-  "cohesion": 13.85,
+  "cohesion": 7.29,
   "topTerms": [
     "profiling",
-    "eda"
+    "eda",
+    "correlation",
+    "sweep"
   ],
   "members": [
     {
@@ -12,6 +14,12 @@
       "name": "Compute-Futures EDA",
       "description": "Daily profiling of the deployer's compute-futures sweep — null/outlier/distribution/correlation per mode, committed findings, one-line notification",
       "install": "./add-skill aaronjmars/aeon compute-futures-eda"
+    },
+    {
+      "slug": "compute-macro-correlate",
+      "name": "Compute × Macro Correlate",
+      "description": "Weekly partial-correlation of compute economics against a Hyperliquid macro basket — DePIN-token proxy track runs every week (n>180d), sweep-P&L track defers until n≥30 joined days",
+      "install": "./add-skill aaronjmars/aeon compute-macro-correlate"
     },
     {
       "slug": "programmatic-eda",
@@ -22,6 +30,7 @@
   ],
   "install_all": [
     "./add-skill aaronjmars/aeon compute-futures-eda",
+    "./add-skill aaronjmars/aeon compute-macro-correlate",
     "./add-skill aaronjmars/aeon programmatic-eda"
   ]
 }

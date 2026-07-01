@@ -207,8 +207,17 @@ function buildEdges(notes) {
       const t = resolveTarget(n, m, idx);
       if (t) push(n.id, t, "mdlink", 1.0);
     }
-    // bare path mentions: scan body for `memory/...md` or `docs/...md` substrings
-    const body = n.body;
+    // bare path mentions: scan body for `memory/...md` or `docs/...md` substrings.
+    // Strip [[wikilink]] and [text](mdlink) spans first: a full-path wikilink
+    // like [[memory/foo.md]] is already counted as a wikilink hard edge, but
+    // its literal `memory/foo.md` text would otherwise also match the path-scan
+    // and emit a duplicate `path-mention` for the same pair — and the bare
+    // `memory` segment would spuriously `name-mention` docs/memory.md. Both
+    // inflate hard-edge totals and source out-degree, which can make the
+    // suggest-edges MAX_OUT filter stop densifying a note too early (Codex PR #279).
+    const body = n.body
+      .replace(RE_WIKILINK, " ")
+      .replace(RE_MDLINK, " ");
     for (const other of notes) {
       if (other.id === n.id) continue;
       // Look for exact relpath OR for basename surrounded by non-word chars

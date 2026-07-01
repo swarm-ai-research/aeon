@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aeon/schema/skills.schema.json",
+  "title": "SkillsManifest",
+  "description": "Aeon skills manifest. Generated from skills/ by scripts/build-skills-json (or equivalent). Consumed by mcp-server, a2a-server, and dashboard.",
+  "type": "object",
+  "required": ["version", "repo", "skills"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Manifest schema version (e.g. \"1.0\")."
+    },
+    "generated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp of last generation."
+    },
+    "repo": {
+      "type": "string",
+      "description": "Source repository in owner/repo form."
+    },
+    "total": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total skill count. Must equal skills.length."
+    },
+    "categories": {
+      "type": "object",
+      "description": "Category slug → human-readable label map.",
+      "additionalProperties": { "type": "string" }
+    },
+    "install_all": {
+      "type": "string",
+      "description": "Shell command to install every skill."
+    },
+    "install_one": {
+      "type": "string",
+      "description": "Shell command template to install one skill (placeholder: <skill-name>)."
+    },
+    "skills": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/ManifestSkill" }
+    }
+  },
+  "definitions": {
+    "ManifestSkill": {
+      "type": "object",
+      "title": "ManifestSkill",
+      "description": "A single skill entry as it appears in skills.json. Distinct from dashboard runtime SkillConfig.",
+      "required": ["slug", "name", "description", "category", "schedule", "var"],
+      "additionalProperties": false,
+      "properties": {
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$",
+          "description": "Kebab-case identifier; matches skills/<slug>/SKILL.md path."
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable skill name."
+        },
+        "description": {
+          "type": "string",
+          "description": "One-line summary used in tool descriptions and listings."
+        },
+        "category": {
+          "type": "string",
+          "enum": ["research", "dev", "crypto", "social", "productivity", "other"],
+          "description": "Top-level grouping. Keep in sync with manifest.categories keys."
+        },
+        "schedule": {
+          "type": "string",
+          "description": "Cron expression or \"on-demand\" or empty string for unscheduled."
+        },
+        "var": {
+          "type": "string",
+          "description": "Default value or description for the skill's variable input. Empty if not used."
+        },
+        "files": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "File count under skills/<slug>/."
+        },
+        "sha": {
+          "type": "string",
+          "description": "Git short-SHA of the skill's last update."
+        },
+        "updated": {
+          "type": "string",
+          "pattern": "^(\\d{4}-\\d{2}-\\d{2})?$",
+          "description": "ISO-8601 date of last update, or empty string if unknown."
+        },
+        "install": {
+          "type": "string",
+          "description": "Shell command to install this specific skill."
+        }
+      }
+    }
+  }
+}

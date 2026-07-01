@@ -1,0 +1,235 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Fleet Control",
+        "description": "2026-06-09"
+      },
+      "children": [
+        "verdict_section",
+        "sep1",
+        "fleet_section",
+        "sep2",
+        "counts_section",
+        "sep3",
+        "caps_section",
+        "sep4",
+        "sources_section"
+      ]
+    },
+    "verdict_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "verdict_label",
+        "verdict_badge"
+      ]
+    },
+    "verdict_label": {
+      "type": "Text",
+      "props": {
+        "text": "Verdict:",
+        "variant": "body"
+      }
+    },
+    "verdict_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "FLEET_OK",
+        "variant": "success"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fleet_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fleet_heading",
+        "fleet_table"
+      ]
+    },
+    "fleet_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet (4 total — all GitLawb)",
+        "level": "h3"
+      }
+    },
+    "fleet_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Agent",
+          "Status",
+          "DID",
+          ""
+        ],
+        "rows": [
+          [
+            "aeon-researcher",
+            "HEALTHY",
+            "did:key:z6Mkfnr…HGkSHRUH",
+            "none"
+          ],
+          [
+            "aeon-reviewer",
+            "HEALTHY",
+            "did:key:z6Mks2K…HY7U7SZ",
+            "none"
+          ],
+          [
+            "aeon-deployer",
+            "HEALTHY",
+            "did:key:z6MknGJ…CwcAuS",
+            "none"
+          ],
+          [
+            "aeon-sentinel",
+            "HEALTHY",
+            "did:key:z6MksUu…ehX4S2M",
+            "none"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "counts_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "counts_heading",
+        "counts_table"
+      ]
+    },
+    "counts_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Health Counts",
+        "level": "h3"
+      }
+    },
+    "counts_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Metric",
+          "Count"
+        ],
+        "rows": [
+          [
+            "healthy",
+            "4"
+          ],
+          [
+            "warning",
+            "0"
+          ],
+          [
+            "degraded",
+            "0"
+          ],
+          [
+            "stale",
+            "0"
+          ],
+          [
+            "pending",
+            "0"
+          ],
+          [
+            "unreachable",
+            "0"
+          ],
+          [
+            "archived",
+            "0"
+          ]
+        ]
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "caps_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "caps_heading",
+        "caps_text"
+      ]
+    },
+    "caps_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Capabilities",
+        "level": "h3"
+      }
+    },
+    "caps_text": {
+      "type": "Text",
+      "props": {
+        "text": "All active through 2026-06-24 (~15d)",
+        "variant": "body"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sources_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "sources_heading",
+        "sources_text"
+      ]
+    },
+    "sources_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h3"
+      }
+    },
+    "sources_text": {
+      "type": "Text",
+      "props": {
+        "text": "registry=4 · gitlawb mirror absent (read entry-level fields per spec) · gh checks skipped (no GH-hosted entries)",
+        "variant": "caption"
+      }
+    }
+  }
+}

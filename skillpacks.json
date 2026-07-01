@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-31T06:50:12.470Z",
+  "generatedAt": "2026-06-07T06:47:44.509Z",
   "stats": {
-    "skills": 168,
-    "edges": 1256,
+    "skills": 172,
+    "edges": 1273,
     "packs": 16,
     "solos": 0
   },
@@ -13,8 +13,8 @@
       "topTerms": [
         "review",
         "manifest",
-        "improve",
-        "health"
+        "atomic",
+        "improve"
       ],
       "members": [
         "action-converter",
@@ -108,7 +108,8 @@
         "pm-pulse",
         "reg-monitor",
         "research-brief",
-        "rwa-pulse"
+        "rwa-pulse",
+        "frontier-eval"
       ],
       "cohesion": 1.45
     },
@@ -170,14 +171,14 @@
         "write-tweet",
         "x402-monitor"
       ],
-      "cohesion": 2.25
+      "cohesion": 2.26
     },
     {
-      "slug": "evolve-fleet",
-      "label": "evolve · fleet",
+      "slug": "fleet-evolve",
+      "label": "fleet · evolve",
       "topTerms": [
-        "evolve",
         "fleet",
+        "evolve",
         "gitlawb",
         "instances"
       ],
@@ -195,11 +196,12 @@
         "skill-freshness",
         "skill-graph",
         "skill-repair",
+        "stale-content-pr-sweeper",
         "swarm-safety-eval",
         "vercel-projects",
         "memory-structural-dedupe"
       ],
-      "cohesion": 1.29
+      "cohesion": 1.27
     },
     {
       "slug": "articles-article",
@@ -225,7 +227,7 @@
         "weekly-shiplog",
         "signal-verdict"
       ],
-      "cohesion": 1.61
+      "cohesion": 1.59
     },
     {
       "slug": "fork-contributor",
@@ -246,7 +248,7 @@
         "fork-release-tracker",
         "fork-skill-gap"
       ],
-      "cohesion": 3.76
+      "cohesion": 3.75
     },
     {
       "slug": "vulnerability-pvr",
@@ -301,7 +303,7 @@
         "schedule-ads",
         "star-momentum-alert"
       ],
-      "cohesion": 2.18
+      "cohesion": 2.19
     },
     {
       "slug": "digest",
@@ -334,46 +336,50 @@
       "cohesion": 2.88
     },
     {
-      "slug": "graph-proposals",
-      "label": "graph · proposals",
+      "slug": "profiling-eda",
+      "label": "profiling · eda",
       "topTerms": [
-        "graph",
-        "proposals"
+        "profiling",
+        "eda",
+        "correlation",
+        "sweep"
+      ],
+      "members": [
+        "compute-futures-eda",
+        "compute-macro-correlate",
+        "programmatic-eda"
+      ],
+      "cohesion": 7.29
+    },
+    {
+      "slug": "pricing-gpu",
+      "label": "pricing · gpu",
+      "topTerms": [
+        "pricing",
+        "gpu",
+        "inference",
+        "spot"
+      ],
+      "members": [
+        "compute-pulse",
+        "runpod-spot-pricing",
+        "surplus-pulse"
+      ],
+      "cohesion": 3.32
+    },
+    {
+      "slug": "proposals-graph",
+      "label": "proposals · graph",
+      "topTerms": [
+        "proposals",
+        "graph"
       ],
       "members": [
         "notegraph",
         "skillpacks",
         "suggest-edges"
       ],
-      "cohesion": 4.63
-    },
-    {
-      "slug": "profiling-eda",
-      "label": "profiling · eda",
-      "topTerms": [
-        "profiling",
-        "eda"
-      ],
-      "members": [
-        "compute-futures-eda",
-        "programmatic-eda"
-      ],
-      "cohesion": 13.85
-    },
-    {
-      "slug": "inference-pricing",
-      "label": "inference · pricing",
-      "topTerms": [
-        "inference",
-        "pricing",
-        "pulse",
-        "market"
-      ],
-      "members": [
-        "compute-pulse",
-        "surplus-pulse"
-      ],
-      "cohesion": 3
+      "cohesion": 3.83
     }
   ]
 }

@@ -57,6 +57,8 @@ If a CSV row references a model not in the active table, treat it as an **unknow
 
 ### 3. Compute per-row cost
 
+**Compute every aggregate in steps 3 and 4 with `node -e` (or `jq`), not by hand.** Reasoning through 100+ CSV rows step-by-step has timed out at the 30-minute job wall on Sonnet 4.6 — 2026-06-08 hit cf=3 consecutive failures, all ~29m+ wall time. The arithmetic is deterministic; do not spend inference tokens on it. Pipe `memory/token-usage.csv` through `node -e` to emit per-row costs, per-skill totals, per-model totals, and the (skill,model) µ/σ pairs as one JSON blob, then read the JSON back to build the report.
+
 For each valid in-window row, look up the model's rates and calculate:
 ```
 input_cost       = input_tokens    / 1e6 × rate_input
@@ -205,6 +207,7 @@ No outbound network required — this skill only reads local files (`memory/toke
 
 ## Constraints
 
+- **Do not reason through CSV arithmetic in-context.** Every per-row, per-skill, per-model, µ/σ, and WoW calculation must be produced by `node -e` or `jq`. See step 3.
 - **Anomaly threshold** is intentionally conservative (µ + 2σ AND >$0.10) — cheap runs should not be flagged as noise.
 - **Optimization recommendations must name a skill and an estimated dollar impact.** "Use Sonnet more" without a target skill is not useful — skip the slot instead.
 - **Do not send a notification** if the CSV is missing or the window is empty — silently log and exit.

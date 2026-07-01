@@ -1,0 +1,155 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-06-09"
+      },
+      "children": [
+        "content_stack"
+      ]
+    },
+    "content_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "metrics_section",
+        "issues_section",
+        "sep1",
+        "conservation_section",
+        "sep2",
+        "findings_section",
+        "sep3",
+        "report_link"
+      ]
+    },
+    "metrics_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Deduped Rows",
+        "value": "144"
+      }
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "issues_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert_critical",
+        "alert_medium"
+      ]
+    },
+    "alert_critical": {
+      "type": "Alert",
+      "props": {
+        "title": "CRITICAL: Deployer Double-Emit",
+        "message": "Unchanged on day 3 (289 raw rows, dedupes to 144). No fix shipped between runs.",
+        "type": "error"
+      }
+    },
+    "alert_medium": {
+      "type": "Alert",
+      "props": {
+        "title": "MEDIUM: Spread-Analyst Sign Flip",
+        "message": "+$2,900 → -$115. Confirming 12-seed sweeps can't pin spread role means.",
+        "type": "warning"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "conservation_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "conservation_heading",
+        "conservation_text"
+      ]
+    },
+    "conservation_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Check",
+        "level": "h3"
+      }
+    },
+    "conservation_text": {
+      "type": "Text",
+      "props": {
+        "text": "All 4 modes OK at float precision (|mean wallet_sum_pnl| ≤ 3.1e-12)",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "findings_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "findings_heading",
+        "finding_text"
+      ]
+    },
+    "findings_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "New Within-Mode Pair",
+        "level": "h3"
+      }
+    },
+    "finding_text": {
+      "type": "Text",
+      "props": {
+        "text": "minCurve↔settlementLegs r=-0.879 in synthetic/x402",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "report_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-06-09.md",
+        "source": "compute-futures-eda"
+      }
+    }
+  }
+}

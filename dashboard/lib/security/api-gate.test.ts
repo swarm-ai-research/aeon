@@ -123,6 +123,32 @@ describe("isSameOriginWrite", () => {
   });
 });
 
+describe("stripPort (edge cases)", () => {
+  it("returns host intact when colon suffix is non-numeric", () => {
+    assert.equal(stripPort("example.com:abc"), "example.com:abc");
+    assert.equal(stripPort("host:port"), "host:port");
+  });
+  it("returns host intact when colon has no suffix (trailing colon)", () => {
+    assert.equal(stripPort("localhost:"), "localhost:");
+  });
+  it("returns empty string for whitespace-only input", () => {
+    assert.equal(stripPort("   "), "");
+  });
+});
+
+describe("isAllowedHost (edge cases)", () => {
+  it("accepts 0.0.0.0 as a loopback variant (used by next dev)", () => {
+    assert.equal(isAllowedHost("0.0.0.0"), true);
+    assert.equal(isAllowedHost("0.0.0.0:5555"), true);
+  });
+  it("extraAllowed accepts a plain Array in addition to a Set", () => {
+    const extras = ["aeon.local", "internal.lan:8080"];
+    assert.equal(isAllowedHost("aeon.local", { extraAllowed: extras }), true);
+    assert.equal(isAllowedHost("internal.lan", { extraAllowed: extras }), true);
+    assert.equal(isAllowedHost("attacker.example", { extraAllowed: extras }), false);
+  });
+});
+
 describe("gateRequest (env-driven wrapper)", () => {
   afterEach(() => {
     delete process.env.AEON_DASHBOARD_ALLOWED_HOSTS;
@@ -182,6 +208,34 @@ describe("gateRequest (env-driven wrapper)", () => {
     const result = gateRequest({
       method: "POST",
       headers: headers({ host: "attacker.example", origin: "http://attacker.example" }),
+    });
+    assert.equal(result, null);
+  });
+
+  it("AEON_DASHBOARD_ALLOW_ANY_HOST=true does NOT bypass (only '1' is accepted)", async () => {
+    process.env.AEON_DASHBOARD_ALLOW_ANY_HOST = "true";
+    const result = gateRequest({
+      method: "GET",
+      headers: headers({ host: "attacker.example" }),
+    });
+    assert.ok(result instanceof Response);
+    assert.equal(result!.status, 403);
+  });
+
+  it("AEON_DASHBOARD_ALLOW_ANY_HOST=yes does NOT bypass (only '1' is accepted)", async () => {
+    process.env.AEON_DASHBOARD_ALLOW_ANY_HOST = "yes";
+    const result = gateRequest({
+      method: "GET",
+      headers: headers({ host: "attacker.example" }),
+    });
+    assert.ok(result instanceof Response);
+    assert.equal(result!.status, 403);
+  });
+
+  it("accepts 0.0.0.0 host for GET requests (used by next dev)", () => {
+    const result = gateRequest({
+      method: "GET",
+      headers: headers({ host: "0.0.0.0:5555" }),
     });
     assert.equal(result, null);
   });
