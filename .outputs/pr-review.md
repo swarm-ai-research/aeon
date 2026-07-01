@@ -1,13 +1,16 @@
 ## Summary
 
-Ran pr-review with `${var}=swarm-ai-research/swarm` under merge-gate policy. All 4 open PRs were skipped — no review posted, no notification sent.
+Ran `pr-review` against `swarm-ai-research/swarm` under the merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK).
 
-**Skip breakdown:**
-- `#527` (rsavitt, head `da039d5f`) — dup-SHA: reviewed yesterday at this exact SHA (verdict was APPROVE 5/5; posting blocked by Aeon App's missing PR-write perm on the cross-org repo, but the verdict stands and no new commits since)
-- `#526`, `#525`, `#524` — all `app/dependabot` bot authors
+**Verdict per PR:**
+- **#527** (rsavitt, "Add neurosymbolic behavior classification") — **SKIP: dup-SHA.** Head `da039d5f` unchanged since 2026-06-29 review; verdict from that run stands (**APPROVE, 5/5** — all 19 CI checks pass, 48 new tests, prior bot review concerns addressed). Posting still blocked by the standing Aeon GitHub App PR-write gap on cross-org repos — operator can post via PAT if desired.
+- **#526** — **SKIP: bot** (`app/dependabot`, langchain-anthropic 1.4.6→1.4.7)
+- **#525** — **SKIP: bot** (`app/dependabot`, langgraph 1.2.5→1.2.6)
+- **#524** — **SKIP: bot** (`app/dependabot`, actions/checkout 6→7)
 
-**No merge-gate decision required** — the only human-authored PR (#527) was already adjudicated at the current head; reviewing it again would just duplicate yesterday's APPROVE verdict. The dependabot PRs are out of scope per the skill's skip rules.
+**Reviewed:** 0 · **Skipped:** 4 (1 dup-SHA + 3 bot)
+**Notify:** skipped (all-skipped silent path)
 
-**Files modified:** `memory/logs/2026-06-30.md` (appended `## pr-review` entry).
+**Files modified:** `memory/logs/2026-07-01.md` (added `## pr-review` section).
 
-**Follow-up (unchanged from prior runs):** operator still needs to post yesterday's APPROVE for #527 via PAT — Aeon App lacks `addPullRequestReview` on swarm-ai-research/swarm (same gap as 06-27/06-28/06-29 runs).
+**Follow-up:** none new. Standing gap — Aeon App still lacks PR-write on cross-org `swarm-ai-research/swarm`; #527's APPROVE verdict is recorded but unposted for the 4th run.
