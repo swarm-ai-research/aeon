@@ -1,0 +1,126 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Reflect",
+        "description": "Memory consolidated • 2026-07-01"
+      },
+      "children": [
+        "badge_status",
+        "separator_1",
+        "primary_counts",
+        "separator_2",
+        "changes_section"
+      ]
+    },
+    "badge_status": {
+      "type": "Badge",
+      "props": {
+        "text": "post-reflect",
+        "variant": "secondary"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "primary_counts": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat_notes",
+        "stat_entries",
+        "stat_orphan",
+        "stat_bundled"
+      ]
+    },
+    "stat_notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "102"
+      }
+    },
+    "stat_entries": {
+      "type": "Stat",
+      "props": {
+        "label": "Entries",
+        "value": "744"
+      }
+    },
+    "stat_orphan": {
+      "type": "Stat",
+      "props": {
+        "label": "Orphaned",
+        "value": "1"
+      }
+    },
+    "stat_bundled": {
+      "type": "Stat",
+      "props": {
+        "label": "Bundled",
+        "value": "0"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "changes_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "changes_summary",
+        "update_detail"
+      ]
+    },
+    "changes_summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_splits",
+        "stat_new",
+        "stat_updates"
+      ]
+    },
+    "stat_splits": {
+      "type": "Stat",
+      "props": {
+        "label": "Splits",
+        "value": "0"
+      }
+    },
+    "stat_new": {
+      "type": "Stat",
+      "props": {
+        "label": "New",
+        "value": "0"
+      }
+    },
+    "stat_updates": {
+      "type": "Stat",
+      "props": {
+        "label": "Updates",
+        "value": "1"
+      }
+    },
+    "update_detail": {
+      "type": "Text",
+      "props": {
+        "text": "1 in-place update to gha-messages-yml-cron-underdelivery promoting 08:00 batch to recurring pocket"
+      }
+    }
+  }
+}

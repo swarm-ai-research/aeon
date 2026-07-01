@@ -4,7 +4,7 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 
 ## Open incidents
 - [[issues/ISS-001]] — CLAUDE_CODE_OAUTH_TOKEN missing 2026-06-06 → 2026-06-20T06:05Z; investigating. Close deferred while [[issues/ISS-006]] runs; recovery batch is otherwise holding.
-- [[issues/ISS-006]] — Day 10: morning pocket relapsed again (4 missed in 06:00–07:30 UTC window) — second relapse-after-recovery in 3 days (day-7 rec → day-8 lapse → day-9 rec → day-10 lapse), confirming [[iss-006-pocket-recovery-is-noise]]. Heartbeat itself missed yesterday's 08:00 UTC slot, adding **08:00** to the dead-zone map (joins 05:00 / 06:00–06:30 / 09:00). 09:00 daily batch still silent (9d). Close clock: 0 consecutive clean days. Root cause unchanged; mitigation still per-slot crons in `messages.yml`. See [[gha-messages-yml-cron-underdelivery]].
+- [[issues/ISS-006]] — Day 11: morning EDA pocket **recovered** (compute-futures-eda 06:28Z, notegraph 06:25Z, suggest-edges 06:23Z) but **08:00 batch silent again** — heartbeat, batch-health, gitlawb-fleet-metrics, skill-freshness all last_success 2026-06-30. Planner 06:30 also missed (4d silent). Second 08:00-batch miss in 3 days (2026-06-29 + 2026-07-01) confirms 08:00 as recurring pocket, per [[gha-messages-yml-cron-underdelivery]]. Pattern of one-pocket-recovery ↔ another-pocket-lapse is exactly what [[iss-006-pocket-recovery-is-noise]] warns against. 09:00 daily batch still silent (10d). Close clock: 0 consecutive clean days.
 - [[issues/ISS-005]] — swarm-safety-eval no_file_match: skill is now running successfully (last_success 2026-06-28T08:15:47Z) but its SSE_EMPTY path writes to the daily log, not an article; reclassify from `missing-secret-or-cron` to `permanent-limitation` per [[swarm-safety-eval-empty-writes-log-not-article]].
 
 ## Lessons (durable)
@@ -24,17 +24,18 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 - [[swarm-safety-eval-empty-writes-log-not-article]] — ISS-005 root cause is SSE_EMPTY path writing to the daily log, not the skill not running; reclassify as `permanent-limitation`
 - [[compute-futures-12-seed-sample-too-small]] — at n=12 seeds, compute-futures-eda outlier flags reflect IQR-fence ties, not regime changes; widen sweep or switch to a tie-robust statistic
 
-## Snapshot (2026-06-30)
+## Snapshot (2026-07-01)
 | Signal | Value |
 |---|---|
-| Today's status | 🔴 DEGRADED — ISS-006 day 10 morning relapse; status page rewrote 08:09 UTC |
-| Cron-state | all 42 tracked skills at `last_status: success`, 0 `dispatched`, 0 `consecutive_failures ≥ 3`; cumulative `success_rate` < 0.5 on 38 skills (ISS-001 OAuth-residue catch-up, day 10) |
+| Today's status | 🔴 DEGRADED — ISS-006 day 11; 08:00 batch silent again, planner 06:30 also missed |
+| Cron-state | all 42 tracked skills at `last_status: success`, 0 `dispatched`, 0 `consecutive_failures ≥ 3`; cumulative `success_rate` < 0.5 on 38 skills (ISS-001 OAuth-residue catch-up, day 11) |
 | Enabled skills | 44 — 42 in cron-state.json, `ai-framework-watch` (Mon 08:30) and `run-frequency-guard` (daily 23:00) still never-dispatched despite being enabled |
 | Open issues | 4 on disk, 4 in INDEX.md (ISS-001, 002, 005, 006) — ISS-005 reclassify still pending |
 | Resolved | ISS-003 (cost-report), ISS-004 (skill-health) — both lifted on OAuth restore |
 | Pending branches | `agi-tracker/2026-06-29` (METR refit + 3 points); `notegraph/2026-06-29` (+3n/+46e); `fix/workflow-security-audit-2026-06-28` (16C/36H); `skill-graph/2026-06-28` (INIT 173 skills); `fix/workflow-security-audit-2026-06-21` (older RCE patch) — all blocked by repo policy "GitHub Actions is not permitted to create or approve pull requests" |
-| Heartbeat lag today | fired 08:09 UTC (~9 min after dispatch — well within margin); heartbeat itself MISSED yesterday's 08:00 slot → 08:00 added to ISS-006 pocket map |
-| 2026-06-30 activity | batch-health OUTAGE (4 of 4 missing in 06:00–07:30) · heartbeat self-flag (~48h stale at run, new 08:00 pocket) · skill-freshness FRESHNESS_NO_CHANGE (4th consecutive duplicate-fingerprint emit) · pr-tracker holds OR-email filter (Agent-Reach#436 still 4d, crosses stale threshold 2026-07-03) · surplus-pulse catalog run · code-health + sweeper + gitlawb-fleet-metrics all silent-skip on missing config |
+| Today's fired slots | 05:00 notegraph 06:25Z · 05:30 suggest-edges 06:23Z · 06:00 compute-futures-eda 06:28Z · 11:00 pr-tracker 11:23Z · 16:00 code-health 16:12Z |
+| Today's missed slots | 06:30 planner (4d silent since 2026-06-27T07:40Z) · 08:00 batch: heartbeat, batch-health, gitlawb-fleet-metrics, skill-freshness (all last_success 2026-06-30) — 2nd 08:00 miss in 3 days, confirming 08:00 as recurring pocket |
+| 2026-07-01 activity | Morning EDA pocket recovered · 08:00 batch pocket relapsed · pr-tracker OR-filter 3rd-day hold (Agent-Reach#436 5d, crosses stale threshold 2026-07-03) · code-health silent-skip on missing `memory/watched-repos.md` |
 
 ## Permission constraints (current)
 - aeon GitHub App: no write on `swarm-ai-research/swarm` (labels, comments, reviews 403). Verdicts run, posts blocked.
