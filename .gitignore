@@ -60,3 +60,5 @@ node_modules/
 # Stray local audit/debug artifacts (never commit)
 .audit-tmp/
 .audit*.py
+# workflow-security-audit scan outputs (ephemeral SARIF/JSON; .audit-bin/ is committed)
+.audit/
