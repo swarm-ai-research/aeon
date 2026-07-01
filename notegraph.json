@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-30T19:24:01.444Z",
+  "generatedAt": "2026-07-01T06:22:54.686Z",
   "stats": {
-    "nodes": 90,
-    "edges": 814,
-    "hard": 608,
-    "soft": 206,
+    "nodes": 91,
+    "edges": 840,
+    "hard": 630,
+    "soft": 210,
     "orphans": 1,
     "atomic": 28,
     "bundled": 0
@@ -255,7 +255,7 @@
       "title": "Skills",
       "dir": "docs",
       "tags": [],
-      "inDegree": 40,
+      "inDegree": 41,
       "outDegree": 8,
       "atomic": false,
       "bundleRawScore": null,
@@ -279,8 +279,8 @@
       "title": "Status",
       "dir": "docs",
       "tags": [],
-      "inDegree": 11,
-      "outDegree": 28,
+      "inDegree": 12,
+      "outDegree": 29,
       "atomic": false,
       "bundleRawScore": null,
       "bundleScore": null,
@@ -303,7 +303,7 @@
       "title": "Memory Index",
       "dir": "memory",
       "tags": [],
-      "inDegree": 18,
+      "inDegree": 19,
       "outDegree": 46,
       "atomic": false,
       "bundleRawScore": null,
@@ -399,7 +399,7 @@
       "title": "Compute-Futures Scenario Sweep",
       "dir": "memory",
       "tags": [],
-      "inDegree": 12,
+      "inDegree": 13,
       "outDegree": 3,
       "atomic": false,
       "bundleRawScore": null,
@@ -495,8 +495,8 @@
       "title": "Recurring messages.yml cron underdelivery — multi-pocket dead zones across the day, 10 days running (since 2026-06-21)",
       "dir": "memory",
       "tags": [],
-      "inDegree": 24,
-      "outDegree": 39,
+      "inDegree": 25,
+      "outDegree": 40,
       "atomic": false,
       "bundleRawScore": null,
       "bundleScore": null,
@@ -700,7 +700,7 @@
       "dir": "memory",
       "tags": [],
       "inDegree": 12,
-      "outDegree": 12,
+      "outDegree": 13,
       "atomic": false,
       "bundleRawScore": null,
       "bundleScore": null,
@@ -711,7 +711,7 @@
       "title": "2026-06-27",
       "dir": "memory",
       "tags": [],
-      "inDegree": 11,
+      "inDegree": 12,
       "outDegree": 16,
       "atomic": false,
       "bundleRawScore": null,
@@ -735,8 +735,20 @@
       "title": "2026-06-29",
       "dir": "memory",
       "tags": [],
-      "inDegree": 15,
+      "inDegree": 16,
       "outDegree": 25,
+      "atomic": false,
+      "bundleRawScore": null,
+      "bundleScore": null,
+      "bundled": false
+    },
+    {
+      "id": "memory/notes/daily/2026-06-30.md",
+      "title": "2026-06-30",
+      "dir": "memory",
+      "tags": [],
+      "inDegree": 9,
+      "outDegree": 20,
       "atomic": false,
       "bundleRawScore": null,
       "bundleScore": null,
@@ -783,7 +795,7 @@
       "title": "gha-messages-yml-cron-underdelivery",
       "dir": "memory",
       "tags": [],
-      "inDegree": 14,
+      "inDegree": 16,
       "outDegree": 9,
       "atomic": true,
       "bundleRawScore": 0,
@@ -819,7 +831,7 @@
       "title": "iss-006-pocket-recovery-is-noise",
       "dir": "memory",
       "tags": [],
-      "inDegree": 14,
+      "inDegree": 16,
       "outDegree": 10,
       "atomic": true,
       "bundleRawScore": 0,
@@ -927,7 +939,7 @@
       "title": "pr-tracker-branch-prefix-misses-bot-identity",
       "dir": "memory",
       "tags": [],
-      "inDegree": 10,
+      "inDegree": 12,
       "outDegree": 5,
       "atomic": true,
       "bundleRawScore": 0,
@@ -1059,8 +1071,8 @@
       "title": "Fleet Ops",
       "dir": "memory",
       "tags": [],
-      "inDegree": 26,
-      "outDegree": 46,
+      "inDegree": 28,
+      "outDegree": 47,
       "atomic": false,
       "bundleRawScore": null,
       "bundleScore": null,
@@ -1071,8 +1083,8 @@
       "title": "PR Status",
       "dir": "memory",
       "tags": [],
-      "inDegree": 7,
-      "outDegree": 10,
+      "inDegree": 9,
+      "outDegree": 11,
       "atomic": false,
       "bundleRawScore": null,
       "bundleScore": null,
@@ -1084,7 +1096,7 @@
       "dir": "memory",
       "tags": [],
       "inDegree": 7,
-      "outDegree": 16,
+      "outDegree": 17,
       "atomic": false,
       "bundleRawScore": null,
       "bundleScore": null,
@@ -1662,6 +1674,13 @@
     {
       "source": "docs/status.md",
       "target": "memory/notes/daily/2026-06-29.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "docs/status.md",
+      "target": "memory/notes/daily/2026-06-30.md",
       "type": "name-mention",
       "weight": 0.5,
       "hardness": "hard"
@@ -2418,6 +2437,13 @@
     {
       "source": "memory/issues/ISS-006.md",
       "target": "memory/notes/daily/2026-06-29.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/issues/ISS-006.md",
+      "target": "memory/notes/daily/2026-06-30.md",
       "type": "name-mention",
       "weight": 0.5,
       "hardness": "hard"
@@ -3858,6 +3884,125 @@
       "hardness": "hard"
     },
     {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/notes/gha-messages-yml-cron-underdelivery.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/notes/iss-006-pocket-recovery-is-noise.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/notes/pr-tracker-branch-prefix-misses-bot-identity.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/topics/fleet-ops.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/topics/pr-status.md",
+      "type": "wikilink",
+      "weight": 1,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "docs/skills.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "docs/status.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/MEMORY.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/gitlawb-compute-futures-proofs/2026-06-27.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/issues/ISS-006.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/notes/daily/2026-06-27.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/notes/daily/2026-06-29.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/notes/gha-messages-yml-cron-underdelivery.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/notes/iss-006-pocket-recovery-is-noise.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/notes/pr-tracker-branch-prefix-misses-bot-identity.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/topics/fleet-ops.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/topics/pr-status.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
       "source": "memory/notes/gh-search-prs-api-drift.md",
       "target": "memory/gitlawb-compute-futures-proofs/2026-06-23.md",
       "type": "name-mention",
@@ -5084,6 +5229,13 @@
     },
     {
       "source": "memory/topics/fleet-ops.md",
+      "target": "memory/notes/daily/2026-06-30.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/fleet-ops.md",
       "target": "memory/notes/gh-search-prs-api-drift.md",
       "type": "name-mention",
       "weight": 0.5,
@@ -5217,6 +5369,13 @@
     },
     {
       "source": "memory/topics/pr-status.md",
+      "target": "memory/notes/daily/2026-06-30.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/pr-status.md",
       "target": "memory/notes/gh-search-prs-api-drift.md",
       "type": "name-mention",
       "weight": 0.5,
@@ -5323,6 +5482,13 @@
     {
       "source": "memory/topics/surplus-pulse.md",
       "target": "memory/notes/daily/2026-06-29.md",
+      "type": "name-mention",
+      "weight": 0.5,
+      "hardness": "hard"
+    },
+    {
+      "source": "memory/topics/surplus-pulse.md",
+      "target": "memory/notes/daily/2026-06-30.md",
       "type": "name-mention",
       "weight": 0.5,
       "hardness": "hard"
@@ -5604,7 +5770,7 @@
       "source": "docs/_posts/2026-05-24-aeon-on-gitlawb.md",
       "target": "docs/gitlawb-demo-script.md",
       "type": "similar",
-      "weight": 0.365,
+      "weight": 0.366,
       "shared": [
         "capability",
         "authority",
@@ -5632,7 +5798,7 @@
       "source": "docs/_posts/2026-05-25-autonomous-agents-on-gitlawb.md",
       "target": "docs/_posts/2026-06-02-earn-or-die-vs-lent-authority.md",
       "type": "similar",
-      "weight": 0.301,
+      "weight": 0.302,
       "shared": [
         "agents",
         "ucan",
@@ -5674,7 +5840,7 @@
       "source": "docs/_posts/2026-06-02-earn-or-die-vs-lent-authority.md",
       "target": "docs/gitlawb-demo-script.md",
       "type": "similar",
-      "weight": 0.306,
+      "weight": 0.307,
       "shared": [
         "authority",
         "exact",
@@ -5688,7 +5854,7 @@
       "source": "docs/_posts/2026-06-02-earn-or-die-vs-lent-authority.md",
       "target": "docs/_posts/2026-05-25-autonomous-agents-on-gitlawb.md",
       "type": "similar",
-      "weight": 0.301,
+      "weight": 0.302,
       "shared": [
         "agents",
         "ucan",
@@ -5702,7 +5868,7 @@
       "source": "docs/articles.md",
       "target": "docs/index.md",
       "type": "similar",
-      "weight": 0.276,
+      "weight": 0.277,
       "shared": [
         "articles",
         "gallery",
@@ -5716,13 +5882,13 @@
       "source": "docs/fleet-runner.md",
       "target": "docs/_posts/2026-05-25-autonomous-agents-on-gitlawb.md",
       "type": "similar",
-      "weight": 0.29,
+      "weight": 0.289,
       "shared": [
         "reviewer",
         "researcher",
         "runner",
         "tasks",
-        "identity"
+        "sentinel"
       ],
       "hardness": "soft"
     },
@@ -5744,7 +5910,7 @@
       "source": "docs/gitlawb-demo-recap.md",
       "target": "docs/gitlawb-pr-body.md",
       "type": "similar",
-      "weight": 0.46,
+      "weight": 0.461,
       "shared": [
         "prototype",
         "renewal",
@@ -5786,7 +5952,7 @@
       "source": "docs/gitlawb-demo-script.md",
       "target": "docs/_posts/2026-05-24-aeon-on-gitlawb.md",
       "type": "similar",
-      "weight": 0.365,
+      "weight": 0.366,
       "shared": [
         "capability",
         "authority",
@@ -5814,7 +5980,7 @@
       "source": "docs/gitlawb-pr-body.md",
       "target": "docs/gitlawb-demo-recap.md",
       "type": "similar",
-      "weight": 0.46,
+      "weight": 0.461,
       "shared": [
         "prototype",
         "renewal",
@@ -5856,7 +6022,7 @@
       "source": "docs/index.md",
       "target": "docs/skills.md",
       "type": "similar",
-      "weight": 0.34,
+      "weight": 0.341,
       "shared": [
         "markets",
         "articles",
@@ -5884,7 +6050,7 @@
       "source": "docs/index.md",
       "target": "docs/articles.md",
       "type": "similar",
-      "weight": 0.276,
+      "weight": 0.277,
       "shared": [
         "articles",
         "gallery",
@@ -5926,7 +6092,7 @@
       "source": "docs/skillpacks.md",
       "target": "docs/smithery-submission.md",
       "type": "similar",
-      "weight": 0.695,
+      "weight": 0.694,
       "shared": [
         "tweets",
         "trending",
@@ -5940,7 +6106,7 @@
       "source": "docs/skillpacks.md",
       "target": "docs/skills.md",
       "type": "similar",
-      "weight": 0.504,
+      "weight": 0.505,
       "shared": [
         "tweets",
         "trending",
@@ -5974,7 +6140,7 @@
         "tweets",
         "markets",
         "interests",
-        "repos"
+        "fetch"
       ],
       "hardness": "soft"
     },
@@ -5982,7 +6148,7 @@
       "source": "docs/skills.md",
       "target": "docs/skillpacks.md",
       "type": "similar",
-      "weight": 0.504,
+      "weight": 0.505,
       "shared": [
         "tweets",
         "trending",
@@ -5996,7 +6162,7 @@
       "source": "docs/skills.md",
       "target": "docs/index.md",
       "type": "similar",
-      "weight": 0.34,
+      "weight": 0.341,
       "shared": [
         "markets",
         "articles",
@@ -6010,7 +6176,7 @@
       "source": "docs/smithery-submission.md",
       "target": "docs/skillpacks.md",
       "type": "similar",
-      "weight": 0.695,
+      "weight": 0.694,
       "shared": [
         "tweets",
         "trending",
@@ -6030,7 +6196,7 @@
         "tweets",
         "markets",
         "interests",
-        "repos"
+        "fetch"
       ],
       "hardness": "soft"
     },
@@ -6052,13 +6218,13 @@
       "source": "docs/status.md",
       "target": "memory/issues/INDEX.md",
       "type": "similar",
-      "weight": 0.457,
+      "weight": 0.456,
       "shared": [
         "high",
-        "iss",
         "match",
-        "health",
-        "title"
+        "iss",
+        "title",
+        "health"
       ],
       "hardness": "soft"
     },
@@ -6066,7 +6232,7 @@
       "source": "docs/status.md",
       "target": "memory/issues/ISS-006.md",
       "type": "similar",
-      "weight": 0.278,
+      "weight": 0.275,
       "shared": [
         "utc",
         "success",
@@ -6080,13 +6246,13 @@
       "source": "docs/status.md",
       "target": "memory/topics/fleet-ops.md",
       "type": "similar",
-      "weight": 0.271,
+      "weight": 0.267,
       "shared": [
         "utc",
         "success",
         "iss",
         "health",
-        "freshness"
+        "eval"
       ],
       "hardness": "soft"
     },
@@ -6094,13 +6260,27 @@
       "source": "memory/MEMORY.md",
       "target": "memory/topics/fleet-ops.md",
       "type": "similar",
-      "weight": 0.547,
+      "weight": 0.539,
       "shared": [
+        "reclassify",
         "rec",
         "lapse",
         "slot",
+        "iss"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/MEMORY.md",
+      "target": "memory/notes/daily/2026-06-30.md",
+      "type": "similar",
+      "weight": 0.37,
+      "shared": [
         "relapse",
-        "reclassify"
+        "rec",
+        "lapse",
+        "filter",
+        "second"
       ],
       "hardness": "soft"
     },
@@ -6108,27 +6288,13 @@
       "source": "memory/MEMORY.md",
       "target": "memory/state/daily-plan-2026-06-27.md",
       "type": "similar",
-      "weight": 0.35,
+      "weight": 0.347,
       "shared": [
         "slot",
         "iss",
         "mon",
-        "utc",
-        "crons"
-      ],
-      "hardness": "soft"
-    },
-    {
-      "source": "memory/MEMORY.md",
-      "target": "memory/notes/daily/2026-06-28.md",
-      "type": "similar",
-      "weight": 0.343,
-      "shared": [
-        "relapse",
-        "iss",
-        "pocket",
-        "durable",
-        "eval"
+        "crons",
+        "structured"
       ],
       "hardness": "soft"
     },
@@ -6514,13 +6680,13 @@
       "source": "memory/issues/INDEX.md",
       "target": "docs/status.md",
       "type": "similar",
-      "weight": 0.457,
+      "weight": 0.456,
       "shared": [
         "high",
-        "iss",
         "match",
-        "health",
-        "title"
+        "iss",
+        "title",
+        "health"
       ],
       "hardness": "soft"
     },
@@ -6556,7 +6722,7 @@
       "source": "memory/issues/ISS-002.md",
       "target": "memory/issues/ISS-005.md",
       "type": "similar",
-      "weight": 0.388,
+      "weight": 0.389,
       "shared": [
         "matches",
         "produced",
@@ -6570,7 +6736,7 @@
       "source": "memory/issues/ISS-002.md",
       "target": "memory/issues/ISS-004.md",
       "type": "similar",
-      "weight": 0.268,
+      "weight": 0.269,
       "shared": [
         "successes",
         "records",
@@ -6598,7 +6764,7 @@
       "source": "memory/issues/ISS-003.md",
       "target": "memory/issues/ISS-005.md",
       "type": "similar",
-      "weight": 0.428,
+      "weight": 0.429,
       "shared": [
         "matches",
         "part",
@@ -6612,7 +6778,7 @@
       "source": "memory/issues/ISS-003.md",
       "target": "memory/issues/ISS-004.md",
       "type": "similar",
-      "weight": 0.332,
+      "weight": 0.333,
       "shared": [
         "successes",
         "records",
@@ -6626,7 +6792,7 @@
       "source": "memory/issues/ISS-004.md",
       "target": "memory/issues/ISS-003.md",
       "type": "similar",
-      "weight": 0.332,
+      "weight": 0.333,
       "shared": [
         "successes",
         "records",
@@ -6640,7 +6806,7 @@
       "source": "memory/issues/ISS-004.md",
       "target": "memory/issues/ISS-005.md",
       "type": "similar",
-      "weight": 0.329,
+      "weight": 0.331,
       "shared": [
         "part",
         "eval",
@@ -6654,7 +6820,7 @@
       "source": "memory/issues/ISS-004.md",
       "target": "memory/issues/ISS-002.md",
       "type": "similar",
-      "weight": 0.268,
+      "weight": 0.269,
       "shared": [
         "successes",
         "records",
@@ -6668,7 +6834,7 @@
       "source": "memory/issues/ISS-005.md",
       "target": "memory/issues/ISS-003.md",
       "type": "similar",
-      "weight": 0.428,
+      "weight": 0.429,
       "shared": [
         "matches",
         "part",
@@ -6682,7 +6848,7 @@
       "source": "memory/issues/ISS-005.md",
       "target": "memory/issues/ISS-002.md",
       "type": "similar",
-      "weight": 0.388,
+      "weight": 0.389,
       "shared": [
         "matches",
         "produced",
@@ -6696,7 +6862,7 @@
       "source": "memory/issues/ISS-005.md",
       "target": "memory/issues/ISS-004.md",
       "type": "similar",
-      "weight": 0.329,
+      "weight": 0.331,
       "shared": [
         "part",
         "eval",
@@ -6710,13 +6876,13 @@
       "source": "memory/issues/ISS-006.md",
       "target": "memory/notes/iss-006-pocket-recovery-is-noise.md",
       "type": "similar",
-      "weight": 0.381,
+      "weight": 0.379,
       "shared": [
         "dom",
         "even",
-        "slot",
         "missed",
-        "pocket"
+        "slot",
+        "sunday"
       ],
       "hardness": "soft"
     },
@@ -6724,11 +6890,11 @@
       "source": "memory/issues/ISS-006.md",
       "target": "memory/notes/gha-messages-yml-cron-underdelivery.md",
       "type": "similar",
-      "weight": 0.371,
+      "weight": 0.368,
       "shared": [
         "slot",
-        "silent",
         "14z",
+        "silent",
         "timeslot",
         "pocket"
       ],
@@ -6738,11 +6904,11 @@
       "source": "memory/issues/ISS-006.md",
       "target": "memory/state/daily-plan-2026-06-27.md",
       "type": "similar",
-      "weight": 0.352,
+      "weight": 0.349,
       "shared": [
         "slot",
-        "utc",
         "unchanged",
+        "utc",
         "concurrency",
         "crons"
       ],
@@ -6752,7 +6918,7 @@
       "source": "memory/notes/agi-tracker-data-model.md",
       "target": "memory/notes/agi-tracker-site.md",
       "type": "similar",
-      "weight": 0.404,
+      "weight": 0.405,
       "shared": [
         "presets",
         "milestone",
@@ -6766,7 +6932,7 @@
       "source": "memory/notes/agi-tracker-data-model.md",
       "target": "memory/notes/aschenbrenner-8-claim-scorecard.md",
       "type": "similar",
-      "weight": 0.327,
+      "weight": 0.325,
       "shared": [
         "scorecard",
         "aschenbrenner",
@@ -6808,7 +6974,7 @@
       "source": "memory/notes/agi-tracker-site.md",
       "target": "memory/notes/agi-tracker-data-model.md",
       "type": "similar",
-      "weight": 0.404,
+      "weight": 0.405,
       "shared": [
         "presets",
         "milestone",
@@ -6827,8 +6993,8 @@
         "site",
         "agi",
         "doubling",
-        "tracker",
-        "metr"
+        "metr",
+        "tracker"
       ],
       "hardness": "soft"
     },
@@ -6836,7 +7002,7 @@
       "source": "memory/notes/agi-tracker-weekly-skill.md",
       "target": "memory/notes/aschenbrenner-8-claim-scorecard.md",
       "type": "similar",
-      "weight": 0.384,
+      "weight": 0.386,
       "shared": [
         "scorecard",
         "aschenbrenner",
@@ -6850,7 +7016,7 @@
       "source": "memory/notes/anthropic-xai-1-25b-month-lease.md",
       "target": "memory/topics/compute-pulse.md",
       "type": "similar",
-      "weight": 0.375,
+      "weight": 0.376,
       "shared": [
         "anthropic",
         "25b",
@@ -6864,7 +7030,7 @@
       "source": "memory/notes/anthropic-xai-1-25b-month-lease.md",
       "target": "memory/notes/daily/2026-06-20.md",
       "type": "similar",
-      "weight": 0.255,
+      "weight": 0.256,
       "shared": [
         "anthropic",
         "25b",
@@ -6892,7 +7058,7 @@
       "source": "memory/notes/aschenbrenner-8-claim-scorecard.md",
       "target": "memory/notes/agi-tracker-weekly-skill.md",
       "type": "similar",
-      "weight": 0.384,
+      "weight": 0.386,
       "shared": [
         "scorecard",
         "aschenbrenner",
@@ -6906,7 +7072,7 @@
       "source": "memory/notes/aschenbrenner-8-claim-scorecard.md",
       "target": "memory/notes/agi-tracker-data-model.md",
       "type": "similar",
-      "weight": 0.327,
+      "weight": 0.325,
       "shared": [
         "scorecard",
         "aschenbrenner",
@@ -6920,7 +7086,7 @@
       "source": "memory/notes/compute-futures-12-seed-sample-too-small.md",
       "target": "memory/topics/compute-futures-eda/2026-06-28.md",
       "type": "similar",
-      "weight": 0.266,
+      "weight": 0.267,
       "shared": [
         "pct",
         "outlier",
@@ -6948,7 +7114,7 @@
       "source": "memory/notes/compute-futures-seed-padding-bug.md",
       "target": "memory/topics/compute-futures-eda/2026-06-20.md",
       "type": "similar",
-      "weight": 0.297,
+      "weight": 0.298,
       "shared": [
         "digit",
         "finding",
@@ -6967,8 +7133,8 @@
         "site",
         "agi",
         "doubling",
-        "tracker",
-        "metr"
+        "metr",
+        "tracker"
       ],
       "hardness": "soft"
     },
@@ -6982,7 +7148,7 @@
         "metr",
         "doubling",
         "site",
-        "tracker"
+        "scores"
       ],
       "hardness": "soft"
     },
@@ -6990,7 +7156,7 @@
       "source": "memory/notes/daily/2026-06-20.md",
       "target": "memory/notes/anthropic-xai-1-25b-month-lease.md",
       "type": "similar",
-      "weight": 0.255,
+      "weight": 0.256,
       "shared": [
         "anthropic",
         "25b",
@@ -7004,7 +7170,7 @@
       "source": "memory/notes/daily/2026-06-21.md",
       "target": "memory/notes/daily/2026-06-22.md",
       "type": "similar",
-      "weight": 0.443,
+      "weight": 0.436,
       "shared": [
         "atomic",
         "iss",
@@ -7018,7 +7184,7 @@
       "source": "memory/notes/daily/2026-06-21.md",
       "target": "memory/notes/daily/2026-06-23.md",
       "type": "similar",
-      "weight": 0.382,
+      "weight": 0.376,
       "shared": [
         "atomic",
         "rce",
@@ -7036,8 +7202,8 @@
       "shared": [
         "sandbox",
         "rce",
-        "iss",
         "unquoted",
+        "iss",
         "installers"
       ],
       "hardness": "soft"
@@ -7046,13 +7212,13 @@
       "source": "memory/notes/daily/2026-06-22.md",
       "target": "memory/notes/daily/2026-06-23.md",
       "type": "similar",
-      "weight": 0.554,
+      "weight": 0.549,
       "shared": [
         "atomic",
         "iss",
         "staged",
         "awaiting",
-        "batch"
+        "rce"
       ],
       "hardness": "soft"
     },
@@ -7060,7 +7226,7 @@
       "source": "memory/notes/daily/2026-06-22.md",
       "target": "memory/notes/daily/2026-06-21.md",
       "type": "similar",
-      "weight": 0.443,
+      "weight": 0.436,
       "shared": [
         "atomic",
         "iss",
@@ -7088,13 +7254,13 @@
       "source": "memory/notes/daily/2026-06-23.md",
       "target": "memory/notes/daily/2026-06-22.md",
       "type": "similar",
-      "weight": 0.554,
+      "weight": 0.549,
       "shared": [
         "atomic",
         "iss",
         "staged",
         "awaiting",
-        "batch"
+        "rce"
       ],
       "hardness": "soft"
     },
@@ -7102,7 +7268,7 @@
       "source": "memory/notes/daily/2026-06-23.md",
       "target": "memory/notes/daily/2026-06-21.md",
       "type": "similar",
-      "weight": 0.382,
+      "weight": 0.376,
       "shared": [
         "atomic",
         "rce",
@@ -7116,13 +7282,13 @@
       "source": "memory/notes/daily/2026-06-23.md",
       "target": "memory/topics/fleet-ops.md",
       "type": "similar",
-      "weight": 0.366,
+      "weight": 0.363,
       "shared": [
         "rce",
         "iss",
         "patch",
         "heartbeat",
-        "freshness"
+        "batch"
       ],
       "hardness": "soft"
     },
@@ -7130,7 +7296,7 @@
       "source": "memory/notes/daily/2026-06-24.md",
       "target": "memory/notes/daily/2026-06-23.md",
       "type": "similar",
-      "weight": 0.319,
+      "weight": 0.318,
       "shared": [
         "lesson",
         "silence",
@@ -7144,7 +7310,7 @@
       "source": "memory/notes/daily/2026-06-24.md",
       "target": "memory/topics/fleet-ops.md",
       "type": "similar",
-      "weight": 0.319,
+      "weight": 0.317,
       "shared": [
         "narrow",
         "pocket",
@@ -7158,7 +7324,7 @@
       "source": "memory/notes/daily/2026-06-24.md",
       "target": "memory/notes/daily/2026-06-25.md",
       "type": "similar",
-      "weight": 0.287,
+      "weight": 0.285,
       "shared": [
         "narrow",
         "pocket",
@@ -7172,13 +7338,13 @@
       "source": "memory/notes/daily/2026-06-25.md",
       "target": "memory/notes/narrow-cron-pocket-vs-window-drop.md",
       "type": "similar",
-      "weight": 0.376,
+      "weight": 0.375,
       "shared": [
         "narrow",
         "matcher",
         "drop",
         "pocket",
-        "note"
+        "ticks"
       ],
       "hardness": "soft"
     },
@@ -7186,13 +7352,13 @@
       "source": "memory/notes/daily/2026-06-25.md",
       "target": "memory/notes/daily/2026-06-26.md",
       "type": "similar",
-      "weight": 0.311,
+      "weight": 0.302,
       "shared": [
-        "touched",
         "pointers",
+        "touched",
         "iss",
-        "note",
-        "zone"
+        "zone",
+        "note"
       ],
       "hardness": "soft"
     },
@@ -7200,7 +7366,7 @@
       "source": "memory/notes/daily/2026-06-25.md",
       "target": "memory/notes/daily/2026-06-24.md",
       "type": "similar",
-      "weight": 0.287,
+      "weight": 0.285,
       "shared": [
         "narrow",
         "pocket",
@@ -7214,13 +7380,27 @@
       "source": "memory/notes/daily/2026-06-26.md",
       "target": "memory/notes/daily/2026-06-25.md",
       "type": "similar",
-      "weight": 0.311,
+      "weight": 0.302,
       "shared": [
-        "touched",
         "pointers",
+        "touched",
         "iss",
-        "note",
-        "zone"
+        "zone",
+        "note"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-26.md",
+      "target": "memory/notes/daily/2026-06-30.md",
+      "type": "similar",
+      "weight": 0.275,
+      "shared": [
+        "rewritten",
+        "morning",
+        "iss",
+        "day",
+        "pocket"
       ],
       "hardness": "soft"
     },
@@ -7228,13 +7408,27 @@
       "source": "memory/notes/daily/2026-06-26.md",
       "target": "memory/notes/daily/2026-06-27.md",
       "type": "similar",
-      "weight": 0.263,
+      "weight": 0.255,
       "shared": [
-        "rewritten",
         "evidence",
+        "rewritten",
         "morning",
         "widened",
-        "touched"
+        "drops"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-27.md",
+      "target": "memory/notes/daily/2026-06-30.md",
+      "type": "similar",
+      "weight": 0.406,
+      "shared": [
+        "rewritten",
+        "pocket",
+        "reframed",
+        "bullet",
+        "prefix"
       ],
       "hardness": "soft"
     },
@@ -7242,10 +7436,10 @@
       "source": "memory/notes/daily/2026-06-27.md",
       "target": "memory/notes/pr-tracker-branch-prefix-misses-bot-identity.md",
       "type": "similar",
-      "weight": 0.338,
+      "weight": 0.326,
       "shared": [
-        "prefix",
         "author",
+        "prefix",
         "bot",
         "identity",
         "filter"
@@ -7256,7 +7450,7 @@
       "source": "memory/notes/daily/2026-06-27.md",
       "target": "memory/notes/daily/2026-06-28.md",
       "type": "similar",
-      "weight": 0.337,
+      "weight": 0.322,
       "shared": [
         "rewritten",
         "pocket",
@@ -7267,16 +7461,16 @@
       "hardness": "soft"
     },
     {
-      "source": "memory/notes/daily/2026-06-27.md",
-      "target": "memory/MEMORY.md",
+      "source": "memory/notes/daily/2026-06-28.md",
+      "target": "memory/notes/daily/2026-06-30.md",
       "type": "similar",
-      "weight": 0.304,
+      "weight": 0.356,
       "shared": [
-        "prefix",
-        "bot",
-        "author",
-        "identity",
-        "filter"
+        "relapse",
+        "rewritten",
+        "pocket",
+        "bullet",
+        "iss"
       ],
       "hardness": "soft"
     },
@@ -7284,11 +7478,11 @@
       "source": "memory/notes/daily/2026-06-28.md",
       "target": "memory/topics/fleet-ops.md",
       "type": "similar",
-      "weight": 0.349,
+      "weight": 0.348,
       "shared": [
-        "relapse",
         "pocket",
         "iss",
+        "relapse",
         "reclassify",
         "empty"
       ],
@@ -7298,26 +7492,12 @@
       "source": "memory/notes/daily/2026-06-28.md",
       "target": "memory/MEMORY.md",
       "type": "similar",
-      "weight": 0.343,
+      "weight": 0.34,
       "shared": [
         "relapse",
         "iss",
         "pocket",
-        "durable",
-        "eval"
-      ],
-      "hardness": "soft"
-    },
-    {
-      "source": "memory/notes/daily/2026-06-28.md",
-      "target": "memory/notes/daily/2026-06-27.md",
-      "type": "similar",
-      "weight": 0.337,
-      "shared": [
-        "rewritten",
-        "pocket",
-        "reframed",
-        "added",
+        "eval",
         "durable"
       ],
       "hardness": "soft"
@@ -7326,7 +7506,7 @@
       "source": "memory/notes/daily/2026-06-29.md",
       "target": "memory/topics/agi-tracker.md",
       "type": "similar",
-      "weight": 0.416,
+      "weight": 0.42,
       "shared": [
         "predeployment",
         "mythos",
@@ -7340,7 +7520,7 @@
       "source": "memory/notes/daily/2026-06-29.md",
       "target": "memory/notes/metr-flags-reward-hacking-predeployment.md",
       "type": "similar",
-      "weight": 0.369,
+      "weight": 0.374,
       "shared": [
         "reward",
         "hacking",
@@ -7354,7 +7534,7 @@
       "source": "memory/notes/daily/2026-06-29.md",
       "target": "memory/MEMORY.md",
       "type": "similar",
-      "weight": 0.307,
+      "weight": 0.305,
       "shared": [
         "filter",
         "mon",
@@ -7365,10 +7545,52 @@
       "hardness": "soft"
     },
     {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/notes/daily/2026-06-27.md",
+      "type": "similar",
+      "weight": 0.406,
+      "shared": [
+        "rewritten",
+        "pocket",
+        "reframed",
+        "bullet",
+        "prefix"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/MEMORY.md",
+      "type": "similar",
+      "weight": 0.37,
+      "shared": [
+        "relapse",
+        "rec",
+        "lapse",
+        "filter",
+        "second"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/daily/2026-06-30.md",
+      "target": "memory/notes/daily/2026-06-28.md",
+      "type": "similar",
+      "weight": 0.356,
+      "shared": [
+        "relapse",
+        "rewritten",
+        "pocket",
+        "bullet",
+        "iss"
+      ],
+      "hardness": "soft"
+    },
+    {
       "source": "memory/notes/gha-inputs-unquoted-shell-rce.md",
       "target": "memory/notes/daily/2026-06-21.md",
       "type": "similar",
-      "weight": 0.254,
+      "weight": 0.256,
       "shared": [
         "unquoted",
         "shell",
@@ -7382,11 +7604,11 @@
       "source": "memory/notes/gha-messages-yml-cron-underdelivery.md",
       "target": "memory/issues/ISS-006.md",
       "type": "similar",
-      "weight": 0.371,
+      "weight": 0.368,
       "shared": [
         "slot",
-        "silent",
         "14z",
+        "silent",
         "timeslot",
         "pocket"
       ],
@@ -7396,7 +7618,7 @@
       "source": "memory/notes/gha-messages-yml-cron-underdelivery.md",
       "target": "memory/notes/iss-006-pocket-recovery-is-noise.md",
       "type": "similar",
-      "weight": 0.255,
+      "weight": 0.251,
       "shared": [
         "pocket",
         "slot",
@@ -7424,13 +7646,13 @@
       "source": "memory/notes/iss-006-pocket-recovery-is-noise.md",
       "target": "memory/issues/ISS-006.md",
       "type": "similar",
-      "weight": 0.381,
+      "weight": 0.379,
       "shared": [
         "dom",
         "even",
-        "slot",
         "missed",
-        "pocket"
+        "slot",
+        "sunday"
       ],
       "hardness": "soft"
     },
@@ -7438,7 +7660,7 @@
       "source": "memory/notes/iss-006-pocket-recovery-is-noise.md",
       "target": "memory/notes/daily/2026-06-28.md",
       "type": "similar",
-      "weight": 0.276,
+      "weight": 0.274,
       "shared": [
         "pocket",
         "lag",
@@ -7452,7 +7674,7 @@
       "source": "memory/notes/iss-006-pocket-recovery-is-noise.md",
       "target": "memory/notes/gha-messages-yml-cron-underdelivery.md",
       "type": "similar",
-      "weight": 0.255,
+      "weight": 0.251,
       "shared": [
         "pocket",
         "slot",
@@ -7466,7 +7688,7 @@
       "source": "memory/notes/metr-doubling-3-5mo.md",
       "target": "memory/notes/metr-doubling-4-38mo.md",
       "type": "similar",
-      "weight": 0.631,
+      "weight": 0.632,
       "shared": [
         "doubling",
         "metr",
@@ -7480,7 +7702,7 @@
       "source": "memory/notes/metr-doubling-3-5mo.md",
       "target": "memory/topics/agi-tracker.md",
       "type": "similar",
-      "weight": 0.397,
+      "weight": 0.398,
       "shared": [
         "doubling",
         "feb",
@@ -7494,7 +7716,7 @@
       "source": "memory/notes/metr-doubling-3-5mo.md",
       "target": "memory/notes/daily/2026-06-29.md",
       "type": "similar",
-      "weight": 0.258,
+      "weight": 0.261,
       "shared": [
         "doubling",
         "metr",
@@ -7508,7 +7730,7 @@
       "source": "memory/notes/metr-doubling-4-38mo.md",
       "target": "memory/notes/metr-doubling-3-5mo.md",
       "type": "similar",
-      "weight": 0.631,
+      "weight": 0.632,
       "shared": [
         "doubling",
         "metr",
@@ -7536,7 +7758,7 @@
       "source": "memory/notes/metr-flags-reward-hacking-predeployment.md",
       "target": "memory/topics/agi-tracker.md",
       "type": "similar",
-      "weight": 0.442,
+      "weight": 0.443,
       "shared": [
         "predeployment",
         "unrobust",
@@ -7550,7 +7772,7 @@
       "source": "memory/notes/metr-flags-reward-hacking-predeployment.md",
       "target": "memory/notes/daily/2026-06-29.md",
       "type": "similar",
-      "weight": 0.369,
+      "weight": 0.374,
       "shared": [
         "reward",
         "hacking",
@@ -7564,11 +7786,11 @@
       "source": "memory/notes/metr-saturates-above-16h.md",
       "target": "memory/topics/agi-tracker.md",
       "type": "similar",
-      "weight": 0.29,
+      "weight": 0.291,
       "shared": [
         "mythos",
-        "preview",
         "metr",
+        "preview",
         "saturates",
         "benchmark"
       ],
@@ -7592,13 +7814,13 @@
       "source": "memory/notes/narrow-cron-pocket-vs-window-drop.md",
       "target": "memory/notes/daily/2026-06-25.md",
       "type": "similar",
-      "weight": 0.376,
+      "weight": 0.375,
       "shared": [
         "narrow",
         "matcher",
         "drop",
         "pocket",
-        "note"
+        "ticks"
       ],
       "hardness": "soft"
     },
@@ -7606,7 +7828,7 @@
       "source": "memory/notes/narrow-cron-pocket-vs-window-drop.md",
       "target": "memory/notes/daily/2026-06-24.md",
       "type": "similar",
-      "weight": 0.282,
+      "weight": 0.281,
       "shared": [
         "narrow",
         "matcher",
@@ -7620,7 +7842,7 @@
       "source": "memory/notes/narrow-cron-pocket-vs-window-drop.md",
       "target": "memory/issues/ISS-006.md",
       "type": "similar",
-      "weight": 0.258,
+      "weight": 0.256,
       "shared": [
         "matcher",
         "hour",
@@ -7634,13 +7856,13 @@
       "source": "memory/notes/pr-tracker-branch-prefix-misses-bot-identity.md",
       "target": "memory/topics/pr-status.md",
       "type": "similar",
-      "weight": 0.401,
+      "weight": 0.39,
       "shared": [
-        "prefix",
         "author",
+        "prefix",
         "bot",
         "identity",
-        "filter"
+        "email"
       ],
       "hardness": "soft"
     },
@@ -7648,10 +7870,10 @@
       "source": "memory/notes/pr-tracker-branch-prefix-misses-bot-identity.md",
       "target": "memory/notes/daily/2026-06-27.md",
       "type": "similar",
-      "weight": 0.338,
+      "weight": 0.326,
       "shared": [
-        "prefix",
         "author",
+        "prefix",
         "bot",
         "identity",
         "filter"
@@ -7662,7 +7884,7 @@
       "source": "memory/notes/sandbox-blocks-piped-curl-installers.md",
       "target": "memory/notes/daily/2026-06-21.md",
       "type": "similar",
-      "weight": 0.297,
+      "weight": 0.299,
       "shared": [
         "sandbox",
         "rolled",
@@ -7676,7 +7898,7 @@
       "source": "memory/notes/skills-json-count-drift.md",
       "target": "memory/notes/daily/2026-06-20.md",
       "type": "similar",
-      "weight": 0.255,
+      "weight": 0.256,
       "shared": [
         "committed",
         "disk",
@@ -7690,7 +7912,7 @@
       "source": "memory/notes/swarm-safety-eval-empty-writes-log-not-article.md",
       "target": "memory/notes/daily/2026-06-28.md",
       "type": "similar",
-      "weight": 0.268,
+      "weight": 0.272,
       "shared": [
         "article",
         "eval",
@@ -7704,11 +7926,11 @@
       "source": "memory/state/daily-plan-2026-06-27.md",
       "target": "memory/issues/ISS-006.md",
       "type": "similar",
-      "weight": 0.352,
+      "weight": 0.349,
       "shared": [
         "slot",
-        "utc",
         "unchanged",
+        "utc",
         "concurrency",
         "crons"
       ],
@@ -7718,13 +7940,13 @@
       "source": "memory/state/daily-plan-2026-06-27.md",
       "target": "memory/MEMORY.md",
       "type": "similar",
-      "weight": 0.35,
+      "weight": 0.347,
       "shared": [
         "slot",
         "iss",
         "mon",
-        "utc",
-        "crons"
+        "crons",
+        "structured"
       ],
       "hardness": "soft"
     },
@@ -7732,12 +7954,12 @@
       "source": "memory/state/daily-plan-2026-06-27.md",
       "target": "memory/topics/fleet-ops.md",
       "type": "similar",
-      "weight": 0.287,
+      "weight": 0.283,
       "shared": [
         "iss",
         "slot",
-        "utc",
         "lacks",
+        "utc",
         "silent"
       ],
       "hardness": "soft"
@@ -7746,7 +7968,7 @@
       "source": "memory/topics/agi-tracker.md",
       "target": "memory/notes/metr-flags-reward-hacking-predeployment.md",
       "type": "similar",
-      "weight": 0.442,
+      "weight": 0.443,
       "shared": [
         "predeployment",
         "unrobust",
@@ -7774,7 +7996,7 @@
       "source": "memory/topics/agi-tracker.md",
       "target": "memory/notes/daily/2026-06-29.md",
       "type": "similar",
-      "weight": 0.416,
+      "weight": 0.42,
       "shared": [
         "predeployment",
         "mythos",
@@ -7788,7 +8010,7 @@
       "source": "memory/topics/compute-futures-eda/2026-06-20.md",
       "target": "memory/topics/compute-futures-eda/2026-06-26.md",
       "type": "similar",
-      "weight": 0.677,
+      "weight": 0.678,
       "shared": [
         "std",
         "pnl",
@@ -7802,7 +8024,7 @@
       "source": "memory/topics/compute-futures-eda/2026-06-20.md",
       "target": "memory/topics/compute-futures-eda/2026-06-28.md",
       "type": "similar",
-      "weight": 0.627,
+      "weight": 0.628,
       "shared": [
         "std",
         "correlations",
@@ -7816,7 +8038,7 @@
       "source": "memory/topics/compute-futures-eda/2026-06-20.md",
       "target": "memory/notes/compute-futures-seed-padding-bug.md",
       "type": "similar",
-      "weight": 0.297,
+      "weight": 0.298,
       "shared": [
         "digit",
         "finding",
@@ -7844,7 +8066,7 @@
       "source": "memory/topics/compute-futures-eda/2026-06-26.md",
       "target": "memory/topics/compute-futures-eda/2026-06-20.md",
       "type": "similar",
-      "weight": 0.677,
+      "weight": 0.678,
       "shared": [
         "std",
         "pnl",
@@ -7886,7 +8108,7 @@
       "source": "memory/topics/compute-futures-eda/2026-06-28.md",
       "target": "memory/topics/compute-futures-eda/2026-06-20.md",
       "type": "similar",
-      "weight": 0.627,
+      "weight": 0.628,
       "shared": [
         "std",
         "correlations",
@@ -7900,7 +8122,7 @@
       "source": "memory/topics/compute-futures-eda/2026-06-28.md",
       "target": "memory/notes/compute-futures-12-seed-sample-too-small.md",
       "type": "similar",
-      "weight": 0.266,
+      "weight": 0.267,
       "shared": [
         "pct",
         "outlier",
@@ -7928,7 +8150,7 @@
       "source": "memory/topics/compute-pulse.md",
       "target": "memory/notes/anthropic-xai-1-25b-month-lease.md",
       "type": "similar",
-      "weight": 0.375,
+      "weight": 0.376,
       "shared": [
         "anthropic",
         "25b",
@@ -7942,13 +8164,13 @@
       "source": "memory/topics/fleet-ops.md",
       "target": "memory/MEMORY.md",
       "type": "similar",
-      "weight": 0.547,
+      "weight": 0.539,
       "shared": [
+        "reclassify",
         "rec",
         "lapse",
         "slot",
-        "relapse",
-        "reclassify"
+        "iss"
       ],
       "hardness": "soft"
     },
@@ -7956,13 +8178,13 @@
       "source": "memory/topics/fleet-ops.md",
       "target": "memory/notes/daily/2026-06-23.md",
       "type": "similar",
-      "weight": 0.366,
+      "weight": 0.363,
       "shared": [
         "rce",
         "iss",
         "patch",
         "heartbeat",
-        "freshness"
+        "batch"
       ],
       "hardness": "soft"
     },
@@ -7970,11 +8192,11 @@
       "source": "memory/topics/fleet-ops.md",
       "target": "memory/notes/daily/2026-06-28.md",
       "type": "similar",
-      "weight": 0.349,
+      "weight": 0.348,
       "shared": [
-        "relapse",
         "pocket",
         "iss",
+        "relapse",
         "reclassify",
         "empty"
       ],
@@ -7984,13 +8206,13 @@
       "source": "memory/topics/pr-status.md",
       "target": "memory/notes/pr-tracker-branch-prefix-misses-bot-identity.md",
       "type": "similar",
-      "weight": 0.401,
+      "weight": 0.39,
       "shared": [
-        "prefix",
         "author",
+        "prefix",
         "bot",
         "identity",
-        "filter"
+        "email"
       ],
       "hardness": "soft"
     },
@@ -7998,7 +8220,7 @@
       "source": "memory/topics/pr-status.md",
       "target": "memory/MEMORY.md",
       "type": "similar",
-      "weight": 0.275,
+      "weight": 0.27,
       "shared": [
         "old",
         "prefix",
