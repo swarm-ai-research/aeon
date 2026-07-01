@@ -1,0 +1,286 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-06-30"
+      },
+      "children": [
+        "dataset_stats",
+        "sep1",
+        "top_finding",
+        "sep2",
+        "conservation",
+        "sep3",
+        "correlations",
+        "sep4",
+        "synthetic",
+        "sep5",
+        "report"
+      ]
+    },
+    "dataset_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      }
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "top_finding": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_top",
+        "top_metrics",
+        "iqr_note"
+      ]
+    },
+    "heading_top": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Finding",
+        "level": "h3"
+      }
+    },
+    "top_metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_spread",
+        "stat_outlier_pct",
+        "stat_outlier_count"
+      ]
+    },
+    "text_spread": {
+      "type": "Text",
+      "props": {
+        "text": "spread maxSpot",
+        "variant": "body"
+      }
+    },
+    "stat_outlier_pct": {
+      "type": "Stat",
+      "props": {
+        "label": "outlier_pct",
+        "value": "16.67%"
+      }
+    },
+    "stat_outlier_count": {
+      "type": "Stat",
+      "props": {
+        "label": "Outlier count",
+        "value": "6/36"
+      }
+    },
+    "iqr_note": {
+      "type": "Alert",
+      "props": {
+        "title": "IQR-brittleness",
+        "message": "Same 12-seed brittleness as prior days. No regime shift.",
+        "type": "info"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "conservation": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_conservation",
+        "conservation_status"
+      ]
+    },
+    "heading_conservation": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation",
+        "level": "h3"
+      }
+    },
+    "conservation_status": {
+      "type": "Alert",
+      "props": {
+        "title": "Status: OK",
+        "message": "All modes: |mean wallet_sum_pnl| < 3e-13",
+        "type": "success"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "correlations": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_corr",
+        "corr_status",
+        "corr_strongest"
+      ]
+    },
+    "heading_corr": {
+      "type": "Heading",
+      "props": {
+        "text": "Correlation Analysis",
+        "level": "h3"
+      }
+    },
+    "corr_status": {
+      "type": "Alert",
+      "props": {
+        "title": "Within-mode correlations",
+        "message": "No |r| ≥ 0.8 detected",
+        "type": "success"
+      }
+    },
+    "corr_strongest": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "corr_label",
+        "corr_value"
+      ]
+    },
+    "corr_label": {
+      "type": "Text",
+      "props": {
+        "text": "Strongest correlation:",
+        "variant": "caption"
+      }
+    },
+    "corr_value": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "corr_text",
+        "artifact_badge"
+      ]
+    },
+    "corr_text": {
+      "type": "Text",
+      "props": {
+        "text": "seed × minSpot: −0.68",
+        "variant": "body"
+      }
+    },
+    "artifact_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "padding-bug artifact",
+        "variant": "destructive"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "synthetic": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_synthetic",
+        "synthetic_badge"
+      ]
+    },
+    "heading_synthetic": {
+      "type": "Heading",
+      "props": {
+        "text": "Synthetic Data",
+        "level": "h3"
+      }
+    },
+    "synthetic_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "synthetic ≡ x402 (reconfirmed)",
+        "variant": "secondary"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_report",
+        "report_link"
+      ]
+    },
+    "heading_report": {
+      "type": "Heading",
+      "props": {
+        "text": "Full Report",
+        "level": "h3"
+      }
+    },
+    "report_link": {
+      "type": "Link",
+      "props": {
+        "label": "memory/topics/compute-futures-eda/2026-06-30.md",
+        "href": "memory/topics/compute-futures-eda/2026-06-30.md"
+      }
+    }
+  }
+}
