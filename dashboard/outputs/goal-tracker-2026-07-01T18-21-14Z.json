@@ -1,0 +1,449 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker — 2026-07-01",
+        "description": "10 active goals"
+      },
+      "children": [
+        "summary-stats",
+        "summary-trend",
+        "sep1",
+        "blocked-heading",
+        "blocked-items",
+        "sep2",
+        "on-track-heading",
+        "on-track-items",
+        "sep3",
+        "sources-heading",
+        "sources-list"
+      ]
+    },
+    "summary-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-at-risk",
+        "stat-needs-attention",
+        "stat-on-track",
+        "stat-blocked"
+      ]
+    },
+    "stat-at-risk": {
+      "type": "Stat",
+      "props": {
+        "label": "At Risk",
+        "value": "0"
+      }
+    },
+    "stat-needs-attention": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs Attention",
+        "value": "0"
+      }
+    },
+    "stat-on-track": {
+      "type": "Stat",
+      "props": {
+        "label": "On Track",
+        "value": "9"
+      }
+    },
+    "stat-blocked": {
+      "type": "Stat",
+      "props": {
+        "label": "Blocked",
+        "value": "1"
+      }
+    },
+    "summary-trend": {
+      "type": "Text",
+      "props": {
+        "text": "Overall → flat; scenario-sweep ↑ improving vs prior",
+        "variant": "muted"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "blocked-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Blocked",
+        "level": "h3"
+      }
+    },
+    "blocked-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "blocked-1"
+      ]
+    },
+    "blocked-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "blocked-1-title",
+        "blocked-1-reason",
+        "blocked-1-action"
+      ]
+    },
+    "blocked-1-title": {
+      "type": "Text",
+      "props": {
+        "text": "Open queued branches via PAT (5 branches)",
+        "variant": "lead"
+      }
+    },
+    "blocked-1-reason": {
+      "type": "Text",
+      "props": {
+        "text": "Waiting on repo policy \"GitHub Actions cannot create/approve PRs\" since 2026-06-21; 10 activity/14d",
+        "variant": "body"
+      }
+    },
+    "blocked-1-action": {
+      "type": "Alert",
+      "props": {
+        "title": "Action Required",
+        "message": "Provision GH_GLOBAL PAT with `workflows` scope; then push the 5 queued branches via PAT",
+        "type": "warning"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "on-track-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "On Track",
+        "level": "h3"
+      }
+    },
+    "on-track-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "on-track-1",
+        "on-track-2",
+        "on-track-3",
+        "on-track-4",
+        "on-track-5",
+        "on-track-6",
+        "on-track-7",
+        "on-track-8",
+        "on-track-9"
+      ]
+    },
+    "on-track-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "on-track-1-title",
+        "on-track-1-meta"
+      ]
+    },
+    "on-track-1-title": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-006 fix: per-slot crons in messages.yml",
+        "variant": "lead"
+      }
+    },
+    "on-track-1-meta": {
+      "type": "Text",
+      "props": {
+        "text": "1d idle, 10 activity/14d (→ flat; day-10 relapse today, still unshipped)",
+        "variant": "caption"
+      }
+    },
+    "on-track-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "on-track-2-title",
+        "on-track-2-meta"
+      ]
+    },
+    "on-track-2-title": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-006 cross-check gitlawb fork delivery",
+        "variant": "lead"
+      }
+    },
+    "on-track-2-meta": {
+      "type": "Text",
+      "props": {
+        "text": "3d idle, 3 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "on-track-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "on-track-3-title",
+        "on-track-3-meta"
+      ]
+    },
+    "on-track-3-title": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-006 follow-up manual 09:00-slot workflow_dispatch",
+        "variant": "lead"
+      }
+    },
+    "on-track-3-meta": {
+      "type": "Text",
+      "props": {
+        "text": "1d idle, 8 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "on-track-4": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "on-track-4-title",
+        "on-track-4-meta"
+      ]
+    },
+    "on-track-4-title": {
+      "type": "Text",
+      "props": {
+        "text": "Reclassify ISS-005 as permanent-limitation",
+        "variant": "lead"
+      }
+    },
+    "on-track-4-meta": {
+      "type": "Text",
+      "props": {
+        "text": "1d idle, 11 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "on-track-5": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "on-track-5-title",
+        "on-track-5-meta"
+      ]
+    },
+    "on-track-5-title": {
+      "type": "Text",
+      "props": {
+        "text": "Patch pr-tracker SKILL.md (API drift + bot-email OR filter)",
+        "variant": "lead"
+      }
+    },
+    "on-track-5-meta": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 11 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "on-track-6": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "on-track-6-title",
+        "on-track-6-meta"
+      ]
+    },
+    "on-track-6-title": {
+      "type": "Text",
+      "props": {
+        "text": "Widen scenario-sweep.mjs seed count / MAD-based outlier",
+        "variant": "lead"
+      }
+    },
+    "on-track-6-meta": {
+      "type": "Text",
+      "props": {
+        "text": "1d idle, 10 activity/14d (↑ improving, was 3)",
+        "variant": "caption"
+      }
+    },
+    "on-track-7": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "on-track-7-title",
+        "on-track-7-meta"
+      ]
+    },
+    "on-track-7-title": {
+      "type": "Text",
+      "props": {
+        "text": "File generate-skills-json bugs as structured issues",
+        "variant": "lead"
+      }
+    },
+    "on-track-7-meta": {
+      "type": "Text",
+      "props": {
+        "text": "1d idle, 11 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "on-track-8": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "on-track-8-title",
+        "on-track-8-meta"
+      ]
+    },
+    "on-track-8-title": {
+      "type": "Text",
+      "props": {
+        "text": "Populate memory/watched-repos.md or disable dependent skills",
+        "variant": "lead"
+      }
+    },
+    "on-track-8-meta": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 12 activity/14d (new)",
+        "variant": "caption"
+      }
+    },
+    "on-track-9": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "on-track-9-title",
+        "on-track-9-meta"
+      ]
+    },
+    "on-track-9-title": {
+      "type": "Text",
+      "props": {
+        "text": "Defer ISS-001 close until ISS-006 resolved",
+        "variant": "lead"
+      }
+    },
+    "on-track-9-meta": {
+      "type": "Text",
+      "props": {
+        "text": "1d idle, 11 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sources-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h4"
+      }
+    },
+    "sources-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "source-logs",
+        "source-git",
+        "source-gh-pr",
+        "source-gh-issue",
+        "source-cron-state"
+      ]
+    },
+    "source-logs": {
+      "type": "Badge",
+      "props": {
+        "text": "logs=ok",
+        "variant": "default"
+      }
+    },
+    "source-git": {
+      "type": "Badge",
+      "props": {
+        "text": "git=ok",
+        "variant": "default"
+      }
+    },
+    "source-gh-pr": {
+      "type": "Badge",
+      "props": {
+        "text": "gh_pr=ok",
+        "variant": "default"
+      }
+    },
+    "source-gh-issue": {
+      "type": "Badge",
+      "props": {
+        "text": "gh_issue=ok",
+        "variant": "default"
+      }
+    },
+    "source-cron-state": {
+      "type": "Badge",
+      "props": {
+        "text": "cron-state=ok",
+        "variant": "default"
+      }
+    }
+  }
+}
