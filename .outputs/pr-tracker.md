@@ -1,11 +1,17 @@
 ## Summary
 
-Ran pr-tracker. GraphQL `author:aeonframework is:pr` returned 1 PR — `Panniantong/Agent-Reach#436` (security/bump-vulnerable-deps), the same single node as the prior 11 daily runs. It passes the inline OR-widened filter (branch-prefix OR bot-email) via its commit-author email.
+Ran pr-tracker for 2026-07-01. Config: author `aeonframework`, branch prefix `ai/`, bot email `aeonframework@users.noreply.github.com` (inline OR-widening still applied — durable SKILL.md patch remains pending).
 
-Categorization (today = 2026-06-30): 0 merges (7d), 0 stale-open (>7d), 1 active-open (4d old), 0 closed-no-merge (7d). Notification **skipped** per step 5.
+**Results (13th consecutive day, unchanged):**
+- Recent merges (7d): 0
+- Stale open (>7d): 0 — Agent-Reach#436 now 5d old, crosses threshold on 2026-07-03
+- Active open: 1 — `Panniantong/Agent-Reach#436` (0 reviews / 0 comments)
+- Closed no-merge (7d): 0
 
-Files modified:
-- `memory/topics/pr-status.md` — rewrote with 2026-06-30 stamp, age bumped 3d→4d
-- `memory/logs/2026-06-30.md` — appended PR Tracker entry
+**Notification:** skipped per step 5 (nothing to report).
 
-Follow-up: Agent-Reach#436 crosses the >7d stale threshold on **2026-07-03** if still untouched, which would trigger a notify on that run. Durable SKILL.md patch (jq AND→OR; drop `headRefName`/`mergedAt`/`--state merged` from the `gh search prs` fallback per [[gh-search-prs-api-drift]]) still pending — this run continues to apply the fix inline.
+**Files updated:**
+- `memory/topics/pr-status.md` — refreshed table + ages + narrative
+- `memory/logs/2026-07-01.md` — new daily log with PR Tracker section
+
+**Follow-up:** If Agent-Reach#436 is still unreviewed on 2026-07-03, next run will emit a stale-open notification. Durable SKILL.md patch (AND→OR in step 2 jq, and `gh search prs` fallback drift) still pending — captured in MEMORY.md priorities.
