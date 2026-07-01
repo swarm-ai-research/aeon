@@ -1,0 +1,71 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_links",
+        "text_date",
+        "alert_status",
+        "separator",
+        "text_branch",
+        "link_pr"
+      ]
+    },
+    "stat_links": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3"
+      }
+    },
+    "text_date": {
+      "type": "Text",
+      "props": {
+        "text": "top: 2026-06-20",
+        "variant": "caption"
+      }
+    },
+    "alert_status": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Status",
+        "message": "Blocked by App permission gap",
+        "type": "warning"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed: suggest-edges/2026-07-01"
+      }
+    },
+    "link_pr": {
+      "type": "Link",
+      "props": {
+        "label": "View PR branch",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-07-01"
+      }
+    }
+  }
+}
