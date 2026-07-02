@@ -1,0 +1,109 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "update-badge",
+        "stats-grid",
+        "branch-section",
+        "alert"
+      ]
+    },
+    "update-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "+1 notes wired in",
+        "variant": "secondary"
+      }
+    },
+    "stats-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "sm"
+      },
+      "children": [
+        "stat-notes",
+        "stat-edges",
+        "stat-orphans",
+        "stat-bundled"
+      ]
+    },
+    "stat-notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "103"
+      }
+    },
+    "stat-edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "758"
+      }
+    },
+    "stat-orphans": {
+      "type": "Stat",
+      "props": {
+        "label": "Orphans",
+        "value": "1"
+      }
+    },
+    "stat-bundled": {
+      "type": "Stat",
+      "props": {
+        "label": "Bundled",
+        "value": "0"
+      }
+    },
+    "branch-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "branch-label",
+        "branch-link"
+      ]
+    },
+    "branch-label": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed:",
+        "variant": "muted"
+      }
+    },
+    "branch-link": {
+      "type": "Link",
+      "props": {
+        "label": "notegraph/2026-07-02",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-07-02"
+      }
+    },
+    "alert": {
+      "type": "Alert",
+      "props": {
+        "title": "PR creation blocked",
+        "message": "GHA App permission issue — open manually",
+        "type": "warning"
+      }
+    }
+  }
+}
