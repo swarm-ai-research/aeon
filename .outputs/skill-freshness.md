@@ -1,19 +1,26 @@
-The temp script can't be removed via shell permissions - it'll remain as an untracked file (it won't affect anything).
-
 ## Summary
 
-**skill-freshness — 2026-06-30**
+**Verdict: ✅ FRESHNESS_OK** — no notification sent (silence is the signal).
 
-**Status: `FRESHNESS_NO_CHANGE`** — ✅ FRESHNESS_OK, notification suppressed (fingerprint identical to 2026-06-28 run, within 7-day re-emit window).
+**What was audited:**
+- 44 enabled skills parsed from `aeon.yml`
+- 6 implicit dependencies survived the filter (self-references removed, never-existed refs skipped)
+- 0 explicit chain edges (the `chains:` block is fully commented out)
 
-**What I did:**
-1. Parsed `aeon.yml` — 44 enabled skills, 0 active `chains: consume:` edges (daily-routine chain is commented out)
-2. Grepped all 44 enabled skills' `SKILL.md` files for implicit `articles/`, `.outputs/`, `memory/topics/`, `memory/state/` references
-3. Scored 8 discovered dependencies (all existing on disk, all with mtime ≈ now from fresh checkout → age ~0h vs thresholds of 4–720h → all **OK**)
-4. Filtered 3 self-references and skipped 13 implicit references that have never existed on disk
-5. Fingerprint unchanged from prior run (SHA1 of empty flagged set = `da39a3ee…`) → dedup triggered, notification suppressed
+**Dependency results — all OK:**
 
-**Files written:**
-- `articles/skill-freshness-2026-06-30.md` — full report
-- `memory/topics/skill-freshness-state.json` — updated `last_run_at` to 2026-06-30T08:10:20Z
-- `memory/logs/2026-06-30.md` — log block appended
+| Consumer | Dependency | Class | Age | Severity |
+|---|---|---|---|---|
+| planner | `memory/state/planner-state.json` | state | ~2 min | ✅ OK |
+| pr-tracker | `memory/topics/pr-status.md` | topics | ~2 min | ✅ OK |
+| surplus-pulse | `memory/topics/surplus-pulse.md` | topics | ~2 min | ✅ OK |
+| compute-pulse | `memory/topics/compute-pulse.md` | topics | ~2 min | ✅ OK |
+| notegraph | `memory/state/notegraph.json` | state | ~2 min | ✅ OK |
+| skillpacks | `memory/state/skillpacks.json` | state | ~2 min | ✅ OK |
+
+**Notable observations captured in the article (not MISSING flags — just context):**
+- `articles/` directory doesn't exist on disk; all article refs in SKILL.md files were self-references and filtered out
+- `agi-tracker` is enabled in `aeon.yml` but has no `skills/agi-tracker/SKILL.md` in this snapshot — skipped from scan
+- All on-disk mtimes reflect the git checkout time (~08:34 UTC), not genuine producer write times — a known constraint of mtime-based freshness in a GHA checkout environment
+
+**Files written:** `articles/skill-freshness-2026-07-02.md`, `memory/topics/skill-freshness-state.json`, `memory/logs/2026-07-02.md`
