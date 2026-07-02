@@ -1,0 +1,59 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges",
+        "description": "Missing links suggested — branch ready, PR blocked by policy"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat-proposals",
+        "text-top-date",
+        "alert-blocked",
+        "link-branch"
+      ]
+    },
+    "stat-proposals": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3"
+      }
+    },
+    "text-top-date": {
+      "type": "Text",
+      "props": {
+        "text": "Top proposal: 2026-06-20",
+        "variant": "caption"
+      }
+    },
+    "alert-blocked": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Blocked",
+        "message": "Blocked by repo policy (App perms)",
+        "type": "warning"
+      }
+    },
+    "link-branch": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Branch pushed: suggest-edges/2026-07-02",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-07-02",
+        "source": "GitHub"
+      }
+    }
+  }
+}
