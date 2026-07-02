@@ -352,6 +352,7 @@ Append to `memory/logs/${today}.md`:
 
 ## Sandbox note
 
+- **Pre-bundled fallback:** `.audit-bin/` in the repo root contains pre-compiled `zizmor` and `actionlint` binaries. Prepend it to PATH (`export PATH="$PWD/.audit-bin:$PATH"`) before the install checks in step 0b so the sandbox never needs to download them. See `.audit-bin/README.md` for versions and update instructions.
 - `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
 - `gh` CLI uses existing `GITHUB_TOKEN` / `GH_GLOBAL` — no extra auth setup needed.
 - No new secrets required. zizmor and actionlint are offline-only static analyzers.
