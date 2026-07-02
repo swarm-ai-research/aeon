@@ -1,0 +1,92 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "batch-health"
+      },
+      "children": [
+        "title-heading",
+        "alert-section",
+        "skills-list",
+        "separator-1",
+        "issue-heading",
+        "issue-details"
+      ]
+    },
+    "title-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "batch outage — 2026-07-02",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "alert-section": {
+      "type": "Alert",
+      "props": {
+        "message": "4 skills never triggered (06:00–07:30 UTC)",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "skills-list": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Cron Pattern",
+          "Status"
+        ],
+        "rows": [
+          [
+            "planner",
+            "30 6 * * *",
+            "5d silent (last_success 2026-06-27T07:34Z)"
+          ],
+          [
+            "compute-futures-eda",
+            "0 6 * * *",
+            "silent since yesterday's 06:21Z recovery"
+          ],
+          [
+            "memory-flush",
+            "0 6 2/2 * *",
+            "even-day, not in 168h window"
+          ],
+          [
+            "memory-structural-dedupe",
+            "10 6 2/2 * *",
+            "even-day, not in 168h window"
+          ]
+        ]
+      },
+      "children": []
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "issue-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "ISS-006 — Day 12",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "issue-details": {
+      "type": "Text",
+      "props": {
+        "text": "Morning pocket relapsed. 08:00 batch recovered (34m late). pocket-swap continues. no new issue filed; appended day-12 update to existing ISS-006.",
+        "variant": "body"
+      },
+      "children": []
+    }
+  }
+}
