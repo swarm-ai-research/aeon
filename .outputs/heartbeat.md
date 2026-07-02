@@ -1,13 +1,5 @@
-Heartbeat run complete.
+HEARTBEAT_OK · STATUS_PAGE=DEGRADED — wrote docs/status.md
 
 ## Summary
 
-- **P0:** No failed/stuck skills, no `consecutive_failures ≥ 3`. The 38-skill chronic-failure pattern (success_rate <50%) is the standing ISS-001 OAuth-residue catch-up — dedup'd against the last 48h of logs.
-- **P0 self-check:** ⚠ heartbeat's own `last_success` was ~48h stale (>36h threshold) — yesterday's 06-29 08:00 UTC slot was silent. New data point under ISS-006's pocket map, but same systemic issue.
-- **P1:** 0 open PRs, 0 urgent issues (`gh pr list` / `gh issue list --label urgent`).
-- **P2/P3:** Today's 05:00/06:00/06:30/08:00 morning batch silent again (planner / batch-health / gitlawb-fleet-metrics / skill-freshness / notegraph / suggest-edges / compute-futures-eda) — all ISS-006 affected_skills, dedup'd.
-- **Notification:** skipped (everything already flagged in last 48h).
-- **Status page:** wrote `docs/status.md` → **🔴 DEGRADED** · 4 open issues · next run `fleet-control` at 09:00 UTC. Token-pulse section omitted (no `articles/token-report-*.md`).
-- Files modified: `docs/status.md`, `memory/logs/2026-06-30.md`.
-
-`HEARTBEAT_OK · STATUS_PAGE=DEGRADED`
+Ran heartbeat. No fresh alarms — P0 chronic-failure pattern (38 skills, ISS-001 OAuth residue day 12) and ISS-006 day-11 08:00-batch dispatch silence are both dedup'd against the last 48h of logs, so no notify was sent. Heartbeat's own self-check confirms the 08:00 pocket persists (2026-07-01 slot missed; 3rd instance across 06-29 / 07-01 / 07-02 batch-mates). Morning EDA pocket fired cleanly (notegraph 05:47Z, suggest-edges 05:44Z). Regenerated `docs/status.md` → **🔴 DEGRADED** with all 44 enabled skills, 4 open issues, and `fleet-control` at 09:00 UTC as next scheduled run. Files modified: `docs/status.md`, `memory/logs/2026-07-02.md`. No follow-up beyond the standing list already tracked in MEMORY.md (operator PAT to open staged branches; ISS-006 per-slot cron rewrite).
