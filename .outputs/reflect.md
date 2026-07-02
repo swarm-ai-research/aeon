@@ -1,1 +1,1 @@
-memory consolidated — 2026-07-01 · post-reflect 102n / 744e / 1 orphan / 0 bundled (0 splits, 0 new; 1 in-place update to gha-messages-yml-cron-underdelivery promoting 08:00 batch to recurring pocket)
+memory consolidated — 2026-07-02 · +1n / +32e (1 new atomic note: skill-freshness-mtime-blind-in-gha)

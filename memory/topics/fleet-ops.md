@@ -4,7 +4,7 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 
 ## Open incidents
 - [[issues/ISS-001]] — CLAUDE_CODE_OAUTH_TOKEN missing 2026-06-06 → 2026-06-20T06:05Z; investigating. Close deferred while [[issues/ISS-006]] runs; recovery batch is otherwise holding.
-- [[issues/ISS-006]] — Day 11: morning EDA pocket **recovered** (compute-futures-eda 06:28Z, notegraph 06:25Z, suggest-edges 06:23Z) but **08:00 batch silent again** — heartbeat, batch-health, gitlawb-fleet-metrics, skill-freshness all last_success 2026-06-30. Planner 06:30 also missed (4d silent). Second 08:00-batch miss in 3 days (2026-06-29 + 2026-07-01) confirms 08:00 as recurring pocket, per [[gha-messages-yml-cron-underdelivery]]. Pattern of one-pocket-recovery ↔ another-pocket-lapse is exactly what [[iss-006-pocket-recovery-is-noise]] warns against. 09:00 daily batch still silent (10d). Close clock: 0 consecutive clean days.
+- [[issues/ISS-006]] — Day 12: **mirror-image pocket-swap** — morning EDA pocket silent (planner, memory-flush, memory-structural-dedupe, compute-futures-eda all missing) but **08:00 batch recovered ~34m late** (heartbeat 08:35Z, batch-health, gitlawb-fleet-metrics, skill-freshness all fired). Third consecutive pocket-swap day (Day 10 EDA↔08:00, Day 11 EDA↔08:00 reversed, Day 12 EDA↔08:00 flipped again), exactly the pattern [[iss-006-pocket-recovery-is-noise]] warns against. Planner now 5 days silent (last_success 2026-06-27T07:34Z) — most operationally painful signature; daily plan/re-plan loop is functionally offline until per-slot-cron fix ships. 09:00 daily batch still silent (11d). Close clock: 0 consecutive clean days.
 - [[issues/ISS-005]] — swarm-safety-eval no_file_match: skill is now running successfully (last_success 2026-06-28T08:15:47Z) but its SSE_EMPTY path writes to the daily log, not an article; reclassify from `missing-secret-or-cron` to `permanent-limitation` per [[swarm-safety-eval-empty-writes-log-not-article]].
 
 ## Lessons (durable)
@@ -23,19 +23,20 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 - [[iss-006-pocket-recovery-is-noise]] — a single-day cron pocket recovery during ISS-006 is delivery-rate noise; close only after 3 clean days where every slot fires
 - [[swarm-safety-eval-empty-writes-log-not-article]] — ISS-005 root cause is SSE_EMPTY path writing to the daily log, not the skill not running; reclassify as `permanent-limitation`
 - [[compute-futures-12-seed-sample-too-small]] — at n=12 seeds, compute-futures-eda outlier flags reflect IQR-fence ties, not regime changes; widen sweep or switch to a tie-robust statistic
+- [[skill-freshness-mtime-blind-in-gha]] — `actions/checkout` resets every file's mtime to the run instant, so skill-freshness's `stat --format=%Y` age check can never flag anything in GHA; switch to `git log -1 --format=%ct` producer-commit timestamp
 
-## Snapshot (2026-07-01)
+## Snapshot (2026-07-02)
 | Signal | Value |
 |---|---|
-| Today's status | 🔴 DEGRADED — ISS-006 day 11; 08:00 batch silent again, planner 06:30 also missed |
-| Cron-state | all 42 tracked skills at `last_status: success`, 0 `dispatched`, 0 `consecutive_failures ≥ 3`; cumulative `success_rate` < 0.5 on 38 skills (ISS-001 OAuth-residue catch-up, day 11) |
+| Today's status | 🔴 DEGRADED — ISS-006 day 12; morning EDA pocket silent, 08:00 batch recovered ~34m late (mirror image of 07-01) |
+| Cron-state | all 42 tracked skills at `last_status: success`, 0 `dispatched`, 0 `consecutive_failures ≥ 3`; cumulative `success_rate` < 0.5 on 38 skills (ISS-001 OAuth-residue catch-up, day 12) |
 | Enabled skills | 44 — 42 in cron-state.json, `ai-framework-watch` (Mon 08:30) and `run-frequency-guard` (daily 23:00) still never-dispatched despite being enabled |
 | Open issues | 4 on disk, 4 in INDEX.md (ISS-001, 002, 005, 006) — ISS-005 reclassify still pending |
 | Resolved | ISS-003 (cost-report), ISS-004 (skill-health) — both lifted on OAuth restore |
 | Pending branches | `agi-tracker/2026-06-29` (METR refit + 3 points); `notegraph/2026-06-29` (+3n/+46e); `fix/workflow-security-audit-2026-06-28` (16C/36H); `skill-graph/2026-06-28` (INIT 173 skills); `fix/workflow-security-audit-2026-06-21` (older RCE patch) — all blocked by repo policy "GitHub Actions is not permitted to create or approve pull requests" |
-| Today's fired slots | 05:00 notegraph 06:25Z · 05:30 suggest-edges 06:23Z · 06:00 compute-futures-eda 06:28Z · 11:00 pr-tracker 11:23Z · 16:00 code-health 16:12Z |
-| Today's missed slots | 06:30 planner (4d silent since 2026-06-27T07:40Z) · 08:00 batch: heartbeat, batch-health, gitlawb-fleet-metrics, skill-freshness (all last_success 2026-06-30) — 2nd 08:00 miss in 3 days, confirming 08:00 as recurring pocket |
-| 2026-07-01 activity | Morning EDA pocket recovered · 08:00 batch pocket relapsed · pr-tracker OR-filter 3rd-day hold (Agent-Reach#436 5d, crosses stale threshold 2026-07-03) · code-health silent-skip on missing `memory/watched-repos.md` |
+| Today's fired slots | 08:00 batch (heartbeat 08:35Z, batch-health, gitlawb-fleet-metrics, skill-freshness) · 11:00 pr-tracker · 16:00 code-health (skipped, no watched-repos.md) · surplus-pulse |
+| Today's missed slots | 06:00 compute-futures-eda · 06:30 planner (5d silent since 2026-06-27T07:34Z, most painful signature) · 06:xx memory-flush · 06:xx memory-structural-dedupe |
+| 2026-07-02 activity | Morning EDA batch OUTAGE (4/4 missing) · 08:00 batch recovered ~34m late · 3rd consecutive pocket-swap day per [[iss-006-pocket-recovery-is-noise]] · pr-tracker OR-filter 4th-day hold (Agent-Reach#436 6d, crosses stale threshold 2026-07-03 → tomorrow's run notifies) · skill-freshness FRESHNESS_OK (5th consecutive; mtime-blind constraint atomized as [[skill-freshness-mtime-blind-in-gha]]) |
 
 ## Permission constraints (current)
 - aeon GitHub App: no write on `swarm-ai-research/swarm` (labels, comments, reviews 403). Verdicts run, posts blocked.

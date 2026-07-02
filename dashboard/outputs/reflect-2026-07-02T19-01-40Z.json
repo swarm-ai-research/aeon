@@ -1,0 +1,99 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "reflect",
+        "description": "Memory consolidated"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_status",
+        "separator_1",
+        "stack_metrics",
+        "separator_2",
+        "stack_note"
+      ]
+    },
+    "text_status": {
+      "type": "Text",
+      "props": {
+        "text": "memory consolidated — 2026-07-02",
+        "variant": "lead"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_notes",
+        "stat_edits"
+      ]
+    },
+    "stat_notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes Added",
+        "value": "+1"
+      }
+    },
+    "stat_edits": {
+      "type": "Stat",
+      "props": {
+        "label": "Entries",
+        "value": "+32"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_note": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_new_note",
+        "badge_note"
+      ]
+    },
+    "heading_new_note": {
+      "type": "Heading",
+      "props": {
+        "text": "New Atomic Note",
+        "level": "h3"
+      }
+    },
+    "badge_note": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-freshness-mtime-blind-in-gha",
+        "variant": "outline"
+      }
+    }
+  }
+}
