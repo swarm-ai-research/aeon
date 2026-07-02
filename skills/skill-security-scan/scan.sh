@@ -179,6 +179,24 @@ TOTAL_WARN=0
 TOTAL_FAIL=0
 JSON_RESULTS=""
 
+# Appends matching lines from $1 into the array named by $2, for each pattern in $3+.
+collect_matches() {
+  local file="$1"
+  local -n _out="$2"
+  shift 2
+  local pattern
+  for pattern in "$@"; do
+    local matches
+    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
+    [[ -z "$matches" ]] && continue
+    while IFS= read -r match; do
+      local line_num="${match%%:*}"
+      local line_content="${match#*:}"
+      _out+=("L${line_num}: ${line_content:0:120} [pattern: ${pattern}]")
+    done <<< "$matches"
+  done
+}
+
 scan_file() {
   local file="$1"
   local skill_name
@@ -189,54 +207,13 @@ scan_file() {
     return 1
   fi
 
-  local content
-  content=$(cat "$file")
-
   local highs=()
   local mediums=()
   local lows=()
 
-  # Check HIGH patterns
-  for pattern in "${HIGH_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"  # truncate
-        highs+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
-
-  # Check MEDIUM patterns
-  for pattern in "${MEDIUM_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        mediums+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
-
-  # Check LOW patterns
-  for pattern in "${LOW_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        lows+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  collect_matches "$file" highs  "${HIGH_PATTERNS[@]}"
+  collect_matches "$file" mediums "${MEDIUM_PATTERNS[@]}"
+  collect_matches "$file" lows   "${LOW_PATTERNS[@]}"
 
   # Determine result
   local status="PASS"
