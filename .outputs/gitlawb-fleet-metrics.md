@@ -1,8 +1,8 @@
 ## Summary
 
-Ran the `gitlawb-fleet-metrics` skill. Pre-flight check stopped execution at step 2: `memory/gitlawb-fleet.json` does not exist (and neither does `memory/gitlawb-metrics.jsonl`), so there is no fleet to report on.
+Executed `skills/gitlawb-fleet-metrics/SKILL.md`. Preflight hit `GLMETRICS_EMPTY`: `memory/gitlawb-fleet.json` does not exist, so there is no fleet to report. Per the skill's contract, stopped silently without notifying (an empty fleet is not news).
 
 - **Verdict:** `GLMETRICS_EMPTY`
-- **Notification:** suppressed by design (an empty fleet is not news)
-- **Log entry:** appended to `memory/logs/2026-06-30.md`
-- **Follow-up:** none. If a fleet later registers (via `gitlawb-fleet`), tomorrow's run will pick it up.
+- **Files created:** `memory/logs/2026-07-02.md` (log entry)
+- **Notification sent:** none (correct per spec)
+- **Follow-up:** none — this exit is expected until a GitLawb fleet is minted and `memory/gitlawb-fleet.json` is populated by the `gitlawb-fleet` skill.
