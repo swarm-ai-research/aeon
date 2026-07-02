@@ -1,0 +1,184 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health",
+        "description": "2026-07-02"
+      },
+      "children": [
+        "status-alert",
+        "status-stat",
+        "sep1",
+        "degraded-heading",
+        "degraded-content",
+        "sep2",
+        "nodata-heading",
+        "nodata-content",
+        "sep3",
+        "healthy-heading",
+        "healthy-content",
+        "sep4",
+        "runtime-heading",
+        "runtime-stats-stack",
+        "sep5",
+        "summary-stack"
+      ]
+    },
+    "status-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Systemic Issue",
+        "message": "ISS-001 OAuth residue — same 38 skills / same signature as yesterday"
+      }
+    },
+    "status-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Overall Status",
+        "value": "DEGRADED",
+        "delta": "38 skills affected"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "degraded-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 DEGRADED (38, top 5 by silence)",
+        "level": "h3"
+      }
+    },
+    "degraded-content": {
+      "type": "Text",
+      "props": {
+        "text": "• janitor — 12.5d idle (weekly Sun) — WAIT: ISS-001 denominator catch-up\n• skillpacks — 12.5d idle (weekly Sun) — WAIT: ISS-001\n• memory-flush — 12.5d idle (every-other-day) — WAIT: ISS-001\n• memory-structural-dedupe — 12.5d idle — WAIT: ISS-001\n• compute-macro-correlate — 12.5d idle (weekly Sun) — WAIT: ISS-001\n\n+33 more — all cumulative success_rate <0.6, last_status=success, consecutive_failures=0. See memory/issues/INDEX.md (ISS-001).",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "nodata-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA (2)",
+        "level": "h3"
+      }
+    },
+    "nodata-content": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch, run-frequency-guard — DISPATCH-SKILL (Mon 08:30 / daily 23:00 slots, never dispatched)",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "healthy-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟢 HEALTHY (4)",
+        "level": "h3"
+      }
+    },
+    "healthy-content": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog",
+        "variant": "body"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "runtime-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Runtime Fleet 168h (skill-runs)",
+        "level": "h3"
+      }
+    },
+    "runtime-stats-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-runs",
+        "stat-success",
+        "stat-failure",
+        "stat-inprogress"
+      ]
+    },
+    "stat-runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Runs",
+        "value": "106"
+      }
+    },
+    "stat-success": {
+      "type": "Stat",
+      "props": {
+        "label": "Success",
+        "value": "102",
+        "trend": "up"
+      }
+    },
+    "stat-failure": {
+      "type": "Stat",
+      "props": {
+        "label": "Failures",
+        "value": "0",
+        "trend": "neutral"
+      }
+    },
+    "stat-inprogress": {
+      "type": "Stat",
+      "props": {
+        "label": "In Progress",
+        "value": "4"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "summary-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-signal",
+        "summary-issues"
+      ]
+    },
+    "summary-signal": {
+      "type": "Text",
+      "props": {
+        "text": "No new signal — daily reminder only.",
+        "variant": "lead"
+      }
+    },
+    "summary-issues": {
+      "type": "Text",
+      "props": {
+        "text": "Open issues: 4 · Resolved this run: 0. Distinct: ISS-006 morning-batch dispatch silence — day 12, tracked by batch-health, not skill-health.",
+        "variant": "caption"
+      }
+    }
+  }
+}

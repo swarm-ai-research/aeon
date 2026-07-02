@@ -1,7 +1,7 @@
 {
-  "hash": "7407db2969f91185",
-  "last_notified_at": "2026-07-01T18:19:39Z",
-  "last_run_at": "2026-07-01T18:19:39Z",
+  "hash": "ab229111a167c4a2",
+  "last_notified_at": "2026-07-02T18:59:57Z",
+  "last_run_at": "2026-07-02T18:59:57Z",
   "classification": {
     "critical": [],
     "degraded": [
@@ -22,12 +22,12 @@
     "healthy": ["agi-tracker", "config-validator", "swarm-safety-eval", "weekly-shiplog"],
     "no_data": ["ai-framework-watch", "run-frequency-guard"]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage residue (2026-06-06 to 2026-06-20) still drives all 38 DEGRADED classifications — every skill has last_status=success and consecutive_failures=0; cumulative success_rate <0.6 is denominator catch-up after ~195 zero-token CLI failures per skill during the outage. Runtime fleet 168h (./scripts/skill-runs): 106/110 success, 0 failures, 4 in-progress (goal-tracker, pr-review, reflect, skill-health — all currently executing this run's tick). Distinct ongoing pattern (not classified here): ISS-006 multi-pocket dispatch silence (day 10 as of 2026-06-30).",
-  "delta_vs_prev": "No change vs 2026-06-30 19:20Z run (which was NOOP vs 2026-06-29 19:25Z notify). Same 38 DEGRADED, same 4 HEALTHY, same 2 NO_DATA. Runtime fleet 168h still at 106/110 success, 0 failures. Hash canonical form updated (skill-name-sorted + SYSTEMIC:ISS-001 marker) — old hash 34a83aca5dc92776 → new baseline 7407db2969f91185; future runs will dedup on this new form.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage residue (2026-06-06 to 2026-06-20) still drives all 38 DEGRADED classifications — every skill has last_status=success and consecutive_failures=0; cumulative success_rate <0.6 is denominator catch-up after ~195 zero-token CLI failures per skill during the outage. Runtime fleet 168h (./scripts/skill-runs): 106/102 success, 0 failures, 4 in_progress (goal-tracker, pr-review, reflect, skill-health — currently executing this run's tick). Distinct ongoing pattern (not classified here): ISS-006 multi-pocket dispatch silence (day 12 as of 2026-07-02, per batch-health today's Day 12 update — 0 consecutive clean days).",
+  "delta_vs_prev": "Classification identical to 2026-07-01T18:19:39Z run: same 38 DEGRADED, same 4 HEALTHY, same 2 NO_DATA. Runtime fleet 168h: 0 failures, 4 in-progress. Hash canonical form changed 7407db2969f91185 → ab229111a167c4a2 (this run adopts a pipe-separated canonical: sorted DEGRADED names joined by '|' + '|SYSTEMIC:ISS-001'); prev format unspecified in SKILL.md so old hash was opaque. Future runs will dedup on the new hash. Notify triggered anyway by daily-reminder cadence (elapsed since prev notify ~24h 40m > 24h).",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 4,
   "open_issues_per_filesystem": 4,
   "open_issues_ids": ["ISS-001", "ISS-002", "ISS-005", "ISS-006"],
-  "notify_decision": "NOTIFY — daily reminder cadence: elapsed since prev notify (2026-06-29T19:25:00Z) is ~46h 55m (>24h). Reconciliation: 0 CRITICAL/FLAPPING this run → no new issues filed. HEALTHY skills appearing in open-issue affected_skills (config-validator + swarm-safety-eval in ISS-006; swarm-safety-eval in ISS-005) NOT auto-removed — root causes (cron-dispatch silence ISS-006, no_file_match ISS-005) are orthogonal to skill-health's success_rate signal; per CLAUDE.md ('Health skills file issues. Repair skills close them.') deferring to skill-evals/skill-repair. Same precedent as 2026-06-27/28/29/30 skill-health runs."
+  "notify_decision": "NOTIFY — daily reminder cadence: elapsed since prev notify (2026-07-01T18:19:39Z) is ~24h 40m (>24h). Reconciliation: 0 CRITICAL/FLAPPING this run → no new issues filed. HEALTHY skills appearing in open-issue affected_skills (config-validator + swarm-safety-eval in ISS-006; swarm-safety-eval in ISS-005) NOT auto-removed — root causes (cron-dispatch silence ISS-006, no_file_match ISS-005) are orthogonal to skill-health's success_rate signal; per CLAUDE.md ('Health skills file issues. Repair skills close them.') deferring to skill-evals/skill-repair. Same precedent as 2026-06-27/28/29/30/07-01 skill-health runs — 6 consecutive days now."
 }
