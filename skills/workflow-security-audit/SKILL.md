@@ -24,8 +24,15 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
+# Pre-bundled binaries shipped with the repo — check these first.
+# .audit-bin/ exists to avoid sandbox curl-pipe failures (see memory/notes/sandbox-blocks-piped-curl-installers.md).
+if [[ -x ".audit-bin/zizmor" || -x ".audit-bin/actionlint" ]]; then
+  export PATH="$PWD/.audit-bin:$PATH"
+fi
+
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
 # Pin to a specific version for reproducibility — bump this when upgrading.
+# Also update the version table in .audit-bin/README.md when bumping.
 ZIZMOR_VERSION="1.25.2"
 if ! command -v zizmor >/dev/null 2>&1; then
   pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
