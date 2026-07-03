@@ -439,4 +439,67 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. test-pass kind — the third KIND_CONFIG entry dispatches correctly. Prior
+//     tests only exercise docs-pass and refactor-pass; this confirms the third
+//     kind is wired up and produces a branch named aeon/test-pass-*.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "testpass1" })
+    );
+    assert.equal(result.ok, true, `expected ok=true for test-pass, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/42");
+    assert.match(result.branch, /^aeon\/test-pass-/, "branch name should start with aeon/test-pass-");
+    const refs = spawnSync("git", ["ls-remote", env.remoteDir], { encoding: "utf8" }).stdout;
+    assert.match(refs, /refs\/heads\/aeon\/test-pass-/, "test-pass branch must be on remote");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  test-pass kind dispatched correctly (third KIND_CONFIG entry)");
+}
+
+// 16. gh pr list returns syntactically invalid (unparseable) JSON — JSON.parse
+//     throws, the catch block in openPRsForKind returns null, and the gate is
+//     skipped so the pass proceeds. Distinct from test 11 (non-zero exit) and
+//     test 12 (valid JSON that isn't an array).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then printf 'not valid json {{['; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "badjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns invalid JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list malformed JSON → catch returns null → pass proceeds");
+}
+
+// 17. openPRsForKind skips PR entries where headRefName is null or absent —
+//     only entries where typeof headRefName === "string" count toward the limit.
+//     Two valid docs-pass entries + two invalid entries (null / missing field)
+//     should not trigger the backlog gate (2 < default limit of 3).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '[{"headRefName":"aeon/docs-pass-2026-01-01-aaa"},{"headRefName":"aeon/docs-pass-2026-01-01-bbb"},{"headRefName":null},{}]'; exit 0; fi\necho "https://github.com/stub/repo/pull/33"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nullhead" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/33",
+      "2 valid PRs below limit of 3 should not gate the pass");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  openPRsForKind ignores PR entries with non-string or absent headRefName");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
