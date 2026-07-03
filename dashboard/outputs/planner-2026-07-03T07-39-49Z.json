@@ -1,0 +1,155 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Planner"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "section_iss006",
+        "sep1",
+        "section_iss005",
+        "sep2",
+        "section_monitoring",
+        "sep3",
+        "badge_mode"
+      ]
+    },
+    "section_iss006": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_iss006",
+        "text_iss006_action",
+        "text_iss006_detail",
+        "text_iss006_required"
+      ]
+    },
+    "heading_iss006": {
+      "type": "Heading",
+      "props": {
+        "text": "ISS-006 Fix",
+        "level": "h3"
+      }
+    },
+    "text_iss006_action": {
+      "type": "Text",
+      "props": {
+        "text": "Shipping onto a branch",
+        "variant": "lead"
+      }
+    },
+    "text_iss006_detail": {
+      "type": "Text",
+      "props": {
+        "text": "Rewriting messages.yml with explicit per-slot crons for every aeon.yml timeslot",
+        "variant": "body"
+      }
+    },
+    "text_iss006_required": {
+      "type": "Text",
+      "props": {
+        "text": "Action required: Open the PR to end the 13-day multi-pocket dead zone",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_iss005": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_iss005",
+        "text_iss005_action",
+        "text_iss005_note"
+      ]
+    },
+    "heading_iss005": {
+      "type": "Heading",
+      "props": {
+        "text": "ISS-005 Reclassification",
+        "level": "h3"
+      }
+    },
+    "text_iss005_action": {
+      "type": "Text",
+      "props": {
+        "text": "Reclassifying to permanent-limitation",
+        "variant": "body"
+      }
+    },
+    "text_iss005_note": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-safety-eval is fine, it just logs when the ledger's empty",
+        "variant": "muted"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_monitoring": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_monitor",
+        "text_monitor"
+      ]
+    },
+    "heading_monitor": {
+      "type": "Heading",
+      "props": {
+        "text": "Monitoring",
+        "level": "h3"
+      }
+    },
+    "text_monitor": {
+      "type": "Text",
+      "props": {
+        "text": "Agent-Reach#436 — crosses 7d stale today",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "badge_mode": {
+      "type": "Badge",
+      "props": {
+        "text": "Plan-only, no dispatch",
+        "variant": "outline"
+      }
+    }
+  }
+}

@@ -1,10 +1,10 @@
 {
-  "last_run": "2026-06-27T06:30:00Z",
+  "last_run": "2026-07-03T07:35:22Z",
   "top_priority": "iss-006-messages-yml-per-slot-crons",
   "priority_streak": {
-    "iss-006-messages-yml-per-slot-crons": 1
+    "iss-006-messages-yml-per-slot-crons": 2
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "First planner run since 2026-06-20 (7-day ISS-006 silence). Prior top_priority 'diagnose-fleet-zero-token-outage' (ISS-001) is now resolved at the live-failure level; today's top priority shifts to the concrete ISS-006 fix. Streak resets — different priority than last recorded run. Plan-only by default; ${var} empty."
+  "notes": "Day-13 pocket recovery — planner + compute-futures-eda both caught the ~07:35Z catch-up tick (~65-min lag from 06:30 slot). Second planner run on the same top priority (streak 2). Escalation move relative to 2026-06-27 plan: draft the fix on a branch so operator only needs to open the PR — writing the messages.yml rewrite is the highest-leverage action I can actually take today. ISS-005 reclassify is the cheap #2. ${var} empty; plan-only."
 }
