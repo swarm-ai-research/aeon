@@ -6,7 +6,6 @@ Step names were refactored ('Checkout' -> 'Checkout repo') between audits.
 import json
 import re
 import os
-import hashlib
 from collections import Counter, defaultdict
 
 findings = json.load(open('.audit/classified.json'))
@@ -44,8 +43,6 @@ for raw in trailer.split('\n'):
         prior_aggregates.append({'rule': head, **props})
 
 # Convert prior per-(rule, file) counts to a dict
-def short_rule(s):
-    return s.split('/')[-1]
 def base(p):
     return os.path.basename(p)
 

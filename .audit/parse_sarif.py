@@ -1,5 +1,4 @@
 import json
-import hashlib
 from collections import Counter
 
 data = json.load(open('.audit/zizmor.sarif'))
