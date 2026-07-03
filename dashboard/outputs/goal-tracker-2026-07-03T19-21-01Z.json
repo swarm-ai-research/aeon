@@ -1,0 +1,409 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker — 2026-07-03",
+        "description": "10 goals — 0 at risk, 0 needs attention, 9 on track, 1 blocked, 0 done"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stats_row",
+        "sep1",
+        "blocked_section",
+        "sep2",
+        "ontrack_section",
+        "sep3",
+        "sources_text"
+      ]
+    },
+    "stats_row": {
+      "type": "Grid",
+      "props": {
+        "columns": 6,
+        "gap": "md"
+      },
+      "children": [
+        "stat_total",
+        "stat_atrisk",
+        "stat_attention",
+        "stat_ontrack",
+        "stat_blocked",
+        "stat_done"
+      ]
+    },
+    "stat_total": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Goals",
+        "value": "10"
+      }
+    },
+    "stat_atrisk": {
+      "type": "Stat",
+      "props": {
+        "label": "At Risk",
+        "value": "0"
+      }
+    },
+    "stat_attention": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs Attention",
+        "value": "0"
+      }
+    },
+    "stat_ontrack": {
+      "type": "Stat",
+      "props": {
+        "label": "On Track",
+        "value": "9"
+      }
+    },
+    "stat_blocked": {
+      "type": "Stat",
+      "props": {
+        "label": "Blocked",
+        "value": "1"
+      }
+    },
+    "stat_done": {
+      "type": "Stat",
+      "props": {
+        "label": "Done",
+        "value": "0"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "blocked_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "blocked_heading",
+        "blocked_alert",
+        "blocked_action"
+      ]
+    },
+    "blocked_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "BLOCKED",
+        "level": "h2"
+      }
+    },
+    "blocked_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Open queued branches via PAT",
+        "message": "5 branches queued: workflow-security-audit-2026-06-28, notegraph/2026-06-29, agi-tracker/2026-06-29, skill-graph/2026-06-28, workflow-security-audit-2026-06-21. Idle for 0 days with 12 activity/14 days. Blocked for 12 days since 2026-06-21 waiting on GitHub Actions App permission gap.",
+        "type": "error"
+      }
+    },
+    "blocked_action": {
+      "type": "Text",
+      "props": {
+        "text": "Action: Provision GH_GLOBAL PAT or grant App PR-create permission on this repo to open the 5 queued branches.",
+        "variant": "lead"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "ontrack_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "ontrack_heading",
+        "ontrack_items"
+      ]
+    },
+    "ontrack_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "ON TRACK",
+        "level": "h2"
+      }
+    },
+    "ontrack_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "item1",
+        "item2",
+        "item3",
+        "item4",
+        "item5",
+        "item6",
+        "item7",
+        "item8",
+        "item9"
+      ]
+    },
+    "item1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item1_title",
+        "item1_meta"
+      ]
+    },
+    "item1_title": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-006 fix — replace messages.yml */5 with per-slot crons",
+        "variant": "lead"
+      }
+    },
+    "item1_meta": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 13 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "item2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item2_title",
+        "item2_meta"
+      ]
+    },
+    "item2_title": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-006 cross-check — gitlawb fork messages.yml delivery rate",
+        "variant": "lead"
+      }
+    },
+    "item2_meta": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 6 activity/14d (↑ improving, +50%)",
+        "variant": "caption"
+      }
+    },
+    "item3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item3_title",
+        "item3_meta"
+      ]
+    },
+    "item3_title": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-006 follow-up — manual workflow_dispatch of 09:00-slot skill",
+        "variant": "lead"
+      }
+    },
+    "item3_meta": {
+      "type": "Text",
+      "props": {
+        "text": "3d idle, 6 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "item4": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item4_title",
+        "item4_meta"
+      ]
+    },
+    "item4_title": {
+      "type": "Text",
+      "props": {
+        "text": "Reclassify ISS-005 as permanent-limitation (swarm-safety-eval SSE_EMPTY)",
+        "variant": "lead"
+      }
+    },
+    "item4_meta": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 14 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "item5": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item5_title",
+        "item5_meta"
+      ]
+    },
+    "item5_title": {
+      "type": "Text",
+      "props": {
+        "text": "Patch pr-tracker SKILL.md (drop gh-search-prs api drift + BOT_EMAIL list/domain filter)",
+        "variant": "lead"
+      }
+    },
+    "item5_meta": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 13 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "item6": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item6_title",
+        "item6_meta"
+      ]
+    },
+    "item6_title": {
+      "type": "Text",
+      "props": {
+        "text": "Widen scenario-sweep.mjs seed count or MAD-based outlier detection",
+        "variant": "lead"
+      }
+    },
+    "item6_meta": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 13 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "item7": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item7_title",
+        "item7_meta"
+      ]
+    },
+    "item7_title": {
+      "type": "Text",
+      "props": {
+        "text": "File generate-skills-json bugs as structured issues",
+        "variant": "lead"
+      }
+    },
+    "item7_meta": {
+      "type": "Text",
+      "props": {
+        "text": "3d idle, 11 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "item8": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item8_title",
+        "item8_meta"
+      ]
+    },
+    "item8_title": {
+      "type": "Text",
+      "props": {
+        "text": "Populate memory/watched-repos.md or disable dependent skills",
+        "variant": "lead"
+      }
+    },
+    "item8_meta": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 14 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "item9": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item9_title",
+        "item9_meta"
+      ]
+    },
+    "item9_title": {
+      "type": "Text",
+      "props": {
+        "text": "Defer ISS-001 close until ISS-006 resolved",
+        "variant": "lead"
+      }
+    },
+    "item9_meta": {
+      "type": "Text",
+      "props": {
+        "text": "0d idle, 14 activity/14d (→ flat)",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sources_text": {
+      "type": "Text",
+      "props": {
+        "text": "Sources: logs=ok, git=ok, gh_pr=ok, gh_issue=ok, cron-state=ok",
+        "variant": "muted"
+      }
+    }
+  }
+}
