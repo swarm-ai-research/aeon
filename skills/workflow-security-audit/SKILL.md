@@ -24,25 +24,30 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
+# Pre-built binaries are checked in at .audit-bin/ to avoid sandbox curl-pipe failures.
+# (The sandbox blocks `bash <(curl …)` installers and ~/.local/bin isn't on PATH.)
+# Use them first; fall back to install only if the repo copy is missing.
+export PATH="$PWD/.audit-bin:$HOME/.local/bin:$PATH"
+
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
-# Pin to a specific version for reproducibility — bump this when upgrading.
+# Shipped version: 1.25.2 — bump .audit-bin/zizmor when upgrading.
+# When auditing this skill, verify against the latest stable release:
+# https://github.com/zizmorcore/zizmor/releases
 ZIZMOR_VERSION="1.25.2"
 if ! command -v zizmor >/dev/null 2>&1; then
   pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
     || python3 -m pip install --user "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
     || true
-  export PATH="$HOME/.local/bin:$PATH"
 fi
-# When auditing this skill, verify ZIZMOR_VERSION is still on the latest stable
-# (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
+
 # actionlint (Rhymond's syntax-level workflow linter)
+# Shipped version: 1.7.12 — bump .audit-bin/actionlint when upgrading.
 if ! command -v actionlint >/dev/null 2>&1; then
   bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
-  export PATH="$PWD:$PATH"
 fi
 ```
 
-If the sandbox blocks the download, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
+If the sandbox blocks the download fallback, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
 
 ## Steps
 
