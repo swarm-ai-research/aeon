@@ -439,4 +439,91 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. target omitted → prompt includes the "No specific files supplied" fallback.
+//     Exercises the falsy-target branch in buildPrompt() (line: `target ? ... : "No specific..."`).
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-notarget-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", repoDir: env.localDir, taskId: "notarget" })
+    );
+    assert.equal(result.ok, true);
+    assert.equal(result.prUrl, null, "no-op run with no target should return prUrl:null");
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /No specific files supplied/,
+      "prompt must include the no-target fallback line");
+    assert.doesNotMatch(captured, /Recently changed files/,
+      "prompt must not include the target line when target is absent");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  target omitted → prompt includes 'No specific files supplied' fallback");
+}
+
+// 16. model param flows through to the --model flag in the claude CLI invocation.
+//     Exercises the `model` argument path in invokeClaude().
+{
+  const argsCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-model-")), "args.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\necho "$@" > "$CLAUDE_ARGS_CAPTURE"\ncat > /dev/null\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_ARGS_CAPTURE;
+  process.env.CLAUDE_ARGS_CAPTURE = argsCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", repoDir: env.localDir, taskId: "modeltest", model: "claude-custom-test-model" })
+    );
+    assert.equal(result.ok, true);
+    const capturedArgs = readFileSync(argsCapturePath, "utf8");
+    assert.match(capturedArgs, /--model/, "claude must be invoked with --model flag");
+    assert.match(capturedArgs, /claude-custom-test-model/, "custom model name must appear in claude invocation args");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_ARGS_CAPTURE;
+    else process.env.CLAUDE_ARGS_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(argsCapturePath, { force: true });
+  }
+  console.log("OK  model param flows to --model flag in claude CLI invocation");
+}
+
+// 17. git commit failure (pre-commit hook rejects) → ok:false, worktree removed,
+//     branch deleted. Exercises the `git commit failed` error path.
+//     Worktrees share hooks with the main repo, so a hook installed after setup
+//     fires inside the worktree's commit without affecting the initial repo setup.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  const hookPath = join(env.localDir, ".git", "hooks", "pre-commit");
+  writeFileSync(hookPath, `#!/bin/bash\nexit 1\n`);
+  chmodSync(hookPath, 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    // Branch must be deleted (cleanup(true) was called).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "branch should be deleted when commit fails");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, worktree and branch cleaned up");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
