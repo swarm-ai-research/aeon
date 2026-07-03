@@ -1,0 +1,261 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-07-03"
+      },
+      "children": [
+        "health_status",
+        "sep1",
+        "degraded_section",
+        "no_data_section",
+        "healthy_section",
+        "sep2",
+        "runtime_section",
+        "sep3",
+        "issues_section"
+      ]
+    },
+    "health_status": {
+      "type": "Alert",
+      "props": {
+        "title": "Overall Health Status",
+        "message": "DEGRADED(38) — All 38 skills share root cause: ISS-001 OAuth residue",
+        "type": "warning"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "degraded_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded_heading",
+        "degraded_desc"
+      ]
+    },
+    "degraded_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 Degraded (38)",
+        "level": "h3"
+      }
+    },
+    "degraded_desc": {
+      "type": "Text",
+      "props": {
+        "text": "All 38 share one root cause: ISS-001 OAuth outage (2026-06-06 → 06-20). Every skill now last_status=success, cf=0; cumulative success_rate 0.01–0.09 is denominator catch-up from ~195 zero-token CLI failures per skill during the outage. No per-skill action.",
+        "variant": "body"
+      }
+    },
+    "no_data_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "no_data_heading",
+        "no_data_list"
+      ]
+    },
+    "no_data_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ No Data (2)",
+        "level": "h3"
+      }
+    },
+    "no_data_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "no_data_item1",
+        "no_data_item2",
+        "no_data_status"
+      ]
+    },
+    "no_data_item1": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "outline"
+      }
+    },
+    "no_data_item2": {
+      "type": "Badge",
+      "props": {
+        "text": "run-frequency-guard",
+        "variant": "outline"
+      }
+    },
+    "no_data_status": {
+      "type": "Text",
+      "props": {
+        "text": "Status: DISPATCH-SKILL",
+        "variant": "muted"
+      }
+    },
+    "healthy_section": {
+      "type": "Alert",
+      "props": {
+        "title": "🟢 Healthy",
+        "message": "4 skills are in good health",
+        "type": "success"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "runtime_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "runtime_heading",
+        "runtime_grid",
+        "runtime_details"
+      ]
+    },
+    "runtime_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Runtime Fleet (168h)",
+        "level": "h3"
+      }
+    },
+    "runtime_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_total",
+        "stat_success",
+        "stat_fail",
+        "stat_in_progress"
+      ]
+    },
+    "stat_total": {
+      "type": "Stat",
+      "props": {
+        "label": "Total",
+        "value": "108"
+      }
+    },
+    "stat_success": {
+      "type": "Stat",
+      "props": {
+        "label": "Success",
+        "value": "104"
+      }
+    },
+    "stat_fail": {
+      "type": "Stat",
+      "props": {
+        "label": "Fail",
+        "value": "0"
+      }
+    },
+    "stat_in_progress": {
+      "type": "Stat",
+      "props": {
+        "label": "In Progress",
+        "value": "4"
+      }
+    },
+    "runtime_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "runtime_detail1",
+        "runtime_detail2"
+      ]
+    },
+    "runtime_detail1": {
+      "type": "Text",
+      "props": {
+        "text": "7th consecutive day at steady state (hash unchanged since 2026-06-27)",
+        "variant": "caption"
+      }
+    },
+    "runtime_detail2": {
+      "type": "Text",
+      "props": {
+        "text": "No per-skill action required",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues_heading",
+        "issues_grid"
+      ]
+    },
+    "issues_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues",
+        "level": "h3"
+      }
+    },
+    "issues_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat_open_issues",
+        "stat_resolved_issues"
+      ]
+    },
+    "stat_open_issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "4"
+      }
+    },
+    "stat_resolved_issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      }
+    }
+  }
+}
