@@ -1,0 +1,84 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_status",
+        "stack_info"
+      ]
+    },
+    "heading_status": {
+      "type": "Heading",
+      "props": {
+        "text": "memory consolidated",
+        "level": "h2"
+      }
+    },
+    "stack_info": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_date",
+        "grid_changes",
+        "text_details"
+      ]
+    },
+    "text_date": {
+      "type": "Text",
+      "props": {
+        "text": "2026-07-03",
+        "variant": "muted"
+      }
+    },
+    "grid_changes": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_notes",
+        "stat_entities"
+      ]
+    },
+    "stat_notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "+8"
+      }
+    },
+    "stat_entities": {
+      "type": "Stat",
+      "props": {
+        "label": "Entities",
+        "value": "+94"
+      }
+    },
+    "text_details": {
+      "type": "Text",
+      "props": {
+        "text": "1 split, 2 new",
+        "variant": "caption"
+      }
+    }
+  }
+}

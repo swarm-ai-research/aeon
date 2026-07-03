@@ -4,7 +4,7 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 
 ## Open incidents
 - [[issues/ISS-001]] — CLAUDE_CODE_OAUTH_TOKEN missing 2026-06-06 → 2026-06-20T06:05Z; investigating. Close deferred while [[issues/ISS-006]] runs; recovery batch is otherwise holding.
-- [[issues/ISS-006]] — Day 12: **mirror-image pocket-swap** — morning EDA pocket silent (planner, memory-flush, memory-structural-dedupe, compute-futures-eda all missing) but **08:00 batch recovered ~34m late** (heartbeat 08:35Z, batch-health, gitlawb-fleet-metrics, skill-freshness all fired). Third consecutive pocket-swap day (Day 10 EDA↔08:00, Day 11 EDA↔08:00 reversed, Day 12 EDA↔08:00 flipped again), exactly the pattern [[iss-006-pocket-recovery-is-noise]] warns against. Planner now 5 days silent (last_success 2026-06-27T07:34Z) — most operationally painful signature; daily plan/re-plan loop is functionally offline until per-slot-cron fix ships. 09:00 daily batch still silent (11d). Close clock: 0 consecutive clean days.
+- [[issues/ISS-006]] — Day 13: **planner + compute-futures-eda both recovered** at 07:35Z (~65m late) — first planner run since 2026-06-27T07:34Z, ending the 5-day plan-loop silence. memory-flush / memory-structural-dedupe still 168h silent (even-day pocket). Fourth consecutive pocket-swap day (Day 10 EDA↔08:00, Day 11 reversed, Day 12 flipped, Day 13 EDA-recover); per [[iss-006-pocket-recovery-is-noise]] this is still delivery-rate noise, not signal — close clock resets to 0 consecutive clean days after every partial-slot miss (memory-flush pocket).
 - [[issues/ISS-005]] — swarm-safety-eval no_file_match: skill is now running successfully (last_success 2026-06-28T08:15:47Z) but its SSE_EMPTY path writes to the daily log, not an article; reclassify from `missing-secret-or-cron` to `permanent-limitation` per [[swarm-safety-eval-empty-writes-log-not-article]].
 
 ## Lessons (durable)
@@ -24,19 +24,22 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 - [[swarm-safety-eval-empty-writes-log-not-article]] — ISS-005 root cause is SSE_EMPTY path writing to the daily log, not the skill not running; reclassify as `permanent-limitation`
 - [[compute-futures-12-seed-sample-too-small]] — at n=12 seeds, compute-futures-eda outlier flags reflect IQR-fence ties, not regime changes; widen sweep or switch to a tie-robust statistic
 - [[skill-freshness-mtime-blind-in-gha]] — `actions/checkout` resets every file's mtime to the run instant, so skill-freshness's `stat --format=%Y` age check can never flag anything in GHA; switch to `git log -1 --format=%ct` producer-commit timestamp
+- [[aeon-bot-uses-multiple-signing-identities]] — aeon bot signs commits under both `aeonframework@users.noreply.github.com` and `aeon@aeonframework.dev`; single-value `BOT_EMAIL` drops PRs silently
+- [[pr-tracker-step-5-misses-fresh-bot-prs]] — pr-tracker only notifies on merges / stale / closed-no-merge; brand-new bot PRs land invisibly until they age into staleness
 
-## Snapshot (2026-07-02)
+## Snapshot (2026-07-03)
 | Signal | Value |
 |---|---|
-| Today's status | 🔴 DEGRADED — ISS-006 day 12; morning EDA pocket silent, 08:00 batch recovered ~34m late (mirror image of 07-01) |
-| Cron-state | all 42 tracked skills at `last_status: success`, 0 `dispatched`, 0 `consecutive_failures ≥ 3`; cumulative `success_rate` < 0.5 on 38 skills (ISS-001 OAuth-residue catch-up, day 12) |
+| Today's status | 🔴 DEGRADED — ISS-006 day 13; day-13 pocket recovery (planner + compute-futures-eda both fired 07:35Z, ~65m late) after 5-day planner silence; 08:00 batch status TBD (pre-08:00 audit) |
+| Cron-state | all 42 tracked skills at `last_status: success`, 0 `dispatched`, 0 `consecutive_failures ≥ 3`; cumulative `success_rate` < 0.5 on 38 skills (ISS-001 OAuth-residue catch-up, day 13) |
 | Enabled skills | 44 — 42 in cron-state.json, `ai-framework-watch` (Mon 08:30) and `run-frequency-guard` (daily 23:00) still never-dispatched despite being enabled |
 | Open issues | 4 on disk, 4 in INDEX.md (ISS-001, 002, 005, 006) — ISS-005 reclassify still pending |
 | Resolved | ISS-003 (cost-report), ISS-004 (skill-health) — both lifted on OAuth restore |
-| Pending branches | `agi-tracker/2026-06-29` (METR refit + 3 points); `notegraph/2026-06-29` (+3n/+46e); `fix/workflow-security-audit-2026-06-28` (16C/36H); `skill-graph/2026-06-28` (INIT 173 skills); `fix/workflow-security-audit-2026-06-21` (older RCE patch) — all blocked by repo policy "GitHub Actions is not permitted to create or approve pull requests" |
-| Today's fired slots | 08:00 batch (heartbeat 08:35Z, batch-health, gitlawb-fleet-metrics, skill-freshness) · 11:00 pr-tracker · 16:00 code-health (skipped, no watched-repos.md) · surplus-pulse |
-| Today's missed slots | 06:00 compute-futures-eda · 06:30 planner (5d silent since 2026-06-27T07:34Z, most painful signature) · 06:xx memory-flush · 06:xx memory-structural-dedupe |
-| 2026-07-02 activity | Morning EDA batch OUTAGE (4/4 missing) · 08:00 batch recovered ~34m late · 3rd consecutive pocket-swap day per [[iss-006-pocket-recovery-is-noise]] · pr-tracker OR-filter 4th-day hold (Agent-Reach#436 6d, crosses stale threshold 2026-07-03 → tomorrow's run notifies) · skill-freshness FRESHNESS_OK (5th consecutive; mtime-blind constraint atomized as [[skill-freshness-mtime-blind-in-gha]]) |
+| Pending branches | `agi-tracker/2026-06-29`; `notegraph/2026-06-29` (+3n/+46e); `fix/workflow-security-audit-2026-06-28` (16C/36H); `skill-graph/2026-06-28` (INIT); `fix/workflow-security-audit-2026-06-21` (older RCE) — all blocked by repo policy "GitHub Actions is not permitted to create or approve pull requests" |
+| Today's fired slots | 06:30 planner + 06:00 compute-futures-eda (both 07:35Z, ~65m late) · 10:20Z pr-tracker · 11:00 stale-content-pr-sweeper · surplus-pulse (catalog mode) · pr-review / pr-triage / code-health / github-monitor / issue-triage / fleet-control (all at 09:00Z batch or as scheduled) |
+| Today's missed slots | 06:xx memory-flush · 06:xx memory-structural-dedupe (both still 168h silent per today's audit) |
+| PR queue | 3 open bot PRs today (first time >1 since 2026-06-26): Vibe-Trading#390 (2h, new `@aeonframework.dev` identity), kage#66 (11h), Agent-Reach#436 (6d 15h, crosses 7d stale tonight 19:24Z) — inline filter widened to accept the new domain for the 5th consecutive day |
+| skill-freshness | FRESHNESS_OK 5th consecutive emit (2026-06-26, -28, -30, 07-02) — structurally blind in GHA per [[skill-freshness-mtime-blind-in-gha]] |
 
 ## Permission constraints (current)
 - aeon GitHub App: no write on `swarm-ai-research/swarm` (labels, comments, reviews 403). Verdicts run, posts blocked.

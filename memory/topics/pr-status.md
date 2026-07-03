@@ -2,7 +2,7 @@
 
 *Last updated: 2026-07-03*
 
-Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch prefix: `ai/`, bot email: `aeonframework@users.noreply.github.com`. This run continues the inline OR filter per [[pr-tracker-branch-prefix-misses-bot-identity]] — accept if branch startswith `ai/` OR commit email matches the bot noreply — and widened it further to also accept the new `aeon@aeonframework.dev` domain (see today's Vibe-Trading#390 below).
+Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch prefix: `ai/`. Bot commit-author emails now span two identities (see [[aeon-bot-uses-multiple-signing-identities]]): `aeonframework@users.noreply.github.com` (Agent-Reach#436, kage#66) AND `aeon@aeonframework.dev` (Vibe-Trading#390, first observed 2026-07-03). This run continues the inline OR filter per [[pr-tracker-branch-prefix-misses-bot-identity]] — accept if branch startswith `ai/` OR commit email matches any known bot identity — widened again today to include the new domain.
 
 ## Open (3)
 

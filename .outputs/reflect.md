@@ -1,1 +1,1 @@
-memory consolidated — 2026-07-02 · +1n / +32e (1 new atomic note: skill-freshness-mtime-blind-in-gha)
+memory consolidated — 2026-07-03 · +8n / +94e (1 split, 2 new)
