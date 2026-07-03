@@ -174,6 +174,28 @@ LOW_PATTERNS=(
 
 # ---------- Scanner ----------
 
+# Collect grep matches for each pattern into global _pat_results[].
+# Using a global avoids nameref (bash 3.2 compat — no declare -n).
+_pat_results=()
+gather_matches() {
+  local file="$1"
+  shift
+  _pat_results=()
+  local pattern
+  for pattern in "$@"; do
+    local matches
+    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
+    if [[ -n "$matches" ]]; then
+      while IFS= read -r match; do
+        local line_num="${match%%:*}"
+        local line_content="${match#*:}"
+        line_content="${line_content:0:120}"
+        _pat_results+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
+      done <<< "$matches"
+    fi
+  done
+}
+
 TOTAL_PASS=0
 TOTAL_WARN=0
 TOTAL_FAIL=0
@@ -189,54 +211,18 @@ scan_file() {
     return 1
   fi
 
-  local content
-  content=$(cat "$file")
-
   local highs=()
   local mediums=()
   local lows=()
 
-  # Check HIGH patterns
-  for pattern in "${HIGH_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"  # truncate
-        highs+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  gather_matches "$file" "${HIGH_PATTERNS[@]}"
+  if [[ ${#_pat_results[@]} -gt 0 ]]; then highs=("${_pat_results[@]}"); fi
 
-  # Check MEDIUM patterns
-  for pattern in "${MEDIUM_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        mediums+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  gather_matches "$file" "${MEDIUM_PATTERNS[@]}"
+  if [[ ${#_pat_results[@]} -gt 0 ]]; then mediums=("${_pat_results[@]}"); fi
 
-  # Check LOW patterns
-  for pattern in "${LOW_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        lows+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  gather_matches "$file" "${LOW_PATTERNS[@]}"
+  if [[ ${#_pat_results[@]} -gt 0 ]]; then lows=("${_pat_results[@]}"); fi
 
   # Determine result
   local status="PASS"
