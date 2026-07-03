@@ -1,2 +1,2 @@
-*Compute-Futures EDA — 2026-06-28*
-144 rows, 4 modes. Top: [MEDIUM] spread `settlementLegs` 33% outlier_pct — degenerate IQR (18/36 rows at exactly 80 legs, q1=79.5/q3=80.25), not a regime change. Same 12-seed brittleness as 2026-06-26's `minCurve` 25% flag. Conservation: basket/spread/synthetic/x402 all OK (float dust). Report: memory/topics/compute-futures-eda/2026-06-28.md
+*Compute-Futures EDA — 2026-07-03*
+144 rows, 4 modes. Conservation PASS in all modes (float dust: basket 1.7e-14, spread 4.8e-12, synthetic/x402 8.1e-15). Top: synthetic/x402 settlementLegs 16.67% IQR-outliers — same 12-seed brittleness that produced spread's 33% flag on 06-28 (now 0%). Watch: spread realizedAbs×minSpot r=-0.745 (real values this time, not float noise). Seed-padding artifact still unpatched. Report: memory/topics/compute-futures-eda/2026-07-03.md
