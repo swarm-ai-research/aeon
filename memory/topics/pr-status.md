@@ -1,16 +1,15 @@
 # PR Status
 
-*Last updated: 2026-07-03*
+*Last updated: 2026-07-04*
 
-Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch prefix: `ai/`. Bot commit-author emails now span two identities (see [[aeon-bot-uses-multiple-signing-identities]]): `aeonframework@users.noreply.github.com` (Agent-Reach#436, kage#66) AND `aeon@aeonframework.dev` (Vibe-Trading#390, first observed 2026-07-03). This run continues the inline OR filter per [[pr-tracker-branch-prefix-misses-bot-identity]] — accept if branch startswith `ai/` OR commit email matches any known bot identity — widened again today to include the new domain.
+Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch prefix: `ai/`. Bot commit-author emails span two identities per [[aeon-bot-uses-multiple-signing-identities]]: `aeonframework@users.noreply.github.com` (Agent-Reach#436, kage#66) AND `aeon@aeonframework.dev` (Vibe-Trading#390). This run continues the inline OR filter per [[pr-tracker-branch-prefix-misses-bot-identity]] — accept if branch startswith `ai/` OR commit email matches any known bot identity.
 
-## Open (3)
+## Open (2)
 
 | Repo | PR | Title | Opened | Age | Activity |
 |------|----|-------|--------|-----|----------|
-| HKUDS/Vibe-Trading | [#390](https://github.com/HKUDS/Vibe-Trading/pull/390) | fix(deps): bump Pillow and langchain floors past disclosed CVEs | 2026-07-03 | 2h | fresh — 0 reviews / 0 comments |
-| tamnd/kage | [#66](https://github.com/tamnd/kage/pull/66) | fix(deps): bump golang.org/x/image to v0.43.0 (3 advisories) | 2026-07-02 | 11h | fresh — 0 reviews / 0 comments |
-| Panniantong/Agent-Reach | [#436](https://github.com/Panniantong/Agent-Reach/pull/436) | fix(deps): bump yt-dlp, requests, python-dotenv to patch disclosed CVEs | 2026-06-26 | 6d 15h | 0 reviews / 0 comments — crosses 7d at 19:24Z tonight |
+| HKUDS/Vibe-Trading | [#390](https://github.com/HKUDS/Vibe-Trading/pull/390) | fix(deps): bump Pillow and langchain floors past disclosed CVEs | 2026-07-03 | 1d | fresh — 0 reviews / 0 comments |
+| Panniantong/Agent-Reach | [#436](https://github.com/Panniantong/Agent-Reach/pull/436) | fix(deps): bump yt-dlp, requests, python-dotenv to patch disclosed CVEs | 2026-06-26 | 7d 15h | **stale** — 0 reviews / 0 comments; no `updatedAt` movement since open |
 
 ## Recent Merges (last 30d)
 
@@ -22,25 +21,25 @@ Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch pref
 
 | Repo | PR | Title | Closed | Notes |
 |------|----|-------|--------|-------|
-| _none_ | | | | |
+| tamnd/kage | [#66](https://github.com/tamnd/kage/pull/66) | fix(deps): bump golang.org/x/image to v0.43.0 (3 advisories) | 2026-07-03 | closed silently by owner `tamnd` after 12h 50m open; stateReason COMPLETED, no comment left, `mergedAt: null` — deps bump rejected without explanation |
 
 ---
 
-GraphQL `author:aeonframework is:pr` → `issueCount: 3` (2026-07-03T10:20Z). Two **new** bot PRs opened in the last 24h — first non-Agent-Reach entries since 2026-06-26:
+GraphQL `author:aeonframework is:pr` → `issueCount: 3` (2026-07-04 run). Snapshot vs 2026-07-03 run:
 
-1. **HKUDS/Vibe-Trading#390** — opened 2026-07-03T08:14Z (2h ago), branch `security/bump-pillow-langchain-cves`, **commit author `aeon@aeonframework.dev` — new email**, not the `aeonframework@users.noreply.github.com` used by every prior bot PR. Same author account, same PR pattern (`fix(deps): bump …`), same `security/bump-*` branch convention. Accepted by widening the inline filter to include `@aeonframework.dev` for this run. **Suggests aeon has adopted a second commit-author identity.** Durable fix will need to widen `BOT_EMAIL` to a domain or list.
-2. **tamnd/kage#66** — opened 2026-07-02T23:30Z (11h ago), branch `security/bump-x-image-0.43.0`, commit author `aeonframework@users.noreply.github.com` — matches the standard bot email.
-3. **Panniantong/Agent-Reach#436** — opened 2026-06-26T19:24Z (**6d 15h old**, 0 activity, `updatedAt` unchanged). Predicted in MEMORY.md to cross the 7d stale threshold on today's run; my read is that the 10:00Z scheduled run **misses by ~9h** — the PR crosses at **2026-07-03T19:24Z tonight**, so **tomorrow's 10:00Z run will flag it stale** (assuming still unreviewed).
+1. **HKUDS/Vibe-Trading#390** — unchanged, still OPEN 1d old, 0 activity, commit author `aeon@aeonframework.dev`. Second day using the new domain identity.
+2. **tamnd/kage#66** — **CLOSED without merge** at 2026-07-03T12:20:11Z. The 2026-07-03 run captured it OPEN at 10:20Z with 0 activity; owner `tamnd` closed it ~2h later. Timeline: `ClosedEvent` by `tamnd`, `stateReason: COMPLETED`, no comment left. First bot PR **closed-no-merge** in the tracked window — likely maintainer preference (repo may already handle deps via a different mechanism, or the CVE surface was deemed non-applicable). Not actionable without a maintainer comment.
+3. **Panniantong/Agent-Reach#436** — still OPEN, still 0 activity. Crossed the 7d stale threshold at **2026-07-03T19:24Z** last night, exactly on the timing MEMORY.md predicted. Today's run flags it stale (age 7d 15h at 10:20Z run time).
 
-None of the three use the `ai/` branch prefix — the SKILL.md-documented `select(prefix) AND select(email)` primary filter would drop all three. The inline OR widening (branch prefix OR any known bot email) keeps them.
+None of the three used the `ai/` branch prefix — the SKILL.md-documented `select(prefix) AND select(email)` primary filter would drop all three. Inline OR widening (branch prefix OR any known bot email/domain) still required.
 
-SKILL.md still uses `select(prefix) AND select(email)` per [[gh-search-prs-api-drift]] / [[pr-tracker-branch-prefix-misses-bot-identity]]. This run patched AND→OR inline for the 5th consecutive day AND added the new email domain to the accept-list; the durable fix (edit step 2's jq to OR the filters and accept a domain/list of bot emails) is still pending. Fallback path (`gh search prs`) still references `headRefName`/`mergedAt`/`--state merged`, all now `gh` CLI drift; only the GraphQL primary path actually works.
+SKILL.md still ships the AND filter per [[gh-search-prs-api-drift]] / [[pr-tracker-branch-prefix-misses-bot-identity]]. This run patched AND→OR inline for the 6th consecutive day (06-29 → 07-04). Fallback path (`gh search prs`) still references `headRefName`/`mergedAt`/`--state merged`, all now `gh` CLI drift.
 
-## Categorization (today = 2026-07-03, now = 10:20Z)
+## Categorization (today = 2026-07-04, now = 10:20Z)
 
 - **Recent merges (7d):** 0
-- **Stale open (>7d, no activity 7d):** 0 — Agent-Reach#436 is 6d 15h, crosses threshold tonight 19:24Z
-- **Active open:** 3 (Vibe-Trading#390 fresh, kage#66 fresh, Agent-Reach#436 borderline)
-- **Closed no-merge (7d):** 0
+- **Stale open (>7d, no activity 7d):** 1 — Panniantong/Agent-Reach#436 (7d 15h, 0 activity since open)
+- **Active open:** 1 — HKUDS/Vibe-Trading#390 (1d, fresh)
+- **Closed no-merge (7d):** 1 — tamnd/kage#66 (silently closed by owner, no comment)
 
-Notification: **skipped** per step 5 (zero merges, zero stale, zero closed-no-merge). Two fresh bot PRs opened in the last 24h are not a notification trigger by the current step-5 rule — this is a SKILL design gap worth revisiting; new bot PRs are the operator's primary signal.
+Notification: **sent** per step 5 (stale ≥ 1 OR closed-no-merge ≥ 1).
