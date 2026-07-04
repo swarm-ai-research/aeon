@@ -12,13 +12,13 @@
 import { spawnSync } from "node:child_process";
 import { readFileSync, existsSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { getGoalContext, writeGoalUpdate } from "./goal-context.mjs";
+import { getGoalContext, writeGoalUpdate, parsePayload } from "./goal-context.mjs";
 
 const repoDir = process.env.GITLAWB_REPO_DIR || ".";
 const task = JSON.parse(process.env.GITLAWB_TASK_JSON || "{}");
 const agent = JSON.parse(process.env.GITLAWB_AGENT_JSON || "{}");
 
-const payload = typeof task.payload === "string" ? JSON.parse(task.payload) : (task.payload || {});
+const payload = parsePayload(task.payload);
 const topic = payload.topic || payload.title || payload.prompt || task.kind || "fleet activity";
 const scope = payload.scope || "";
 
