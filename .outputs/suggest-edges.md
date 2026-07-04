@@ -1,1 +1,1 @@
-*Suggest-edges* — 3 missing links proposed (top: ISS-002). PR auto-create blocked (Aeon App lacks PR-create perm); open manually: https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-06-25
+*Suggest-edges* — 3 missing links proposed (top: 2026-06-20). Branch `suggest-edges/2026-07-04` pushed but PR create blocked by repo policy ("GitHub Actions is not permitted to create or approve pull requests"). Open manually: https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-07-04

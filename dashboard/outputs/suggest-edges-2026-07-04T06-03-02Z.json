@@ -1,0 +1,55 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_overview",
+        "text_branch_status",
+        "alert_pr_blocked",
+        "link_pr"
+      ]
+    },
+    "text_overview": {
+      "type": "Text",
+      "props": {
+        "text": "3 missing links proposed (top: 2026-06-20)"
+      }
+    },
+    "text_branch_status": {
+      "type": "Text",
+      "props": {
+        "text": "Branch suggest-edges/2026-07-04 pushed"
+      }
+    },
+    "alert_pr_blocked": {
+      "type": "Alert",
+      "props": {
+        "title": "PR creation blocked",
+        "message": "GitHub Actions is not permitted to create or approve pull requests",
+        "type": "warning"
+      }
+    },
+    "link_pr": {
+      "type": "Link",
+      "props": {
+        "label": "Open PR manually",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-07-04"
+      }
+    }
+  }
+}
