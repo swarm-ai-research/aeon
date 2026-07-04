@@ -1,8 +1,7 @@
 ## Summary
 
-Ran `fleet-control` in Health Check mode (`${var}` empty). Registry `memory/instances.json` contains `{"instances": []}` — no managed instances — which per the skill's pre-flight step 1 requires logging `FLEET_EMPTY` and stopping silently (no notification, no gh calls, no state snapshot).
+Ran fleet-control (Health Check Mode — no var). The registry at `memory/instances.json` is empty (`{"instances": []}`), so per the skill's pre-flight step 1 I logged `FLEET_EMPTY` and stopped without notifying. No `gh` calls made, no state file written.
 
-Files modified:
-- `memory/logs/2026-07-03.md` — appended `fleet-control (health check)` section with `FLEET_EMPTY: no managed instances`
+Files modified: `memory/logs/2026-07-04.md` (appended `## fleet-control` entry).
 
-Follow-up: if the operator wants Fleet Control to actually monitor anything, populate `memory/instances.json` with at least one entry (GitHub-hosted with a `repo` field, or GitLawb-hosted with `host: "gitlawb"`).
+Follow-up: none — an empty fleet is not news. If the operator wants children tracked, they need to be added to `memory/instances.json`.
