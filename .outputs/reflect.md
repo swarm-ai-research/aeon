@@ -1,1 +1,1 @@
-memory consolidated — 2026-07-03 · +8n / +94e (1 split, 2 new)
+memory consolidated — 2026-07-04 · +0n / +22e (0 splits, 0 new; MOC/MEMORY.md refresh only)
