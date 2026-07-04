@@ -1,1 +1,1 @@
-*Notegraph updated* — +1 notes wired in (91n / 840e / 0b). Branch: notegraph/2026-07-01. PR creation still blocked by GHA policy — open via PAT: https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-07-01
+*Notegraph updated* — +3 notes wired in (114n / 921e / 0b). Branch: notegraph/2026-07-04 (PR creation blocked by repo policy).
