@@ -439,4 +439,58 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. git commit failure — a failing pre-commit hook causes `git commit` to
+//     exit non-zero. The code must return ok:false with a commit-failed reason,
+//     delete the ephemeral branch, and remove the worktree.
+//     Git worktrees share the parent repo's hooks dir, so a hook installed in
+//     the main checkout's .git/hooks/ fires for commits inside any worktree.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  const hooksDir = join(env.localDir, ".git", "hooks");
+  mkdirSync(hooksDir, { recursive: true });
+  const hookPath = join(hooksDir, "pre-commit");
+  writeFileSync(hookPath, "#!/usr/bin/env bash\nexit 1\n");
+  chmodSync(hookPath, 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "ephemeral branch must be deleted after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, branch deleted, worktree removed");
+}
+
+// 16. shortTaskId "x" fallback — when taskId consists entirely of
+//     non-alphanumeric characters the stripped result is empty and the code
+//     falls back to "x". The resulting branch name must end in "-x".
+{
+  const today = new Date().toISOString().slice(0, 10);
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/100"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "---" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/100");
+    assert.match(result.branch, new RegExp(`^aeon/docs-pass-${today}-x$`),
+      `branch should end in "-x" when taskId strips to empty; got: ${result.branch}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  shortTaskId fallback — all-symbol taskId produces branch suffix 'x'");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
