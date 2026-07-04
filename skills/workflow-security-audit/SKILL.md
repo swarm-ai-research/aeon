@@ -24,8 +24,15 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
+# Pre-shipped binaries committed to .audit-bin/ work around sandbox restrictions.
+# Prepend first so they take precedence over any runtime-installed version.
+if [ -d ".audit-bin" ]; then
+  export PATH="$PWD/.audit-bin:$PATH"
+fi
+
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
 # Pin to a specific version for reproducibility — bump this when upgrading.
+# See .audit-bin/README.md for the committed binary version.
 ZIZMOR_VERSION="1.25.2"
 if ! command -v zizmor >/dev/null 2>&1; then
   pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
@@ -35,7 +42,7 @@ if ! command -v zizmor >/dev/null 2>&1; then
 fi
 # When auditing this skill, verify ZIZMOR_VERSION is still on the latest stable
 # (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
-# actionlint (Rhymond's syntax-level workflow linter)
+# actionlint (rhysd's syntax-level workflow linter)
 if ! command -v actionlint >/dev/null 2>&1; then
   bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
   export PATH="$PWD:$PATH"

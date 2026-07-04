@@ -58,5 +58,8 @@ node_modules/
 .vuln-scan-workspace/
 
 # Stray local audit/debug artifacts (never commit)
+# Note: .audit-bin/ is intentionally committed — it holds pre-shipped scanner
+# binaries (zizmor, actionlint) that work around GitHub Actions sandbox restrictions.
+# See .audit-bin/README.md for details.
 .audit-tmp/
 .audit*.py
