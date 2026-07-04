@@ -1,2 +1,1 @@
-*Compute-Futures EDA — 2026-07-03*
-144 rows, 4 modes. Conservation PASS in all modes (float dust: basket 1.7e-14, spread 4.8e-12, synthetic/x402 8.1e-15). Top: synthetic/x402 settlementLegs 16.67% IQR-outliers — same 12-seed brittleness that produced spread's 33% flag on 06-28 (now 0%). Watch: spread realizedAbs×minSpot r=-0.745 (real values this time, not float noise). Seed-padding artifact still unpatched. Report: memory/topics/compute-futures-eda/2026-07-03.md
+compute-futures-eda skipped 2026-07-04: latest sweep is 2026-07-03 (already profiled at memory/topics/compute-futures-eda/2026-07-03.md). No new deployer proof today.
