@@ -1,8 +1,7 @@
 ## Summary
 
-Executed `skills/gitlawb-fleet-metrics/SKILL.md`. Preflight hit `GLMETRICS_EMPTY`: `memory/gitlawb-fleet.json` does not exist, so there is no fleet to report. Per the skill's contract, stopped silently without notifying (an empty fleet is not news).
+Ran `gitlawb-fleet-metrics`. Pre-flight step 2 tripped: `memory/gitlawb-fleet.json` (and `memory/gitlawb-metrics.jsonl`) are absent — no fleet exists to report on. Per skill spec this is a silent stop with verdict `GLMETRICS_EMPTY`; no notification sent.
 
-- **Verdict:** `GLMETRICS_EMPTY`
-- **Files created:** `memory/logs/2026-07-02.md` (log entry)
-- **Notification sent:** none (correct per spec)
-- **Follow-up:** none — this exit is expected until a GitLawb fleet is minted and `memory/gitlawb-fleet.json` is populated by the `gitlawb-fleet` skill.
+**Files modified:** `memory/logs/2026-07-04.md` (appended `gitlawb-fleet-metrics` entry).
+
+**Follow-up:** none for this skill. If the fleet is expected to exist, the upstream `gitlawb-fleet` mint/registry step hasn't run — worth checking that skill's recent runs.
