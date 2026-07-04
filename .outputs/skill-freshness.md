@@ -1,26 +1,14 @@
 ## Summary
 
-**Verdict: ✅ FRESHNESS_OK** — no notification sent (silence is the signal).
+Skill-freshness run complete. **Verdict: FRESHNESS_OK** — no flagged dependencies across 44 enabled skills.
 
-**What was audited:**
-- 44 enabled skills parsed from `aeon.yml`
-- 6 implicit dependencies survived the filter (self-references removed, never-existed refs skipped)
-- 0 explicit chain edges (the `chains:` block is fully commented out)
+**Key findings:**
+- 3 dependencies scored: `memory/state/planner-state.json` (23.6h, OK), `memory/topics/surplus-pulse.md` (1d, OK), `memory/topics/compute-pulse.md` (165h, **borderline** — 98.2% of 168h threshold; will tip WARN if compute-pulse misses Saturday's 11:00 UTC slot)
+- 0 active chains → 0 explicit chain-consume deps
+- 8 implicit "never-existed" missing refs (pr-review-rules, watched-repos, stale-models, projects, compute-tokens topic files; github-trending output; token-report/push-recap articles from disabled producers) — per skill rules, not flagged
+- `articles/` directory did not exist; created now
+- No notification sent (FRESHNESS_OK suppresses notify)
 
-**Dependency results — all OK:**
+**Persistent issue:** This is the **6th consecutive** FRESHNESS_OK, structurally explained by [[skill-freshness-mtime-blind-in-gha]] — git checkout resets all mtimes, making the prescribed mtime check always return fresh. This run used content-embedded date strings as a proxy. The fix (use `git log -1 --format=%ct`) remains open in MEMORY.md Next priorities.
 
-| Consumer | Dependency | Class | Age | Severity |
-|---|---|---|---|---|
-| planner | `memory/state/planner-state.json` | state | ~2 min | ✅ OK |
-| pr-tracker | `memory/topics/pr-status.md` | topics | ~2 min | ✅ OK |
-| surplus-pulse | `memory/topics/surplus-pulse.md` | topics | ~2 min | ✅ OK |
-| compute-pulse | `memory/topics/compute-pulse.md` | topics | ~2 min | ✅ OK |
-| notegraph | `memory/state/notegraph.json` | state | ~2 min | ✅ OK |
-| skillpacks | `memory/state/skillpacks.json` | state | ~2 min | ✅ OK |
-
-**Notable observations captured in the article (not MISSING flags — just context):**
-- `articles/` directory doesn't exist on disk; all article refs in SKILL.md files were self-references and filtered out
-- `agi-tracker` is enabled in `aeon.yml` but has no `skills/agi-tracker/SKILL.md` in this snapshot — skipped from scan
-- All on-disk mtimes reflect the git checkout time (~08:34 UTC), not genuine producer write times — a known constraint of mtime-based freshness in a GHA checkout environment
-
-**Files written:** `articles/skill-freshness-2026-07-02.md`, `memory/topics/skill-freshness-state.json`, `memory/logs/2026-07-02.md`
+Files written: `articles/skill-freshness-2026-07-04.md`, `memory/topics/skill-freshness-state.json` (updated), `memory/logs/2026-07-04.md` (appended).
