@@ -8,7 +8,7 @@ import json
 import re
 import os
 import hashlib
-from collections import Counter
+from collections import Counter, defaultdict
 
 findings = json.load(open('.audit/classified.json'))
 
@@ -97,14 +97,15 @@ print(f'\nTotals: NEW={new_count} UNCHANGED={unchanged_count} RESOLVED={resolved
 
 # Tag each finding NEW / UNCHANGED. For each (rule, file) pair, first prior_count
 # findings (sorted by line) are UNCHANGED, the rest NEW.
+grouped = defaultdict(list)
+for f in findings:
+    grouped[(f['short_rule'], base(f['file']))].append(f)
+
 new_findings = []
 unchanged_findings = []
-for (rule, fname) in {(f['short_rule'], base(f['file'])) for f in findings}:
-    pair_findings = sorted(
-        [f for f in findings if f['short_rule'] == rule and base(f['file']) == fname],
-        key=lambda x: x['line']
-    )
-    p = prior_counts.get((rule, fname), 0)
+for key, pair_findings in grouped.items():
+    pair_findings.sort(key=lambda x: x['line'])
+    p = prior_counts.get(key, 0)
     for i, f in enumerate(pair_findings):
         if i < p:
             f['delta'] = 'UNCHANGED'
