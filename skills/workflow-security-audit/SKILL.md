@@ -21,6 +21,21 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 
 ### 0b. Install scanners
 
+**Primary path — pre-bundled binaries in `.audit-bin/`** (avoids sandbox network restrictions):
+```bash
+# Pre-bundled binaries are committed at .audit-bin/ — prefer them over network installs.
+# To update: download new releases, replace the files, commit. actionlint.tar.gz is the
+# upstream tarball kept alongside for provenance.
+if [ -x ".audit-bin/zizmor" ]; then
+  export PATH="$PWD/.audit-bin:$PATH"
+fi
+if [ -x ".audit-bin/actionlint" ]; then
+  export PATH="$PWD/.audit-bin:$PATH"
+fi
+```
+
+**Fallback — network install** (if `.audit-bin/` is absent or binaries are missing):
+
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
@@ -42,7 +57,7 @@ if ! command -v actionlint >/dev/null 2>&1; then
 fi
 ```
 
-If the sandbox blocks the download, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
+If the sandbox blocks the network download, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
 
 ## Steps
 
@@ -352,7 +367,8 @@ Append to `memory/logs/${today}.md`:
 
 ## Sandbox note
 
-- `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
+- **Pre-bundled binaries** (`zizmor`, `actionlint`) are committed at `.audit-bin/` — step 0b prefers them. This is the standard resolution for the sandbox network restriction observed on 2026-06-21 (`bash <(curl …)` is blocked; `~/.local/bin` is not on PATH). To upgrade, replace the files in `.audit-bin/` and commit; `actionlint.tar.gz` is kept alongside for provenance/verification.
+- If `.audit-bin/` is missing or the binaries are absent: `pipx install zizmor` and `pip install --user zizmor` hit PyPI and work from GitHub-hosted runners when outbound is open. If those also fail, use **WebFetch** to retrieve the zizmor release tarball from `zizmorcore/zizmor` releases.
 - `gh` CLI uses existing `GITHUB_TOKEN` / `GH_GLOBAL` — no extra auth setup needed.
 - No new secrets required. zizmor and actionlint are offline-only static analyzers.
 
