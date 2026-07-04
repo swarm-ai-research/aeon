@@ -1,20 +1,18 @@
+MEMORY.md at 45 lines (well under the ~50-line cap).
+
 ## Summary
 
-Bootstrapped Aeon's memory store — none existed yet.
+Ran `memory-flush`. Primary new fact promoted: **memory-flush's own recovery** at 06:02Z broke the 14-day even-day pocket silence (last_success prior was 2026-06-20T06:07Z), making today ISS-006 Day 14 and the 5th consecutive pocket-swap day.
 
-**Files created**
-- `memory/MEMORY.md` — short index: current goals, active topics, recent skills, lessons learned, next priorities, open improvement PRs.
-- `memory/topics/agi-tracker.md` — detail moved out of MEMORY.md: AGI Tracker file map, key numbers (4.38 mo doubling, ~6.6 h anchor, milestone projections to 2028–2030).
-- `memory/logs/2026-06-20.md` — log entry covering this flush.
+**Contradictions resolved** (newest wins):
+- `MEMORY.md:6` Day 13 → Day 14; memory-flush silent → recovered; Fourth → Fifth consecutive pocket-swap day.
+- `MEMORY.md:11` Agent-Reach#436 "crosses 7d tonight 19:24Z" (future) → "crossed 7d at 19:24Z 2026-07-03" (past).
+- `MEMORY.md:33` ISS-006 fix Day-10 → Day-13 (4 days) → Day-10 → Day-14 (5 days).
+- `memory/topics/fleet-ops.md:7` same Day 13 → Day 14 flip + memory-flush recovery.
 
-**Promoted from `2026-06-10.md`**
-- AGI Tracker (skill + site) as an active topic with `[[wikilink]]`.
-- Two lessons: `./generate-skills-json` multi-schedule newline bug, and `skills.json` count drift (verified 162 in file vs 174 skill dirs as of today).
+**Decayed / removed:**
+- `MEMORY.md` `## Completed Goals` section (1 stale entry — agi-tracker Mon-miss conditional, resolved 2026-06-29, no future signal value).
 
-**Contradictions / decay:** none — only one prior log entry, still recent.
+**No new atomic notes** — today's recovery is reinforcement of `[[iss-006-pocket-recovery-is-noise]]`, not a durable new claim.
 
-**Verified live state:** `gh pr list --state open --search "improve:"` → `[]`; logged as "_None as of 2026-06-20._".
-
-**Follow-ups noted in MEMORY.md → Next Priorities**
-- File the two `generate-skills-json` bugs under `memory/issues/`.
-- Confirm first post-2026-06-15 weekly `agi-tracker` run produced a clean PR.
+Files modified: `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `memory/logs/2026-07-04.md`. Follow-up: memory-structural-dedupe (06:10 slot) is the next signal for whether the even-day pocket recovery holds.

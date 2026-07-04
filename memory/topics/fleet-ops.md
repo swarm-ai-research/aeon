@@ -4,7 +4,7 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 
 ## Open incidents
 - [[issues/ISS-001]] — CLAUDE_CODE_OAUTH_TOKEN missing 2026-06-06 → 2026-06-20T06:05Z; investigating. Close deferred while [[issues/ISS-006]] runs; recovery batch is otherwise holding.
-- [[issues/ISS-006]] — Day 13: **planner + compute-futures-eda both recovered** at 07:35Z (~65m late) — first planner run since 2026-06-27T07:34Z, ending the 5-day plan-loop silence. memory-flush / memory-structural-dedupe still 168h silent (even-day pocket). Fourth consecutive pocket-swap day (Day 10 EDA↔08:00, Day 11 reversed, Day 12 flipped, Day 13 EDA-recover); per [[iss-006-pocket-recovery-is-noise]] this is still delivery-rate noise, not signal — close clock resets to 0 consecutive clean days after every partial-slot miss (memory-flush pocket).
+- [[issues/ISS-006]] — Day 14: **memory-flush recovered** at 06:02Z, breaking the 14-day even-day pocket silence (prior last_success 2026-06-20T06:07Z). memory-structural-dedupe (06:10 slot) status pending. Yesterday planner + compute-futures-eda recovered at 07:35Z (5-day plan-loop silence broken). Fifth consecutive pocket-swap day (Day 10 EDA↔08:00, Day 11 reversed, Day 12 flipped, Day 13 EDA-recover, Day 14 memory-flush-recover); per [[iss-006-pocket-recovery-is-noise]] still delivery-rate noise — close clock stays at 0 consecutive clean days.
 - [[issues/ISS-005]] — swarm-safety-eval no_file_match: skill is now running successfully (last_success 2026-06-28T08:15:47Z) but its SSE_EMPTY path writes to the daily log, not an article; reclassify from `missing-secret-or-cron` to `permanent-limitation` per [[swarm-safety-eval-empty-writes-log-not-article]].
 
 ## Lessons (durable)
