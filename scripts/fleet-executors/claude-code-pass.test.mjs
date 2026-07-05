@@ -439,4 +439,72 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. invokeClaude returns null when the main claude invocation exits 0 but
+//     produces no stdout (!proc.stdout branch). This is distinct from test 8
+//     (--version fails before the worktree is created): here --version succeeds,
+//     a worktree is created, but the main run emits no output. runCodePass must
+//     call cleanup(true) and return ok:false with "claude invocation failed".
+{
+  const CLAUDE_SILENT_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+# exits 0 with empty stdout — triggers the !proc.stdout branch in invokeClaude
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_SILENT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "gh should not be called: $@" >&2\nexit 99\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "silent" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /claude invocation failed/);
+    // Worktree must be cleaned up.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain");
+    // Ephemeral branch must be deleted.
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  claude exits 0 with empty stdout → invokeClaude null → ok:false, worktree cleaned up");
+}
+
+// 16. git add -A failure — the claude stub writes a file (making the working
+//     tree dirty) and then locks the git index so that the subsequent
+//     `git add -A` in runCodePass fails. Expects ok:false with "git add failed",
+//     worktree removed, and the ephemeral branch deleted.
+{
+  const CLAUDE_LOCKINDEX_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+# Dirty the working tree
+echo "// added" >> "$(pwd)/lib.mjs"
+# Lock the git index so the executor's git add -A cannot proceed.
+# In a linked worktree the git dir is a separate path resolved by git itself.
+GIT_DIR=$(git rev-parse --git-dir 2>/dev/null)
+[ -n "$GIT_DIR" ] && touch "$GIT_DIR/index.lock"
+echo "Changed lib.mjs then locked index to force git add failure"
+`;
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_LOCKINDEX_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", repoDir: env.localDir, taskId: "gitaddfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git add failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after git add failure");
+    // Ephemeral branch must also be deleted (cleanup(true)).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain after git add failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git add failure (index lock) → ok:false, worktree and branch cleaned up");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
