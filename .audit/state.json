@@ -1,0 +1,393 @@
+{
+  "today": "2026-07-05",
+  "prior_date": "2026-06-28",
+  "exit_mode": "NEW_INFO",
+  "verdict": "WORKFLOW_AUDIT_NEW_INFO \u2014 70 new lower-severity finding(s)",
+  "totals": {
+    "total": 136,
+    "critical": 3,
+    "high": 43,
+    "medium": 31,
+    "low": 59
+  },
+  "new": {
+    "total": 70,
+    "critical": 0,
+    "high": 0,
+    "medium": 11,
+    "low": 59
+  },
+  "reintroduced": 0,
+  "unchanged": 66,
+  "resolved": 52,
+  "files": {
+    "workflow_count": 7,
+    "action_count": 0
+  },
+  "resolved_findings": [
+    {
+      "fingerprint": "f146d5d506c3bfd7",
+      "rule_id": "unpinned-uses",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "jobs/run/steps/[0]/uses_actions/checkout@v5",
+      "severity": "Critical"
+    },
+    {
+      "fingerprint": "f1fc94a8f8a884b1",
+      "rule_id": "unpinned-uses",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "jobs/run/steps/[0]/uses_actions/checkout@v5",
+      "severity": "Critical"
+    },
+    {
+      "fingerprint": "8c2f59e43b009c59",
+      "rule_id": "unpinned-uses",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "jobs/run/steps/[3]/uses_actions/setup-node@v5",
+      "severity": "Critical"
+    },
+    {
+      "fingerprint": "a1e19b5a4ac947dc",
+      "rule_id": "unpinned-uses",
+      "file": ".github/workflows/lint.yml",
+      "step": "jobs/shellcheck/steps/[0]/uses_actions/checkout@v4",
+      "severity": "Critical"
+    },
+    {
+      "fingerprint": "f376731f9ec450a2",
+      "rule_id": "unpinned-uses",
+      "file": ".github/workflows/lint.yml",
+      "step": "jobs/typecheck/steps/[0]/uses_actions/checkout@v4",
+      "severity": "Critical"
+    },
+    {
+      "fingerprint": "69ec9c5157bd40d5",
+      "rule_id": "unpinned-uses",
+      "file": ".github/workflows/lint.yml",
+      "step": "jobs/typecheck/steps/[1]/uses_actions/setup-node@v4",
+      "severity": "Critical"
+    },
+    {
+      "fingerprint": "90b353ae44278314",
+      "rule_id": "unpinned-uses",
+      "file": ".github/workflows/lint.yml",
+      "step": "jobs/compute-futures-tests/steps/[0]/uses_actions/checkout@v",
+      "severity": "Critical"
+    },
+    {
+      "fingerprint": "68e7ddaa1849efcd",
+      "rule_id": "unpinned-uses",
+      "file": ".github/workflows/lint.yml",
+      "step": "jobs/compute-futures-tests/steps/[1]/uses_actions/setup-node",
+      "severity": "Critical"
+    },
+    {
+      "fingerprint": "c182c4b09856e45e",
+      "rule_id": "unpinned-uses",
+      "file": ".github/workflows/messages.yml",
+      "step": "jobs/tick/steps/[0]/uses_actions/checkout@v5",
+      "severity": "Critical"
+    },
+    {
+      "fingerprint": "af2a5276951f0282",
+      "rule_id": "unpinned-uses",
+      "file": ".github/workflows/messages.yml",
+      "step": "jobs/run/steps/[1]/uses_actions/checkout@v5",
+      "severity": "Critical"
+    },
+    {
+      "fingerprint": "d40d25c58d3f1121",
+      "rule_id": "unpinned-uses",
+      "file": ".github/workflows/messages.yml",
+      "step": "jobs/run/steps/[3]/uses_actions/setup-node@v5",
+      "severity": "Critical"
+    },
+    {
+      "fingerprint": "57704566d1e2a4a9",
+      "rule_id": "unpinned-uses",
+      "file": ".github/workflows/sync-aeon-public-results.yml",
+      "step": "jobs/sync/steps/[0]/uses_actions/checkout@v4",
+      "severity": "Critical"
+    },
+    {
+      "fingerprint": "3bd7922c53c26092",
+      "rule_id": "unpinned-uses",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "jobs/sync/steps/[0]/uses_actions/checkout@v4",
+      "severity": "Critical"
+    },
+    {
+      "fingerprint": "098273477d4c2049",
+      "rule_id": "artipacked",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Early_checkout",
+      "severity": "Medium"
+    },
+    {
+      "fingerprint": "c532628fb9c78a69",
+      "rule_id": "artipacked",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Checkout_repo",
+      "severity": "Medium"
+    },
+    {
+      "fingerprint": "1aff3826dae795dc",
+      "rule_id": "artipacked",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "Checkout_repo",
+      "severity": "Medium"
+    },
+    {
+      "fingerprint": "fea5106dd502696b",
+      "rule_id": "artipacked",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "Checkout",
+      "severity": "Medium"
+    },
+    {
+      "fingerprint": "e62807ce42c490c3",
+      "rule_id": "artipacked",
+      "file": ".github/workflows/lint.yml",
+      "step": "Checkout",
+      "severity": "Medium"
+    },
+    {
+      "fingerprint": "794adcb750726f00",
+      "rule_id": "artipacked",
+      "file": ".github/workflows/messages.yml",
+      "step": "Checkout_repo",
+      "severity": "Medium"
+    },
+    {
+      "fingerprint": "8639b641ebcf9473",
+      "rule_id": "artipacked",
+      "file": ".github/workflows/sync-aeon-public-results.yml",
+      "step": "Checkout_aeon",
+      "severity": "Medium"
+    },
+    {
+      "fingerprint": "51e649cc0aebc1c2",
+      "rule_id": "artipacked",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "Checkout_fork",
+      "severity": "Medium"
+    },
+    {
+      "fingerprint": "bfb64b0b70648404",
+      "rule_id": "anonymous-definition",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run_run",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "5e2ab20bf3488907",
+      "rule_id": "undocumented-permissions",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run/permissions/contents_contents:_write",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "4547139a532a914c",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run/steps/[1]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "c84af8217080efb3",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run/steps/[2]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "47cbc3dec30daa29",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run/steps/[7]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "921cce7f7bb69fb9",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run/steps/[8]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "802ab34fd6a80030",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run/steps/[10]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "da8302f3485d0eee",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run/steps/[12]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "7aab4abd172546ae",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run/steps/[13]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "f8d55bb2871a14ed",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run/steps/[14]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "5c3292fe3f7ac871",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run/steps/[15]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "c227d79cbc5b55b5",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run/steps/[16]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "45a2a413e2a7a16b",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run/steps/[19]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "6373308cf86e41b9",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "jobs/run/steps/[20]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "36340b5f870098ca",
+      "rule_id": "anonymous-definition",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "jobs/run_run",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "ea0f2044c7cc25e5",
+      "rule_id": "undocumented-permissions",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "jobs/run/permissions/contents_contents:_write",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "374561afef7a4cd4",
+      "rule_id": "concurrency-limits",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "on_on:",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "2a6630e97fc3d899",
+      "rule_id": "anonymous-definition",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "jobs/run_run",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "670ebea2a9d5d2c9",
+      "rule_id": "undocumented-permissions",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "jobs/run/permissions/contents_contents:_write",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "095c4f508d908059",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "jobs/run/steps/[6]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "e5aa801ac91554b0",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "jobs/run/steps/[15]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "f99ea9f308914904",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "jobs/run/steps/[16]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "775240a474702818",
+      "rule_id": "anonymous-definition",
+      "file": ".github/workflows/messages.yml",
+      "step": "jobs/tick_tick",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "84430babfdcd30b9",
+      "rule_id": "anonymous-definition",
+      "file": ".github/workflows/messages.yml",
+      "step": "jobs/run_run",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "5f9fc571bf19306a",
+      "rule_id": "undocumented-permissions",
+      "file": ".github/workflows/messages.yml",
+      "step": "jobs/run/permissions/issues_issues:_read",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "d7dad935ab3641cc",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/messages.yml",
+      "step": "jobs/run/steps/[0]/run__",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "a05d92f0e2ac5f5f",
+      "rule_id": "anonymous-definition",
+      "file": ".github/workflows/sync-aeon-public-results.yml",
+      "step": "jobs/sync_sync",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "7631a1c62654fb2b",
+      "rule_id": "anonymous-definition",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "jobs/sync_sync",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "6fc43160799f815d",
+      "rule_id": "undocumented-permissions",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "jobs/sync/permissions/contents_contents:_write",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "3b6b3e58b92c931c",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "jobs/sync/steps/[6]/run_git_push_origin_\"${{_steps.merge.out",
+      "severity": "Low"
+    },
+    {
+      "fingerprint": "c7d958e988b03cc9",
+      "rule_id": "template-injection",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "jobs/sync/steps/[7]/run__",
+      "severity": "Low"
+    }
+  ]
+}
