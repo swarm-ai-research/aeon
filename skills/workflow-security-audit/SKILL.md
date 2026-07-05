@@ -21,13 +21,15 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 
 ### 0b. Install scanners
 
-Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
+Pre-shipped binaries live in `.audit-bin/` (committed to avoid sandbox download failures — see Sandbox note below). Try them first; fall back to network install; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
-# Pin to a specific version for reproducibility — bump this when upgrading.
+# Pre-shipped binary takes priority — no network required in the sandbox.
 ZIZMOR_VERSION="1.25.2"
-if ! command -v zizmor >/dev/null 2>&1; then
+if [ -x ".audit-bin/zizmor" ]; then
+  export PATH="$PWD/.audit-bin:$PATH"
+elif ! command -v zizmor >/dev/null 2>&1; then
   pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
     || python3 -m pip install --user "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
     || true
@@ -35,14 +37,19 @@ if ! command -v zizmor >/dev/null 2>&1; then
 fi
 # When auditing this skill, verify ZIZMOR_VERSION is still on the latest stable
 # (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
+# Also rebuild .audit-bin/zizmor from the new release if bumping the version.
+
 # actionlint (Rhymond's syntax-level workflow linter)
-if ! command -v actionlint >/dev/null 2>&1; then
+# Pre-shipped binary takes priority.
+if [ -x ".audit-bin/actionlint" ]; then
+  export PATH="$PWD/.audit-bin:$PATH"
+elif ! command -v actionlint >/dev/null 2>&1; then
   bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
   export PATH="$PWD:$PATH"
 fi
 ```
 
-If the sandbox blocks the download, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
+If both the pre-shipped binaries and network installs fail, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
 
 ## Steps
 
@@ -352,7 +359,9 @@ Append to `memory/logs/${today}.md`:
 
 ## Sandbox note
 
-- `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
+- **Pre-shipped binaries** in `.audit-bin/` (`zizmor`, `actionlint`, `actionlint.tar.gz`) are the primary path. They bypass all sandbox download restrictions. Step 0b checks for them before attempting any network install.
+- **Version bumps:** when upgrading `ZIZMOR_VERSION` or the actionlint release, replace the binaries in `.audit-bin/` from the corresponding GitHub release tarball and commit them alongside the version string change.
+- `pipx install zizmor` and `pip install --user zizmor` are the network fallbacks — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
 - `gh` CLI uses existing `GITHUB_TOKEN` / `GH_GLOBAL` — no extra auth setup needed.
 - No new secrets required. zizmor and actionlint are offline-only static analyzers.
 
