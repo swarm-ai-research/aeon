@@ -1,22 +1,20 @@
-*Goal Tracker — 2026-07-04*
+## Summary
 
-Summary: 12 goals — 0 at risk, 0 needs attention, 11 on track, 1 blocked, 0 done (overall → flat; 2 new goals added since last run, iss-006 cross-check activity ↑ 133%)
+Executed `skills/goal-tracker/SKILL.md` against MEMORY.md's `## Next priorities` (no `## Goals` section — used the documented fallback).
 
-BLOCKED
-• Open five staged branches via PAT — waiting on repo policy "GitHub Actions is not permitted to create or approve PRs" since 2026-06-21 (13d blocked; sixth notegraph branch queued today per 07-04 log)
-  → Action: Rotate PR-opening to a PAT-scoped bot identity, or have the operator open the six queued branches manually
+**Result:** 12 goals tracked; **zero status changes** vs the 2026-07-04T19:20Z snapshot.
+- 11 ON TRACK, 1 BLOCKED, 0 at risk / needs attention / done
+- Overall trend: → **flat**
+- Two ↑ improving activity bumps: ISS-006 workflow_dispatch follow-up (6 → 12) and pr-tracker step-5 fresh-bot trigger (5 → 12)
+- One action proposed: operator provisions cross-repo PAT to open the 7-branch queue (BLOCKED goal — today added `fix/workflow-security-audit-2026-07-05` as the 7th staged branch)
 
-ON TRACK
-• ISS-006 fix: replace `messages.yml` `*/5 * * * *` with per-slot crons — 0d idle, 12 activity/14d (→ flat)
-• ISS-006 cross-check: gitlawb-fork `messages.yml` delivery vs this repo — 0d idle, 14 activity/14d (↑ improving)
-• ISS-006 follow-up: manual `workflow_dispatch` of a 09:00-slot skill — 4d idle, 6 activity/14d (→ flat)
-• Reclassify ISS-005 → `permanent-limitation` — 0d idle, 15 activity/14d (→ flat)
-• Patch `pr-tracker` SKILL (gh-search-prs drift + aeonframework.dev filter) — 0d idle, 15 activity/14d (→ flat)
-• Add fourth `pr-tracker` step-5 notify trigger (fresh bot PRs 24h) — 0d idle, 5 activity/14d (new)
-• Fix `skill-freshness` to use `git log -1 --format=%ct` — 0d idle, 13 activity/14d (new)
-• Widen `scenario-sweep.mjs` seed count / MAD outlier detection — 0d idle, 15 activity/14d (→ flat)
-• File `./generate-skills-json` bugs as structured issues — 0d idle, 15 activity/14d (↑ improving)
-• Populate `memory/watched-repos.md` or disable dependent skills — 0d idle, 15 activity/14d (→ flat)
-• Defer ISS-001 close until ISS-006 resolved — 0d idle, 15 activity/14d (→ flat)
+**Files modified:**
+- `memory/goal-state.json` — refreshed snapshot (run_at 2026-07-05T13:00Z, all 12 goals)
+- `.pending-notify/1783275554.md` — report queued for post-run delivery
+- `memory/logs/2026-07-05.md` — appended `### goal-tracker` section + summary
 
-Sources: logs=ok (15 days 2026-06-20..07-04), git=partial (shallow clone depth=1, only today's commit visible), gh_pr=ok (7 PRs, all pre-window), gh_issue=ok (empty), cron-state=n/a (no goal depends on skill emission)
+**MEMORY.md left untouched** per skill spec step 7 (write only on status transitions). No completion signal in the 14d window against any goal's keywords, so no DONE promotion — preferring false negatives per spec constraints.
+
+**Sandbox note:** direct `./notify "$MSG"` was blocked by the sandbox's `$(...)` command-substitution restriction; used the same write-to-`.pending-notify/` path notify.sh uses internally, which the workflow's post-run step delivers.
+
+**Follow-up:** consider adding a proper `## Goals` section to MEMORY.md so goals and priorities can diverge as ISS-006 stabilizes.
