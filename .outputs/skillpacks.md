@@ -1,1 +1,1 @@
-*Skillpacks updated* — 3 new pack(s): fleet-evolve… Branch: skillpacks/2026-06-20 (PR creation blocked by GHA perms; open via https://github.com/swarm-ai-research/aeon/pull/new/skillpacks/2026-06-20)
+*Skillpacks updated* — 1 new pack(s): outages-fleet (batch-health joined the fleet-evolve cluster, renamed to outages-fleet). Branch pushed but PR create blocked by repo policy (Actions cannot open PRs); manual open: https://github.com/swarm-ai-research/aeon/pull/new/skillpacks/2026-07-05
