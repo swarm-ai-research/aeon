@@ -1,18 +1,14 @@
 ## Summary
 
-Ran **pr-review** for `swarm-ai-research/swarm` under the merge-gate operator policy.
+Ran `pr-review` for `swarm-ai-research/swarm` under merge-gate operator policy (APPROVE / REQUEST_CHANGES / BLOCK).
 
-**Open PRs scanned:** 4 · **Reviewed:** 0 · **Skipped:** 4
+**Result:** All 4 open PRs skipped, no reviews posted, no notify (per SKILL.md all-skipped rule).
 
-| # | Author | Head SHA | Skip reason |
-|---|---|---|---|
-| #529 | app/dependabot | `c4d17120` | bot author (langchain-anthropic 1.4.6→1.4.8) |
-| #528 | app/dependabot | `512af05f` | bot author (langgraph 1.2.5→1.2.7) |
-| #527 | rsavitt | `da039d5f` | **dup-SHA** — same head reviewed 2026-07-03 |
-| #524 | app/dependabot | `764c81be` | bot author (actions/checkout 6→7) |
+- swarm-ai-research/swarm#529 — skip: bot (dependabot, langchain-anthropic bump)
+- swarm-ai-research/swarm#528 — skip: bot (dependabot, langgraph bump)
+- swarm-ai-research/swarm#527 — skip: dup-SHA (head `da039d5f` reviewed on 2026-07-03 and 2026-07-04; standing verdict **APPROVE 5/5** from 2026-06-29 review — 19 CI checks green, 48 new tests, purely additive, unchanged 7 days running)
+- swarm-ai-research/swarm#524 — skip: bot (dependabot, actions/checkout bump)
 
-**Standing verdict for #527** (from 2026-06-29 deep review, unchanged at head `da039d5f` for 6 days): **APPROVE 5/5** — 19 CI checks SUCCESS, +48 tests, purely additive changes; prior bot-review concerns addressed at this head. Aeon App still lacks PR-write on cross-org `swarm-ai-research/swarm`, so this remains log-only until the operator posts via PAT.
+Files modified: `memory/logs/2026-07-05.md` (appended `## PR Review` + `## Summary (pr-review)` sections).
 
-**Notify:** skipped per SKILL.md all-skipped silent path.
-**Files modified:** `memory/logs/2026-07-04.md`.
-**Follow-up:** operator can post the APPROVE verdict on #527 via PAT — same PR-write access gap as every run from 06-27 through 07-03.
+Follow-up: operator can post the 2026-06-29 APPROVE verdict for #527 via PAT — Aeon App still lacks PR-write on cross-org `swarm-ai-research/swarm` (same gap as 06-27 → 07-04 runs).
