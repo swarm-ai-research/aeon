@@ -1,22 +1,15 @@
-Skill complete.
-
 ## Summary
 
-Ran **pr-triage** with `var=swarm-ai-research/swarm` (repo mode).
+**pr-triage (mode=repo, var=swarm-ai-research/swarm)** — Scanned 4 open PRs; 3 were bot-authored dependabot updates (skipped). Rubric applied to **#527** (rsavitt, "Add neurosymbolic behavior classification…", 2590 adds / 14 files under `swarm/`, `docs/`, `examples/`, `tests/`, `mkdocs.yml`, sha `da039d5`) → verdict **DEFER** (size gate: 2590 > 500, no `large-ok`; all other checks pass).
 
-**What happened**
-- Fetched 4 open PRs in the 14-day window from `swarm-ai-research/swarm`.
-- Skipped 3 dependabot PRs (#529, #528, #524) — bots route to `auto-merge`.
-- Triaged **#527** (@rsavitt, "Add neurosymbolic behavior classification"): scope ✓, size ✗ (2590 additions across 14 files, no `large-ok`). Verdict: **DEFER**.
-- `gh pr comment` returned `Resource not accessible by integration` (HTTP 403); `gh label create` and `gh pr edit --add-label` likewise 403 — the workflow `GITHUB_TOKEN` is scoped to `aeonframework/aeon` and cannot write to external orgs.
-- Per skill §6, logged `PR_TRIAGE_NO_PERMISSION swarm-ai-research/swarm#527` and continued.
+**Dispatch blocked.** `gh pr comment`, `gh label create`, and `gh pr edit --add-label` each returned `HTTP 403 Resource not accessible by integration`. The Aeon GitHub App has no write scope on the `swarm-ai-research` org. Logged as `PR_TRIAGE_NO_PERMISSION swarm-ai-research/swarm#527` (skill §6 says continue-don't-abort on this class of error).
 
-**State handling**
-- `memory/triaged-prs.json` **not** updated — because the comment didn't land, `(527, da039d5)` should stay eligible for re-triage once a cross-org PAT is available.
-- No notify (DEFER isn't a notify trigger).
+- Comment: not posted
+- Label: not applied
+- State file `memory/triaged-prs.json`: **not updated** — withheld so a future auth-privileged run re-triages (per skill §9 which records only after successful triage)
+- Close: n/a (only OUT-OF-SCOPE closes; verdict was DEFER)
+- Notify: none (skill §10 gate — routine DEFER does not notify)
 
-**Files modified**
-- `memory/logs/2026-07-04.md` — appended full pr-triage log entry per §11 with the permission-failure diagnosis.
+**Files modified:** `memory/logs/2026-07-05.md` (appended `## pr-triage` section).
 
-**Follow-up**
-- pr-triage on external orgs is a permanent no-op with the current token scope. Either (a) provision a cross-org PAT in the workflow secret set, or (b) add an early-exit guard in `pr-triage/SKILL.md` when the target repo owner ≠ `aeonframework`, so the skill doesn't accept `var=` values it cannot act on.
+**Follow-up for operator:** systemic limitation — pr-triage cannot triage PRs on repos where the App lacks write scope. Options: (a) exclude external-org repos from `${var}` invocations, (b) install the App on swarm-ai-research (or provide operator PAT), (c) treat the read-only rubric verdict here (DEFER on #527 for size) as the manual-follow-up signal. Recommend watching for recurrence before filing an ISS entry.
