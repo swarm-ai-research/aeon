@@ -1,0 +1,1 @@
+compute-macro-correlate 2026-07-05: Track A all null — RENDER ρ=-0.12 (p=0.17), TAO ρ=-0.10 (p=0.26), IO ρ=-0.05 (p=0.61) vs NATGAS ⊥ {BTC,SOL}, n=123. No flagged signals. First run; baseline holds at token-market level. Track B defers at n=16 joined sweep days (<30 threshold). Branch pushed: compute-macro/2026-07-05.

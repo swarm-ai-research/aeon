@@ -1,0 +1,209 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "compute-macro-correlate",
+        "description": "2026-07-05"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "track-a-section",
+        "sep1",
+        "corr-section",
+        "sep2",
+        "findings-section",
+        "sep3",
+        "track-b-section",
+        "sep4",
+        "branch-info"
+      ]
+    },
+    "track-a-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "track-a-heading",
+        "track-a-status"
+      ]
+    },
+    "track-a-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Track A",
+        "level": "h3"
+      }
+    },
+    "track-a-status": {
+      "type": "Badge",
+      "props": {
+        "text": "All null",
+        "variant": "secondary"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "corr-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "corr-heading",
+        "corr-table"
+      ]
+    },
+    "corr-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Correlations vs NATGAS (n=123)",
+        "level": "h3"
+      }
+    },
+    "corr-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Series",
+          "ρ (Correlation)",
+          "p-value"
+        ],
+        "rows": [
+          [
+            "RENDER",
+            "-0.12",
+            "0.17"
+          ],
+          [
+            "TAO",
+            "-0.10",
+            "0.26"
+          ],
+          [
+            "IO",
+            "-0.05",
+            "0.61"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "findings-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "findings-heading",
+        "finding-1",
+        "finding-2",
+        "finding-3",
+        "finding-4"
+      ]
+    },
+    "findings-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Findings",
+        "level": "h3"
+      }
+    },
+    "finding-1": {
+      "type": "Text",
+      "props": {
+        "text": "NATGAS ⊥ {BTC, SOL} (orthogonal)",
+        "variant": "body"
+      }
+    },
+    "finding-2": {
+      "type": "Badge",
+      "props": {
+        "text": "No flagged signals",
+        "variant": "default"
+      }
+    },
+    "finding-3": {
+      "type": "Badge",
+      "props": {
+        "text": "First run",
+        "variant": "outline"
+      }
+    },
+    "finding-4": {
+      "type": "Text",
+      "props": {
+        "text": "Baseline holds at token-market level",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "track-b-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "track-b-heading",
+        "track-b-status",
+        "track-b-detail"
+      ]
+    },
+    "track-b-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Track B",
+        "level": "h3"
+      }
+    },
+    "track-b-status": {
+      "type": "Badge",
+      "props": {
+        "text": "Defers",
+        "variant": "secondary"
+      }
+    },
+    "track-b-detail": {
+      "type": "Text",
+      "props": {
+        "text": "n=16 joined sweep days (<30 threshold)",
+        "variant": "caption"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "branch-info": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed: compute-macro/2026-07-05",
+        "variant": "body"
+      }
+    }
+  }
+}
