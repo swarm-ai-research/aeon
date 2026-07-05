@@ -1,0 +1,234 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Evals"
+      },
+      "children": [
+        "status-badge",
+        "stats-section",
+        "separator-1",
+        "top-action-section",
+        "article-link",
+        "separator-2",
+        "issues-section"
+      ]
+    },
+    "status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "SKILL_EVALS_REGRESSED",
+        "variant": "destructive"
+      }
+    },
+    "stats-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-new-fails",
+        "stat-fixed",
+        "stat-coverage"
+      ]
+    },
+    "stat-new-fails": {
+      "type": "Stat",
+      "props": {
+        "label": "New Fails",
+        "value": "14"
+      }
+    },
+    "stat-fixed": {
+      "type": "Stat",
+      "props": {
+        "label": "Fixed",
+        "value": "0"
+      }
+    },
+    "stat-coverage": {
+      "type": "Stat",
+      "props": {
+        "label": "Coverage",
+        "value": "28%"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "top-action-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action-heading",
+        "action-text",
+        "action-detail",
+        "action-issue-badge"
+      ]
+    },
+    "action-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Action",
+        "level": "h3"
+      }
+    },
+    "action-text": {
+      "type": "Text",
+      "props": {
+        "text": "Investigate heartbeat"
+      }
+    },
+    "action-detail": {
+      "type": "Text",
+      "props": {
+        "text": "missing_pattern:heartbeat|Heartbeat|HEARTBEAT",
+        "variant": "caption"
+      }
+    },
+    "action-issue-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-007",
+        "variant": "outline"
+      }
+    },
+    "article-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "articles/skill-evals-2026-07-05.md",
+        "href": "articles/skill-evals-2026-07-05.md",
+        "source": "Aeon"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues-heading",
+        "issue-heartbeat",
+        "issue-cost-report",
+        "issue-changelog"
+      ]
+    },
+    "issues-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues",
+        "level": "h3"
+      }
+    },
+    "issue-heartbeat": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "xs"
+      },
+      "children": [
+        "heartbeat-name",
+        "heartbeat-detail"
+      ]
+    },
+    "heartbeat-name": {
+      "type": "Text",
+      "props": {
+        "text": "heartbeat",
+        "variant": "lead"
+      }
+    },
+    "heartbeat-detail": {
+      "type": "Text",
+      "props": {
+        "text": "missing_pattern:heartbeat|Heartbeat|HEARTBEAT",
+        "variant": "caption"
+      }
+    },
+    "issue-cost-report": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "xs"
+      },
+      "children": [
+        "cost-report-name",
+        "cost-report-detail"
+      ]
+    },
+    "cost-report-name": {
+      "type": "Text",
+      "props": {
+        "text": "cost-report",
+        "variant": "lead"
+      }
+    },
+    "cost-report-detail": {
+      "type": "Text",
+      "props": {
+        "text": "no_file_match",
+        "variant": "caption"
+      }
+    },
+    "issue-changelog": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "xs"
+      },
+      "children": [
+        "changelog-name",
+        "changelog-detail-wrapper"
+      ]
+    },
+    "changelog-name": {
+      "type": "Text",
+      "props": {
+        "text": "changelog",
+        "variant": "lead"
+      }
+    },
+    "changelog-detail-wrapper": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "changelog-detail",
+        "changelog-issue-badge"
+      ]
+    },
+    "changelog-detail": {
+      "type": "Text",
+      "props": {
+        "text": "no_file_match",
+        "variant": "caption"
+      }
+    },
+    "changelog-issue-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-002",
+        "variant": "outline"
+      }
+    }
+  }
+}
