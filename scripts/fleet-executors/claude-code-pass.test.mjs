@@ -439,4 +439,91 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. git add failure — a git stub intercepts "git add -A" and exits non-zero.
+//     runCodePass must return ok:false with a "git add failed" reason, clean up
+//     the worktree, and delete the ephemeral branch.
+{
+  const realGit = spawnSync("which", ["git"], { encoding: "utf8" }).stdout.trim() || "/usr/bin/git";
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "gh should not be called before add" >&2\nexit 99\n`,
+  });
+  // Install a git stub that passes through all commands except "git add -A".
+  const gitStub = [
+    "#!/usr/bin/env bash",
+    'if [ "$1" = "add" ] && [ "$2" = "-A" ]; then',
+    '  echo "error: unable to lock index" >&2',
+    "  exit 128",
+    "fi",
+    `exec "${realGit}" "$@"`,
+  ].join("\n") + "\n";
+  writeFileSync(join(env.binDir, "git"), gitStub);
+  chmodSync(join(env.binDir, "git"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "addfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git add failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after add failure");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "ephemeral branch should be deleted after add failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git add failure → ok:false, worktree and branch cleaned up");
+}
+
+// 16. git commit failure — a pre-commit hook always exits non-zero so `git commit`
+//     fails after a successful `git add`. runCodePass must return ok:false with a
+//     "git commit failed" reason and clean up the worktree + ephemeral branch.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "gh should not be called after commit failure" >&2\nexit 99\n`,
+  });
+  // Install a pre-commit hook that rejects every commit. Worktrees share the
+  // main repo's hooks directory, so this hook fires inside the ephemeral worktree.
+  const hooksDir = join(env.localDir, ".git", "hooks");
+  mkdirSync(hooksDir, { recursive: true });
+  const hookPath = join(hooksDir, "pre-commit");
+  writeFileSync(hookPath, "#!/usr/bin/env bash\nexit 1\n");
+  chmodSync(hookPath, 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "ephemeral branch should be deleted after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, worktree and branch cleaned up");
+}
+
+// 17. prUrl extraction fallback — when `gh pr create` exits 0 but its stdout
+//     contains no https:// URL, runCodePass falls back to stdout.trim() as the
+//     prUrl rather than returning undefined or empty string.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "Created"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourl" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "Created", "prUrl should fall back to stdout.trim() when no URL found");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  prUrl falls back to stdout.trim() when gh pr create output contains no https:// URL");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
