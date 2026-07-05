@@ -1,0 +1,76 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "reflect",
+        "description": "Memory consolidated — 2026-07-05 · +7n / +144e"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-notes",
+        "stack-notes"
+      ]
+    },
+    "heading-notes": {
+      "type": "Heading",
+      "props": {
+        "text": "4 new atomic notes",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "stack-notes": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "note-1",
+        "note-2",
+        "note-3",
+        "note-4"
+      ]
+    },
+    "note-1": {
+      "type": "Text",
+      "props": {
+        "text": "pr-tracker notify-no-dedup"
+      },
+      "children": []
+    },
+    "note-2": {
+      "type": "Text",
+      "props": {
+        "text": "./notify -f unsupported"
+      },
+      "children": []
+    },
+    "note-3": {
+      "type": "Text",
+      "props": {
+        "text": "status.md auto-commit drops writes"
+      },
+      "children": []
+    },
+    "note-4": {
+      "type": "Text",
+      "props": {
+        "text": "GraphQL stateReason PR-invalid"
+      },
+      "children": []
+    }
+  }
+}

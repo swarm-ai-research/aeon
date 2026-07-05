@@ -1,1 +1,1 @@
-memory consolidated — 2026-07-04 · +0n / +22e (0 splits, 0 new; MOC/MEMORY.md refresh only)
+memory consolidated — 2026-07-05 · +7n / +144e (4 new atomic notes: pr-tracker notify-no-dedup, ./notify -f unsupported, status.md auto-commit drops writes, GraphQL stateReason PR-invalid)

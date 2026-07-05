@@ -4,7 +4,9 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 
 ## Open incidents
 - [[issues/ISS-001]] — CLAUDE_CODE_OAUTH_TOKEN missing 2026-06-06 → 2026-06-20T06:05Z; investigating. Close deferred while [[issues/ISS-006]] runs; recovery batch is otherwise holding.
-- [[issues/ISS-006]] — Day 14: **memory-flush half-recovered** — memory-flush fired 06:02Z (breaking 14-day even-day silence from 2026-06-20T06:07Z) but memory-structural-dedupe 06:10 slot **confirmed silent**, so the full even-day pocket did NOT recover. Yesterday planner + compute-futures-eda recovered at 07:35Z. Sixth consecutive pocket-swap day (Day 10 EDA↔08:00, Day 11 reversed, Day 12 flipped, Day 13 EDA-recover, Day 14 memory-flush-recover, Day 15 memory-flush-holds/dedupe-silent-planner-miss). Six weekly/biweekly skills also at 2× threshold (janitor / skillpacks / compute-macro-correlate Sun, milestone-tracker / cost-report Mon, memory-structural-dedupe even-DOM). Per [[iss-006-pocket-recovery-is-noise]] still delivery-rate noise — close clock stays at 0 consecutive clean days.
+- [[issues/ISS-006]] — Day 15: **large 07:44Z burst broke two 15-day silences** — skillpacks (Sun 06:00) and compute-macro-correlate (Sun 06:30) both fired for the first time since 2026-06-20, plus planner / compute-futures-eda / config-validator / swarm-safety-eval all recovered their Sunday slots ~1-2h late. But janitor (05:30) stayed cold and the 08:00 batch fired ~2h late (batch-health / skill-freshness / gitlawb-fleet-metrics / heartbeat). Per [[iss-006-pocket-recovery-is-noise]] still delivery-rate noise — the burst pattern (six recoveries clustered in a single 07:44Z tick) is exactly the signature of a stuck-then-flush cron scheduler, not a resolved dispatch pipeline. Sixth-plus consecutive pocket-swap day; close clock stays at 0 consecutive clean days.
+- [[issues/ISS-007]] — heartbeat missing_pattern in eval regex; new 2026-07-05, filed by skill-evals. Enabled skill FAIL (not covered by ISS-002/005).
+- [[issues/ISS-008]] — cost-report no_file_match; new 2026-07-05, filed by skill-evals. Standing ISS-006 tributary (weekly Mon 07:00 slot at 2× threshold).
 - [[issues/ISS-005]] — swarm-safety-eval no_file_match: skill is now running successfully (last_success 2026-06-28T08:15:47Z) but its SSE_EMPTY path writes to the daily log, not an article; reclassify from `missing-secret-or-cron` to `permanent-limitation` per [[swarm-safety-eval-empty-writes-log-not-article]].
 
 ## Lessons (durable)
@@ -26,22 +28,28 @@ Cross-cutting operational lessons and constraints for the Aeon fleet: credential
 - [[skill-freshness-mtime-blind-in-gha]] — `actions/checkout` resets every file's mtime to the run instant, so skill-freshness's `stat --format=%Y` age check can never flag anything in GHA; switch to `git log -1 --format=%ct` producer-commit timestamp
 - [[aeon-bot-uses-multiple-signing-identities]] — aeon bot signs commits under both `aeonframework@users.noreply.github.com` and `aeon@aeonframework.dev`; single-value `BOT_EMAIL` drops PRs silently
 - [[pr-tracker-step-5-misses-fresh-bot-prs]] — pr-tracker only notifies on merges / stale / closed-no-merge; brand-new bot PRs land invisibly until they age into staleness
+- [[pr-tracker-notify-repeats-with-no-state-change]] — step-5 has no dedup guard; a persistent stale/closed-no-merge state fires an identical notify every day until the wall clock rolls a PR off the 7d window
+- [[notify-script-has-no-f-flag]] — `./notify -f <file>` is documented across multiple SKILLs but the actual script takes message as `$1`; using `-f` writes the literal `-f` as the message body
+- [[status-md-auto-commit-drops-writes]] — heartbeat rewrites of `docs/status.md` are silently lost by the workflow auto-commit step; on-disk status page ages indefinitely
+- [[graphql-statereason-only-on-issue-type]] — SKILL.md GraphQL query requests `stateReason` on `PullRequest`; that field exists only on `Issue` and the query hard-fails
 
-## Snapshot (2026-07-04)
+## Snapshot (2026-07-05)
 | Signal | Value |
 |---|---|
-| Today's status | 🔴 DEGRADED — ISS-006 day 14; memory-flush pocket half-recovered (memory-flush 06:02Z fired, memory-structural-dedupe 06:10 confirmed silent); status.md was 25d stale on entry, heartbeat regenerated |
-| Cron-state | all 42 tracked skills at `last_status: success`, 0 `dispatched`, 0 `consecutive_failures ≥ 3`; cumulative `success_rate` < 0.5 on 38 skills (ISS-001 OAuth-residue catch-up, day 14) |
+| Today's status | 🔴 DEGRADED — ISS-006 day 15; **07:44Z burst broke skillpacks + compute-macro-correlate 15-day silences** but janitor 05:30 stayed cold and 08:00 batch fired ~2h late; workflow-security-audit landed a fresh SHA-pinning wave (13/16 unpinned-uses Critical findings resolved from 2026-06-28) |
+| Cron-state | all 42 tracked skills at `last_status: success`, 0 `dispatched`, 0 `consecutive_failures ≥ 3`; cumulative `success_rate` < 0.5 on 38 skills (ISS-001 OAuth-residue catch-up, day 15) |
 | Enabled skills | 44 — 42 in cron-state.json, `ai-framework-watch` (Mon 08:30) and `run-frequency-guard` (daily 23:00) still never-dispatched despite being enabled |
-| Open issues | 4 on disk, 4 in INDEX.md (ISS-001, 002, 005, 006) — ISS-005 reclassify still pending |
+| Open issues | 6 on disk, 6 in INDEX.md (ISS-001, 002, 005, 006, 007, 008) — skill-evals filed ISS-007 (heartbeat missing_pattern) and ISS-008 (cost-report no_file_match) on today's bootstrap eval run |
 | Resolved | ISS-003 (cost-report), ISS-004 (skill-health) — both lifted on OAuth restore |
-| Pending branches | `agi-tracker/2026-06-29`; `notegraph/2026-06-29` +3n/+51e (6th consecutive notegraph queued: 06-26/06-29/07-01/07-02/07-04); `fix/workflow-security-audit-2026-06-28` (16C/36H); `skill-graph/2026-06-28` (INIT); `fix/workflow-security-audit-2026-06-21` (older RCE) — all blocked by repo policy "GitHub Actions is not permitted to create or approve pull requests" |
-| Today's fired slots | 06:02Z memory-flush · 06:01Z compute-futures-eda (skipped — no new sweep) · 08:51Z heartbeat (~51m late) · 10:00Z pr-tracker · notegraph · fleet-control · repo-revive · pr-review · pr-triage · code-health · github-monitor · issue-triage · vuln-scanner · surplus-pulse · compute-pulse |
-| Today's missed slots | 06:10 memory-structural-dedupe (confirmed cold) · 06:30 planner · 08:00 batch-mates (batch-health / skill-freshness / gitlawb-fleet-metrics — heartbeat fired but ~51m late) |
-| 2× threshold skills | janitor (Sun 05:30, 14d), skillpacks (Sun 06:00, 14d), compute-macro-correlate (Sun 06:30, 14d), milestone-tracker (Mon 12:00, 14d), cost-report (Mon 07:00, 14d), memory-structural-dedupe (even DOM 06:10, 14d) — all ISS-006 tributaries |
-| PR queue | 2 open + 1 closed-no-merge today: Vibe-Trading#390 (1d, fresh, `@aeonframework.dev`); Agent-Reach#436 (**7d 15h stale**, notify fired step-5); kage#66 **closed silently by owner `tamnd`** at 2026-07-03T12:20Z after 12h 50m open (COMPLETED, no comment) — first closed-no-merge in tracked window |
-| skill-freshness | FRESHNESS_OK 6th consecutive emit (2026-06-26, -28, -30, 07-02, 07-04) — structurally blind in GHA per [[skill-freshness-mtime-blind-in-gha]]; compute-pulse.md at 98.2% of 7d content-date threshold |
-| Pending disclosures | 1 in `.pending-disclosure/` (torlink 07-04: `ip@2.0.1` HIGH unpatchable + `esbuild` LOW dev-only) awaiting operator PAT to fork upstream |
+| Pending branches | 7 queued for operator PAT: `agi-tracker/2026-06-29`; `notegraph/2026-07-04` (6th consecutive: 06-26/06-29/07-01/07-02/07-04); `fix/workflow-security-audit-2026-06-21`, `-06-28`, and new **`fix/workflow-security-audit-2026-07-05`** (13 unpinned-uses Critical resolved); `skill-graph/2026-06-28`; `skillpacks/2026-07-05` (outages-fleet rename) — all blocked by repo policy "GitHub Actions is not permitted to create or approve pull requests" |
+| Today's fired slots | 07:44Z burst: skillpacks (breaks 15d silence) · compute-macro-correlate (breaks 15d silence) · planner · compute-futures-eda · config-validator · swarm-safety-eval · 09:58Z heartbeat (~2h late) · 10:00Z pr-tracker (1h38m late) · pr-review · pr-triage · code-health · github-monitor · issue-triage · surplus-pulse · workflow-security-audit · skill-evals · skill-freshness |
+| Today's missed slots | 05:30 janitor (still cold — Sunday 15d silence unbroken) · 08:00 batch-mates fired ~2h late (batch-health, skill-freshness, gitlawb-fleet-metrics, heartbeat) |
+| 2× threshold skills | milestone-tracker (Mon 12:00, 15d), cost-report (Mon 07:00, 15d), memory-structural-dedupe (even DOM 06:10, 15d), janitor (Sun 05:30, 15d) — 4 remaining after skillpacks/compute-macro-correlate flush |
+| PR queue | 2 open + 1 closed-no-merge (unchanged vs 2026-07-04): Vibe-Trading#390 (2d 3h, fresh, `@aeonframework.dev`); Agent-Reach#436 (**8d 16h stale**, notify fired step-5 2nd day); kage#66 closed silently by owner `tamnd` 2026-07-03T12:20Z — 2nd consecutive identical notify per [[pr-tracker-notify-repeats-with-no-state-change]] |
+| skill-freshness | FRESHNESS_OK 7th consecutive emit (2026-06-26, -28, -30, 07-02, -03, -04, -05) — structurally blind in GHA per [[skill-freshness-mtime-blind-in-gha]]; compute-pulse.md at 98.2% of 7d content-date threshold |
+| Pending disclosures | 1 in `.pending-disclosure/` (torlink 07-04: `ip@2.0.1` HIGH unpatchable + `esbuild` LOW dev-only) — no change today |
+| workflow-security-audit | 136 total findings (3C / 43H / 31M / 59L); Δ vs 2026-06-28 = +70 new (all M/L), 0 REINTRODUCED, 52 resolved; SHA-pinning wave landed across 6 workflow files, only `aeon.yml` still on `@v5` mutable tags |
+| Skillpacks | 172 skills · 16 packs · 0 solos · 1273 edges (delta 0/0/0); slug rename `monitor-movers` → `outages-fleet` after batch-health moved clusters — structurally not a new pack but still triggers `SKILLPACKS_NEW_PACK` |
 
 ## Permission constraints (current)
 - aeon GitHub App: no write on `swarm-ai-research/swarm` (labels, comments, reviews 403). Verdicts run, posts blocked.
