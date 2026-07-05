@@ -1,0 +1,263 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-07-05",
+        "description": "144 rows, 4 modes"
+      },
+      "children": [
+        "overview-heading",
+        "overview-text",
+        "sep1",
+        "metrics-heading",
+        "metrics-section",
+        "sep2",
+        "conservation-heading",
+        "conservation-intro",
+        "conservation-grid",
+        "sep3",
+        "correlation-heading",
+        "correlation-text",
+        "sep4",
+        "rotation-heading",
+        "rotation-text",
+        "sep5",
+        "report-link"
+      ]
+    },
+    "overview-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Overview",
+        "level": "h2"
+      }
+    },
+    "overview-text": {
+      "type": "Text",
+      "props": {
+        "text": "12-seed IQR jitter continues",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Key Metrics",
+        "level": "h2"
+      }
+    },
+    "metrics-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metric-basket-stack",
+        "metric-synthetic-stack",
+        "metric-settlement"
+      ]
+    },
+    "metric-basket-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "metric-basket-stat",
+        "metric-basket-note"
+      ]
+    },
+    "metric-basket-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "basket wallet_sum_pnl",
+        "value": "16.67%",
+        "trend": "neutral"
+      }
+    },
+    "metric-basket-note": {
+      "type": "Text",
+      "props": {
+        "text": "float dust, max 6.4e−14",
+        "variant": "caption"
+      }
+    },
+    "metric-synthetic-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "metric-synthetic-stat",
+        "metric-synthetic-note"
+      ]
+    },
+    "metric-synthetic-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "synthetic/x402 minCurve",
+        "value": "16.67%",
+        "trend": "neutral"
+      }
+    },
+    "metric-synthetic-note": {
+      "type": "Text",
+      "props": {
+        "text": "flip in as yesterday's settlementLegs 16.67% flips out",
+        "variant": "caption"
+      }
+    },
+    "metric-settlement": {
+      "type": "Text",
+      "props": {
+        "text": "settlementLegs: 16.67% flips out (yesterday)",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "conservation-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h2"
+      }
+    },
+    "conservation-intro": {
+      "type": "Text",
+      "props": {
+        "text": "All ≥15 orders of magnitude below drift gate",
+        "variant": "caption"
+      }
+    },
+    "conservation-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "status-basket",
+        "status-spread",
+        "status-synthetic",
+        "status-x402"
+      ]
+    },
+    "status-basket": {
+      "type": "Badge",
+      "props": {
+        "text": "basket: OK",
+        "variant": "default"
+      }
+    },
+    "status-spread": {
+      "type": "Badge",
+      "props": {
+        "text": "spread: OK",
+        "variant": "default"
+      }
+    },
+    "status-synthetic": {
+      "type": "Badge",
+      "props": {
+        "text": "synthetic: OK",
+        "variant": "default"
+      }
+    },
+    "status-x402": {
+      "type": "Badge",
+      "props": {
+        "text": "x402: OK",
+        "variant": "default"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "correlation-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Correlation Analysis",
+        "level": "h2"
+      }
+    },
+    "correlation-text": {
+      "type": "Text",
+      "props": {
+        "text": "No within-mode |r|≥0.8",
+        "variant": "body"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "rotation-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Pair Rotation",
+        "level": "h2"
+      }
+    },
+    "rotation-text": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rotation-detail",
+        "rotation-status"
+      ]
+    },
+    "rotation-detail": {
+      "type": "Text",
+      "props": {
+        "text": "spread top pair rotated realizedAbs×minSpot −0.745 → minSpot×maxCurve +0.682",
+        "variant": "body"
+      }
+    },
+    "rotation-status": {
+      "type": "Text",
+      "props": {
+        "text": "yesterday's watch void",
+        "variant": "caption"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-07-05.md",
+        "source": "Local Report"
+      }
+    }
+  }
+}
