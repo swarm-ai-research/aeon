@@ -1,14 +1,19 @@
+All done. Here's the summary:
+
 ## Summary
 
-Skill-freshness run complete. **Verdict: FRESHNESS_OK** — no flagged dependencies across 44 enabled skills.
+**Status: ✅ FRESHNESS_OK** (7th consecutive)
 
-**Key findings:**
-- 3 dependencies scored: `memory/state/planner-state.json` (23.6h, OK), `memory/topics/surplus-pulse.md` (1d, OK), `memory/topics/compute-pulse.md` (165h, **borderline** — 98.2% of 168h threshold; will tip WARN if compute-pulse misses Saturday's 11:00 UTC slot)
-- 0 active chains → 0 explicit chain-consume deps
-- 8 implicit "never-existed" missing refs (pr-review-rules, watched-repos, stale-models, projects, compute-tokens topic files; github-trending output; token-report/push-recap articles from disabled producers) — per skill rules, not flagged
-- `articles/` directory did not exist; created now
-- No notification sent (FRESHNESS_OK suppresses notify)
+- **Audited**: 44 enabled consumers, 2 dependencies scored, 0 flagged
+- **Scored deps** (both OK):
+  - `pr-tracker` → `memory/topics/pr-status.md` (topics, 168h threshold)
+  - `stale-content-pr-sweeper` → `memory/state/notegraph.json` (state, 720h threshold)
+- **Explicit chain deps**: 0 (chains block fully commented out in `aeon.yml`)
+- **Implicit missing (not flagged)**: 12 refs — including `articles/` (directory absent), `watched-repos.md`, `pr-review-rules.md`, `compute-futures-macro-correlations.md`
+- **Notification**: suppressed — FRESHNESS_OK is silent by design
+- **Files written**:
+  - `articles/skill-freshness-2026-07-05.md` — full report
+  - `memory/topics/skill-freshness-state.json` — updated `last_run_at`, `dependency_count: 2`
+  - `memory/logs/2026-07-05.md` — log entry appended
 
-**Persistent issue:** This is the **6th consecutive** FRESHNESS_OK, structurally explained by [[skill-freshness-mtime-blind-in-gha]] — git checkout resets all mtimes, making the prescribed mtime check always return fresh. This run used content-embedded date strings as a proxy. The fix (use `git log -1 --format=%ct`) remains open in MEMORY.md Next priorities.
-
-Files written: `articles/skill-freshness-2026-07-04.md`, `memory/topics/skill-freshness-state.json` (updated), `memory/logs/2026-07-04.md` (appended).
+**Ongoing structural note**: The FRESHNESS_OK verdict reflects GHA's shallow-clone mtime limitation (all files appear checkout-fresh). The article documents the content-proxy analysis: `compute-pulse` ran 165h ago vs 192h threshold — OK at 08:00 UTC, but today's 11:00 UTC run is the meaningful check. Fix tracked in MEMORY.md: [[skill-freshness-mtime-blind-in-gha]].
