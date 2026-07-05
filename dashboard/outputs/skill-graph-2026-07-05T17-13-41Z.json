@@ -1,0 +1,209 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Graph"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "status",
+        "skills-section",
+        "diagrams-section",
+        "edges-section",
+        "git-section"
+      ]
+    },
+    "status": {
+      "type": "Text",
+      "props": {
+        "text": "Skill Graph initialized",
+        "variant": "lead"
+      }
+    },
+    "skills-section": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-skills",
+        "stat-categories",
+        "stat-enabled"
+      ]
+    },
+    "stat-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills Mapped",
+        "value": "172"
+      }
+    },
+    "stat-categories": {
+      "type": "Stat",
+      "props": {
+        "label": "Categories",
+        "value": "5"
+      }
+    },
+    "stat-enabled": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled",
+        "value": "43"
+      }
+    },
+    "diagrams-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "diagrams-title",
+        "diagram-count-stat",
+        "diagram-types"
+      ]
+    },
+    "diagrams-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Mermaid Diagrams",
+        "level": "h4"
+      }
+    },
+    "diagram-count-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Total",
+        "value": "7"
+      }
+    },
+    "diagram-types": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-overview",
+        "badge-selfhealing",
+        "badge-category"
+      ]
+    },
+    "badge-overview": {
+      "type": "Badge",
+      "props": {
+        "text": "overview"
+      }
+    },
+    "badge-selfhealing": {
+      "type": "Badge",
+      "props": {
+        "text": "self-healing loop"
+      }
+    },
+    "badge-category": {
+      "type": "Badge",
+      "props": {
+        "text": "per-category"
+      }
+    },
+    "edges-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "edges-title",
+        "edges-grid"
+      ]
+    },
+    "edges-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Graph Edges",
+        "level": "h4"
+      }
+    },
+    "edges-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-depends",
+        "stat-reactive",
+        "stat-derived"
+      ]
+    },
+    "stat-depends": {
+      "type": "Stat",
+      "props": {
+        "label": "depends_on",
+        "value": "5"
+      }
+    },
+    "stat-reactive": {
+      "type": "Stat",
+      "props": {
+        "label": "reactive",
+        "value": "2"
+      }
+    },
+    "stat-derived": {
+      "type": "Stat",
+      "props": {
+        "label": "derived shared-state",
+        "value": "26"
+      }
+    },
+    "git-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "branch-text",
+        "pr-alert",
+        "pr-link"
+      ]
+    },
+    "branch-text": {
+      "type": "Text",
+      "props": {
+        "text": "Branch skill-graph/2026-07-05 pushed"
+      }
+    },
+    "pr-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Blocked",
+        "message": "Blocked by repo policy — 7th queued behind operator PAT",
+        "type": "warning"
+      }
+    },
+    "pr-link": {
+      "type": "Link",
+      "props": {
+        "label": "GitHub Branch PR Link",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/skill-graph/2026-07-05"
+      }
+    }
+  }
+}
