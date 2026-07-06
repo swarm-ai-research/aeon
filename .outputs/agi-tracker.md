@@ -1,1 +1,7 @@
-agi-tracker 2026-06-29: METR refresh — added GPT-5.2 (352m measured), Gemini 3.1 Pro (384m measured, 2026-02-19), Claude Mythos Preview (1045m saturating, 2026-04-07); revised Opus 4.6 (870→719m), GPT-5.3 Codex (390 est→350 measured). Headline: METR doubling-time fit now ~3.5 mo (~10x/yr, Jan-2024→Feb-2026), 2025-only trend ~3 mo. Project Glasswing logged on the drop-in-worker line (10k+ vulns surfaced via Mythos). At the new central doubling, year-long-programs lands ~Sep 2028 (anchor: Gemini 3.1 Pro). Branch agi-tracker/2026-06-29 pushed; PR blocked by repo policy 'GitHub Actions is not permitted to create or approve pull requests' — operator opens via PAT.
+There's no `skills/agi-tracker/SKILL.md` in this repo. The skill you asked me to run doesn't exist.
+
+Closest existing tracker skills: `disclosure-tracker`, `goal-tracker`, `milestone-tracker`, `narrative-tracker`, `pr-tracker`, `fork-release-tracker`, `vuln-tracker`. None appears to be an "AGI tracker" under a different name.
+
+Do you want me to:
+1. Run one of the existing trackers instead (which one?), or
+2. Create a new `skills/agi-tracker/SKILL.md` — if so, what should it track (frontier model releases, benchmarks, capability jumps, prediction market odds)?
