@@ -1,0 +1,115 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph",
+        "description": "Note graph update"
+      },
+      "children": [
+        "heading-1",
+        "stats-section",
+        "sep-1",
+        "branch-section",
+        "alert-pr"
+      ]
+    },
+    "heading-1": {
+      "type": "Heading",
+      "props": {
+        "text": "Notegraph updated",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "stats-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-added",
+        "stat-total",
+        "stat-edges",
+        "stat-bundled"
+      ]
+    },
+    "stat-added": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes Added",
+        "value": "+5"
+      },
+      "children": []
+    },
+    "stat-total": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Notes",
+        "value": "126"
+      },
+      "children": []
+    },
+    "stat-edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "1154"
+      },
+      "children": []
+    },
+    "stat-bundled": {
+      "type": "Stat",
+      "props": {
+        "label": "Bundled",
+        "value": "0"
+      },
+      "children": []
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "branch-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text-branch-label",
+        "link-branch"
+      ]
+    },
+    "text-branch-label": {
+      "type": "Text",
+      "props": {
+        "text": "Branch queued:"
+      },
+      "children": []
+    },
+    "link-branch": {
+      "type": "Link",
+      "props": {
+        "label": "notegraph/2026-07-06",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-07-06"
+      },
+      "children": []
+    },
+    "alert-pr": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Creation Blocked",
+        "message": "7th consecutive attempt — GHA permissions issue",
+        "type": "warning"
+      },
+      "children": []
+    }
+  }
+}
