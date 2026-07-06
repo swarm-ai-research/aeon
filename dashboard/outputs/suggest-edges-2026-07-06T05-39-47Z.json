@@ -1,0 +1,87 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Suggest-edges"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-result",
+        "text-top-date",
+        "separator-1",
+        "stack-branch",
+        "alert-blocked"
+      ]
+    },
+    "text-result": {
+      "type": "Text",
+      "props": {
+        "text": "3 missing links proposed"
+      },
+      "children": []
+    },
+    "text-top-date": {
+      "type": "Text",
+      "props": {
+        "text": "top: 2026-06-20",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stack-branch": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-branch-label",
+        "link-branch"
+      ]
+    },
+    "text-branch-label": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "link-branch": {
+      "type": "Link",
+      "props": {
+        "label": "suggest-edges/2026-07-06",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-07-06"
+      },
+      "children": []
+    },
+    "alert-blocked": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Creation Blocked",
+        "message": "GHA permissions blocking PR creation — 8th queued branch",
+        "type": "warning"
+      },
+      "children": []
+    }
+  }
+}
