@@ -439,4 +439,54 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. gh pr create succeeds but its stdout contains no URL → prUrl falls back
+//     to the raw stdout trimmed (the || branch on line 248 of the source).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    // Return plain text with no https:// URL — simulates gh printing a short
+    // human-readable confirmation instead of a full PR link.
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "Pull request created."\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourl" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "Pull request created.",
+      "prUrl should fall back to raw gh stdout when no https:// URL is present");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create returns no URL → prUrl falls back to raw stdout");
+}
+
+// 16. Claude makes changes but outputs only whitespace (stdout.trim() === "").
+//     invokeClaude returns "" (not null), workingTreeClean returns false, so the
+//     happy path runs with an empty summary. The commit message becomes just
+//     "kind: " (valid for git) and the PR is opened successfully.
+{
+  const CLAUDE_WHITESPACE_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+echo "added a docstring" >> "$(pwd)/lib.mjs"
+echo "   "
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_WHITESPACE_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "wsonly" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/99");
+    assert.equal(result.summary, "", "summary should be empty string when claude outputs only whitespace");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  whitespace-only claude output → empty summary, PR still created");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
