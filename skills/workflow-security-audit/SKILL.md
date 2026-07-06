@@ -24,6 +24,10 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
+# .audit-bin/ holds pre-seeded binaries committed to the repo (sandbox-safe; no network needed).
+# Always put it first so the skill uses the checked-in tools without any download.
+export PATH="$PWD/.audit-bin:$HOME/.local/bin:$PATH"
+
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
 # Pin to a specific version for reproducibility — bump this when upgrading.
 ZIZMOR_VERSION="1.25.2"
@@ -42,7 +46,7 @@ if ! command -v actionlint >/dev/null 2>&1; then
 fi
 ```
 
-If the sandbox blocks the download, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
+If the sandbox blocks the download and `.audit-bin/` binaries are absent, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
 
 ## Steps
 
@@ -352,7 +356,8 @@ Append to `memory/logs/${today}.md`:
 
 ## Sandbox note
 
-- `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
+- **Primary path — `.audit-bin/`:** `zizmor` and `actionlint` binaries are committed under `.audit-bin/` (see step 0b). This makes the skill sandbox-safe with zero network dependency; the `export PATH` line in step 0b picks them up automatically.
+- **Fallback path — PyPI/curl:** `pipx install zizmor` and `pip install --user zizmor` hit PyPI, which is allowed on standard GitHub-hosted runners. The `bash <(curl …)` actionlint installer is blocked inside the Claude sandbox (see memory note `sandbox-blocks-piped-curl-installers`); if `.audit-bin/actionlint` is missing that path will fail — use **WebFetch** to fetch the install script and run it, or commit a fresh binary to `.audit-bin/`.
 - `gh` CLI uses existing `GITHUB_TOKEN` / `GH_GLOBAL` — no extra auth setup needed.
 - No new secrets required. zizmor and actionlint are offline-only static analyzers.
 
