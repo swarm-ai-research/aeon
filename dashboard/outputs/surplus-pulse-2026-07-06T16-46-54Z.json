@@ -1,0 +1,166 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse",
+        "description": "2026-07-06"
+      },
+      "children": [
+        "section_spot",
+        "section_curve",
+        "section_rail",
+        "separator1",
+        "section_summary"
+      ]
+    },
+    "section_spot": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "label_spot",
+        "stack_spot_badges",
+        "stat_pricing"
+      ]
+    },
+    "label_spot": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h3"
+      }
+    },
+    "stack_spot_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_catalog",
+        "badge_model",
+        "badge_source"
+      ]
+    },
+    "badge_catalog": {
+      "type": "Badge",
+      "props": {
+        "text": "catalog"
+      }
+    },
+    "badge_model": {
+      "type": "Badge",
+      "props": {
+        "text": "Llama 4 Scout"
+      }
+    },
+    "badge_source": {
+      "type": "Badge",
+      "props": {
+        "text": "Surplus Intelligence"
+      }
+    },
+    "stat_pricing": {
+      "type": "Stat",
+      "props": {
+        "label": "Price",
+        "value": "$0.0764/M"
+      }
+    },
+    "section_curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "label_curve",
+        "stat_curve"
+      ]
+    },
+    "label_curve": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h3"
+      }
+    },
+    "stat_curve": {
+      "type": "Stat",
+      "props": {
+        "label": "Hyperscaler H100 reserve at R30",
+        "value": "+88.7%",
+        "trend": "up",
+        "delta": "tightest move of the run"
+      }
+    },
+    "section_rail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "label_rail",
+        "badge_endpoint",
+        "link_url"
+      ]
+    },
+    "label_rail": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h3"
+      }
+    },
+    "badge_endpoint": {
+      "type": "Badge",
+      "props": {
+        "text": "x402 on Base/USDC"
+      }
+    },
+    "link_url": {
+      "type": "Link",
+      "props": {
+        "label": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "label_summary",
+        "text_summary"
+      ]
+    },
+    "label_summary": {
+      "type": "Heading",
+      "props": {
+        "text": "One-Line Read",
+        "level": "h3"
+      }
+    },
+    "text_summary": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus inference market shows structural tightness — supply crunch scenario dominates; catalog mode (set SURPLUS_PRICING_URL to anchor to live feed)",
+        "variant": "body"
+      }
+    }
+  }
+}
