@@ -1,18 +1,14 @@
 ## Summary
 
-Ran pr-review re-invocation for `swarm-ai-research/swarm` under the explicit merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK).
+Ran `pr-review` for `swarm-ai-research/swarm` under **merge-gate** operator policy. Same 4 open PRs as the prior five days at identical head SHAs (6th consecutive day with zero SHA moves):
 
-**Decision: APPROVE — Confidence 5/5** for the only reviewable PR (#527 rsavitt neurosymbolic).
+- **#529** bot dependabot (langchain-anthropic 1.4.6→1.4.8) — skipped (bot)
+- **#528** bot dependabot (langgraph 1.2.5→1.2.7) — skipped (bot)
+- **#524** bot dependabot (actions/checkout 6→7) — skipped (bot)
+- **#527** rsavitt neurosymbolic classification (`da039d5f`) — skipped (**dup-SHA** across 07-03/04/05 logs; head unchanged 8 days)
 
-State drift since today's 09:xx run: none — same 4 open PRs, identical head SHAs, identical `updatedAt` timestamps.
+**Standing merge-gate verdict for #527: APPROVE (5/5)** — 19 CI checks all SUCCESS (type-check, lint, tests 3.10/3.11/3.12, quality-gate, CodeQL js-ts + python, memory-tests + baseline, kb-graph-check, render-verify, Vercel). 48 new tests added; purely additive apart from mkdocs.yml/docs. No missing/failing coverage on the touched surface. Prior bot-review concerns from 2026-06-28 addressed at this head; no bot review activity since.
 
-- **#529, #528, #524** (dependabot bots) — skipped per skill rules.
-- **#527 rsavitt** (head `da039d5f`, 8th day at this SHA) — **APPROVE 5/5**. No CRITICAL, no ISSUE.
-  - 19/19 CI checks SUCCESS at head (lint, type-check, quality-gate, tests 3.10/3.11/3.12 full+compat, Memory Tests, Memory Baseline, CodeQL python + js/ts, render-verify, Vercel).
-  - Purely additive package `swarm/neurosymbolic/` (11 new files, +2583) plus a 1-line mkdocs nav and 6-line docs index; backward-compatible engine extension (positive-only programs collapse to a single stratum matching prior semantics).
-  - Coverage: 48 new tests covering provenance, engine recursion, negation/aggregation/stratification, trace lifting, and a drift guard for the trace `.scl`. Prior bot-reviewer concerns (Copilot / chatgpt-codex-connector / github-code-quality) addressed at this head.
-  - Merge-gate mapping: no critical break → not BLOCK; typecheck + lint + tests + build all present and green on the touched surface → not REQUEST_CHANGES; low risk + sufficient evidence → APPROVE.
-
-**Post attempt**: `gh pr review 527 --comment` returned `403 Resource not accessible by integration (addPullRequestReview)` — 8th consecutive day the Aeon App cross-org PR-write gap holds. Verdict consolidated into `memory/logs/2026-07-05.md` per skill fallback. Notify skipped (no fresh signal vs the 09:xx run). Operator can post the APPROVE via PAT.
-
-Files modified: `memory/logs/2026-07-05.md` (re-invoke entry).
+**Files modified:** `memory/logs/2026-07-06.md`.
+**Notify:** skipped per SKILL.md all-skipped silent path.
+**Follow-up:** Aeon App still lacks PR-write on cross-org `swarm-ai-research/swarm` (same gap as 06-27 → 07-05) — operator can post the APPROVE verdict for #527 via PAT.
