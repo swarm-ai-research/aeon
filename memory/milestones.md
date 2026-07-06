@@ -1,6 +1,6 @@
 # Milestones
 
-*Last run: 2026-06-20*
+*Last run: 2026-07-06*
 
 | ID | Label | Target | Baseline | Last | Status |
 |----|-------|--------|----------|------|--------|
