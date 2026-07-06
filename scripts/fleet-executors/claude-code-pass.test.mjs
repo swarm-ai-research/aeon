@@ -439,4 +439,57 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. git commit failure — a pre-commit hook installed via core.hooksPath
+//     rejects the commit after git add -A succeeds. cleanup(true) should
+//     delete the local branch and remove the worktree.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  const hooksDir = join(env.work, "hooks");
+  mkdirSync(hooksDir);
+  writeFileSync(join(hooksDir, "pre-commit"), `#!/usr/bin/env bash\necho "pre-commit: rejected" >&2\nexit 1\n`);
+  chmodSync(join(hooksDir, "pre-commit"), 0o755);
+  // core.hooksPath is inherited by linked worktrees via the shared repo config.
+  git(["config", "core.hooksPath", hooksDir], env.localDir);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    // Branch must be deleted — cleanup(true) fires on commit failure.
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "branch should be deleted when commit fails");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, branch deleted, worktree removed");
+}
+
+// 16. gh pr create output contains no HTTP URL — prUrl falls back to the
+//     trimmed stdout rather than undefined (the regex returns no match, so
+//     the || fallback fires). This covers the second operand of:
+//     `(pr.stdout.match(/https?:\/\/\S+/) || [])[0] || pr.stdout.trim()`
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "Pull request created (see web UI)"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourlpr" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "Pull request created (see web UI)");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create no-URL output → prUrl falls back to trimmed stdout");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
