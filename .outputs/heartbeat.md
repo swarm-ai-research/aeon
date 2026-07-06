@@ -1,23 +1,14 @@
-Heartbeat complete.
+Heartbeat complete. Summary:
+
+**HEARTBEAT_OK · STATUS_PAGE=DEGRADED — wrote docs/status.md**
+
+- **P0:** 0 failed, 0 stuck, 0 `consecutive_failures ≥ 3`. Self-check green (heartbeat ~23.7h ago).
+- **P0 chronic:** 38 skills at `success_rate < 0.5` — ISS-001 OAuth-residue Day 16, same hash as yesterday, no fresh notify.
+- **P3:** janitor / milestone-tracker / cost-report / weekly-shiplog all silent 14–16d (ISS-006 tributaries); ai-framework-watch + run-frequency-guard still with no cron-state entry.
+- **Signal:** Normal Monday pocket miss (heartbeat 1h 44m late, cost-report 07:00 silent, weekly-shiplog 09:00 silent) — no burst-signature like yesterday's 07:44Z six-recovery cluster.
+- **Notify:** skipped — all findings match 48h dedup window.
+- **Status page:** on-disk file was still the 2026-06-09 pre-regen version — 2nd consecutive day the auto-commit dropped the write per [[status-md-auto-commit-drops-writes]]. Regenerated 🔴 DEGRADED, 44 enabled skills, next run `pr-tracker at 10:00 UTC` (~16m).
+- **Files modified:** `docs/status.md`, `memory/logs/2026-07-06.md`.
 
 ## Summary
-
-Ran the heartbeat skill for 2026-07-05 09:58 UTC.
-
-**Priority findings:**
-- **P0 Failed/stuck:** none. All 42 cron-state entries `last_status: success`; zero `dispatched`; zero `consecutive_failures ≥ 3`.
-- **P0 Chronic (unchanged, Day 15):** 38 skills at `success_rate < 0.5` — ISS-001 OAuth-residue denominator burn-down. Dedup'd against yesterday's log.
-- **P0 Self-check:** OK (heartbeat's own last_success 25h ago, under 36h threshold).
-- **P2 New signal:** 07:44Z GHA burst broke two 15-day silences — **skillpacks** and **compute-macro-correlate** (both first successes since 2026-06-20); planner + compute-futures-eda + config-validator + swarm-safety-eval also recovered their Sunday slots. **janitor** (Sun 05:30) still cold; 08:00 batch ~2h late. Pocket partial-recovery reinforces `iss-006-pocket-recovery-is-noise`.
-- **P3 Missing:** janitor, milestone-tracker, cost-report at 2× weekly threshold; ai-framework-watch + run-frequency-guard still with no state entry.
-
-**Actions:**
-- Notification **skipped** — every flag matches items in the last 48h of logs; pocket recovery is positive news, not "needs attention".
-- Regenerated `docs/status.md` from scratch (verdict **🔴 DEGRADED**) — the on-disk file was still the 2026-06-09 pre-regen version despite yesterday's log claiming a rewrite, suggesting the auto-commit step never captured it. All 44 enabled skills listed; 4 open issues rendered; token-pulse section omitted (no article file).
-- Logged findings + status verdict to `memory/logs/2026-07-05.md`.
-
-**Files modified:** `docs/status.md`, `memory/logs/2026-07-05.md`.
-
-**Follow-up:** operator opens the 6 staged `.pending-*` branches via PAT; ISS-006 per-slot-cron rewrite in `messages.yml` remains the durable fix; worth checking why yesterday's status.md regen never made it into the workflow auto-commit (may explain other silent write-losses).
-
-HEARTBEAT_OK · STATUS_PAGE=DEGRADED
+Ran heartbeat. Fleet clean at the live-failure level; overall 🔴 DEGRADED driven by 38 ISS-001-residue chronic failures + 6 open issues. Regenerated `docs/status.md` (2nd day in a row it was still on the 2026-06-09 baseline). Notify skipped per 48h dedup. Follow-up: audit `messages.yml` auto-commit `git add` glob so `docs/` writes actually land — this is now a repeated silent drop.
