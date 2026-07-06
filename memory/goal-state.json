@@ -1,66 +1,71 @@
 {
-  "run_at": "2026-07-05T13:00:00Z",
+  "run_at": "2026-07-06T18:33:23Z",
   "goals": {
     "iss-006-fix-replace-messages-yml-cron-with-per-slot": {
       "status": "ON_TRACK",
       "activity_count_14d": 14,
-      "last_activity_date": "2026-07-05"
+      "last_activity_date": "2026-07-06"
     },
     "iss-006-cross-check-gitlawb-fork-messages-yml-delivery": {
       "status": "ON_TRACK",
-      "activity_count_14d": 11,
-      "last_activity_date": "2026-07-05"
-    },
-    "iss-006-followup-manual-workflow-dispatch-of-09-00-slot-skill": {
-      "status": "ON_TRACK",
-      "activity_count_14d": 12,
-      "last_activity_date": "2026-07-05"
+      "activity_count_14d": 14,
+      "last_activity_date": "2026-07-06"
     },
     "reclassify-iss-005-as-permanent-limitation": {
       "status": "ON_TRACK",
-      "activity_count_14d": 14,
+      "activity_count_14d": 11,
       "last_activity_date": "2026-07-05"
     },
     "patch-pr-tracker-skill-fallback-per-gh-search-prs-api-drift": {
       "status": "ON_TRACK",
       "activity_count_14d": 14,
-      "last_activity_date": "2026-07-05"
+      "last_activity_date": "2026-07-06"
     },
-    "add-fourth-pr-tracker-step-5-notify-trigger-for-fresh-bot-prs": {
+    "fix-notify-script-f-flag-bug": {
       "status": "ON_TRACK",
-      "activity_count_14d": 12,
-      "last_activity_date": "2026-07-05"
+      "activity_count_14d": 5,
+      "last_activity_date": "2026-07-06"
+    },
+    "fix-status-md-auto-commit-drop": {
+      "status": "ON_TRACK",
+      "activity_count_14d": 8,
+      "last_activity_date": "2026-07-06"
     },
     "fix-skill-freshness-to-use-git-log-producer-commit-timestamp": {
       "status": "ON_TRACK",
-      "activity_count_14d": 11,
-      "last_activity_date": "2026-07-05"
+      "activity_count_14d": 12,
+      "last_activity_date": "2026-07-06"
     },
     "widen-scenario-sweep-mjs-seed-count-or-tie-robust-mad": {
+      "status": "ON_TRACK",
+      "activity_count_14d": 12,
+      "last_activity_date": "2026-07-06"
+    },
+    "file-generate-skills-json-bugs-as-structured-issues": {
+      "status": "ON_TRACK",
+      "activity_count_14d": 9,
+      "last_activity_date": "2026-07-04"
+    },
+    "investigate-missing-scripts-validate-config-js": {
       "status": "ON_TRACK",
       "activity_count_14d": 13,
       "last_activity_date": "2026-07-05"
     },
-    "file-generate-skills-json-bugs-as-structured-issues": {
-      "status": "ON_TRACK",
-      "activity_count_14d": 10,
-      "last_activity_date": "2026-07-04"
-    },
     "open-queued-branches-via-pat": {
       "status": "BLOCKED",
       "activity_count_14d": 14,
-      "last_activity_date": "2026-07-05",
-      "blocker": "Repo policy: GitHub Actions is not permitted to create or approve PRs; operator PAT still not provisioned. Queue now 7 staged branches (added `fix/workflow-security-audit-2026-07-05` today)."
+      "last_activity_date": "2026-07-06",
+      "blocker": "GitHub Actions is not permitted to create or approve pull requests; operator PAT still not provisioned. Queue holds 7 staged branches."
     },
     "populate-watched-repos-md-or-disable-dependent-skills": {
       "status": "ON_TRACK",
       "activity_count_14d": 14,
-      "last_activity_date": "2026-07-05"
+      "last_activity_date": "2026-07-06"
     },
     "defer-iss-001-close-until-iss-006-resolved": {
       "status": "ON_TRACK",
       "activity_count_14d": 14,
-      "last_activity_date": "2026-07-05"
+      "last_activity_date": "2026-07-06"
     }
   }
 }
