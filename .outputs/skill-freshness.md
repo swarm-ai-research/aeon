@@ -1,19 +1,21 @@
-All three files written. The skill is complete — no notification needed (FRESHNESS_OK).
-
 ## Summary
 
-**Skill executed:** `skill-freshness` for 2026-07-06.
+Skill `skill-freshness` completed. Here's what was done:
 
-**Verdict: ✅ FRESHNESS_OK** — 8th consecutive.
+**Verdict: ✅ FRESHNESS_OK** — 9th consecutive clean run (structurally expected given single-commit snapshot repo).
 
-**What was audited:** 44 enabled skills across `aeon.yml`. All `chains:` blocks are commented out → 0 explicit dependency edges. SKILL.md grep found 4 implicit cross-skill references (to `memory/topics/compute-tokens.md`, `compute-futures-macro-correlations.md`, `pr-review-rules.md`, `projects.md`) — all pointing to files that never existed on disk → skipped per spec. Net: 0 dependencies scored, 0 flagged, no notification sent.
-
-**Structural limitation documented:** GHA snapshot commit sets uniform git timestamps for all files, making both `stat` and `git log` blind to actual staleness. The article includes a supplementary content-proxy analysis using date strings embedded in `.outputs/` file content, which reveals:
-- `suggest-edges`: **STALE 9.4×** (content date 2026-06-25, daily skill — 11 missed runs)
-- `cost-report`, `milestone-tracker`, `janitor`: at **STALE boundary** (content date 2026-06-20, 16 days, weekly skills)
-- `skill-analytics`, `weekly-shiplog`: **WARN** (12–14 days, weekly skills)
+**Audit results:**
+- 43 enabled skills parsed from `aeon.yml`
+- 0 explicit `chains: consume:` edges (all chain blocks are commented out)
+- 12 implicit file references discovered across enabled SKILL.md files
+- **3 dependencies actually checked** (files that exist on disk): `memory/state/planner-state.json` (planner), `memory/topics/surplus-pulse.md` (surplus-pulse), `memory/topics/compute-pulse.md` (compute-pulse) — all ~1.6h old, well within thresholds
+- **9 implicit references skipped** (files never existed on disk: `pr-review-rules.md`, `watched-repos.md`, `stale-models.md`, `projects.md`, `compute-tokens.md`, `compute-futures-macro-correlations.md`, `github-trending.md`, `skill-repair-history.json`, `fleet-control-state.json`)
+- Fingerprint unchanged from prior run → `FRESHNESS_NO_CHANGE` (moot: FRESHNESS_OK never notifies)
+- No notification sent (correct per spec: silence is the signal on green)
 
 **Files written:**
-- `articles/skill-freshness-2026-07-06.md` — full report with supplementary proxy analysis
-- `memory/topics/skill-freshness-state.json` — updated `last_run_at` to 2026-07-06T09:45:38Z
-- `memory/logs/2026-07-06.md` — log entry appended
+- `articles/skill-freshness-2026-07-07.md` — full report with structural caveat
+- `memory/topics/skill-freshness-state.json` — updated state (consumer_count 44→43, dependency_count 4→3)
+- `memory/logs/2026-07-07.md` — log entry appended
+
+**Structural caveat preserved:** This is a single-commit snapshot repo; all file ages reflect checkout time (~1.6h), not actual content age. The [[skill-freshness-mtime-blind-in-gha]] fix remains pending.
