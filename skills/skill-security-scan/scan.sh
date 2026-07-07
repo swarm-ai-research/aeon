@@ -179,6 +179,19 @@ TOTAL_WARN=0
 TOTAL_FAIL=0
 JSON_RESULTS=""
 
+# Grep file for one ERE pattern; print "L<n>: <content> [pattern: <pat>]" lines to stdout.
+_scan_pattern() {
+  local pattern="$1" file="$2"
+  local matches
+  matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
+  [[ -z "$matches" ]] && return 0
+  while IFS= read -r match; do
+    local line_num="${match%%:*}"
+    local line_content="${match#*:}"
+    printf 'L%s: %s [pattern: %s]\n' "$line_num" "${line_content:0:120}" "$pattern"
+  done <<< "$matches"
+}
+
 scan_file() {
   local file="$1"
   local skill_name
@@ -189,53 +202,18 @@ scan_file() {
     return 1
   fi
 
-  local content
-  content=$(cat "$file")
-
   local highs=()
   local mediums=()
   local lows=()
 
-  # Check HIGH patterns
   for pattern in "${HIGH_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"  # truncate
-        highs+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
+    while IFS= read -r finding; do highs+=("$finding"); done < <(_scan_pattern "$pattern" "$file")
   done
-
-  # Check MEDIUM patterns
   for pattern in "${MEDIUM_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        mediums+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
+    while IFS= read -r finding; do mediums+=("$finding"); done < <(_scan_pattern "$pattern" "$file")
   done
-
-  # Check LOW patterns
   for pattern in "${LOW_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        lows+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
+    while IFS= read -r finding; do lows+=("$finding"); done < <(_scan_pattern "$pattern" "$file")
   done
 
   # Determine result
