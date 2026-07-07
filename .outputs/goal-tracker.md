@@ -1,23 +1,23 @@
-*Goal Tracker — 2026-07-06*
+Skill run complete.
 
-Summary: 13 goals — 0 at risk, 0 needs attention, 12 on track, 1 blocked, 0 done (overall → flat)
+## Summary
 
-BLOCKED
-• Open 7 staged branches via PAT — waiting on operator PAT (GitHub Actions cannot create PRs) since 2026-06-20 (→ flat)
-  → Action: Provision operator PAT with `pull_request:write` scope and open the queue
+Ran `goal-tracker` against `memory/MEMORY.md`'s `## Next priorities` section (documented fallback — no `## Goals` heading exists yet).
 
-ON TRACK
-• ISS-006 fix: replace messages.yml */5 with per-slot crons — 0d idle, 14 activity/14d (→ flat)
-• ISS-006 cross-check: gitlawb fork messages.yml delivery rate — 0d idle, 14 activity/14d (→ flat)
-• Reclassify ISS-005 as permanent-limitation — 1d idle, 11 activity/14d (→ flat)
-• Patch pr-tracker SKILL.md (a-e batch) — 0d idle, 14 activity/14d (→ flat)
-• Fix ./notify -f flag bug — 0d idle, 5 activity/14d (new)
-• Fix docs/status.md auto-commit drop — 0d idle, 8 activity/14d (new)
-• Fix skill-freshness to use git log commit timestamp — 0d idle, 12 activity/14d (→ flat)
-• Widen scenario-sweep.mjs seed count / tie-robust MAD — 0d idle, 12 activity/14d (→ flat)
-• File generate-skills-json bugs as issues — 2d idle, 9 activity/14d (→ flat)
-• Investigate missing scripts/validate-config.js — 1d idle, 13 activity/14d (new)
-• Populate memory/watched-repos.md or disable 4 skills — 0d idle, 14 activity/14d (→ flat)
-• Defer ISS-001 close until ISS-006 resolved — 0d idle, 14 activity/14d (→ flat)
+**Result:** 12 goals — 0 at risk, 0 needs attention, 11 on track, 1 blocked, 0 done. Overall trend flat.
 
-Sources: logs=ok, git=degraded(shallow), gh_pr=ok, gh_issue=ok, cron-state=n/a
+**Notable movements vs 2026-07-06T18:33Z snapshot:**
+- ↑ `fix-status-md-auto-commit-drop` improving (8→12 activity, +50%) — hit 3rd consecutive silent-write day
+- ↓ `widen-scenario-sweep-mjs-seed-count` degrading (12→8, -33%)
+- 2 new goals surfaced: `standardize-notification-emission-across-skill-md-files`, `close-iss-007-or-add-same-day-grace-window-to-skill-evals`
+- 2 prior goals dropped by operator's edit (`iss-006-cross-check-gitlawb-fork`, `reclassify-iss-005`) — respected user's list, not re-authored
+- BLOCKED goal (open queued branches via PAT): queue grew 8 → 9 today with `suggest-edges/2026-07-07`
+
+**Files modified:**
+- `memory/goal-state.json` — snapshot advanced, dict rewritten to today's 12-goal list
+- `.pending-notify/1783451017-goal-tracker.md` — notify payload (sandbox blocks direct `./notify` per today's standing pattern)
+- `memory/logs/2026-07-07.md` — appended run entry + summary
+
+**MEMORY.md:** not written — no goal's status changed vs prior run; BLOCKED goal already annotated inline.
+
+**Follow-up:** worth adding a proper `## Goals` heading in MEMORY.md so the tracker doesn't rely on the fallback indefinitely.

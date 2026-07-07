@@ -1,45 +1,40 @@
 {
-  "run_at": "2026-07-06T18:33:23Z",
+  "run_at": "2026-07-07T19:00:30Z",
   "goals": {
     "iss-006-fix-replace-messages-yml-cron-with-per-slot": {
       "status": "ON_TRACK",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-06"
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-07"
     },
-    "iss-006-cross-check-gitlawb-fork-messages-yml-delivery": {
+    "standardize-notification-emission-across-skill-md-files": {
       "status": "ON_TRACK",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-06"
-    },
-    "reclassify-iss-005-as-permanent-limitation": {
-      "status": "ON_TRACK",
-      "activity_count_14d": 11,
-      "last_activity_date": "2026-07-05"
-    },
-    "patch-pr-tracker-skill-fallback-per-gh-search-prs-api-drift": {
-      "status": "ON_TRACK",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-06"
-    },
-    "fix-notify-script-f-flag-bug": {
-      "status": "ON_TRACK",
-      "activity_count_14d": 5,
-      "last_activity_date": "2026-07-06"
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-07"
     },
     "fix-status-md-auto-commit-drop": {
       "status": "ON_TRACK",
-      "activity_count_14d": 8,
+      "activity_count_14d": 12,
+      "last_activity_date": "2026-07-07"
+    },
+    "close-iss-007-or-add-same-day-grace-window-to-skill-evals": {
+      "status": "ON_TRACK",
+      "activity_count_14d": 2,
       "last_activity_date": "2026-07-06"
+    },
+    "patch-pr-tracker-skill-md-in-one-batch": {
+      "status": "ON_TRACK",
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-07"
     },
     "fix-skill-freshness-to-use-git-log-producer-commit-timestamp": {
       "status": "ON_TRACK",
-      "activity_count_14d": 12,
-      "last_activity_date": "2026-07-06"
+      "activity_count_14d": 14,
+      "last_activity_date": "2026-07-07"
     },
     "widen-scenario-sweep-mjs-seed-count-or-tie-robust-mad": {
       "status": "ON_TRACK",
-      "activity_count_14d": 12,
-      "last_activity_date": "2026-07-06"
+      "activity_count_14d": 8,
+      "last_activity_date": "2026-07-07"
     },
     "file-generate-skills-json-bugs-as-structured-issues": {
       "status": "ON_TRACK",
@@ -48,24 +43,24 @@
     },
     "investigate-missing-scripts-validate-config-js": {
       "status": "ON_TRACK",
-      "activity_count_14d": 13,
-      "last_activity_date": "2026-07-05"
+      "activity_count_14d": 14,
+      "last_activity_date": "2026-07-06"
     },
     "open-queued-branches-via-pat": {
       "status": "BLOCKED",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-06",
-      "blocker": "GitHub Actions is not permitted to create or approve pull requests; operator PAT still not provisioned. Queue holds 7 staged branches."
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-07",
+      "blocker": "GitHub Actions is not permitted to create or approve pull requests; operator PAT still not provisioned. Queue holds 9 staged branches (added suggest-edges/2026-07-07 today)."
     },
     "populate-watched-repos-md-or-disable-dependent-skills": {
       "status": "ON_TRACK",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-06"
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-07"
     },
     "defer-iss-001-close-until-iss-006-resolved": {
       "status": "ON_TRACK",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-06"
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-07"
     }
   }
 }
