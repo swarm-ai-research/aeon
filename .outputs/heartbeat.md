@@ -1,14 +1,13 @@
-Heartbeat complete. Summary:
-
-**HEARTBEAT_OK · STATUS_PAGE=DEGRADED — wrote docs/status.md**
-
-- **P0:** 0 failed, 0 stuck, 0 `consecutive_failures ≥ 3`. Self-check green (heartbeat ~23.7h ago).
-- **P0 chronic:** 38 skills at `success_rate < 0.5` — ISS-001 OAuth-residue Day 16, same hash as yesterday, no fresh notify.
-- **P3:** janitor / milestone-tracker / cost-report / weekly-shiplog all silent 14–16d (ISS-006 tributaries); ai-framework-watch + run-frequency-guard still with no cron-state entry.
-- **Signal:** Normal Monday pocket miss (heartbeat 1h 44m late, cost-report 07:00 silent, weekly-shiplog 09:00 silent) — no burst-signature like yesterday's 07:44Z six-recovery cluster.
-- **Notify:** skipped — all findings match 48h dedup window.
-- **Status page:** on-disk file was still the 2026-06-09 pre-regen version — 2nd consecutive day the auto-commit dropped the write per [[status-md-auto-commit-drops-writes]]. Regenerated 🔴 DEGRADED, 44 enabled skills, next run `pr-tracker at 10:00 UTC` (~16m).
-- **Files modified:** `docs/status.md`, `memory/logs/2026-07-06.md`.
+Heartbeat complete. Summary follows.
 
 ## Summary
-Ran heartbeat. Fleet clean at the live-failure level; overall 🔴 DEGRADED driven by 38 ISS-001-residue chronic failures + 6 open issues. Regenerated `docs/status.md` (2nd day in a row it was still on the 2026-06-09 baseline). Notify skipped per 48h dedup. Follow-up: audit `messages.yml` auto-commit `git add` glob so `docs/` writes actually land — this is now a repeated silent drop.
+
+Ran the heartbeat skill for 2026-07-07 08:55 UTC. No fresh P0 alarms — 42 cron-state entries all `last_status: success`, `consecutive_failures: 0`; heartbeat self-check green (~23h since last successful heartbeat). Today's picture is a **normal Tuesday ISS-006 Day 17 pocket-miss** (planner + compute-futures-eda both crossed the 2× daily threshold at 49h silent — new-flag today; stale-content-pr-sweeper at 2.4×; the 3-weekly-at-2× standing set unchanged: janitor/cost-report/memory-structural-dedupe all 17d silent). All findings match log dedup patterns — **no fresh notify sent**.
+
+Files modified:
+- `docs/status.md` — regenerated (Overall 🔴 DEGRADED · Open issues 6 · Next fleet-control at 09:00 UTC · all 44 enabled skills listed). **3rd consecutive day** the on-disk file was still the 2026-06-09 pre-regen version, so the workflow auto-commit dropped the rewrite twice already per [[status-md-auto-commit-drops-writes]].
+- `memory/logs/2026-07-07.md` — appended heartbeat entry with P0–P3 findings + status-page verdict.
+
+Follow-ups (unchanged from yesterday's standing list): operator opens the **9 staged branches** via PAT (added `suggest-edges/2026-07-07` today), ISS-006 per-slot-cron rewrite in `messages.yml`, and the `docs/` include in `messages.yml`'s auto-commit `git add` glob (or an explicit commit inside heartbeat) — the 3-day drop streak on status.md now warrants durable-fix priority tied with ISS-006.
+
+Exit: `HEARTBEAT_OK · STATUS_PAGE=DEGRADED — wrote docs/status.md`.
