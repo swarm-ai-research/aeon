@@ -439,4 +439,79 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. git add -A failure — claude makes changes but `git add -A` exits non-zero.
+//     The executor must return ok:false with "git add failed" as the reason,
+//     clean up the worktree, and delete the ephemeral branch. This exercises
+//     the `if (!addR.ok)` branch in runCodePass that was previously untested.
+{
+  const realGitPath = spawnSync("which", ["git"], { encoding: "utf8" }).stdout.trim() || "/usr/bin/git";
+  // Intercept only `git add -A`; delegate everything else to the real git.
+  // `git worktree add` has $1="worktree", not "add", so it is unaffected.
+  const GIT_ADD_FAIL = `#!/usr/bin/env bash
+if [ "$1" = "add" ] && [ "$2" = "-A" ]; then
+  echo "simulated index write failure" >&2
+  exit 1
+fi
+exec "${realGitPath}" "$@"
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/1"\n`,
+  });
+  writeFileSync(join(env.binDir, "git"), GIT_ADD_FAIL);
+  chmodSync(join(env.binDir, "git"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "addfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git add failed/);
+    // Worktree must be gone and ephemeral branch deleted (cleanup(true) path).
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no stray worktree should remain after git add failure");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain after git add failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git add -A failure → ok:false with 'git add failed', worktree and branch cleaned up");
+}
+
+// 16. git commit failure — claude makes changes, `git add -A` succeeds, but
+//     `git commit` exits non-zero. The executor must return ok:false with
+//     "git commit failed" as the reason, clean up the worktree, and delete
+//     the ephemeral branch. This exercises the `if (!commit.ok)` branch.
+{
+  const realGitPath = spawnSync("which", ["git"], { encoding: "utf8" }).stdout.trim() || "/usr/bin/git";
+  // Intercept only `git commit`; delegate everything else to the real git.
+  const GIT_COMMIT_FAIL = `#!/usr/bin/env bash
+if [ "$1" = "commit" ]; then
+  echo "simulated commit failure" >&2
+  exit 1
+fi
+exec "${realGitPath}" "$@"
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/1"\n`,
+  });
+  writeFileSync(join(env.binDir, "git"), GIT_COMMIT_FAIL);
+  chmodSync(join(env.binDir, "git"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be gone and ephemeral branch deleted (cleanup(true) path).
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no stray worktree should remain after git commit failure");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain after git commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure → ok:false with 'git commit failed', worktree and branch cleaned up");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
