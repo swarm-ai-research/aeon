@@ -439,4 +439,85 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. Non-string headRefName entries (null, number) are filtered out by
+//     openPRsForKind's typeof guard so they don't inflate the backlog count.
+//     Three valid same-kind PRs plus two malformed entries must still fire the gate.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then exit 1; fi\n`,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '[{"headRefName":"aeon/docs-pass-2026-07-01-aaa"},{"headRefName":"aeon/docs-pass-2026-07-01-bbb"},{"headRefName":"aeon/docs-pass-2026-07-01-ccc"},{"headRefName":null},{"headRefName":42}]'; exit 0; fi\necho "https://github.com/stub/repo/pull/42"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "malformed-pr" })
+    );
+    assert.equal(result.ok, true, `expected ok=true gate skip, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, null, "gate should fire: 3 valid docs-pass PRs exist");
+    assert.match(result.summary, /skipped/i);
+    // gh should only have been called for the list, never for create
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /pr list/);
+    assert.doesNotMatch(ghLog, /pr create/);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  non-string headRefName entries (null/number) are ignored by backlog gate");
+}
+
+// 16. shortTaskId fallback — a taskId composed entirely of non-alphanumeric
+//     characters (e.g. "---") must produce "x", not an empty string, so the
+//     branch name never ends with a trailing dash.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/42"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "---" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/42");
+    // Branch name must end with "-x" (shortTaskId fallback), never a bare trailing dash
+    assert.match(result.branch, /^aeon\/docs-pass-\d{4}-\d{2}-\d{2}-x$/,
+      `expected branch to end in '-x', got: ${result.branch}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  shortTaskId fallback — all-special-char taskId yields 'x', not empty string");
+}
+
+// 17. Custom model parameter flows through to the claude invocation.
+//     Verifies the --model flag reaches the claude CLI unchanged.
+{
+  const capWork = mkdtempSync(join(tmpdir(), "code-pass-model-cap-"));
+  const argsCapturePath = join(capWork, "args.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+echo "$@" >> "$CLAUDE_ARGS_CAPTURE"
+cat > /dev/null
+echo "nothing worth changing here"
+`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_ARGS_CAPTURE;
+  process.env.CLAUDE_ARGS_CAPTURE = argsCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "model-test", model: "claude-opus-4-8" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    const capturedArgs = readFileSync(argsCapturePath, "utf8");
+    assert.match(capturedArgs, /--model claude-opus-4-8/,
+      `expected --model claude-opus-4-8 in claude args, got: ${capturedArgs.slice(0, 200)}`);
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_ARGS_CAPTURE;
+    else process.env.CLAUDE_ARGS_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(capWork, { recursive: true, force: true });
+  }
+  console.log("OK  custom model parameter flows through to claude invocation");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
