@@ -2,10 +2,7 @@
 
 ## Summary
 
-Ran `skills/issue-triage/SKILL.md` with empty `${var}`. Per §Config, when `${var}` is empty **and** `memory/watched-repos.md` is absent, the skill logs `ISSUE_TRIAGE_OK no-watched-repos` and exits without notify or state writes.
+Ran the issue-triage skill. `${var}` was empty and `memory/watched-repos.md` is missing, which is the skill's defined exit condition (§Config: "If the file is missing and `${var}` is empty, log `ISSUE_TRIAGE_OK no-watched-repos` and exit"). No repos triaged, no API calls, no writes to `memory/triaged-issues.json`, no notify (§9: nothing actionable).
 
-- **Repos targeted:** none
-- **Triaged:** 0
-- **Notify:** suppressed (routine no-op — MEMORY.md already flags this as a known state: "Populate `memory/watched-repos.md` or disable the four watched-repos-dependent skills…")
-- **Files modified:** `memory/logs/2026-07-06.md` (appended `## issue-triage` section)
-- **Follow-up:** unchanged — operator decision on populating watched-repos vs. disabling issue-triage/code-health/github-monitor/changelog remains pending in "Next priorities".
+- **Files modified:** `memory/logs/2026-07-08.md` (log entry appended)
+- **Follow-up:** populating `memory/watched-repos.md` remains a standing next-priority — yesterday's memory-flush already flagged that 5 skills daily-skip on this same missing-file signal.
