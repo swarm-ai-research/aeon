@@ -439,4 +439,61 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. git commit failure — a pre-commit hook rejects the commit. cleanup(true)
+//     fires: worktree removed and ephemeral branch deleted (nothing to keep,
+//     nothing was pushed). git add succeeded so the interesting assertion is
+//     that the failing commit branch, not the add branch, was taken.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/15"\n`,
+  });
+  // Worktrees share hooks from the main repo's .git directory (commondir).
+  // Installing a failing pre-commit hook here makes git commit fail inside
+  // the ephemeral worktree that runCodePass creates.
+  const hooksDir = join(env.localDir, ".git", "hooks");
+  mkdirSync(hooksDir, { recursive: true });
+  const hookPath = join(hooksDir, "pre-commit");
+  writeFileSync(hookPath, "#!/bin/sh\necho 'blocked by pre-commit hook' >&2\nexit 1\n");
+  chmodSync(hookPath, 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // cleanup(true): worktree removed and ephemeral branch deleted.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no stray worktree should remain after commit failure");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "ephemeral branch should be deleted after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, worktree and branch cleaned up");
+}
+
+// 16. Below-limit backlog — when open same-kind PRs are fewer than BACKLOG_LIMIT
+//     (2 open vs. default limit of 3), the gate must NOT fire and the run must
+//     produce a PR normally. Tests the `backlog < BACKLOG_LIMIT` branch.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '[{"headRefName":"aeon/docs-pass-2026-06-06-aaa"},{"headRefName":"aeon/docs-pass-2026-06-06-bbb"}]'; exit 0; fi\necho "https://github.com/stub/repo/pull/16"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "belowlimit" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when backlog is below limit, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/16", "PR should be created when below the backlog limit");
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /pr list/, "gh pr list must have been called (backlog check)");
+    assert.match(ghLog, /pr create/, "gh pr create must have been called (run was not gated)");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  below-limit backlog (2/3 same-kind PRs open) → gate does not fire, PR created");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
