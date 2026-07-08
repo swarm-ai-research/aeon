@@ -1,19 +1,21 @@
-*Skill Analytics — 2026-06-24*
-5 scheduled skill(s) didn't run this window — agi-tracker
+## Summary
 
-Window: last 7d · 862 runs · 39 skills · 13.0% success
-Anomalies: 43
+Skill analytics for the last 7 days (2026-07-01 → 2026-07-08) is complete.
 
-🔴 Critical:
-- agi-tracker — SILENT: Mon 13:00 UTC, zero runs (2nd consecutive Mon miss)
-- config-validator — SILENT: Sun 07:00 UTC, zero runs (ISS-006 window)
-- swarm-safety-eval — SILENT: Sun 07:30 UTC, zero runs (ISS-006 window)
-- ai-framework-watch — SILENT: Mon 08:30 UTC, zero runs
-- run-frequency-guard — SILENT: daily 23:00 UTC, never dispatched since enable
+**Findings:**
+- **136 runs** across **39 active skills**, **100.0% success** rate (0 failures in the window)
+- **4 anomalies — all 🔴 SILENT** (enabled cron skills with zero runs):
+  1. `janitor` — Sun 05:30 UTC slot; last success 2026-06-20 (~18d); ISS-006 tributary
+  2. `run-frequency-guard` — daily 23:00 UTC; no cron-state entry (never dispatched)
+  3. `ai-framework-watch` — Mon 08:30 UTC; 3rd consecutive Monday non-arm; no cron-state entry
+  4. `cost-report` — Mon 07:00 UTC; ISS-008; 3rd consecutive Monday miss
 
-🟠 Degraded:
-- All 38 active skills: LOW_SUCCESS (<13% fleet average) — ISS-001 OAuth outage residue; all show last_status:success + consecutive_failures:0; rates recover over ~3–4 weeks
+**Top runners:** pr-review (12), code-health/goal-tracker/reflect/skill-health/surplus-pulse (7 each)
 
-Top by runs: pr-review (28), goal-tracker (26), reflect (26)
+**Exit taxonomy** (best-effort, 4 of 8 log files scanned): ok ~68%, uncategorized ~27% (structural-quiet: FLEET_EMPTY, GLMETRICS_EMPTY, NOTEGRAPH_NO_CHANGE — not failures), error ~3% (pr-triage cross-org 403 dispatch), new_info 1% (workflow-security-audit).
 
-Full: articles/skill-analytics-2026-06-24.md
+**Outputs written:**
+- `articles/skill-analytics-2026-07-08.md`
+- `dashboard/outputs/skill-analytics.json` (overwritten)
+- `.pending-notify/1783540000-skill-analytics.md` (notification queued for post-run delivery — direct write per sandbox constraint)
+- `memory/logs/2026-07-08.md` (log entry appended)
