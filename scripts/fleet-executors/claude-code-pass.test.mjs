@@ -439,4 +439,75 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. gh pr list returns unparseable JSON → catch branch in openPRsForKind →
+//     null backlog → gate is skipped → pass proceeds.
+//     This is distinct from test 12 (valid JSON that isn't an array): here
+//     JSON.parse itself throws, exercising the `catch { return null }` branch.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo 'not json { at all'; exit 0; fi\necho "https://github.com/stub/repo/pull/101"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "badjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns malformed JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/101");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list returns malformed JSON → catch branch returns null → pass proceeds");
+}
+
+// 16. Backlog count below the limit — 2 open same-kind PRs with the default
+//     limit of 3.  The gate condition is `backlog >= BACKLOG_LIMIT`, so 2 < 3
+//     must not trigger it.  Exercises the "some open PRs but still under cap"
+//     branch that sits between the 0-PR and at-limit cases.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '[{"headRefName":"aeon/docs-pass-2026-06-06-aaa"},{"headRefName":"aeon/docs-pass-2026-06-06-bbb"}]'; exit 0; fi\necho "https://github.com/stub/repo/pull/102"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "belowlimit" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when backlog (2) is below limit (3), got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/102");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  backlog below limit (2 < 3) → gate does not fire → pass proceeds");
+}
+
+// 17. test-pass kind — validate that KIND_CONFIG has a correct entry for
+//     "test-pass" (label + promptFocus) so the kind is recognized and the
+//     prompt reaching claude references it.
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-test-kind-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/103"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "testkind" })
+    );
+    assert.equal(result.ok, true, `expected ok=true for test-pass kind, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, null, "no-op run should return prUrl:null");
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /Test pass/, "prompt should reference the Test pass label");
+    assert.match(captured, /uncovered branch|missing edge case/i, "prompt should mention uncovered branch or edge case");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  test-pass kind is recognized and produces the correct prompt label");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
