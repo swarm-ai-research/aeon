@@ -1,3 +1,7 @@
 ## Summary
 
-Silent skip: `memory/watched-repos.md` doesn't exist, so per SKILL.md's "create it or skip this skill" fallback and MEMORY.md's standing next-priorities line (which names code-health as one of five watched-repos-dependent skills to skip pending populate-or-disable), no repos were audited, no article written to `articles/code-health-2026-07-07.md`, no notify sent. Files modified: `memory/logs/2026-07-07.md` (skip entry). Follow-up: same standing item — populate `memory/watched-repos.md` or disable code-health / github-monitor / issue-triage / changelog / weekly-shiplog in `aeon.yml`.
+**code-health skipped** — `${var}` is empty and `memory/watched-repos.md` does not exist, so per SKILL.md §Config the run exits with `CODE_HEALTH_OK no-watched-repos`. No clones, scans, article, or notify. This is one of the five watched-repos-dependent skills that daily-skip on the same missing file (flagged in MEMORY.md Next priorities as a standing operator action).
+
+Files modified: `memory/logs/2026-07-08.md` (skip entry only).
+
+Follow-up: populate `memory/watched-repos.md` with `owner/repo` lines to activate the skill — remains an open item in MEMORY.md.
