@@ -1,2 +1,2 @@
-*Compute-Futures EDA — 2026-07-05*
-144 rows, 4 modes. Top: 12-seed IQR jitter continues — basket wallet_sum_pnl 16.67% (float dust, max 6.4e−14) + synthetic/x402 minCurve 16.67% flip in as yesterday's settlementLegs 16.67% flips out. Conservation: basket OK / spread OK / synthetic OK / x402 OK (all ≥15 orders of magnitude below drift gate). No within-mode |r|≥0.8; spread top pair rotated realizedAbs×minSpot −0.745 → minSpot×maxCurve +0.682 — yesterday's watch void. Report: memory/topics/compute-futures-eda/2026-07-05.md
+*Compute-Futures EDA — 2026-07-07*
+144 rows, 4 modes. Top: spread realizedAbs×wallet_sum_pnl r=-0.752 (near 0.8 gate but float-dust artifact, not P&L structure). Conservation: OK all modes. Basket maxCurve + synthetic/x402 maxCurve outlier_pct rotated to 16.67% (12-seed noise, not regime change). Report: memory/topics/compute-futures-eda/2026-07-07.md
