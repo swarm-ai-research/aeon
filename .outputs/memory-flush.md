@@ -1,18 +1,17 @@
-MEMORY.md at 45 lines (well under the ~50-line cap).
+Memory-flush pass complete.
 
 ## Summary
 
-Ran `memory-flush`. Primary new fact promoted: **memory-flush's own recovery** at 06:02Z broke the 14-day even-day pocket silence (last_success prior was 2026-06-20T06:07Z), making today ISS-006 Day 14 and the 5th consecutive pocket-swap day.
+Ran memory-flush at 2026-07-08 06:26 UTC (26m into the every-other-DOM 06:00 slot). Nothing net-new to promote — today's log has only the steady-state sweeper no-op, and yesterday's durable claims (notegraph timestamp non-determinism, notify sandbox-block invalidation) were already promoted by 2026-07-07 reflect.
 
-**Contradictions resolved** (newest wins):
-- `MEMORY.md:6` Day 13 → Day 14; memory-flush silent → recovered; Fourth → Fifth consecutive pocket-swap day.
-- `MEMORY.md:11` Agent-Reach#436 "crosses 7d tonight 19:24Z" (future) → "crossed 7d at 19:24Z 2026-07-03" (past).
-- `MEMORY.md:33` ISS-006 fix Day-10 → Day-13 (4 days) → Day-10 → Day-14 (5 days).
-- `memory/topics/fleet-ops.md:7` same Day 13 → Day 14 flip + memory-flush recovery.
+**Contradictions resolved in MEMORY.md** (newest log-grounded fact wins, stale value deleted in same edit):
+1. ISS-006 day counter `17 → 18` (both Current-focus and ISS-001 lines).
+2. Removed `stale-content-pr-sweeper` from the 2× threshold list — it late-fired at 2026-07-08T00:14:46Z per cron-state + today's sweeper log (6 → 5 skills).
+3. Bumped threshold multipliers for remaining 5 skills to reflect one more day of silence (cost-report/janitor 2.6×, planner/compute-futures-eda 3×, memory-structural-dedupe ~9×).
+4. Reframed pocket signature from "normal Tuesday odd-DOM 2-missing" to "Wed even-DOM partial-delivery so far" — memory-flush itself delivered, planner/compute-futures-eda still silent at 06:26Z, batch-health/heartbeat 08:00 verdict TBD.
 
-**Decayed / removed:**
-- `MEMORY.md` `## Completed Goals` section (1 stale entry — agi-tracker Mon-miss conditional, resolved 2026-06-29, no future signal value).
+**Recall-readiness / timing:** datestamped 4 lines that used "today" or implicit anchors so staleness is self-evident next pass ("PR queue material change (2026-07-07)", "New durable claims (2026-07-07)", "as of 2026-07-07 heartbeat run", "2026-07-07 run produced topology-identical output").
 
-**No new atomic notes** — today's recovery is reinforcement of `[[iss-006-pocket-recovery-is-noise]]`, not a durable new claim.
+**Decay:** no Open Improvement PRs section to trim (`gh pr list --search "improve:"` returned `[]`); Next Priorities all still open with recent-log evidence; no Lessons Learned / Skills Built table sections in MEMORY.md.
 
-Files modified: `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `memory/logs/2026-07-04.md`. Follow-up: memory-structural-dedupe (06:10 slot) is the next signal for whether the even-day pocket recovery holds.
+**Files modified:** `memory/MEMORY.md` (4 targeted edits), `memory/logs/2026-07-08.md` (log entry). Follow-up: same standing durable-fix queue — ISS-006 per-slot-cron rewrite in `messages.yml`, `docs/status.md` auto-commit fix, notify-emission standardization, 9-branch PAT queue.
