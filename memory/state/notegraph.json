@@ -1,19 +1,19 @@
 {
-  "input_fingerprint": "55dfcf937ef9cca5afeeb4d953e42c2a150ee284",
-  "last_run": "2026-07-07",
+  "input_fingerprint": "027c195b4a5be3403e977d3b5355b5ea515279fa",
+  "last_run": "2026-07-08",
   "stats": {
-    "nodes": 128,
-    "edges": 1163,
-    "hard": 823,
-    "soft": 340,
+    "nodes": 130,
+    "edges": 1184,
+    "hard": 842,
+    "soft": 342,
     "orphans": 1,
-    "atomic": 36,
+    "atomic": 37,
     "bundled": 0
   },
-  "last_verdict": "no meaningful change (128n/1163e stable)",
+  "last_verdict": "graph refreshed (130n / 1184e / 0b) — stats identical to HEAD",
   "last_pr": "",
   "last_branch": "notegraph/2026-07-06",
   "branch_url": "https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-07-06",
   "pr_creation_blocked": "GitHub Actions is not permitted to create or approve pull requests",
-  "note": "2026-07-07: fingerprint drifted (a tracked .md was touched) but extractor output stable — reverted timestamp-only churn, no PR, no notify. Yesterday's notegraph/2026-07-06 branch remains queued for operator open."
+  "note": "2026-07-08: fingerprint drifted vs prior day but extractor topology stable — same story as [[notegraph-extractor-generatedat-nondeterministic]]. Δ vs HEAD: 0 nodes, 0 edges, 0 orphans, 0 bundled; only diff is `generatedAt` timestamp + a handful of sub-0.001 weight roundings and one soft-edge tie-break swap. Reverted the 4 output files via `git checkout --`, no PR, no notify. Stats block realigned to HEAD (yesterday's state file was stale from 2026-07-06 pre-reflect run). Fingerprint algorithm: node re-implementation of the SKILL.md shell recipe (identical byte-for-byte pipeline); computed hash won't match the shell-computed one from prior days even on stable input — that's why the fingerprint gate keeps missing. Operator todo: reconcile hash source-of-truth or trust the topology check instead."
 }
