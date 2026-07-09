@@ -1,6 +1,7 @@
 ## Summary
 
-Ran `skills/github-monitor/SKILL.md`. Per the skill's Config step, `memory/watched-repos.md` is absent, so the skill logs `GITHUB_MONITOR_EMPTY_CONFIG` and exits without collecting, classifying, or notifying. This matches the daily skip pattern already tracked in MEMORY.md's Next priorities (populate `watched-repos.md` to unblock 5 skills).
+Ran `github-monitor` per `skills/github-monitor/SKILL.md`. Config check failed the guard on step 0: `memory/watched-repos.md` is missing, so per spec I logged `GITHUB_MONITOR_EMPTY_CONFIG` and ended. No `gh` calls issued, no tiers computed, no notification sent (silence is the correct signal per the skill's empty-config path).
 
-- **Files modified:** `memory/logs/2026-07-08.md` (appended `### github-monitor` entry + summary)
-- **Follow-up:** operator to populate `memory/watched-repos.md` with `owner/repo` lines to activate the skill.
+**Modified:** `memory/logs/2026-07-09.md` — appended `### github-monitor` block with the empty-config marker and a pointer to the standing operator todo in MEMORY.md (`populate memory/watched-repos.md or disable the five watched-repos-dependent skills`).
+
+**Follow-up (already tracked, not new):** MEMORY.md next-priorities line for populating watched-repos.md — this is the daily skip pattern, not a new problem.
