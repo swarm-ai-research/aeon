@@ -1,10 +1,8 @@
+Fleet Control ran in Health Check Mode. Registry `memory/instances.json` is empty (`{"instances": []}`), which is pre-flight step 1's silent-stop path — logged `FLEET_EMPTY: no managed instances` to `memory/logs/2026-07-09.md` and did not notify.
+
 ## Summary
-
-Executed `skills/fleet-control/SKILL.md` in Health Check mode (empty `var`).
-
-**Outcome:** `FLEET_EMPTY` — `memory/instances.json` contains `{"instances": []}`, so the pre-flight step 1 short-circuit fired: logged the empty-registry status and stopped silently. No `gh` calls, no state file created, no notification sent (per spec: "Stop. Do NOT notify.").
-
-**Files modified:**
-- `memory/logs/2026-07-08.md` — appended `## fleet-control (health check)` entry + summary.
-
-**Follow-up:** None. This is the expected no-op path until an operator registers managed Aeon instances in `memory/instances.json`.
+- **Mode:** Health Check (default — `var` empty).
+- **Outcome:** `FLEET_EMPTY` — registry contains zero managed instances.
+- **Action:** Logged to `memory/logs/2026-07-09.md`. No notification per skill semantics (silent stop when fleet is empty).
+- **Files modified:** `memory/logs/2026-07-09.md` (appended a fleet-control section).
+- **Follow-up:** None. Fleet Control will remain a no-op until an entry is added to `memory/instances.json`.
