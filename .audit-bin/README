@@ -1,0 +1,30 @@
+# .audit-bin — pre-cached security scanner binaries
+
+Pre-fetched binaries committed to the repo so the `workflow-security-audit` skill can
+run without hitting the network. GitHub Actions sandboxes sometimes block outbound
+connections from `run:` steps, making `pipx install` and `curl | bash` unreliable.
+
+| File | Tool | Version | Platform |
+|------|------|---------|----------|
+| `zizmor` | zizmor (Trail of Bits GH Actions auditor) | v1.25.2 | linux/amd64 |
+| `actionlint` | actionlint (Rhymond workflow linter) | v1.7.12 | linux/amd64 |
+| `actionlint.tar.gz` | actionlint (tarball, same binary) | v1.7.12 | linux/amd64 |
+
+The skill adds `.audit-bin/` to `PATH` before falling back to `pipx install zizmor`
+or the actionlint download script.
+
+## Updating
+
+Replace binaries when bumping versions; also update `ZIZMOR_VERSION` in
+`skills/workflow-security-audit/SKILL.md` when updating zizmor.
+
+```bash
+# zizmor — download musl binary from zizmorcore/zizmor releases
+curl -L https://github.com/zizmorcore/zizmor/releases/download/v<VER>/zizmor-x86_64-unknown-linux-musl.tar.gz \
+  | tar -xz zizmor && chmod +x zizmor && mv zizmor .audit-bin/
+
+# actionlint — use the official installer, then archive it
+curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash | bash
+mv actionlint .audit-bin/
+tar -czf .audit-bin/actionlint.tar.gz -C .audit-bin actionlint
+```
