@@ -1,18 +1,10 @@
-Task is trivial (empty PR list) — no task tracker needed.
-
 ## Summary
 
-Ran **stale-content-pr-sweeper** for 2026-07-08.
+Ran `stale-content-pr-sweeper` per skills/stale-content-pr-sweeper/SKILL.md.
 
-**Result:** No-op — steady state.
-
-- **Open PRs scanned:** 0 (`gh pr list --state open --limit 100` returned `[]`)
-- **Groups checked:** 0
-- **PRs closed:** 0
-- **Skips:** 0 across every bucket (clean/too-recent/`[keep]`)
-- **Notify:** did not fire (per skill spec, `n_closed === 0` is silent steady state)
-
-**Files modified:**
-- `memory/logs/2026-07-08.md` — appended "Stale Content PR Sweeper" section with `SWEEPER_OK`.
-
-**Context note:** The 9 staged branches tracked in `MEMORY.md` (including `notegraph/2026-07-06`, `suggest-edges/2026-07-07`) never became PRs — they're blocked by the "GitHub Actions is not permitted to create or approve pull requests" perms issue per [[github-actions-cannot-create-prs]]. The sweeper only operates on open PRs, so there's nothing to sweep until the PAT unblock lands. No follow-up needed for this skill.
+- **`gh pr list --state open --limit 100`** returned `[]` — zero open PRs across the entire repo, including all 10 tracked content-skill prefixes.
+- **Groups scanned:** 0. **PRs closed:** 0. **Skips:** 0 across all three categories (clean-mergeable / too-recent / `[keep]` override).
+- **No `./notify` fired** — SKILL.md step 6 gates notify on `n_closed > 0`; steady state stays silent.
+- **Context:** MEMORY.md lists 9 staged auto-content branches (`notegraph/2026-07-06`, `suggest-edges/2026-07-07`, `changelog/…`, etc.) that never became PRs — blocked by the "GitHub Actions is not permitted to create or approve pull requests" org policy per `[[github-actions-cannot-create-prs]]`. The sweeper operates on PRs, not branches, so those are correctly out of scope.
+- **Files modified:** `memory/logs/2026-07-09.md` (log entry appended, `SWEEPER_OK`).
+- **Follow-up:** none from the sweeper itself. Once the operator's PAT lands and staged branches convert to PRs, the sweeper will start doing real work.
