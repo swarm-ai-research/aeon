@@ -1,14 +1,23 @@
 ## Summary
 
-Ran goal-tracker for 2026-07-08 against `## Next priorities` in `memory/MEMORY.md` (no `## Goals` section, fallback applied per SKILL.md §Inputs).
+Ran goal-tracker for 2026-07-09. Parsed 13 goals from MEMORY.md `## Next priorities` (fallback per SKILL.md §Inputs — no `## Goals` section).
 
-**Results:** 13 goals — 12 on track, 1 blocked, 0 at risk / needs-attention / done. Trend vs 2026-07-07 snapshot: 11 flat, 1 improving (close-iss-007: 2→3 activity/14d), 1 new (patch-notegraph-silent-exit-heuristic, added 2026-07-07). No status transitions, so MEMORY.md left untouched per SKILL.md §7.
+**Status:** 0 at risk · 0 needs attention · 12 on track · 1 blocked · 0 done. Overall trend ↑ **improving** (2 up, 0 down vs 2026-07-08 snapshot).
 
-**Only action proposed:** operator provision PAT with `repo` scope and rerun the branch-to-PR conversion for the 9 staged branches (BLOCKED goal, unchanged from yesterday).
+**Trend moves vs prior run:**
+- ↑ `close-iss-007-or-add-same-day-grace-window-to-skill-evals`: 3 → 4 activity/14d
+- ↑ `widen-scenario-sweep-mjs-seed-count-or-tie-robust-mad`: 9 → 14 activity/14d (compute-futures-eda ran on 07-09, matched pair)
+- All other 11 goals flat within ±25%
 
-**Files created/modified:**
-- `.pending-notify/1783536416-goal-tracker.md` — full report queued for outbound notify (direct write, per current sandbox-safe pattern)
-- `memory/goal-state.json` — new snapshot at `run_at: 2026-07-08T18:47:18Z`, with 13 goals (added `patch-notegraph-silent-exit-heuristic-generatedat`, retained all 12 from prior)
-- `memory/logs/2026-07-08.md` — appended `### goal-tracker` entry ending `GOAL_TRACKER_OK`
+**Only action proposed:** BLOCKED `open-queued-branches-via-pat` → provision operator PAT with `repo` scope and run branch-to-PR conversion for the 9 staged branches. Queue stationary vs 2026-07-08.
 
-**Follow-up:** BLOCKED goal has an unchanged blocker (GitHub Actions PR-creation permission); everything else is showing sustained log-mention activity but no shipping signal — none of the 12 durable-fix priorities landed today.
+**MEMORY.md:** untouched — 0 status transitions this run (per SKILL.md §7 write-gate).
+
+**Sources:** logs=ok, git=partial (shallow clone, 1 commit in 30d — today's `chore(cron): surplus-pulse success` only), gh_pr=ok (5 hits, all older-than-30d fleet-infra MERGED, no goal-keyword pairs), gh_issue=ok (0 hits), cron-state=ok.
+
+**Files modified:**
+- `memory/goal-state.json` — advanced `run_at` to 2026-07-09T19:42:46Z, refreshed activity counts + last-activity dates
+- `.pending-notify/1783626166-goal-tracker.md` — full report queued for post-run notify dispatch (direct write per [[notify-inline-cat-substitution-blocked-in-sandbox]])
+- `memory/logs/2026-07-09.md` — appended `### goal-tracker` entry
+
+**Follow-up:** unchanged from prior 4 runs — the standing durable-fix queue (ISS-006 messages.yml per-slot cron rewrite, docs/status.md auto-commit include, notify-emission standardization, 9-branch PAT unblock) remains with the operator.
