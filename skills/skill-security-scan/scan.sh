@@ -172,6 +172,23 @@ LOW_PATTERNS=(
   '>[[:space:]]+/'
 )
 
+# ---------- Helpers ----------
+
+# Emit one finding line per stdout for each pattern that matches the file.
+collect_matches() {
+  local file="$1"; shift
+  local pattern matches
+  for pattern in "$@"; do
+    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
+    [[ -z "$matches" ]] && continue
+    while IFS= read -r match; do
+      local line_num="${match%%:*}" line_content="${match#*:}"
+      line_content="${line_content:0:120}"
+      echo "L${line_num}: ${line_content} [pattern: ${pattern}]"
+    done <<< "$matches"
+  done
+}
+
 # ---------- Scanner ----------
 
 TOTAL_PASS=0
@@ -189,54 +206,13 @@ scan_file() {
     return 1
   fi
 
-  local content
-  content=$(cat "$file")
-
   local highs=()
   local mediums=()
   local lows=()
 
-  # Check HIGH patterns
-  for pattern in "${HIGH_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"  # truncate
-        highs+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
-
-  # Check MEDIUM patterns
-  for pattern in "${MEDIUM_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        mediums+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
-
-  # Check LOW patterns
-  for pattern in "${LOW_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        lows+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  while IFS= read -r line; do highs+=("$line");   done < <(collect_matches "$file" "${HIGH_PATTERNS[@]}")
+  while IFS= read -r line; do mediums+=("$line"); done < <(collect_matches "$file" "${MEDIUM_PATTERNS[@]}")
+  while IFS= read -r line; do lows+=("$line");    done < <(collect_matches "$file" "${LOW_PATTERNS[@]}")
 
   # Determine result
   local status="PASS"
