@@ -1,3 +1,6 @@
+"""Apply severity mapping and SHA-16 fingerprinting to .audit/parsed.json findings
+and write the classified result to .audit/classified.json."""
+
 import json
 import hashlib
 import os

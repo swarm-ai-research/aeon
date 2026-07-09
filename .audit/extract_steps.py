@@ -1,3 +1,7 @@
+"""Resolve workflow step names for each finding by scanning the source YAML by line number,
+then re-fingerprint using step name (more stable than line number across edits).
+Reads .audit/parsed.json and overwrites .audit/classified.json."""
+
 import json
 import re
 import os

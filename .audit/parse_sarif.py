@@ -1,3 +1,6 @@
+"""Parse a zizmor SARIF output file (.audit/zizmor.sarif) into a flat list of findings
+and write the result to .audit/parsed.json for downstream classification scripts."""
+
 import json
 import hashlib
 from collections import Counter
