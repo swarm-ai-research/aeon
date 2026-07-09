@@ -2,7 +2,10 @@
 
 ## Summary
 
-Ran the issue-triage skill. `${var}` was empty and `memory/watched-repos.md` is missing, which is the skill's defined exit condition (§Config: "If the file is missing and `${var}` is empty, log `ISSUE_TRIAGE_OK no-watched-repos` and exit"). No repos triaged, no API calls, no writes to `memory/triaged-issues.json`, no notify (§9: nothing actionable).
-
-- **Files modified:** `memory/logs/2026-07-08.md` (log entry appended)
-- **Follow-up:** populating `memory/watched-repos.md` remains a standing next-priority — yesterday's memory-flush already flagged that 5 skills daily-skip on this same missing-file signal.
+- **Skill executed:** `skills/issue-triage/SKILL.md`
+- **Var:** empty → intended to triage all watched repos
+- **Config gate:** `memory/watched-repos.md` is absent AND `${var}` is empty → per §Config, exit early with `ISSUE_TRIAGE_OK no-watched-repos`
+- **Actions taken:** none (no repos, no fetches, no writes)
+- **Files modified:** appended `issue-triage` entry to `memory/logs/2026-07-09.md`
+- **Notification:** none (nothing actionable)
+- **Follow-up:** already tracked in MEMORY.md "Next priorities" — either populate `memory/watched-repos.md` or disable the five watched-repos-dependent skills (issue-triage, code-health, github-monitor, changelog, weekly-shiplog) to stop wasting daily workflow slots.
