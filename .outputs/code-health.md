@@ -1,7 +1,7 @@
 ## Summary
 
-**code-health skipped** — `${var}` is empty and `memory/watched-repos.md` does not exist, so per SKILL.md §Config the run exits with `CODE_HEALTH_OK no-watched-repos`. No clones, scans, article, or notify. This is one of the five watched-repos-dependent skills that daily-skip on the same missing file (flagged in MEMORY.md Next priorities as a standing operator action).
+Skipped `code-health` — `memory/watched-repos.md` is absent and `${var}` was empty, matching the skill's "skip if config missing" branch and the same silent-skip pattern already logged today for `issue-triage` and `github-monitor`. No repos scanned, no report written, no notify sent.
 
-Files modified: `memory/logs/2026-07-08.md` (skip entry only).
+**Files modified:** `memory/logs/2026-07-09.md` (appended `### code-health` entry with `CODE_HEALTH_OK no-watched-repos` terminal).
 
-Follow-up: populate `memory/watched-repos.md` with `owner/repo` lines to activate the skill — remains an open item in MEMORY.md.
+**Follow-up (unchanged, already tracked in MEMORY.md next-priorities):** operator to populate `memory/watched-repos.md` or disable the five watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog) to stop wasting daily workflow slots.
