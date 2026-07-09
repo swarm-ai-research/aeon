@@ -107,12 +107,9 @@ INFERRED_PATTERNS=()
 
 for skill in "${ALL_SKILLS[@]}"; do
   is_covered=false
-  for cs in $COVERED_SKILLS; do
-    if [ "$skill" = "$cs" ]; then
-      is_covered=true
-      break
-    fi
-  done
+  if echo "$COVERED_SKILLS" | grep -qxF "$skill"; then
+    is_covered=true
+  fi
 
   enabled="${SKILL_ENABLED[$skill]:-}"
 
