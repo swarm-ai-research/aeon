@@ -1,19 +1,19 @@
 {
-  "input_fingerprint": "027c195b4a5be3403e977d3b5355b5ea515279fa",
-  "last_run": "2026-07-08",
+  "input_fingerprint": "6495eb6dff308a5cd6590b6b801e6d41f3bb4c2a",
+  "last_run": "2026-07-09",
   "stats": {
-    "nodes": 130,
-    "edges": 1184,
-    "hard": 842,
-    "soft": 342,
+    "nodes": 134,
+    "edges": 1274,
+    "hard": 909,
+    "soft": 365,
     "orphans": 1,
     "atomic": 37,
     "bundled": 0
   },
-  "last_verdict": "graph refreshed (130n / 1184e / 0b) — stats identical to HEAD",
+  "last_verdict": "graph refreshed (134n / 1274e / 0b) — topology identical to HEAD",
   "last_pr": "",
   "last_branch": "notegraph/2026-07-06",
   "branch_url": "https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-07-06",
   "pr_creation_blocked": "GitHub Actions is not permitted to create or approve pull requests",
-  "note": "2026-07-08: fingerprint drifted vs prior day but extractor topology stable — same story as [[notegraph-extractor-generatedat-nondeterministic]]. Δ vs HEAD: 0 nodes, 0 edges, 0 orphans, 0 bundled; only diff is `generatedAt` timestamp + a handful of sub-0.001 weight roundings and one soft-edge tie-break swap. Reverted the 4 output files via `git checkout --`, no PR, no notify. Stats block realigned to HEAD (yesterday's state file was stale from 2026-07-06 pre-reflect run). Fingerprint algorithm: node re-implementation of the SKILL.md shell recipe (identical byte-for-byte pipeline); computed hash won't match the shell-computed one from prior days even on stable input — that's why the fingerprint gate keeps missing. Operator todo: reconcile hash source-of-truth or trust the topology check instead."
+  "note": "2026-07-09: Day 3 of stable-topology silent-exit pattern (per 2026-07-07, 2026-07-08 runs). Fingerprint drifted (027c195b…→6495eb6d…) but extractor output topology identical to HEAD after stripping generatedAt / regenerated-on-DATE strings. Δ vs HEAD: 0 nodes, 0 edges, 0 orphans, 0 bundled. Reverted all 4 output files (notegraph.json + docs/notegraph.{md,html} + docs/notegraph-speedrun.html) via git checkout --, no PR, no notify. Prior state file (2026-07-08) had stale stats 130n/1184e — realigned to HEAD's actual 134n/1274e today. Fingerprint gate keeps missing per [[notegraph-extractor-generatedat-nondeterministic]] — the operator todo is unchanged: either mask generatedAt in the extractor output OR reconcile node/shell hash sources OR make the state key be a topology-hash not an input-hash. NOTEGRAPH_NO_CHANGE exit."
 }

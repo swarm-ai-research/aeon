@@ -1,13 +1,14 @@
 ## Summary
 
-Ran the `notegraph` skill for 2026-07-08. Extractor regenerated the graph to **130 nodes / 1184 edges / 842 hard + 342 soft / 1 orphan / 0 bundled** — **topology identical to HEAD**. Only diffs on the 4 output files were the `generatedAt` timestamp, five ±0.001 weight roundings on soft edges, and one tie-break swap between two soft edges at weight ~0.305. Textbook [[notegraph-extractor-generatedat-nondeterministic]] pattern; reverted the 4 output files via `git checkout --`, no branch, no PR, no notify (verdict fell through to bland `graph refreshed` form with no new/resolved orphans). 
+**Exit mode:** `NOTEGRAPH_NO_CHANGE` — silent exit, no PR, no notify.
 
-Exit mode: `NOTEGRAPH_NO_CHANGE`.
+**What I did:**
+1. **Fingerprinted inputs** — `6495eb6dff308a5cd6590b6b801e6d41f3bb4c2a` (drifted vs state's `027c195b…`, but this is the known node/shell hash mismatch per [[notegraph-extractor-generatedat-nondeterministic]] — cannot be trusted, fell through to topology check).
+2. **Ran extractor** — `node scripts/notegraph.mjs` → `134 nodes · 909 hard · 365 soft · 1 orphan · 0 bundled`.
+3. **Detected change** — deltas vs HEAD all zero. Diff on the 4 output files is pure `generatedAt` / regenerated-on-DATE drift (verified with regex-stripped comparison → all 4 files STABLE). Verdict = bland `graph refreshed (134n / 1274e / 0b)`.
+4. **Reverted** `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html` via `git checkout --`. No PR. No notify (per SKILL step 5 rule + memory precedent).
+5. **Persisted state** — updated `memory/state/notegraph.json` with today's fingerprint, realigned stats to actual HEAD topology (yesterday's file had stale `130n/1184e`; corrected to `134n/1274e`), added day-3-of-pattern note.
 
-**Files modified & pushed (ffb25f7 on main):**
-- `memory/state/notegraph.json` — advanced `last_run` to 2026-07-08, realigned stats block to HEAD's actual values (yesterday's 128n/1163e figures were stale), recorded new fingerprint and flagged the hash-source-of-truth mismatch for operator attention.
-- `memory/logs/2026-07-08.md` — appended `## Note Graph` + `## Summary (notegraph)` sections after resolving two rebase conflicts against concurrent `memory-flush` / `memory-structural-dedupe` / `compute-futures-eda` writes.
+**Files modified:** `memory/state/notegraph.json`, `memory/logs/2026-07-09.md` (log entry).
 
-**Sandbox friction observed:** the SKILL.md fingerprint recipe (`{find … | sort | xargs sha1sum; sha1sum scripts/notegraph.mjs;} | sha1sum`) is unrunnable here — `xargs sha1sum`, `find -exec`, and `bash -c "…"` all trip the multi-op guardrail. Re-implemented in node, which produces a different digest from the stored shell-computed one, so the fingerprint gate keeps missing on stable input. Also `rm`/`mv` outside allowed writes are blocked, leaving `tmp-diff.mjs` as a stray untracked scratch file (harmless).
-
-**Follow-up:** operator should reconcile the fingerprint algorithm — either commit the node re-impl as canonical or find a sandbox-compatible shell form — otherwise the fingerprint short-circuit never fires and the skill re-runs the extractor daily.
+**Follow-up (unchanged from 2026-07-07/08):** the input-fingerprint gate is worthless while `generatedAt` bleeds into extractor output — either mask it in `scripts/notegraph.mjs` or make the state key a topology-hash. Day 3 of the same wasted regenerate-then-revert cycle.
