@@ -1,2 +1,2 @@
-*Compute-Futures EDA — 2026-07-07*
-144 rows, 4 modes. Top: spread realizedAbs×wallet_sum_pnl r=-0.752 (near 0.8 gate but float-dust artifact, not P&L structure). Conservation: OK all modes. Basket maxCurve + synthetic/x402 maxCurve outlier_pct rotated to 16.67% (12-seed noise, not regime change). Report: memory/topics/compute-futures-eda/2026-07-07.md
+*Compute-Futures EDA — 2026-07-08*
+144 rows, 4 modes. Top: [LOW] first |r|>=0.8 crossing — synthetic/x402 wallet_sum_pnl x settlementLegs = -0.874 (was +0.501). Float dust vs settlement volume, same numerical-artifact shape as yesterday's spread near-leader. Conservation OK all modes. Yesterday's basket/synth maxCurve 16.67% clusters both cleared. Report: memory/topics/compute-futures-eda/2026-07-08.md
