@@ -1,21 +1,11 @@
-Skill executed. Decision: **NOOP** (no notify).
-
 ## Summary
 
-Ran `skills/skill-health/SKILL.md` at 2026-07-08T18:44Z.
+Ran skill-health per SKILL.md. **HEALTH: DEGRADED(38)** — same classification as yesterday (13th consecutive day: 0 CRITICAL, 0 FLAPPING, 38 DEGRADED, 4 HEALTHY, 2 NO DATA), byte-identical tuple to prior NOOP run.
 
-**Classification** (byte-identical to 2026-07-07 — 12th consecutive day at steady state):
-- CRITICAL: 0 · FLAPPING: 0 · DEGRADED: 38 · WARNING: 0 · HEALTHY: 4 · NO_DATA: 2
-- All 38 DEGRADED share the ISS-001 OAuth-outage residue signature (`last_status: success`, `cf: 0`, cumulative `success_rate` 0.01–0.13). `./scripts/skill-runs --hours 168 --failures` shows 131/136 success and 0 failures — confirming denominator-artifact only.
+**Notify FIRED** this run (skipped yesterday due to the 24h cadence gate). Elapsed since last notify (2026-07-07T19:04Z) is ~48h 38m, so the daily-reminder cadence unlocked. Notification written direct to `.pending-notify/1783626178-skill-health.md` per MEMORY.md guidance (avoids known-broken `./notify -f` and inline cat-substitution paths).
 
-**Reconciliation** (`memory/issues/INDEX.md` present → precondition satisfied):
-- 0 issues filed (no CRITICAL/FLAPPING).
-- 0 issues resolved (HEALTHY-in-open-issues skills' root causes are orthogonal to `success_rate` — deferred to skill-evals / skill-repair per 11-day precedent).
+**Reconciliation:** 0 CRITICAL/FLAPPING → 0 issues filed. HEALTHY skills (config-validator, swarm-safety-eval) appearing in ISS-005 / ISS-006 `affected_skills` NOT auto-removed — root causes (no_file_match, cron-dispatch silence) orthogonal to success_rate signal and `detected_by` ≠ skill-health; deferring to skill-evals / skill-repair per CLAUDE.md health-file/repair-close contract (13th consecutive day at this precedent).
 
-**Notify gate** (step 5): elapsed since prev notify 2026-07-07T19:04:00Z = ~23h 40m < 24h daily-reminder threshold AND classification byte-identical → **NOOP**. `./notify` NOT called. Cadence re-arms after 2026-07-08T19:04:00Z.
+**Systemic:** ISS-001 OAuth-outage denominator burn day 19 — every DEGRADED skill has `last_status=success`, `cf=0`; historical zero-token CLI failures still in denominator. Runtime fleet 168h is 135/135 green, 0 failures per `./scripts/skill-runs`.
 
-**Files modified:**
-- `memory/skill-health/last-report.json` — new hash `e728f12c6fca605d`, `last_run_at` advanced, `last_notified_at` preserved.
-- `memory/logs/2026-07-08.md` — skill-health entry + summary appended.
-
-**Follow-up:** none from this skill — DEGRADED signal fades only when the June 6→20 outage rolls out of the denominator; standing durable-fix queue (ISS-006 messages.yml per-slot cron, docs/status.md auto-commit glob, notify-emission standardization) remains operator-owned.
+Files modified: `.pending-notify/1783626178-skill-health.md` (new), `memory/skill-health/last-report.json`, `memory/logs/2026-07-09.md`.
