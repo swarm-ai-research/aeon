@@ -439,4 +439,80 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. test-pass kind — the KIND_CONFIG entry for "test-pass" is never exercised
+//     in the existing suite. Verify the kind is accepted and produces a PR via
+//     the same happy-path flow as docs-pass / refactor-pass.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/100"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "testpass01" })
+    );
+    assert.equal(result.ok, true, `expected ok=true for test-pass kind, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/100");
+    assert.match(result.branch, /^aeon\/test-pass-/);
+    const refs = spawnSync("git", ["ls-remote", env.remoteDir], { encoding: "utf8" }).stdout;
+    assert.match(refs, /refs\/heads\/aeon\/test-pass-/, "test-pass branch must be pushed to remote");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  test-pass kind accepted and produces a PR like other pass kinds");
+}
+
+// 16. git commit failure — a pre-commit hook that always exits 1 causes the
+//     commit to fail after git add succeeds. Expect: ok:false with "git commit
+//     failed", worktree removed, ephemeral branch deleted locally.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/1"\n`,
+  });
+  // Install a failing pre-commit hook; git worktrees share the parent's hooks.
+  mkdirSync(join(env.localDir, ".git", "hooks"), { recursive: true });
+  const hookPath = join(env.localDir, ".git", "hooks", "pre-commit");
+  writeFileSync(hookPath, "#!/bin/sh\nexit 1\n");
+  chmodSync(hookPath, 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false, `expected ok:false on commit failure, got ${JSON.stringify(result)}`);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    // Branch must be deleted locally (cleanup(true) path).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "ephemeral branch must be deleted when commit fails");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure → ok:false, worktree and branch cleaned up");
+}
+
+// 17. gh pr create output without a URL — exercises the fallback branch in
+//     `(pr.stdout.match(/https?:\/\/\S+/) || [])[0] || pr.stdout.trim()`.
+//     When gh outputs plain text with no http(s) URL, prUrl must equal the
+//     trimmed stdout rather than undefined.
+{
+  const plainPrId = "pull/999-no-url";
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "${plainPrId}"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourl" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, plainPrId, `prUrl fallback should be trimmed stdout when no https:// found; got ${result.prUrl}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create output without a URL falls back to pr.stdout.trim()");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
