@@ -64,14 +64,8 @@ for a in prior_aggregates:
     }
     actual_rule = rmap.get(a['rule'], a['rule'])
     files = a.get('files', '').split(',')
-    count_per_file = {}
-    # crude — total count not split by file in the aggregate string;
-    # use file list, distributing count evenly by file presence (approx)
-    total = int(a.get('count', 0))
     if not files or files == ['']:
         continue
-    # Use prior detail: parse "(N)" suffix where present from the report body
-    # — for now treat aggregate as "at least 1 finding per listed file"
     for fl in files:
         if fl:
             prior_counts[(actual_rule, fl)] += 1
