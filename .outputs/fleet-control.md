@@ -1,8 +1,9 @@
-Fleet Control ran in Health Check Mode. Registry `memory/instances.json` is empty (`{"instances": []}`), which is pre-flight step 1's silent-stop path — logged `FLEET_EMPTY: no managed instances` to `memory/logs/2026-07-09.md` and did not notify.
+Skill complete — single-step operation, no task tracking needed.
 
 ## Summary
-- **Mode:** Health Check (default — `var` empty).
-- **Outcome:** `FLEET_EMPTY` — registry contains zero managed instances.
-- **Action:** Logged to `memory/logs/2026-07-09.md`. No notification per skill semantics (silent stop when fleet is empty).
-- **Files modified:** `memory/logs/2026-07-09.md` (appended a fleet-control section).
-- **Follow-up:** None. Fleet Control will remain a no-op until an entry is added to `memory/instances.json`.
+- Ran `fleet-control` in Health Check Mode (var was empty).
+- Pre-flight step 1 hit `FLEET_EMPTY`: `memory/instances.json` contains `{"instances": []}`.
+- Per SKILL.md, logged `FLEET_EMPTY: no managed instances` to `memory/logs/2026-07-10.md` and stopped without notifying.
+- Skipped gh auth check, rate-limit check, and all downstream health work (all gated on ≥1 registered instance).
+- Files modified: `memory/logs/2026-07-10.md` (appended fleet-control section).
+- No follow-up needed — the empty registry is the operator's expected state until they add managed children.
