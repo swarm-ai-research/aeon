@@ -1,7 +1,15 @@
 ## Summary
 
-Ran `github-monitor` per `skills/github-monitor/SKILL.md`. Config check failed the guard on step 0: `memory/watched-repos.md` is missing, so per spec I logged `GITHUB_MONITOR_EMPTY_CONFIG` and ended. No `gh` calls issued, no tiers computed, no notification sent (silence is the correct signal per the skill's empty-config path).
+**Skill:** github-monitor
+**Outcome:** `GITHUB_MONITOR_EMPTY_CONFIG` — config file `memory/watched-repos.md` is missing (this is a known standing item per MEMORY.md "Next priorities").
 
-**Modified:** `memory/logs/2026-07-09.md` — appended `### github-monitor` block with the empty-config marker and a pointer to the standing operator todo in MEMORY.md (`populate memory/watched-repos.md or disable the five watched-repos-dependent skills`).
+**Actions taken:**
+- Verified `memory/watched-repos.md` does not exist.
+- Skipped `gh` calls, classification, and dedup — no repos to iterate.
+- No notification sent (silence is the correct signal per SKILL step 4).
+- Appended a `### github-monitor` section to `memory/logs/2026-07-10.md` with `GITHUB_MONITOR_EMPTY_CONFIG`, zero tier counts, and empty sources.
 
-**Follow-up (already tracked, not new):** MEMORY.md next-priorities line for populating watched-repos.md — this is the daily skip pattern, not a new problem.
+**Files modified:**
+- `memory/logs/2026-07-10.md`
+
+**Follow-up (already tracked in MEMORY.md):** Populate `memory/watched-repos.md` or disable the five watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog) — this is the 5th daily skip logged.
