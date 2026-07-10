@@ -439,4 +439,25 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. shortTaskId fallback — when taskId is an empty string (or all non-alphanumeric
+//     characters), shortTaskId() returns "x" instead of an empty segment, so the
+//     branch name is well-formed rather than ending with a trailing dash.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.match(
+      result.branch,
+      /^aeon\/docs-pass-\d{4}-\d{2}-\d{2}-x$/,
+      `branch should end in '-x' when taskId is empty, got: ${result.branch}`,
+    );
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  empty taskId → shortTaskId 'x' fallback produces well-formed branch name");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
