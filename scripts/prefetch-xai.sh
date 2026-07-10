@@ -25,6 +25,13 @@ fi
 
 mkdir -p .xai-cache
 
+# Set global ACCOUNT from $VAR, stripping a leading @. Exits if VAR is empty.
+resolve_account() {
+  local skill="$1"
+  [ -n "${VAR:-}" ] || { echo "xai-prefetch: ${skill} requires var (X handle), skipping"; exit 0; }
+  ACCOUNT="${VAR#@}"
+}
+
 # Generic XAI search call. Args: output_file, prompt, [from_date], [to_date], [extra_tools_json]
 xai_search() {
   local outfile="$1" prompt="$2"
@@ -95,24 +102,14 @@ case "$SKILL" in
   refresh-x)
     # Fetch recent tweets from a specific account
     # Set var to the X handle (without @). Default: reads from aeon.yml or MEMORY.md
-    ACCOUNT="${VAR:-}"
-    if [ -z "$ACCOUNT" ]; then
-      echo "xai-prefetch: refresh-x requires var (X handle), skipping"
-      exit 0
-    fi
-    ACCOUNT="${ACCOUNT#@}"
+    resolve_account "refresh-x"
     xai_search "refresh-x.json" \
       "Search X for all tweets posted by @${ACCOUNT} from ${YESTERDAY} to ${TODAY}. Return every tweet — not just popular ones. For each: the full tweet text, date/time posted, engagement stats (likes, retweets, replies), and the direct link (https://x.com/${ACCOUNT}/status/ID). If it was a reply, note who it was replying to. If it was a quote tweet, include what was quoted. Return as a chronological list."
     ;;
 
   remix-tweets)
     # Fetch older tweets from an account for remixing
-    ACCOUNT="${VAR:-}"
-    if [ -z "$ACCOUNT" ]; then
-      echo "xai-prefetch: remix-tweets requires var (X handle), skipping"
-      exit 0
-    fi
-    ACCOUNT="${ACCOUNT#@}"
+    resolve_account "remix-tweets"
     FROM_DATE=$(date -u -d "180 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-180d +%Y-%m-%d)
     TO_DATE_REMIX=$(date -u -d "30 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-30d +%Y-%m-%d)
     xai_search "remix-tweets.json" \
