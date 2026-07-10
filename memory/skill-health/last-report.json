@@ -1,8 +1,8 @@
 {
-  "hash": "6b3c2d00e13368be",
-  "prev_hash": "e728f12c6fca605d",
+  "hash": "3b7d5d55a4e8562b",
+  "prev_hash": "6b3c2d00e13368be",
   "last_notified_at": "2026-07-09T19:42:58Z",
-  "last_run_at": "2026-07-09T19:42:58Z",
+  "last_run_at": "2026-07-10T18:59:25Z",
   "classification": {
     "critical": [],
     "degraded": [
@@ -59,8 +59,8 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 -> 2026-06-20T06:05Z) day 19 still drives all 38 DEGRADED — every skill last_status=success, cf=0; cumulative sr 0.01-0.14 is ~195 zero-token CLI failures per skill during outage still in denominator. Runtime fleet 168h green (./scripts/skill-runs: 135/135 non-in-progress success, 0 failure, 4 in-progress). Distinct ongoing pattern (not classified here): ISS-006 Day 19 recovery — 5 morning-pocket skills (memory-flush, memory-structural-dedupe, compute-futures-eda, notegraph, suggest-edges) late-fired 06:26-06:34Z after outage silence; planner (daily 06:30) 2026-07-05 last success still standing. Standing weekly 2x duo (janitor / cost-report) unchanged. No burst-recovery signature — pocket recovery inherently noisy per [[iss-006-pocket-recovery-is-noise]].",
-  "delta_vs_prev": "Classification IDENTICAL to 2026-07-08T18:44:34Z NOOP run — same 38 DEGRADED sorted list, same 4 HEALTHY, same 2 NO_DATA. 13th consecutive day at this steady state (2026-06-27 -> 2026-07-09). Hash differs (e728f12c... -> 6b3c2d00...) due to systemic-string canonicalization variance; underlying classification tuple byte-identical. Open-issue count 6 unchanged: ISS-001, ISS-002, ISS-005, ISS-006, ISS-007, ISS-008. Notify FIRED this run: elapsed since 2026-07-07T19:04:00Z is ~48h 38m >> 24h daily-reminder cadence -> cadence-gate PASS -> notify per step 5 (state semantically unchanged but the 24h heartbeat-reminder is due).",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 -> 2026-06-20T06:05Z) day 20 still drives all 38 DEGRADED — every skill last_status=success, cf=0; cumulative success_rate 0.01-0.14 is ~195 zero-token CLI failures per skill during outage still in denominator. Runtime fleet 168h green (./scripts/skill-runs: 142/142 non-in-progress success, 0 failure, 4 in-progress). Distinct ongoing ISS-006 pattern (not classified here): planner (daily 06:30) still standing at 2026-07-05 last success (5d); weekly duo janitor/cost-report unchanged from ISS-001 baseline (20d).",
+  "delta_vs_prev": "Classification IDENTICAL to 2026-07-09T19:42:58Z run — same 38 DEGRADED sorted list, same 4 HEALTHY, same 2 NO_DATA. 14th consecutive day at this steady state (2026-06-27 -> 2026-07-10). Hash differs (6b3c2d00... -> 3b7d5d55...) due to systemic-string canonicalization variance across runs; underlying classification tuple byte-identical. Compared classification tuples (critical/degraded/flapping/healthy/no_data lists) directly rather than trusting the drifting hash — byte-identical per JSON diff. Open-issue count 6 unchanged: ISS-001, ISS-002, ISS-005, ISS-006, ISS-007, ISS-008. Notify SKIPPED this run: elapsed since 2026-07-09T19:42:58Z is ~23.27h < 24h daily-reminder cadence -> cadence-gate SKIP (state semantically unchanged AND under 24h).",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 6,
@@ -73,5 +73,5 @@
     "ISS-007",
     "ISS-008"
   ],
-  "notify_decision": "NOTIFY - cadence-gate PASS (elapsed 48h 38m >= 24h daily-reminder threshold); underlying classification byte-identical to prior NOOP run but daily-reminder cadence elapsed -> notify per step 5 'Otherwise -> notify (there's new signal OR the daily reminder cadence elapsed)'. Reconciliation: 0 CRITICAL/FLAPPING -> no new issues filed by skill-health. HEALTHY skills appearing in open-issue affected_skills (config-validator, swarm-safety-eval in ISS-006; swarm-safety-eval in ISS-005) NOT auto-removed — root causes (cron-dispatch silence ISS-006, no_file_match ISS-005) are orthogonal to skill-health success_rate signal and detected_by is not skill-health; per CLAUDE.md health-file/repair-close contract, deferring resolution to skill-evals / skill-repair. 13th consecutive day at this precedent. Notification written direct to .pending-notify/1783626178-skill-health.md per MEMORY.md guidance on notify emission (avoiding known-broken `./notify -f` and inline cat-substitution paths)."
+  "notify_decision": "SKIP - classification tuple byte-identical to prior run AND elapsed 23h 16m < 24h daily-reminder threshold -> cadence-gate SKIP per step 5 'do not notify. State unchanged'. Reconciliation: 0 CRITICAL/FLAPPING -> no new issues filed by skill-health. HEALTHY skills appearing in open-issue affected_skills (config-validator, swarm-safety-eval in ISS-006; swarm-safety-eval in ISS-005) NOT auto-removed — root causes (cron-dispatch silence ISS-006, no_file_match ISS-005) are orthogonal to skill-health success_rate signal and detected_by is NOT skill-health (none of ISS-001/002/005/006/007/008 were filed by skill-health; per CLAUDE.md health-file/repair-close contract, deferring resolution to the filing health skill / repair skill). 14th consecutive day at this precedent."
 }

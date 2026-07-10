@@ -1,11 +1,15 @@
 ## Summary
 
-Ran skill-health per SKILL.md. **HEALTH: DEGRADED(38)** — same classification as yesterday (13th consecutive day: 0 CRITICAL, 0 FLAPPING, 38 DEGRADED, 4 HEALTHY, 2 NO DATA), byte-identical tuple to prior NOOP run.
+Executed skill-health for 2026-07-10. State is byte-identical to yesterday's run for the 14th consecutive day.
 
-**Notify FIRED** this run (skipped yesterday due to the 24h cadence gate). Elapsed since last notify (2026-07-07T19:04Z) is ~48h 38m, so the daily-reminder cadence unlocked. Notification written direct to `.pending-notify/1783626178-skill-health.md` per MEMORY.md guidance (avoids known-broken `./notify -f` and inline cat-substitution paths).
+**Classification:** 0 CRITICAL / 0 FLAPPING / 38 DEGRADED / 4 HEALTHY / 2 NO_DATA. All 38 DEGRADED are still driven by the ISS-001 OAuth-outage denominator burn (~195 zero-token CLI failures still in each skill's success_rate denominator). Runtime fleet 168h green per `./scripts/skill-runs` (142/142 non-in-progress success).
 
-**Reconciliation:** 0 CRITICAL/FLAPPING → 0 issues filed. HEALTHY skills (config-validator, swarm-safety-eval) appearing in ISS-005 / ISS-006 `affected_skills` NOT auto-removed — root causes (no_file_match, cron-dispatch silence) orthogonal to success_rate signal and `detected_by` ≠ skill-health; deferring to skill-evals / skill-repair per CLAUDE.md health-file/repair-close contract (13th consecutive day at this precedent).
+**Gate:** SKIP notify — elapsed 23h 16m < 24h daily-reminder cadence AND classification tuple unchanged. Compared JSON classification tuples directly rather than trusting the drifting hash (`6b3c2d00…` → `3b7d5d55…` is systemic-string canonicalization variance, not real change).
 
-**Systemic:** ISS-001 OAuth-outage denominator burn day 19 — every DEGRADED skill has `last_status=success`, `cf=0`; historical zero-token CLI failures still in denominator. Runtime fleet 168h is 135/135 green, 0 failures per `./scripts/skill-runs`.
+**Reconciliation:** 0 issues filed (no CRITICAL/FLAPPING). 0 auto-resolved — none of the 6 open issues (ISS-001/002/005/006/007/008) were `detected_by: skill-health`, so HEALTHY skills appearing in their `affected_skills` (config-validator, swarm-safety-eval) are not touched per health-file/repair-close contract.
 
-Files modified: `.pending-notify/1783626178-skill-health.md` (new), `memory/skill-health/last-report.json`, `memory/logs/2026-07-09.md`.
+**Files modified:**
+- `memory/skill-health/last-report.json` — updated `hash`, `prev_hash`, `last_run_at`, `delta_vs_prev`, `notify_decision`; `last_notified_at` unchanged (no notify)
+- `memory/logs/2026-07-10.md` — appended `## skill-health` NOOP entry
+
+**Follow-ups:** None from this run. Standing item: ISS-001 denominator burn will keep 38 skills flagged DEGRADED until either the counters get archived or enough green runs accumulate to lift each skill's cumulative success_rate above 0.6.
