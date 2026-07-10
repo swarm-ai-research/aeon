@@ -439,4 +439,58 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. No target → buildPrompt uses "No specific files supplied" fallback line.
+//     The extraFocus branch is NOT active here (focus omitted) so the filter(Boolean)
+//     strips the empty string. We verify both the absent-target line and the
+//     absent-focus line by capturing stdin.
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-notarget-cap-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/100"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "notarget" })
+      // no `target` and no `focus`
+    );
+    assert.equal(result.ok, true);
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    // Absent target → fallback message
+    assert.match(captured, /No specific files supplied/,
+      "prompt must include the no-target fallback when target is absent");
+    // Absent focus → additional-focus line must NOT appear
+    assert.doesNotMatch(captured, /Additional focus from task payload:/,
+      "prompt must not contain focus line when focus is empty");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  no target → prompt uses 'No specific files supplied' fallback; no focus line injected");
+}
+
+// 16. gh pr create stdout without a URL → prUrl falls back to pr.stdout.trim().
+//     This exercises the `|| pr.stdout.trim()` fallback at the prUrl assignment line.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "created-pr-output-no-url"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourlpr" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "created-pr-output-no-url",
+      "prUrl must fall back to trimmed stdout when no URL pattern is present");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create output without URL → prUrl falls back to pr.stdout.trim()");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
