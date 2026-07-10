@@ -1,1 +1,1 @@
-*Suggest-edges* — 3 missing links proposed (top: 2026-06-20 compute-futures proofs cluster). Branch `suggest-edges/2026-07-07` pushed but PR blocked by GHA-cannot-create-PRs; queued for PAT open alongside the other 8 staged branches.
+*Suggest-edges* — 3 missing links proposed (top: 2026-06-20). Branch pushed as suggest-edges/2026-07-10; PR creation blocked (GitHub Actions cannot create PRs).
