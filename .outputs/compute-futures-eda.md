@@ -1,2 +1,2 @@
-*Compute-Futures EDA — 2026-07-08*
-144 rows, 4 modes. Top: [LOW] first |r|>=0.8 crossing — synthetic/x402 wallet_sum_pnl x settlementLegs = -0.874 (was +0.501). Float dust vs settlement volume, same numerical-artifact shape as yesterday's spread near-leader. Conservation OK all modes. Yesterday's basket/synth maxCurve 16.67% clusters both cleared. Report: memory/topics/compute-futures-eda/2026-07-08.md
+*Compute-Futures EDA — 2026-07-09*
+144 rows, 4 modes. Top: [MEDIUM] spread realizedAbs outlier_pct 16.67% (6/36 outside IQR; was 0% yesterday) — 12-seed alarm-without-signal until it repeats tomorrow. Conservation: basket/spread/synth/x402 all OK (|mean| ≤ 3.3e−13, std ≤ 6.4e−12). Second day of wallet_sum_pnl float-dust correlation crossing gate (x402 wallet_sum_pnl × x402Total = +0.881). Report: memory/topics/compute-futures-eda/2026-07-09.md

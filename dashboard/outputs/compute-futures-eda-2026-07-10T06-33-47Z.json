@@ -1,0 +1,223 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-07-09"
+      },
+      "children": [
+        "meta_row",
+        "sep1",
+        "alert_outlier",
+        "sep2",
+        "outlier_details",
+        "sep3",
+        "conservation_section",
+        "sep4",
+        "correlation_section",
+        "sep5",
+        "report_link"
+      ]
+    },
+    "meta_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Dataset size",
+        "value": "144 rows"
+      }
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_outlier": {
+      "type": "Alert",
+      "props": {
+        "title": "[MEDIUM] Spread realizedAbs Outlier Alert",
+        "message": "16.67% (6/36 values outside IQR)",
+        "type": "warning"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "outlier_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "outlier_stat",
+        "outlier_prev",
+        "outlier_note"
+      ]
+    },
+    "outlier_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Current outlier percentage",
+        "value": "16.67%",
+        "delta": "+16.67%",
+        "trend": "up"
+      }
+    },
+    "outlier_prev": {
+      "type": "Text",
+      "props": {
+        "text": "Previous: 0% yesterday",
+        "variant": "caption"
+      }
+    },
+    "outlier_note": {
+      "type": "Badge",
+      "props": {
+        "text": "12-seed alarm-without-signal until it repeats tomorrow",
+        "variant": "outline"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "conservation_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "conservation_title",
+        "conservation_badges"
+      ]
+    },
+    "conservation_title": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h3"
+      }
+    },
+    "conservation_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_basket",
+        "badge_spread",
+        "badge_synth",
+        "badge_x402"
+      ]
+    },
+    "badge_basket": {
+      "type": "Badge",
+      "props": {
+        "text": "basket: OK (|mean| ≤ 3.3e-13, std ≤ 6.4e-12)",
+        "variant": "secondary"
+      }
+    },
+    "badge_spread": {
+      "type": "Badge",
+      "props": {
+        "text": "spread: OK (|mean| ≤ 3.3e-13, std ≤ 6.4e-12)",
+        "variant": "secondary"
+      }
+    },
+    "badge_synth": {
+      "type": "Badge",
+      "props": {
+        "text": "synth: OK (|mean| ≤ 3.3e-13, std ≤ 6.4e-12)",
+        "variant": "secondary"
+      }
+    },
+    "badge_x402": {
+      "type": "Badge",
+      "props": {
+        "text": "x402: OK (|mean| ≤ 3.3e-13, std ≤ 6.4e-12)",
+        "variant": "secondary"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "correlation_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "correlation_title",
+        "correlation_context",
+        "correlation_stat"
+      ]
+    },
+    "correlation_title": {
+      "type": "Heading",
+      "props": {
+        "text": "wallet_sum_pnl Correlation",
+        "level": "h3"
+      }
+    },
+    "correlation_context": {
+      "type": "Text",
+      "props": {
+        "text": "Second day of wallet_sum_pnl float-dust correlation crossing gate",
+        "variant": "caption"
+      }
+    },
+    "correlation_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "x402 wallet_sum_pnl × x402Total",
+        "value": "+0.881"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-07-09.md",
+        "source": "Compute-Futures EDA"
+      }
+    }
+  }
+}
