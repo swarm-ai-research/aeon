@@ -1,14 +1,21 @@
 ## Summary
 
-**Exit mode:** `NOTEGRAPH_NO_CHANGE` — silent exit, no PR, no notify.
+**Skill:** `notegraph` — exit mode: `NOTEGRAPH_NO_CHANGE` (silent, no PR, no notify).
 
-**What I did:**
-1. **Fingerprinted inputs** — `6495eb6dff308a5cd6590b6b801e6d41f3bb4c2a` (drifted vs state's `027c195b…`, but this is the known node/shell hash mismatch per [[notegraph-extractor-generatedat-nondeterministic]] — cannot be trusted, fell through to topology check).
-2. **Ran extractor** — `node scripts/notegraph.mjs` → `134 nodes · 909 hard · 365 soft · 1 orphan · 0 bundled`.
-3. **Detected change** — deltas vs HEAD all zero. Diff on the 4 output files is pure `generatedAt` / regenerated-on-DATE drift (verified with regex-stripped comparison → all 4 files STABLE). Verdict = bland `graph refreshed (134n / 1274e / 0b)`.
-4. **Reverted** `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html` via `git checkout --`. No PR. No notify (per SKILL step 5 rule + memory precedent).
-5. **Persisted state** — updated `memory/state/notegraph.json` with today's fingerprint, realigned stats to actual HEAD topology (yesterday's file had stale `130n/1184e`; corrected to `134n/1274e`), added day-3-of-pattern note.
+**What happened:**
+- Fingerprinted `memory/**/*.md` + `docs/**/*.md` (excl. `memory/logs/`) + `scripts/notegraph.mjs`: new fingerprint `02e4c209…`, differed from stored `6495eb6d…`, so proceeded to extractor.
+- `node scripts/notegraph.mjs` → **138 nodes · 930 hard · 349 soft · 1 orphan · 0 bundled** — identical stats to `HEAD:notegraph.json`.
+- Δ vs HEAD: 0 nodes, 0 edges, 0 orphans, 0 bundled. Topology check: `notegraph.json` / `docs/notegraph.html` / `docs/notegraph-speedrun.html` all bit-identical to HEAD after stripping `generatedAt`; `docs/notegraph.md` differs only in the `Auto-generated ... on 2026-07-10` header line.
+- **Day 4** of the stable-topology silent-exit pattern (2026-07-07 → 07-10). Reverted all 4 regenerated files via `git checkout --`.
 
-**Files modified:** `memory/state/notegraph.json`, `memory/logs/2026-07-09.md` (log entry).
+**Files modified:**
+- `memory/state/notegraph.json` — updated `input_fingerprint`, `last_run=2026-07-10`, note.
+- `memory/logs/2026-07-10.md` — new daily log.
 
-**Follow-up (unchanged from 2026-07-07/08):** the input-fingerprint gate is worthless while `generatedAt` bleeds into extractor output — either mask it in `scripts/notegraph.mjs` or make the state key a topology-hash. Day 3 of the same wasted regenerate-then-revert cycle.
+**Note on fingerprint scheme:** Sandbox blocked shell `xargs sha1sum`, so today's fingerprint was produced by a Node sha1 script (`.notegraph-fingerprint.mjs`). Deterministic on unchanged inputs — future no-change runs using the same Node scheme will silent-exit at step 1.
+
+**Scratch files left in working tree** (sandbox blocked `rm`; all `.`-prefixed, untracked, safe to `rm` locally): `.notegraph-diff.mjs`, `.notegraph-fingerprint.mjs`, `.notegraph-fingerprint.sh`, `.notegraph-fingerprint-shell.sh`, `.notegraph-topology-check.mjs`.
+
+**Follow-ups (unchanged from 2026-07-09):**
+- Extractor emits `generatedAt` / `regenerated on YYYY-MM-DD` making its output non-deterministic — either mask them in the extractor OR change state key from input-hash to topology-hash so the fingerprint gate actually short-circuits stable-corpus runs. Tracked in `[[notegraph-extractor-generatedat-nondeterministic]]`.
+- `notegraph/2026-07-06` branch still parked; `[[github-actions-cannot-create-prs]]` blocks `gh pr create`.
