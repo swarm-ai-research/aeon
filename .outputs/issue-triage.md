@@ -1,11 +1,14 @@
-`ISSUE_TRIAGE_OK no-watched-repos`
-
 ## Summary
 
-- **Skill executed:** `skills/issue-triage/SKILL.md`
-- **Var:** empty → intended to triage all watched repos
-- **Config gate:** `memory/watched-repos.md` is absent AND `${var}` is empty → per §Config, exit early with `ISSUE_TRIAGE_OK no-watched-repos`
-- **Actions taken:** none (no repos, no fetches, no writes)
-- **Files modified:** appended `issue-triage` entry to `memory/logs/2026-07-09.md`
-- **Notification:** none (nothing actionable)
-- **Follow-up:** already tracked in MEMORY.md "Next priorities" — either populate `memory/watched-repos.md` or disable the five watched-repos-dependent skills (issue-triage, code-health, github-monitor, changelog, weekly-shiplog) to stop wasting daily workflow slots.
+Ran `skills/issue-triage/SKILL.md` on 2026-07-10 with `${var}` empty.
+
+**Outcome:** `ISSUE_TRIAGE_OK no-watched-repos` — early exit per skill §0/§Config.
+
+- `memory/watched-repos.md` is absent; `${var}` unset → no targets to process.
+- No permission probes, no `gh` calls, no writes to `memory/triaged-issues.json` (correct per §8: only record repos that were actually processed).
+- No notification per §9 (nothing actionable).
+- Logged to `memory/logs/2026-07-10.md` with the §10 zero-target template.
+
+**Files modified:** `memory/logs/2026-07-10.md` (appended `### issue-triage` block).
+
+**Standing follow-up (already tracked in MEMORY.md next-priorities):** populate `memory/watched-repos.md` or disable the five watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog) — each burns a workflow slot per run to reach this same no-op exit.
