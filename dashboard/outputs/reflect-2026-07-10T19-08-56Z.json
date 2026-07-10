@@ -1,0 +1,89 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-status",
+        "text-date",
+        "separator-1",
+        "grid-metrics"
+      ]
+    },
+    "text-status": {
+      "type": "Heading",
+      "props": {
+        "text": "Memory consolidated",
+        "level": "h2"
+      }
+    },
+    "text-date": {
+      "type": "Text",
+      "props": {
+        "text": "2026-07-10",
+        "variant": "muted"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "grid-metrics": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat-notes",
+        "stat-entries",
+        "stat-atomic",
+        "stat-splits"
+      ]
+    },
+    "stat-notes": {
+      "type": "Stat",
+      "props": {
+        "label": "New notes",
+        "value": "+2"
+      }
+    },
+    "stat-entries": {
+      "type": "Stat",
+      "props": {
+        "label": "Entries",
+        "value": "+21"
+      }
+    },
+    "stat-atomic": {
+      "type": "Stat",
+      "props": {
+        "label": "New atomic",
+        "value": "1"
+      }
+    },
+    "stat-splits": {
+      "type": "Stat",
+      "props": {
+        "label": "Splits",
+        "value": "0"
+      }
+    }
+  }
+}
