@@ -1,23 +1,30 @@
+Goal-tracker executed. Report:
+
+*Goal Tracker — 2026-07-10*
+
+Summary: 13 goals — 0 at risk, 0 needs attention, 12 on track, 1 blocked, 0 done (overall → flat vs 2026-07-09)
+
+**BLOCKED**
+- Open staged branches via PAT — waiting on operator PAT since 2026-06-20 (GHA "not permitted to create or approve pull requests"); queue grew **9 → 10** today (adds `suggest-edges/2026-07-10`)
+  → Action: Provision operator PAT with `repo` scope and push queued branches → PRs
+
+**ON TRACK** (all 12 flat vs prior snapshot; days_idle / activity_14d)
+- ISS-006 per-slot crons in `messages.yml` — 0d / 14
+- Standardize notify emission on direct `.pending-notify/` writes — 0d / 12
+- Fix `docs/status.md` auto-commit drop — 0d / 10
+- Patch notegraph silent-exit heuristic (`generatedAt`) — 0d / 14
+- Close ISS-007 or add same-day grace to skill-evals — 1d / 5
+- Patch `pr-tracker` SKILL.md (5-item batch) — 0d / 14
+- Fix `skill-freshness` to use `git log -1 --format=%ct` — 0d / 13
+- Widen `scenario-sweep.mjs` seed count / filter `wallet_sum_pnl` — 0d / 14
+- File `./generate-skills-json` bugs as structured issues — 6d / 5
+- Investigate missing `scripts/validate-config.js` — 1d / 13
+- Populate `memory/watched-repos.md` or disable 5 dependent skills — 0d / 14
+- Defer ISS-001 close until ISS-006 resolved — 0d / 14
+
+Sources: logs=ok, git=ok, gh_pr=ok, gh_issue=ok, cron-state=ok
+
 ## Summary
-
-Ran goal-tracker for 2026-07-09. Parsed 13 goals from MEMORY.md `## Next priorities` (fallback per SKILL.md §Inputs — no `## Goals` section).
-
-**Status:** 0 at risk · 0 needs attention · 12 on track · 1 blocked · 0 done. Overall trend ↑ **improving** (2 up, 0 down vs 2026-07-08 snapshot).
-
-**Trend moves vs prior run:**
-- ↑ `close-iss-007-or-add-same-day-grace-window-to-skill-evals`: 3 → 4 activity/14d
-- ↑ `widen-scenario-sweep-mjs-seed-count-or-tie-robust-mad`: 9 → 14 activity/14d (compute-futures-eda ran on 07-09, matched pair)
-- All other 11 goals flat within ±25%
-
-**Only action proposed:** BLOCKED `open-queued-branches-via-pat` → provision operator PAT with `repo` scope and run branch-to-PR conversion for the 9 staged branches. Queue stationary vs 2026-07-08.
-
-**MEMORY.md:** untouched — 0 status transitions this run (per SKILL.md §7 write-gate).
-
-**Sources:** logs=ok, git=partial (shallow clone, 1 commit in 30d — today's `chore(cron): surplus-pulse success` only), gh_pr=ok (5 hits, all older-than-30d fleet-infra MERGED, no goal-keyword pairs), gh_issue=ok (0 hits), cron-state=ok.
-
-**Files modified:**
-- `memory/goal-state.json` — advanced `run_at` to 2026-07-09T19:42:46Z, refreshed activity counts + last-activity dates
-- `.pending-notify/1783626166-goal-tracker.md` — full report queued for post-run notify dispatch (direct write per [[notify-inline-cat-substitution-blocked-in-sandbox]])
-- `memory/logs/2026-07-09.md` — appended `### goal-tracker` entry
-
-**Follow-up:** unchanged from prior 4 runs — the standing durable-fix queue (ISS-006 messages.yml per-slot cron rewrite, docs/status.md auto-commit include, notify-emission standardization, 9-branch PAT unblock) remains with the operator.
+- No status transitions vs 2026-07-09 snapshot → `MEMORY.md` left untouched per SKILL.md §7.
+- Only actionable next step: operator PAT provisioning to drain the 10-branch queue. Every other goal is authoring work waiting for a maintainer session, not a monitor gap.
+- Files modified: `memory/goal-state.json` (refreshed with today's counts), `memory/logs/2026-07-10.md` (goal-tracker section appended), `.pending-notify/1783710098-goal-tracker.md` (notify queued, direct-write per sandbox-safe pattern).
