@@ -1,21 +1,18 @@
+Notegraph skill complete. Summary:
+
 ## Summary
 
-**Skill:** `notegraph` — exit mode: `NOTEGRAPH_NO_CHANGE` (silent, no PR, no notify).
+**Exit mode:** `NOTEGRAPH_OK` — first genuine corpus-growth run in 5 days (breaking the 07-07 → 07-10 stable-topology silent-exit streak).
 
-**What happened:**
-- Fingerprinted `memory/**/*.md` + `docs/**/*.md` (excl. `memory/logs/`) + `scripts/notegraph.mjs`: new fingerprint `02e4c209…`, differed from stored `6495eb6d…`, so proceeded to extractor.
-- `node scripts/notegraph.mjs` → **138 nodes · 930 hard · 349 soft · 1 orphan · 0 bundled** — identical stats to `HEAD:notegraph.json`.
-- Δ vs HEAD: 0 nodes, 0 edges, 0 orphans, 0 bundled. Topology check: `notegraph.json` / `docs/notegraph.html` / `docs/notegraph-speedrun.html` all bit-identical to HEAD after stripping `generatedAt`; `docs/notegraph.md` differs only in the `Auto-generated ... on 2026-07-10` header line.
-- **Day 4** of the stable-topology silent-exit pattern (2026-07-07 → 07-10). Reverted all 4 regenerated files via `git checkout --`.
+**Steps executed:**
+1. **Fingerprint** (Node-based sha1, sandbox-safe): `de87cba647e0c31fcc7401fe42fedfdc3c0d9590` — differs from stored `02e4c209…`, so proceeded.
+2. **Extractor** `node scripts/notegraph.mjs` → `142 nodes · 976 hard · 362 soft · 1 orphans · 0 bundled` (atomic 39).
+3. **Delta vs `HEAD:notegraph.json`**: +2 nodes, +38 edges, 0 orphans, 0 bundled. No `new_orphans`, no `new_bundled` — new atomic notes wired in with incoming refs. Verdict = **`+2 notes wired in`** (second-tier heuristic).
+4. **PR**: branch `notegraph/2026-07-11` pushed (commit `55c1172`, 4 files, +686/-350). `gh pr create` returned same 403 as prior runs — **11th staged branch** in operator PAT queue per `[[github-actions-cannot-create-prs]]`.
+5. **State + notify**: `memory/state/notegraph.json` rewritten on main with new fingerprint + stats + branch URL; notify queued to `.pending-notify/1783751901-notegraph.md` (direct write per notify-substitution/`-f`-flag bugs).
 
-**Files modified:**
-- `memory/state/notegraph.json` — updated `input_fingerprint`, `last_run=2026-07-10`, note.
-- `memory/logs/2026-07-10.md` — new daily log.
+**Files:**
+- On branch `notegraph/2026-07-11`: `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`
+- On `main`: `memory/state/notegraph.json` (modified), `memory/logs/2026-07-11.md` (new), `.pending-notify/1783751901-notegraph.md` (new)
 
-**Note on fingerprint scheme:** Sandbox blocked shell `xargs sha1sum`, so today's fingerprint was produced by a Node sha1 script (`.notegraph-fingerprint.mjs`). Deterministic on unchanged inputs — future no-change runs using the same Node scheme will silent-exit at step 1.
-
-**Scratch files left in working tree** (sandbox blocked `rm`; all `.`-prefixed, untracked, safe to `rm` locally): `.notegraph-diff.mjs`, `.notegraph-fingerprint.mjs`, `.notegraph-fingerprint.sh`, `.notegraph-fingerprint-shell.sh`, `.notegraph-topology-check.mjs`.
-
-**Follow-ups (unchanged from 2026-07-09):**
-- Extractor emits `generatedAt` / `regenerated on YYYY-MM-DD` making its output non-deterministic — either mask them in the extractor OR change state key from input-hash to topology-hash so the fingerprint gate actually short-circuits stable-corpus runs. Tracked in `[[notegraph-extractor-generatedat-nondeterministic]]`.
-- `notegraph/2026-07-06` branch still parked; `[[github-actions-cannot-create-prs]]` blocks `gh pr create`.
+**Follow-up:** operator PAT to open the 11 staged branches; underlying `generatedAt`-mask fix still pending (not exercised today — corpus genuinely changed).
