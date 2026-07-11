@@ -1,24 +1,20 @@
+The skill has executed. Here's the summary:
+
 ## Summary
 
-Executed `skill-freshness` for 2026-07-08. **Verdict: ✅ FRESHNESS_OK** — 10th consecutive clean run, no notification sent.
+**Status: FRESHNESS_OK** — no notification sent (silence is the signal for green runs).
 
-**What was done:**
-- Parsed 44 enabled skills from `aeon.yml`; confirmed no active `chains: consume:` edges (all chains commented out)
-- Scanned 44 enabled SKILL.md files for implicit file dependencies; discovered 18 references across 4 path classes
-- Evaluated 6 dependencies that exist on disk with content-embedded dates — all within thresholds:
-  - `planner-state.json` ~74h vs 720h limit
-  - `surplus-pulse.md` ~17h vs 168h limit
-  - `compute-pulse.md` ~96h vs 168h limit
-  - `notegraph.json` ~2h vs 720h limit
-  - `skillpacks.json` ~74h vs 720h limit
-  - `skill-freshness-state.json` ~24h vs 168h limit
-- 12 implicit refs not on disk (not flagged per spec — implicit references to files that never existed)
-- Fingerprint unchanged (sha1 of empty flagged set, same as yesterday); OK verdict never notifies regardless
+**What was audited:**
+- 44 enabled skills parsed from `aeon.yml`
+- 0 explicit chain dependencies (all `chains:` blocks are commented out)
+- 2 cross-skill implicit dependencies discovered and checked:
+  1. `suggest-edges` ← `memory/state/notegraph.json` (notegraph): ~2h old → OK ✅
+  2. `compute-macro-correlate` ← `memory/topics/compute-futures-eda/*.md` (compute-futures-eda): <24h old → OK ✅
+- All other enabled skills filtered (own-output self-refs) or excluded (broad `articles/` reads without specific producer patterns)
+
+**Key note:** Age computation used `memory/cron-state.json` `last_success` timestamps as the authoritative proxy — GHA's single-commit snapshot assigns the same mtime (08:27 UTC) to every file, and `git log -1 --format=%ct` returns the same epoch for all paths. The structural fix per [[skill-freshness-mtime-blind-in-gha]] remains outstanding.
 
 **Files written:**
-- `articles/skill-freshness-2026-07-08.md`
-- `memory/topics/skill-freshness-state.json` (updated `last_run_at`, `consumer_count` 44, `dependency_count` 6)
-- `memory/logs/2026-07-08.md` (appended)
-- `.outputs/skill-freshness.md` (updated)
-
-**Structural caveat preserved:** This is a single-commit snapshot repo, so git timestamps are useless for freshness. Ages were derived from content-embedded dates. The `git log -1 --format=%ct` fix per [[skill-freshness-mtime-blind-in-gha]] remains pending.
+- `articles/skill-freshness-2026-07-11.md` — report
+- `memory/topics/skill-freshness-state.json` — updated `last_run_at` to 2026-07-11T08:30:00Z, `dependency_count` 2
+- `memory/logs/2026-07-11.md` — log block appended
