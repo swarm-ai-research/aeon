@@ -1,3 +1,10 @@
+"""Classify parsed zizmor findings by severity and build per-finding fingerprints.
+
+Reads .audit/parsed.json, assigns our severity tiers (Critical/High/Medium/Low),
+builds a stable fingerprint per finding (sha256 of rule|basename|snippet), then
+writes .audit/classified.json with severity + fingerprint fields added.
+"""
+
 import json
 import hashlib
 import os

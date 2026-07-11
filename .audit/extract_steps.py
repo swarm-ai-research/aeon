@@ -1,3 +1,12 @@
+"""Enrich parsed findings with step names and recompute fingerprints.
+
+Reads .audit/parsed.json, resolves each finding's workflow file to the repo
+path, walks the YAML line-by-line to map each line number to its enclosing
+step name, then writes step + severity + short_rule + fingerprint back into
+the record. Outputs .audit/classified.json (same schema as classify.py but
+with step context for more stable fingerprint anchoring).
+"""
+
 import json
 import re
 import os
