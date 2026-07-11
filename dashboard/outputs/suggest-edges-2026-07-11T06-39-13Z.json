@@ -1,0 +1,77 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_proposed",
+        "text_top_date",
+        "separator_1",
+        "alert_pr_blocked",
+        "text_branch_pushed",
+        "link_branch",
+        "text_action_required"
+      ]
+    },
+    "stat_proposed": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3"
+      }
+    },
+    "text_top_date": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-06-20"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_pr_blocked": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Creation Blocked",
+        "message": "GitHub Actions permissions issue (14th consecutive day per [[github-actions-cannot-create-prs]])",
+        "type": "warning"
+      }
+    },
+    "text_branch_pushed": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed at:"
+      }
+    },
+    "link_branch": {
+      "type": "Link",
+      "props": {
+        "label": "https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-07-11",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-07-11"
+      }
+    },
+    "text_action_required": {
+      "type": "Text",
+      "props": {
+        "text": "Action: Operator opens PR manually"
+      }
+    }
+  }
+}
