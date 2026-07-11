@@ -352,6 +352,7 @@ Append to `memory/logs/${today}.md`:
 
 ## Sandbox note
 
+- Pre-built binaries for zizmor and actionlint are cached at `.audit-bin/zizmor` and `.audit-bin/actionlint`. If the pip/pipx/curl installs in step 0b fail (e.g. outbound PyPI blocked), fall back to `export PATH="$PWD/.audit-bin:$PATH"` before running the scanners. The tar archive `.audit-bin/actionlint.tar.gz` is the upstream release bundle used to produce the cached binary.
 - `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
 - `gh` CLI uses existing `GITHUB_TOKEN` / `GH_GLOBAL` — no extra auth setup needed.
 - No new secrets required. zizmor and actionlint are offline-only static analyzers.

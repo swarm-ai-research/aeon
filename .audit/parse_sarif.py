@@ -1,3 +1,10 @@
+"""Parse zizmor SARIF output into a flat findings list.
+
+Reads .audit/zizmor.sarif, extracts rule_id, level, confidence, message,
+file path, line number, and snippet for each result, then writes
+.audit/parsed.json for downstream classify/extract_steps scripts.
+"""
+
 import json
 import hashlib
 from collections import Counter

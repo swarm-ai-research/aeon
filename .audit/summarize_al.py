@@ -1,3 +1,10 @@
+"""Summarize actionlint output and flag high-priority shellcheck codes.
+
+Reads .audit/actionlint.json, tallies shellcheck diagnostic codes, and
+prints HIGH-CANDIDATE lines where SC2086/SC2046 appear alongside github.*
+references (potential script-injection sinks).
+"""
+
 import json
 from collections import Counter
 data = json.load(open('.audit/actionlint.json'))

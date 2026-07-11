@@ -1,3 +1,5 @@
+"""Print all actionlint findings containing SC2086 (unquoted variable word-splitting)."""
+
 import json
 data = json.load(open('.audit/actionlint.json'))
 for f in data:

@@ -1,3 +1,11 @@
+"""Enrich parsed zizmor findings with severity, step names, and fingerprints.
+
+Reads .audit/parsed.json, resolves each finding's file path into the
+.github/workflows/ tree, maps line numbers to workflow step names, and
+computes stable fingerprints keyed on (rule|file|step) so they survive
+line-number drift from unrelated edits.  Writes .audit/classified.json.
+"""
+
 import json
 import re
 import os
