@@ -1,15 +1,12 @@
+No notification sent (per SKILL.md §4 empty-tier rule and §Config empty-config rule).
+
 ## Summary
 
-**Skill:** github-monitor
-**Outcome:** `GITHUB_MONITOR_EMPTY_CONFIG` — config file `memory/watched-repos.md` is missing (this is a known standing item per MEMORY.md "Next priorities").
+- Read `skills/github-monitor/SKILL.md` and `memory/MEMORY.md`.
+- Checked `memory/watched-repos.md` — **absent**.
+- Per SKILL §Config, logged `GITHUB_MONITOR_EMPTY_CONFIG` and ended.
+- Appended a `### github-monitor` entry to `memory/logs/2026-07-11.md` explaining the empty-config skip, cross-linking it to the standing "5 watched-repos-dependent skills silently skip" item in MEMORY.md Next Priorities.
+- No `gh` calls made, no notification queued.
 
-**Actions taken:**
-- Verified `memory/watched-repos.md` does not exist.
-- Skipped `gh` calls, classification, and dedup — no repos to iterate.
-- No notification sent (silence is the correct signal per SKILL step 4).
-- Appended a `### github-monitor` section to `memory/logs/2026-07-10.md` with `GITHUB_MONITOR_EMPTY_CONFIG`, zero tier counts, and empty sources.
-
-**Files modified:**
-- `memory/logs/2026-07-10.md`
-
-**Follow-up (already tracked in MEMORY.md):** Populate `memory/watched-repos.md` or disable the five watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog) — this is the 5th daily skip logged.
+**Files modified:** `memory/logs/2026-07-11.md`.
+**Follow-up (unchanged from MEMORY.md line 51):** operator either populates `memory/watched-repos.md` or disables the five watched-repos-dependent skills (`code-health`, `github-monitor`, `issue-triage`, `changelog`, `weekly-shiplog`) — daily silent-skip continues to waste a workflow slot per skill.
