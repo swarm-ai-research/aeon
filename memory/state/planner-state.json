@@ -1,10 +1,11 @@
 {
-  "last_run": "2026-07-05T07:44:31Z",
-  "top_priority": "iss-006-messages-yml-per-slot-crons",
+  "last_run": "2026-07-11T06:37:40Z",
+  "top_priority": "operator-pat-provisioning",
   "priority_streak": {
+    "operator-pat-provisioning": 1,
     "iss-006-messages-yml-per-slot-crons": 3
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Sunday catch-up run — 06:30 slot missed, fired ~07:44Z. Streak-3 on ISS-006 top priority (2026-06-27 → 07-03 → 07-05). Escalation move per skill spec step 2 staleness rule: yesterday's 'draft the diff on a branch' step never landed (no fix/iss-006-per-slot-crons branch exists locally or on origin), so today's concrete unblock action is to write the diff in this run AND flag the meta-blocker: queue-a-branch is capped at ~6 stalled `.pending-*` branches until operator provisions cross-repo PAT. Runners-up: Sunday-batch fire watch (janitor/skillpacks/compute-macro-correlate at 2× threshold today), pr-tracker step-5 fresh-bot-PR trigger patch. ${var} empty; plan-only mode, no dispatch."
+  "notes": "Escalation move per skill §2 stuck-goal rule: `iss-006-messages-yml-per-slot-crons` hit streak-3 (2026-06-27 / 07-03 / 07-05) without a log entry closing it, and every landing path lives behind the same operator-PAT block that has now stalled 10 branches (was 9; suggest-edges/2026-07-10 joined yesterday) and produced a validated second-order state-loss effect per [[skill-state-on-blocked-pr-branch-is-lost]]. Reframed today's top priority to the meta-blocker (`operator-pat-provisioning`), which resets the streak counter but keeps the ISS-006 streak visible so the escalation is legible in tomorrow's planner run. Runners-up: notegraph `generatedAt` mask (Day 5 today if extractor fires) and compute-futures-eda `wallet_sum_pnl` filter (2 consecutive-day float-dust crossings). ${var} empty → plan-only, no dispatch. This is the first planner run since 2026-07-05 (skill silent 142h/5.94× threshold — ISS-006 tributary; today's 06:30 slot fired at ~06:37 UTC)."
 }
