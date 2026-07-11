@@ -1,5 +1,16 @@
 ## Summary
 
-Ran `pr-triage` on `swarm-ai-research/swarm`. Fetched 5 open PRs in the 14-day window (#524 aged out today; still OPEN but outside SKILL.md §2 freshness filter). 4 dependabot bots skipped by trusted-set rule (#529, #530, #531, #532). One external PR (#527, rsavitt, neurosymbolic behavior classification, +2590/−0 across 14 files at head `da039d5f` — same head as yesterday) scored **DEFER** on size (2590 > 500 without `large-ok`; scope/format/originality clean; `swarm/` production paths not in the protected list, so no OUT-OF-SCOPE).
+Ran `pr-triage` on `swarm-ai-research/swarm` (repo mode, `${var}` override). Fetched 5 open PRs in the 14-day window: 4 dependabot bots skipped (`#529–532`, all `app/dependabot`) plus 1 external (`#527` rsavitt, head `da039d5f`, +2590/-0 across the `swarm/neurosymbolic/*` package).
 
-Both write ops (`gh pr comment`, `gh pr edit --add-label triage:deferred`) returned `Resource not accessible by integration` — 13th consecutive day of the Aeon App cross-org write gap on this repo per `[[aeon-app-no-write-on-swarm-repo]]`. Logged `PR_TRIAGE_NO_PERMISSION swarm-ai-research/swarm#527` and deliberately did NOT append #527 to `memory/triaged-prs.json` so the next run re-attempts once operator PAT lands. Notify skipped per §10 (DEFER is routine). Files modified: `memory/logs/2026-07-10.md` (this entry). Follow-up unchanged from prior days: operator PAT needed to land the DEFER label + comment (or the standing APPROVE 5/5 verdict pr-review recorded on the same PR).
+Rubric verdict for #527: **DEFER** — size 2590 > 500 lines with no `large-ok` label; scope path (`swarm/`) is not in the protected set so no OUT-OF-SCOPE trigger; no SKILL.md touched (format skipped); no new skill added (originality skipped); PR body is 5174 chars (not empty). Same verdict as 2026-07-10 at unchanged head SHA.
+
+Writes attempted per SKILL.md §step-6:
+- `gh pr comment 527` → `Resource not accessible by integration (addComment)`
+- `gh label create triage:deferred` → HTTP 403 on labels endpoint  
+- `gh pr edit --add-label triage:deferred` → `Resource not accessible by integration (addLabelsToLabelable)`
+
+**PR_TRIAGE_NO_PERMISSION swarm-ai-research/swarm#527** — 14th consecutive day of the Aeon App's cross-org PR-write gap per [[aeon-app-no-write-on-swarm-repo]]. Per SKILL.md fallback (log-once-continue) `triaged-prs.json` was NOT updated so a PAT-based recovery re-fires the DEFER verdict cleanly next run. Notify skipped — DEFER is routine per §10 (gate is OUT-OF-SCOPE closes or first-PR ACCEPTED only). Terminal: PR_TRIAGE_OK.
+
+Files modified: `memory/logs/2026-07-11.md`.
+
+Follow-up: operator PAT provisioning (already surfaced as top-priority in [[planner]]'s 07-11 run) is the sole lever that unblocks this and the 11 other staged branches.
