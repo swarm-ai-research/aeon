@@ -1,30 +1,18 @@
-Goal-tracker executed. Report:
-
-*Goal Tracker — 2026-07-10*
-
-Summary: 13 goals — 0 at risk, 0 needs attention, 12 on track, 1 blocked, 0 done (overall → flat vs 2026-07-09)
-
-**BLOCKED**
-- Open staged branches via PAT — waiting on operator PAT since 2026-06-20 (GHA "not permitted to create or approve pull requests"); queue grew **9 → 10** today (adds `suggest-edges/2026-07-10`)
-  → Action: Provision operator PAT with `repo` scope and push queued branches → PRs
-
-**ON TRACK** (all 12 flat vs prior snapshot; days_idle / activity_14d)
-- ISS-006 per-slot crons in `messages.yml` — 0d / 14
-- Standardize notify emission on direct `.pending-notify/` writes — 0d / 12
-- Fix `docs/status.md` auto-commit drop — 0d / 10
-- Patch notegraph silent-exit heuristic (`generatedAt`) — 0d / 14
-- Close ISS-007 or add same-day grace to skill-evals — 1d / 5
-- Patch `pr-tracker` SKILL.md (5-item batch) — 0d / 14
-- Fix `skill-freshness` to use `git log -1 --format=%ct` — 0d / 13
-- Widen `scenario-sweep.mjs` seed count / filter `wallet_sum_pnl` — 0d / 14
-- File `./generate-skills-json` bugs as structured issues — 6d / 5
-- Investigate missing `scripts/validate-config.js` — 1d / 13
-- Populate `memory/watched-repos.md` or disable 5 dependent skills — 0d / 14
-- Defer ISS-001 close until ISS-006 resolved — 0d / 14
-
-Sources: logs=ok, git=ok, gh_pr=ok, gh_issue=ok, cron-state=ok
+Skill run complete.
 
 ## Summary
-- No status transitions vs 2026-07-09 snapshot → `MEMORY.md` left untouched per SKILL.md §7.
-- Only actionable next step: operator PAT provisioning to drain the 10-branch queue. Every other goal is authoring work waiting for a maintainer session, not a monitor gap.
-- Files modified: `memory/goal-state.json` (refreshed with today's counts), `memory/logs/2026-07-10.md` (goal-tracker section appended), `.pending-notify/1783710098-goal-tracker.md` (notify queued, direct-write per sandbox-safe pattern).
+
+Executed `skills/goal-tracker/SKILL.md` against `memory/MEMORY.md` (fell back to `## Next priorities` — no `## Goals` section). Evaluated 13 goals across logs (22 files in 30d window), git (shallow-clone degraded), `gh pr list`, and `gh issue list`.
+
+**Result:** 12 ON TRACK, 1 BLOCKED, 0 AT RISK / NEEDS ATTENTION / DONE. Overall trend flat; `close-iss-007-or-add-same-day-grace-window-to-skill-evals` improved (activity 5 → 12/14d, +140%). No status transitions vs prior 2026-07-10 snapshot.
+
+**One action proposed:** `open-queued-branches-via-pat` (BLOCKED, queue grew 10 → 11 today with `notegraph/2026-07-11`) — ping operator for repo-scoped PAT.
+
+**Files written:**
+- `memory/goal-state.json` — 13 goals refreshed with today's activity + updated blocker note
+- `.pending-notify/1783796412-goal-tracker.md` — full report queued (direct write per sandbox pattern)
+- `memory/logs/2026-07-11.md` — appended `### goal-tracker` entry
+
+**Not written:** `memory/MEMORY.md` — no goal status changed vs prior snapshot, per SKILL.md §7 write-guard.
+
+**Follow-up:** Operator PAT provisioning remains the sole material lever for the BLOCKED goal; the other 12 are steadily active but underscore that "activity" ≠ "landing" while the PR queue stays parked.
