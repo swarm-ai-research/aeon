@@ -1,15 +1,22 @@
+Skill executed. Delivered a summary below.
+
 ## Summary
 
-Executed skill-health for 2026-07-10. State is byte-identical to yesterday's run for the 14th consecutive day.
+Ran `skill-health` at 2026-07-11T19:00Z.
 
-**Classification:** 0 CRITICAL / 0 FLAPPING / 38 DEGRADED / 4 HEALTHY / 2 NO_DATA. All 38 DEGRADED are still driven by the ISS-001 OAuth-outage denominator burn (~195 zero-token CLI failures still in each skill's success_rate denominator). Runtime fleet 168h green per `./scripts/skill-runs` (142/142 non-in-progress success).
+**Classification** (identical to prior 14 days — 15th consecutive-day steady state):
+- CRITICAL 0 · FLAPPING 0 · **DEGRADED 38** · WARNING 0 · **HEALTHY 4** · **NO DATA 2**
+- 38 DEGRADED are all systemic — ISS-001 OAuth-outage denominator burn (day 21). Every skill `last_status=success`, `consecutive_failures=0`. Runtime fleet 168h: 137/137 non-in-progress success, 0 failure.
+- HEALTHY: agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog
+- NO_DATA: ai-framework-watch, run-frequency-guard (heartbeat flagged both today)
 
-**Gate:** SKIP notify — elapsed 23h 16m < 24h daily-reminder cadence AND classification tuple unchanged. Compared JSON classification tuples directly rather than trusting the drifting hash (`6b3c2d00…` → `3b7d5d55…` is systemic-string canonicalization variance, not real change).
+**Issue reconciliation**: 6 open (ISS-001/002/005/006/007/008). 0 filed, 0 resolved this run. HEALTHY skills present in ISS-005/006 affected_skills deferred to filing skill per CLAUDE.md health-file/repair-close contract.
 
-**Reconciliation:** 0 issues filed (no CRITICAL/FLAPPING). 0 auto-resolved — none of the 6 open issues (ISS-001/002/005/006/007/008) were `detected_by: skill-health`, so HEALTHY skills appearing in their `affected_skills` (config-validator, swarm-safety-eval) are not touched per health-file/repair-close contract.
+**Notify decision**: **FIRED** — classification tuple byte-identical to prior run, but ~47h since last notify (2026-07-09T19:42:58Z) > 24h daily-reminder cadence → step 5 second branch. Direct-written to `.pending-notify/1783796415-skill-health.md`.
 
-**Files modified:**
-- `memory/skill-health/last-report.json` — updated `hash`, `prev_hash`, `last_run_at`, `delta_vs_prev`, `notify_decision`; `last_notified_at` unchanged (no notify)
-- `memory/logs/2026-07-10.md` — appended `## skill-health` NOOP entry
+**Files modified**:
+- `memory/skill-health/last-report.json` (hash `46b274a7…`, updated `last_notified_at`)
+- `.pending-notify/1783796415-skill-health.md` (notification body)
+- `memory/logs/2026-07-11.md` (skill-health section appended)
 
-**Follow-ups:** None from this run. Standing item: ISS-001 denominator burn will keep 38 skills flagged DEGRADED until either the counters get archived or enough green runs accumulate to lift each skill's cumulative success_rate above 0.6.
+**Follow-up**: OAuth burn denominator normalizes ~2026-08-15 (60d cumulative window rolls out); `ai-framework-watch` and `run-frequency-guard` remain NO_DATA and need dispatch (ISS-006 tributaries).
