@@ -439,4 +439,62 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. git commit failure (pre-commit hook exit 1) → ok:false, reason matches
+//     /git commit failed/, worktree and ephemeral branch both cleaned up.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  // Install a pre-commit hook that always fails. Worktrees share hooks with the
+  // main repo's .git/hooks directory, so this also blocks the worktree commit.
+  const hooksDir = join(env.localDir, ".git", "hooks");
+  mkdirSync(hooksDir, { recursive: true });
+  const hookPath = join(hooksDir, "pre-commit");
+  writeFileSync(hookPath, "#!/usr/bin/env bash\nexit 1\n");
+  chmodSync(hookPath, 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no stray worktree after commit failure");
+    // Ephemeral branch must be deleted (cleanup(true) path).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, worktree and branch cleaned up");
+}
+
+// 16. test-pass kind happy path — KIND_CONFIG entry exists and the full
+//     worktree → commit → push → PR flow completes, branch name prefixed
+//     correctly.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "tp001" })
+    );
+    assert.equal(result.ok, true, `expected ok=true for test-pass, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/42");
+    assert.match(result.branch, /^aeon\/test-pass-\d{4}-\d{2}-\d{2}-tp001$/);
+    // Branch exists on remote.
+    const refs = spawnSync("git", ["ls-remote", env.remoteDir], { encoding: "utf8" }).stdout;
+    assert.match(refs, new RegExp(`refs/heads/${result.branch}`));
+    // Main checkout untouched.
+    assert.equal(git(["branch", "--show-current"], env.localDir).stdout, "main");
+    // Worktree cleaned up.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "worktree should be removed after test-pass");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  test-pass kind → accepted, branch/commit/push/PR flow succeeds");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
