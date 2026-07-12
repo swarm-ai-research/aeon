@@ -1,0 +1,212 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "surplus pulse"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "date-text",
+        "sep1",
+        "spot-section",
+        "curve-section",
+        "rail-section",
+        "sep2",
+        "summary-section"
+      ]
+    },
+    "date-text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-07-12",
+        "variant": "caption"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "spot-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "spot-title",
+        "spot-content"
+      ]
+    },
+    "spot-title": {
+      "type": "Heading",
+      "props": {
+        "text": "spot",
+        "level": "h3"
+      }
+    },
+    "spot-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "spot-text",
+        "spot-price",
+        "spot-provider"
+      ]
+    },
+    "spot-text": {
+      "type": "Text",
+      "props": {
+        "text": "catalog · Llama 4 Scout",
+        "variant": "body"
+      }
+    },
+    "spot-price": {
+      "type": "Stat",
+      "props": {
+        "value": "$0.0764/M",
+        "label": "Price"
+      }
+    },
+    "spot-provider": {
+      "type": "Badge",
+      "props": {
+        "text": "Surplus Intelligence",
+        "variant": "secondary"
+      }
+    },
+    "curve-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "curve-title",
+        "curve-content"
+      ]
+    },
+    "curve-title": {
+      "type": "Heading",
+      "props": {
+        "text": "curve",
+        "level": "h3"
+      }
+    },
+    "curve-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "curve-text",
+        "curve-delta"
+      ]
+    },
+    "curve-text": {
+      "type": "Text",
+      "props": {
+        "text": "hyperscaler H100 reserve → R30 (supply crunch at round 6)",
+        "variant": "body"
+      }
+    },
+    "curve-delta": {
+      "type": "Stat",
+      "props": {
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "rail-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rail-title",
+        "rail-content"
+      ]
+    },
+    "rail-title": {
+      "type": "Heading",
+      "props": {
+        "text": "rail",
+        "level": "h3"
+      }
+    },
+    "rail-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rail-text",
+        "rail-url"
+      ]
+    },
+    "rail-text": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on Base/USDC",
+        "variant": "body"
+      }
+    },
+    "rail-url": {
+      "type": "Link",
+      "props": {
+        "label": "surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "summary-title",
+        "summary-content"
+      ]
+    },
+    "summary-title": {
+      "type": "Heading",
+      "props": {
+        "text": "one-line read",
+        "level": "h3"
+      }
+    },
+    "summary-content": {
+      "type": "Text",
+      "props": {
+        "text": "inference market tightened hard on H100 scarcity (+88.7% at R30), partially relieved by open-weights supply drop at R13, then re-tightened on agent-platform demand surge at R20 — net bias: bullish compute.",
+        "variant": "body"
+      }
+    }
+  }
+}
