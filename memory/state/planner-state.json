@@ -1,11 +1,11 @@
 {
-  "last_run": "2026-07-11T06:37:40Z",
+  "last_run": "2026-07-12T06:33:27Z",
   "top_priority": "operator-pat-provisioning",
   "priority_streak": {
-    "operator-pat-provisioning": 1,
+    "operator-pat-provisioning": 2,
     "iss-006-messages-yml-per-slot-crons": 3
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Escalation move per skill §2 stuck-goal rule: `iss-006-messages-yml-per-slot-crons` hit streak-3 (2026-06-27 / 07-03 / 07-05) without a log entry closing it, and every landing path lives behind the same operator-PAT block that has now stalled 10 branches (was 9; suggest-edges/2026-07-10 joined yesterday) and produced a validated second-order state-loss effect per [[skill-state-on-blocked-pr-branch-is-lost]]. Reframed today's top priority to the meta-blocker (`operator-pat-provisioning`), which resets the streak counter but keeps the ISS-006 streak visible so the escalation is legible in tomorrow's planner run. Runners-up: notegraph `generatedAt` mask (Day 5 today if extractor fires) and compute-futures-eda `wallet_sum_pnl` filter (2 consecutive-day float-dust crossings). ${var} empty → plan-only, no dispatch. This is the first planner run since 2026-07-05 (skill silent 142h/5.94× threshold — ISS-006 tributary; today's 06:30 slot fired at ~06:37 UTC)."
+  "notes": "Streak → 2 on `operator-pat-provisioning` (top since 2026-07-11 escalation from the streak-3 `iss-006-messages-yml-per-slot-crons`). No landed close since yesterday: the 11-branch staged queue is unchanged (nothing landed via operator PAT, no new content-skill outputs pushed a 12th branch overnight). ISS-006's 3-clean-day close clock is Day-0 → Day-1 tonight if today's 06:00 + 08:00 pockets both deliver — that would make Tue 2026-07-14's planner run the potential ISS-006 close point (Day-3 rolls at Tue 06:30 UTC once Mon's pockets clear). Runners-up: (2) compute-futures-eda `wallet_sum_pnl` σ<1e-6 filter — 3rd float-dust validation day yesterday, patch is small and self-actionable, stage the branch even though PR-open will 403; (3) pre-read `messages.yml` + `aeon.yml` wiring for `run-frequency-guard` (23:00 tonight) and `ai-framework-watch` (Mon 08:30 tomorrow) ahead of natural-experiment slots per [[enabled-skills-can-never-dispatch]]. Preserving ISS-006 streak-3 counter for legibility — if escalation to `operator-pat-provisioning` produced no operator movement by tomorrow (streak-3 on the meta-blocker), that would itself become the next escalation signal. `${var}` empty → plan-only, no dispatch. Fired at planner's scheduled 06:30 UTC slot (~06:33 today) — on schedule for the 2nd consecutive day."
 }

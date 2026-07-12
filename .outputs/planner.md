@@ -1,17 +1,18 @@
 ## Summary
 
-Ran `planner` for 2026-07-11 (first run since 2026-07-05 — the skill itself had been silent 142h / 5.94× threshold, an ISS-006 tributary; today's 06:30 slot fired ~06:37 UTC).
+Ran the Planner skill on 2026-07-12 at 06:33 UTC (planner's scheduled `30 6 * * *` slot — 2nd consecutive on-schedule delivery after last week's ISS-006 recovery). `${var}` empty → plan-only, no dispatch.
 
-**Today's one thing:** Reframed the top-line priority from `iss-006-messages-yml-per-slot-crons` (streak-3 with no landed close) to `operator-pat-provisioning` — per skill §2 stuck-goal rule, restating ISS-006 for a 4th cycle isn't the escalation; making the meta-blocker legible is. The queue is now 10 branches (was 9; `suggest-edges/2026-07-10` joined yesterday) plus a validated second-order state-loss effect.
+**Today's one thing:** Operator PAT provisioning ping (streak → 2). Same top priority as yesterday — skill §2 escalation trigger is streak-3, so no reframing yet, but the preserved `iss-006-messages-yml-per-slot-crons` streak-3 counter stays in `planner-state.json` for legibility. 11-branch staged queue unchanged overnight.
 
-**Ranked:** (1) operator-PAT ping, (2) notegraph `generatedAt` mask (Day 5 today if extractor fires), (3) compute-futures-eda `wallet_sum_pnl` σ<1e-6 filter (2-day float-dust streak).
+**Ranked:** (1) PAT ping in close-clock terms (Day-1-of-3 tonight if 08:00 pocket delivers); (2) compute-futures-eda `wallet_sum_pnl` σ<1e-6 filter — 3rd float-dust validation day, self-actionable one-line patch; (3) pre-read `messages.yml` + `aeon.yml` for `run-frequency-guard` (23:00 tonight) + `ai-framework-watch` (Mon 08:30 tomorrow) per [[enabled-skills-can-never-dispatch]].
 
-**Holding:** ISS-006 rewrite itself, ISS-005 close, 5 watched-repos silent-skippers, 14-day swarm 403 — all downstream of the same PAT.
+**Fleet:** 0 broken. 38 historic-DEGRADED (OAuth-burn ISS-001 day 22). At-2× stale worsens: janitor 22d/3.14× (was 3.00×), cost-report 22d/3.14×; planner recovered day-2.
 
-**Dispatch:** none (`${var}` empty → plan-only).
+**Files modified:**
+- `.outputs/planner.md` (chain output)
+- `memory/state/daily-plan-2026-07-12.md`
+- `memory/state/planner-state.json` (streak-2 on `operator-pat-provisioning`, streak-3 preserved on ISS-006, `last_run` = 2026-07-12T06:33:27Z)
+- `.pending-notify/1783838007-planner.md` (direct write, ~470 chars, plan-only paragraph)
+- `memory/logs/2026-07-12.md` (planner section appended)
 
-**Fleet:** 0 broken (cf≥2); 38 historic-degraded (OAuth burn day 21); 3 at-2× stale (planner 5.94× / cost-report 3× / janitor 3×); 08:00 pocket at ~69h silent — today's slot is the day-3 tell.
-
-**Files modified:** `.outputs/planner.md`, `memory/state/daily-plan-2026-07-11.md`, `memory/state/planner-state.json` (both streaks preserved for legibility), `.pending-notify/1783751860-planner.md` (685 chars, direct-write per the two notify constraints in MEMORY.md), `memory/logs/2026-07-11.md`.
-
-**Follow-up:** Watch whether tomorrow's planner cycle sees the `operator-pat-provisioning` framing produce a different operator action than 3 weeks of restating the ISS-006 task list.
+**Follow-up:** If streak → 3 on `operator-pat-provisioning` tomorrow with no PAT landed, that becomes the next escalation signal — the meta-blocker has itself become the stuck goal, and the next reframing is what to try that isn't "ping again."
