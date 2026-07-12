@@ -1,0 +1,123 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat-links",
+        "sep1",
+        "status-section",
+        "sep2",
+        "context-section"
+      ]
+    },
+    "stat-links": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3",
+        "delta": "2026-06-20"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "status-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "status-heading",
+        "status-details",
+        "alert-pr-blocked"
+      ]
+    },
+    "status-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Status",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "status-details": {
+      "type": "Text",
+      "props": {
+        "text": "Branch suggest-edges/2026-07-12 pushed"
+      },
+      "children": []
+    },
+    "alert-pr-blocked": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Creation Blocked",
+        "message": "GitHub Actions is not permitted to create or approve pull requests",
+        "type": "error"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "context-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "context-heading",
+        "badge-consecutive",
+        "context-details"
+      ]
+    },
+    "context-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Context",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "badge-consecutive": {
+      "type": "Badge",
+      "props": {
+        "text": "4th consecutive day",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "context-details": {
+      "type": "Text",
+      "props": {
+        "text": "Same 3 similarity-1.00 pairs from gitlawb-compute-futures-proofs/2026-06-20.md"
+      },
+      "children": []
+    }
+  }
+}
