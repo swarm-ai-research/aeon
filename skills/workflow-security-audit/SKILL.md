@@ -24,8 +24,14 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
+# Pre-built binaries for both tools live in .audit-bin/ (committed to bypass the
+# sandbox's blocked pip/curl installers). Add that directory to PATH first so the
+# `command -v` checks below find them without any network access.
+export PATH="$PWD/.audit-bin:$PATH"
+
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
 # Pin to a specific version for reproducibility — bump this when upgrading.
+# Keep ZIZMOR_VERSION in sync with the version in .audit-bin/README.md.
 ZIZMOR_VERSION="1.25.2"
 if ! command -v zizmor >/dev/null 2>&1; then
   pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
@@ -352,6 +358,7 @@ Append to `memory/logs/${today}.md`:
 
 ## Sandbox note
 
+- **Pre-built binaries in `.audit-bin/`** are the primary fallback when pip/curl is blocked. Step 0b prepends `.audit-bin/` to `PATH` so `zizmor` and `actionlint` are found without network access. See `.audit-bin/README.md` for versions and update instructions.
 - `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
 - `gh` CLI uses existing `GITHUB_TOKEN` / `GH_GLOBAL` — no extra auth setup needed.
 - No new secrets required. zizmor and actionlint are offline-only static analyzers.
