@@ -24,21 +24,22 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
-# zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
-# Pin to a specific version for reproducibility — bump this when upgrading.
+# Pre-committed binaries live in .audit-bin/ — use them first (no network needed).
+# When auditing this skill, verify ZIZMOR_VERSION matches the binary in .audit-bin/
+# (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
 ZIZMOR_VERSION="1.25.2"
+export PATH="$PWD/.audit-bin:$HOME/.local/bin:$PATH"
+
+# zizmor — fall back to pipx/pip only if the cached binary is absent.
 if ! command -v zizmor >/dev/null 2>&1; then
   pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
     || python3 -m pip install --user "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
     || true
-  export PATH="$HOME/.local/bin:$PATH"
 fi
-# When auditing this skill, verify ZIZMOR_VERSION is still on the latest stable
-# (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
-# actionlint (Rhymond's syntax-level workflow linter)
+
+# actionlint — fall back to download only if the cached binary is absent.
 if ! command -v actionlint >/dev/null 2>&1; then
   bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
-  export PATH="$PWD:$PATH"
 fi
 ```
 
