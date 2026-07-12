@@ -439,4 +439,57 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. git commit failure — a pre-commit hook rejects every commit.
+//     git add -A succeeds (changes are staged) but git commit exits non-zero.
+//     cleanup(true) must delete the branch and remove the worktree.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  // Worktrees share the parent repo's .git directory, so a hook installed here
+  // fires for any commit made inside the worktree too.
+  const hooksDir = join(env.localDir, ".git", "hooks");
+  mkdirSync(hooksDir, { recursive: true });
+  const hookPath = join(hooksDir, "pre-commit");
+  writeFileSync(hookPath, "#!/bin/sh\necho 'commit blocked by test hook' >&2\nexit 1\n");
+  chmodSync(hookPath, 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // cleanup(true) was called — branch must be deleted.
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain after commit failure");
+    // Worktree must also be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, branch deleted, worktree cleaned up");
+}
+
+// 16. gh pr create output contains no URL — prUrl falls back to pr.stdout.trim().
+//     The `|| pr.stdout.trim()` branch in the prUrl extraction is hit when gh
+//     prints a plain ref (e.g. "owner/repo#42") instead of a full https URL.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "stub/repo#42"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourlfallback" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "stub/repo#42", "prUrl should fall back to trimmed stdout when no URL found");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  prUrl falls back to pr.stdout.trim() when gh output contains no URL");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
