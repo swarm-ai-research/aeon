@@ -1,0 +1,152 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Workflow Audit — 2026-07-12"
+      },
+      "children": [
+        "alert_findings",
+        "section_stats",
+        "section_fixes",
+        "section_top_issue",
+        "section_status"
+      ]
+    },
+    "alert_findings": {
+      "type": "Alert",
+      "props": {
+        "title": "New Critical & High Severity Findings",
+        "message": "3 new critical · 17 new high",
+        "type": "error"
+      },
+      "children": []
+    },
+    "section_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_critical",
+        "stat_high"
+      ]
+    },
+    "stat_critical": {
+      "type": "Stat",
+      "props": {
+        "label": "Critical Issues",
+        "value": "3"
+      },
+      "children": []
+    },
+    "stat_high": {
+      "type": "Stat",
+      "props": {
+        "label": "High Severity Issues",
+        "value": "17"
+      },
+      "children": []
+    },
+    "section_fixes": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_fix_summary",
+        "section_categories"
+      ]
+    },
+    "text_fix_summary": {
+      "type": "Text",
+      "props": {
+        "text": "Auto-fixed: 0 · Manual: 20"
+      },
+      "children": []
+    },
+    "section_categories": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text_categories_label",
+        "badge_unpinned",
+        "badge_secrets",
+        "badge_sc2086"
+      ]
+    },
+    "text_categories_label": {
+      "type": "Text",
+      "props": {
+        "text": "Never-auto-fix:",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "badge_unpinned": {
+      "type": "Badge",
+      "props": {
+        "text": "unpinned-uses",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "badge_secrets": {
+      "type": "Badge",
+      "props": {
+        "text": "secrets-outside-env",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "badge_sc2086": {
+      "type": "Badge",
+      "props": {
+        "text": "SC2086-array",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "section_top_issue": {
+      "type": "Alert",
+      "props": {
+        "title": "Top Chain: Unpinned Action in aeon.yml",
+        "message": "actions/checkout@v5 — Future tag compromise replays into every aeon runner with GITHUB_TOKEN + Claude OAuth",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "section_status": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_pr_status",
+        "text_branch_status"
+      ]
+    },
+    "text_pr_status": {
+      "type": "Text",
+      "props": {
+        "text": "PR creation blocked (GitHub Actions cannot open PRs)"
+      },
+      "children": []
+    },
+    "text_branch_status": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed: fix/workflow-security-audit-2026-07-12"
+      },
+      "children": []
+    }
+  }
+}
