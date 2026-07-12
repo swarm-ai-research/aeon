@@ -1,0 +1,112 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Graph"
+      },
+      "children": [
+        "heading",
+        "metrics-section",
+        "separator1",
+        "fingerprint-section",
+        "separator2",
+        "pr-section"
+      ]
+    },
+    "heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Skill Graph Initialized",
+        "level": "h3"
+      }
+    },
+    "metrics-section": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-skills",
+        "stat-categories",
+        "stat-enabled"
+      ]
+    },
+    "stat-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills Mapped",
+        "value": "172"
+      }
+    },
+    "stat-categories": {
+      "type": "Stat",
+      "props": {
+        "label": "Categories",
+        "value": "5"
+      }
+    },
+    "stat-enabled": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled",
+        "value": "41"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fingerprint-section": {
+      "type": "Text",
+      "props": {
+        "text": "Fingerprint bootstrapped for change detection on next run"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-alert",
+        "branch-info",
+        "action-badge"
+      ]
+    },
+    "pr-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Status",
+        "message": "Blocked — github-actions cannot create PRs",
+        "type": "warning"
+      }
+    },
+    "branch-info": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed: skill-graph/2026-07-12",
+        "variant": "caption"
+      }
+    },
+    "action-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Operator merge needed",
+        "variant": "destructive"
+      }
+    }
+  }
+}
