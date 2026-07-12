@@ -439,4 +439,57 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. git commit failure — a pre-commit hook exits 1, triggering the
+//     `if (!commit.ok)` path. Worktree must be removed, branch deleted.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  // Install a failing pre-commit hook via core.hooksPath so the worktree
+  // inherits it (linked worktrees share the main repo's .git/config).
+  const hooksDir = join(env.work, "hooks");
+  mkdirSync(hooksDir);
+  const hookPath = join(hooksDir, "pre-commit");
+  writeFileSync(hookPath, "#!/usr/bin/env bash\nexit 1\n");
+  chmodSync(hookPath, 0o755);
+  git(["config", "core.hooksPath", hooksDir], env.localDir);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    // Branch must be deleted (cleanup(true) path).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "branch should be deleted after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure → ok:false, branch deleted, worktree removed");
+}
+
+// 16. gh pr create output without a URL — prUrl falls back to stdout.trim()
+//     (the `|| pr.stdout.trim()` branch of the URL regex match).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "PR created: no-url-output"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourlpr" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "PR created: no-url-output",
+      "prUrl should fall back to stdout.trim() when gh output contains no URL");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create without URL in output — prUrl falls back to stdout.trim()");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
