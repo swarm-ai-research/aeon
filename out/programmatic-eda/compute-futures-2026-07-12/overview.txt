@@ -1,0 +1,36 @@
+Shape:   144 rows × 17 columns
+Memory:  0.04 MB
+
+Column types:
+  float64         8
+  int64           4
+  str             4
+  bool            1
+
+Per-column info:
+                  dtype  non_null  null_pct  unique      sample
+seed              int64       144       0.0      12   202607121
+mode                str       144       0.0       4   synthetic
+live               bool       144       0.0       2       False
+settlement          str       144       0.0       2        cash
+spotSource          str       144       0.0       3   synthetic
+role                str       144       0.0       3     analyst
+role_pnl        float64       144       0.0     108    4.635012
+wallet_sum_pnl  float64       144       0.0      36        -0.0
+realizedAbs     float64       144       0.0      36  100.929713
+minSpot         float64       144       0.0      36    0.048867
+maxSpot         float64       144       0.0      36    0.081609
+minCurve        float64       144       0.0      27       0.045
+maxCurve        float64       144       0.0      34       0.094
+rounds            int64       144       0.0       1          60
+settlementLegs    int64       144       0.0       9          80
+x402Total       float64       144       0.0      13         0.0
+deniedWorkers     int64       144       0.0       1           0
+
+Sample (5 rows):
+     seed      mode  live settlement       spotSource     role    role_pnl  wallet_sum_pnl  realizedAbs   minSpot   maxSpot  minCurve  maxCurve  rounds  settlementLegs  x402Total  deniedWorkers
+202607124      x402 False       x402        synthetic  analyst   23.518248   -3.796963e-14   111.845174  0.046341  0.080573    0.0440    0.0995      60              80 333.326576              0
+202607127 synthetic False       cash        synthetic operator   -1.198809   -6.883383e-15    90.147343  0.047986  0.086685    0.0425    0.0960      60              80   0.000000              0
+202607124    spread  True       cash darkbloom-spread operator 6468.873737    8.185452e-12 45074.730343 42.752092 65.733165   38.8140   71.4570      60              81   0.000000              0
+202607129    spread  True       cash darkbloom-spread operator 3841.199588   -2.842171e-12 56911.963129 46.225270 62.934821   39.6475   70.2650      60              81   0.000000              0
+202607127    basket  True       cash darkbloom-basket   retail  -47.416672    9.769963e-15   233.972552  0.115166  0.208045    0.1025    0.2300      60              78   0.000000              0
