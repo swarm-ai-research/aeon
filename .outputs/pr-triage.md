@@ -1,16 +1,19 @@
 ## Summary
 
-Ran `pr-triage` on `swarm-ai-research/swarm` (repo mode, `${var}` override). Fetched 5 open PRs in the 14-day window: 4 dependabot bots skipped (`#529–532`, all `app/dependabot`) plus 1 external (`#527` rsavitt, head `da039d5f`, +2590/-0 across the `swarm/neurosymbolic/*` package).
+Ran `pr-triage` in repo mode against `swarm-ai-research/swarm`.
 
-Rubric verdict for #527: **DEFER** — size 2590 > 500 lines with no `large-ok` label; scope path (`swarm/`) is not in the protected set so no OUT-OF-SCOPE trigger; no SKILL.md touched (format skipped); no new skill added (originality skipped); PR body is 5174 chars (not empty). Same verdict as 2026-07-10 at unchanged head SHA.
+**Candidates:** 5 open PRs (14-day window).
+- Skipped 4 dependabot bots: #529, #530, #531, #532.
+- Triaged 1 external PR: **#527** (rsavitt, "Add neurosymbolic behavior classification…", head `da039d5`).
 
-Writes attempted per SKILL.md §step-6:
-- `gh pr comment 527` → `Resource not accessible by integration (addComment)`
-- `gh label create triage:deferred` → HTTP 403 on labels endpoint  
-- `gh pr edit --add-label triage:deferred` → `Resource not accessible by integration (addLabelsToLabelable)`
+**Verdict:** `DEFER` — Size check fails (2590 additions ≫ 500 limit, no `large-ok` label).
 
-**PR_TRIAGE_NO_PERMISSION swarm-ai-research/swarm#527** — 14th consecutive day of the Aeon App's cross-org PR-write gap per [[aeon-app-no-write-on-swarm-repo]]. Per SKILL.md fallback (log-once-continue) `triaged-prs.json` was NOT updated so a PAT-based recovery re-fires the DEFER verdict cleanly next run. Notify skipped — DEFER is routine per §10 (gate is OUT-OF-SCOPE closes or first-PR ACCEPTED only). Terminal: PR_TRIAGE_OK.
+**Write outcome:** All three write operations 403'd (`Resource not accessible by integration`) — comment, label create, label apply. Continues the write-block streak documented in memory (15th consecutive day per [[aeon-app-no-write-on-swarm-repo]]). Logged `PR_TRIAGE_NO_PERMISSION swarm-ai-research/swarm#527` and continued per skill contract.
 
-Files modified: `memory/logs/2026-07-11.md`.
+**State:** `triaged-prs.json` deliberately NOT appended for #527 so the next run re-fires — matches the operator policy noted in MEMORY.md.
 
-Follow-up: operator PAT provisioning (already surfaced as top-priority in [[planner]]'s 07-11 run) is the sole lever that unblocks this and the 11 other staged branches.
+**Notify:** Not sent — DEFER doesn't trip the significance gate (only OUT-OF-SCOPE closures and first-time-contributor ACCEPTED do).
+
+**Files modified:** `memory/logs/2026-07-12.md` (appended `## pr-triage` block).
+
+**Follow-up:** Operator PAT provisioning remains the meta-blocker — until the aeon GitHub App gains write scope on `swarm-ai-research/swarm`, every retry of this triage will produce the same 403 and no comment/label lands upstream.
