@@ -1,22 +1,15 @@
-Skill executed. Delivered a summary below.
+Skill executed. Notification suppressed per gate; state persisted.
 
 ## Summary
 
-Ran `skill-health` at 2026-07-11T19:00Z.
+Ran **skill-health** (full-fleet mode, `${var}` empty) on 2026-07-12 at 18:38 UTC.
 
-**Classification** (identical to prior 14 days — 15th consecutive-day steady state):
-- CRITICAL 0 · FLAPPING 0 · **DEGRADED 38** · WARNING 0 · **HEALTHY 4** · **NO DATA 2**
-- 38 DEGRADED are all systemic — ISS-001 OAuth-outage denominator burn (day 21). Every skill `last_status=success`, `consecutive_failures=0`. Runtime fleet 168h: 137/137 non-in-progress success, 0 failure.
-- HEALTHY: agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog
-- NO_DATA: ai-framework-watch, run-frequency-guard (heartbeat flagged both today)
+**Classification** (44 enabled skills): 0 CRITICAL / 38 DEGRADED / 0 FLAPPING / 0 WARNING / 4 HEALTHY / 2 NO_DATA. Byte-identical to the 2026-07-11T19:00:15Z run — **16th consecutive day at this steady state**. Same 38 DEGRADED (OAuth-burn ISS-001 day-22 denominator residue on cf=0/last_status=success skills), same 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog), same 2 NO_DATA (ai-framework-watch, run-frequency-guard).
 
-**Issue reconciliation**: 6 open (ISS-001/002/005/006/007/008). 0 filed, 0 resolved this run. HEALTHY skills present in ISS-005/006 affected_skills deferred to filing skill per CLAUDE.md health-file/repair-close contract.
+**Notify gate**: classification identical to prev AND delta 23.64h < 24h daily-reminder threshold → **SKIP notify** per step 5 first branch (`SKILL_HEALTH_NOOP`). No `.pending-notify/` write.
 
-**Notify decision**: **FIRED** — classification tuple byte-identical to prior run, but ~47h since last notify (2026-07-09T19:42:58Z) > 24h daily-reminder cadence → step 5 second branch. Direct-written to `.pending-notify/1783796415-skill-health.md`.
+**Issue reconciliation**: 0 CRITICAL/FLAPPING → 0 filed. 0 resolved — HEALTHY skills in ISS-005/ISS-006 affected_skills not auto-closed (detected_by ≠ skill-health, per CLAUDE.md contract). Note: skill-evals BOOTSTRAP at 10:24Z today filed ISS-009 through ISS-018 (10 new for chronically-empty-output skills), growing open-issue count 6 → 16 — none affect skill-health's classification.
 
-**Files modified**:
-- `memory/skill-health/last-report.json` (hash `46b274a7…`, updated `last_notified_at`)
-- `.pending-notify/1783796415-skill-health.md` (notification body)
-- `memory/logs/2026-07-11.md` (skill-health section appended)
+**Files modified**: `memory/skill-health/last-report.json` (hash + `last_run_at` bumped; `last_notified_at` preserved), `memory/logs/2026-07-12.md` (skill-health section appended).
 
-**Follow-up**: OAuth burn denominator normalizes ~2026-08-15 (60d cumulative window rolls out); `ai-framework-watch` and `run-frequency-guard` remain NO_DATA and need dispatch (ISS-006 tributaries).
+**Follow-up**: tomorrow's cadence-gate should NOTIFY (~19:00Z when 24h elapses cleanly against today's preserved `last_notified_at`); underlying OAuth-burn needs ~35 more days for cumulative denominators to age out.
