@@ -1,7 +1,21 @@
+Task complete — the skill's guard triggered and I logged the skip. No task-tracking needed for a single-step skip.
+
 ## Summary
 
-`code-health` skipped cleanly on the `CODE_HEALTH_NO_CONFIG` path — `memory/watched-repos.md` is missing, so per SKILL.md I exited without cloning, scanning, or notifying. This matches three sibling skills already logged today with the same NO_CONFIG exit (github-monitor, issue-triage, repo-revive).
+**Skill:** `skills/code-health/SKILL.md`
+**Verdict:** `CODE_HEALTH_SKIP_NO_WATCHED_REPOS` (22nd consecutive daily skip)
 
-- **Files modified:** `memory/logs/2026-07-11.md` (appended code-health section).
-- **No** repos audited, articles written, PRs opened, or notifications queued (empty config is not an error per the sibling-skill pattern; no notify).
-- **Follow-up:** unchanged from MEMORY.md Next Priorities line 51 — operator either populates `memory/watched-repos.md` or disables the five watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog) to stop the daily silent-skip pattern.
+**What I did:**
+- Read `skills/code-health/SKILL.md` and `memory/MEMORY.md`.
+- Checked for `memory/watched-repos.md` — absent (as expected per MEMORY.md's standing "populate or disable" backlog item covering 5 skills including this one).
+- Skipped per skill spec ("If the file doesn't exist yet, create it or skip this skill"). No `${var}` override was passed.
+
+**Files modified:**
+- `memory/logs/2026-07-12.md` — appended `## Code Health` skip entry.
+
+**Not modified / not fired:**
+- No repos scanned, no `articles/code-health-2026-07-12.md` written, no `./notify` fired.
+
+**Follow-up:**
+- Operator action required — either populate `memory/watched-repos.md` with `owner/repo` lines or disable the 5 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog) to stop wasting daily workflow slots. Already on the MEMORY.md `Next priorities` list.
+- Side note: shell heredoc redirect (`>>`) to a working-dir path was blocked by the sandbox on my first attempt — matches [[sandbox-blocks-shell-redirect-to-workdir]]. Used the `Edit` tool instead. No memory update needed; the atomic claim already documents this.
