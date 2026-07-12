@@ -439,4 +439,43 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. gh pr list returns syntactically invalid JSON → JSON.parse throws →
+//     catch branch in openPRsForKind returns null → gate is skipped and the
+//     pass proceeds rather than blocking. This covers the catch{} path that
+//     tests 11 (non-zero exit) and 12 (non-array valid JSON) do not reach.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{broken json'; exit 0; fi\necho "https://github.com/stub/repo/pull/55"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "malformedjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list emits malformed JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/55");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list emits malformed JSON → catch → null backlog → pass proceeds");
+}
+
+// 16. shortTaskId fallback to "x" — when the taskId contains only characters
+//     that are stripped by the /[^a-zA-Z0-9]/ regex the result is "" which
+//     falls through to the "|| 'x'" fallback. Verify via the branch name in
+//     the result (branch must end with "-x").
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "---" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.match(result.branch, /-x$/, `branch should end with '-x' when taskId strips to empty; got ${result.branch}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  all-symbol taskId → shortTaskId falls back to 'x' → branch ends in -x");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
