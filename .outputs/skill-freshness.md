@@ -1,20 +1,23 @@
-The skill has executed. Here's the summary:
-
 ## Summary
 
-**Status: FRESHNESS_OK** — no notification sent (silence is the signal for green runs).
+Executed the `skill-freshness` skill for 2026-07-12. Results:
 
-**What was audited:**
-- 44 enabled skills parsed from `aeon.yml`
-- 0 explicit chain dependencies (all `chains:` blocks are commented out)
-- 2 cross-skill implicit dependencies discovered and checked:
-  1. `suggest-edges` ← `memory/state/notegraph.json` (notegraph): ~2h old → OK ✅
-  2. `compute-macro-correlate` ← `memory/topics/compute-futures-eda/*.md` (compute-futures-eda): <24h old → OK ✅
-- All other enabled skills filtered (own-output self-refs) or excluded (broad `articles/` reads without specific producer patterns)
+**Verdict: ✅ FRESHNESS_OK**
 
-**Key note:** Age computation used `memory/cron-state.json` `last_success` timestamps as the authoritative proxy — GHA's single-commit snapshot assigns the same mtime (08:27 UTC) to every file, and `git log -1 --format=%ct` returns the same epoch for all paths. The structural fix per [[skill-freshness-mtime-blind-in-gha]] remains outstanding.
+- **44 enabled consumers** audited across `aeon.yml`
+- **2 cross-skill dependencies** discovered and scored:
+  1. `stale-content-pr-sweeper` → `memory/state/notegraph.json` (class: state, age <1h, threshold 720h → **OK**)
+  2. `pr-tracker` → `memory/topics/pr-status.md` (class: topics, age <1h, threshold 168h → **OK**)
+- **0 flagged** — no WARN, STALE, or MISSING deps
+- **0 explicit chain edges** (all chains commented out in `aeon.yml`)
+- **~12 implicit refs skipped** (files referenced in SKILL.md but never existed on disk)
+- **No notification sent** (FRESHNESS_OK suppresses notify by spec)
+- Fingerprint `da39a3ee...` (sha1 of empty flagged set) matches yesterday's run — dedup window active, no change
 
-**Files written:**
-- `articles/skill-freshness-2026-07-11.md` — report
-- `memory/topics/skill-freshness-state.json` — updated `last_run_at` to 2026-07-11T08:30:00Z, `dependency_count` 2
-- `memory/logs/2026-07-11.md` — log block appended
+Key structural note: the GHA mtime blind spot ([[skill-freshness-mtime-blind-in-gha]]) remains in effect — all checkout files show ~08:53 UTC mtime regardless of actual last-write time, making all on-disk files appear fresh. The fix (use `git log -1 --format=%ct`) remains an open next-priority item.
+
+**Files written/updated:**
+- `articles/skill-freshness-2026-07-12.md` (created)
+- `memory/topics/skill-freshness-state.json` (updated `last_run_at`)
+- `memory/logs/2026-07-12.md` (log entry appended)
+- `memory/MEMORY.md` (current-focus line updated to 2026-07-12)
