@@ -1,71 +1,76 @@
 {
-  "run_at": "2026-07-11T19:00:12Z",
+  "run_at": "2026-07-12T18:38:00Z",
   "goals": {
+    "operator-pat-provisioning": {
+      "status": "BLOCKED",
+      "activity_count_14d": 13,
+      "last_activity_date": "2026-07-12",
+      "blocker": "GitHub Actions is not permitted to create or approve pull requests; operator PAT still not provisioned. Queue grew 11 -> 12 branches on 2026-07-12 (added `notegraph/2026-07-12` per today's NOTEGRAPH_OK PR-blocked run per [[github-actions-cannot-create-prs]])."
+    },
     "iss-006-fix-replace-messages-yml-cron-with-per-slot": {
       "status": "ON_TRACK",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-11"
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-12"
+    },
+    "investigate-ai-framework-watch-and-run-frequency-guard-never-dispatch": {
+      "status": "ON_TRACK",
+      "activity_count_14d": 12,
+      "last_activity_date": "2026-07-12"
     },
     "standardize-notification-emission-across-skill-md-files": {
       "status": "ON_TRACK",
-      "activity_count_14d": 12,
-      "last_activity_date": "2026-07-11"
+      "activity_count_14d": 13,
+      "last_activity_date": "2026-07-12"
     },
     "fix-status-md-auto-commit-drop": {
+      "status": "ON_TRACK",
+      "activity_count_14d": 12,
+      "last_activity_date": "2026-07-12"
+    },
+    "patch-notegraph-silent-exit-heuristic-generatedat": {
+      "status": "ON_TRACK",
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-12"
+    },
+    "close-iss-007-or-add-same-day-grace-window-to-skill-evals": {
       "status": "ON_TRACK",
       "activity_count_14d": 6,
       "last_activity_date": "2026-07-11"
     },
-    "patch-notegraph-silent-exit-heuristic-generatedat": {
-      "status": "ON_TRACK",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-11"
-    },
-    "close-iss-007-or-add-same-day-grace-window-to-skill-evals": {
-      "status": "ON_TRACK",
-      "activity_count_14d": 12,
-      "last_activity_date": "2026-07-09"
-    },
     "patch-pr-tracker-skill-md-in-one-batch": {
       "status": "ON_TRACK",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-11"
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-12"
     },
     "fix-skill-freshness-to-use-git-log-producer-commit-timestamp": {
       "status": "ON_TRACK",
-      "activity_count_14d": 13,
-      "last_activity_date": "2026-07-11"
+      "activity_count_14d": 14,
+      "last_activity_date": "2026-07-12"
     },
     "widen-scenario-sweep-mjs-seed-count-or-tie-robust-mad": {
       "status": "ON_TRACK",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-11"
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-12"
     },
     "file-generate-skills-json-bugs-as-structured-issues": {
-      "status": "ON_TRACK",
+      "status": "NEEDS_ATTENTION",
       "activity_count_14d": 4,
       "last_activity_date": "2026-07-04"
     },
     "investigate-missing-scripts-validate-config-js": {
       "status": "ON_TRACK",
       "activity_count_14d": 13,
-      "last_activity_date": "2026-07-11"
-    },
-    "open-queued-branches-via-pat": {
-      "status": "BLOCKED",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-11",
-      "blocker": "GitHub Actions is not permitted to create or approve pull requests; operator PAT still not provisioned. Queue grew 10 -> 11 branches today (added `notegraph/2026-07-11` per 2026-07-11 NOTEGRAPH_OK PR-blocked run; also 3rd repetition of same 3 suggest-edges proposals via [[skill-state-on-blocked-pr-branch-is-lost]])."
+      "last_activity_date": "2026-07-12"
     },
     "populate-watched-repos-md-or-disable-dependent-skills": {
       "status": "ON_TRACK",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-11"
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-12"
     },
     "defer-iss-001-close-until-iss-006-resolved": {
       "status": "ON_TRACK",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-11"
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-12"
     }
   }
 }
