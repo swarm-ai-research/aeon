@@ -1,0 +1,1 @@
+compute-macro-correlate 2026-07-12: Track A all null — RENDER/TAO/IO partial ρ vs NATGAS ⊥ {BTC,SOL} all |ρ|<0.15 (RENDER −0.12 p=0.16, TAO −0.12 p=0.19, IO −0.06 p=0.53; n=130). Wider macro scan clean: no non-control hit ≥0.15 for any token. Track B deferring: n=25 joined days, 5 more needed to unlock sweep-P&L track.
