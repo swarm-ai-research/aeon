@@ -1,23 +1,21 @@
 ## Summary
 
-Executed the `skill-freshness` skill for 2026-07-12. Results:
+**skill-freshness run complete — 2026-07-13**
 
-**Verdict: ✅ FRESHNESS_OK**
+**Verdict: ✅ FRESHNESS_OK** — 0 of 2 cross-skill deps flagged.
 
-- **44 enabled consumers** audited across `aeon.yml`
-- **2 cross-skill dependencies** discovered and scored:
-  1. `stale-content-pr-sweeper` → `memory/state/notegraph.json` (class: state, age <1h, threshold 720h → **OK**)
-  2. `pr-tracker` → `memory/topics/pr-status.md` (class: topics, age <1h, threshold 168h → **OK**)
-- **0 flagged** — no WARN, STALE, or MISSING deps
-- **0 explicit chain edges** (all chains commented out in `aeon.yml`)
-- **~12 implicit refs skipped** (files referenced in SKILL.md but never existed on disk)
-- **No notification sent** (FRESHNESS_OK suppresses notify by spec)
-- Fingerprint `da39a3ee...` (sha1 of empty flagged set) matches yesterday's run — dedup window active, no change
+**What was audited:**
+- 44 enabled skills scanned from `aeon.yml`
+- 0 active `chains: consume:` edges (chains block is commented out)
+- 22 implicit file references extracted from enabled SKILL.md files
+- 15 implicit missing files skipped (never created on disk — correct per spec)
+- **2 cross-skill deps evaluated:** `pr-tracker → memory/topics/pr-status.md` and `stale-content-pr-sweeper → memory/state/notegraph.json` — both age ~0h, both within thresholds (168h and 720h respectively) → **OK**
 
-Key structural note: the GHA mtime blind spot ([[skill-freshness-mtime-blind-in-gha]]) remains in effect — all checkout files show ~08:53 UTC mtime regardless of actual last-write time, making all on-disk files appear fresh. The fix (use `git log -1 --format=%ct`) remains an open next-priority item.
+**No notification sent** (FRESHNESS_OK = silence is the signal).
 
-**Files written/updated:**
-- `articles/skill-freshness-2026-07-12.md` (created)
-- `memory/topics/skill-freshness-state.json` (updated `last_run_at`)
-- `memory/logs/2026-07-12.md` (log entry appended)
-- `memory/MEMORY.md` (current-focus line updated to 2026-07-12)
+**Files written:**
+- `articles/skill-freshness-2026-07-13.md` — full report
+- `memory/topics/skill-freshness-state.json` — updated `last_run_at` timestamp
+- `memory/logs/2026-07-13.md` — log entry created
+
+**Ongoing caveat:** The GHA mtime blind spot (`[[skill-freshness-mtime-blind-in-gha]]`) means all files appear fresh due to checkout time reset — the audit is structurally reliable only outside GHA or with git-log-based timestamps. This is unchanged from prior runs.
