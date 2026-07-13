@@ -23,26 +23,39 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
+Pre-built Linux x86-64 binaries are committed to `.audit-bin/` as an offline fallback for sandbox environments where network access is restricted. Check there first before attempting any download.
+
 ```bash
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
 # Pin to a specific version for reproducibility — bump this when upgrading.
 ZIZMOR_VERSION="1.25.2"
 if ! command -v zizmor >/dev/null 2>&1; then
-  pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
-    || python3 -m pip install --user "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
-    || true
-  export PATH="$HOME/.local/bin:$PATH"
+  # Prefer the pre-cached offline binary in .audit-bin/ (no network needed)
+  if [ -x ".audit-bin/zizmor" ]; then
+    export PATH="$PWD/.audit-bin:$PATH"
+  else
+    pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
+      || python3 -m pip install --user "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
+      || true
+    export PATH="$HOME/.local/bin:$PATH"
+  fi
 fi
 # When auditing this skill, verify ZIZMOR_VERSION is still on the latest stable
 # (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
+# When bumping, replace the .audit-bin/zizmor binary to match.
 # actionlint (Rhymond's syntax-level workflow linter)
 if ! command -v actionlint >/dev/null 2>&1; then
-  bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
-  export PATH="$PWD:$PATH"
+  # Prefer the pre-cached offline binary in .audit-bin/ (no network needed)
+  if [ -x ".audit-bin/actionlint" ]; then
+    export PATH="$PWD/.audit-bin:$PATH"
+  else
+    bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
+    export PATH="$PWD:$PATH"
+  fi
 fi
 ```
 
-If the sandbox blocks the download, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
+If the sandbox blocks the download and `.audit-bin/` binaries are absent or wrong arch, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
 
 ## Steps
 
@@ -352,6 +365,7 @@ Append to `memory/logs/${today}.md`:
 
 ## Sandbox note
 
+- **Pre-cached binaries:** `.audit-bin/zizmor` and `.audit-bin/actionlint` are committed to the repo as Linux x86-64 offline fallbacks. Step 0b checks them before attempting any network download. If the runner is a non-x86-64 or non-Linux platform, the binaries won't execute — fall through to the network path.
 - `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
 - `gh` CLI uses existing `GITHUB_TOKEN` / `GH_GLOBAL` — no extra auth setup needed.
 - No new secrets required. zizmor and actionlint are offline-only static analyzers.
