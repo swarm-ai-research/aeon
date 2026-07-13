@@ -23,6 +23,22 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
+**Step 1 — prefer the committed binaries in `.audit-bin/`** (no network required,
+works in the GitHub Actions sandbox):
+
+```bash
+REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || echo "$PWD")
+export PATH="$REPO_ROOT/.audit-bin:$PATH"
+```
+
+The `.audit-bin/` directory ships pre-built x86-64 Linux binaries for both
+tools (see `.audit-bin/README.md` for versions). This is the preferred path
+because the Aeon sandbox blocks `bash <(curl …)` piped installers and doesn't
+guarantee `~/.local/bin` is on `PATH`.
+
+**Step 2 — fall back to network install** if the binaries are absent or the
+wrong architecture:
+
 ```bash
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
 # Pin to a specific version for reproducibility — bump this when upgrading.
@@ -35,7 +51,7 @@ if ! command -v zizmor >/dev/null 2>&1; then
 fi
 # When auditing this skill, verify ZIZMOR_VERSION is still on the latest stable
 # (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
-# actionlint (Rhymond's syntax-level workflow linter)
+# actionlint (rhysd's syntax-level workflow linter)
 if ! command -v actionlint >/dev/null 2>&1; then
   bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
   export PATH="$PWD:$PATH"
