@@ -439,4 +439,75 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. gh pr list returns invalid (non-parseable) JSON → JSON.parse throws → catch
+//     block in openPRsForKind returns null → gate is skipped → pass proceeds.
+//     Distinct from test 11 (non-zero exit) and test 12 (valid non-array JSON).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo 'not-json {['; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "invalidjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns unparseable JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list returns invalid JSON → catch → null backlog → pass proceeds");
+}
+
+// 16. gh pr create returns output with no URL — the `|| pr.stdout.trim()` fallback
+//     path is used as prUrl instead of the regex match. Covers the right-hand side
+//     of: `(pr.stdout.match(/https?:\/\/\S+/) || [])[0] || pr.stdout.trim()`.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "Created pull request #99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourlfallback" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "Created pull request #99",
+      `expected fallback to stdout.trim() as prUrl, got: ${result.prUrl}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create with no URL in output → fallback to stdout.trim() as prUrl");
+}
+
+// 17. test-pass kind — no existing test exercises this KIND_CONFIG entry. Verify
+//     the kind is accepted, the prompt includes the test-pass focus text, and the
+//     happy path (changes → PR) completes successfully.
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-testpass-cap-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "added edge-case test for uncovered branch" >> "$(pwd)/lib.mjs"\necho "Added edge-case test for uncovered branch."\n`,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/100"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "testpass" })
+    );
+    assert.equal(result.ok, true, `expected ok=true for test-pass, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/100");
+    assert.match(result.branch, /^aeon\/test-pass-/);
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /Test pass/);
+    assert.match(captured, /uncovered branch/);
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  test-pass kind — accepted, prompt contains test-pass focus text, happy path succeeds");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
