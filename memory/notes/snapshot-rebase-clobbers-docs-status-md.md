@@ -1,9 +1,10 @@
 ---
 id: snapshot-rebase-clobbers-docs-status-md
 created: 2026-07-12
+updated: 2026-07-13
 type: lesson
 links: [[status-md-auto-commit-drops-writes]], [[aeon-skills-dispatch-via-messages-yml]]
 ---
-# Upstream-fork snapshot pulls can silently overwrite freshly-landed `docs/status.md` with an older version
+# Upstream-fork snapshot pulls silently overwrite freshly-landed `docs/status.md` with an older version — confirmed pattern, not one-off
 
-On 2026-07-12 the 2026-07-11T08:29Z heartbeat's write to `docs/status.md` landed on main at 2026-07-12T00:11:28Z (via the sweeper's delayed-commit path per [[status-md-auto-commit-drops-writes]]), but by 08:54Z the on-disk file was again the 2026-06-09 pre-regen version — `git log -1 --format=%ci` returned `2026-07-12 07:01:51 +0000` for commit `bcae68a snapshot: rsavitt/aeon @ a7f04ee`. The upstream-fork snapshot rebase at 07:01Z carried the older status.md from the fork tip and overwrote the sweeper's landed write, so today's heartbeat found a 33-day-stale page despite yesterday's write having succeeded. This is a **third distinct failure mode** on top of the same-run drop and the delay-to-sweep path: fixing heartbeat's auto-commit glob still leaves a snapshot-rebase clobber window if upstream forks aren't rebased before the snapshot pull runs. Mitigation: either exclude `docs/status.md` from snapshot merges, or gate the snapshot pull on upstream having caught up past main's `docs/status.md` HEAD.
+Observed 2026-07-12 and again 2026-07-13, both times the on-disk file at heartbeat run-start was the 2026-06-09 pre-regen version despite the prior day's write having landed on main; both times `git log -1 --format=%ci -- docs/status.md` pointed at a `snapshot: rsavitt/aeon @ a7f04ee` commit at ~07:00Z that morning (2026-07-12 was `bcae68a`, 2026-07-13 was `7dfcc30`). Two consecutive daily instances of the same upstream ref clobbering the same file with the same 33-34d-stale version means the upstream fork rsavitt/aeon still carries the 2026-06-09 status.md as its `docs/status.md` HEAD, and the daily 07:00–07:20Z snapshot pull unconditionally rebases it in — the write-then-overwrite failure mode is now stable, not one-off. Mitigation: either exclude `docs/status.md` from snapshot merges, or gate the snapshot pull on upstream having caught up past main's `docs/status.md` HEAD.
