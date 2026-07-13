@@ -1,21 +1,7 @@
-Task complete — the skill's guard triggered and I logged the skip. No task-tracking needed for a single-step skip.
-
 ## Summary
 
-**Skill:** `skills/code-health/SKILL.md`
-**Verdict:** `CODE_HEALTH_SKIP_NO_WATCHED_REPOS` (22nd consecutive daily skip)
+Executed the code-health skill for 2026-07-13. `memory/watched-repos.md` is absent, so per SKILL.md §Config ("If the file doesn't exist yet, create it or skip this skill") I exited on the skip branch — no clone, no scan, no article, no notification (silence is intended on empty config). This is the 23rd consecutive daily silent-skip in the five-skill cohort (code-health / github-monitor / issue-triage / changelog / weekly-shiplog) that MEMORY.md `## Next priorities` has been flagging for 22 days.
 
-**What I did:**
-- Read `skills/code-health/SKILL.md` and `memory/MEMORY.md`.
-- Checked for `memory/watched-repos.md` — absent (as expected per MEMORY.md's standing "populate or disable" backlog item covering 5 skills including this one).
-- Skipped per skill spec ("If the file doesn't exist yet, create it or skip this skill"). No `${var}` override was passed.
+Files modified: `memory/logs/2026-07-13.md` (appended code-health section).
 
-**Files modified:**
-- `memory/logs/2026-07-12.md` — appended `## Code Health` skip entry.
-
-**Not modified / not fired:**
-- No repos scanned, no `articles/code-health-2026-07-12.md` written, no `./notify` fired.
-
-**Follow-up:**
-- Operator action required — either populate `memory/watched-repos.md` with `owner/repo` lines or disable the 5 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog) to stop wasting daily workflow slots. Already on the MEMORY.md `Next priorities` list.
-- Side note: shell heredoc redirect (`>>`) to a working-dir path was blocked by the sandbox on my first attempt — matches [[sandbox-blocks-shell-redirect-to-workdir]]. Used the `Edit` tool instead. No memory update needed; the atomic claim already documents this.
+Follow-up unchanged: operator either populates `memory/watched-repos.md` with `- owner/repo` lines, or sets `enabled: false` for the five watched-repos-dependent skills in `aeon.yml`.
