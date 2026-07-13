@@ -280,14 +280,7 @@ export class GoalLoop {
       if (description === lastStepDescription && decisionType !== "noop") {
         sameStepRepetitions++;
         if (sameStepRepetitions >= maxReformulations) {
-          return {
-            outcome: "blocked_stuck",
-            stepsExecuted,
-            creditsSpent: spentCredits,
-            artifact: null,
-            stuckReason: `same step repeated ${maxReformulations}x: ${description.slice(0, 500)}`,
-            capabilityNeeded: null,
-          };
+          return blockedStuck(stepsExecuted, spentCredits, `same step repeated ${maxReformulations}x: ${description.slice(0, 500)}`);
         }
       } else {
         sameStepRepetitions = 0;
@@ -339,14 +332,7 @@ export class GoalLoop {
       if (doomResult) {
         doomLoopTriggers++;
         if (doomLoopTriggers >= DOOM_LOOP_MAX_TRIGGERS) {
-          return {
-            outcome: "blocked_stuck",
-            stepsExecuted,
-            creditsSpent: spentCredits,
-            artifact: null,
-            stuckReason: `doom loop on '${doomResult.offender}' (${doomLoopTriggers} triggers)`,
-            capabilityNeeded: null,
-          };
+          return blockedStuck(stepsExecuted, spentCredits, `doom loop on '${doomResult.offender}' (${doomLoopTriggers} triggers)`);
         }
         doomLoopNote = doomResult.corrective;
         log(`[goal-loop] doom loop detected: ${doomResult.message} (trigger ${doomLoopTriggers}/${DOOM_LOOP_MAX_TRIGGERS})`);
@@ -364,6 +350,10 @@ export class GoalLoop {
 }
 
 // ── Private helpers ──────────────────────────────────────────
+
+function blockedStuck(stepsExecuted, spentCredits, stuckReason) {
+  return { outcome: "blocked_stuck", stepsExecuted, creditsSpent: spentCredits, artifact: null, stuckReason, capabilityNeeded: null };
+}
 
 async function askForAction({ goal, recentSteps, spentCredits, budgetCredits, maxSteps, doomLoopNote, inference }) {
   try {
