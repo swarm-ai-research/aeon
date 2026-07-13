@@ -114,15 +114,14 @@ for skill in ENABLED_SKILLS:
 
     for ref in sorted(refs):
         # Skip self-references (producer name in own output)
-        if skill in ref and ref.startswith('articles/' + skill):
-            continue
-        if skill in ref and ref.startswith('.outputs/' + skill):
+        if skill in ref and (ref.startswith('articles/' + skill) or ref.startswith('.outputs/' + skill)):
             continue
 
         path_class = get_path_class(ref)
-        full_path = os.path.join(BASE, ref.lstrip('./'))
         if ref.startswith('.outputs/'):
             full_path = os.path.join(BASE, '.outputs', ref[9:])
+        else:
+            full_path = os.path.join(BASE, ref)
 
         exists = os.path.exists(full_path)
 
