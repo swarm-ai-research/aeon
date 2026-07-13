@@ -1,7 +1,8 @@
-There's no `skills/agi-tracker/SKILL.md` in this repo. The skill you asked me to run doesn't exist.
+No `agi-tracker` skill exists. The skill `skills/agi-tracker/SKILL.md` doesn't exist in this repo.
 
-Closest existing tracker skills: `disclosure-tracker`, `goal-tracker`, `milestone-tracker`, `narrative-tracker`, `pr-tracker`, `fork-release-tracker`, `vuln-tracker`. None appears to be an "AGI tracker" under a different name.
+Existing tracker skills:
+- `disclosure-tracker`, `fork-release-tracker`, `goal-tracker`, `milestone-tracker`, `narrative-tracker`, `pr-tracker`, `vuln-tracker`
 
-Do you want me to:
-1. Run one of the existing trackers instead (which one?), or
-2. Create a new `skills/agi-tracker/SKILL.md` — if so, what should it track (frontier model releases, benchmarks, capability jumps, prediction market odds)?
+Would you like me to:
+1. Create a new `agi-tracker` skill (please describe what it should do), or
+2. Run one of the existing tracker skills instead?
