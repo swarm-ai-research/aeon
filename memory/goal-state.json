@@ -1,76 +1,76 @@
 {
-  "run_at": "2026-07-12T18:38:00Z",
+  "run_at": "2026-07-13T18:22:00Z",
   "goals": {
     "operator-pat-provisioning": {
       "status": "BLOCKED",
-      "activity_count_14d": 13,
-      "last_activity_date": "2026-07-12",
-      "blocker": "GitHub Actions is not permitted to create or approve pull requests; operator PAT still not provisioned. Queue grew 11 -> 12 branches on 2026-07-12 (added `notegraph/2026-07-12` per today's NOTEGRAPH_OK PR-blocked run per [[github-actions-cannot-create-prs]])."
+      "activity_count_14d": 12,
+      "last_activity_date": "2026-07-13",
+      "blocker": "GitHub Actions is not permitted to create or approve pull requests; operator PAT still not provisioned. 12-branch staged queue on origin per [[github-actions-cannot-create-prs]] (up 11 -> 12 on 2026-07-12 after `notegraph/2026-07-12` added)."
     },
     "iss-006-fix-replace-messages-yml-cron-with-per-slot": {
       "status": "ON_TRACK",
       "activity_count_14d": 15,
-      "last_activity_date": "2026-07-12"
+      "last_activity_date": "2026-07-13"
     },
     "investigate-ai-framework-watch-and-run-frequency-guard-never-dispatch": {
       "status": "ON_TRACK",
       "activity_count_14d": 12,
-      "last_activity_date": "2026-07-12"
+      "last_activity_date": "2026-07-13"
     },
     "standardize-notification-emission-across-skill-md-files": {
       "status": "ON_TRACK",
       "activity_count_14d": 13,
-      "last_activity_date": "2026-07-12"
+      "last_activity_date": "2026-07-13"
     },
     "fix-status-md-auto-commit-drop": {
       "status": "ON_TRACK",
-      "activity_count_14d": 12,
-      "last_activity_date": "2026-07-12"
+      "activity_count_14d": 11,
+      "last_activity_date": "2026-07-13"
     },
     "patch-notegraph-silent-exit-heuristic-generatedat": {
       "status": "ON_TRACK",
       "activity_count_14d": 15,
-      "last_activity_date": "2026-07-12"
+      "last_activity_date": "2026-07-13"
     },
     "close-iss-007-or-add-same-day-grace-window-to-skill-evals": {
       "status": "ON_TRACK",
-      "activity_count_14d": 6,
-      "last_activity_date": "2026-07-11"
+      "activity_count_14d": 5,
+      "last_activity_date": "2026-07-09"
     },
     "patch-pr-tracker-skill-md-in-one-batch": {
       "status": "ON_TRACK",
       "activity_count_14d": 15,
-      "last_activity_date": "2026-07-12"
+      "last_activity_date": "2026-07-13"
     },
     "fix-skill-freshness-to-use-git-log-producer-commit-timestamp": {
       "status": "ON_TRACK",
-      "activity_count_14d": 14,
+      "activity_count_14d": 10,
       "last_activity_date": "2026-07-12"
     },
     "widen-scenario-sweep-mjs-seed-count-or-tie-robust-mad": {
       "status": "ON_TRACK",
       "activity_count_14d": 15,
-      "last_activity_date": "2026-07-12"
+      "last_activity_date": "2026-07-13"
     },
     "file-generate-skills-json-bugs-as-structured-issues": {
-      "status": "NEEDS_ATTENTION",
+      "status": "ON_TRACK",
       "activity_count_14d": 4,
-      "last_activity_date": "2026-07-04"
+      "last_activity_date": "2026-07-12"
     },
     "investigate-missing-scripts-validate-config-js": {
       "status": "ON_TRACK",
       "activity_count_14d": 13,
-      "last_activity_date": "2026-07-12"
+      "last_activity_date": "2026-07-13"
     },
     "populate-watched-repos-md-or-disable-dependent-skills": {
       "status": "ON_TRACK",
       "activity_count_14d": 15,
-      "last_activity_date": "2026-07-12"
+      "last_activity_date": "2026-07-13"
     },
     "defer-iss-001-close-until-iss-006-resolved": {
       "status": "ON_TRACK",
       "activity_count_14d": 15,
-      "last_activity_date": "2026-07-12"
+      "last_activity_date": "2026-07-13"
     }
   }
 }

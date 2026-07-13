@@ -1,25 +1,15 @@
+All artifacts written. Skill execution complete.
+
 ## Summary
+Executed the goal-tracker skill for 2026-07-13. Sourced 14 goals from MEMORY.md `## Next priorities` (the `## Goals` section is absent — used the documented fallback). Gathered evidence from 25 daily logs across the 30-day window (2026-06-13 → 07-13), `git log --since="30 days ago"` (shallow-clone, 1 commit visible — partial but not failed), `gh pr list` (4 MERGED PRs in window), `gh issue list` (empty), and prior-run `memory/goal-state.json`.
 
-Executed `goal-tracker` skill on 2026-07-12. Tracked 14 goals from `## Next priorities` (no `## Goals` section — spec-defined fallback).
-
-**Status:** 0 at risk, **1 needs attention**, 12 on track, **1 blocked**, 0 done — overall **→ flat**.
-
-**Notable shifts vs 2026-07-11:**
-- `file-generate-skills-json-bugs-as-structured-issues` ON TRACK → NEEDS ATTENTION (days_since=8, 4 activity/14d)
-- `close-iss-007-or-add-same-day-grace-window-to-skill-evals` activity halved 12 → 6/14d (↓ degrading, still ON TRACK)
-- `fix-status-md-auto-commit-drop` activity doubled 6 → 12/14d (↑ improving)
-- `operator-pat-provisioning` (renamed from `open-queued-branches-via-pat`) still BLOCKED — staged branch queue 11 → 12 today after `notegraph/2026-07-12` NOTEGRAPH_OK PR-blocked run
-- 1 new goal seeded ON TRACK: `investigate-ai-framework-watch-and-run-frequency-guard-never-dispatch`
-
-**Actions proposed (2):** provision `repo`-scoped PAT to unblock the 12-branch queue; file the two known `generate-skills-json` bugs (newline + count-drift) as `memory/issues/ISS-XXX.md` entries.
+**Verdict:** 13 ON TRACK · 1 BLOCKED · 0 AT RISK / NEEDS ATTENTION / DONE. One status improvement — `file-generate-skills-json-bugs-as-structured-issues` moved NEEDS ATTENTION → ON TRACK (activity_count steady at 4/14d, but last_activity_date advanced 07-04 → 07-12, dropping days_idle from 8 → 1). All 13 other goals flat vs yesterday's snapshot. Only the BLOCKED `operator-pat-provisioning` goal drew an action line ("Provision `AEON_PAT` (repo-scoped) as workflow secret to unblock 12 branches") — the 13 ON TRACK goals correctly omit action lines per SKILL.md §5.
 
 **Files modified:**
-- `memory/goal-state.json` — full snapshot rewrite (13 → 14 goals, run_at 2026-07-12T18:38Z)
-- `.pending-notify/1783881650-goal-tracker.md` — full report queued for notify fan-out
-- `memory/logs/2026-07-12.md` — appended `### goal-tracker` entry
+- `.pending-notify/1783966922-goal-tracker.md` — full formatted report (direct write per [[notify-inline-cat-substitution-blocked-in-sandbox]] / [[notify-script-has-no-f-flag]])
+- `memory/goal-state.json` — refreshed snapshot for trend comparison next run
+- `memory/logs/2026-07-13.md` — appended `### goal-tracker` entry + summary
 
-**MEMORY.md untouched** — the only status change (Goal 11 → NEEDS ATTENTION) is neither DONE nor BLOCKED, so §7 write-guard leaves the index alone.
+**MEMORY.md:** left untouched — no DONE goals to move, the BLOCKED goal is already annotated inline, so the one status change (NEEDS ATTENTION → ON TRACK) required no annotation churn.
 
-**Sources:** logs=ok, git=ok (only 1 commit / 30d — shallow checkout on this runner), gh_pr=ok (`[]` on origin swarm-ai-research/aeon), gh_issue=ok (`[]`), cron-state=ok.
-
-**Follow-up:** watch tomorrow whether `close-iss-007` slips further from 6/14d (would flip to NEEDS ATTENTION at days_since=8) and whether `generate-skills-json` picks up any activity or drifts to AT RISK at days_since>14.
+**Follow-ups:** watch (a) generate-skills-json goal sustains its recovery for 5+ days, (b) operator PAT provisioning progresses (would cascade-unblock 6 goals + 12-branch queue), (c) ISS-007 goal drift — currently 4d idle, will slip to NEEDS ATTENTION at day 8.
