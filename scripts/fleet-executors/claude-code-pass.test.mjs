@@ -439,4 +439,66 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. gh pr list returns completely unparseable JSON → catch block in openPRsForKind
+//     returns null → gate skipped, pass proceeds (distinct from test 12 which hits
+//     the non-array branch; this hits the catch branch).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then printf '{broken: json'; exit 0; fi\necho "https://github.com/stub/repo/pull/15"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "badjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns invalid JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/15");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list returns unparseable JSON → catch block → null backlog → pass proceeds");
+}
+
+// 16. Empty taskId → shortTaskId's `|| "x"` fallback fires → branch name ends with "-x".
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "" })
+    );
+    assert.equal(result.ok, true, `expected ok=true with empty taskId, got ${JSON.stringify(result)}`);
+    assert.match(
+      result.branch,
+      /^aeon\/docs-pass-\d{4}-\d{2}-\d{2}-x$/,
+      `branch should end with -x when taskId is empty, got: ${result.branch}`,
+    );
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  empty taskId → shortTaskId 'x' fallback → branch name ends with -x");
+}
+
+// 17. gh pr create output contains no HTTP URL → prUrl falls back to pr.stdout.trim()
+//     (exercises the `|| pr.stdout.trim()` branch of the URL regex extraction).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "PR created successfully"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourlfb" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(
+      result.prUrl,
+      "PR created successfully",
+      `expected raw-stdout fallback as prUrl, got: ${result.prUrl}`,
+    );
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create output with no URL → prUrl falls back to pr.stdout.trim()");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
