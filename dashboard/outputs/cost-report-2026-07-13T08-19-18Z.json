@@ -1,0 +1,221 @@
+{
+  "root": "card_cost_report",
+  "state": {},
+  "elements": {
+    "card_cost_report": {
+      "type": "Card",
+      "props": {
+        "title": "Cost Report — 2026-07-13",
+        "description": "Last 7 days"
+      },
+      "children": [
+        "grid_main_metrics",
+        "alert_spikes",
+        "sep_1",
+        "heading_top3",
+        "table_top3",
+        "sep_2",
+        "heading_optimization",
+        "text_optimization",
+        "sep_3",
+        "heading_spikes",
+        "stack_spikes",
+        "sep_4",
+        "heading_projection",
+        "text_projection",
+        "sep_5",
+        "link_full_report"
+      ]
+    },
+    "grid_main_metrics": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat_spend",
+        "stat_runs",
+        "stat_wow",
+        "stat_projection"
+      ]
+    },
+    "stat_spend": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Spend (7 days)",
+        "value": "$208.06"
+      }
+    },
+    "stat_runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs",
+        "value": "41"
+      }
+    },
+    "stat_wow": {
+      "type": "Stat",
+      "props": {
+        "label": "Week-over-Week Change",
+        "value": "-0.18%",
+        "trend": "down"
+      }
+    },
+    "stat_projection": {
+      "type": "Stat",
+      "props": {
+        "label": "Projected Monthly Burn",
+        "value": "$891.68"
+      }
+    },
+    "alert_spikes": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Spikes Detected",
+        "message": "3 skill-level spikes flagged"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_top3": {
+      "type": "Heading",
+      "props": {
+        "text": "Top 3 by Cost",
+        "level": "h3"
+      }
+    },
+    "table_top3": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Cost",
+          "Runs"
+        ],
+        "rows": [
+          [
+            "reflect",
+            "$87.11",
+            "6"
+          ],
+          [
+            "compute-futures-eda",
+            "$27.25",
+            "4"
+          ],
+          [
+            "notegraph",
+            "$20.80",
+            "3"
+          ]
+        ]
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_optimization": {
+      "type": "Heading",
+      "props": {
+        "text": "Optimization",
+        "level": "h3"
+      }
+    },
+    "text_optimization": {
+      "type": "Text",
+      "props": {
+        "text": "No optimization levers found this week. Cache already used heavily; output/input ratios too high for model-downgrade filter.",
+        "variant": "body"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_spikes": {
+      "type": "Heading",
+      "props": {
+        "text": "Skill-Level Spikes",
+        "level": "h3"
+      }
+    },
+    "stack_spikes": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "spike_notegraph",
+        "spike_memoryflush",
+        "spike_freshness"
+      ]
+    },
+    "spike_notegraph": {
+      "type": "Text",
+      "props": {
+        "text": "notegraph 4.2× ($4.95→$20.80) — 07-08 cache_read blowup (5.84M tokens)",
+        "variant": "body"
+      }
+    },
+    "spike_memoryflush": {
+      "type": "Text",
+      "props": {
+        "text": "memory-flush 3.1× ($4.55→$14.23) — 07-12 cache_read blowup (5.89M tokens)",
+        "variant": "body"
+      }
+    },
+    "spike_freshness": {
+      "type": "Text",
+      "props": {
+        "text": "skill-freshness 2.1× ($3.78→$7.83) — elevated output on 07-06 + 07-12",
+        "variant": "body"
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_projection": {
+      "type": "Heading",
+      "props": {
+        "text": "30-Day Projection",
+        "level": "h3"
+      }
+    },
+    "text_projection": {
+      "type": "Text",
+      "props": {
+        "text": "$891.68 projected monthly burn. Cache-read operations account for 58% of total spend, driven by MEMORY.md growth.",
+        "variant": "body"
+      }
+    },
+    "sep_5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_full_report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Cost Report",
+        "href": "articles/cost-report-2026-07-13.md",
+        "source": "Cost Report"
+      }
+    }
+  }
+}
