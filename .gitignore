@@ -60,3 +60,6 @@ node_modules/
 # Stray local audit/debug artifacts (never commit)
 .audit-tmp/
 .audit*.py
+# workflow-security-audit scratch directory (SARIF, JSON, Python helpers) — intentionally ephemeral
+# .audit-bin/ is NOT ignored: those pre-cached binaries are committed for sandbox-blocked runners
+.audit/

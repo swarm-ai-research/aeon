@@ -24,6 +24,15 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
+# Pre-cached binaries committed in .audit-bin/ take priority (avoids network in sandbox).
+# Fall back to network install only when the cached copy is absent.
+if [ -f ".audit-bin/zizmor" ] && ! command -v zizmor >/dev/null 2>&1; then
+  export PATH="$PWD/.audit-bin:$PATH"
+fi
+if [ -f ".audit-bin/actionlint" ] && ! command -v actionlint >/dev/null 2>&1; then
+  export PATH="$PWD/.audit-bin:$PATH"
+fi
+
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
 # Pin to a specific version for reproducibility — bump this when upgrading.
 ZIZMOR_VERSION="1.25.2"
@@ -35,6 +44,7 @@ if ! command -v zizmor >/dev/null 2>&1; then
 fi
 # When auditing this skill, verify ZIZMOR_VERSION is still on the latest stable
 # (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
+# Also update the cached binary in .audit-bin/ when bumping the version.
 # actionlint (Rhymond's syntax-level workflow linter)
 if ! command -v actionlint >/dev/null 2>&1; then
   bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
@@ -43,6 +53,8 @@ fi
 ```
 
 If the sandbox blocks the download, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
+
+> **Binary cache:** `.audit-bin/` holds pre-downloaded `zizmor` and `actionlint` executables committed to the repo. This lets sandbox-blocked runners skip network installs entirely. When bumping `ZIZMOR_VERSION`, replace `.audit-bin/zizmor` with the new release binary and commit alongside the version change.
 
 ## Steps
 
