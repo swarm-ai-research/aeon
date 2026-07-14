@@ -22,6 +22,7 @@ Open and resolved issues filed by health skills (skill-health, skill-evals, hear
 | [ISS-016](ISS-016.md) | rss-digest: no_file_match | high | 2026-07-12 | open |
 | [ISS-017](ISS-017.md) | polymarket: no_file_match | high | 2026-07-12 | open |
 | [ISS-018](ISS-018.md) | token-alert: no_file_match | high | 2026-07-12 | open |
+| [ISS-019](ISS-019.md) | Batch outage — 4 skills missed morning window 2026-07-14 | medium | 2026-07-14 | open |
 
 ## Resolved
 
