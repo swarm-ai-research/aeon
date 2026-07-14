@@ -1,20 +1,23 @@
+skill-health run complete. Notification queued at `.pending-notify/1784055015-skill-health.md`.
+
 ## Summary
 
-Executed `skill-health` for 2026-07-13T18:21Z.
+Executed `skill-health` for 2026-07-14 at 18:50 UTC.
 
-**Classification (44 enabled skills)** — byte-identical to prior 16 runs (17th consecutive day at steady state):
-- 0 CRITICAL / 0 FLAPPING / 0 WARNING
-- 38 DEGRADED (all last_status=success, cf=0; low sr is ISS-001 OAuth-outage denominator residue)
-- 4 HEALTHY: agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog
-- 2 NO DATA: ai-framework-watch, run-frequency-guard
+**Classification (44 enabled skills):**
+- **CRITICAL:** 0
+- **DEGRADED:** 38 — all `last_status=success`, `cf=0`; single systemic driver is ISS-001 OAuth-burn denominator residue (day 24)
+- **HEALTHY:** 4 (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+- **NO DATA:** 2 (ai-framework-watch, run-frequency-guard)
+- **CRITICAL/FLAPPING/WARNING:** 0 each
 
-**Issues**: 0 filed, 0 resolved. HEALTHY-in-open-issue matches (config-validator + swarm-safety-eval in ISS-006 detected_by=batch-health; swarm-safety-eval in ISS-005 detected_by=skill-evals no_file_match) deferred to the filing detector per CLAUDE.md health-file / repair-close contract.
+Classification is byte-identical to 2026-07-13 — **18th consecutive steady-state day**. Notify gate: 24.46h since last notify crosses the 24h daily-reminder threshold → **NOTIFY** fires per SKILL.md step 5 second branch.
 
-**Notify decision**: FIRES — 47.35h since 2026-07-11T19:00:15Z crosses 24h daily-reminder cadence per SKILL.md step 5 second branch. Direct write to `.pending-notify/1783966870-skill-health.md` per fleet notify standard.
+**Issue reconciliation:** 0 CRITICAL/FLAPPING → no new issues filed. No open issues carry `detected_by: skill-health` → no resolutions performed. Open count 16 → 17 today via batch-health's independent ISS-019 filing.
 
-**Files modified**:
-- `memory/skill-health/last-report.json` (hash rotate, `last_notified_at` bump, delta narrative)
-- `.pending-notify/1783966870-skill-health.md` (notification body)
-- `memory/logs/2026-07-13.md` (execution entry)
+**Files modified:**
+- `.pending-notify/1784055015-skill-health.md` (notification payload — direct write per fleet standard)
+- `memory/skill-health/last-report.json` (state snapshot: hash `036aac7a`, notify_decision, classification)
+- `memory/logs/2026-07-14.md` (skill-health entry appended)
 
-**Follow-up (unchanged)**: (1) MEMORY.md next-priority ISS-006 fix (per-slot crons in `messages.yml`) + operator PAT provisioning to unblock 12 staged PR branches; (2) [[enabled-skills-can-never-dispatch]] investigation for ai-framework-watch + run-frequency-guard.
+**Follow-ups:** ISS-001 close still deferred until ISS-006 stabilizes; two enabled skills (ai-framework-watch, run-frequency-guard) still never-dispatched per [[enabled-skills-can-never-dispatch]].
