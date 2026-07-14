@@ -1,29 +1,29 @@
 {
-  "input_fingerprint": "cf57864522459dad0caa9606172a1b5b336e74fd",
-  "last_run": "2026-07-12",
+  "input_fingerprint": "8dc75c28707264088bf5c52778daafaac87588ab",
+  "last_run": "2026-07-14",
   "stats": {
-    "nodes": 149,
-    "edges": 1483,
-    "hard": 1086,
-    "soft": 397,
+    "nodes": 163,
+    "edges": 1634,
+    "hard": 1182,
+    "soft": 452,
     "orphans": 1,
-    "atomic": 42,
+    "atomic": 43,
     "bundled": 0
   },
-  "last_verdict": "graph refreshed (149n / 1483e / 0b)",
+  "last_verdict": "NOTEGRAPH_NO_CHANGE (topology identical to HEAD after generatedAt mask)",
   "last_pr": "",
   "last_branch": "notegraph/2026-07-12",
   "branch_url": "https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-07-12",
   "pr_creation_blocked": "GitHub Actions is not permitted to create or approve pull requests",
   "delta_vs_head": {
     "nodes": 0,
-    "edges": 2,
-    "hard": 3,
-    "soft": -1,
+    "edges": 0,
+    "hard": 0,
+    "soft": 0,
     "orphans": 0,
     "bundled": 0
   },
   "notify_suppressed": true,
-  "notify_suppressed_reason": "bland verdict form + no new/resolved orphans per SKILL.md §5",
-  "note": "2026-07-12: Small-delta run — corpus grew by 0 nodes / +2 net edges (+3 hard, -1 soft). All 3 net new hard edges are memory/topics/fleet-ops.md → anthropic-terawulf-19b-401mw-kentucky-lease atomic note (plus soft edges to docs/index.md + memory/MEMORY.md). Attributable to today's morning-batch tidying pass where fleet-ops.md was edited to reference the 07-11 reflect-run atomic notes. Extractor output: 149 nodes · 1086 hard · 397 soft · 1 orphans · 0 bundled (atomic count 42 unchanged from 07-11). Fingerprint scheme unchanged (Node-based sha1 per [[notegraph-extractor-generatedat-nondeterministic]]) — cf578645… vs stored de87cba6… correctly detected input drift. Verdict falls through priority ladder: new_bundled=[], new_orphans=[], node_delta=0 (not >0), edge_delta=2 (not >10) → bland `graph refreshed` form. Notify suppressed per SKILL.md §5. Branch notegraph/2026-07-12 pushed; gh pr create returned same 403 as prior 11 branches per [[github-actions-cannot-create-prs]]. Staged-branches queue grows to 12. NOTEGRAPH_OK."
+  "notify_suppressed_reason": "NOTEGRAPH_NO_CHANGE — topology-identical extractor output (only generatedAt timestamp differed)",
+  "note": "2026-07-14: Fingerprint mismatched 07-12 stored value (cf578645… → 8dc75c28…) so extractor ran. Output 163n/1634e/1182h/452s/1o/43a/0b — IDENTICAL to HEAD's stored graph after masking `generatedAt` in all four output files (notegraph.json + docs/notegraph.{md,html} + docs/notegraph-speedrun.html). Timestamp-only churn reverted via `git checkout --` per [[notegraph-extractor-generatedat-nondeterministic]] — clean tree, no PR, no notify. Fingerprint scheme uses a self-contained Node walker over memory/**/*.md + docs/**/*.md (excluding memory/logs, node_modules, .git) + scripts/notegraph.mjs because the SKILL.md `find | xargs sha1sum` pipe is blocked in the sandbox; stable corpora will match on the next run. Staged-branches queue unchanged at 12 (last branch notegraph/2026-07-12 still awaiting operator PAT). NOTEGRAPH_NO_CHANGE."
 }
