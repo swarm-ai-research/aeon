@@ -439,4 +439,39 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. git commit failure — a pre-commit hook rejects the commit after claude
+//     makes edits. The branch must be deleted (nothing was committed) and the
+//     worktree must be cleaned up. Exercises the `git commit failed` branch at
+//     claude-code-pass.mjs:221.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/42"\n`,
+  });
+  // Git worktrees inherit hooks from the main repo's .git/hooks/. Install a
+  // pre-commit hook that always rejects so commits in the linked worktree fail.
+  const hookDir = join(env.localDir, ".git", "hooks");
+  mkdirSync(hookDir, { recursive: true });
+  const hookPath = join(hookDir, "pre-commit");
+  writeFileSync(hookPath, "#!/usr/bin/env bash\necho 'commit blocked by pre-commit hook' >&2\nexit 1\n");
+  chmodSync(hookPath, 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be cleaned up — no stray linked worktrees.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    // Branch must be deleted — nothing committed, so the ref is an empty
+    // duplicate of HEAD and should not be kept.
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "aeon/* branch should be deleted after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, branch deleted, worktree removed");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
