@@ -439,4 +439,55 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. git commit failure — a pre-commit hook that exits 1 makes `git commit`
+//     fail after a successful `git add`. cleanup(true) must fire: worktree is
+//     removed AND the local branch is deleted (unlike the push-failure path
+//     where the branch is kept so an operator can push it manually).
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  // Hooks are shared across all worktrees of a repo. Installing a failing
+  // pre-commit hook here will cause the worktree commit to fail.
+  const hooksDir = join(env.localDir, ".git", "hooks");
+  mkdirSync(hooksDir, { recursive: true });
+  writeFileSync(join(hooksDir, "pre-commit"), "#!/bin/sh\nexit 1\n");
+  chmodSync(join(hooksDir, "pre-commit"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    // Branch must be deleted — this distinguishes commit failure (cleanup(true))
+    // from push failure (cleanup(false) keeps the branch for manual recovery).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "aeon/* branch should be deleted after commit failure (cleanup(true))");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure → ok:false, worktree removed, branch deleted (cleanup(true))");
+}
+
+// 16. gh pr create returns stdout with no URL — the regex match misses and
+//     prUrl falls back to pr.stdout.trim() (line 248: `|| pr.stdout.trim()`).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "PR #99 created."\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourl" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    // No https:// URL in stdout → fallback returns the raw trimmed stdout.
+    assert.equal(result.prUrl, "PR #99 created.");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create with no URL in stdout → prUrl falls back to raw stdout.trim()");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
