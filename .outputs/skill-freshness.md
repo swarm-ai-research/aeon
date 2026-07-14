@@ -1,21 +1,24 @@
+Done. Here's the summary:
+
 ## Summary
 
-**skill-freshness run complete — 2026-07-13**
-
-**Verdict: ✅ FRESHNESS_OK** — 0 of 2 cross-skill deps flagged.
+**skill-freshness — 2026-07-14 — FRESHNESS_OK / FRESHNESS_NO_CHANGE**
 
 **What was audited:**
-- 44 enabled skills scanned from `aeon.yml`
-- 0 active `chains: consume:` edges (chains block is commented out)
-- 22 implicit file references extracted from enabled SKILL.md files
-- 15 implicit missing files skipped (never created on disk — correct per spec)
-- **2 cross-skill deps evaluated:** `pr-tracker → memory/topics/pr-status.md` and `stale-content-pr-sweeper → memory/state/notegraph.json` — both age ~0h, both within thresholds (168h and 720h respectively) → **OK**
+- 44 enabled consumers parsed from `aeon.yml`
+- 0 explicit `chains: consume:` edges (all chain definitions remain commented out)
+- 2 implicit cross-skill file dependencies discovered and checked:
+  1. `surplus-pulse` → `memory/topics/surplus-pulse.md` (class: topics, threshold: 168h, mtime: fresh → **OK**)
+  2. `compute-pulse` → `memory/topics/compute-pulse.md` (class: topics, threshold: 168h, mtime: fresh → **OK**)
+- ~6 implicit references skipped (files never existed on disk — not flagged per rules)
 
-**No notification sent** (FRESHNESS_OK = silence is the signal).
+**Verdict:** ✅ FRESHNESS_OK — zero flagged dependencies
+
+**Dedup:** Fingerprint `da39a3ee…` is identical to yesterday's run (empty flagged set); last run was 2026-07-13 (within 7-day window) → **FRESHNESS_NO_CHANGE** — notification suppressed.
 
 **Files written:**
-- `articles/skill-freshness-2026-07-13.md` — full report
-- `memory/topics/skill-freshness-state.json` — updated `last_run_at` timestamp
-- `memory/logs/2026-07-13.md` — log entry created
+- `articles/skill-freshness-2026-07-14.md` — audit report (created; directory was absent)
+- `memory/topics/skill-freshness-state.json` — `last_run_at` updated to `2026-07-14T08:08:40Z`
+- `memory/logs/2026-07-14.md` — log block appended
 
-**Ongoing caveat:** The GHA mtime blind spot (`[[skill-freshness-mtime-blind-in-gha]]`) means all files appear fresh due to checkout time reset — the audit is structurally reliable only outside GHA or with git-log-based timestamps. This is unchanged from prior runs.
+**Known caveat:** GHA git-checkout collapses all file mtimes to the same instant, so "age" readings are structurally unreliable. Fix tracked in MEMORY.md (`git log -1 --format=%ct` instead of `stat --format=%Y`).
