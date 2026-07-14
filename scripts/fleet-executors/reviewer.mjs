@@ -190,13 +190,9 @@ const errorPatterns = [
 ];
 
 // Check added lines for issues
+const allPatterns = [...securityPatterns, ...errorPatterns];
 for (const line of addedLines) {
-  for (const [pattern, desc, severity] of securityPatterns) {
-    if (pattern.test(line)) {
-      findings.push({ severity, description: desc, line: line.trim().slice(0, 120) });
-    }
-  }
-  for (const [pattern, desc, severity] of errorPatterns) {
+  for (const [pattern, desc, severity] of allPatterns) {
     if (pattern.test(line)) {
       findings.push({ severity, description: desc, line: line.trim().slice(0, 120) });
     }
