@@ -1,15 +1,22 @@
-All artifacts written. Skill execution complete.
-
 ## Summary
-Executed the goal-tracker skill for 2026-07-13. Sourced 14 goals from MEMORY.md `## Next priorities` (the `## Goals` section is absent — used the documented fallback). Gathered evidence from 25 daily logs across the 30-day window (2026-06-13 → 07-13), `git log --since="30 days ago"` (shallow-clone, 1 commit visible — partial but not failed), `gh pr list` (4 MERGED PRs in window), `gh issue list` (empty), and prior-run `memory/goal-state.json`.
 
-**Verdict:** 13 ON TRACK · 1 BLOCKED · 0 AT RISK / NEEDS ATTENTION / DONE. One status improvement — `file-generate-skills-json-bugs-as-structured-issues` moved NEEDS ATTENTION → ON TRACK (activity_count steady at 4/14d, but last_activity_date advanced 07-04 → 07-12, dropping days_idle from 8 → 1). All 13 other goals flat vs yesterday's snapshot. Only the BLOCKED `operator-pat-provisioning` goal drew an action line ("Provision `AEON_PAT` (repo-scoped) as workflow secret to unblock 12 branches") — the 13 ON TRACK goals correctly omit action lines per SKILL.md §5.
+Executed the **goal-tracker** skill for 2026-07-14 against MEMORY.md's `## Next priorities` section (SKILL.md fallback source — no `## Goals` section exists).
+
+**Result:** 14 goals tracked. Status distribution: **0 at risk, 0 needs attention, 13 on track, 1 blocked, 0 done** — overall trend **→ flat** (no status transitions vs 2026-07-13 snapshot).
+
+**Sole blocked goal — operator-pat-provisioning** (day 39): pr-review #527 hit its 19th consecutive 403 today, `suggest-edges/2026-07-14` bumped the staged-branch queue 12 → 13. Every non-BLOCKED goal is downstream of this. → Action: provision `AEON_GH_PAT` (repo-scoped) as an Actions secret.
+
+**Notable within ON TRACK:**
+- patch-pr-tracker-skill-md is now 16d overdue per today's pr-tracker follow-up
+- widen-scenario-sweep-mjs at 2d idle (compute-futures-eda missed today's 06:00 slot — ISS-006 tributary, not goal-level regression)
+
+**Per SKILL.md rules**: MEMORY.md left untouched (no status transitions). No goals marked DONE (no completion signals).
 
 **Files modified:**
-- `.pending-notify/1783966922-goal-tracker.md` — full formatted report (direct write per [[notify-inline-cat-substitution-blocked-in-sandbox]] / [[notify-script-has-no-f-flag]])
-- `memory/goal-state.json` — refreshed snapshot for trend comparison next run
-- `memory/logs/2026-07-13.md` — appended `### goal-tracker` entry + summary
+- `memory/goal-state.json` — refreshed 14 goal snapshots with `run_at: 2026-07-14T18:49:40Z`
+- `.pending-notify/1784054980-goal-tracker.md` — full report queued (direct write per notify-emission standard)
+- `memory/logs/2026-07-14.md` — appended `### goal-tracker` entry
 
-**MEMORY.md:** left untouched — no DONE goals to move, the BLOCKED goal is already annotated inline, so the one status change (NEEDS ATTENTION → ON TRACK) required no annotation churn.
+**Sources:** logs=ok, git=ok, gh_pr=ok (empty), gh_issue=ok (empty), cron-state=ok.
 
-**Follow-ups:** watch (a) generate-skills-json goal sustains its recovery for 5+ days, (b) operator PAT provisioning progresses (would cascade-unblock 6 goals + 12-branch queue), (c) ISS-007 goal drift — currently 4d idle, will slip to NEEDS ATTENTION at day 8.
+Exit: `GOAL_TRACKER_OK`
