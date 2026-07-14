@@ -2,16 +2,10 @@ import json
 from collections import Counter
 data = json.load(open('.audit/actionlint.json'))
 codes = Counter()
+_SC_CODES = ['SC2086', 'SC2046', 'SC2129', 'SC2153', 'SC2155', 'SC2034']
 for f in data:
-    msg = f.get('message','')
-    matched = False
-    for code in ['SC2086','SC2046','SC2129','SC2153','SC2155','SC2034']:
-        if code in msg:
-            codes[code] += 1
-            matched = True
-            break
-    if not matched:
-        codes['other'] += 1
+    msg = f.get('message', '')
+    codes[next((c for c in _SC_CODES if c in msg), 'other')] += 1
 print('shellcheck codes:', dict(codes))
 for f in data:
     msg = f.get('message','')
