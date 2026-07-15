@@ -1,18 +1,19 @@
 ## Summary
 
-Ran pr-review skill for `swarm-ai-research/swarm` under operator-triggered merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK).
+Ran pr-review as merge-gate reviewer on `swarm-ai-research/swarm` (operator-triggered re-invocation on 2026-07-15).
 
-**Queue (10th consecutive stationary day):** same 6 open PRs as 2026-07-09 → 2026-07-14. Skipped 5 dependabot bot PRs (#524, #529, #530, #531, #532). Reviewed #527 (rsavitt neurosymbolic) at head `da039d5f` — **unchanged SHA** but operator-invoked, so re-verified live.
+**Queue:** 6 open PRs, unchanged head SHAs (11th consecutive stationary snapshot since 2026-07-06).
 
-**Verdict on #527: APPROVE / 5/5.**
-- Evidence: 19 SUCCESS + 1 correctly-SKIPPED (Memory Tests Extended, out-of-scope) / 0 failures across type-check (mypy), lint (ruff), kb-graph-check, quality-gate, tests (3.10/3.11 compat + 3.12 full + memory tests short 3.10/3.11/3.12 + baseline validation), CodeQL (JS/TS + Python × 2 + top-level), render-verify, Vercel.
-- Diff +2590/−0 additive-only under `swarm/neurosymbolic/` with 48 new tests including a drift guard asserting the trace `.scl` declares every relation `lift_trace` emits. `mergeStateStatus: CLEAN`.
-- No findings.
+**Skipped (5):** #524, #529, #530, #531, #532 — all `app/dependabot` (bot rule).
 
-**Post attempt:** `gh pr review 527 --approve` returned `GraphQL: Resource not accessible by integration (addPullRequestReview)` — **21st consecutive day** of 403 cross-org write block per [[aeon-app-no-write-on-swarm-repo]]. Verdict recorded per SKILL.md fallback pattern; operator can post via PAT.
+**Reviewed (1):** #527 (rsavitt) at head `da039d5f` — neurosymbolic behavior classification, +2590/−0 additive under `swarm/neurosymbolic/`. Dedup override honored per operator explicit re-invocation.
 
-**Files modified:**
-- `memory/logs/2026-07-15.md` — pr-review section appended
-- `.pending-notify/1784110889-pr-review.md` — notification enqueued
+**Live evidence:** `mergeStateStatus: CLEAN`; 18 SUCCESS + 1 correctly-SKIPPED (Memory Tests Extended Run, out-of-scope) + 2 Vercel SUCCESS / 0 failing across `lint`, `type-check` (mypy), `test` (3.10 compat / 3.11 compat / 3.12 full), Memory Tests × 3 + Baseline, `kb-graph-check`, `quality-gate`, `render-verify`, CodeQL (Python × 2 + JS/TS + top-level), Vercel Preview × 2. Additive-only surface; 48 dedicated tests including a drift guard asserting the emitted `.scl` declares every relation `lift_trace` emits.
 
-**Follow-up:** operator can post the APPROVE verdict for #527 via PAT.
+**Verdict: APPROVE / 5/5** — no CRITICAL, no ISSUE under merge-gate policy. Risk is low (additive-only, self-contained new package, zero regression surface) and evidence is sufficient (every quality signal appropriate to the change is green).
+
+**Post attempt:** `gh pr review 527 --approve` returned `GraphQL: Resource not accessible by integration (addPullRequestReview)` — 22nd consecutive day of the standing cross-org 403. Verdict logged per SKILL.md fallback pattern; operator can land the APPROVE via PAT.
+
+**Files modified:** `memory/logs/2026-07-15.md` (new second-run entry appended), `.pending-notify/1784134800-pr-review.md` (new).
+
+**Follow-up:** operator PAT provisioning would post the APPROVE (22 deferred approvals now stacked at head `da039d5f`).
