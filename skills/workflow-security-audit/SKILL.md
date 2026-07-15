@@ -24,25 +24,32 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
-# zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
-# Pin to a specific version for reproducibility — bump this when upgrading.
+# Pre-bundled binaries in .audit-bin/ avoid the sandbox curl-pipe block.
+# The GHA sandbox blocks `bash <(curl …)` installers; use the committed binaries first.
+# See .audit-bin/README.md for pinned versions and upgrade instructions.
+# zizmor (Trail of Bits, SARIF-capable GH Actions auditor) — pinned: 1.25.2
 ZIZMOR_VERSION="1.25.2"
-if ! command -v zizmor >/dev/null 2>&1; then
+if [ -x ".audit-bin/zizmor" ]; then
+  export PATH="$PWD/.audit-bin:$PATH"
+elif ! command -v zizmor >/dev/null 2>&1; then
   pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
     || python3 -m pip install --user "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
     || true
   export PATH="$HOME/.local/bin:$PATH"
 fi
-# When auditing this skill, verify ZIZMOR_VERSION is still on the latest stable
-# (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
-# actionlint (Rhymond's syntax-level workflow linter)
-if ! command -v actionlint >/dev/null 2>&1; then
+# When auditing this skill, verify ZIZMOR_VERSION matches .audit-bin/README.md and
+# the latest stable at https://github.com/zizmorcore/zizmor/releases; bump both if stale.
+# actionlint (rhysd's syntax-level workflow linter) — pinned: v1.7.12
+ACTIONLINT_VERSION="v1.7.12"
+if [ -x ".audit-bin/actionlint" ]; then
+  export PATH="$PWD/.audit-bin:$PATH"  # already set above if zizmor path was added
+elif ! command -v actionlint >/dev/null 2>&1; then
   bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
   export PATH="$PWD:$PATH"
 fi
 ```
 
-If the sandbox blocks the download, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
+If the sandbox blocks the download and `.audit-bin/` binaries are absent, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
 
 ## Steps
 
