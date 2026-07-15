@@ -439,4 +439,77 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. No-target prompt — when target is omitted, the prompt should contain
+//     "No specific files supplied" (the falsy branch of buildPrompt's targetLine)
+//     rather than "Recently changed files:".
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-notarget-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "notarget" })
+    );
+    assert.equal(result.ok, true);
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /No specific files supplied/,
+      "prompt must use the no-target fallback line when target is empty");
+    assert.doesNotMatch(captured, /Recently changed files/);
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  no-target prompt uses 'No specific files supplied' fallback line");
+}
+
+// 16. git commit failure — a failing pre-commit hook causes git commit to exit
+//     non-zero → ok:false, worktree cleaned up, ephemeral branch deleted.
+//     Hooks in the main checkout's .git/hooks/ are shared with all worktrees.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  const hookPath = join(env.localDir, ".git", "hooks", "pre-commit");
+  writeFileSync(hookPath, "#!/bin/sh\nexit 1\n");
+  chmodSync(hookPath, 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no stray worktree should remain");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "ephemeral branch must be deleted after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, worktree and branch cleaned up");
+}
+
+// 17. PR URL fallback — when `gh pr create` succeeds but prints text with no
+//     URL, prUrl falls back to pr.stdout.trim() rather than the regex match.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\nif [ "$1" = "pr" ] && [ "$2" = "create" ]; then echo "PR opened (no URL)"; exit 0; fi\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "urlfall" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "PR opened (no URL)",
+      "prUrl must fall back to stdout.trim() when gh returns no URL");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create with no URL in output → prUrl falls back to stdout.trim()");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
