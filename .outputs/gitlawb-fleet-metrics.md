@@ -1,14 +1,12 @@
+Pre-flight halted at step 2. No `TaskCreate` needed — single-step skill with a clean exit taxonomy.
+
 ## Summary
 
-Ran `gitlawb-fleet-metrics` skill for 2026-07-14.
+Executed `skills/gitlawb-fleet-metrics/SKILL.md`. Pre-flight failed at step 2: `memory/gitlawb-fleet.json` does not exist (fleet registry absent — only the `gitlawb-runner.example.json` template and unrelated `gitlawb-compute-futures-proofs/` notes are present). Per the skill contract, this is an empty fleet — silent stop, no notify.
 
-**Verdict: `GLMETRICS_EMPTY` — silent stop, no notify sent.**
-
-- Pre-flight step 1 passed: Node v22.23.1 present.
-- Pre-flight step 2 hit: `memory/gitlawb-fleet.json` is absent (also `memory/gitlawb-metrics.jsonl`), so there is no fleet registry to snapshot. Per SKILL.md, an empty fleet is not news — stop without notifying.
-- Skill CLI (`prototypes/gitlawb-safety/fleet-cli.mjs`) not invoked.
+**Verdict:** `GLMETRICS_EMPTY`
 
 **Files modified:**
-- `memory/logs/2026-07-14.md` — appended `## gitlawb-fleet-metrics` entry with the `GLMETRICS_EMPTY` verdict and rationale.
+- `memory/logs/2026-07-15.md` — appended `## gitlawb-fleet-metrics` entry documenting the halt.
 
-**Follow-up:** None from this run. If the fleet is expected to exist, the operator would need to look into why `memory/gitlawb-fleet.json` hasn't been created by `gitlawb-fleet` — but that's out of scope for this read-only observability skill.
+**No follow-up needed.** The skill is designed to stay silent on an empty fleet ("don't train the operator to ignore the card"). If the operator wants observability output, they need to first stand up the fleet via `gitlawb-fleet` (which mints instances and populates `memory/gitlawb-fleet.json` + `memory/gitlawb-metrics.jsonl`).
