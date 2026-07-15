@@ -1,0 +1,70 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "container"
+      ]
+    },
+    "container": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status",
+        "metrics"
+      ]
+    },
+    "status": {
+      "type": "Text",
+      "props": {
+        "text": "memory consolidated — 2026-07-15",
+        "variant": "lead"
+      }
+    },
+    "metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge1",
+        "badge2",
+        "badge3",
+        "badge4"
+      ]
+    },
+    "badge1": {
+      "type": "Badge",
+      "props": {
+        "text": "+0n"
+      }
+    },
+    "badge2": {
+      "type": "Badge",
+      "props": {
+        "text": "+6e"
+      }
+    },
+    "badge3": {
+      "type": "Badge",
+      "props": {
+        "text": "0 splits"
+      }
+    },
+    "badge4": {
+      "type": "Badge",
+      "props": {
+        "text": "0 new"
+      }
+    }
+  }
+}
