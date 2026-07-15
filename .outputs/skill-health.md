@@ -1,23 +1,19 @@
-skill-health run complete. Notification queued at `.pending-notify/1784055015-skill-health.md`.
-
 ## Summary
 
-Executed `skill-health` for 2026-07-14 at 18:50 UTC.
+Executed `skills/skill-health/SKILL.md` for 2026-07-15 at 18:05Z.
 
-**Classification (44 enabled skills):**
-- **CRITICAL:** 0
-- **DEGRADED:** 38 — all `last_status=success`, `cf=0`; single systemic driver is ISS-001 OAuth-burn denominator residue (day 24)
-- **HEALTHY:** 4 (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
-- **NO DATA:** 2 (ai-framework-watch, run-frequency-guard)
-- **CRITICAL/FLAPPING/WARNING:** 0 each
+**Verdict: SKILL_HEALTH_NOOP** — state unchanged since yesterday, notification skipped.
 
-Classification is byte-identical to 2026-07-13 — **18th consecutive steady-state day**. Notify gate: 24.46h since last notify crosses the 24h daily-reminder threshold → **NOTIFY** fires per SKILL.md step 5 second branch.
+**Classification (byte-identical to 2026-07-14 — 19th consecutive steady-state day):**
+- 0 CRITICAL · 0 FLAPPING · 0 WARNING
+- 38 DEGRADED (all `last_status: success` + `cf: 0`; low `success_rate` is ISS-001 OAuth-burn day-25 denominator residue)
+- 4 HEALTHY: `agi-tracker`, `config-validator`, `swarm-safety-eval`, `weekly-shiplog`
+- 2 NO_DATA: `ai-framework-watch`, `run-frequency-guard` (still no cron-state entry, never seen in skill-runs)
 
-**Issue reconciliation:** 0 CRITICAL/FLAPPING → no new issues filed. No open issues carry `detected_by: skill-health` → no resolutions performed. Open count 16 → 17 today via batch-health's independent ISS-019 filing.
+**Data sources:** cron-state.json (42 skills), `./scripts/skill-runs --hours 168 --json` (143 succeeded / 0 failed / 4 in_progress / 0 cancelled across 40 skills → no FLAPPING), skill-health/*.json (5 analyses, all avg_score ≥3), memory/issues/INDEX.md (17 open, precondition guard satisfied).
 
-**Files modified:**
-- `.pending-notify/1784055015-skill-health.md` (notification payload — direct write per fleet standard)
-- `memory/skill-health/last-report.json` (state snapshot: hash `036aac7a`, notify_decision, classification)
-- `memory/logs/2026-07-14.md` (skill-health entry appended)
+**Reconciliation:** 0 CRITICAL/FLAPPING → 0 issues filed. No open issue has `detected_by=skill-health` → 0 issues resolved. HEALTHY `swarm-safety-eval` in ISS-005 (detected_by=skill-evals) not auto-removed per CLAUDE.md "repair skills close" contract.
 
-**Follow-ups:** ISS-001 close still deferred until ISS-006 stabilizes; two enabled skills (ai-framework-watch, run-frequency-guard) still never-dispatched per [[enabled-skills-can-never-dispatch]].
+**Notify gate:** SKIP — hash `036aac7a434cbc2b` unchanged AND 23.25h < 24h daily-reminder threshold (last notify 2026-07-14T18:50:15Z). Next chance to notify: any state change OR ~2026-07-15T18:50:15Z.
+
+**Files modified:** `memory/skill-health/last-report.json`, `memory/logs/2026-07-15.md`. No `.pending-notify/` write. No issue file touched.
