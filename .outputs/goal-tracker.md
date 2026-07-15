@@ -1,22 +1,20 @@
+Skill complete. Report is queued in `.pending-notify/` and state is snapshotted.
+
 ## Summary
 
-Executed the **goal-tracker** skill for 2026-07-14 against MEMORY.md's `## Next priorities` section (SKILL.md fallback source — no `## Goals` section exists).
+Ran `goal-tracker` for 2026-07-15 (no `${var}` — full scope). Sourced 14 goals from MEMORY.md `## Next priorities` (fallback path — no `## Goals` section present).
 
-**Result:** 14 goals tracked. Status distribution: **0 at risk, 0 needs attention, 13 on track, 1 blocked, 0 done** — overall trend **→ flat** (no status transitions vs 2026-07-13 snapshot).
+**Status distribution:** 13 ON TRACK, 1 BLOCKED (operator-pat-provisioning), 0 AT RISK / NEEDS ATTENTION / DONE.
 
-**Sole blocked goal — operator-pat-provisioning** (day 39): pr-review #527 hit its 19th consecutive 403 today, `suggest-edges/2026-07-14` bumped the staged-branch queue 12 → 13. Every non-BLOCKED goal is downstream of this. → Action: provision `AEON_GH_PAT` (repo-scoped) as an Actions secret.
+**Trend vs 2026-07-14T18:49Z snapshot:** 3 improving (close-iss-007 8→13, skill-freshness 10→15, scenario-sweep 8→15 — all crossed +50% 14d activity threshold), 11 flat, 0 degrading. Zero status transitions.
 
-**Notable within ON TRACK:**
-- patch-pr-tracker-skill-md is now 16d overdue per today's pr-tracker follow-up
-- widen-scenario-sweep-mjs at 2d idle (compute-futures-eda missed today's 06:00 slot — ISS-006 tributary, not goal-level regression)
+**Actions proposed:** 1 — for the sole non-ON-TRACK goal (operator PAT provisioning). ON TRACK goals get no action line per SKILL §5.
 
-**Per SKILL.md rules**: MEMORY.md left untouched (no status transitions). No goals marked DONE (no completion signals).
+**Files created/modified:**
+- `.pending-notify/1784138749-goal-tracker.md` — formatted report (direct-write per MEMORY.md standardization guidance)
+- `memory/goal-state.json` — refreshed with today's activity counts + `run_at`
+- `memory/logs/2026-07-15.md` — appended `### goal-tracker` entry
 
-**Files modified:**
-- `memory/goal-state.json` — refreshed 14 goal snapshots with `run_at: 2026-07-14T18:49:40Z`
-- `.pending-notify/1784054980-goal-tracker.md` — full report queued (direct write per notify-emission standard)
-- `memory/logs/2026-07-14.md` — appended `### goal-tracker` entry
+**Not modified:** `memory/MEMORY.md` — per SKILL §7, only write when at least one goal's status changes. All 14 statuses match prior snapshot.
 
-**Sources:** logs=ok, git=ok, gh_pr=ok (empty), gh_issue=ok (empty), cron-state=ok.
-
-Exit: `GOAL_TRACKER_OK`
+**Follow-up:** The one and only concrete action remains provisioning the operator PAT — same blocker MEMORY.md's `## Next priorities` line 45 has flagged as the meta-blocker behind the 14-branch staged queue.
