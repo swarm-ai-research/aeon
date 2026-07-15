@@ -41,6 +41,10 @@ function hashArgs(args) {
   return createHash("md5").update(str).digest("hex").slice(0, 12);
 }
 
+function sigEq(a, b) {
+  return a.name === b.name && a.argsHash === b.argsHash;
+}
+
 /**
  * @typedef {Object} ToolCallSignature
  * @property {string} name - Tool/action name
@@ -126,7 +130,7 @@ export class DoomLoopDetector {
   _detectIdentical(sigs) {
     let count = 1;
     for (let i = 1; i < sigs.length; i++) {
-      if (sigs[i].name === sigs[i - 1].name && sigs[i].argsHash === sigs[i - 1].argsHash) {
+      if (sigEq(sigs[i], sigs[i - 1])) {
         count++;
         if (count >= this.threshold) {
           return {
@@ -154,7 +158,7 @@ export class DoomLoopDetector {
 
       for (let start = sigs.length - seqLen; start >= 0; start -= seqLen) {
         const chunk = sigs.slice(start, start + seqLen);
-        if (chunk.every((s, i) => s.name === pattern[i].name && s.argsHash === pattern[i].argsHash)) {
+        if (chunk.every((s, i) => sigEq(s, pattern[i]))) {
           reps++;
         } else {
           break;
