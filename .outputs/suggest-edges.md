@@ -1,1 +1,1 @@
-*Suggest-edges* — 3 missing links proposed (top: 2026-06-20). Branch `suggest-edges/2026-07-14` pushed but PR create blocked by GitHub Actions PR-create permission per [[github-actions-cannot-create-prs]] (day 4 of same 3 similarity-1.00 links).
+*Suggest-edges* — 3 missing links proposed (top: 2026-06-20.md). PR creation blocked (5th consecutive day, [[github-actions-cannot-create-prs]]); branch pushed: https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-07-15
