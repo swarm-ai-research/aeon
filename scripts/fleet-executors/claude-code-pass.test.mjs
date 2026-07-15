@@ -439,4 +439,25 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. gh pr create returns stdout with no URL — prUrl falls back to
+//     pr.stdout.trim() instead of a regex-extracted URL. Exercises the
+//     `|| pr.stdout.trim()` branch in the prUrl assignment (line 248).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "PR created successfully (no URL)"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourl" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "PR created successfully (no URL)",
+      `prUrl should fall back to trimmed stdout when gh emits no URL; got: ${result.prUrl}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create non-URL stdout → prUrl falls back to pr.stdout.trim()");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
