@@ -57,6 +57,8 @@ node_modules/
 .vuln-scan/
 .vuln-scan-workspace/
 
+# workflow-security-audit working directory (sarif, intermediate json, helper scripts) — ephemeral, never commit
+.audit/
 # Stray local audit/debug artifacts (never commit)
 .audit-tmp/
 .audit*.py

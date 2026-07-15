@@ -347,6 +347,8 @@ memory/
   topics/                ← detailed notes by topic
   logs/                  ← daily activity logs (YYYY-MM-DD.md)
 .outputs/                ← skill chain outputs (passed between chained steps)
+.audit-bin/              ← pre-cached scanner binaries (zizmor, actionlint) — committed to avoid re-downloading in CI
+.audit/                  ← ephemeral working directory for workflow-security-audit (sarif, json, helper scripts)
 scripts/
   prefetch-xai.sh        ← pre-fetch X/Grok API data outside sandbox
   postprocess-replicate.sh ← generate images via Replicate after Claude runs
