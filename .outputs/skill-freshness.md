@@ -1,24 +1,21 @@
-Done. Here's the summary:
+Done. No notification sent (FRESHNESS_OK suppresses notifications — silence is the signal).
 
 ## Summary
 
-**skill-freshness — 2026-07-14 — FRESHNESS_OK / FRESHNESS_NO_CHANGE**
+**Verdict: ✅ FRESHNESS_OK** — 44 enabled consumers audited, 2 dependencies checked, 0 flagged.
 
-**What was audited:**
-- 44 enabled consumers parsed from `aeon.yml`
-- 0 explicit `chains: consume:` edges (all chain definitions remain commented out)
-- 2 implicit cross-skill file dependencies discovered and checked:
-  1. `surplus-pulse` → `memory/topics/surplus-pulse.md` (class: topics, threshold: 168h, mtime: fresh → **OK**)
-  2. `compute-pulse` → `memory/topics/compute-pulse.md` (class: topics, threshold: 168h, mtime: fresh → **OK**)
-- ~6 implicit references skipped (files never existed on disk — not flagged per rules)
+**What I did:**
+1. Parsed `aeon.yml` → 44 enabled skills, 0 explicit chain deps (chains block fully commented out)
+2. Scanned all enabled `SKILL.md` files for implicit file references across all 4 path classes
+3. Checked on-disk freshness of all referenced files
 
-**Verdict:** ✅ FRESHNESS_OK — zero flagged dependencies
-
-**Dedup:** Fingerprint `da39a3ee…` is identical to yesterday's run (empty flagged set); last run was 2026-07-13 (within 7-day window) → **FRESHNESS_NO_CHANGE** — notification suppressed.
+**Key findings:**
+- `articles/` directory does not exist on disk (empty slate from snapshot)
+- All `.outputs/`, `memory/topics/`, and `memory/state/` files are ~1.3h old (from snapshot commit `e9e7f22` at 06:55 UTC) — well within every threshold
+- Fingerprint unchanged from 2026-07-14 (`da39a3ee...`, sha1 of empty string = 0 flagged deps)
+- The known structural blind spot ([[skill-freshness-mtime-blind-in-gha]]) remains: GHA checkout time is used as mtime, making all checks vacuously pass regardless of true commit age
 
 **Files written:**
-- `articles/skill-freshness-2026-07-14.md` — audit report (created; directory was absent)
-- `memory/topics/skill-freshness-state.json` — `last_run_at` updated to `2026-07-14T08:08:40Z`
-- `memory/logs/2026-07-14.md` — log block appended
-
-**Known caveat:** GHA git-checkout collapses all file mtimes to the same instant, so "age" readings are structurally unreliable. Fix tracked in MEMORY.md (`git log -1 --format=%ct` instead of `stat --format=%Y`).
+- `articles/skill-freshness-2026-07-15.md` — the report
+- `memory/topics/skill-freshness-state.json` — updated timestamp
+- `memory/logs/2026-07-15.md` — log entry appended
