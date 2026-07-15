@@ -1,0 +1,259 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Analytics — 2026-07-15"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "header",
+        "sep1",
+        "didnt-run-section",
+        "sep2",
+        "critical-section",
+        "sep3",
+        "top-section",
+        "sep4",
+        "full-section"
+      ]
+    },
+    "header": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat-runs",
+        "stat-skills",
+        "stat-success",
+        "stat-anomalies"
+      ]
+    },
+    "stat-runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs (7d)",
+        "value": "143"
+      }
+    },
+    "stat-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills",
+        "value": "40"
+      }
+    },
+    "stat-success": {
+      "type": "Stat",
+      "props": {
+        "label": "Success",
+        "value": "100%"
+      }
+    },
+    "stat-anomalies": {
+      "type": "Stat",
+      "props": {
+        "label": "Anomalies",
+        "value": "3"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "didnt-run-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "didnt-run-heading",
+        "didnt-run-items"
+      ]
+    },
+    "didnt-run-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Didn't Run This Window (3 scheduled skills)",
+        "level": "h3"
+      }
+    },
+    "didnt-run-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skill1-badge",
+        "skill2-badge",
+        "skill3-badge"
+      ]
+    },
+    "skill1-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "run-frequency-guard",
+        "variant": "destructive"
+      }
+    },
+    "skill2-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "weekly-shiplog",
+        "variant": "destructive"
+      }
+    },
+    "skill3-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "destructive"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "critical-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "critical-heading",
+        "alert1",
+        "alert2",
+        "alert3"
+      ]
+    },
+    "critical-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🔴 Critical",
+        "level": "h3"
+      }
+    },
+    "alert1": {
+      "type": "Alert",
+      "props": {
+        "title": "run-frequency-guard",
+        "message": "SILENT: scheduled `0 23 * * *` (daily 23:00 UTC) but zero runs in window — no cron-state entry",
+        "type": "error"
+      }
+    },
+    "alert2": {
+      "type": "Alert",
+      "props": {
+        "title": "weekly-shiplog",
+        "message": "SILENT: scheduled `0 9 * * 1` (Mon 09:00 UTC) — missed 2026-07-13, last ran 2026-07-06",
+        "type": "error"
+      }
+    },
+    "alert3": {
+      "type": "Alert",
+      "props": {
+        "title": "ai-framework-watch",
+        "message": "SILENT: scheduled `30 8 * * 1` (Mon 08:30 UTC) — missed 2026-07-13, no cron-state entry",
+        "type": "error"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "top-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "top-heading",
+        "top-table"
+      ]
+    },
+    "top-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top by Runs",
+        "level": "h3"
+      }
+    },
+    "top-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Runs"
+        ],
+        "rows": [
+          [
+            "pr-review",
+            "13"
+          ],
+          [
+            "code-health",
+            "7"
+          ],
+          [
+            "goal-tracker",
+            "7"
+          ]
+        ]
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "full-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "full-heading",
+        "full-link"
+      ]
+    },
+    "full-heading": {
+      "type": "Text",
+      "props": {
+        "text": "Full Report",
+        "variant": "lead"
+      }
+    },
+    "full-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "articles/skill-analytics-2026-07-15.md",
+        "href": "articles/skill-analytics-2026-07-15.md"
+      }
+    }
+  }
+}

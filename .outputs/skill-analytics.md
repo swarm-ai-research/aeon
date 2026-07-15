@@ -1,21 +1,14 @@
-## Summary
+*Skill Analytics — 2026-07-15*
+3 scheduled skill(s) didn't run this window — run-frequency-guard, weekly-shiplog, ai-framework-watch
 
-Skill analytics for the last 7 days (2026-07-01 → 2026-07-08) is complete.
+Window: last 7d · 143 runs · 40 skills · 100% success
+Anomalies: 3
 
-**Findings:**
-- **136 runs** across **39 active skills**, **100.0% success** rate (0 failures in the window)
-- **4 anomalies — all 🔴 SILENT** (enabled cron skills with zero runs):
-  1. `janitor` — Sun 05:30 UTC slot; last success 2026-06-20 (~18d); ISS-006 tributary
-  2. `run-frequency-guard` — daily 23:00 UTC; no cron-state entry (never dispatched)
-  3. `ai-framework-watch` — Mon 08:30 UTC; 3rd consecutive Monday non-arm; no cron-state entry
-  4. `cost-report` — Mon 07:00 UTC; ISS-008; 3rd consecutive Monday miss
+🔴 Critical:
+- run-frequency-guard — SILENT: scheduled `0 23 * * *` (daily 23:00 UTC) but zero runs in window — no cron-state entry
+- weekly-shiplog — SILENT: scheduled `0 9 * * 1` (Mon 09:00 UTC) — missed 2026-07-13, last ran 2026-07-06
+- ai-framework-watch — SILENT: scheduled `30 8 * * 1` (Mon 08:30 UTC) — missed 2026-07-13, no cron-state entry
 
-**Top runners:** pr-review (12), code-health/goal-tracker/reflect/skill-health/surplus-pulse (7 each)
+Top by runs: pr-review (13), code-health (7), goal-tracker (7)
 
-**Exit taxonomy** (best-effort, 4 of 8 log files scanned): ok ~68%, uncategorized ~27% (structural-quiet: FLEET_EMPTY, GLMETRICS_EMPTY, NOTEGRAPH_NO_CHANGE — not failures), error ~3% (pr-triage cross-org 403 dispatch), new_info 1% (workflow-security-audit).
-
-**Outputs written:**
-- `articles/skill-analytics-2026-07-08.md`
-- `dashboard/outputs/skill-analytics.json` (overwritten)
-- `.pending-notify/1783540000-skill-analytics.md` (notification queued for post-run delivery — direct write per sandbox constraint)
-- `memory/logs/2026-07-08.md` (log entry appended)
+Full: articles/skill-analytics-2026-07-15.md
