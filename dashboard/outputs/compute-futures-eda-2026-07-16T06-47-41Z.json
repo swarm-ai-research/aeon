@@ -1,0 +1,237 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-07-16"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "data-summary",
+        "sep1",
+        "top-metrics",
+        "sep2",
+        "conservation",
+        "sep3",
+        "findings",
+        "sep4",
+        "report"
+      ]
+    },
+    "data-summary": {
+      "type": "Text",
+      "props": {
+        "text": "144 rows, 4 modes",
+        "variant": "lead"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "top-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metrics-heading",
+        "metric1",
+        "metric2"
+      ]
+    },
+    "metrics-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Metrics",
+        "level": "h3"
+      }
+    },
+    "metric1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat1",
+        "context1"
+      ]
+    },
+    "stat1": {
+      "type": "Stat",
+      "props": {
+        "label": "MEDIUM basket settlementLegs",
+        "value": "16.67%",
+        "trend": "up"
+      }
+    },
+    "context1": {
+      "type": "Text",
+      "props": {
+        "text": "was 0.00% on 07-12; (mode,col) rotation continues",
+        "variant": "muted"
+      }
+    },
+    "metric2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat2",
+        "context2"
+      ]
+    },
+    "stat2": {
+      "type": "Stat",
+      "props": {
+        "label": "MEDIUM synthetic maxCurve",
+        "value": "16.67%",
+        "trend": "up"
+      }
+    },
+    "context2": {
+      "type": "Text",
+      "props": {
+        "text": "first fire above 10% since 07-08",
+        "variant": "muted"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "conservation": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "cons-heading",
+        "cons-status",
+        "cons-table"
+      ]
+    },
+    "cons-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation",
+        "level": "h3"
+      }
+    },
+    "cons-status": {
+      "type": "Badge",
+      "props": {
+        "text": "OK all modes",
+        "variant": "default"
+      }
+    },
+    "cons-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Mode",
+          "Value"
+        ],
+        "rows": [
+          [
+            "basket",
+            "+3.2e−15"
+          ],
+          [
+            "spread",
+            "−8.1e−13"
+          ],
+          [
+            "synth",
+            "−2.2e−15"
+          ],
+          [
+            "x402",
+            "−2.2e−15"
+          ]
+        ]
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "findings": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "findings-heading",
+        "finding1",
+        "finding2",
+        "issue-ref"
+      ]
+    },
+    "findings-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Key Findings",
+        "level": "h3"
+      }
+    },
+    "finding1": {
+      "type": "Alert",
+      "props": {
+        "message": "3rd consecutive filed run with zero |r|≥0.8 pairs",
+        "type": "info"
+      }
+    },
+    "finding2": {
+      "type": "Alert",
+      "props": {
+        "message": "Four-day gap since last report (07-13/14/15 unprocessed per ISS-006)",
+        "type": "warning"
+      }
+    },
+    "issue-ref": {
+      "type": "Text",
+      "props": {
+        "text": "Issue: ISS-006",
+        "variant": "muted"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Detailed Report",
+        "href": "memory/topics/compute-futures-eda/2026-07-16.md",
+        "source": "Aeon Memory"
+      }
+    }
+  }
+}
