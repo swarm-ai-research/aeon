@@ -134,6 +134,13 @@ describe("stripPort (edge cases)", () => {
   it("returns empty string for whitespace-only input", () => {
     assert.equal(stripPort("   "), "");
   });
+  it("returns empty string for direct empty-string input", () => {
+    assert.equal(stripPort(""), "");
+  });
+  it("returns trimmed value intact for unclosed bracketed IPv6 (no closing ])", () => {
+    // Hits the `if (end === -1) return trimmed` branch inside the '[' guard.
+    assert.equal(stripPort("[::1"), "[::1");
+  });
 });
 
 describe("isAllowedHost (edge cases)", () => {
@@ -146,6 +153,43 @@ describe("isAllowedHost (edge cases)", () => {
     assert.equal(isAllowedHost("aeon.local", { extraAllowed: extras }), true);
     assert.equal(isAllowedHost("internal.lan", { extraAllowed: extras }), true);
     assert.equal(isAllowedHost("attacker.example", { extraAllowed: extras }), false);
+  });
+});
+
+describe("isSameOriginWrite (additional method coverage)", () => {
+  it("allowAny=true bypasses the check for write methods", () => {
+    // Hits the `if (opts.allowAny) return true` branch with a non-safe method.
+    assert.equal(
+      isSameOriginWrite("POST", headers({ origin: "http://attacker.example" }), {
+        allowAny: true,
+      }),
+      true,
+    );
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({}), { allowAny: true }),
+      true,
+    );
+  });
+  it("DELETE is treated as a state-changing method (not safe)", () => {
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({ origin: "http://localhost:5555" })),
+      true,
+    );
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({ origin: "http://attacker.example" })),
+      false,
+    );
+    assert.equal(isSameOriginWrite("DELETE", headers({})), false);
+  });
+  it("PUT is treated as a state-changing method (not safe)", () => {
+    assert.equal(
+      isSameOriginWrite("PUT", headers({ origin: "http://127.0.0.1:5555" })),
+      true,
+    );
+    assert.equal(
+      isSameOriginWrite("PUT", headers({ origin: "http://attacker.example" })),
+      false,
+    );
   });
 });
 
@@ -236,6 +280,25 @@ describe("gateRequest (env-driven wrapper)", () => {
     const result = gateRequest({
       method: "GET",
       headers: headers({ host: "0.0.0.0:5555" }),
+    });
+    assert.equal(result, null);
+  });
+
+  it("rejects a DELETE with no Origin header (non-POST write method)", async () => {
+    const result = gateRequest({
+      method: "DELETE",
+      headers: headers({ host: "localhost:5555" }),
+    });
+    assert.ok(result instanceof Response, "expected 403 Response");
+    assert.equal(result!.status, 403);
+    const body = await result!.json();
+    assert.equal(body.error, "Cross-origin write rejected");
+  });
+
+  it("accepts a same-origin DELETE from localhost", () => {
+    const result = gateRequest({
+      method: "DELETE",
+      headers: headers({ host: "localhost:5555", origin: "http://localhost:5555" }),
     });
     assert.equal(result, null);
   });
