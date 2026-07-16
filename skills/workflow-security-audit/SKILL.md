@@ -25,20 +25,33 @@ Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
 ```bash
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
-# Pin to a specific version for reproducibility — bump this when upgrading.
+# Pre-built binaries live in .audit-bin/ — prefer them over network installs
+# because the GHA sandbox blocks bash <(curl …) and pip/pipx installs
+# intermittently. Only fall back to PyPI when .audit-bin/zizmor is absent.
+# Pin ZIZMOR_VERSION to the version shipped in .audit-bin/; bump both together.
 ZIZMOR_VERSION="1.25.2"
 if ! command -v zizmor >/dev/null 2>&1; then
-  pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
-    || python3 -m pip install --user "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
-    || true
-  export PATH="$HOME/.local/bin:$PATH"
+  if [ -x ".audit-bin/zizmor" ]; then
+    export PATH="$PWD/.audit-bin:$PATH"
+  else
+    pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
+      || python3 -m pip install --user "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
+      || true
+    export PATH="$HOME/.local/bin:$PATH"
+  fi
 fi
-# When auditing this skill, verify ZIZMOR_VERSION is still on the latest stable
-# (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
+# When upgrading zizmor, replace .audit-bin/zizmor and bump ZIZMOR_VERSION here.
+# Verify the version is still on the latest stable release:
+# https://github.com/zizmorcore/zizmor/releases
 # actionlint (Rhymond's syntax-level workflow linter)
+# Same pattern: prefer .audit-bin/actionlint before attempting a curl-pipe install.
 if ! command -v actionlint >/dev/null 2>&1; then
-  bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
-  export PATH="$PWD:$PATH"
+  if [ -x ".audit-bin/actionlint" ]; then
+    export PATH="$PWD/.audit-bin:$PATH"
+  else
+    bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
+    export PATH="$PWD:$PATH"
+  fi
 fi
 ```
 
@@ -352,6 +365,7 @@ Append to `memory/logs/${today}.md`:
 
 ## Sandbox note
 
+- **Pre-built binaries in `.audit-bin/`** — `zizmor` and `actionlint` are committed as static executables so step 0b never needs a network install. The sandbox's `bash <(curl …)` block and pip/pipx intermittent failures do not affect this path. If `.audit-bin/` is absent (fresh clone without the binaries), step 0b falls back to PyPI / curl.
 - `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
 - `gh` CLI uses existing `GITHUB_TOKEN` / `GH_GLOBAL` — no extra auth setup needed.
 - No new secrets required. zizmor and actionlint are offline-only static analyzers.
