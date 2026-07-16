@@ -1,7 +1,7 @@
-surplus pulse — 2026-07-15
+surplus pulse — 2026-07-16
 
 spot: catalog · Llama 4 Scout @ $0.0764/M (Surplus Intelligence)
-curve: hyperscaler H100 reserve R30 +88.7% (round 6 supply tighten)
+curve: hyperscaler H100 reserve R30 +88.7% (R6 supply tightening dominates all expiries)
 rail: x402 on Base/USDC — https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions
 
-one-line read: inference supply stayed tight through the run — the H100 reserve shock at round 6 dominated the curve; a DeepSeek open-weights drop at round 13 gave it back before a demand surge at round 20 pushed the long end back up to $0.1149/M at settlement.
+one-line read: SURPLUS_PRICING_URL unset so live feed fell back to catalog; curve structure unchanged from prior runs — H100 hoarding spike still the dominant event.

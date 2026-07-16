@@ -1,0 +1,81 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse",
+        "description": "2026-07-16"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "row-spot",
+        "row-curve",
+        "row-rail",
+        "sep-1",
+        "row-explanation"
+      ]
+    },
+    "row-spot": {
+      "type": "Text",
+      "props": {
+        "text": "spot: catalog · Llama 4 Scout @ $0.0764/M (Surplus Intelligence)",
+        "variant": "body"
+      }
+    },
+    "row-curve": {
+      "type": "Text",
+      "props": {
+        "text": "curve: hyperscaler H100 reserve R30 +88.7% (R6 supply tightening dominates all expiries)",
+        "variant": "body"
+      }
+    },
+    "row-rail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-rail-prefix",
+        "link-rail"
+      ]
+    },
+    "text-rail-prefix": {
+      "type": "Text",
+      "props": {
+        "text": "rail: x402 on Base/USDC —"
+      }
+    },
+    "link-rail": {
+      "type": "Link",
+      "props": {
+        "label": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "row-explanation": {
+      "type": "Text",
+      "props": {
+        "text": "one-line read: SURPLUS_PRICING_URL unset so live feed fell back to catalog; curve structure unchanged from prior runs — H100 hoarding spike still the dominant event.",
+        "variant": "caption"
+      }
+    }
+  }
+}
