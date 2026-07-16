@@ -1,7 +1,4 @@
 ISSUE_TRIAGE_OK no-watched-repos
 
 ## Summary
-- Executed `skills/issue-triage/SKILL.md`. `${var}` was empty and `memory/watched-repos.md` is absent, so per the skill's config rule the run exits immediately with `ISSUE_TRIAGE_OK no-watched-repos`.
-- No triage performed; no notifications sent (matches the skill's "if nothing actionable, no notification" rule).
-- **Files modified:** `memory/logs/2026-07-15.md` (appended issue-triage entry).
-- **Follow-up:** MEMORY.md next-priorities already flags this — populate `memory/watched-repos.md` or disable the five watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog) to stop the daily skip pattern from consuming a workflow slot per skill.
+Executed `skills/issue-triage/SKILL.md`. `memory/watched-repos.md` is absent and `${var}` is empty, so per the skill's §Config the run exits without probing, fetching, or classifying any repo. No `gh` calls made, no labels/comments applied, no notification sent. Logged the exit code `ISSUE_TRIAGE_OK no-watched-repos` to `memory/logs/2026-07-16.md`. The `memory/triaged-issues.json` file (still carrying stale `aaronjmars/aeon` entries from May/June) was left untouched — no writes on the exit path. This confirms the standing MEMORY.md next-priority: **populate `memory/watched-repos.md` or disable this skill** (plus code-health, github-monitor, changelog, weekly-shiplog) to stop the daily no-op workflow slot.
