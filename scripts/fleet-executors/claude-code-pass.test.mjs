@@ -439,4 +439,49 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. test-pass kind — KIND_CONFIG["test-pass"] is never exercised by prior
+//     tests. Verify it flows through the same happy path as docs-pass/refactor-pass.
+//     Also exercises the shortTaskId "x" fallback: a taskId made entirely of
+//     non-alphanumeric chars collapses to "" after replace, so the branch
+//     suffix becomes "x" rather than an empty token.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "!!!" })
+    );
+    assert.equal(result.ok, true, `expected ok=true for test-pass, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/42");
+    // Branch must use "test-pass" prefix and the "x" shortTaskId fallback.
+    const today = new Date().toISOString().slice(0, 10);
+    assert.equal(result.branch, `aeon/test-pass-${today}-x`,
+      `unexpected branch name: ${result.branch}`);
+    const refs = spawnSync("git", ["ls-remote", env.remoteDir], { encoding: "utf8" }).stdout;
+    assert.match(refs, /refs\/heads\/aeon\/test-pass-/);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  test-pass kind succeeds; shortTaskId all-special-chars → 'x' suffix");
+}
+
+// 16. gh pr list returns malformed JSON (syntax error) → JSON.parse throws →
+//     catch block in openPRsForKind returns null → backlog gate treats null as
+//     "unknown" and lets the pass proceed rather than blocking.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{invalid json syntax'; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "badjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns malformed JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/99");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list malformed JSON → catch returns null → gate skipped, pass proceeds");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
