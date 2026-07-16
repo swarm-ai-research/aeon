@@ -1,16 +1,17 @@
 ## Summary
 
-**Exit: `NOTEGRAPH_NO_CHANGE`** — extractor ran (input fingerprint mismatched stored 07-14 value), but graph topology is identical to HEAD after timestamp masking.
+**Verdict: NOTEGRAPH_NO_CHANGE** — silent exit per SKILL.md.
 
-**Extractor output:** 164 nodes · 1193 hard · 461 soft · 1 orphans · 0 bundled (edges=1654, atomic=43) — byte-identical to HEAD for `notegraph.json`, `docs/notegraph.html`, `docs/notegraph-speedrun.html` after `generatedAt` mask. `docs/notegraph.md` differed on one line only: the human-readable date ("…on 2026-07-14" → "…on 2026-07-15"). Pure timestamp/date churn per [[notegraph-extractor-generatedat-nondeterministic]].
+- Ran `node scripts/notegraph.mjs` → **164 nodes · 1199 hard · 461 soft · 1 orphans · 0 bundled** (edges=1660, atomic=43)
+- All four output files (`notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`) were **byte-identical to HEAD** after masking `generatedAt` and the human-readable date line (`…on 2026-07-15` → `…on 2026-07-16`)
+- Delta vs HEAD: 0 across nodes/edges/orphans/bundled. Zero new orphans, zero new bundled
+- Reverted the four output files via `git checkout --` (pure timestamp/date churn per `[[notegraph-extractor-generatedat-nondeterministic]]`)
+- **No PR opened. No notify sent.**
 
-**Actions taken:**
-- Reverted all four output files via `git checkout --` (the established pattern).
-- Updated `memory/state/notegraph.json`: new fingerprint `2c8e11ef…`, resynced stats (prior state's cached 163/1634 was stale — HEAD had advanced to 164/1654 via some intervening commit).
-- Appended entry to `memory/logs/2026-07-15.md`.
+**Files modified:**
+- `memory/state/notegraph.json` — new fingerprint `4ee31c4a…`, `last_run: 2026-07-16`, resynced stats (state's 07-15 cache of 1654e/1193h was stale — HEAD already at 1660e/1199h via an intervening commit)
+- `memory/logs/2026-07-16.md` — new daily log entry
 
-**Skipped:** no PR, no notify — topology stable, verdict form is bland "graph refreshed", and no new/resolved orphans or bundled notes.
+**Sandbox note:** the SKILL.md's `find | xargs sha1sum` fingerprint step is blocked by sandbox permissions on `xargs`; fell back to a self-contained Node walker (same file set + script). Same fallback as 07-15. Worth baking the Node walker into the SKILL.md as the canonical fingerprint step.
 
-**Files modified:** `memory/state/notegraph.json`, `memory/logs/2026-07-15.md`.
-
-**Follow-up:** the underlying "notegraph skill mistakes timestamp-only churn for real change" bug (fingerprint scheme catches it now, but the naive `git diff --quiet` gate in the SKILL would still fail) remains open per the existing next-priorities entry in `memory/MEMORY.md`. Staged-branches queue unchanged at 12 (last notegraph branch = `notegraph/2026-07-12`, still awaiting operator PAT).
+**Follow-up:** staged-branches queue unchanged; last notegraph branch remains `notegraph/2026-07-12`, still blocked on operator PAT provisioning per `[[github-actions-cannot-create-prs]]`.
