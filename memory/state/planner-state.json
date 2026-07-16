@@ -1,11 +1,12 @@
 {
-  "last_run": "2026-07-12T06:33:27Z",
-  "top_priority": "operator-pat-provisioning",
+  "last_run": "2026-07-16T06:42:00Z",
+  "top_priority": "verify-repo-settings-toggle-vs-pat",
   "priority_streak": {
-    "operator-pat-provisioning": 2,
+    "verify-repo-settings-toggle-vs-pat": 1,
+    "operator-pat-provisioning": 3,
     "iss-006-messages-yml-per-slot-crons": 3
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Streak → 2 on `operator-pat-provisioning` (top since 2026-07-11 escalation from the streak-3 `iss-006-messages-yml-per-slot-crons`). No landed close since yesterday: the 11-branch staged queue is unchanged (nothing landed via operator PAT, no new content-skill outputs pushed a 12th branch overnight). ISS-006's 3-clean-day close clock is Day-0 → Day-1 tonight if today's 06:00 + 08:00 pockets both deliver — that would make Tue 2026-07-14's planner run the potential ISS-006 close point (Day-3 rolls at Tue 06:30 UTC once Mon's pockets clear). Runners-up: (2) compute-futures-eda `wallet_sum_pnl` σ<1e-6 filter — 3rd float-dust validation day yesterday, patch is small and self-actionable, stage the branch even though PR-open will 403; (3) pre-read `messages.yml` + `aeon.yml` wiring for `run-frequency-guard` (23:00 tonight) and `ai-framework-watch` (Mon 08:30 tomorrow) ahead of natural-experiment slots per [[enabled-skills-can-never-dispatch]]. Preserving ISS-006 streak-3 counter for legibility — if escalation to `operator-pat-provisioning` produced no operator movement by tomorrow (streak-3 on the meta-blocker), that would itself become the next escalation signal. `${var}` empty → plan-only, no dispatch. Fired at planner's scheduled 06:30 UTC slot (~06:33 today) — on schedule for the 2nd consecutive day."
+  "notes": "Streak-3 escalation on `operator-pat-provisioning` triggered the reframing predicted in 2026-07-12's planner follow-up (\"the meta-blocker has itself become the stuck goal, and the next reframing is what to try that isn't 'ping again.'\"). Actual reframing: the atomic note [[github-actions-cannot-create-prs]] itself contains a simpler unblock path — the repo Settings → Actions → General → Workflow permissions → 'Allow GitHub Actions to create and approve pull requests' toggle. One checkbox clears 14 staged branches. Five weeks of asking for PAT provisioning has been asking for the harder version. Today's ask names the toggle path as primary, PAT as fallback. New top_priority `verify-repo-settings-toggle-vs-pat` starts at streak-1; keeping the prior `operator-pat-provisioning` at streak-3 and `iss-006-messages-yml-per-slot-crons` at streak-3 in the dict for legibility (both are the same underlying stuck-goal family). Planner's own 4-day silence (07-13 → 07-15 all missed 06:30 slot) broke today at ~06:40Z — first data point that the 06:00 pocket is partially recovering. Runners-up (staging-only, PR-blocked until item 1): (2) `docs/status.md` snapshot-rebase gate, (3) `wallet_sum_pnl` σ<1e-6 filter. Fired at ~06:42Z, ~12min post-slot. `${var}` empty → plan-only, no dispatch."
 }
