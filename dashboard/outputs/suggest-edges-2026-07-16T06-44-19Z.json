@@ -1,0 +1,78 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Suggest-edges"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat-links",
+        "text-branch",
+        "sep-1",
+        "alert-blocker",
+        "sep-2",
+        "text-action"
+      ]
+    },
+    "stat-links": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3",
+        "delta": "top: 2026-06-20"
+      },
+      "children": []
+    },
+    "text-branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed: suggest-edges/2026-07-16",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "alert-blocker": {
+      "type": "Alert",
+      "props": {
+        "title": "PR creation blocked",
+        "message": "github-actions-cannot-create-prs (day 6)",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "text-action": {
+      "type": "Text",
+      "props": {
+        "text": "Operator: create PR from web or provision PAT",
+        "variant": "body"
+      },
+      "children": []
+    }
+  }
+}
