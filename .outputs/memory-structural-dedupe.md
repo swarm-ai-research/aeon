@@ -1,13 +1,13 @@
 ## Summary
 
-Ran `memory-structural-dedupe` for 2026-07-12. **Clean — no drift detected, no notification sent.**
+Ran `memory-structural-dedupe` skill on `memory/MEMORY.md`.
 
-Findings:
-- MEMORY.md has migrated to a pointer-only index (per top-of-file comment). None of the tracked single-canonical sections exist: `Recent Articles`, `Skills Built`, `Lessons Learned`, `Wallet`, `Issue Tracker`, `Recent Newsletters` all absent.
-- Only headings present are `## Current focus`, `## Topics`, `## Conventions`, `## Pointers`, `## Next priorities` — all intentionally multi-line (pointer/index style), not tracked by this skill.
-- No structural rewrite performed → no need to run `./scripts/memory-dedupe --fix` (belt-and-suspenders only fires after a rewrite).
+**Result:** Clean — no structural drift detected. None of the single-canonical sections tracked by this skill (Recent Articles, Skills Built, Lessons Learned, Wallet, Issue Tracker, Recent Newsletters) exist in the current MEMORY.md. The file has been fully migrated to a pointer-only structure with only intentionally-multi-line sections: Current focus, Topics, Conventions, Pointers, Next priorities.
 
-Files modified:
-- `memory/logs/2026-07-12.md` — appended `## Memory Structural Dedupe` entry with `MEMORY_STRUCTURAL_DEDUPE_OK`.
+**Actions:**
+- No rewrite performed
+- No `scripts/memory-dedupe --fix` run (nothing changed to warrant belt-and-suspenders)
+- No notification sent (clean state)
+- Logged `MEMORY_STRUCTURAL_DEDUPE_OK` to `memory/logs/2026-07-16.md`
 
-Follow-up: none. Skill spec says no notification when clean.
+**Files created:** `memory/logs/2026-07-16.md`
