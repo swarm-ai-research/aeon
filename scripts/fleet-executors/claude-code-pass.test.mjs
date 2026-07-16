@@ -439,4 +439,69 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. git commit failure — a failing pre-commit hook causes the commit to fail
+//     after claude has made changes. cleanup(true) must be called: worktree
+//     removed, ephemeral branch deleted. Worktrees share the main repo's hooks
+//     directory, so a hook written to localDir/.git/hooks/ fires inside them.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/42"\n`,
+  });
+  const hooksDir = join(env.localDir, ".git", "hooks");
+  mkdirSync(hooksDir, { recursive: true });
+  const hookPath = join(hooksDir, "pre-commit");
+  writeFileSync(hookPath, "#!/usr/bin/env bash\necho 'pre-commit: blocked by test hook' >&2\nexit 1\n");
+  chmodSync(hookPath, 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false, `expected ok=false on commit failure, got ${JSON.stringify(result)}`);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be cleaned up.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    // Ephemeral branch must be deleted (cleanup(true) was called).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "ephemeral branch should be deleted after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, worktree and branch cleaned up");
+}
+
+// 16. Claude exits 0 but produces no stdout — the !proc.stdout branch of
+//     invokeClaude (line 136). Distinct from test 8 where --version itself
+//     fails: here --version succeeds, but the actual run emits nothing and
+//     exits 0. invokeClaude returns null → runCodePass calls cleanup(true)
+//     and returns ok:false. Also the only test that exercises the test-pass kind.
+{
+  const CLAUDE_SILENT_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+# exit 0 with no stdout
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_SILENT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/42"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", repoDir: env.localDir, taskId: "silent" })
+    );
+    assert.equal(result.ok, false, `expected ok=false when claude produces no output, got ${JSON.stringify(result)}`);
+    assert.match(result.reason, /claude invocation failed/);
+    // Worktree was created before invokeClaude ran; cleanup(true) must remove it.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain");
+    // Ephemeral branch must also be deleted.
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "ephemeral branch should be deleted when claude produces no output");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  claude exits 0 with no stdout → invokeClaude !proc.stdout branch → ok:false, cleanup");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
