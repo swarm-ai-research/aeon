@@ -23,6 +23,12 @@ REPO_URL=$(gh repo view --json url -q .url 2>/dev/null || echo "")
 
 Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 
+> **Pre-cached binaries:** `.audit-bin/` in the repo root contains committed copies of `zizmor` and `actionlint` for sandbox reliability. Add it to PATH first so the checks below use those instead of triggering a network download:
+> ```bash
+> export PATH="${PWD}/.audit-bin:${PATH}"
+> ```
+> To update the cached versions, replace the binaries in `.audit-bin/` and commit. The `actionlint.tar.gz` alongside the binary is the source archive for version provenance.
+
 ```bash
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
 # Pin to a specific version for reproducibility — bump this when upgrading.

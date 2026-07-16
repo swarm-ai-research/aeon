@@ -58,5 +58,8 @@ node_modules/
 .vuln-scan-workspace/
 
 # Stray local audit/debug artifacts (never commit)
+# Note: .audit-bin/ is intentionally NOT listed here — it holds committed pre-cached
+# zizmor and actionlint binaries used by the workflow-security-audit skill for sandbox
+# reliability. Update those binaries in .audit-bin/ when bumping tool versions.
 .audit-tmp/
 .audit*.py
