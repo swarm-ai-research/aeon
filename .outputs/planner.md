@@ -1,20 +1,25 @@
+Plan artifacts written. Final summary follows.
+
 ## Summary
 
-Executed the **planner** skill for 2026-07-16 (~06:42Z). Plan-only mode (`${var}` empty). First fresh planner run since 2026-07-12 — broke the 4-day 06:30-slot silence.
+Ran the **Planner** skill for 2026-07-17 at ~06:39Z (~9min post-slot; on-cadence). Plan-only mode (`${var}` empty). 2nd consecutive fresh planner run after the 07-13 → 07-15 silence broke on 07-16.
 
-**Streak-3 escalation triggered.** The 2026-07-12 planner's own follow-up predicted this: *"if streak → 3 on `operator-pat-provisioning` with no PAT landed, the meta-blocker has become the stuck goal — the next reframing is what to try that isn't 'ping again.'"* Today the reframing landed.
+**Today's one thing:** `verify-repo-settings-toggle-vs-pat` streak advances 1 → 2 — same top priority as yesterday's reframe. **Novel:** last night's 23:00Z `run-frequency-guard` natural-experiment probe **did not fire** (`last_status: None` in cron-state, silenced by `[[enabled-skills-can-never-dispatch]]`). Today's ask reframes the probe path: operator eyeball the Settings page directly, OR `gh workflow run suggest-edges` for a manual dispatch that bypasses `messages.yml` cron underdelivery.
 
-**Today's one thing:** [[github-actions-cannot-create-prs]] itself names a one-checkbox alternative — *Settings → Actions → General → Workflow permissions → "Allow GitHub Actions to create and approve pull requests"*. One click clears all 14 staged branches. Five weeks of asking for PAT provisioning has been asking for the harder version of the ask. Notify names the toggle path as primary, PAT as fallback.
+**Ranked (3):**
+1. Toggle-ask streak-2 + probe-failure escalation
+2. Draft ISS-020 for `[[enabled-skills-can-never-dispatch]]` (flag for next heartbeat/skill-evals to file — config/high)
+3. Stage `docs/status.md` snapshot-rebase gate (day-5 clobber, urgency threshold crossed)
 
-**Ranked runners-up (staging-only, PR-blocked):** (2) `docs/status.md` snapshot-rebase gate — day-4 clobber, MEMORY.md next-priority 4b; (3) `wallet_sum_pnl` σ<1e-6 filter — 3rd float-dust validation.
+Yesterday's rank-3 (`wallet_sum_pnl` σ<1e-6 filter) slides to Holding for one cycle.
+
+**Fleet:** 0 broken · 38 historic-DEGRADED (ISS-001 day 27) · 2 NO_DATA · 4 HEALTHY · 17 open issues (unchanged) · `gh pr/issue list` both `[]`.
 
 **Files modified:**
-- `.outputs/planner.md` (chain-output convention)
-- `memory/state/daily-plan-2026-07-16.md` (dated copy)
-- `memory/state/planner-state.json` (top_priority → `verify-repo-settings-toggle-vs-pat` streak-1; prior `operator-pat-provisioning` streak-3 preserved for legibility)
-- `.pending-notify/1784184184-planner.md` (direct write per [[notify-inline-cat-substitution-blocked-in-sandbox]], ~470 chars)
-- `memory/logs/2026-07-16.md` (new day-log)
+- `.outputs/planner.md`
+- `memory/state/daily-plan-2026-07-17.md`
+- `memory/state/planner-state.json` (streak 1→2, last_run bumped)
+- `.pending-notify/1784270345-planner.md` (first-person paragraph, ~470 chars, per fleet direct-write standard)
+- `memory/logs/2026-07-17.md`
 
-**Fleet:** 0 broken, 38 DEGRADED (ISS-001 day 26), 2 NO_DATA, 4 HEALTHY. 06:00-pocket signal: planner ✅ (this run); compute-futures-eda / memory-flush / memory-structural-dedupe TBD until batch-health at 08:00Z.
-
-**Follow-up:** tonight's 23:00 `run-frequency-guard` slot and tomorrow's 05:30 `suggest-edges` PR-create attempt are the natural-experiment probes — if either succeeds without 403, the settings toggle is enabled and the 14-branch queue is landable; if same 403 persists, escalate to PAT fallback ask.
+**Follow-ups:** batch-health at 08:00Z confirms whether today's 05:30 suggest-edges probe fired; if operator flips the toggle today the 14 staged branches unblock; streak-3 escalation on `verify-repo-settings-toggle-vs-pat` fires tomorrow (07-18) if both probes stay silent.
