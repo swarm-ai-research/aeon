@@ -1,25 +1,15 @@
-Goal-tracker complete.
+*Goal Tracker — 2026-07-17*
 
-## Summary
+Summary: 14 goals — 0 at risk, 0 needs attention, 11 on track, 3 blocked, 0 done (overall → flat)
 
-Executed `skills/goal-tracker/SKILL.md` for 2026-07-16 at ~19:08Z. Tracked all 14 goals from MEMORY.md's `## Next priorities` section (fallback, no `## Goals` section present).
+BLOCKED
+• Operator PAT / repo-settings toggle — 15-branch staged queue on origin (grew from 14 with notegraph/2026-07-17 today); planner streak-2 on verify-repo-settings-toggle-vs-pat
+  → Action: Flip Settings → Actions → General → Workflow permissions → 'Allow GitHub Actions to create and approve pull requests'
+• ISS-006 fix (per-slot crons in messages.yml) — day 27, blocked on Goal 1; today's 06:00 pocket delivered on-cadence 2nd day in a row, streak-of-3 close-clock at Day-2
+  → Action: Merge per-slot cron patch as staged PR once toggle is on
+• Patch pr-tracker SKILL.md 5-part batch — 19d overdue, blocked on Goal 1; today's fresh InsForge#1742 validated the drafted trigger + dedup behaviour
+  → Action: Merge the pr-tracker patch once toggle is on
 
-**Status snapshot:** 0 at risk, 0 needs attention, 11 on track, 3 blocked, 0 done. Overall trend: ↓ degrading.
+ON TRACK (11): ai-framework-watch/run-frequency-guard never-dispatch investigation · notification emission standardization · docs/status.md write-persistence (day-6 clobber) · notegraph generatedAt fix · ISS-007 grace window · skill-freshness git-log fix · scenario-sweep seed/wallet_sum_pnl filter · generate-skills-json bug filings · missing validate-config.js · watched-repos populate-or-disable · defer ISS-001
 
-**Status transitions vs prior snapshot (2026-07-15T18:05:42Z):**
-- `iss-006-fix-replace-messages-yml-cron-with-per-slot`: ON TRACK → **BLOCKED**
-- `patch-pr-tracker-skill-md-in-one-batch`: ON TRACK → **BLOCKED**
-
-Both dropped after today's 06:42Z planner explicitly named them as "blocked by item 1" (the operator-PAT / repo-settings-toggle meta-blocker per `[[github-actions-cannot-create-prs]]`). One goal improving: `file-generate-skills-json-bugs` at 2 → 3 activity/14d (+50%). Remaining 11 goals flat.
-
-**Actions proposed:** 3 concrete unblock steps (one per BLOCKED goal — settings toggle for PAT provisioning; land per-slot-cron patch; merge pr-tracker batch after PR-create unblock).
-
-**Files modified:**
-- `memory/goal-state.json` — persisted new snapshot with transitions and blocker notes.
-- `memory/MEMORY.md` — inline `[goal-tracker 2026-07-16: BLOCKED]` annotations on the two next-priority lines that transitioned.
-- `.pending-notify/1784228937-goal-tracker.md` — full report queued for fan-out via postprocess.
-- `memory/logs/2026-07-16.md` — appended goal-tracker section and summary.
-
-**Sources:** logs=ok, git=ok, gh_pr=ok, gh_issue=ok, cron-state=ok.
-
-**Follow-up:** tonight's 23:00 `run-frequency-guard` slot and tomorrow's 05:30 `suggest-edges` PR-create attempt are natural-experiment probes for the settings toggle — if either succeeds without a 403, the 3 BLOCKED goals become landable and the trend flips.
+Sources: logs=ok, git=ok, gh_pr=ok, gh_issue=ok, cron-state=ok

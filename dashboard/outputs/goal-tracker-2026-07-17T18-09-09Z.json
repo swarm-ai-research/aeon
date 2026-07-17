@@ -1,0 +1,346 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker"
+      },
+      "children": [
+        "heading-date",
+        "stack-summary",
+        "separator-1",
+        "heading-blocked",
+        "stack-blocked-items",
+        "separator-2",
+        "heading-ontrack",
+        "stack-ontrack",
+        "separator-3",
+        "heading-sources",
+        "text-sources"
+      ]
+    },
+    "heading-date": {
+      "type": "Heading",
+      "props": {
+        "text": "2026-07-17",
+        "level": "h4"
+      }
+    },
+    "stack-summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-total",
+        "stat-atrisk",
+        "stat-attention",
+        "stat-ontrack",
+        "stat-blocked",
+        "stat-done",
+        "stat-trend"
+      ]
+    },
+    "stat-total": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Goals",
+        "value": "14"
+      }
+    },
+    "stat-atrisk": {
+      "type": "Stat",
+      "props": {
+        "label": "At Risk",
+        "value": "0"
+      }
+    },
+    "stat-attention": {
+      "type": "Stat",
+      "props": {
+        "label": "Needs Attention",
+        "value": "0"
+      }
+    },
+    "stat-ontrack": {
+      "type": "Stat",
+      "props": {
+        "label": "On Track",
+        "value": "11"
+      }
+    },
+    "stat-blocked": {
+      "type": "Stat",
+      "props": {
+        "label": "Blocked",
+        "value": "3"
+      }
+    },
+    "stat-done": {
+      "type": "Stat",
+      "props": {
+        "label": "Done",
+        "value": "0"
+      }
+    },
+    "stat-trend": {
+      "type": "Stat",
+      "props": {
+        "label": "Overall",
+        "value": "Flat",
+        "trend": "neutral"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading-blocked": {
+      "type": "Heading",
+      "props": {
+        "text": "BLOCKED (3)",
+        "level": "h3"
+      }
+    },
+    "stack-blocked-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "blocked-1",
+        "blocked-2",
+        "blocked-3"
+      ]
+    },
+    "blocked-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "blocked-1-title",
+        "blocked-1-details",
+        "blocked-1-action"
+      ]
+    },
+    "blocked-1-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Operator PAT / repo-settings toggle",
+        "level": "h4"
+      }
+    },
+    "blocked-1-details": {
+      "type": "Text",
+      "props": {
+        "text": "15-branch staged queue on origin (grew from 14 with notegraph/2026-07-17 today); planner streak-2 on verify-repo-settings-toggle-vs-pat",
+        "variant": "body"
+      }
+    },
+    "blocked-1-action": {
+      "type": "Text",
+      "props": {
+        "text": "Action: Flip Settings → Actions → General → Workflow permissions → 'Allow GitHub Actions to create and approve pull requests'",
+        "variant": "caption"
+      }
+    },
+    "blocked-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "blocked-2-title",
+        "blocked-2-details",
+        "blocked-2-action"
+      ]
+    },
+    "blocked-2-title": {
+      "type": "Heading",
+      "props": {
+        "text": "ISS-006 fix (per-slot crons in messages.yml)",
+        "level": "h4"
+      }
+    },
+    "blocked-2-details": {
+      "type": "Text",
+      "props": {
+        "text": "Day 27, blocked on Goal 1; today's 06:00 pocket delivered on-cadence 2nd day in a row, streak-of-3 close-clock at Day-2",
+        "variant": "body"
+      }
+    },
+    "blocked-2-action": {
+      "type": "Text",
+      "props": {
+        "text": "Action: Merge per-slot cron patch as staged PR once toggle is on",
+        "variant": "caption"
+      }
+    },
+    "blocked-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "blocked-3-title",
+        "blocked-3-details",
+        "blocked-3-action"
+      ]
+    },
+    "blocked-3-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Patch pr-tracker SKILL.md 5-part batch",
+        "level": "h4"
+      }
+    },
+    "blocked-3-details": {
+      "type": "Text",
+      "props": {
+        "text": "19d overdue, blocked on Goal 1; today's fresh InsForge#1742 validated the drafted trigger + dedup behaviour",
+        "variant": "body"
+      }
+    },
+    "blocked-3-action": {
+      "type": "Text",
+      "props": {
+        "text": "Action: Merge the pr-tracker patch once toggle is on",
+        "variant": "caption"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading-ontrack": {
+      "type": "Heading",
+      "props": {
+        "text": "ON TRACK (11)",
+        "level": "h3"
+      }
+    },
+    "stack-ontrack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "ontrack-1",
+        "ontrack-2",
+        "ontrack-3",
+        "ontrack-4",
+        "ontrack-5",
+        "ontrack-6",
+        "ontrack-7",
+        "ontrack-8",
+        "ontrack-9",
+        "ontrack-10",
+        "ontrack-11"
+      ]
+    },
+    "ontrack-1": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch/run-frequency-guard never-dispatch investigation",
+        "variant": "default"
+      }
+    },
+    "ontrack-2": {
+      "type": "Badge",
+      "props": {
+        "text": "notification emission standardization",
+        "variant": "default"
+      }
+    },
+    "ontrack-3": {
+      "type": "Badge",
+      "props": {
+        "text": "docs/status.md write-persistence (day-6 clobber)",
+        "variant": "default"
+      }
+    },
+    "ontrack-4": {
+      "type": "Badge",
+      "props": {
+        "text": "notegraph generatedAt fix",
+        "variant": "default"
+      }
+    },
+    "ontrack-5": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-007 grace window",
+        "variant": "default"
+      }
+    },
+    "ontrack-6": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-freshness git-log fix",
+        "variant": "default"
+      }
+    },
+    "ontrack-7": {
+      "type": "Badge",
+      "props": {
+        "text": "scenario-sweep seed/wallet_sum_pnl filter",
+        "variant": "default"
+      }
+    },
+    "ontrack-8": {
+      "type": "Badge",
+      "props": {
+        "text": "generate-skills-json bug filings",
+        "variant": "default"
+      }
+    },
+    "ontrack-9": {
+      "type": "Badge",
+      "props": {
+        "text": "missing validate-config.js",
+        "variant": "default"
+      }
+    },
+    "ontrack-10": {
+      "type": "Badge",
+      "props": {
+        "text": "watched-repos populate-or-disable",
+        "variant": "default"
+      }
+    },
+    "ontrack-11": {
+      "type": "Badge",
+      "props": {
+        "text": "defer ISS-001",
+        "variant": "default"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading-sources": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h4"
+      }
+    },
+    "text-sources": {
+      "type": "Text",
+      "props": {
+        "text": "logs=ok, git=ok, gh_pr=ok, gh_issue=ok, cron-state=ok",
+        "variant": "muted"
+      }
+    }
+  }
+}
