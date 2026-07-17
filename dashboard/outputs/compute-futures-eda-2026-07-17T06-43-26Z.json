@@ -1,0 +1,147 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-07-16"
+      },
+      "children": [
+        "text_metadata",
+        "separator1",
+        "stack_stats",
+        "separator2",
+        "heading_findings",
+        "text_finding1",
+        "text_finding2",
+        "separator3",
+        "heading_conservation",
+        "text_conservation",
+        "separator4",
+        "heading_filter",
+        "text_filter",
+        "badge_filter",
+        "separator5",
+        "story_report"
+      ]
+    },
+    "text_metadata": {
+      "type": "Text",
+      "props": {
+        "text": "144 rows, 4 modes",
+        "variant": "muted"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "stack_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      }
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_findings": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Findings",
+        "level": "h3"
+      }
+    },
+    "text_finding1": {
+      "type": "Text",
+      "props": {
+        "text": "basket `settlementLegs` 16.67% + synth/x402 `maxCurve` 16.67% MEDIUM outliers (both new)",
+        "variant": "body"
+      }
+    },
+    "text_finding2": {
+      "type": "Text",
+      "props": {
+        "text": "Prior 07-12: spread `settlementLegs` leader collapsed <10%",
+        "variant": "muted"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_conservation": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation",
+        "level": "h3"
+      }
+    },
+    "text_conservation": {
+      "type": "Text",
+      "props": {
+        "text": "All modes OK: |mean| < 1e-12, std < 4e-12",
+        "variant": "body"
+      }
+    },
+    "separator4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_filter": {
+      "type": "Heading",
+      "props": {
+        "text": "Float-Dust Filter",
+        "level": "h3"
+      }
+    },
+    "text_filter": {
+      "type": "Text",
+      "props": {
+        "text": "3rd consecutive filed run with zero |r|≥0.8 pairs",
+        "variant": "body"
+      }
+    },
+    "badge_filter": {
+      "type": "Badge",
+      "props": {
+        "text": "Filter Holds",
+        "variant": "default"
+      }
+    },
+    "separator5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "story_report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report: Compute-Futures EDA 2026-07-16",
+        "href": "memory/topics/compute-futures-eda/2026-07-16.md",
+        "source": "Memory"
+      }
+    }
+  }
+}
