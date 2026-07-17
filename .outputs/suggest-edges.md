@@ -1,1 +1,1 @@
-*Suggest-edges* — 3 missing links proposed (top: 2026-06-20.md). PR creation blocked (5th consecutive day, [[github-actions-cannot-create-prs]]); branch pushed: https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-07-15
+*Suggest-edges* — 3 missing links proposed (top: 2026-06-20). Branch pushed: suggest-edges/2026-07-17. PR create blocked by GitHub Actions PR permission (known: github-actions-cannot-create-prs). 16th branch in staged queue — operator must toggle Settings→Actions→Workflow permissions or provision PAT.

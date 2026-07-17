@@ -1,0 +1,122 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_links",
+        "sep_1",
+        "info_branch",
+        "sep_2",
+        "alert_blocked",
+        "sep_3",
+        "info_queue_and_action"
+      ]
+    },
+    "stat_links": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3",
+        "delta": "Top: 2026-06-20"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "info_branch": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "label_branch",
+        "text_branch"
+      ]
+    },
+    "label_branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed",
+        "variant": "caption"
+      }
+    },
+    "text_branch": {
+      "type": "Text",
+      "props": {
+        "text": "suggest-edges/2026-07-17",
+        "variant": "body"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_blocked": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "PR creation blocked",
+        "message": "GitHub Actions cannot create pull requests (github-actions-cannot-create-prs)"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "info_queue_and_action": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_queue",
+        "sep_4",
+        "text_action"
+      ]
+    },
+    "text_queue": {
+      "type": "Text",
+      "props": {
+        "text": "Queue: 16th branch in staged queue",
+        "variant": "body"
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_action": {
+      "type": "Text",
+      "props": {
+        "text": "Action required: Toggle Settings → Actions → Workflow permissions or provision PAT",
+        "variant": "lead"
+      }
+    }
+  }
+}
