@@ -1,15 +1,27 @@
+All three outputs are written. Here's the run summary:
+
+---
+
 ## Summary
 
-Skill-freshness executed for 2026-07-16:
+**skill-freshness** — 2026-07-17 — **✅ FRESHNESS_OK**
 
-- **Verdict**: ✅ `FRESHNESS_OK` — 44 enabled consumers, 0 deps flagged
-- **Notification**: none (FRESHNESS_OK is always silent; fingerprint unchanged from yesterday's SHA1-of-empty)
-- **Article**: `articles/skill-freshness-2026-07-16.md` (created)
-- **State**: `memory/topics/skill-freshness-state.json` updated
-- **Log**: appended to `memory/logs/2026-07-16.md`
+**What was audited:**
+- 44 enabled skills parsed from `aeon.yml`
+- Producer cadence map built (daily / weekly / reactive buckets)
+- Chains section: all commented out → 0 explicit `consume:` edges
+- Implicit deps scanned across enabled `SKILL.md` files for `articles/`, `.outputs/`, `memory/topics/`, `memory/state/` references
 
-**Key findings from this run:**
+**Findings — 0 flagged, 0 dependencies counted:**
+- `articles/` directory: absent from GHA snapshot (same as 2026-07-16 structural blind spot per `[[skill-freshness-mtime-blind-in-gha]]`)
+- `.outputs/` (30 files): all stamped 08:57 UTC today → age ≈ 0h → well within 4h threshold
+- `memory/topics/` (5 files): all stamped 08:57 → age ≈ 0h → well within 7d threshold
+- `memory/state/` (11 files): all stamped 08:57 → age ≈ 0h → well within 30d threshold
+- All implicit non-self references either don't exist on disk (not flagged per spec) or are within threshold
 
-1. **0 cross-skill deps on existing files** (vs 2 yesterday) — the `articles/` directory is absent from this GHA checkout snapshot, so canonical article refs fall under the "never existed" rule and are not counted. The 5 implicit refs found (surplus-pulse → projects.md, pr-review → pr-review-rules.md, repo-revive → watched-repos.md, compute-macro-correlate → compute-futures-macro-correlations.md, vuln-scanner → .outputs/github-trending.md) all reference files not on disk.
+**Notification:** suppressed — FRESHNESS_OK (silence is the signal; no stale/warn state to alert on)
 
-2. **GHA mtime blind spot** `[[skill-freshness-mtime-blind-in-gha]]` remains in effect — all files receive checkout mtime (~09:02Z), making age-based freshness analysis impossible. The pending fix (`git log -1 --format=%ct`) is still in the next-priorities queue.
+**Files written:**
+- `articles/skill-freshness-2026-07-17.md` — report (articles/ directory created)
+- `memory/topics/skill-freshness-state.json` — `last_run_at` updated to 2026-07-17T08:58:00Z
+- `memory/logs/2026-07-17.md` — log block appended
