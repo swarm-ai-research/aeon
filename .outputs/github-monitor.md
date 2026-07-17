@@ -1,10 +1,9 @@
-Executed the github-monitor skill for 2026-07-16.
-
 ## Summary
 
-`memory/watched-repos.md` is missing — verified via Read (file does not exist). Per SKILL.md §Config, that's the empty-config short-circuit: log `GITHUB_MONITOR_EMPTY_CONFIG` and end without notifying. No `gh pr/issue/release list` calls made, no tier classification, no notification (silence is the correct signal per §4).
+Executed `github-monitor` for 2026-07-17. `memory/watched-repos.md` is not present — per SKILL.md step 1 the skill logs `GITHUB_MONITOR_EMPTY_CONFIG` and ends without making any `gh` calls, doing tier classification, or sending a notification.
 
-**Files modified:**
-- `memory/logs/2026-07-16.md` — appended `## github-monitor` section with the empty-config outcome and pointer to the standing skip-pattern noted in MEMORY.md line 57.
-
-**Follow-up (operator action, not this run):** github-monitor is one of five daily-skip skills waiting on `memory/watched-repos.md` to be populated (or the skill disabled in `aeon.yml`). Nothing this skill can do about it — the note in MEMORY.md is already there.
+- **Verdict:** GITHUB_MONITOR_EMPTY_CONFIG
+- **Tier counts:** ACT_NOW=0 REVIEW=0 INFO=0
+- **Notification:** none (correct silence per skill rules — empty config, not a failure)
+- **Files modified:** `memory/logs/2026-07-17.md` (appended `### github-monitor` section)
+- **Follow-up:** Standing MEMORY.md next-priority item unchanged — populate `memory/watched-repos.md` or disable the five watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog) to reclaim the daily workflow slot.
