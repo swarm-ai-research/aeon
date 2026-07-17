@@ -1,17 +1,14 @@
+Notegraph skill complete. Executed on 2026-07-17.
+
 ## Summary
 
-**Verdict: NOTEGRAPH_NO_CHANGE** — silent exit per SKILL.md.
+**NOTEGRAPH_OK** — First real change since 2026-07-16 (input fingerprint `4ee31c4a…` → `96720fb9…`).
 
-- Ran `node scripts/notegraph.mjs` → **164 nodes · 1199 hard · 461 soft · 1 orphans · 0 bundled** (edges=1660, atomic=43)
-- All four output files (`notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`) were **byte-identical to HEAD** after masking `generatedAt` and the human-readable date line (`…on 2026-07-15` → `…on 2026-07-16`)
-- Delta vs HEAD: 0 across nodes/edges/orphans/bundled. Zero new orphans, zero new bundled
-- Reverted the four output files via `git checkout --` (pure timestamp/date churn per `[[notegraph-extractor-generatedat-nondeterministic]]`)
-- **No PR opened. No notify sent.**
-
-**Files modified:**
-- `memory/state/notegraph.json` — new fingerprint `4ee31c4a…`, `last_run: 2026-07-16`, resynced stats (state's 07-15 cache of 1654e/1193h was stale — HEAD already at 1660e/1199h via an intervening commit)
-- `memory/logs/2026-07-16.md` — new daily log entry
-
-**Sandbox note:** the SKILL.md's `find | xargs sha1sum` fingerprint step is blocked by sandbox permissions on `xargs`; fell back to a self-contained Node walker (same file set + script). Same fallback as 07-15. Worth baking the Node walker into the SKILL.md as the canonical fingerprint step.
-
-**Follow-up:** staged-branches queue unchanged; last notegraph branch remains `notegraph/2026-07-12`, still blocked on operator PAT provisioning per `[[github-actions-cannot-create-prs]]`.
+- **Extractor:** `165 nodes · 1221 hard · 447 soft · 1 orphan · 43 atomic · 0 bundled` (aggregate stats byte-identical to HEAD)
+- **Real delta:** 2 soft `similar` edges rewired around `memory/MEMORY.md` because that file's current-focus block grew and its similarity to `daily-plan-2026-06-27` + `daily-plan-2026-07-11` overtook the plan↔plan similarity. Three nodes' inDegree shifted ±1–2.
+- **Verdict:** `graph refreshed (165n / 1668e / 0b)` — bland form
+- **Branch:** `notegraph/2026-07-17` pushed to origin; `gh pr create` failed 403 per known [[github-actions-cannot-create-prs]] (15th staged branch, up from 14)
+- **Notify:** suppressed per skill step 5 rule (bland verdict + no orphan/bundled changes)
+- **State:** `memory/state/notegraph.json` updated with new fingerprint + rewiring breakdown (will land via workflow auto-commit sweep)
+- **Log:** appended to `memory/logs/2026-07-17.md`
+- **Operator ask unchanged:** Settings → Actions → General → Workflow permissions → "Allow GitHub Actions to create and approve pull requests" (or provision `AEON_GH_PAT` fallback) to clear the 15-branch staged queue.
