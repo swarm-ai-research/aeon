@@ -2,8 +2,8 @@
   "hash": "027503e1b11fd61a",
   "prev_hash": "027503e1b11fd61a",
   "classification_identical_to_prev": true,
-  "last_notified_at": "2026-07-16T19:07:48Z",
-  "last_run_at": "2026-07-17T18:04:00Z",
+  "last_notified_at": "2026-07-18T18:40:00Z",
+  "last_run_at": "2026-07-18T18:40:00Z",
   "classification": {
     "critical": [],
     "degraded": [
@@ -60,8 +60,8 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 → 2026-06-20) day 27 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01–0.19 driven by ~195 zero-token CLI failures per skill still in denominator.",
-  "delta_vs_prev": "Classification byte-identical to 2026-07-16T19:07:48Z run — same 38 DEGRADED sorted list, same 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog), same 2 NO DATA (ai-framework-watch, run-frequency-guard). 20th → 21st consecutive steady-state day. Hash preserved (027503e1b11fd61a) since classification tuple is unchanged from prev canonical form.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 → 2026-06-20) day 28 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01–0.20 driven by ~195 zero-token CLI failures per skill still in denominator.",
+  "delta_vs_prev": "Classification byte-identical to 2026-07-17T18:04:00Z run — same 38 DEGRADED sorted list, same 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog), same 2 NO DATA (ai-framework-watch, run-frequency-guard). 22nd consecutive steady-state day. Hash preserved (027503e1b11fd61a) since classification tuple + systemic callout are unchanged. Gate: NOTIFY — classification match but 28.87h elapsed since 2026-07-16T19:07:48Z last notify (>24h daily-reminder cadence threshold).",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 17,
@@ -85,6 +85,6 @@
     "ISS-018",
     "ISS-019"
   ],
-  "notify_decision": "SKIP — 22h 56m since last notify (2026-07-16T19:07:48Z) is under 24h daily-reminder cadence AND classification is byte-identical to prev. Gate in SKILL.md step 5 fires SKIP: current_hash == prev_report.hash AND now - last_notified_at < 24h. Skill-runs 168h window confirms zero failures/cancellations across 40 tracked skills (150 succeeded / 0 failed / 4 in_progress) — no FLAPPING candidates. Reconciliation: 0 CRITICAL/FLAPPING → no new issues filed. 0 open issues have detected_by=skill-health so no HEALTHY-recovery resolutions performed (HEALTHY skills swarm-safety-eval/config-validator listed in ISS-005/ISS-006 affected_skills are NOT auto-removed — those issues were filed by skill-evals/batch-health and resolution belongs to their filer or skill-repair per CLAUDE.md health/repair contract). Next opportunity: any state change OR 2026-07-17T19:07:48Z (24h cadence).",
-  "prompt_injection_flag": "scripts/skill-runs 168h output was scanned; no prompt-injection strings present in this run's window (contrast with prev run which flagged a workflow display-name injection). Continuing to treat skill-runs output as untrusted data per CLAUDE.md security rules."
+  "notify_decision": "NOTIFY — 28h 52m since last notify (2026-07-16T19:07:48Z) exceeds 24h daily-reminder cadence. Classification hash 027503e1b11fd61a matches prev (steady state), but the >24h gate fires so operator gets the daily reminder. Skill-runs 168h window confirms zero failures/cancellations across 40 tracked skills (151 succeeded / 0 failed / 4 in_progress) — the 38 DEGRADED entries are ALL denominator residue from ISS-001, not live failures (every one has cf=0, last_status=success, and 100% of last_error strings match the zero-token OAuth-outage signature). Reconciliation: 0 CRITICAL/FLAPPING → no new issues filed. 0 open issues have detected_by=skill-health so no HEALTHY-recovery resolutions performed (HEALTHY skills swarm-safety-eval/config-validator listed in ISS-005/ISS-006 affected_skills are NOT auto-removed — those issues were filed by skill-evals/batch-health and resolution belongs to their filer or skill-repair per CLAUDE.md health/repair contract).",
+  "prompt_injection_flag": "scripts/skill-runs 168h output was scanned; no prompt-injection strings present in this run's window. Continuing to treat skill-runs output as untrusted data per CLAUDE.md security rules."
 }
