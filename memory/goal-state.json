@@ -1,63 +1,68 @@
 {
-  "run_at": "2026-07-17T18:15:00Z",
+  "run_at": "2026-07-18T18:36:00Z",
   "goals": {
     "operator-pat-provisioning": {
       "status": "BLOCKED",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-17",
-      "blocker": "GitHub Actions is not permitted to create or approve PRs; operator repo-scoped PAT still not provisioned. 15-branch staged queue on origin (notegraph/2026-07-17 added today) per [[github-actions-cannot-create-prs]]. 2026-07-17 planner streak-2 on `verify-repo-settings-toggle-vs-pat` — probe #1 (run-frequency-guard 23:00Z) silenced by [[enabled-skills-can-never-dispatch]]; probe #2 (05:30Z suggest-edges) result TBD."
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-18",
+      "blocker": "GitHub Actions cannot create or approve PRs; operator repo-scoped PAT still not provisioned. Staged branch queue on origin grew 15→16 today (suggest-edges/2026-07-18 added). Per [[github-actions-cannot-create-prs]]."
     },
     "iss-006-fix-replace-messages-yml-cron-with-per-slot": {
       "status": "BLOCKED",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-17",
-      "blocker": "Fix requires a PR merge which is meta-blocked by [[github-actions-cannot-create-prs]]. Day-27; today's 06:00 pocket delivered on-cadence for the 2nd consecutive day (planner + compute-futures-eda) — streak-of-3 close-clock advances Day-1 → Day-2. Underlying delivery-rate bug per [[gha-messages-yml-cron-underdelivery]] unchanged."
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-18",
+      "blocker": "Meta-blocked by [[github-actions-cannot-create-prs]] — fix requires PR merge. Day-28; close-clock streak-of-3 depends on today's remaining pockets firing on-cadence. Underlying delivery-rate bug per [[gha-messages-yml-cron-underdelivery]] unchanged."
     },
-    "investigate-ai-framework-watch-and-run-frequency-guard-never-dispatch": {
+    "draft-iss-020-for-enabled-skills-can-never-dispatch": {
       "status": "ON_TRACK",
-      "activity_count_14d": 12,
-      "last_activity_date": "2026-07-17"
+      "activity_count_14d": 8,
+      "last_activity_date": "2026-07-18"
+    },
+    "stage-docs-status-md-snapshot-rebase-gate": {
+      "status": "ON_TRACK",
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-18"
     },
     "standardize-notification-emission-across-skill-md-files": {
       "status": "ON_TRACK",
-      "activity_count_14d": 13,
-      "last_activity_date": "2026-07-17"
-    },
-    "fix-status-md-auto-commit-drop": {
-      "status": "ON_TRACK",
-      "activity_count_14d": 13,
-      "last_activity_date": "2026-07-17"
-    },
-    "patch-notegraph-silent-exit-heuristic-generatedat": {
-      "status": "ON_TRACK",
-      "activity_count_14d": 11,
-      "last_activity_date": "2026-07-17"
-    },
-    "close-iss-007-or-add-same-day-grace-window-to-skill-evals": {
-      "status": "ON_TRACK",
-      "activity_count_14d": 11,
-      "last_activity_date": "2026-07-16"
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-18"
     },
     "patch-pr-tracker-skill-md-in-one-batch": {
       "status": "BLOCKED",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-17",
-      "blocker": "5-part batch patch drafted; merge blocked by [[github-actions-cannot-create-prs]] per today's planner ('19d overdue, blocked by item 1'). Today's pr-tracker fired SEND for first time in 3-day SKIP streak due to fresh InsForge#1742 — proves the drafted fresh-bot-PR trigger + hash-dedup guard behaviours are correct."
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-18",
+      "blocker": "5-part batch patch drafted; merge blocked by [[github-actions-cannot-create-prs]] — 20d overdue as of today. Fresh-bot-PR trigger + hash-dedup guard behaviours re-validated in-skill today (SEND fired for InsForge#1742 07:41Z transition)."
+    },
+    "investigate-ai-framework-watch-and-run-frequency-guard-never-dispatch": {
+      "status": "ON_TRACK",
+      "activity_count_14d": 13,
+      "last_activity_date": "2026-07-18"
+    },
+    "patch-notegraph-silent-exit-heuristic-generatedat": {
+      "status": "ON_TRACK",
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-18"
     },
     "fix-skill-freshness-to-use-git-log-producer-commit-timestamp": {
       "status": "ON_TRACK",
-      "activity_count_14d": 11,
-      "last_activity_date": "2026-07-17"
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-18"
     },
     "widen-scenario-sweep-mjs-seed-count-or-tie-robust-mad": {
       "status": "ON_TRACK",
-      "activity_count_14d": 11,
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-18"
+    },
+    "close-iss-007-or-add-same-day-grace-window-to-skill-evals": {
+      "status": "ON_TRACK",
+      "activity_count_14d": 13,
       "last_activity_date": "2026-07-17"
     },
     "file-generate-skills-json-bugs-as-structured-issues": {
       "status": "ON_TRACK",
-      "activity_count_14d": 4,
-      "last_activity_date": "2026-07-16"
+      "activity_count_14d": 5,
+      "last_activity_date": "2026-07-17"
     },
     "investigate-missing-scripts-validate-config-js": {
       "status": "ON_TRACK",
@@ -66,13 +71,13 @@
     },
     "populate-watched-repos-md-or-disable-dependent-skills": {
       "status": "ON_TRACK",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-17"
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-18"
     },
     "defer-iss-001-close-until-iss-006-resolved": {
       "status": "ON_TRACK",
-      "activity_count_14d": 14,
-      "last_activity_date": "2026-07-17"
+      "activity_count_14d": 15,
+      "last_activity_date": "2026-07-18"
     }
   }
 }
