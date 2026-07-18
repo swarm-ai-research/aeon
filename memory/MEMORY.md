@@ -3,8 +3,8 @@
 Pointer-only index. Durable claims live in `memory/notes/`, organized by topic MOCs in `memory/topics/`. Daily activity in `memory/logs/`. Structured issues in `memory/issues/`.
 
 ## Current focus
-- **ISS-006 close-clock at Day-2** (2026-07-17). 07-16 + 07-17 both cleared 06:00 pockets on-cadence; streak-of-3 closes tomorrow (07-18 Sat even-DOM) if planner + compute-futures-eda + memory-hygiene pair all fire. Delivery bug per [[gha-messages-yml-cron-underdelivery]] unchanged; a single clean day is noise per [[iss-006-pocket-recovery-is-noise]]. See [[fleet-ops]].
-- **ISS-001 residue day 27** — 38 skills at `success_rate < 0.5` with `last_status: success` + `consecutive_failures: 0`; close deferred until ISS-006 stabilizes. See [[fleet-ops]].
+- **ISS-006 close-clock at Day-2** (2026-07-17). 07-16 + 07-17 both cleared 06:00 pockets on-cadence; streak-of-3 closes today (07-18 Sat even-DOM) if planner + compute-futures-eda + memory-hygiene pair all fire. Delivery bug per [[gha-messages-yml-cron-underdelivery]] unchanged; a single clean day is noise per [[iss-006-pocket-recovery-is-noise]]. See [[fleet-ops]].
+- **ISS-001 residue day 28** — 38 skills at `success_rate < 0.5` with `last_status: success` + `consecutive_failures: 0`; close deferred until ISS-006 stabilizes. See [[fleet-ops]].
 - **15 staged branches** blocked behind [[github-actions-cannot-create-prs]]. Preferred unblock path (per 2026-07-16 planner reframe): repo Settings → Actions → General → Workflow permissions → "Allow GitHub Actions to create and approve pull requests" (one checkbox). Fallback: `repo`-scoped PAT as `AEON_GH_PAT`. See [[fleet-ops]].
 - **PR queue turned over 2026-07-17** — InsForge#1742 (`security/bump-multer-nodemailer-dos`) filed 07:41Z broke 11-day stationary streak; hash-based step-5 guard fired SEND. See [[pr-status]].
 - **Swarm PR fleet**: pr-review APPROVE 5/5 on #527 re-verified live 07-17 — 25th consecutive day 403 write-block per [[aeon-app-no-write-on-swarm-repo]]. See [[pr-status]].
