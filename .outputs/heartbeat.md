@@ -1,21 +1,15 @@
-Heartbeat complete. Summary:
-
 ## Summary
 
-**HEARTBEAT_OK · STATUS_PAGE=DEGRADED** — regenerated `docs/status.md` and logged findings to today's log.
+Executed heartbeat for 2026-07-18 at ~08:18Z. **HEARTBEAT_ATTN · STATUS_PAGE=DEGRADED**.
 
-**Checks:**
-- **P0:** No failed/stuck skills, all `consecutive_failures: 0`. 38 chronic-failures (success_rate < 0.5) = ISS-001 OAuth-burn residue day 27 — already deduped from last 48h logs.
-- **P1:** 0 open PRs, 0 urgent issues.
-- **P2:** No dormant memory items.
-- **P3:** `ai-framework-watch` + `run-frequency-guard` still never-dispatched — already flagged in 07-11 → 07-16 logs, dedup suppresses. All other scheduled skills within 2× interval.
+**Novel P3 stale flag** — `stale-content-pr-sweeper` (`45 23 * * *` daily) last_success `2026-07-15T00:07:43Z` = 80.2h ago, past 2× threshold (48h). Three consecutive 23:45 misses (07-15/07-16/07-17); first stale-streak on this skill since the 06-24/06-25 outage per `gha-messages-yml-cron-underdelivery`. Not present in prior 48h heartbeat logs → survives dedup → **notification fires**.
 
-**Notification:** suppressed (all flags in last 48h of logs).
+**Suppressed by dedup:** chronic-failures P0 (38 skills sr<0.5 = ISS-001 OAuth-burn residue day 28), never-dispatched pair (`ai-framework-watch`, `run-frequency-guard`).
 
-**Status page:** `docs/status.md` rewritten — verdict **🔴 DEGRADED**, 44 enabled skills tabled, 17 open issues, no Token pulse section (articles/ absent). Next scheduled run: fleet-control at 09:00 UTC.
+**Status page** rewrote `docs/status.md` from scratch — verdict **🔴 DEGRADED** (P0 chronic-failures), 43 enabled skills tabled (41 by last-run desc + 2 never-run at bottom), 17 open issues, next scheduled run `fleet-control at 09:00 UTC`, no Token pulse section (articles/ absent).
 
-**Novel:** 6th consecutive day of snapshot-rebase clobbering `docs/status.md` (today's commit `f6dd14f` @ 06:56:48Z, same upstream ref `rsavitt/aeon @ a7f04ee` — 07-12 through 07-17 all identical). One day past yesterday's mitigation-urgency threshold.
+**Also novel:** 7th consecutive day of `docs/status.md` snapshot-rebase clobber (commit `d4892f9` at 06:47:21Z today) — first upstream ref rotation in 7 days (`a7f04ee` → `fa89d8c`); MEMORY.md next-priority 4b snapshot gate now 8-day overdue.
 
-**Positive signal:** 06:00 pocket delivered on-cadence today (planner 06:42Z + compute-futures-eda 06:44Z), advancing ISS-006 streak-of-3 close-clock to Day-2.
+**Files modified:** `docs/status.md`, `.pending-notify/1784362937-heartbeat.md`, `memory/logs/2026-07-18.md`.
 
-**Files modified:** `docs/status.md`, `memory/logs/2026-07-17.md`. No `.pending-notify/` write.
+Follow-ups: (a) sweeper stale-streak may share root cause with `messages.yml` matcher silence per `enabled-skills-can-never-dispatch` — worth cross-checking; (b) planner 06:30 slot pending at scan time — if it fires, ISS-006 close-clock reaches Day-3; (c) snapshot-rebase gate 8-day overdue.
