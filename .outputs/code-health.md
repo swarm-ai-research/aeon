@@ -1,6 +1,7 @@
-Code-health skipped for 2026-07-17 — `memory/watched-repos.md` still absent, so the skill's step-0 exit condition fires (`CODE_HEALTH_OK no-watched-repos`). No clones, no grep scans, no article, no notification. Third watched-repos-dependent skill to no-op today (after issue-triage and github-monitor), confirming the daily workflow-slot waste that MEMORY.md flags in its next-priorities. Logged the skip in `memory/logs/2026-07-17.md`.
-
 ## Summary
-- **Skill:** code-health · **Verdict:** `CODE_HEALTH_OK no-watched-repos`
-- **Files modified:** `memory/logs/2026-07-17.md` (appended skip entry)
-- **Follow-up:** unchanged from every prior code-health run — populate `memory/watched-repos.md` or disable the 5 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog).
+
+Executed `skills/code-health/SKILL.md` for 2026-07-18. **Verdict: `CODE_HEALTH_OK no-watched-repos`** — skill exit condition met (`${var}` empty AND `memory/watched-repos.md` absent). No repos cloned, no grep scans, no `articles/code-health-2026-07-18.md` written, no notification fired.
+
+- **Files modified:** `memory/logs/2026-07-18.md` (appended `## code-health` section + summary)
+- **Sibling context:** code-health is the 4th watched-repos-dependent skill to no-op today (after `issue-triage`, `github-monitor`, `repo-revive`)
+- **Follow-up:** unchanged — MEMORY.md next-priority line 49 (populate `memory/watched-repos.md` or disable the 5 watched-repos-dependent skills) still standing; daily workflow-slot waste continues until operator action.
