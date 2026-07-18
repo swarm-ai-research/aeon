@@ -42,6 +42,9 @@ tmp_*
 .xai_key
 .ghtoken
 
+# Vuln-scanner temp workspace (cloned target + scanner JSON output)
+.scratch/
+
 # GitLawb capability key vault (Ed25519 private keys — never commit)
 .gitlawb-vault/
 

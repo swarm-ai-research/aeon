@@ -1,25 +1,22 @@
-All tasks complete. Clean git status: `.gitignore`, `memory/logs/2026-07-11.md`, `memory/vuln-scanned.json`, `articles/vuln-scan-2026-07-11.md`, `.pending-disclosure/` staged, and `.pending-notify/1783789481-vuln-scanner.md` written (gitignored — will fan out via the workflow's post-process step).
+`.scratch/` no longer appears — properly gitignored. Task complete.
 
 ## Summary
 
-**Target:** `oomol-lab/open-connector` (1,349★, TypeScript OAuth-credential-broker gateway, Apache-2.0), scanned at HEAD `62796b0d…`.
+**Target:** `pixel-point/aval` (1,195★, TypeScript, MIT, HEAD `96ec0fce…`), an interactive-video wire-format library with a published `THREAT-MODEL.md` that explicitly enumerates its hostile-input surfaces.
 
-**Scanner status:** `semgrep=ok · trufflehog-fs=ok · trufflehog-git=ok · osv=ok · slither=n/a`. 13 semgrep candidates → **1 confirmed** in-scope finding.
+**Scanner status:** `semgrep=ok · trufflehog-fs=ok · trufflehog-git=ok · osv=ok · slither=n/a`. All four applicable scanners ran cleanly — not a failed-scanner false clean.
 
-**Confirmed finding — routed to PVR:** `src/server/secrets/secret-codec.ts:48` — AES-256-GCM `createDecipheriv` called without `authTagLength` and `setAuthTag` accepts any NIST-permitted tag length. An attacker with credential-store write access reduces forgery cost from ~2^-128 to ~2^-32 by supplying a 4-byte tag. The Cloudflare Worker sibling codec is unaffected (WebCrypto default tagLength=128). Fix is three lines. Matches SECURITY.md's first-in-scope call-out: "Credential storage and at-rest encryption (`src/server/secrets/*`)."
+**Verdict — clean audit.** Zero candidates at `ERROR|WARNING`; zero even without the severity filter (161 rules × 909 files). Zero verified secrets across 60 MB of filesystem + git history. Zero dep CVEs across 261 npm packages. Manual spot-checks of the highest-risk surfaces (process-runner shell-outs, worker `onmessage` handlers, format parsers, code-eval sinks, DOM-injection sinks) confirmed the codebase is defensively coded to the standards its threat model implies — `spawn` uses `shell:false` with NUL/type validation and mode-0700 private tmpdir, worker protocol validates every inbound command before dispatch, and no eval-family or `innerHTML` sinks exist in source.
 
-**Dropped:** Dockerfile-runs-as-root and 11× GHA-mutable-action-tag warnings — both out of scope per the maintainer's stated SECURITY.md.
-
-**Dependency posture:** 0 vulnerabilities across 669 packages. No public dep-CVE PR to draft. TruffleHog verified 0 secrets across 32 MB of filesystem + git history.
-
-**Channels:** GHA token could not create the advisory (HTTP 403 `Resource not accessible by integration`, same class as `[[github-actions-cannot-create-prs]]`) nor fork the repo. PVR draft staged for operator submission via the maintainer's preferred URL or `support@oomol.com`. No public PR opened — correct per skill rules.
+**Channels used:** none — no findings to disclose. No PVR, no public PR, nothing staged to `.pending-disclosure/`.
 
 **Files:**
-- `articles/vuln-scan-2026-07-11.md` — local report (exploit specifics redacted)
-- `.pending-disclosure/oomol-lab-open-connector-2026-07-11T170000Z.md` — full PVR draft (threat model, non-forgery PoC, 3-line fix)
-- `memory/vuln-scanned.json` — appended (30-day dedup)
-- `memory/logs/2026-07-11.md` — appended `## vuln-scanner` entry
-- `.pending-notify/1783789481-vuln-scanner.md` — notification queued
-- `.gitignore` — added `.scratch/` to prevent scanner temp files being committed
+- `articles/vuln-scan-2026-07-18.md` — local report
+- `memory/vuln-scanned.json` — 6th entry appended (30-day dedup engaged until 2026-08-17)
+- `memory/logs/2026-07-18.md` — appended `## vuln-scanner` entry
+- `.pending-notify/1784393146-vuln-scanner.md` — notification queued (fans out via workflow post-process)
+- `.gitignore` — added `.scratch/` entry (last scan's edit did not survive)
 
-**Follow-up:** operator submits the PVR draft through the private channel; the fix is small enough to be cherry-picked directly by the maintainer, so no fork-based patch branch is required.
+**Follow-up:** none. Aval was noted as a hardened codebase — future runs should still scan on cadence but expect similar signal-to-noise.
+
+**Fleet notes:** `gh repo fork` returned HTTP 403 `Resource not accessible by integration`, same class as `[[github-actions-cannot-create-prs]]`; fell back to plain clone with no impact on scan work. `xai-org/grok-build` was the top-star candidate but skipped — org IP allow-list blocks the GHA token from reading the repo metadata.
