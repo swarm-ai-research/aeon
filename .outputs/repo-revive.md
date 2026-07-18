@@ -1,3 +1,9 @@
 ## Summary
 
-Repo-revive skill ran and exited on the `REPO_REVIVE_NO_CONFIG` clean-exit path — `memory/topics/watched-repos.md` is missing (same state as prior 2026-06-20 / 06-27 / 07-04 runs and flagged in MEMORY.md "Next priorities"). `${var}` was empty so no override, no auto-selection possible, no PR / tweet / notify. Logged to `memory/logs/2026-07-11.md`. Follow-up: operator must populate `memory/topics/watched-repos.md` (≥100★ non-archived repos, one `- owner/repo` per line) to activate this skill; optionally add `memory/topics/stale-models.md` to enable the stale-model fix category.
+Executed `repo-revive` for 2026-07-18 (Sat, `0 10 * * 6` weekly slot). **REPO_REVIVE_NO_CONFIG** — pre-select halt at §Config step: `memory/topics/watched-repos.md` is absent, so there is no candidate pool to score. Exited cleanly with no notification per spec ("empty config is not an error"). No `gh` API calls, no clone, no PR filed, no tweet drafted.
+
+**Root cause is shared** with today's `issue-triage` (`ISSUE_TRIAGE_OK no-watched-repos`) and `github-monitor` (`GITHUB_MONITOR_EMPTY_CONFIG`) silent-skips — all three depend on the missing `memory/topics/watched-repos.md`.
+
+**Files modified:** `memory/logs/2026-07-18.md` (Repo Revive section appended).
+
+**Follow-up:** MEMORY.md next-priority line 49 currently names 5 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog); `repo-revive` is a sixth — worth widening on next reflect so the populate-vs-disable decision reflects the full impact. Weekly (not daily) cadence means the wasted-slot cost here is 1/week, not 1/day.
