@@ -1,27 +1,15 @@
-All three outputs are written. Here's the run summary:
-
----
-
 ## Summary
 
-**skill-freshness** — 2026-07-17 — **✅ FRESHNESS_OK**
+Skill `skill-freshness` executed for 2026-07-18:
 
-**What was audited:**
-- 44 enabled skills parsed from `aeon.yml`
-- Producer cadence map built (daily / weekly / reactive buckets)
-- Chains section: all commented out → 0 explicit `consume:` edges
-- Implicit deps scanned across enabled `SKILL.md` files for `articles/`, `.outputs/`, `memory/topics/`, `memory/state/` references
+**Verdict:** ✅ `FRESHNESS_OK` — 44 enabled skills audited, 2 implicit dependencies found, 0 flagged.
 
-**Findings — 0 flagged, 0 dependencies counted:**
-- `articles/` directory: absent from GHA snapshot (same as 2026-07-16 structural blind spot per `[[skill-freshness-mtime-blind-in-gha]]`)
-- `.outputs/` (30 files): all stamped 08:57 UTC today → age ≈ 0h → well within 4h threshold
-- `memory/topics/` (5 files): all stamped 08:57 → age ≈ 0h → well within 7d threshold
-- `memory/state/` (11 files): all stamped 08:57 → age ≈ 0h → well within 30d threshold
-- All implicit non-self references either don't exist on disk (not flagged per spec) or are within threshold
+**Key findings:**
+- **No chain consume edges** — all `chains:` blocks in `aeon.yml` are commented out (0 explicit dependencies)
+- **2 implicit deps scored, both OK:** `pr-tracker → memory/topics/pr-status.md` (0.1h, thresh 168h) and `stale-content-pr-sweeper → memory/state/notegraph.json` (0.1h, thresh 720h)
+- **9 implicit refs skipped** — files don't exist on disk (policy: implicit MISSING is not flagged)
+- **2 canonical article patterns** found (`articles/vuln-scan-*`, `articles/fleet-status-*`) but both producers are absent from `aeon.yml` → treated as on-demand → no MISSING fired
+- **GHA mtime blind spot active** — all files show ~0.1h age from checkout; actual ages are unknown. The fix documented in [[skill-freshness-mtime-blind-in-gha]] (use `git log -1 --format=%ct`) is still unapplied; in this single-snapshot repo it wouldn't help anyway
+- **Fingerprint unchanged** from 2026-07-17 run → `FRESHNESS_NO_CHANGE` / no notify
 
-**Notification:** suppressed — FRESHNESS_OK (silence is the signal; no stale/warn state to alert on)
-
-**Files written:**
-- `articles/skill-freshness-2026-07-17.md` — report (articles/ directory created)
-- `memory/topics/skill-freshness-state.json` — `last_run_at` updated to 2026-07-17T08:58:00Z
-- `memory/logs/2026-07-17.md` — log block appended
+**Files written:** `articles/skill-freshness-2026-07-18.md`, `memory/topics/skill-freshness-state.json` (updated `last_run_at`, `dependency_count` 0→2), `memory/logs/2026-07-18.md` (appended log block).
