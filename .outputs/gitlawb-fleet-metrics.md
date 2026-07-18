@@ -1,9 +1,7 @@
 ## Summary
 
-Executed `gitlawb-fleet-metrics` for 2026-07-17.
+Ran `skills/gitlawb-fleet-metrics/SKILL.md`. Pre-flight halted at step 2: `memory/gitlawb-fleet.json` (and `memory/gitlawb-metrics.jsonl`) are absent, so per the skill's rule "an empty fleet is not news" — logged `GLMETRICS_EMPTY` to `memory/logs/2026-07-18.md` and stopped without notifying.
 
-- **Pre-flight step 1** (node): passed — v22.23.1.
-- **Pre-flight step 2** (state): failed as expected — `memory/gitlawb-fleet.json` absent (no fleet has been minted yet); `memory/gitlawb-metrics.jsonl` also absent.
-- **Verdict**: `GLMETRICS_EMPTY` — logged and stopped without notifying, per the skill's silent-on-empty rule.
-- **Files modified**: `memory/logs/2026-07-17.md` (appended `## gitlawb-fleet-metrics` section).
-- **Follow-up**: none. When `gitlawb-fleet` first mints an instance, the next 08:00 UTC run of this skill will emit the snapshot card.
+- **Files modified:** `memory/logs/2026-07-18.md` (appended `gitlawb-fleet-metrics` entry).
+- **Verdict:** `GLMETRICS_EMPTY`.
+- **Follow-up:** none required — the fleet CLI (`gitlawb-fleet`) is what would populate `memory/gitlawb-fleet.json`; until an instance is minted, this skill will keep silent-stopping by design.
