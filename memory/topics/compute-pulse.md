@@ -1,6 +1,6 @@
 # Compute Pulse Tracker
 
-*Last run: 2026-07-11*
+*Last run: 2026-07-18*
 
 ## Durable claims
 - [[inference-cost-1000x-collapse]] — ~1,000× cost collapse since 2022; Gartner forecasts 90%+ further drop by 2030
@@ -29,7 +29,7 @@ Current prices ($/1M tokens in/out) as of 2026-07-11:
 | Grok 4.1 Fast | $0.20 | $0.50 | Budget workhorse |
 | DeepSeek V4-Pro | ~$0.27 | $0.89 | Permanent 75% price cut effective April 26, 2026 |
 
-*Structural signal: 1,000× aggregate cost collapse since late 2022. OpenAI engineers (Jul 1–2) claim a software-only optimization could halve inference costs for existing models — undeployed but high watch. Grok 4.5 output ($6/M) is 60% cheaper than GPT-5.6 Terra output ($15/M) at similar capability tier — competitive pressure on output pricing. AWS EC2 Capacity Block GPU prices still elevated (+20% Jul 1 hike).*
+*Structural signal: 1,000× aggregate cost collapse since late 2022. OpenAI engineers (Jul 1–2) claim a software-only optimization could halve inference costs for existing models — undeployed but high watch. Grok 4.5 output ($6/M) is 60% cheaper than GPT-5.6 Terra output ($15/M) at similar capability tier — competitive pressure on output pricing. AWS EC2 Capacity Block GPU prices still elevated (+20% Jul 1 hike). Paradox confirmed (Jul 2026): token prices fell 280× in 2 years while enterprise AI spend rose 320% — volume (agentic workflows, 10–20 LLM calls/user task) offsets per-unit savings. Inference now 67% of total AI compute. Gartner: 90%+ further drop by 2030.*
 
 ## Decentralized Compute Tokens
 
@@ -42,7 +42,7 @@ Prices as of 2026-07-11:
 | IO | io.net | ~$0.17 | Flat vs Jul 4; token unlock today Jul 11 (13.29M IO = 1.7% supply, ~$2.3M) — sell pressure watch |
 | AKT | Akash Network | ~$0.63 | Flat vs Jul 4; Mainnet 18 (Oracle v2, real-time price feeds) live since Jun 11 |
 
-*DePIN narrative: tokens flat across the board this week — no breakout despite strong centralized capex news. IO unlock today is the key event to watch. TAO SEC ETF decision in August could be the next catalyst. The AWS GPU price hike moat-widening thesis is intact but not yet reflected in DePIN price action.*
+*DePIN narrative: tokens broadly down 5–13% this week against a flat market (-1.2%). RENDER was the standout: OTOY Studio added RENDER payments Jul 14 (compute-for-media narrative) and Coinbase listed the token Jul 10 — dual catalyst but price still slid to ~$1.51. TAO tested the $200 floor (~$189), SEC ETF August decision still the next major catalyst. IO post-unlock stabilizing (~$0.172). AKT weakest at ~$0.55 (-13% 7d). Centralized capex moat-widening thesis intact, DePIN tokens not yet pricing it in.*
 
 ## Hardware Signal Log
 
@@ -51,6 +51,7 @@ Prices as of 2026-07-11:
 - 2026-06-27: Vera Rubin Q3 launch confirmed, Q4 volume ramp — 10x lower cost/token vs Blackwell; first deployments at AWS/GCP/Azure/CoreWeave/Lambda/Nebius/Nscale (now all confirmed for H2 2026) / Google Cloud Next '26: Virgo Network enables up to 960k GPU cross-site clusters / Baseten $1.5B at $13B valuation (inference infra operator) / $1.8B into inference+world-model startups in 48h (Jun 21-22) / momentum: building
 - 2026-07-04: Stargate Phase 2 — OpenAI + Oracle agreement for 4.5 GW additional capacity (>$300B, 5yr; >5 GW total, >2M chips across all sites; Abilene TX site up with first GB200 racks delivering) / HUMAIN + NVIDIA Saudi Arabia AI factory: first phase 18k GB300 GPUs, 500 MW total plan / Stargate UAE: 1 GW Abu Dhabi cluster, 200 MW live in 2026 / Vera Rubin full production — H2 2026 deployments at AWS/GCP/Azure/OCI/CoreWeave/Lambda/Nebius/Nscale / AWS EC2 Capacity Blocks +20% from July 1 (second hike this year) / momentum: breakout
 - 2026-07-11: **Anthropic × TeraWulf $19B/20yr lease** (Jul 6) — 401 MW Hawesville KY data center, $3–4B build cost; first capacity H2 2027, full 401 MW by early 2028; largest single Anthropic compute commitment now eclipsing the xAI Colossus lease by NPV / **OpenAI Jalapeño chip** (w/ Broadcom, unveiled Jun 24) — custom LLM inference ASIC, reticle-size, 9-month build cycle; lab testing underway on GPT-5.3-Codex-Spark; GW-scale deployment targeted H2 2026, reduces NVIDIA dependence / **DriveNets commercial long-distance AI supercluster** (Jul 9) — two H200 GPU clusters 52 miles apart connected as single supercluster, 111.2 Tbps, sub-ms latency / Stargate milestone: 10 GW committed goal already surpassed (3 GW added in last 90 days), now ~7 GW planned + $400B / Europe: 35 new NVIDIA AI supercomputers announced / momentum: breakout
+- 2026-07-18: **Vera Rubin enters first cloud deployments** — mass production confirmed, July delivery to major cloud providers; first NVL72 rack live at Microsoft Azure; 10× lower inference cost/token vs Blackwell, supply-side deflationary signal / **Anthropic × SpaceX** — full Colossus 1 compute capacity deal signed; orbital AI compute partnership under discussion / **Anthropic $50B Fluidstack infrastructure** — custom data centers in Texas + New York, focused on Claude training/inference efficiency / Google Cloud Virgo Network: 80k GPUs in single DC, 960k across multi-site — 134k TPUs in single fabric / RENDER: OTOY Studio payments live Jul 14 + Coinbase listing Jul 10 (DePIN narrative momentum) / momentum: building
 
 ## Pricing Signal Log
 
@@ -59,3 +60,4 @@ Prices as of 2026-07-11:
 - 2026-06-27: stable. No >10% cuts. Claude Fable 5 ($10/$50) added to lineup. DeepSeek V4-Pro permanent 75% cut (Apr 26) still the most recent structural move / read: advancing
 - 2026-07-04: GPT-5.6 Luna launched at $1/$6 (−80% input vs GPT-5.5 $5/$30) — new budget frontier tier / Claude Sonnet 5 introductory pricing $2/$10 (−33% vs Sonnet 4.6 $3/$15, through Aug 31) / Grok 4.1 Fast at $0.20/$0.50 (new budget entry) / AWS GPU capacity block +20% (supply-side counter-signal to per-token compression) / read: advancing
 - 2026-07-11: stable on list prices — no >10% published cut from any major lab. **Grok 4.5 launched Jul 8 at $2/$6** (new flagship, not a cut vs 4.3; output substantially cheaper than GPT-5.6 Terra at $15). **OpenAI internal SW optimization claim** (Jul 1-2): 50% inference cost reduction via software — undeployed, watch carefully. Jalapeño chip efficiency gains (better perf/watt) a medium-term structural headwind for per-token prices. AWS spot prices still elevated / read: advancing
+- 2026-07-18: stable on list prices — no >10% cut confirmed this week from any major lab. OpenAI o3 cut ($10/$40 → $2/$8) noted in aggregators but timing unclear vs Jul 11 baseline; treating as carry-over signal. Google AI Plus consumer plan cuts (not API). OpenAI SW optimization (50% reduction) still undeployed. Vera Rubin deployment signal: 10× lower cost/token vs Blackwell is structural deflationary pressure on inference pricing medium-term. Inference now 67% of total AI compute spend; paradox: volume growth (+320% enterprise AI spend) outpaces per-token compression / read: advancing
