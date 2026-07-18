@@ -189,54 +189,32 @@ scan_file() {
     return 1
   fi
 
-  local content
-  content=$(cat "$file")
-
   local highs=()
   local mediums=()
   local lows=()
 
-  # Check HIGH patterns
-  for pattern in "${HIGH_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"  # truncate
-        highs+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  # grep_findings <file> <pattern> — prints "Lnum: content [pattern: pat]" for each match
+  grep_findings() {
+    local _gf_file="$1" _gf_pat="$2"
+    local _gf_matches
+    _gf_matches=$(grep -nE "$_gf_pat" "$_gf_file" 2>/dev/null || true)
+    [[ -z "$_gf_matches" ]] && return 0
+    while IFS= read -r _gf_match; do
+      local _gf_lnum="${_gf_match%%:*}"
+      local _gf_line="${_gf_match#*:}"
+      echo "L${_gf_lnum}: ${_gf_line:0:120} [pattern: ${_gf_pat}]"
+    done <<< "$_gf_matches"
+  }
 
-  # Check MEDIUM patterns
-  for pattern in "${MEDIUM_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        mediums+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
-
-  # Check LOW patterns
-  for pattern in "${LOW_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        lows+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  while IFS= read -r f; do highs+=("$f"); done < <(
+    for pattern in "${HIGH_PATTERNS[@]}"; do grep_findings "$file" "$pattern"; done
+  )
+  while IFS= read -r f; do mediums+=("$f"); done < <(
+    for pattern in "${MEDIUM_PATTERNS[@]}"; do grep_findings "$file" "$pattern"; done
+  )
+  while IFS= read -r f; do lows+=("$f"); done < <(
+    for pattern in "${LOW_PATTERNS[@]}"; do grep_findings "$file" "$pattern"; done
+  )
 
   # Determine result
   local status="PASS"
