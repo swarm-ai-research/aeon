@@ -1,0 +1,77 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "batch-health",
+        "description": "2026-07-18"
+      },
+      "children": [
+        "heading-gap",
+        "sep1",
+        "text-miss-header",
+        "alert-planner",
+        "sep2",
+        "text-assessment",
+        "sep3",
+        "text-blocking"
+      ]
+    },
+    "heading-gap": {
+      "type": "Heading",
+      "props": {
+        "text": "batch gap",
+        "level": "h3"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text-miss-header": {
+      "type": "Text",
+      "props": {
+        "text": "1 scheduled skill didn't run in the 06:00–07:30 UTC window:",
+        "variant": "body"
+      }
+    },
+    "alert-planner": {
+      "type": "Alert",
+      "props": {
+        "title": "planner",
+        "message": "Schedule: 30 6 * * * — Last run: 2026-07-17T06:36:43Z",
+        "type": "warning"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text-assessment": {
+      "type": "Text",
+      "props": {
+        "text": "isolated miss — transient cron delay likely. monitoring.",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text-blocking": {
+      "type": "Text",
+      "props": {
+        "text": "Blocks ISS-006 close-clock (planner + memory-hygiene pair needed for streak-3)",
+        "variant": "body"
+      }
+    }
+  }
+}
