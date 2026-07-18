@@ -42,6 +42,8 @@ if [ ! -f "$EVALS_FILE" ]; then
 fi
 
 COVERED_SKILLS=$(jq -r '.skills | keys[]' "$EVALS_FILE" 2>/dev/null)
+declare -A COVERED_SET
+for cs in $COVERED_SKILLS; do COVERED_SET["$cs"]=1; done
 
 # --- Parse aeon.yml for registered skills and their enabled status ---
 # Extract skill entries: lines like "  skill-name: { enabled: true/false, ... }"
@@ -107,12 +109,7 @@ INFERRED_PATTERNS=()
 
 for skill in "${ALL_SKILLS[@]}"; do
   is_covered=false
-  for cs in $COVERED_SKILLS; do
-    if [ "$skill" = "$cs" ]; then
-      is_covered=true
-      break
-    fi
-  done
+  [[ -v COVERED_SET["$skill"] ]] && is_covered=true
 
   enabled="${SKILL_ENABLED[$skill]:-}"
 

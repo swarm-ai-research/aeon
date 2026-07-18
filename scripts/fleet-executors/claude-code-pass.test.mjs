@@ -439,4 +439,52 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
+// 15. git commit failure — a pre-commit hook that always exits 1 forces the
+//     commit step to fail after claude has made changes. The code must return
+//     ok:false, remove the worktree, and delete the local branch (cleanup(true)).
+//     Worktrees share hooks with the main .git, so the hook fires inside the worktree.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  const hooksDir = join(env.localDir, ".git", "hooks");
+  mkdirSync(hooksDir, { recursive: true });
+  const hookFile = join(hooksDir, "pre-commit");
+  writeFileSync(hookFile, "#!/bin/sh\necho 'pre-commit hook rejecting' >&2\nexit 1\n");
+  chmodSync(hookFile, 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "commitfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git commit failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after commit failure");
+    // Branch must be deleted (cleanup(true) path).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted after commit failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git commit failure (pre-commit hook) → ok:false, worktree and branch cleaned up");
+}
+
+// 16. Empty taskId → shortTaskId("") returns "x" via the `|| "x"` fallback,
+//     so the branch name ends with "-x" rather than a real task identifier.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  const today = new Date().toISOString().slice(0, 10);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir })
+      // taskId omitted — defaults to ""
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.branch, `aeon/docs-pass-${today}-x`,
+      `branch should end with -x when taskId is empty; got ${result.branch}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
