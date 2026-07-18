@@ -487,4 +487,70 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. git add -A failure — claude makes a change but also locks the git index
+//     inside the worktree so `git add -A` cannot write. Must return ok:false
+//     with reason matching /git add failed/, remove the worktree, and delete
+//     the ephemeral branch (cleanup(true) path).
+{
+  const CLAUDE_LOCK_INDEX_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+echo "changed content" >> "$(pwd)/lib.mjs"
+GIT_DIR=$(git rev-parse --absolute-git-dir 2>/dev/null)
+[ -n "$GIT_DIR" ] && touch "$GIT_DIR/index.lock"
+echo "made a change"
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_LOCK_INDEX_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "addfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git add failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after git add failure");
+    // Branch must be deleted (cleanup(true) path).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted after git add failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git add failure (locked index) → ok:false, worktree and branch cleaned up");
+}
+
+// 18. No-target prompt path — when `target` is absent, buildPrompt must use
+//     "No specific files supplied" rather than the "Recently changed files"
+//     line. Verified via stdin capture, exercising the else-branch of the
+//     target conditional and also the `test-pass` kind (untouched by prior tests).
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-notarget-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", repoDir: env.localDir, taskId: "notarget" })
+      // target intentionally omitted
+    );
+    assert.equal(result.ok, true);
+    assert.equal(result.prUrl, null);
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /No specific files supplied/);
+    assert.doesNotMatch(captured, /Recently changed files/);
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  no-target prompt uses 'No specific files supplied' fallback text");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
