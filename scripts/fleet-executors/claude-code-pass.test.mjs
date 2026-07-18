@@ -487,4 +487,52 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. Long taskId — shortTaskId truncates to 10 alphanumeric chars.
+//     "abcdef-ghij-klmn" → strip non-alnum → "abcdefghijklmn" → slice(0,10) → "abcdefghij"
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  const today = new Date().toISOString().slice(0, 10);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "abcdef-ghij-klmn" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.branch, `aeon/docs-pass-${today}-abcdefghij`,
+      `branch should be truncated to 10 alphanumeric chars; got ${result.branch}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  long taskId → shortTaskId truncates to 10 alphanumeric chars in branch name");
+}
+
+// 18. Empty target → buildPrompt emits the "No specific files supplied" fallback
+//     line rather than the "Recently changed files" line. Exercises the false
+//     branch of the `target ?` ternary in buildPrompt().
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-notarget-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", repoDir: env.localDir, taskId: "notarget" })
+    );
+    assert.equal(result.ok, true);
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /No specific files supplied — pick a small target near recent commits\./,
+      "prompt should use the fallback line when no target is provided");
+    assert.doesNotMatch(captured, /Recently changed files \(focus area\):/,
+      "prompt should not mention specific files when no target is given");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  empty target → buildPrompt uses the 'No specific files supplied' fallback line");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
