@@ -1,11 +1,12 @@
 ## Summary
 
-Ran `pr-triage` in **repo mode** on `swarm-ai-research/swarm` for 2026-07-17.
+Executed pr-triage skill for `swarm-ai-research/swarm` (repo mode via `${var}` override) on 2026-07-18.
 
-**Result:** `PR_TRIAGE_OK no-candidates` — 3 open PRs in the 14-day window (#530, #532, #533), all authored by `app/dependabot`. Per the skill's trusted-set precedence, `[bot]` logins route to `auto-merge` / `pr-review`, not this skill, so all 3 were skipped as `bots`.
+**Result: `PR_TRIAGE_OK no-candidates`** — no external PRs to triage.
 
-**No verdicts issued** → no comments posted, no labels applied, no PRs closed, no state written to `memory/triaged-prs.json` (unchanged: still only `{n:450, DEFER, 2026-05-25}`), no notification sent.
+- Fetched 5 open PRs on `swarm-ai-research/swarm` (created within last 14 days).
+- All 5 authored by `dependabot[bot]` (rendered by `gh` as `app/dependabot`, `is_bot: true`) → trusted set per skill's "What 'external' means" rule (bot logins route to `auto-merge` / `pr-review`, not this triage layer).
+- No comments posted, no labels applied, no PRs closed, no state changes to `memory/triaged-prs.json`, no notification (routine outcome per §10).
+- Files modified: `memory/logs/2026-07-18.md` (single `### pr-triage` block appended per §11).
 
-**Files modified:** `memory/logs/2026-07-17.md` (appended `### pr-triage` block with skip reasons and context).
-
-**Follow-up:** none from this run. The known 24-day `pr-review` 403 write-block on swarm #527 (per MEMORY.md's [[aeon-app-no-write-on-swarm-repo]]) is outside this skill's scope — #527 has already rolled past the 14-day `created-since` filter.
+**Follow-up:** none. The dependabot PRs are the auto-merge / pr-review skills' responsibility, not first-touch triage.
