@@ -1,12 +1,8 @@
-Log restored and fleet-control entry appended. No task list needed — this is a single-step silent stop. Done.
+Skill executed. Registry `memory/instances.json` is `{"instances": []}` — pre-flight step 1 requires `FLEET_EMPTY` log entry and silent stop (no notification).
 
 ## Summary
-
-Executed **fleet-control** in default Health Check mode for 2026-07-18. **Verdict: FLEET_EMPTY** — `memory/instances.json` contains `{"instances": []}`, so per skill pre-flight step 1, logged and stopped silently without any notification, gh auth check, or rate-limit call.
-
-**Files modified:**
-- `memory/logs/2026-07-18.md` — appended `## fleet-control (health check)` block + summary
-
-**Note:** I initially clobbered the day's log with a bad `Write` call (attempted to append but the tool overwrites); restored the full prior content immediately from the Read snapshot before appending the fleet-control entry. Verified the restored file contains all prior sections (memory-structural-dedupe, suggest-edges, memory-flush, compute-futures-eda, notegraph, gitlawb-fleet-metrics, batch-health, heartbeat, skill-freshness).
-
-**Follow-up:** none — expected steady state until operator registers a managed instance.
+- **Skill:** `fleet-control` (Health Check mode — `var` empty)
+- **Verdict:** `FLEET_EMPTY` — no managed instances in `memory/instances.json`
+- **Action taken:** Appended `## fleet-control (health check)` block to `memory/logs/2026-07-19.md` with `FLEET_EMPTY` marker. Skipped `gh auth` and rate-limit checks (no GitHub-hosted entries) and skipped notification per SKILL.md rule ("Stop. Do NOT notify.").
+- **Files modified:** `memory/logs/2026-07-19.md` (log entry appended)
+- **Follow-up:** none — the operator must register instances in `memory/instances.json` before this skill produces useful output.
