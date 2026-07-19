@@ -1,15 +1,18 @@
 ## Summary
 
-Skill `skill-freshness` executed for 2026-07-18:
+Skill-freshness audit complete for 2026-07-19.
 
-**Verdict:** ✅ `FRESHNESS_OK` — 44 enabled skills audited, 2 implicit dependencies found, 0 flagged.
+**Verdict: ✅ FRESHNESS_OK → Status: FRESHNESS_NO_CHANGE**
 
-**Key findings:**
-- **No chain consume edges** — all `chains:` blocks in `aeon.yml` are commented out (0 explicit dependencies)
-- **2 implicit deps scored, both OK:** `pr-tracker → memory/topics/pr-status.md` (0.1h, thresh 168h) and `stale-content-pr-sweeper → memory/state/notegraph.json` (0.1h, thresh 720h)
-- **9 implicit refs skipped** — files don't exist on disk (policy: implicit MISSING is not flagged)
-- **2 canonical article patterns** found (`articles/vuln-scan-*`, `articles/fleet-status-*`) but both producers are absent from `aeon.yml` → treated as on-demand → no MISSING fired
-- **GHA mtime blind spot active** — all files show ~0.1h age from checkout; actual ages are unknown. The fix documented in [[skill-freshness-mtime-blind-in-gha]] (use `git log -1 --format=%ct`) is still unapplied; in this single-snapshot repo it wouldn't help anyway
-- **Fingerprint unchanged** from 2026-07-17 run → `FRESHNESS_NO_CHANGE` / no notify
+- **44 enabled skills** audited across 43 SKILL.md files (`agi-tracker` has no SKILL.md — scan skipped)
+- **0 explicit chain edges** (all `chains:` blocks commented out in `aeon.yml`)
+- **21 implicit references** discovered; 11 self-refs excluded, 8 never-existed ignored
+- **2 deps checked on disk** — `memory/topics/pr-status.md` and `memory/topics/surplus-pulse.md` — both ~1.95h old, well within the 7-day topic threshold
+- **0 flagged** (no WARN, STALE, or MISSING)
 
-**Files written:** `articles/skill-freshness-2026-07-18.md`, `memory/topics/skill-freshness-state.json` (updated `last_run_at`, `dependency_count` 0→2), `memory/logs/2026-07-18.md` (appended log block).
+**Notable observations logged in the article:**
+1. The enabled fleet has no active cross-skill article/output data flow — every article dep found points to a disabled producer. The fleet is operating as independent self-contained skills, not a pipeline.
+2. `agi-tracker` is enabled in `aeon.yml` but missing its `SKILL.md` — dependency scan skipped (already flagged by today's `config-validator` run).
+3. The GHA shallow-clone mtime blind spot ([[skill-freshness-mtime-blind-in-gha]]) remains — all file ages reflect checkout time (~1.95h), not actual staleness. The fix requires a non-shallow clone.
+
+No notification sent (fingerprint and verdict identical to yesterday's run; re-emits after 7 days).
