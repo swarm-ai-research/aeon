@@ -1,0 +1,191 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse",
+        "description": "2026-07-19"
+      },
+      "children": [
+        "spot_section",
+        "sep1",
+        "curve_section",
+        "sep2",
+        "rail_section",
+        "sep3",
+        "summary"
+      ]
+    },
+    "spot_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "spot_heading",
+        "spot_data"
+      ]
+    },
+    "spot_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot Market",
+        "level": "h3"
+      }
+    },
+    "spot_data": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "spot_model",
+        "spot_price"
+      ]
+    },
+    "spot_model": {
+      "type": "Text",
+      "props": {
+        "text": "Llama 4 Scout",
+        "variant": "body"
+      }
+    },
+    "spot_price": {
+      "type": "Stat",
+      "props": {
+        "label": "Price (Surplus Intelligence)",
+        "value": "$0.0764/M"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "curve_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "curve_heading",
+        "curve_h100",
+        "curve_deepseek"
+      ]
+    },
+    "curve_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve Data",
+        "level": "h3"
+      }
+    },
+    "curve_h100": {
+      "type": "Stat",
+      "props": {
+        "label": "Hyperscaler H100 Reserve R30 (Biggest Move)",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "curve_deepseek": {
+      "type": "Stat",
+      "props": {
+        "label": "DeepSeek V3.2 Open-Weights Drop Impact on R30",
+        "value": "−44.2%",
+        "trend": "down"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "rail_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rail_heading",
+        "rail_network",
+        "rail_link",
+        "rail_pricing",
+        "rail_finality"
+      ]
+    },
+    "rail_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail (x402)",
+        "level": "h3"
+      }
+    },
+    "rail_network": {
+      "type": "Badge",
+      "props": {
+        "text": "Base/USDC (eip155:8453)"
+      }
+    },
+    "rail_link": {
+      "type": "Link",
+      "props": {
+        "label": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "rail_pricing": {
+      "type": "Stat",
+      "props": {
+        "label": "Call Price",
+        "value": "$0.0033"
+      }
+    },
+    "rail_finality": {
+      "type": "Text",
+      "props": {
+        "text": "Finality: ~400ms",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "summary_heading",
+        "summary_text"
+      ]
+    },
+    "summary_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Key Insight",
+        "level": "h3"
+      }
+    },
+    "summary_text": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus inference market holds tight at the H100 supply ceiling — open-weights supply shocks can halve mid-curve prices, but demand-side agent onboarding partially offsets the drop.",
+        "variant": "lead"
+      }
+    }
+  }
+}
