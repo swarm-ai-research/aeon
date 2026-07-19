@@ -1,0 +1,115 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Graph initialized"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stats_section",
+        "separator_1",
+        "branch_info",
+        "separator_2",
+        "status_alert",
+        "link_pr"
+      ]
+    },
+    "stats_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_skills",
+        "stat_categories",
+        "stat_enabled"
+      ]
+    },
+    "stat_skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills mapped",
+        "value": "172"
+      }
+    },
+    "stat_categories": {
+      "type": "Stat",
+      "props": {
+        "label": "Categories",
+        "value": "6"
+      }
+    },
+    "stat_enabled": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled",
+        "value": "43"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "branch_info": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_branch_label",
+        "badge_branch"
+      ]
+    },
+    "text_branch_label": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed:",
+        "variant": "caption"
+      }
+    },
+    "badge_branch": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-graph/2026-07-19",
+        "variant": "outline"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "status_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Creation Blocked",
+        "message": "PR blocked by GHA-cannot-create-PRs",
+        "type": "warning"
+      }
+    },
+    "link_pr": {
+      "type": "Link",
+      "props": {
+        "label": "View branch on GitHub",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/skill-graph/2026-07-19"
+      }
+    }
+  }
+}
