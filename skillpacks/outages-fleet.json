@@ -1,12 +1,12 @@
 {
-  "pack": "fleet-evolve",
-  "label": "fleet · evolve",
+  "pack": "outages-fleet",
+  "label": "outages · fleet",
   "cohesion": 1.27,
   "topTerms": [
+    "outages",
     "fleet",
     "evolve",
-    "gitlawb",
-    "instances"
+    "gitlawb"
   ],
   "members": [
     {
@@ -32,6 +32,12 @@
       "name": "Autoresearch Goal",
       "description": "Evolve the system in service of a stated goal — discovers relevant files across skills/prototypes/workflows, generates cross-file improvement proposals, scores by goal impact, ships the winner as a PR",
       "install": "./add-skill aaronjmars/aeon autoresearch-goal"
+    },
+    {
+      "slug": "batch-health",
+      "name": "batch-health",
+      "description": "Daily post-batch audit — checks whether all enabled scheduled skills fired in their expected morning window, alerts on silent misses, files issues on batch-level outages",
+      "install": "./add-skill aaronjmars/aeon batch-health"
     },
     {
       "slug": "config-validator",
@@ -117,6 +123,7 @@
     "./add-skill aaronjmars/aeon auto-workflow",
     "./add-skill aaronjmars/aeon autoresearch",
     "./add-skill aaronjmars/aeon autoresearch-goal",
+    "./add-skill aaronjmars/aeon batch-health",
     "./add-skill aaronjmars/aeon config-validator",
     "./add-skill aaronjmars/aeon create-skill",
     "./add-skill aaronjmars/aeon gitlawb-fleet",
