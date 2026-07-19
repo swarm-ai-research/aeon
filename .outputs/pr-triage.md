@@ -1,12 +1,11 @@
 ## Summary
 
-Executed pr-triage skill for `swarm-ai-research/swarm` (repo mode via `${var}` override) on 2026-07-18.
+Ran **pr-triage** in repo mode against `swarm-ai-research/swarm` (var override). 
 
-**Result: `PR_TRIAGE_OK no-candidates`** — no external PRs to triage.
+**Outcome:** `PR_TRIAGE_OK no-candidates` — `gh pr list --state open` returned `[]`. Nothing to score, comment on, or label.
 
-- Fetched 5 open PRs on `swarm-ai-research/swarm` (created within last 14 days).
-- All 5 authored by `dependabot[bot]` (rendered by `gh` as `app/dependabot`, `is_bot: true`) → trusted set per skill's "What 'external' means" rule (bot logins route to `auto-merge` / `pr-review`, not this triage layer).
-- No comments posted, no labels applied, no PRs closed, no state changes to `memory/triaged-prs.json`, no notification (routine outcome per §10).
-- Files modified: `memory/logs/2026-07-18.md` (single `### pr-triage` block appended per §11).
+**Cross-reference:** matches today's earlier pr-review log entry — the 5 dependabot PRs skipped-by-bot-rule on 07-18 (#524/#529/#530/#532/#533) merged overnight in the 02:02–22:03Z window, leaving the queue empty going into this slot.
 
-**Follow-up:** none. The dependabot PRs are the auto-merge / pr-review skills' responsibility, not first-touch triage.
+**State:** `memory/triaged-prs.json` unchanged; existing swarm#450 entry (2026-05-25, 55d old) still inside the 90d bound. No notification per SKILL significance gate (no OUT-OF-SCOPE closes, no first-PR ACCEPTED welcomes).
+
+**Files modified:** `memory/logs/2026-07-19.md` (appended `### pr-triage` block + summary).
