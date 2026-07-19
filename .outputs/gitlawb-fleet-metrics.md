@@ -1,7 +1,11 @@
+Skill terminated at pre-flight step 2 — no fleet state to snapshot.
+
 ## Summary
 
-Ran `skills/gitlawb-fleet-metrics/SKILL.md`. Pre-flight halted at step 2: `memory/gitlawb-fleet.json` (and `memory/gitlawb-metrics.jsonl`) are absent, so per the skill's rule "an empty fleet is not news" — logged `GLMETRICS_EMPTY` to `memory/logs/2026-07-18.md` and stopped without notifying.
+Executed `gitlawb-fleet-metrics` per SKILL.md.
 
-- **Files modified:** `memory/logs/2026-07-18.md` (appended `gitlawb-fleet-metrics` entry).
-- **Verdict:** `GLMETRICS_EMPTY`.
-- **Follow-up:** none required — the fleet CLI (`gitlawb-fleet`) is what would populate `memory/gitlawb-fleet.json`; until an instance is minted, this skill will keep silent-stopping by design.
+- **Verdict:** `GLMETRICS_EMPTY`
+- **Reason:** `memory/gitlawb-fleet.json` and `memory/gitlawb-metrics.jsonl` both absent — no fleet exists to report on.
+- **Notification:** silently skipped per SKILL.md rule ("an empty fleet is not news; don't train the operator to ignore the card").
+- **Files modified:** `memory/logs/2026-07-19.md` — appended the `## gitlawb-fleet-metrics` block with window, verdict, and cause.
+- **Follow-up:** none — the skill will start producing snapshots once `gitlawb-fleet` mints its first instance and begins writing metrics events.
