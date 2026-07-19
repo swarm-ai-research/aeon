@@ -1,10 +1,16 @@
-`ISSUE_TRIAGE_OK no-watched-repos`
+Not tracking — this run terminated early with a single-line log write, so a task list would be overhead.
 
 ## Summary
-Executed `issue-triage` skill per SKILL.md early-exit path. `${var}` is empty AND `memory/watched-repos.md` is absent → per §Config rule ("If the file is missing and `${var}` is empty, log `ISSUE_TRIAGE_OK no-watched-repos` and exit."), skill exits before any repo probe, classification, label application, or notify.
 
-- **Verdict:** `ISSUE_TRIAGE_OK no-watched-repos`
-- **Triaged:** 0 issues across 0 repos
-- **Notification:** none (pre-classification exit)
-- **Files modified:** `memory/logs/2026-07-18.md` (appended `### issue-triage` log block)
-- **Follow-up:** MEMORY.md next-priority item 13 ("Populate `memory/watched-repos.md` or disable the 5 watched-repos-dependent skills") remains standing — `issue-triage` is one of the 5 named. This silent-skip is intended behavior until the operator populates the file.
+**Skill:** `issue-triage` — exited early per §Config guard.
+
+**Verdict:** `ISSUE_TRIAGE_OK no-watched-repos`
+
+**Reason:** `${var}` was empty and `memory/watched-repos.md` is absent, so there are no targets to triage. The skill explicitly directs an immediate exit in this state.
+
+**Files modified:**
+- `memory/logs/2026-07-19.md` — appended `### issue-triage` block with zero-count fields and the terminal `ISSUE_TRIAGE_OK` line (per §10).
+
+**Notifications:** none — §9 fires notify only for actionable/urgent/advisory verdicts.
+
+**Follow-up:** `MEMORY.md` already lists this exact remediation under *Next priorities* — "Populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive)." No new action to file.
