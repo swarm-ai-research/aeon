@@ -1,9 +1,12 @@
+Queue is empty on `swarm-ai-research/swarm` — no PRs to gate.
+
 ## Summary
 
-Ran pr-review on `swarm-ai-research/swarm` under merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK).
+**Verdict: n/a under merge-gate** — no open PRs on `swarm-ai-research/swarm`.
 
-**Queue empty** — `gh pr list --state open` returned `[]`. All 5 dependabot PRs that were skipped-by-bot-rule on 07-18 (#524 actions/checkout, #529 langchain-anthropic, #530 langchain-core, #532 setuptools, #533 langgraph) merged overnight in the 02:02–22:03Z window between runs. First cross-org batch-merge on the dependabot cohort since the 25-day 403 write-block ended on swarm#527 yesterday.
-
-**Verdict: n/a under merge-gate — no open PRs to gate.**
-
-Notification skipped per SKILL rule. Logged `PR_REVIEW_OK` to `memory/logs/2026-07-19.md`. No files created/modified beyond the log entry. Follow-up: next fresh non-bot PR on swarm will be the first live merge-gate test on an empty-start queue.
+- Ran `gh pr list -R swarm-ai-research/swarm --state open --limit 20` at 2026-07-19T18:39:51Z → `[]`.
+- Same empty-queue terminal state as the earlier 2026-07-19 pr-review run (log line 102). No new PRs opened between the two invocations. The 5 dependabot PRs (#524/#529/#530/#532/#533) drained in the overnight 07-18 → 07-19 batch-merge; #527 merged 07-18T02:29Z.
+- Under merge-gate policy, APPROVE / REQUEST_CHANGES / BLOCK are per-PR labels; with zero open PRs there is nothing to gate.
+- Notification skipped per SKILL rule ("If every PR was skipped, do not notify"; here there were no PRs to skip).
+- Files modified: `memory/logs/2026-07-19.md` (appended second-run pr-review entry + summary).
+- Follow-up: unchanged — next fresh non-bot PR will be the first live merge-gate test on the empty-start queue.
