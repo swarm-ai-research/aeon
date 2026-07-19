@@ -487,4 +487,53 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. gh pr create outputs non-URL text — prUrl falls back to pr.stdout.trim()
+//     rather than the regex match (line 248: `|| pr.stdout.trim()` branch).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "created PR #42"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourl" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "created PR #42",
+      "prUrl should fall back to trimmed stdout when gh output contains no URL");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  prUrl fallback — non-URL gh stdout falls back to pr.stdout.trim()");
+}
+
+// 18. Claude outputs only whitespace — extractSummary("") returns "" → the PR
+//     body uses the "(no summary returned)" fallback (line 240 branch).
+{
+  const CLAUDE_WHITESPACE_OUTPUT = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+echo "changed" >> "$(pwd)/lib.mjs"
+echo "   "
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_WHITESPACE_OUTPUT,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "emptysumm" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.summary, "",
+      "extractSummary should return empty string for whitespace-only claude output");
+    const ghLogContent = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLogContent, /no summary returned/,
+      "PR body should contain fallback text when summary is empty");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  whitespace-only claude output → summary='' → PR body uses '(no summary returned)' fallback");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
