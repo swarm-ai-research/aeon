@@ -1,31 +1,20 @@
-*Goal Tracker — 2026-07-18*
+Goal-tracker skill executed. Report queued for delivery; state and log persisted.
 
-Summary: 15 goals — 0 at risk, 0 needs attention, 12 on track, 3 blocked, 0 done (overall → flat)
+## Summary
 
-BLOCKED
-• Repo Settings toggle OR operator PAT provisioning — waiting on operator (Workflow permissions checkbox OR AEON_GH_PAT) since 2026-06-20; staged queue 15→16 today (suggest-edges/2026-07-18 pushed, gh pr create 403).
-  → Action: Flip Settings→Actions→General→Workflow permissions to allow GitHub Actions to create PRs.
+Executed `skills/goal-tracker/SKILL.md` against 15 goals in `memory/MEMORY.md`'s `## Next priorities` section (no `## Goals` header — used documented fallback).
 
-• ISS-006 fix (replace messages.yml */5 cron with per-slot crons) — meta-blocked by item 1 since 2026-06-20 (Day-28); close-clock at Day-2 as of 2026-07-17.
-  → Action: Resolve Goal 1 first — per-slot cron patch staged behind PR-creation permission.
+**Result:** 3 BLOCKED · 12 ON_TRACK · 0 DONE/NEEDS-ATTENTION/AT-RISK · overall trend → flat vs 2026-07-18.
 
-• Patch pr-tracker SKILL.md (5-part batch) — meta-blocked by item 1, 20d overdue; fresh-bot-PR trigger + hash-dedup guard re-validated today via InsForge#1742 SEND.
-  → Action: Resolve Goal 1 first — 5-part patch drafted and ready to land.
+All 3 BLOCKED goals (operator PAT provisioning, ISS-006 per-slot crons, pr-tracker batch patch) converge on the same [[github-actions-cannot-create-prs]] meta-blocker. Actions proposed for all three point to landing the planner's streak-3 PAT smoke test against `notegraph/2026-07-18`.
 
-ON TRACK
-• Draft ISS-020 for enabled-skills-can-never-dispatch — 0d idle, 8 activity/14d (new)
-• Stage docs/status.md snapshot-rebase gate — 0d idle, 15 activity/14d (→ flat, day-7 clobber pattern)
-• Standardize notification emission across SKILL.md — 0d idle, 15 activity/14d (→ flat)
-• Investigate ai-framework-watch + run-frequency-guard never-dispatch — 0d idle, 13 activity/14d (→ flat)
-• Patch notegraph silent-exit heuristic (generatedAt) — 0d idle, 15 activity/14d (→ flat)
-• Fix skill-freshness to use git log %ct — 0d idle, 15 activity/14d (→ flat)
-• Widen scenario-sweep.mjs seed count / tie-robust MAD — 0d idle, 15 activity/14d (→ flat)
-• Close ISS-007 or add same-day grace to skill-evals — 1d idle, 13 activity/14d (→ flat)
-• File generate-skills-json bugs as structured issues — 1d idle, 5 activity/14d (→ flat)
-• Investigate missing scripts/validate-config.js — 1d idle, 12 activity/14d (→ flat)
-• Populate watched-repos.md or disable dependent skills — 0d idle, 15 activity/14d (→ flat)
-• Defer ISS-001 close until ISS-006 resolves — 0d idle, 15 activity/14d (→ flat)
+Zero status transitions since 2026-07-18 → `memory/MEMORY.md` intentionally not modified per skill step 7.
 
-Note: activity counts are dominated by daily planner mentions — signal is directional, not delta-quality. All 3 BLOCKED goals collapse to one meta-blocker (item 1). Zero MEMORY.md status changes vs 2026-07-17 snapshot → MEMORY.md untouched.
+**Files written:**
+- `memory/goal-state.json` — snapshot refreshed with today's `activity_count_14d` / `last_activity_date` per goal
+- `.pending-notify/1784486478-goal-tracker.md` — full formatted report (direct-write per notify-script limitations)
+- `memory/logs/2026-07-19.md` — appended goal-tracker entry + summary
 
-Sources: logs=ok, git=ok (shallow clone; last-30d window returned 1 commit `chore(cron): vuln-scanner success`), gh_pr=ok (4 aeon PRs, all 2026-06-19 MERGED, none goal-specific), gh_issue=ok (empty), cron-state=ok
+**Source status:** logs=ok · git=degraded (1 commit locally in 30d) · gh_pr=degraded (CLI aimed at swarm-ai-research/aeon, not this repo) · gh_issue=ok · cron-state=ok.
+
+**Follow-up:** goal 6 (pr-tracker patch) crossed 21d overdue today; all three BLOCKED goals will remain stuck until either the repo Settings Workflow-permissions toggle flips or the operator PAT smoke test lands.
