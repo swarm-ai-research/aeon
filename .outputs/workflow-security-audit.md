@@ -1,27 +1,23 @@
-Branch has the 305-line report. Skill run complete.
-
 ## Summary
 
-Ran `workflow-security-audit` end-to-end for 2026-07-05.
+Ran `workflow-security-audit` for the first time against this repo — no prior audit article existed under `articles/workflow-security-audit-*.md`, so every finding classifies as NEW.
 
-**Verdict:** `WORKFLOW_AUDIT_NEW_INFO` — 70 new lower-severity finding(s).
+**Verdict:** `WORKFLOW_AUDIT_NEW_CRITICAL — 3 new critical finding(s)`
 
-**Delta vs 2026-06-28:**
-- **136 total** findings (3C / 43H / 31M / 59L)
-- **70 NEW** (0C / 0H / 11M / 59L)
-- **0 REINTRODUCED**
-- **66 UNCHANGED**
-- **52 RESOLVED** — including 13 of 16 prior `unpinned-uses` Critical findings that were SHA-pinned across chain-runner, fleet-runner, lint, messages, sync-aeon-public-results, and sync-upstream between 06-28 and today. Only `aeon.yml` still uses `@v5` tags (3 remaining, UNCHANGED).
+**Findings (85 total across 7 workflow files, 0 composite actions):**
+- 3 Critical — `zizmor/unpinned-uses` in `.github/workflows/aeon.yml` (`actions/checkout@v5` ×2 and `actions/setup-node@v5`)
+- 36 High — `zizmor/secrets-outside-env` (messages.yml=23, fleet-runner.yml=10, chain-runner.yml=2, sync-upstream.yml=1)
+- 15 Medium — `zizmor/artipacked` (11) + `actionlint-shellcheck` (4)
+- 31 Low — template-injection, undocumented-permissions, anonymous-definition, concurrency-limits
 
-**Auto-fix:** none required (exit mode is `NEW_INFO`; auto-fix only runs for NEW Critical/High).
-
-**Notify:** skipped per SKILL.md gating for `NEW_INFO` (medium/low only → log-only).
+**Auto-fixed: 0.** All 39 Critical+High findings are Manual per skill step-7 rules — `unpinned-uses` always requires operator SHA verification, and `secrets-outside-env` needs environment-topology decisions a template fix can't make. Hand-rolled checks (toJson-into-shell, persist-creds-pr-head, GITHUB_ENV injection, inputs-to-gh-dispatch, mutable third-party ref) all clean.
 
 **Files created/modified:**
-- `articles/workflow-security-audit-2026-07-05.md` — 305-line report with fingerprint trailer for next-run delta (committed to branch)
-- `memory/logs/2026-07-05.md` — appended `## Workflow Security Audit` + `## Summary (workflow-security-audit)` entries
-- Branch `fix/workflow-security-audit-2026-07-05` pushed to origin (commit `0180732a`)
+- `articles/workflow-security-audit-2026-07-19.md` — 255-line report with per-finding attack chains, fix templates, and machine-readable fingerprint trailer (fix branch `fix/workflow-security-audit-2026-07-19`, commit `1f36b03`)
+- `memory/logs/2026-07-19.md` — appended workflow-security-audit log entry (pending on main for runner auto-commit)
+- `.pending-notify/1784479766-workflow-security-audit.md` — notify queued for post-run delivery
+- `.audit/*.py`, `.audit/findings*.json` — workspace scripts + intermediate data (kept untracked)
 
-**Follow-up:** `gh pr create` blocked by the standing "GitHub Actions is not permitted to create or approve pull requests" repo policy — this is the 7th staged branch queued for operator PAT (joins agi-tracker, notegraph, the two prior workflow-security-audit branches, skill-graph, skillpacks). Report cycle for the 2026-06-28 audit still open until operator opens branches. Next scheduled audit slot: 2026-07-12 Sunday 16:00 UTC.
-
-**Scanner-behavior note:** zizmor 1.25.2 now emits per-usage findings for secrets referenced across multiple steps; 43 raw `secrets-outside-env` collapse to the same 36 unique `(rule, file, secret)` tuples the prior audit had — no new secret exposures. Documented in the report Notes section.
+**Follow-up:**
+- **PR blocked 403** per `[[github-actions-cannot-create-prs]]` — 18th staged branch behind the repo Settings toggle. Branch pushed to `https://github.com/swarm-ai-research/aeon/tree/fix/workflow-security-audit-2026-07-19`; operator PAT could open the PR manually (already used to merge swarm#527 on 2026-07-18).
+- Manual fixes to prioritize: (a) pin the 3 aeon.yml `actions/*` refs to SHAs; (b) create `production` + `chain-runner` GitHub Environments and move sensitive secrets (`GH_GLOBAL`, `GITLAWB_*_PEM`, `AEON_PRIVATE_PAT`, `CLAUDE_CODE_OAUTH_TOKEN`) from repo-scoped to environment-scoped; (c) drain the 11 `artipacked` Medium findings once the Critical/High queue clears.
