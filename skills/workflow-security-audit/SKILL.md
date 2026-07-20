@@ -41,7 +41,10 @@ fi
 # (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
 # Also update the binary in .audit-bin/ when bumping the version pin.
 
-# actionlint (Rhymond's syntax-level workflow linter)
+# actionlint (rhysd's syntax-level workflow linter)
+# No version is pinned here — the committed .audit-bin/actionlint is the authoritative copy.
+# Run `actionlint --version` to check what's committed; pin + update .audit-bin/ when upgrading.
+# See https://github.com/rhysd/actionlint/releases for latest stable.
 if [ -x ".audit-bin/actionlint" ]; then
   export PATH="$PWD/.audit-bin:$PATH"
 elif ! command -v actionlint >/dev/null 2>&1; then
