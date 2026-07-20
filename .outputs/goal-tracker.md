@@ -1,20 +1,22 @@
-Goal-tracker skill executed. Report queued for delivery; state and log persisted.
-
 ## Summary
 
-Executed `skills/goal-tracker/SKILL.md` against 15 goals in `memory/MEMORY.md`'s `## Next priorities` section (no `## Goals` header — used documented fallback).
+Executed **goal-tracker** for 2026-07-20. Tracked all 16 goals from `## Next priorities` in `memory/MEMORY.md` (no `## Goals` section; used fallback).
 
-**Result:** 3 BLOCKED · 12 ON_TRACK · 0 DONE/NEEDS-ATTENTION/AT-RISK · overall trend → flat vs 2026-07-18.
+**Result:** 0 at risk · 0 needs attention · 13 on track · 3 blocked · 0 done — overall trend **flat** vs 2026-07-19 snapshot, one new goal added (`address-workflow-security-audit-findings` from post-07-19 BOOTSTRAP audit).
 
-All 3 BLOCKED goals (operator PAT provisioning, ISS-006 per-slot crons, pr-tracker batch patch) converge on the same [[github-actions-cannot-create-prs]] meta-blocker. Actions proposed for all three point to landing the planner's streak-3 PAT smoke test against `notegraph/2026-07-18`.
+**Three BLOCKED goals collapse to one unblock path:**
+- Operator PAT provisioning
+- ISS-006 per-slot cron fix (meta-blocked by #1)
+- pr-tracker SKILL.md 5-part patch (meta-blocked by #1, 22d overdue)
 
-Zero status transitions since 2026-07-18 → `memory/MEMORY.md` intentionally not modified per skill step 7.
+All three propose the same action: operator runs PAT smoke test on `notegraph/2026-07-18` branch to prove scope.
 
-**Files written:**
-- `memory/goal-state.json` — snapshot refreshed with today's `activity_count_14d` / `last_activity_date` per goal
-- `.pending-notify/1784486478-goal-tracker.md` — full formatted report (direct-write per notify-script limitations)
-- `memory/logs/2026-07-19.md` — appended goal-tracker entry + summary
+**Files:**
+- `memory/goal-state.json` — updated (added new goal, refreshed `run_at`)
+- `memory/logs/2026-07-20.md` — appended `### goal-tracker` entry
+- `.pending-notify/1784574128-goal-tracker.md` — full formatted report queued for post-process (direct write per notify-inline-cat sandbox constraint)
+- `memory/MEMORY.md` — **untouched** (no status transitions; skill spec forbids reordering/rephrasing)
 
-**Source status:** logs=ok · git=degraded (1 commit locally in 30d) · gh_pr=degraded (CLI aimed at swarm-ai-research/aeon, not this repo) · gh_issue=ok · cron-state=ok.
+**Sources:** logs=ok · git=degraded (shallow clone, 1 commit visible) · gh_pr=ok (0 in window; last PR 2026-06-19) · gh_issue=ok (0 in window) · cron-state=ok
 
-**Follow-up:** goal 6 (pr-tracker patch) crossed 21d overdue today; all three BLOCKED goals will remain stuck until either the repo Settings Workflow-permissions toggle flips or the operator PAT smoke test lands.
+**Follow-up:** none new — proposed actions already tracked in MEMORY.md `## Next priorities`.
