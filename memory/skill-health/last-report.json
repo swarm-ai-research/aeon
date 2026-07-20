@@ -2,8 +2,10 @@
   "hash": "027503e1b11fd61a",
   "prev_hash": "027503e1b11fd61a",
   "classification_identical_to_prev": true,
-  "last_notified_at": "2026-07-19T18:41:03Z",
-  "last_run_at": "2026-07-19T18:41:03Z",
+  "last_notified_at": "2026-07-20T18:52:59Z",
+  "last_run_at": "2026-07-20T18:52:59Z",
+  "prev_notified_at": "2026-07-19T18:41:03Z",
+  "elapsed_since_prev_notify_hours": 24.20,
   "classification": {
     "critical": [],
     "degraded": [
@@ -60,8 +62,8 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 → 2026-06-20) day 29 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01–0.20 driven by ~195 zero-token CLI failures per skill still in denominator.",
-  "delta_vs_prev": "Classification byte-identical to 2026-07-18T18:40:00Z run — same 38 DEGRADED sorted list, same 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog), same 2 NO DATA (ai-framework-watch, run-frequency-guard). 23rd consecutive steady-state day. Hash preserved (027503e1b11fd61a) since classification tuple + systemic callout are unchanged. Gate: NOTIFY — classification match but 24.02h elapsed since 2026-07-18T18:40:00Z last notify (>24h daily-reminder cadence threshold).",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 → 2026-06-20) day 30 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01–0.21 driven by ~195 zero-token CLI failures per skill still in denominator.",
+  "delta_vs_prev": "Classification byte-identical to 2026-07-19T18:41:03Z run — same 38 DEGRADED sorted list, same 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog), same 2 NO DATA (ai-framework-watch, run-frequency-guard). 24th consecutive steady-state day (ISS-001 day 30). Hash preserved (027503e1b11fd61a) since classification tuple + systemic callout are unchanged. Gate: NOTIFY — classification match but 24.20h elapsed since 2026-07-19T18:41:03Z last notify (>24h daily-reminder cadence threshold).",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 17,
@@ -85,6 +87,7 @@
     "ISS-018",
     "ISS-019"
   ],
-  "notify_decision": "NOTIFY — 24.02h since last notify (2026-07-18T18:40:00Z) crosses the 24h daily-reminder cadence. Classification hash 027503e1b11fd61a matches prev (steady state), but the >24h gate fires so operator gets the daily reminder. Skill-runs 168h window confirms zero failures/cancellations across 40 tracked skills (139 succeeded / 0 failed / 5 in_progress) — the 38 DEGRADED entries remain ALL denominator residue from ISS-001, not live failures (every one has cf=0, last_status=success, and 100% of last_error strings match the zero-token OAuth-outage signature). Reconciliation: 0 CRITICAL/FLAPPING → no new issues filed. 0 open issues have detected_by=skill-health so no HEALTHY-recovery resolutions performed (HEALTHY skills swarm-safety-eval/config-validator listed in ISS-005/ISS-006 affected_skills are NOT auto-removed — those issues were filed by skill-evals/batch-health and resolution belongs to their filer or skill-repair per CLAUDE.md health/repair contract).",
-  "prompt_injection_flag": "scripts/skill-runs 168h output was scanned; no prompt-injection strings present in this run's window. Continuing to treat skill-runs output as untrusted data per CLAUDE.md security rules."
+  "notify_decision": "NOTIFY — 24.20h since last notify (2026-07-19T18:41:03Z) crosses the 24h daily-reminder cadence. Classification hash 027503e1b11fd61a matches prev (steady state), but the >24h gate fires so operator gets the daily reminder. Fallback source (`gh run list --created \">2026-07-13\"`) confirms zero skill failures in 168h window (only workflow-level Sync from upstream failure at 2026-07-20T11:38Z — not a tracked skill). skill-runs script unavailable this run (sandbox blocked bash exec) → SKILL_HEALTH_PARTIAL. Reconciliation: 0 CRITICAL/FLAPPING → no new issues filed. 0 open issues have detected_by=skill-health so no HEALTHY-recovery resolutions performed per CLAUDE.md health/repair contract (ISS-001/002/005/006/007/008/009/010/011/012/013/014/015/016/017/018/019 all filed by self-review/skill-evals/heartbeat/batch-health — resolution belongs to filer or skill-repair).",
+  "skill_runs_status": "SKILL_HEALTH_PARTIAL — scripts/skill-runs exec blocked in sandbox; used `gh run list --created \">2026-07-13\" --limit 500` fallback to confirm zero skill failures (1 workflow-level Sync from upstream failure at 2026-07-20T11:38Z is not a tracked skill).",
+  "prompt_injection_flag": "Reviewed `gh run list` JSON output and pr-review workflow name (which quotes SKILL.md merge-gate policy prose) — no prompt-injection strings detected. Treating all fetched output as untrusted data per CLAUDE.md security rules."
 }

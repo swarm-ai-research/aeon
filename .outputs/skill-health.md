@@ -1,13 +1,24 @@
-Skill executed cleanly. Verdict: **HEALTH: DEGRADED(38)** — day 29 of ISS-001 OAuth-denominator burn, byte-identical classification to 07-18 (23rd consecutive steady-state day). Zero live failures across the fleet per skill-runs 168h (139 ok / 0 failed / 5 in_progress); every DEGRADED entry has `cf=0` + `last_status=success`.
+## Summary
 
-**Notify decision:** NOTIFY — 24.02h since last notify tripped the daily-reminder cadence despite hash match (`027503e1b11fd61a` preserved).
+Executed **skill-health** for 2026-07-20 (daily `0 18 * * *` slot, actual exec ~18:53Z, `${var}` empty full-fleet audit).
 
-**Reconciliation:** 0 CRITICAL/FLAPPING → 0 issues filed. 0 resolved — no open issues have `detected_by: skill-health`, so HEALTHY-recovery closures deferred to the filer/repair skills per CLAUDE.md contract.
+**Classification (byte-identical to 2026-07-19T18:41:03Z):**
+- CRITICAL: 0 · FLAPPING: 0 · WARNING: 0
+- **DEGRADED: 38** — all ISS-001 OAuth-burn denominator residue (day 30), every skill `cf=0`, `last_status=success`
+- **HEALTHY: 4** (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+- **NO DATA: 2** (ai-framework-watch, run-frequency-guard — 10th consecutive silent day)
+
+**Hash `027503e1b11fd61a` preserved.**
+
+**Gate: NOTIFY** — hash matches prev (steady state) but elapsed 24.20h > 24h daily-reminder cadence.
+
+**Sandbox partial:** `bash scripts/skill-runs` blocked → **SKILL_HEALTH_PARTIAL**; `gh run list --created ">2026-07-13"` fallback confirmed 0 skill failures across 168h (only workflow-level `Sync from upstream` failure at 11:38Z — not a tracked skill).
+
+**Reconciliation:** 0 issues filed (0 CRITICAL/FLAPPING), 0 resolved (0 open issues have `detected_by: skill-health` — per CLAUDE.md health/repair contract, cross-filer resolution not performed on ISS-001/002/005–019).
 
 **Files written:**
-- `memory/skill-health/last-report.json` — hash preserved, last_notified_at + last_run_at → 2026-07-19T18:41:03Z, day-29 note
-- `.pending-notify/1784486554-skill-health.md` — notify body (direct write per sandbox-limitation notes)
-- `memory/logs/2026-07-19.md` — appended `### skill-health` entry + summary
+- `.pending-notify/1784573782-skill-health.md` (report body, direct-write per `[[notify-inline-cat-substitution-blocked-in-sandbox]]` + `[[notify-script-has-no-f-flag]]`)
+- `memory/skill-health/last-report.json` (hash preserved, `last_notified_at` → 2026-07-20T18:52:59Z, added `skill_runs_status: SKILL_HEALTH_PARTIAL`, `prompt_injection_flag` clean)
+- `memory/logs/2026-07-20.md` (skill-health entry + summary appended)
 
-## Summary
-Ran skill-health at 18:41Z. Classification identical to 07-18 (day 23 steady-state): 0 CRITICAL, 38 DEGRADED (all ISS-001 denominator-burn residue on day 29), 4 HEALTHY, 2 NO_DATA (ai-framework-watch, run-frequency-guard — day 9). Zero live failures. Notification sent via `.pending-notify/` write; 0 issues filed, 0 resolved.
+**Follow-up:** (a) ISS-001 residue continues mechanical burn-down; (b) NO DATA cluster still awaiting ISS-020 draft per MEMORY.md Next-priorities; (c) `SKILL_HEALTH_PARTIAL` is sandbox-environment-specific — production GHA run should complete skill-runs cleanly.
