@@ -1,0 +1,244 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Cost Report — 2026-07-20",
+        "description": "Last 7 days"
+      },
+      "children": [
+        "stack-summary",
+        "separator-1",
+        "heading-top3",
+        "table-top3",
+        "separator-2",
+        "heading-anomalies",
+        "stack-anomalies",
+        "separator-3",
+        "heading-optimization",
+        "text-optimization",
+        "separator-4",
+        "heading-projection",
+        "stat-projection",
+        "text-projection-note",
+        "separator-5",
+        "link-full-report"
+      ]
+    },
+    "stack-summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "grid-stats",
+        "badge-anomalies"
+      ]
+    },
+    "grid-stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat-spent",
+        "stat-runs",
+        "stat-wow",
+        "stat-monthly"
+      ]
+    },
+    "stat-spent": {
+      "type": "Stat",
+      "props": {
+        "label": "Spent",
+        "value": "$250.23"
+      }
+    },
+    "stat-runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs",
+        "value": "44"
+      }
+    },
+    "stat-wow": {
+      "type": "Stat",
+      "props": {
+        "label": "Week-over-Week",
+        "value": "+20.3%",
+        "trend": "up"
+      }
+    },
+    "stat-monthly": {
+      "type": "Stat",
+      "props": {
+        "label": "Projected Monthly Burn",
+        "value": "$1,072.43"
+      }
+    },
+    "badge-anomalies": {
+      "type": "Badge",
+      "props": {
+        "text": "3 anomalies flagged",
+        "variant": "destructive"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-top3": {
+      "type": "Heading",
+      "props": {
+        "text": "Top 3 by Cost",
+        "level": "h2"
+      }
+    },
+    "table-top3": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Cost",
+          "Runs",
+          "Change"
+        ],
+        "rows": [
+          [
+            "reflect",
+            "$100.78",
+            "7 runs",
+            "—"
+          ],
+          [
+            "pr-tracker",
+            "$33.40",
+            "7 runs",
+            "↑101% WoW spike"
+          ],
+          [
+            "workflow-security-audit",
+            "$25.82",
+            "1 run",
+            "—"
+          ]
+        ]
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-anomalies": {
+      "type": "Heading",
+      "props": {
+        "text": "Anomalies",
+        "level": "h2"
+      }
+    },
+    "stack-anomalies": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert-reflect",
+        "alert-pr-tracker",
+        "alert-code-health"
+      ]
+    },
+    "alert-reflect": {
+      "type": "Alert",
+      "props": {
+        "title": "reflect 2026-07-13",
+        "message": "$24.25 run (µ+2σ exceeded — cache_read spike to 12.94M tokens)",
+        "type": "warning"
+      }
+    },
+    "alert-pr-tracker": {
+      "type": "Alert",
+      "props": {
+        "title": "pr-tracker",
+        "message": "$33.40 this week vs $16.58 prior (+101%) — elevated output tokens + two 12k-input-token runs",
+        "type": "warning"
+      }
+    },
+    "alert-code-health": {
+      "type": "Alert",
+      "props": {
+        "title": "code-health",
+        "message": "$3.59 vs $1.28 prior (+181%) — doubled run count",
+        "type": "warning"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-optimization": {
+      "type": "Heading",
+      "props": {
+        "text": "Optimization Status",
+        "level": "h2"
+      }
+    },
+    "text-optimization": {
+      "type": "Text",
+      "props": {
+        "text": "No optimization levers this week (cache utilization ≥99.9% fleet-wide; no model mismatch; no downgrade candidates).",
+        "variant": "body"
+      }
+    },
+    "separator-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-projection": {
+      "type": "Heading",
+      "props": {
+        "text": "30-day Projection",
+        "level": "h2"
+      }
+    },
+    "stat-projection": {
+      "type": "Stat",
+      "props": {
+        "label": "Burn Rate",
+        "value": "$1,072.43"
+      }
+    },
+    "text-projection-note": {
+      "type": "Text",
+      "props": {
+        "text": "⚠ Burn-rate watch",
+        "variant": "caption"
+      }
+    },
+    "separator-5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link-full-report": {
+      "type": "Link",
+      "props": {
+        "label": "Full Report",
+        "href": "articles/cost-report-2026-07-20.md"
+      }
+    }
+  }
+}

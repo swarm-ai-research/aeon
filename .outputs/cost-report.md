@@ -1,18 +1,18 @@
-*Cost Report — 2026-07-13 (last 7 days)*
+*Cost Report — 2026-07-20 (last 7 days)*
 
-Spent $208.06 across 41 runs (↓0.18% WoW); 3 skill-level spikes flagged; projected monthly burn ~$891.68 ⚠
+Spent $250.23 across 44 runs (↑20.3% WoW); 3 anomalies flagged, projected monthly burn ~$1,072.43.
 
 Top 3 by cost:
-1. reflect — $87.11 (6 runs)
-2. compute-futures-eda — $27.25 (4 runs)
-3. notegraph — $20.80 (3 runs)
+1. reflect — $100.78 (7 runs)
+2. pr-tracker — $33.40 (7 runs, ↑101% WoW spike)
+3. workflow-security-audit — $25.82 (1 run)
 
-No optimization levers found this week (cache already used heavily; output/input ratios too high for model-downgrade filter).
+⚠ 3 anomalies flagged:
+• reflect 2026-07-13: $24.25 run (µ+2σ exceeded — cache_read spike to 12.94M tokens)
+• pr-tracker: $33.40 this week vs $16.58 prior (+101%) — elevated output tokens + two 12k-input-token runs
+• code-health: $3.59 vs $1.28 prior (+181%) — doubled run count
 
-⚠ 3 skill-level spikes — see report:
-• notegraph 4.2× ($4.95→$20.80) — 07-08 cache_read blowup (5.84M tokens)
-• memory-flush 3.1× ($4.55→$14.23) — 07-12 cache_read blowup (5.89M tokens)
-• skill-freshness 2.1× ($3.78→$7.83) — elevated output on 07-06 + 07-12
+No optimization levers this week (cache utilization ≥99.9% fleet-wide; no model mismatch; no downgrade candidates).
 
-30-day projection: $891.68 (cache-read = 58% of spend; driven by MEMORY.md growth)
-Full: articles/cost-report-2026-07-13.md
+30-day projection: $1,072.43 ⚠ burn-rate watch
+Full: articles/cost-report-2026-07-20.md
