@@ -1,16 +1,12 @@
-Not tracking — this run terminated early with a single-line log write, so a task list would be overhead.
+Skill complete — no task tracking needed for a single-step no-op.
 
 ## Summary
 
-**Skill:** `issue-triage` — exited early per §Config guard.
+Executed `issue-triage` on 2026-07-20. Terminal outcome: **`ISSUE_TRIAGE_OK no-watched-repos`**.
 
-**Verdict:** `ISSUE_TRIAGE_OK no-watched-repos`
-
-**Reason:** `${var}` was empty and `memory/watched-repos.md` is absent, so there are no targets to triage. The skill explicitly directs an immediate exit in this state.
-
-**Files modified:**
-- `memory/logs/2026-07-19.md` — appended `### issue-triage` block with zero-count fields and the terminal `ISSUE_TRIAGE_OK` line (per §10).
-
-**Notifications:** none — §9 fires notify only for actionable/urgent/advisory verdicts.
-
-**Follow-up:** `MEMORY.md` already lists this exact remediation under *Next priorities* — "Populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive)." No new action to file.
+- **Trigger:** `${var}` empty AND `memory/watched-repos.md` absent → skill's documented early-exit path.
+- **Actions taken:** none (no targets to fetch, classify, label, or comment on).
+- **Files modified:** `memory/logs/2026-07-20.md` — appended `### issue-triage` block with the no-op record.
+- **Notification:** none (per §9, only actionable items fire notify; this had nothing).
+- **State:** `memory/triaged-issues.json` unchanged (contract forbids recording repos that weren't processed).
+- **Follow-up:** this matches the standing MEMORY.md Next-priority — "Populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills". Until either happens, `issue-triage` will no-op on every scheduled run, wasting a workflow slot.
