@@ -18,7 +18,7 @@ This skill looks. It's a watchdog for **silent staleness**, not for failures. It
 
 ## Config
 
-No new secrets. No new env vars. No new state file beyond `memory/state/skill-freshness.json` for prior-run dedup.
+No new secrets. No new env vars. No new state file beyond `memory/topics/skill-freshness-state.json` for prior-run dedup.
 
 Reads:
 - `aeon.yml` — enabled skill list, `chains:` blocks (steps, consume, parallel), per-skill `schedule` (used to derive expected freshness windows).
@@ -27,7 +27,7 @@ Reads:
 
 Writes:
 - `articles/skill-freshness-${today}.md` — the report.
-- `memory/state/skill-freshness.json` — fingerprint + last-verdict for run-to-run dedup.
+- `memory/topics/skill-freshness-state.json` — fingerprint + last-verdict for run-to-run dedup.
 - `memory/logs/${today}.md` — log block.
 
 No outbound HTTP. No `gh api` calls. No env-var-in-headers. Pure local file I/O.
@@ -143,9 +143,9 @@ Translation to exit status:
 
 Compute a stable verdict fingerprint: `sha1sum` of the sorted list of `consumer:dep:severity` triples (excluding `OK` rows — only flagged rows count toward the fingerprint).
 
-Compare against `memory/state/skill-freshness.json` `last_flagged_fingerprint`. If identical AND today's `fleet_verdict` is the same as `last_verdict`:
+Compare against `memory/topics/skill-freshness-state.json` `last_flagged_fingerprint`. If identical AND today's `fleet_verdict` is the same as `last_verdict`:
 - Article still writes (idempotent same-day overwrite).
-- `memory/state/skill-freshness.json` updates the `last_run_at` timestamp.
+- `memory/topics/skill-freshness-state.json` updates the `last_run_at` timestamp.
 - Notify is **suppressed** with status `FRESHNESS_NO_CHANGE` — no point pinging the operator about the same stale file two days running. The state expires after 7 days; if nothing has changed for a week, the next run will re-emit the notification as a periodic reminder.
 
 If different (a new flag appeared, an old one cleared, or the verdict band changed): notify normally.
@@ -200,7 +200,7 @@ Cap at 8 entries; collapse the rest into `+ N more all-fresh consumers.` to keep
 
 ### 10. Persist state
 
-Write `memory/state/skill-freshness.json`:
+Write `memory/topics/skill-freshness-state.json`:
 
 ```json
 {
