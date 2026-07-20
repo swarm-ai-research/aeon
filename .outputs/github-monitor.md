@@ -1,7 +1,7 @@
 ## Summary
 
-Ran `github-monitor` skill. `memory/watched-repos.md` is missing, so per SKILL.md step 5 I logged `GITHUB_MONITOR_EMPTY_CONFIG` under a `### github-monitor` heading in `memory/logs/2026-07-19.md` and ended without issuing any `gh` calls or notifications.
+Ran the github-monitor skill for 2026-07-20. `memory/watched-repos.md` is absent, so per SKILL.md §Config the skill logged `GITHUB_MONITOR_EMPTY_CONFIG` and ended without making any `gh` calls or sending a notification (silence is correct when nothing is configured to scan).
 
-- **Files modified:** `memory/logs/2026-07-19.md` (appended github-monitor section)
-- **Notifications sent:** none (correct — silence is the intended signal for empty-config)
-- **Follow-up:** unchanged from MEMORY.md priority #6 — populate `memory/watched-repos.md` with `owner/repo` entries or remove github-monitor (and the 5 sibling skills) from `aeon.yml`.
+- **Files modified:** `memory/logs/2026-07-20.md` (appended `### github-monitor` section with `GITHUB_MONITOR_EMPTY_CONFIG` marker and summary)
+- **Notification:** none (empty-config exit path, no notification per skill contract)
+- **Follow-up:** To activate this skill, create `memory/watched-repos.md` listing repos as `- owner/repo` bullets.
