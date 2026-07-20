@@ -1,22 +1,22 @@
-Plan is written and state persisted. Notification queued.
+All artifacts written. Planner run complete.
 
 ## Summary
 
-Ran plan-only planner at ~06:35Z Sun 2026-07-19, restoring cadence after the 07-18 06:30 miss (first planner miss in the record).
+Ran plan-only planner at 06:35Z Mon 2026-07-20. **Today's one thing:** streak-4 escalation on `verify-repo-settings-toggle-vs-pat` shrunk to a 30-second operator ask — either click the Settings→Actions toggle URL or run one `gh pr create` command on `notegraph/2026-07-18` under the swarm#527 PAT.
 
-**Today's one thing:** Streak-3 escalation on `verify-repo-settings-toggle-vs-pat` — reframe from "toggle vs PAT" to a concrete one-branch smoke test: operator run the swarm#527-validated PAT against `notegraph/2026-07-18` (trivial +1-node diff, safe merge) to prove in-repo `gh pr create` scope. Three-way outcome map, all valuable; a working PAT batch-closes the 16-branch queue.
+**Ranked count:** 3 (streak-4 30-second ask / file agi-tracker missing-SKILL.md as ISS-021 before today's 13:00Z Mon slot / carryover ISS-020 draft for the 3 never-dispatch skills). **Holding:** 5 items.
 
-**Ranked count:** 3 (streak-3 PAT smoke test / ISS-020 draft scope-widened to include `stale-content-pr-sweeper`'s fresh 3-day 23:45 miss / project-memory note for 07-18 planner miss). **Holding:** 6 items.
+**New signal surfaced this run:** `skills/agi-tracker/` directory verified absent — explains the 07-06 + 07-13 silent Mon slots and predicts today's 13:00Z will silently produce no article. Config-validator flagged it 07-19; now needs an issue.
+
+**Fleet:** 0 broken, 38 historic-DEGRADED (ISS-001 day 30), 2 NO_DATA, 4 HEALTHY (agi-tracker HEALTHY-but-misleading). Today's Mon 07-20 even-DOM 06:00 pocket is 4-skill; clean delivery advances ISS-006 close-clock Day-1 → Day-2, earliest close Tue 07-21.
 
 **Dispatched:** none — `${var}` empty means plan-only.
 
-**Fleet:** 0 broken (cf ≥ 2 = none). 38 historic-DEGRADED per ISS-001 OAuth-burn day 29. 2 NO_DATA + 1 fresh P3 stale (`stale-content-pr-sweeper`). 4 HEALTHY. Today's 06:00 pocket is 2-skill (odd-DOM, memory-hygiene pair not eligible).
-
 **Files written:**
 - `.outputs/planner.md`
-- `memory/state/daily-plan-2026-07-19.md`
-- `memory/state/planner-state.json` (streak 2 → 3, stale entries dropped)
-- `.pending-notify/1784445577-planner.md`
-- `memory/logs/2026-07-19.md`
+- `memory/state/daily-plan-2026-07-20.md`
+- `memory/state/planner-state.json` (streak 3 → 4)
+- `.pending-notify/1784534372-planner.md`
+- `memory/logs/2026-07-20.md`
 
-**Follow-ups:** none from planner itself — plan is the deliverable. Operator action needed to unstick the meta-blocker (either flip the Settings toggle or run the PAT smoke test).
+**Follow-up flagged for next reflect:** MEMORY.md line 6 says "07-21 Mon" but 07-21 is Tue — day-of-week label typo (close date itself correct).
