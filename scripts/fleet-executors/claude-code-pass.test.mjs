@@ -487,4 +487,66 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. gh pr create returns no URL in stdout — the regex fallback uses
+//     pr.stdout.trim() as prUrl. Tests the `|| pr.stdout.trim()` fallback
+//     on line 248 that the happy-path test never exercises.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "PR created successfully (no URL)"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourl" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh returns no URL, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "PR created successfully (no URL)",
+      "prUrl should fall back to pr.stdout.trim() when stdout contains no URL");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create with no URL in stdout → prUrl falls back to stdout.trim()");
+}
+
+// 18. gh pr list returns malformed JSON → JSON.parse throws → catch returns null
+//     → gate is skipped and the pass proceeds (null = "unknown", not "at limit").
+//     Tests the catch block inside openPRsForKind that test 12 does not reach.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo 'not valid json {{'; exit 0; fi\necho "https://github.com/stub/repo/pull/18"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "badjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns malformed JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/18");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list malformed JSON → catch returns null → pass proceeds");
+}
+
+// 19. test-pass kind — verifies that KIND_CONFIG["test-pass"] is wired up
+//     correctly: the correct label appears in the PR title/body and the pass
+//     succeeds end-to-end.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "testpass1" })
+    );
+    assert.equal(result.ok, true, `expected ok=true for test-pass kind, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/42");
+    assert.match(result.branch, /^aeon\/test-pass-/);
+    // Confirm the gh call used the "Test pass" label.
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /Test pass/);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  test-pass kind is wired up correctly and produces a PR with the right label");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
