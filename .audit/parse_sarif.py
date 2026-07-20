@@ -1,3 +1,5 @@
+"""Parse zizmor SARIF output into a flat findings list and write .audit/parsed.json."""
+
 import json
 import hashlib
 from collections import Counter

@@ -1,3 +1,11 @@
+"""Map zizmor parsed findings to our severity tiers and compute fingerprints.
+
+Reads .audit/parsed.json, applies the SKILL.md severity mapping (error+high →
+Critical, error → High, warning+high → High, warning → Medium, note → Low),
+and writes .audit/classified.json with `severity`, `short_rule`, and
+`fingerprint` fields added to each record.
+"""
+
 import json
 import hashlib
 import os

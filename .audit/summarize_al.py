@@ -1,3 +1,9 @@
+"""Tally actionlint findings by shellcheck code and flag HIGH-severity candidates.
+
+HIGH candidates are SC2086/SC2046 findings whose message references a github.*
+context variable — these indicate a potential script-injection sink.
+"""
+
 import json
 from collections import Counter
 data = json.load(open('.audit/actionlint.json'))
