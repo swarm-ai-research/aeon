@@ -1,17 +1,19 @@
-Reflect complete. Notegraph shows +5n / +45e delta.
-
 ## Summary
 
-Executed the reflect skill for 2026-07-19. Read state across MEMORY.md, last 7 days of logs (07-13 → 07-19), articles (2 new BOOTSTRAP articles today), skill-health JSONs, and issues INDEX (17 open unchanged).
+Executed weekly reflect for 2026-07-20 per `skills/reflect/SKILL.md`. 
 
-**Atomicity pass:** 0 splits, 0 new atomic notes — all 44 notes in `memory/notes/` pass the atomicity gate (max body ~3 sentences, no bundled markers). Today's rich novel signals (workflow-security-audit BOOTSTRAP 85 findings, skill-evals BOOTSTRAP 14/49 coverage, compute-macro-correlate first-run Track A all null, skillpacks `outages-fleet` pack persistence, swarm dependabot batch-merge, ISS-006 Day-1 restart on 5-of-5 pocket delivery) are all snapshot data — folded into MOC + MEMORY.md rather than atomized, consistent with 07-18 pattern.
+**Atomic-pass:** 0 splits over 45 existing notes (all single-claim, no "and also"/"additionally"/"moreover" markers), **2 new atomic notes** created for today's durable claims:
+- `memory/notes/agi-tracker-missing-skill-md-dispatches-no-op.md` — HEALTHY-but-empty class distinct from `enabled-skills-can-never-dispatch` (agi-tracker dispatches + reports HEALTHY but SKILL.md missing → silent Mon 13:00 slot; today = 3rd weekly attempt)
+- `memory/notes/pr-tracker-bot-review-latency-bimodal-by-repo.md` — fast-cluster (wigolo#216 3m43s, InsForge#1742 same-day) vs cold-cluster (openinterpreter#1810 66h+, Agent-Reach#436 13.85d) split observed today
 
-**MOCs updated:** `memory/topics/fleet-ops.md` — Open incidents block (ISS-001 day 29, ISS-006 Day-1 restart, workflow-security-audit BOOTSTRAP added) + full Snapshot table rewritten from 07-18 → 07-19 with 12 signal rows including 3 new BOOTSTRAP rows.
+**Updated 1 existing note:** `snapshot-rebase-clobbers-docs-status-md.md` rolled 7d → 9d pattern with new "upstream ref stable AND rotated both clobber" datum.
 
-**MEMORY.md pruned:** Current focus rewritten line-by-line (13 pointer-only lines), Next priorities refreshed (14 items — pr-tracker patch 21d overdue, verify-repo-toggle-vs-PAT streak-3, ISS-020 scope-widened, workflow-security-audit follow-up added). Total 57 lines, pointer-only.
+**MOC refresh:** `memory/topics/fleet-ops.md` — Open incidents block (ISS-001 day 30, ISS-006 Day-2 confirmed, day-of-week label corrected to Wed 07-22 for Day-3), Lessons list (2 new atomic pointers), full Snapshot table rewritten for 07-20 (16 signal rows, added Milestones + Cost report rows, dropped post-BOOTSTRAP items).
 
-**Notegraph delta:** 172n / 1717e / 1o → **177n / 1762e / 1o** — +5 nodes, +45 edges (edge:node ratio ~9× from BOOTSTRAP article node adds + MOC snapshot rewrite similarity shifts).
+**MEMORY.md:** Current focus rewritten (14 lines — dropped BOOTSTRAP items now standing state, added ISS-006 Day-2, wigolo#216 hash change + notify SENT, ms-01 stalled-2 first alert, cost-report success + ISS-008 close-eligible, agi-tracker HEALTHY-but-empty). Next priorities grew 14 → 15 (added "Restore or drop skills/agi-tracker/SKILL.md" + "Close ISS-008").
 
-**Files modified:** `memory/topics/fleet-ops.md`, `memory/MEMORY.md`, `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`, `memory/logs/2026-07-19.md`, `.pending-notify/1784486849-reflect.md`.
+**Notegraph regen:** 178n / 1738e / 1o / 44 atomic / 0 bundled. Today's 2 new notes are untracked-in-git per `git ls-files` scan contract — they will enter the graph on next regen after this reflect commits.
 
-**Follow-up:** (a) 07-20 Mon 06:00 pocket delivery → ISS-006 Day-2; earliest close 07-21 Mon Day-3; (b) 07-20 Mon 13:00Z AGI Tracker slot is the third weekly attempt after 07-06 + 07-13 silence; (c) if operator runs the swarm#527-validated PAT against `notegraph/2026-07-18` per today's planner reframe, either unblocks the ≥18-branch queue or produces evidence about PAT scope gaps.
+**Files modified:** 2 new note files, 1 note update, `memory/topics/fleet-ops.md`, `memory/MEMORY.md`, `notegraph.json`, `docs/notegraph{.md,.html,-speedrun.html}`, `memory/logs/2026-07-20.md`, `.pending-notify/1784574073-reflect.md`.
+
+**Follow-ups:** (a) tomorrow 07-21 Tue Day-3 pocket delivery would formally close ISS-006; (b) today's 13:00 UTC agi-tracker slot is the empirical test of the new HEALTHY-but-empty note; (c) commit + push this reflect so the 2 new atomic notes enter the notegraph.
