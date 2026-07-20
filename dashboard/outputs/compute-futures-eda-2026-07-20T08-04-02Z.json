@@ -1,0 +1,258 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-07-19"
+      },
+      "children": [
+        "overview-stack",
+        "sep-1",
+        "findings-section",
+        "sep-2",
+        "conservation-section",
+        "sep-3",
+        "severity-section",
+        "report-link"
+      ]
+    },
+    "overview-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-rows",
+        "stat-modes",
+        "badge-quiet"
+      ]
+    },
+    "stat-rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Data rows",
+        "value": "144"
+      }
+    },
+    "stat-modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "badge-quiet": {
+      "type": "Badge",
+      "props": {
+        "text": "Quiet run",
+        "variant": "secondary"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "findings-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "findings-heading",
+        "finding-1",
+        "finding-2",
+        "finding-3"
+      ]
+    },
+    "findings-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Findings",
+        "level": "h3"
+      }
+    },
+    "finding-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "f1-title",
+        "f1-detail1",
+        "f1-detail2"
+      ]
+    },
+    "f1-title": {
+      "type": "Text",
+      "props": {
+        "text": "basket maxCurve: 33.33% → 0%",
+        "variant": "lead"
+      }
+    },
+    "f1-detail1": {
+      "type": "Text",
+      "props": {
+        "text": "Ended 3-run strengthening streak",
+        "variant": "body"
+      }
+    },
+    "f1-detail2": {
+      "type": "Text",
+      "props": {
+        "text": "Resolves as 12-seed IQR jitter reaching its geometric max, exactly per yesterday's escalation gate",
+        "variant": "caption"
+      }
+    },
+    "finding-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "f2-title",
+        "f2-detail"
+      ]
+    },
+    "f2-title": {
+      "type": "Text",
+      "props": {
+        "text": "basket settlementLegs: 16.67%",
+        "variant": "lead"
+      }
+    },
+    "f2-detail": {
+      "type": "Text",
+      "props": {
+        "text": "Basket↔spread swap continues",
+        "variant": "body"
+      }
+    },
+    "finding-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "f3-title",
+        "f3-detail"
+      ]
+    },
+    "f3-title": {
+      "type": "Text",
+      "props": {
+        "text": "spread realizedAbs: 16.67%",
+        "variant": "lead"
+      }
+    },
+    "f3-detail": {
+      "type": "Text",
+      "props": {
+        "text": "Returning after 5-day quiet",
+        "variant": "body"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "conservation-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "conserv-heading",
+        "conserv-1",
+        "conserv-2",
+        "conserv-3"
+      ]
+    },
+    "conserv-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h3"
+      }
+    },
+    "conserv-1": {
+      "type": "Text",
+      "props": {
+        "text": "basket/spread/synth/x402: All OK",
+        "variant": "body"
+      }
+    },
+    "conserv-2": {
+      "type": "Text",
+      "props": {
+        "text": "spread σ: 5.86e−12 → 5.56e−12 (first tick down in drift-up streak)",
+        "variant": "body"
+      }
+    },
+    "conserv-3": {
+      "type": "Text",
+      "props": {
+        "text": "No |r|≥0.8 pairs (6th run)",
+        "variant": "body"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "severity-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-medium",
+        "badge-high",
+        "badge-critical"
+      ]
+    },
+    "badge-medium": {
+      "type": "Badge",
+      "props": {
+        "text": "2 MEDIUM",
+        "variant": "default"
+      }
+    },
+    "badge-high": {
+      "type": "Badge",
+      "props": {
+        "text": "0 HIGH",
+        "variant": "outline"
+      }
+    },
+    "badge-critical": {
+      "type": "Badge",
+      "props": {
+        "text": "0 CRITICAL",
+        "variant": "outline"
+      }
+    },
+    "report-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-07-19.md",
+        "source": "Memory"
+      }
+    }
+  }
+}
