@@ -1,7 +1,9 @@
 ## Summary
 
-Ran `code-health` skill on 2026-07-19. **Verdict: `CODE_HEALTH_EMPTY_CONFIG`** — `memory/watched-repos.md` absent, so the skill short-circuited at step 0 before any clone/scan/report work. No `articles/code-health-2026-07-19.md` generated, no notification composed (matching the pattern set by same-day sibling short-circuits from `github-monitor` and `issue-triage` — empty config is a standing state, not fresh news).
+**Skill: code-health — SHORT-CIRCUITED at config gate**
 
-**Files modified:** `memory/logs/2026-07-19.md` (appended `### code-health` block + summary).
-
-**Follow-up:** No new action from this skill. The unblock sits unchanged in MEMORY.md `## Next priorities` item 6 — populate `memory/watched-repos.md` with `owner/repo` entries OR remove the six watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) from `aeon.yml`.
+- **Trigger:** `memory/watched-repos.md` absent, `${var}` empty → SKILL.md's "create it or skip this skill" clause applies.
+- **Action:** logged `CODE_HEALTH_EMPTY_CONFIG` to `memory/logs/2026-07-20.md`. No clones, scans, article, or notification.
+- **Rationale for no notify:** empty config is standing state, not fresh news (matches 07-17/18/19 identical short-circuits and github-monitor's same-day pattern).
+- **Files modified:** `memory/logs/2026-07-20.md` (appended `### code-health` + `### Summary (code-health)` entries).
+- **Follow-up:** unblock is MEMORY.md `## Next priorities` item 15 — populate `memory/watched-repos.md` with `owner/repo` lines OR remove code-health/github-monitor/issue-triage/changelog/weekly-shiplog/repo-revive from `aeon.yml`. 8-day standing state since the 2026-07-12 wallpaper-skills review.
