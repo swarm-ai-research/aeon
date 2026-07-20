@@ -487,4 +487,49 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. gh pr create output contains no URL — prUrl falls back to pr.stdout.trim().
+//     Exercises the `|| pr.stdout.trim()` fallback at line 248 of claude-code-pass.mjs.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\nprintf 'created'\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourlfallback" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "created",
+      `prUrl should fall back to stdout when gh outputs no URL; got ${result.prUrl}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create without URL in output → prUrl falls back to pr.stdout.trim()");
+}
+
+// 18. extractSummary with empty/whitespace-only stdout — when claude outputs only
+//     whitespace, claudeOut trims to "" (not null) and the working-tree-clean path
+//     is taken. extractSummary("") has an empty lines array so last.length === 0,
+//     hitting the slice(-3) fallback and returning "". Verifies the no-changes
+//     summary is still generated without crashing.
+{
+  const CLAUDE_WHITESPACE_STUB = `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > /dev/null\nprintf '   \\n   \\n'\n`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_WHITESPACE_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/0"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "emptysumm" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, null, "whitespace-only output with clean tree → no PR");
+    assert.match(result.summary, /no changes warranted/,
+      `summary should mention 'no changes warranted'; got: ${result.summary}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  whitespace-only claude output → extractSummary slice(-3) fallback, no-changes path");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
