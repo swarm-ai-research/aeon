@@ -1,8 +1,8 @@
-Skill executed. Registry `memory/instances.json` is `{"instances": []}` — pre-flight step 1 requires `FLEET_EMPTY` log entry and silent stop (no notification).
-
 ## Summary
-- **Skill:** `fleet-control` (Health Check mode — `var` empty)
-- **Verdict:** `FLEET_EMPTY` — no managed instances in `memory/instances.json`
-- **Action taken:** Appended `## fleet-control (health check)` block to `memory/logs/2026-07-19.md` with `FLEET_EMPTY` marker. Skipped `gh auth` and rate-limit checks (no GitHub-hosted entries) and skipped notification per SKILL.md rule ("Stop. Do NOT notify.").
-- **Files modified:** `memory/logs/2026-07-19.md` (log entry appended)
-- **Follow-up:** none — the operator must register instances in `memory/instances.json` before this skill produces useful output.
+
+Executed **fleet-control** in default Health Check mode for 2026-07-20.
+
+- **Registry state:** `memory/instances.json` is `{"instances": []}` — no managed instances registered.
+- **Action taken:** Per SKILL.md pre-flight step 1, logged `FLEET_EMPTY: no managed instances` to `memory/logs/2026-07-20.md` and stopped. No `gh` calls, no state file writes, no notification (silent by design when the fleet is empty).
+- **Files modified:** `memory/logs/2026-07-20.md` (appended fleet-control entry + summary).
+- **Follow-up:** None required. To activate the skill, add instance entries to `memory/instances.json` — GitHub-hosted (`repo: "owner/name"`) or GitLawb-hosted (`host: "gitlawb"`, `repo: null`).
