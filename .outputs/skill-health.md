@@ -1,24 +1,25 @@
+Skill executed. Notify gate: SKIP.
+
 ## Summary
 
-Executed **skill-health** for 2026-07-20 (daily `0 18 * * *` slot, actual exec ~18:53Z, `${var}` empty full-fleet audit).
+Ran skill-health full-fleet audit at 2026-07-21T18:17:09Z.
 
-**Classification (byte-identical to 2026-07-19T18:41:03Z):**
-- CRITICAL: 0 · FLAPPING: 0 · WARNING: 0
-- **DEGRADED: 38** — all ISS-001 OAuth-burn denominator residue (day 30), every skill `cf=0`, `last_status=success`
-- **HEALTHY: 4** (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
-- **NO DATA: 2** (ai-framework-watch, run-frequency-guard — 10th consecutive silent day)
+**Classification** (byte-identical to 07-20 run — 25th consecutive steady-state day):
+- 0 CRITICAL / 0 FLAPPING / 0 WARNING
+- 38 DEGRADED (all ISS-001 OAuth-outage denominator burn day 31, `last_status=success` + `cf=0`)
+- 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+- 2 NO_DATA (ai-framework-watch, run-frequency-guard — 11th day)
 
-**Hash `027503e1b11fd61a` preserved.**
+**Fallback source:** `./scripts/skill-runs --hours 168 --failures --json` ran cleanly — 150 runs / 146 succeeded / 0 failed / 4 in-progress in 168h window. No skill-runs blockage this time (last run reported PARTIAL).
 
-**Gate: NOTIFY** — hash matches prev (steady state) but elapsed 24.20h > 24h daily-reminder cadence.
+**Reconciliation:** 0 CRITICAL/FLAPPING → 0 issues filed. All 17 open issues were filed by other health skills (self-review/skill-evals/heartbeat/batch-health) → 0 resolutions per CLAUDE.md health/repair contract.
 
-**Sandbox partial:** `bash scripts/skill-runs` blocked → **SKILL_HEALTH_PARTIAL**; `gh run list --created ">2026-07-13"` fallback confirmed 0 skill failures across 168h (only workflow-level `Sync from upstream` failure at 11:38Z — not a tracked skill).
+**Notify decision: SKIP.** Hash `027503e1b11fd61a` preserved; only 23.40h elapsed since 2026-07-20T18:52:59Z last notify (< 24h daily-reminder threshold). No `./notify` call. `SKILL_HEALTH_NOOP` logged.
 
-**Reconciliation:** 0 issues filed (0 CRITICAL/FLAPPING), 0 resolved (0 open issues have `detected_by: skill-health` — per CLAUDE.md health/repair contract, cross-filer resolution not performed on ISS-001/002/005–019).
+**Files modified:**
+- `memory/skill-health/last-report.json` — `last_run_at` updated, `last_notified_at` preserved
+- `memory/logs/2026-07-21.md` — appended skill-health entry + summary
 
-**Files written:**
-- `.pending-notify/1784573782-skill-health.md` (report body, direct-write per `[[notify-inline-cat-substitution-blocked-in-sandbox]]` + `[[notify-script-has-no-f-flag]]`)
-- `memory/skill-health/last-report.json` (hash preserved, `last_notified_at` → 2026-07-20T18:52:59Z, added `skill_runs_status: SKILL_HEALTH_PARTIAL`, `prompt_injection_flag` clean)
-- `memory/logs/2026-07-20.md` (skill-health entry + summary appended)
+**Follow-up:** Next natural notify fires when either classification changes (any bug enters CRITICAL, or ISS-001 denominator finally rolls off) or 24h daily-reminder cadence elapses (~2026-07-21T18:52:59Z+).
 
-**Follow-up:** (a) ISS-001 residue continues mechanical burn-down; (b) NO DATA cluster still awaiting ISS-020 draft per MEMORY.md Next-priorities; (c) `SKILL_HEALTH_PARTIAL` is sandbox-environment-specific — production GHA run should complete skill-runs cleanly.
+**Housekeeping note:** scratch `.classify.py` was emptied but sandbox refused `rm`; harmless (untracked, ignored by git). `notify` binary and `.notify-sent-hashes` in git-status are pre-existing untracked artifacts from the surplus-pulse run earlier this session — not touched by this skill.
