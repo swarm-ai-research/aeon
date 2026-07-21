@@ -1,0 +1,247 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-07-20"
+      },
+      "children": [
+        "overview-stack",
+        "sep-1",
+        "top-section",
+        "sep-2",
+        "conservation-section",
+        "sep-3",
+        "outliers-section",
+        "sep-4",
+        "severity-section",
+        "sep-5",
+        "report-link"
+      ]
+    },
+    "overview-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "overview-text"
+      ]
+    },
+    "overview-text": {
+      "type": "Text",
+      "props": {
+        "text": "144 rows, 4 modes",
+        "variant": "lead"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "top-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "top-heading",
+        "top-items"
+      ]
+    },
+    "top-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Changes",
+        "level": "h3"
+      }
+    },
+    "top-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "top-item-1",
+        "top-item-2"
+      ]
+    },
+    "top-item-1": {
+      "type": "Text",
+      "props": {
+        "text": "basket maxCurve HIGH (33.33%) collapsed to 0% — three-run strengthening streak retired"
+      }
+    },
+    "top-item-2": {
+      "type": "Text",
+      "props": {
+        "text": "spread settlementLegs HIGH (25%) also gone"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "conservation-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "conservation-heading",
+        "conservation-stats"
+      ]
+    },
+    "conservation-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h3"
+      }
+    },
+    "conservation-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "conservation-status-badge",
+        "stat-basket-sigma",
+        "stat-spread-sigma",
+        "stat-synth-sigma"
+      ]
+    },
+    "conservation-status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "All OK",
+        "variant": "secondary"
+      }
+    },
+    "stat-basket-sigma": {
+      "type": "Stat",
+      "props": {
+        "label": "basket σ",
+        "value": "2.9e−14"
+      }
+    },
+    "stat-spread-sigma": {
+      "type": "Stat",
+      "props": {
+        "label": "spread σ",
+        "value": "5.7e−12"
+      }
+    },
+    "stat-synth-sigma": {
+      "type": "Stat",
+      "props": {
+        "label": "synth/x402 σ",
+        "value": "1.6e−14"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "outliers-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "outliers-heading",
+        "outliers-text"
+      ]
+    },
+    "outliers-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Outlier Flags",
+        "level": "h3"
+      }
+    },
+    "outliers-text": {
+      "type": "Text",
+      "props": {
+        "text": "4 MEDIUM outlier flags on spread curve/realizedAbs cluster + basket minCurve"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "severity-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "severity-heading",
+        "severity-badges"
+      ]
+    },
+    "severity-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Severity Summary",
+        "level": "h3"
+      }
+    },
+    "severity-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-no-critical",
+        "badge-no-high"
+      ]
+    },
+    "badge-no-critical": {
+      "type": "Badge",
+      "props": {
+        "text": "No CRITICAL",
+        "variant": "secondary"
+      }
+    },
+    "badge-no-high": {
+      "type": "Badge",
+      "props": {
+        "text": "No HIGH",
+        "variant": "secondary"
+      }
+    },
+    "sep-5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report-link": {
+      "type": "Link",
+      "props": {
+        "label": "Detailed Report",
+        "href": "memory/topics/compute-futures-eda/2026-07-20.md"
+      }
+    }
+  }
+}

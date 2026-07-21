@@ -1,2 +1,2 @@
-*Compute-Futures EDA — 2026-07-18*
-144 rows, 4 modes. Top: basket maxCurve outlier_pct 33.33% (12/36) — first per-mode column at ≥ 20% and 3rd consecutive strengthening run (8.33 → 16.67 → 33.33%). Spread settlementLegs 25% (HIGH, returns from 07-16). Curve tail replaced 07-17 spot tail wholesale; synth/x402 maxCurve 'first persistence' rotated to 0%. Conservation OK all modes (spread σ 5.86e-12, still float dust). Zero |r|≥0.8, fifth consecutive. Report: memory/topics/compute-futures-eda/2026-07-18.md
+*Compute-Futures EDA — 2026-07-20*
+144 rows, 4 modes. Top: basket maxCurve HIGH (33.33%) collapsed to 0% — three-run strengthening streak retired; spread settlementLegs HIGH (25%) also gone. Conservation: all OK (basket σ 2.9e−14, spread σ 5.7e−12, synth/x402 σ 1.6e−14). 4 MEDIUM outlier flags on spread curve/realizedAbs cluster + basket minCurve. No CRITICAL, no HIGH. Report: memory/topics/compute-futures-eda/2026-07-20.md
