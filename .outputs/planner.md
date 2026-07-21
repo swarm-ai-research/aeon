@@ -2,21 +2,22 @@ All artifacts written. Planner run complete.
 
 ## Summary
 
-Ran plan-only planner at 06:35Z Mon 2026-07-20. **Today's one thing:** streak-4 escalation on `verify-repo-settings-toggle-vs-pat` shrunk to a 30-second operator ask — either click the Settings→Actions toggle URL or run one `gh pr create` command on `notegraph/2026-07-18` under the swarm#527 PAT.
+Ran plan-only planner at ~06:38Z Tue 2026-07-21. **Rotated top_priority** off `verify-repo-settings-toggle-vs-pat` after streak-4 with no operator movement — same-priority-5-days would violate SKILL.md's "don't thrash" rule. Preserved streak counter (4) in `priority_streak` for future re-elevation triggers (new staged branch, operator ack, or fresh linked blocker).
 
-**Ranked count:** 3 (streak-4 30-second ask / file agi-tracker missing-SKILL.md as ISS-021 before today's 13:00Z Mon slot / carryover ISS-020 draft for the 3 never-dispatch skills). **Holding:** 5 items.
+**Today's one thing:** restore or drop `skills/agi-tracker/SKILL.md`. It's yesterday's rank-2, fully Aeon-local (no operator dependency), and yesterday's Mon 13:00Z slot was the 3rd weekly no-op article since 07-06.
 
-**New signal surfaced this run:** `skills/agi-tracker/` directory verified absent — explains the 07-06 + 07-13 silent Mon slots and predicts today's 13:00Z will silently produce no article. Config-validator flagged it 07-19; now needs an issue.
+**Ranked #2:** Draft ISS-020 for [[enabled-skills-can-never-dispatch]] (11-day silent cluster; 3rd-day carryover).
+**Ranked #3:** Explicitly documents the de-escalation itself as the responsible read of the streak.
 
-**Fleet:** 0 broken, 38 historic-DEGRADED (ISS-001 day 30), 2 NO_DATA, 4 HEALTHY (agi-tracker HEALTHY-but-misleading). Today's Mon 07-20 even-DOM 06:00 pocket is 4-skill; clean delivery advances ISS-006 close-clock Day-1 → Day-2, earliest close Tue 07-21.
-
-**Dispatched:** none — `${var}` empty means plan-only.
+**Fleet:** 0 broken, 38 DEGRADED (ISS-001 residue day 31), 2 NO_DATA (11th day), 4 HEALTHY. Today Tue 07-21 = ISS-006 close-clock **Day-3 test** — odd-DOM pocket = planner (this run) + compute-futures-eda only; clean delivery → close-eligible. Also flagged MEMORY.md line 6 phrasing correction (Day-3 lands today, not 07-22).
 
 **Files written:**
-- `.outputs/planner.md`
-- `memory/state/daily-plan-2026-07-20.md`
-- `memory/state/planner-state.json` (streak 3 → 4)
-- `.pending-notify/1784534372-planner.md`
-- `memory/logs/2026-07-20.md`
+- `.outputs/planner.md` (chain output)
+- `memory/state/daily-plan-2026-07-21.md` (dated copy)
+- `memory/state/planner-state.json` (top_priority rotated; streak-4 preserved)
+- `.pending-notify/1784618462-planner.md` (direct-write notification)
+- `memory/logs/2026-07-21.md` (this log)
 
-**Follow-up flagged for next reflect:** MEMORY.md line 6 says "07-21 Mon" but 07-21 is Tue — day-of-week label typo (close date itself correct).
+**Dispatch:** none (plan-only, `${var}` empty).
+
+**Follow-ups:** (a) actual restore/drop of `skills/agi-tracker/SKILL.md` — separate action, not planner's job to execute; (b) verify tonight whether 07-20 23:45Z `stale-content-pr-sweeper` slot missed to firm up ISS-020 draft evidence; (c) if today's 06:00 pocket delivers cleanly, next batch-health/heartbeat can close ISS-006.
