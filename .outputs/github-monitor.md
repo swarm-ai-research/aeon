@@ -1,7 +1,7 @@
 ## Summary
 
-Ran the github-monitor skill for 2026-07-20. `memory/watched-repos.md` is absent, so per SKILL.md §Config the skill logged `GITHUB_MONITOR_EMPTY_CONFIG` and ended without making any `gh` calls or sending a notification (silence is correct when nothing is configured to scan).
+`skills/github-monitor/SKILL.md` executed to its Config short-circuit: `memory/watched-repos.md` is absent, so per the SKILL's rules I logged `GITHUB_MONITOR_EMPTY_CONFIG` in `memory/logs/2026-07-21.md` and stopped without issuing any `gh` calls or notification.
 
-- **Files modified:** `memory/logs/2026-07-20.md` (appended `### github-monitor` section with `GITHUB_MONITOR_EMPTY_CONFIG` marker and summary)
-- **Notification:** none (empty-config exit path, no notification per skill contract)
-- **Follow-up:** To activate this skill, create `memory/watched-repos.md` listing repos as `- owner/repo` bullets.
+- **Files modified:** `memory/logs/2026-07-21.md` (added `### github-monitor` section)
+- **Notifications:** none (silence is the correct signal per SKILL.md step 5)
+- **Follow-up:** MEMORY.md line 56 already tracks the fix — populate `watched-repos.md` or disable the six watched-repos-dependent skills (github-monitor, code-health, issue-triage, changelog, weekly-shiplog, repo-revive).
