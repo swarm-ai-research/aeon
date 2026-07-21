@@ -487,4 +487,80 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. test-pass kind — none of the existing tests exercise KIND_CONFIG["test-pass"].
+//     Verify the label and branch prefix are correct for that kind.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "testpass1" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/99");
+    assert.match(result.branch, /^aeon\/test-pass-\d{4}-\d{2}-\d{2}-/,
+      `branch should start with aeon/test-pass-; got ${result.branch}`);
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /Test pass/, "PR title in gh log should include 'Test pass' label");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  test-pass kind → correct label and branch prefix");
+}
+
+// 18. prUrl regex fallback — when gh pr create succeeds but prints text that
+//     contains no https?:// URL, the code falls back to pr.stdout.trim().
+//     Exercises the `|| pr.stdout.trim()` branch on the prUrl assignment.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "prurlfallback" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "stub/repo/pull/77",
+      "prUrl should be the raw gh stdout when it contains no https:// URL");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  prUrl fallback — non-URL gh output falls back to pr.stdout.trim()");
+}
+
+// 19. buildPrompt no-target branch — when `target` is omitted the prompt must
+//     include "No specific files supplied" and must NOT include the
+//     "Recently changed files (focus area):" line. Captures stdin via the same
+//     CLAUDE_STDIN_CAPTURE mechanism used by test 13.
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-notarget-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/1"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "refactor-pass", repoDir: env.localDir, taskId: "notarget" })
+      // target omitted — should trigger the else branch of buildPrompt's targetLine
+    );
+    assert.equal(result.ok, true);
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /No specific files supplied/,
+      "prompt should say 'No specific files supplied' when target is omitted");
+    assert.doesNotMatch(captured, /Recently changed files \(focus area\)/,
+      "prompt should not include focus-area line when target is omitted");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  no-target prompt uses 'No specific files supplied' fallback text");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
