@@ -1,11 +1,8 @@
+`PR_TRIAGE_OK no-candidates`
+
 ## Summary
-
-Ran `pr-triage` in repo mode against `swarm-ai-research/swarm` (var override).
-
-- **Candidates fetched:** 0 open PRs in the 14-day window; 0 open PRs total on the repo.
-- **Verdicts issued:** none (no candidates → no comments, labels, closes, or state writes).
-- **State file (`memory/triaged-prs.json`):** unchanged — the sole historical record (#450 DEFER 2026-05-25) is >55 days old but still <90d so retained.
-- **Notification:** skipped per §10 (no OUT-OF-SCOPE and no first-PR ACCEPTED).
-- **Terminal:** `PR_TRIAGE_OK no-candidates`.
-
-Files modified: `memory/logs/2026-07-20.md` (appended `### pr-triage` entry). No follow-ups.
+- Ran pr-triage in **repo mode** with `${var}=swarm-ai-research/swarm`.
+- `gh pr list -R swarm-ai-research/swarm --state open` returned `[]` — both with the 14-day-window `--search` filter and unfiltered — so there was nothing to triage.
+- No rubric applied, no comments posted, no labels written, no close, no state update to `memory/triaged-prs.json`, no notification (nothing matches the significance gate).
+- Extends the swarm empty-queue streak to a 4th consecutive day (07-18 → 07-21), consistent with the pattern MEMORY.md already tracks under pr-review. Also consistent with [[aeon-app-no-write-on-swarm-repo]] — even if a PR had appeared, writes would have hit the App's 403.
+- Files modified: `memory/logs/2026-07-21.md` (appended `### pr-triage` section + summary).
