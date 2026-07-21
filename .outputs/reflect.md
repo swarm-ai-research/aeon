@@ -1,19 +1,15 @@
 ## Summary
 
-Executed weekly reflect for 2026-07-20 per `skills/reflect/SKILL.md`. 
+Ran weekly reflect for 2026-07-21.
 
-**Atomic-pass:** 0 splits over 45 existing notes (all single-claim, no "and also"/"additionally"/"moreover" markers), **2 new atomic notes** created for today's durable claims:
-- `memory/notes/agi-tracker-missing-skill-md-dispatches-no-op.md` — HEALTHY-but-empty class distinct from `enabled-skills-can-never-dispatch` (agi-tracker dispatches + reports HEALTHY but SKILL.md missing → silent Mon 13:00 slot; today = 3rd weekly attempt)
-- `memory/notes/pr-tracker-bot-review-latency-bimodal-by-repo.md` — fast-cluster (wigolo#216 3m43s, InsForge#1742 same-day) vs cold-cluster (openinterpreter#1810 66h+, Agent-Reach#436 13.85d) split observed today
+**Atomic pass:** 0 splits, 0 new atomic notes — all 46 existing notes pass the atomicity gate (max 12 lines, no bundled-note markers).
 
-**Updated 1 existing note:** `snapshot-rebase-clobbers-docs-status-md.md` rolled 7d → 9d pattern with new "upstream ref stable AND rotated both clobber" datum.
+**Key correction this reflect:** The 2026-07-20 reflect claimed "ISS-006 close-clock Day-1 → Day-2 confirmed" but today's compute-futures-eda log flagged `1-day gap: 2026-07-19 CSV was present but not analyzed on the day` — direct evidence that compute-futures-eda missed 07-20 (required leg for Day-2). Cron-state corroborates: `batch-health` + `heartbeat` both `last_success 2026-07-19T09:22Z / 09:25Z`, silent 07-20 + 07-21 — the very fleet-watchdog pair whose absence caused the premature confirmation is itself down. **Real ISS-006 close-clock: 07-19 Day-1 → 07-20 GAP → 07-21 today Day-1 restart**; earliest close now Thu 2026-07-24.
 
-**MOC refresh:** `memory/topics/fleet-ops.md` — Open incidents block (ISS-001 day 30, ISS-006 Day-2 confirmed, day-of-week label corrected to Wed 07-22 for Day-3), Lessons list (2 new atomic pointers), full Snapshot table rewritten for 07-20 (16 signal rows, added Milestones + Cost report rows, dropped post-BOOTSTRAP items).
+**MOC updates:** `fleet-ops` Open incidents refreshed (ISS-001 day 30 → 31; ISS-006 correction; added batch-health + heartbeat 2-day dispatch gap; stale-content-pr-sweeper 5d → 6d; never-dispatched 10d → 11d); full Snapshot table rewritten for 07-21 (17 signal rows). **MEMORY.md:** Current focus 13 lines refreshed (added novel batch-health/heartbeat gap + planner rotation notes); Next priorities 15 → 16 items (rank-1 rotated to restore-agi-tracker-skill-md per planner; verify-repo-toggle demoted to holding; pr-tracker patch bumped 22d → 24d overdue).
 
-**MEMORY.md:** Current focus rewritten (14 lines — dropped BOOTSTRAP items now standing state, added ISS-006 Day-2, wigolo#216 hash change + notify SENT, ms-01 stalled-2 first alert, cost-report success + ISS-008 close-eligible, agi-tracker HEALTHY-but-empty). Next priorities grew 14 → 15 (added "Restore or drop skills/agi-tracker/SKILL.md" + "Close ISS-008").
+**Notegraph delta:** 178n / 1738e / 1o → **184n / 1816e / 1o / 0 bundled** (+6 nodes / +78 edges / 0 orphan / 0 bundled). New nodes include the 2 atomic notes committed after 07-20 reflect + today's log/report files. Edge:node ratio ~13× on the delta from MOC + MEMORY.md rewrite similarity shifts.
 
-**Notegraph regen:** 178n / 1738e / 1o / 44 atomic / 0 bundled. Today's 2 new notes are untracked-in-git per `git ls-files` scan contract — they will enter the graph on next regen after this reflect commits.
+**Files modified:** `memory/topics/fleet-ops.md`, `memory/MEMORY.md`, `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`, `memory/logs/2026-07-21.md`, `.pending-notify/1784658314-reflect.md`.
 
-**Files modified:** 2 new note files, 1 note update, `memory/topics/fleet-ops.md`, `memory/MEMORY.md`, `notegraph.json`, `docs/notegraph{.md,.html,-speedrun.html}`, `memory/logs/2026-07-20.md`, `.pending-notify/1784574073-reflect.md`.
-
-**Follow-ups:** (a) tomorrow 07-21 Tue Day-3 pocket delivery would formally close ISS-006; (b) today's 13:00 UTC agi-tracker slot is the empirical test of the new HEALTHY-but-empty note; (c) commit + push this reflect so the 2 new atomic notes enter the notegraph.
+**Follow-ups:** (a) investigate batch-health + heartbeat 2-day dispatch gap — new MEMORY.md rank-2 priority; likely shares dispatch-drop root cause with the 06:00–08:30Z dead zone; (b) tomorrow 07-22 Wed even-DOM 4-skill pocket needed for ISS-006 Day-2 restart; (c) restore or drop `skills/agi-tracker/SKILL.md` per today's planner rank-1 (fully Aeon-local).
