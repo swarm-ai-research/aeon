@@ -149,6 +149,60 @@ describe("isAllowedHost (edge cases)", () => {
   });
 });
 
+describe("isSameOriginWrite (non-POST state-changing methods)", () => {
+  it("DELETE with same-origin Origin passes", () => {
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({ origin: "http://localhost:5555" })),
+      true,
+    );
+  });
+  it("DELETE with cross-origin Origin fails", () => {
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({ origin: "http://attacker.example" })),
+      false,
+    );
+  });
+  it("PUT with same-origin Origin passes", () => {
+    assert.equal(
+      isSameOriginWrite("PUT", headers({ origin: "http://127.0.0.1:8080" })),
+      true,
+    );
+  });
+  it("PATCH with cross-origin Origin fails", () => {
+    assert.equal(
+      isSameOriginWrite("PATCH", headers({ origin: "http://evil.example" })),
+      false,
+    );
+  });
+  it("allowAny bypasses the check even with no Origin header", () => {
+    assert.equal(
+      isSameOriginWrite("POST", headers({}), { allowAny: true }),
+      true,
+    );
+  });
+  it("allowAny bypasses the check for cross-origin DELETE", () => {
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({ origin: "http://attacker.example" }), { allowAny: true }),
+      true,
+    );
+  });
+  it("respects extraAllowed for Referer host on non-POST methods", () => {
+    const extras = parseAllowedHosts("internal.lan");
+    assert.equal(
+      isSameOriginWrite("PUT", headers({ referer: "http://internal.lan:8080/path" }), {
+        extraAllowed: extras,
+      }),
+      true,
+    );
+    assert.equal(
+      isSameOriginWrite("PUT", headers({ referer: "http://attacker.example/path" }), {
+        extraAllowed: extras,
+      }),
+      false,
+    );
+  });
+});
+
 describe("gateRequest (env-driven wrapper)", () => {
   afterEach(() => {
     delete process.env.AEON_DASHBOARD_ALLOWED_HOSTS;
@@ -238,5 +292,16 @@ describe("gateRequest (env-driven wrapper)", () => {
       headers: headers({ host: "0.0.0.0:5555" }),
     });
     assert.equal(result, null);
+  });
+
+  it("rejects a request with no Host header at all", async () => {
+    const result = gateRequest({
+      method: "GET",
+      headers: headers({}),
+    });
+    assert.ok(result instanceof Response, "expected 403 Response");
+    assert.equal(result!.status, 403);
+    const body = await result!.json();
+    assert.equal(body.error, "Host not allowed");
   });
 });
