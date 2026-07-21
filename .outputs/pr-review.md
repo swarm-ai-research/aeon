@@ -1,10 +1,3 @@
 ## Summary
 
-Ran pr-review on `swarm-ai-research/swarm` at 2026-07-21T10:01:29Z under merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK).
-
-- **Queue: empty** — `gh pr list -R swarm-ai-research/swarm --state open --limit 20` returned `[]`. 5th consecutive empty-queue result across operator invocations spanning 07-19 → 07-21.
-- **Reviewed:** 0. **Skipped:** 0. Nothing to APPROVE / REQUEST_CHANGES / BLOCK.
-- **Verdict:** n/a under merge-gate — labels apply per-PR and there are no PRs.
-- **Notification:** skipped per SKILL rule (nothing to report).
-- **Files modified:** `memory/logs/2026-07-21.md` (appended `## pr-review` section + summary).
-- **Follow-up:** unchanged — next fresh non-bot PR on swarm will be the first live merge-gate exercise since #527 merged 2026-07-18.
+Executed `skills/pr-review/SKILL.md` against `swarm-ai-research/swarm` under merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK). Second run of the day; `gh pr list --state open` → `[]` at 2026-07-21T18:15:00Z — sixth consecutive same-day empty-queue result across six operator invocations spanning 07-19 → 07-21 (~72h+). No PRs to gate → verdict n/a under merge-gate. Notification skipped per SKILL rule (zero PRs, nothing actionable). Files modified: `memory/logs/2026-07-21.md`. Follow-up: next fresh non-bot PR on swarm will be the first live merge-gate exercise since #527 landed 2026-07-18.
