@@ -1,22 +1,23 @@
+Goal Tracker complete. Report queued via `.pending-notify/`, snapshot persisted, log entry appended.
+
 ## Summary
 
-Executed **goal-tracker** for 2026-07-20. Tracked all 16 goals from `## Next priorities` in `memory/MEMORY.md` (no `## Goals` section; used fallback).
+Ran the Goal Tracker skill over MEMORY.md's `## Next priorities` section (no `## Goals` header exists — fallback per SKILL.md).
 
-**Result:** 0 at risk · 0 needs attention · 13 on track · 3 blocked · 0 done — overall trend **flat** vs 2026-07-19 snapshot, one new goal added (`address-workflow-security-audit-findings` from post-07-19 BOOTSTRAP audit).
+**Scorecard (18 goals):**
+- 15 ON TRACK
+- 3 BLOCKED — all three (`operator-pat-provisioning`, `iss-006-fix`, `patch-pr-tracker-skill-md`) share the same meta-blocker: [[github-actions-cannot-create-prs]]. Single unblock path proposed for all three.
+- 0 AT RISK / NEEDS ATTENTION / DONE
 
-**Three BLOCKED goals collapse to one unblock path:**
-- Operator PAT provisioning
-- ISS-006 per-slot cron fix (meta-blocked by #1)
-- pr-tracker SKILL.md 5-part patch (meta-blocked by #1, 22d overdue)
+**Trend vs 2026-07-20 snapshot:** flat overall. Absorbed 2 new goals (`restore-agi-tracker-skill-md`, `close-iss-008`). One "degrading" counter on `close-iss-007` — driven by 14d-window rolloff of older mentions, not new inactivity; still ON TRACK.
 
-All three propose the same action: operator runs PAT smoke test on `notegraph/2026-07-18` branch to prove scope.
+**MEMORY.md:** left untouched — no status transitions, no completion signals. SKILL constraint honored ("reads and annotates — never authors").
 
-**Files:**
-- `memory/goal-state.json` — updated (added new goal, refreshed `run_at`)
-- `memory/logs/2026-07-20.md` — appended `### goal-tracker` entry
-- `.pending-notify/1784574128-goal-tracker.md` — full formatted report queued for post-process (direct write per notify-inline-cat sandbox constraint)
-- `memory/MEMORY.md` — **untouched** (no status transitions; skill spec forbids reordering/rephrasing)
+**Files written:**
+- `.pending-notify/1784657858-goal-tracker.md` — full formatted report (workflow postprocess will fan-out via `./notify` per [[notify-inline-cat-substitution-blocked-in-sandbox]])
+- `memory/goal-state.json` — refreshed snapshot with 2 new goals added
+- `memory/logs/2026-07-21.md` — appended `### goal-tracker` section
 
-**Sources:** logs=ok · git=degraded (shallow clone, 1 commit visible) · gh_pr=ok (0 in window; last PR 2026-06-19) · gh_issue=ok (0 in window) · cron-state=ok
+**Sources status:** logs=ok, git=ok (1 commit / 30d), gh_pr=ok (empty), gh_issue=ok (empty), cron-state=ok.
 
-**Follow-up:** none new — proposed actions already tracked in MEMORY.md `## Next priorities`.
+**Follow-up:** all 3 BLOCKED goals collapse to a single operator ask — flip repo Settings→Actions→Workflow permissions to "Allow Actions to create PRs" OR provision `AEON_GH_PAT`. Same ask surfaced by today's planner as re-elevation trigger for `verify-repo-settings-toggle-vs-pat`.
