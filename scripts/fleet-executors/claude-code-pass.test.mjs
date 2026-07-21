@@ -487,4 +487,84 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. buildPrompt with no target → prompt must include "No specific files
+//     supplied" (the falsy-target branch on line 98 of claude-code-pass.mjs).
+{
+  const stdinCaptureDir = mkdtempSync(join(tmpdir(), "code-pass-notarget-"));
+  const stdinCapturePath = join(stdinCaptureDir, "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/17"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "notarget" })
+      // no target param — defaults to ""
+    );
+    assert.equal(result.ok, true);
+    assert.equal(result.prUrl, null);
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /No specific files supplied/,
+      "prompt should contain 'No specific files supplied' when no target given");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCaptureDir, { recursive: true, force: true });
+  }
+  console.log("OK  no target → buildPrompt emits 'No specific files supplied'");
+}
+
+// 18. gh pr create returns success but its output contains no URL — the regex
+//     on line 248 falls back to pr.stdout.trim() as prUrl.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "queued for review"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourl" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "queued for review",
+      `prUrl fallback should be pr.stdout.trim() when no URL in output; got ${result.prUrl}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  pr URL fallback — non-URL gh output returns pr.stdout.trim() as prUrl");
+}
+
+// 19. claude exits 0 but writes nothing to stdout — the !proc.stdout guard in
+//     invokeClaude returns null → runCodePass returns ok:false. Also exercises
+//     the test-pass KIND_CONFIG entry (previously untested).
+{
+  const CLAUDE_EMPTY_STDOUT = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EMPTY_STDOUT,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", repoDir: env.localDir, taskId: "emptystdout" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /claude invocation failed/,
+      `expected 'claude invocation failed'; got: ${result.reason}`);
+    // Worktree and ephemeral branch must be cleaned up (cleanup(true) path).
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "ephemeral branch should be deleted");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  claude exits 0 with empty stdout → invokeClaude returns null → ok:false, cleanup(true)");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
