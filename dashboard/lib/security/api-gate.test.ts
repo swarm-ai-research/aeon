@@ -240,3 +240,42 @@ describe("gateRequest (env-driven wrapper)", () => {
     assert.equal(result, null);
   });
 });
+
+describe("stripPort (malformed IPv6)", () => {
+  it("returns input unchanged when IPv6 bracket is never closed", () => {
+    // Tests the `end === -1` early-return branch — exercised when the Host
+    // header contains a bare `[` that has no matching `]` (malformed, but
+    // the gate should not crash on it).
+    assert.equal(stripPort("[::1"), "[::1");
+    assert.equal(stripPort("[fe80::1"), "[fe80::1");
+  });
+});
+
+describe("isSameOriginWrite (edge cases)", () => {
+  it("allowAny=true short-circuits before checking Origin/Referer", () => {
+    // The `if (opts.allowAny) return true` branch inside isSameOriginWrite
+    // is never reached via gateRequest (allowAny causes isAllowedHost to
+    // pass first, so isSameOriginWrite is called with allowAny:true only
+    // when invoked directly).  Verify it returns true for an attacker origin.
+    assert.equal(
+      isSameOriginWrite("POST", headers({ origin: "http://attacker.example" }), { allowAny: true }),
+      true,
+    );
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({}), { allowAny: true }),
+      true,
+    );
+  });
+
+  it("non-GET state-changing methods (DELETE, PUT, PATCH) without Origin are rejected", () => {
+    assert.equal(isSameOriginWrite("DELETE", headers({})), false);
+    assert.equal(isSameOriginWrite("PUT", headers({})), false);
+    assert.equal(isSameOriginWrite("PATCH", headers({})), false);
+  });
+});
+
+describe("isAllowedHost (undefined input)", () => {
+  it("returns false for undefined host (same gate as null/missing Host header)", () => {
+    assert.equal(isAllowedHost(undefined), false);
+  });
+});
