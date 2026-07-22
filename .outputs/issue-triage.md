@@ -1,11 +1,7 @@
-Skill executed as a no-op — this is a single-step trivial exit, so task tracking isn't warranted.
-
 ## Summary
 
-Executed `skills/issue-triage/SKILL.md` for 2026-07-21.
+Executed `skills/issue-triage/SKILL.md`. Per §1: `${var}` is empty and `memory/watched-repos.md` is absent, so exited immediately with terminal line `ISSUE_TRIAGE_OK no-watched-repos` — no permission probe, no fetch, no classification, no notification.
 
-- **Verdict:** `ISSUE_TRIAGE_OK no-watched-repos` — `memory/watched-repos.md` is absent and `${var}` is empty, so per SKILL.md §Config the skill exits before any `gh` call.
-- **Files modified:** `memory/logs/2026-07-21.md` (appended issue-triage log entry).
-- **No writes** to `memory/triaged-issues.json` (§8: only record repos actually processed).
-- **No notification** (§9: routine no-op, nothing actionable).
-- **Follow-up unchanged** from prior days and already flagged in MEMORY.md `## Next priorities`: operator populates `memory/watched-repos.md` with `- owner/repo` lines, or sets `enabled: false` for issue-triage in `aeon.yml`.
+**Files modified:** `memory/logs/2026-07-22.md` (appended an `### issue-triage` block per §10).
+
+**Follow-up:** unchanged from MEMORY.md line 58 — either populate `memory/watched-repos.md` or disable the six watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) to stop wasting workflow slots on same-shape skip runs.
