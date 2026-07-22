@@ -1,2 +1,2 @@
-*Compute-Futures EDA — 2026-07-20*
-144 rows, 4 modes. Top: basket maxCurve HIGH (33.33%) collapsed to 0% — three-run strengthening streak retired; spread settlementLegs HIGH (25%) also gone. Conservation: all OK (basket σ 2.9e−14, spread σ 5.7e−12, synth/x402 σ 1.6e−14). 4 MEDIUM outlier flags on spread curve/realizedAbs cluster + basket minCurve. No CRITICAL, no HIGH. Report: memory/topics/compute-futures-eda/2026-07-20.md
+*Compute-Futures EDA — 2026-07-21*
+144 rows, 4 modes. Top: basket settlementLegs 16.67% + spread minSpot 16.67% — exact-duo rerun of 2026-07-10 (first joint reappearance in the record; still 12-seed rotation cohort until a third occurrence). All four of 07-20's MEDIUMs collapsed. Conservation: OK across all modes (float dust). 7th consecutive run at zero |r|>=0.8. Report: memory/topics/compute-futures-eda/2026-07-21.md

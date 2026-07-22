@@ -1,0 +1,262 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "date_text",
+        "overview_stats",
+        "separator_1",
+        "top_metrics_section",
+        "separator_2",
+        "analysis_section",
+        "separator_3",
+        "status_section",
+        "separator_4",
+        "conservation_section",
+        "separator_5",
+        "streak_section",
+        "separator_6",
+        "report_link"
+      ]
+    },
+    "date_text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-07-21",
+        "variant": "muted"
+      }
+    },
+    "overview_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      }
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "top_metrics_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "top_metrics_heading",
+        "metric_basketSettlementLegs",
+        "metric_spreadMinSpot"
+      ]
+    },
+    "top_metrics_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Metrics",
+        "level": "h3"
+      }
+    },
+    "metric_basketSettlementLegs": {
+      "type": "Stat",
+      "props": {
+        "label": "Basket settlementLegs",
+        "value": "16.67%"
+      }
+    },
+    "metric_spreadMinSpot": {
+      "type": "Stat",
+      "props": {
+        "label": "Spread minSpot",
+        "value": "16.67%"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "analysis_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "analysis_heading",
+        "rerun_text",
+        "reappearance_badge",
+        "rotation_cohort_badge"
+      ]
+    },
+    "analysis_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Analysis",
+        "level": "h3"
+      }
+    },
+    "rerun_text": {
+      "type": "Text",
+      "props": {
+        "text": "Exact-duo rerun of 2026-07-10"
+      }
+    },
+    "reappearance_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "First joint reappearance in record",
+        "variant": "secondary"
+      }
+    },
+    "rotation_cohort_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "12-seed rotation cohort (until third occurrence)",
+        "variant": "outline"
+      }
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "status_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "status_heading",
+        "status_alert"
+      ]
+    },
+    "status_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Status",
+        "level": "h3"
+      }
+    },
+    "status_alert": {
+      "type": "Alert",
+      "props": {
+        "message": "All four of 07-20's MEDIUMs collapsed",
+        "type": "warning"
+      }
+    },
+    "separator_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "conservation_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "conservation_heading",
+        "conservation_alert"
+      ]
+    },
+    "conservation_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation",
+        "level": "h3"
+      }
+    },
+    "conservation_alert": {
+      "type": "Alert",
+      "props": {
+        "message": "OK across all modes (float dust)",
+        "type": "success"
+      }
+    },
+    "separator_5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "streak_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "streak_heading",
+        "streak_stat"
+      ]
+    },
+    "streak_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Consecutive Streak",
+        "level": "h3"
+      }
+    },
+    "streak_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs at zero |r|≥0.8",
+        "value": "7"
+      }
+    },
+    "separator_6": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Detailed Report",
+        "href": "memory/topics/compute-futures-eda/2026-07-21.md",
+        "source": "Memory"
+      }
+    }
+  }
+}
