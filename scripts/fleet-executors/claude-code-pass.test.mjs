@@ -487,4 +487,48 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. test-pass kind — happy path using the "test-pass" KIND_CONFIG entry.
+//     The kind was defined but never exercised in the existing test suite.
+//     Verifies the branch name, PR creation, and label text all use "test-pass".
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "tpass001" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/42");
+    assert.match(result.branch, /^aeon\/test-pass-\d{4}-\d{2}-\d{2}-tpass001$/);
+    const refs = spawnSync("git", ["ls-remote", env.remoteDir], { encoding: "utf8" }).stdout;
+    assert.match(refs, new RegExp(`refs/heads/${result.branch}`));
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /Test pass/, "PR title should mention 'Test pass'");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  test-pass kind → branch, commit, push, and PR all use 'test-pass' label");
+}
+
+// 18. openPRsForKind catch branch — gh pr list exits 0 but emits completely
+//     invalid JSON (not even parseable), causing JSON.parse to throw. The
+//     function must return null so the gate is skipped and the pass proceeds.
+//     This is a distinct code path from the !r.ok branch (test 11) and the
+//     !Array.isArray branch (test 12).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then printf 'not-valid-json\\x00garbage'; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "parsethrow" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when JSON.parse throws, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/99");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  openPRsForKind catch branch — malformed JSON string → null backlog → pass proceeds");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
