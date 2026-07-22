@@ -346,6 +346,7 @@ memory/
   issues/                ← structured issue tracker for skill failures
   topics/                ← detailed notes by topic
   logs/                  ← daily activity logs (YYYY-MM-DD.md)
+.audit-bin/              ← pre-built zizmor + actionlint binaries (used by workflow-security-audit; avoids network installs in the GHA sandbox)
 .outputs/                ← skill chain outputs (passed between chained steps)
 scripts/
   prefetch-xai.sh        ← pre-fetch X/Grok API data outside sandbox
