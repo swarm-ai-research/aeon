@@ -1,8 +1,12 @@
+The task is a single log-entry short-circuit; task tracking isn't warranted.
+
 ## Summary
 
-Executed `skills/code-health/SKILL.md` for 2026-07-21. `${var}` empty and `memory/watched-repos.md` absent → skill short-circuited at Config step per SKILL.md ("If the file doesn't exist yet, create it or skip this skill.").
+Ran the code-health skill for 2026-07-22.
 
-- **Files modified:** `memory/logs/2026-07-21.md` (appended `### code-health` entry).
-- **No writes:** no `articles/code-health-2026-07-21.md`, no `.pending-notify/`, no `gh repo clone`, no `grep` scans.
-- **Terminal:** `CODE_HEALTH_OK no-watched-repos`.
-- **Follow-up:** unchanged from MEMORY.md line 56 — operator either populates `memory/watched-repos.md` or sets `enabled: false` for code-health in `aeon.yml`. This is the 6th+ consecutive weekly skip in the same class as github-monitor / issue-triage entries already logged today.
+- **Config check:** `memory/watched-repos.md` is absent and `${var}` empty → nothing to audit.
+- **Action:** Silent short-circuit per the documented pattern (MEMORY.md line 58) — same behavior as today's issue-triage and github-monitor runs.
+- **Article:** none written (no input).
+- **Notify:** skipped (no findings).
+- **Files modified:** `memory/logs/2026-07-22.md` (appended `## Code Health` block).
+- **Follow-up:** unchanged — populate `memory/watched-repos.md` or set `enabled: false` on the six watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) in `aeon.yml`. Terminal: `CODE_HEALTH_OK no-watched-repos`.
