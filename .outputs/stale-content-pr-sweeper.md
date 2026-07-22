@@ -1,17 +1,11 @@
-Steady state: `n_closed === 0`, so no notification per skill spec.
+Skill executed. Steady-state no-op result.
 
 ## Summary
 
-Ran stale-content-pr-sweeper for 2026-07-15.
-
-- **Open PRs on repo:** 0 (per `gh pr list --state open`)
-- **Eligible content PRs:** 0
-- **Groups checked:** 0
-- **PRs closed:** 0
-- **Notify fired:** No (steady state — skill spec suppresses notify when nothing was closed)
-
-The empty PR list is consistent with the known operator-side blocker recorded in `MEMORY.md` — GitHub Actions cannot create PRs (see [[github-actions-cannot-create-prs]]), so 13+ content branches are staged locally without ever surfacing as open PRs. Nothing for the sweeper to act on until that unblocks.
-
-Files modified: `memory/logs/2026-07-15.md` (created with SWEEPER_OK entry, matching yesterday's format).
-
-Follow-ups: none for this skill. The upstream blocker (PAT provisioning) is already the top planner priority.
+- **Ran**: `stale-content-pr-sweeper` on 2026-07-22 (manual invocation).
+- **Open PRs scanned**: 0 (repo-wide `gh pr list --state open` returned `[]`).
+- **Groups checked**: 0.
+- **PRs closed**: 0. No skips of any category — nothing eligible to inspect.
+- **Notify**: not fired (SKILL.md step 6 says notify only on `n_closed > 0`).
+- **Files**: `memory/logs/2026-07-22.md` (new).
+- **Follow-up**: the empty PR set is consistent with `[[github-actions-cannot-create-prs]]` — staged branches never become open PRs. Sweeper's own 23:45 daily cron on a ≥6-day miss streak per MEMORY.md line 16 — today's manual run confirms the skill itself is functional; the miss streak is a dispatch problem, in scope for candidate ISS-020.
