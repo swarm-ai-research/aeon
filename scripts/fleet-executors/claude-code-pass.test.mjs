@@ -487,4 +487,44 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. git add -A failure → ok:false, "git add failed", worktree removed, branch deleted.
+//
+//     A git stub intercepts `git add -A` and exits 1 while delegating every
+//     other git command to the real binary. This exercises the `addR.ok` check
+//     at line 219 of claude-code-pass.mjs — the only failure path between a
+//     dirty worktree and the commit step that was previously uncovered.
+{
+  const realGit = spawnSync("which", ["git"], { encoding: "utf8" }).stdout.trim();
+  if (!realGit) throw new Error("cannot locate real git binary for git-add-fail stub");
+  const GIT_ADD_FAIL_STUB = `#!/usr/bin/env bash
+if [ "$1" = "add" ] && [ "$2" = "-A" ]; then
+  echo "error: could not lock index" >&2
+  exit 1
+fi
+exec ${realGit} "$@"
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  writeFileSync(join(env.binDir, "git"), GIT_ADD_FAIL_STUB);
+  chmodSync(join(env.binDir, "git"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "addfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git add failed/);
+    // Worktree must be removed (cleanup(true) path).
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after git add failure");
+    // Branch must be deleted (cleanup(true) deletes it since there is no commit to preserve).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted after git add failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git add -A failure → ok:false, worktree and branch cleaned up");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
