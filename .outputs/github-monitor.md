@@ -1,7 +1,9 @@
 ## Summary
 
-`skills/github-monitor/SKILL.md` executed to its Config short-circuit: `memory/watched-repos.md` is absent, so per the SKILL's rules I logged `GITHUB_MONITOR_EMPTY_CONFIG` in `memory/logs/2026-07-21.md` and stopped without issuing any `gh` calls or notification.
+Executed `github-monitor` on 2026-07-22.
 
-- **Files modified:** `memory/logs/2026-07-21.md` (added `### github-monitor` section)
-- **Notifications:** none (silence is the correct signal per SKILL.md step 5)
-- **Follow-up:** MEMORY.md line 56 already tracks the fix — populate `watched-repos.md` or disable the six watched-repos-dependent skills (github-monitor, code-health, issue-triage, changelog, weekly-shiplog, repo-revive).
+- **Config check:** `memory/watched-repos.md` does not exist.
+- **Action:** Per SKILL step-1 rule (missing/empty config → log and end), no `gh` calls issued, no tiers computed, no `./notify` sent.
+- **Exit:** `GITHUB_MONITOR_EMPTY_CONFIG`.
+- **Files modified:** `memory/logs/2026-07-22.md` (appended `### github-monitor` block).
+- **Follow-up:** Matches the standing MEMORY.md line-58 pattern — six watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) continue to short-circuit until `memory/watched-repos.md` is populated or the skills are disabled in `aeon.yml`.
