@@ -1,18 +1,7 @@
-Task complete — single-action skill run, no benefit to TaskCreate here.
+Skill executed. Registry `memory/instances.json` is empty (`{"instances": []}`), so the pre-flight rule triggered: logged `FLEET_EMPTY: no managed instances` to `memory/logs/2026-07-22.md` and stopped without notifying.
 
 ## Summary
-
-Executed `skills/fleet-control/SKILL.md` in Health Check Mode (var was empty → default).
-
-**Result:** `FLEET_EMPTY` — the registry at `memory/instances.json` contains `"instances": []`, so per the skill's pre-flight rule 1, I logged and stopped silently without sending any notification.
-
-**Files modified:**
-- `memory/logs/2026-07-21.md` — appended `## fleet-control (health check)` section recording the empty-registry silent stop.
-
-**Skipped (per spec, since no GitHub-hosted entries exist):**
-- `gh auth status` check
-- rate-limit check
-- state-file writes (state file untouched since no instances to snapshot)
-- notification (silent no-op is the documented behavior when the fleet is empty)
-
-**Follow-up:** none required. The fleet is intentionally empty — no managed child instances currently registered. Operator would need to add entries to `memory/instances.json` (with `host: "gitlawb"` + DID, or GitHub `repo`) before this skill produces useful output.
+- Ran fleet-control skill in Health Check Mode (no `var`).
+- Pre-flight step 1 short-circuited: registry has zero instances, so no `gh` calls, no state-file write, no notification.
+- Files modified: `memory/logs/2026-07-22.md` — appended `## fleet-control (health check)` block with `FLEET_EMPTY` verdict.
+- Follow-up: none required by the skill (an empty registry is the documented silent no-op). Registry population is an operator action, not automated.
