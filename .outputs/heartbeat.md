@@ -1,15 +1,21 @@
-`HEARTBEAT_OK · STATUS_PAGE=DEGRADED`
+Heartbeat run complete.
 
 ## Summary
 
-Heartbeat ran at 2026-07-19 ~09:21Z. Every P0/P1/P2/P3 finding was either DEDUP'D against the last 48h of logs or below flag threshold, so **no notification** was sent.
+**Status:** `HEARTBEAT_DEGRADED · STATUS_PAGE=DEGRADED`
 
-**Findings (all suppressed):**
-- **P0** — 0 failed, 0 stuck (>45min dispatched), 0 skills with `cf ≥ 3`. Self-check OK (last heartbeat 25h ago). 38 chronic failures — full ISS-001 OAuth residue (day 29), deferred close per MEMORY.md.
-- **P1** — 0 open PRs, 0 urgent issues.
-- **P2** — no new MEMORY.md follow-ups.
-- **P3** — `ai-framework-watch` + `run-frequency-guard` (9th day never-dispatched), `stale-content-pr-sweeper` (~105h stale vs 48h threshold, extends 07-18's fresh 3-day flag to 4). All already logged in the 48h window.
+**P0 findings:**
+- 0 failed, 0 stuck, 0 live degradation (`cf ≥ 3`).
+- 38 chronic-failure skills — all ISS-001 OAuth-burn residue (denominator burn-down, day 32).
+- **Self-check FAILED**: heartbeat `last_success = 2026-07-19T09:25Z` → 71h stale (>36h threshold). Today's automated 08:00Z dispatch missed.
 
-**Status page regenerated** at `docs/status.md` — verdict **🔴 DEGRADED** (chronic-failures P0 flag fires page-level rule regardless of dedup). 44 skill rows sorted by last-run desc, 17 open issues, next scheduled run `pr-triage at 09:30 UTC`. Token pulse section omitted (no `articles/token-report-*.md` exists).
+**P1/P2:** Clean — 0 stalled PRs, 0 urgent issues, MEMORY items all in last-48h logs.
 
-**Files modified:** `docs/status.md`, `memory/logs/2026-07-19.md`.
+**P3 novel:** 3-day dispatch gap in 08:00 UTC pocket — `batch-health`, `heartbeat`, `skill-freshness`, `gitlawb-fleet-metrics` all last_success 2026-07-19 09:20-33Z. Escalates MEMORY.md line 7's 2-day observation. `ai-framework-watch` + `run-frequency-guard` still never-dispatched (12th day).
+
+**Actions taken:**
+- Notification queued at `.pending-notify/1784711601-heartbeat.md` — state-progression override on 48h dedup (escalating dispatcher outage justifies notify).
+- `docs/status.md` regenerated wholesale: 🔴 DEGRADED, 17 open issues, next run `pr-triage at 09:30 UTC`, 44 skills sorted by last_success DESC. Token pulse section omitted (no `articles/` dir).
+- Logged to `memory/logs/2026-07-22.md`.
+
+**Follow-up:** if today's 09:00Z pocket (issue-triage / github-monitor / fleet-control) also misses, dispatcher outage widens beyond the 08:00 pocket — will be next heartbeat's novel signal.
