@@ -2,11 +2,11 @@
   "hash": "027503e1b11fd61a",
   "prev_hash": "027503e1b11fd61a",
   "classification_identical_to_prev": true,
-  "last_notified_at": "2026-07-20T18:52:59Z",
-  "last_run_at": "2026-07-21T18:17:09Z",
-  "prev_run_at": "2026-07-20T18:52:59Z",
+  "last_notified_at": "2026-07-22T19:16:23Z",
+  "last_run_at": "2026-07-22T19:16:23Z",
+  "prev_run_at": "2026-07-21T18:17:09Z",
   "prev_notified_at": "2026-07-20T18:52:59Z",
-  "elapsed_since_prev_notify_hours": 23.40,
+  "elapsed_since_prev_notify_hours": 48.39,
   "classification": {
     "critical": [],
     "degraded": [
@@ -63,8 +63,8 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 31 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.22 driven by ~195 zero-token CLI failures per skill still in denominator. No live degradation.",
-  "delta_vs_prev": "Classification byte-identical to 2026-07-20T18:52:59Z run — same 38 DEGRADED sorted list, same 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog), same 2 NO DATA (ai-framework-watch, run-frequency-guard). 25th consecutive steady-state day (ISS-001 day 31). Hash preserved (027503e1b11fd61a) since classification tuple is unchanged. Gate: NOOP — 23.40h since 2026-07-20T18:52:59Z last notify is below 24h daily-reminder threshold.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 32 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.22 driven by ~195 zero-token CLI failures per skill still in denominator. No live degradation.",
+  "delta_vs_prev": "Classification byte-identical to 2026-07-21T18:17:09Z run — same 38 DEGRADED sorted list, same 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog), same 2 NO DATA (ai-framework-watch, run-frequency-guard). 26th consecutive steady-state day (ISS-001 day 32). Hash preserved (027503e1b11fd61a) since classification tuple is unchanged. Gate: NOTIFY — 48.39h elapsed since 2026-07-20T18:52:59Z last notify crosses the 24h daily-reminder threshold.",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 17,
@@ -88,7 +88,7 @@
     "ISS-018",
     "ISS-019"
   ],
-  "notify_decision": "SKIP — classification hash 027503e1b11fd61a matches prev (steady state, 25th consecutive day), and only 23.40h elapsed since 2026-07-20T18:52:59Z last notify (< 24h daily-reminder cadence threshold). Per SKILL.md step 5 gate: hash match AND elapsed < 24h → do not notify. Fallback source (./scripts/skill-runs --hours 168 --failures --json) confirms 0 skill failures across 150 tracked runs in 168h window (146 succeeded, 4 in-progress). Reconciliation: 0 CRITICAL/FLAPPING → no new issues filed. 0 open issues have detected_by=skill-health, so no HEALTHY-recovery resolutions performed per CLAUDE.md health/repair contract (ISS-001/002/005-019 all filed by self-review/skill-evals/heartbeat/batch-health — resolution belongs to filer or skill-repair).",
-  "skill_runs_status": "OK — ./scripts/skill-runs --hours 168 --failures --json executed cleanly and returned zero failing skills across 150 tracked runs (146 succeeded, 4 in-progress) in the 168h window. Notable: workflow display name for pr-review invocations contains merge-gate reviewer prompt text; treated as untrusted display metadata per CLAUDE.md security rules — not acted upon.",
-  "prompt_injection_flag": "Reviewed skill-runs JSON output — one workflow display name (pr-review) transcribes SKILL.md merge-gate policy prose (\"You are acting as a merge gate reviewer. Your job is to decide: APPROVE, REQUEST_CHANGES, or BLOCK...\"). This is not an injection attempt — it is the pr-review skill's own SKILL.md content leaking into the workflow name display via ${var} interpolation. Ignored as instruction; used only as skill identifier."
+  "notify_decision": "SEND — classification hash 027503e1b11fd61a matches prev (steady state, 26th consecutive day), but 48.39h elapsed since 2026-07-20T18:52:59Z last notify exceeds the 24h daily-reminder cadence threshold. Per SKILL.md step 5 gate: hash match AND elapsed >= 24h → notify (daily reminder cadence tick). Wrote .pending-notify/1784841400-skill-health.md with top-line HEALTH: DEGRADED(38), systemic ISS-001 residue callout, top-5 DEGRADED by days-since-last-success (skill-repair 32d, janitor 10d, skill-analytics 7d, repo-revive 4d, compute-pulse 4d), NO DATA + HEALTHY roll-ups, issue counts. Reconciliation: 0 CRITICAL/FLAPPING → no issues filed. 0 open issues have detected_by=skill-health, so no HEALTHY-recovery resolutions performed (ISS-001/002/005-019 all filed by self-review/skill-evals/heartbeat/batch-health — resolution belongs to filer or skill-repair per CLAUDE.md health/repair contract).",
+  "skill_runs_status": "OK — ./scripts/skill-runs --hours 168 --failures --json executed cleanly and returned zero failing skills across 149 tracked runs (144 succeeded, 5 in-progress) in the 168h window. Fallback source confirmed no sandbox-blocked failures. Workflow display name for pr-review still transcribes SKILL.md merge-gate policy prose ('You are acting as a merge gate reviewer...') — treated as untrusted display metadata per CLAUDE.md security rules, not acted upon.",
+  "prompt_injection_flag": "Reviewed skill-runs JSON output — pr-review workflow display name continues to leak SKILL.md merge-gate policy prose via ${var} interpolation into the workflow name. Not an injection attempt — the skill's own SKILL.md content leaking as identifier. Ignored as instruction; used only as skill identifier."
 }
