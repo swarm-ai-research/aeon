@@ -1,25 +1,14 @@
+`notegraph: no meaningful change vs HEAD, skipping PR + notify`
+
 ## Summary
 
-Executed the `notegraph` skill for 2026-07-18.
+Ran the `notegraph` skill on 2026-07-22.
 
-**Fingerprint change:** `96720fb9…` → `dfe80295…` (2nd consecutive day of input change; 166 → 173 md files scanned since 07-17).
+- **Step 1** — Fingerprint moved (`dfe80295…` state, from 07-18 → `f600f07f…` today), so the gate didn't short-circuit; the extractor ran.
+- **Step 2** — `node scripts/notegraph.mjs` produced `184 nodes · 1337 hard · 479 soft · 1 orphans · 0 bundled` (atomic=46).
+- **Step 3** — After popping `generatedAt`, the regenerated `notegraph.json` is **byte-identical** to `HEAD:notegraph.json`. All four generated files differed from HEAD only in the embedded timestamp. Took the "extractor output deterministic" silent-exit branch.
+- **Steps 4–5** — Skipped (no PR, no notify, no branch push). Restored the four generated files to HEAD via `git checkout HEAD -- …`, and advanced `memory/state/notegraph.json` to today's fingerprint + real stats (previous state was stale — a prior run had regenerated the graph files without updating state).
 
-**Extractor output:** 172 nodes · 1243 hard · 474 soft · 1 orphan · 44 atomic · 0 bundled (edges 1717).
-
-**Delta vs HEAD** (`notegraph.json` at `5366264`): +1 node, +7 edges, 0 orphans, 0 bundled, +1 atomic.
-
-**New node:** `memory/notes/probes-for-messages-yml-must-dispatch-outside-messages-yml.md` — atomic, landed well-wired (inDeg 2, outDeg 5) on first appearance. This is the note underpinning yesterday's planner rank-2 (draft ISS-020 for `enabled-skills-can-never-dispatch`) — the natural-experiment silencing pattern is now formally in the graph.
-
-**Verdict:** `+1 notes wired in` — priority rule #3 (node_delta>0 && orphan_delta<=0 && bundled_delta<=0). Not bland → **notify fires**.
-
-**PR:** Branch `notegraph/2026-07-18` pushed to origin; `gh pr create` failed 403 as expected per `github-actions-cannot-create-prs`. **Staged branch queue: 15 → 16.** Operator unblock path unchanged: Settings → Actions → General → Workflow permissions → "Allow GitHub Actions to create and approve pull requests".
-
-**Files modified:**
-- `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html` (committed on `notegraph/2026-07-18` branch, pushed)
-- `memory/state/notegraph.json` (working tree on main — for auto-commit sweep)
-- `memory/logs/2026-07-18.md` (working tree on main — for auto-commit sweep)
-- `.pending-notify/1784355869-notegraph.md` (queued for postprocess-notify sweep)
-
-**Exit mode:** `NOTEGRAPH_OK`.
-
-**Follow-up:** Same as 07-17 — operator toggle the Actions PR permission (one-checkbox unblock for 16 staged branches). Streak-3 escalation on `verify-repo-settings-toggle-vs-pat` fires today if scheduled probes stay silent.
+**Files modified:** `memory/state/notegraph.json`, `memory/logs/2026-07-22.md`.
+**Exit mode:** effectively `NOTEGRAPH_NO_CHANGE` (via step 3's deterministic-output check rather than step 1's fingerprint gate).
+**Follow-up:** none. Tomorrow's run will short-circuit at step 1 if no md files change.

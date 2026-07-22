@@ -1,43 +1,33 @@
 {
-  "input_fingerprint": "dfe80295c71ed991fa8740c13ce660edfe013e48",
-  "last_run": "2026-07-18",
+  "input_fingerprint": "f600f07fc3af6355f9515e0ca5100f40fd6a64dc",
+  "last_run": "2026-07-22",
   "stats": {
-    "nodes": 172,
-    "edges": 1717,
-    "hard": 1243,
-    "soft": 474,
+    "nodes": 184,
+    "edges": 1816,
+    "hard": 1337,
+    "soft": 479,
     "orphans": 1,
-    "atomic": 44,
+    "atomic": 46,
     "bundled": 0
   },
-  "last_verdict": "+1 notes wired in",
+  "last_verdict": "no meaningful change (extractor deterministic vs HEAD)",
   "last_pr": "",
-  "last_branch": "notegraph/2026-07-18",
-  "branch_url": "https://github.com/swarm-ai-research/aeon/pull/new/notegraph/2026-07-18",
-  "pr_creation_blocked": "GitHub Actions is not permitted to create or approve pull requests",
+  "last_branch": "",
   "delta_vs_head": {
-    "nodes": 1,
-    "edges": 7,
-    "hard": 5,
-    "soft": 2,
+    "nodes": 0,
+    "edges": 0,
+    "hard": 0,
+    "soft": 0,
     "orphans": 0,
     "bundled": 0,
-    "atomic": 1
+    "atomic": 0
   },
-  "new_nodes": [
-    {
-      "id": "memory/notes/probes-for-messages-yml-must-dispatch-outside-messages-yml.md",
-      "title": "probes-for-messages-yml-must-dispatch-outside-messages-yml",
-      "inDegree": 2,
-      "outDegree": 5,
-      "atomic": true
-    }
-  ],
+  "new_nodes": [],
   "orphans": ["docs/telegram-instant.md"],
   "new_orphans": [],
   "resolved_orphans": [],
   "new_bundled": [],
   "resolved_bundled": [],
-  "notify_suppressed": false,
-  "note": "2026-07-18: Fingerprint moved (96720fb9… -> dfe80295…) — 7 new md files scanned (166 -> 173 total) since 07-17's Node walker snapshot. Extractor produced 172n/1717e/1243h/474s/1o/44a/0b vs HEAD 171n/1710e/1238h/472s/1o/43a/0b: +1 node, +7 edges, orphans held at 1 (docs/telegram-instant.md unchanged), bundled held at 0. The new node is the atomic memory/notes/probes-for-messages-yml-must-dispatch-outside-messages-yml.md — landed well-wired on first appearance (inDegree 2, outDegree 5), no orphan penalty. Verdict priority hit rule #3 (node_delta>0 && orphan_delta<=0 && bundled_delta<=0) → `+1 notes wired in`, not the bland `graph refreshed (…)` form → notify fires. Branch notegraph/2026-07-18 pushed; PR create failed with expected 403 per [[github-actions-cannot-create-prs]] (16th staged branch in the queue — was 15 in yesterday's snapshot). Operator unblock path unchanged from 07-16 planner reframe: Settings → Actions → General → Workflow permissions → 'Allow GitHub Actions to create and approve pull requests' (one checkbox)."
+  "notify_suppressed": true,
+  "note": "2026-07-22: Input fingerprint moved (dfe80295… → f600f07f…) — new md files landed since the 07-18 state snapshot, so step 1's fingerprint gate did NOT short-circuit and the extractor ran. But the previous state's stats (172n/1717e/44a) were themselves stale vs HEAD; HEAD:notegraph.json had already been regenerated to 184n/1816e/46a in a prior run. Today's extractor produced identical content — only generatedAt timestamp differs vs HEAD (verified via json compare after popping generatedAt: IDENTICAL). This is the 'extractor output deterministic' branch in step 3 → silent exit, no PR, no notify. Working tree restored to HEAD for notegraph.json + docs/notegraph.md + docs/notegraph.html so no dirty timestamp-only files sit around. Orphans held at 1 (docs/telegram-instant.md), bundled held at 0. Advancing the input_fingerprint to f600f07f so tomorrow's run short-circuits at step 1 if no md files change."
 }
