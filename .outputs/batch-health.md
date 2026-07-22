@@ -1,19 +1,16 @@
-Batch health audit complete for 2026-07-19.
-
 ## Summary
 
-**Verdict: WARN** — 1 of 6 expected skills missed the 06:00–07:30 UTC window.
+Ran `batch-health` audit for 2026-07-22 (Wed, DOM=22 even).
 
-**Expected list (Sun 2026-07-19, DOM=19 odd):** planner, compute-futures-eda, compute-macro-correlate, skillpacks, config-validator, swarm-safety-eval
+**Result: WARN** — 1 miss in the 06:00–07:30 UTC window.
 
-**Ran on cadence (5/6):** planner 07:14:49Z, compute-macro-correlate 07:14:52Z, compute-futures-eda 07:14:55Z, config-validator 07:14:58Z, skillpacks 07:15:01Z — all success, clustered in a 12-second delivery burst.
+**Expected (4):** planner (06:30 daily), memory-flush (06:00 even DOM), memory-structural-dedupe (06:10 even DOM), compute-futures-eda (06:00 daily).
 
-**Missing (1):** `swarm-safety-eval` (schedule `30 7 * * 0`) — no run in `./scripts/skill-runs --hours 26`. Slot sits near the ISS-006 delivery-pocket band; single miss is WARN by rule.
+**Actual:** memory-flush, memory-structural-dedupe, and compute-futures-eda all delivered in the 06:16Z burst per `scripts/skill-runs`. **Planner missed** — cron-state shows last dispatch 2026-07-21T07:19:09Z.
 
-**No issue filed** — WARN threshold; ISS filing only fires at 3+.
+**Actions:**
+- Notification queued to `.pending-notify/1784711487-batch-health.md` (WARN format per SKILL.md).
+- Log entry appended to `memory/logs/2026-07-22.md`.
+- No issue filed (1 miss is below the OUTAGE 3+ threshold).
 
-**Files:**
-- `.pending-notify/1784452853-batch-health.md` — notification queued for post-process dispatch (direct write per broken `-f` flag)
-- `memory/logs/2026-07-19.md` — Batch Health block appended with full tally
-
-**Follow-up:** Re-check next Sunday to see if the 07:30 slot miss for swarm-safety-eval repeats — if it does, it's structural and a candidate for the ISS-020 scope widening already queued in the planner's ranked #2.
+**Side signal for MEMORY.md:** batch-health and heartbeat both fired today at ~09:08Z (delayed but delivered), breaking the 07-19/07-20/07-21 3-day dispatch gap flagged in MEMORY.md line 7. Files modified: `memory/logs/2026-07-22.md`, `.pending-notify/1784711487-batch-health.md` (new).
