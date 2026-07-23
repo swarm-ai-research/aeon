@@ -1,0 +1,122 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "surplus pulse"
+      },
+      "children": [
+        "meta_stack",
+        "separator1",
+        "stats_stack",
+        "separator2",
+        "status_stack"
+      ]
+    },
+    "meta_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "date_text",
+        "operation_text"
+      ]
+    },
+    "date_text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-07-23",
+        "variant": "caption"
+      }
+    },
+    "operation_text": {
+      "type": "Text",
+      "props": {
+        "text": "catalog run",
+        "variant": "caption"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stats_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "anchor_stat",
+        "move_stat"
+      ]
+    },
+    "anchor_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Anchor Llama 4 Scout",
+        "value": "0.0764/M"
+      }
+    },
+    "move_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Top move H100 reserve R30",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "status_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "rail_group",
+        "condition_text"
+      ]
+    },
+    "rail_group": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "rail_text",
+        "confirmed_badge"
+      ]
+    },
+    "rail_text": {
+      "type": "Text",
+      "props": {
+        "text": "x402 Base/USDC rail"
+      }
+    },
+    "confirmed_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "confirmed"
+      }
+    },
+    "condition_text": {
+      "type": "Text",
+      "props": {
+        "text": "net tightening"
+      }
+    }
+  }
+}
