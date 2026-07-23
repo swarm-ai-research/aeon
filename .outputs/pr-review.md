@@ -1,21 +1,24 @@
 ## Summary
 
-pr-review on `swarm-ai-research/swarm` under merge-gate policy. Queue non-empty for the first time in 5 days: 5 open PRs, 4 dependabot-skipped, 1 human PR reviewed.
+Executed `skills/pr-review/SKILL.md` for `swarm-ai-research/swarm`. 5 open PRs — 4 dependabot bots skipped, swarm#536 (rsavitt, "Fold beta_swarm") reviewed at HEAD `76e6200c`.
 
-**swarm#536** (`rsavitt`, "Fold beta_swarm (distributional generalization) into the repo", +6699/-27 across 54 files, HEAD `76e6200c`) →
-- **Verdict: REQUEST_CHANGES**
-- **Confidence: 3/5**
+**Verdict: REQUEST_CHANGES · Confidence 2/5**
 
-**Evidence**: lint / type-check (mypy) / invariants / CodeQL / Memory Tests / test (3.10 compat) / test (3.11 compat) all PASSED. Blocking: **quality-gate = FAILURE** because `test (3.12, full)` was CANCELLED at 99% (hung on `test_moltipedia_scenario.py::test_moltipedia_scenario_loads`). The primary-Python full-suite run — the only one that would exercise the 120 new `tests/beta/` tests alongside the pre-existing swarm suite — did not complete on this head.
+Per merge-gate policy — quality-gate check is RED and two reliability safeguards are missing/regressed, no proven critical security break so not BLOCK.
 
-**Findings (4 ISSUE, 0 CRITICAL, 0 NIT):**
-1. `swarm/agentgit/coordination.py:47` — PR body says "purely additive, no swarm/ touched" but 166 lines of unrelated `claim`-subcommand + shared-DB helpers are bundled under a beta_swarm title (bisect + revert hazard).
-2. `.claude/hooks/pre-commit:462` — §6c replaces the always-on shared-checkout tripwire with a marker-conditional gate that silently no-ops if the developer forgets `/claim` (reopens the 2026-07-22 duplicate-work failure mode).
-3. `swarm/agentgit/__main__.py:307` — `cmd_claim` prints `CLAIMED … bead → in_progress` after a best-effort `bd update` whose failure is swallowed (divergent state between claim DB and bead tracker).
-4. `pyproject.toml:63` — new `beta` extra is redundant with `analysis` in CI; document for external `pip install swarm[beta]` consumers.
+**Findings (cap-of-5, all [ISSUE], 0 [CRITICAL], 0 [NIT]):**
+1. `.claude/hooks/pre-commit:461` — old always-on §6c shared-checkout tripwire (fired on ≥3 staged code files with no `SESSION_ID`) replaced by a marker-file-conditional `claim check`. Agents that skip `agentgit claim` bypass the guard — reopens the 2026-07-22 duplicate-work failure mode as opt-in.
+2. `swarm/agentgit/coordination.py:90` — `write_claim_marker` unconditionally overwrites `.agentgit/current-claim.json`; a stale marker from an unreleased prior claim decouples on-disk state from the DB truth the pre-commit gate at `.claude/hooks/pre-commit:463` relies on.
+3. `pyproject.toml:249` — `[tool.coverage.run] source = ["swarm"]` excludes the new 6,000-LOC `beta_swarm/` package. Zero coverage signal for the addition.
+4. **Quality-gate CI = FAILURE** on `76e6200c` — `test (3.12, full)` cancelled at ~99% after `test_moltipedia_scenario_loads` hung ~18 min. No green full-suite signal for the head.
+5. `swarm/agentgit/__main__.py:307` — `cmd_claim` prints `CLAIMED … (marker written; bead → in_progress)` after a `subprocess.run(["bd", "update", …], check=False, capture_output=True)` whose failure is swallowed; if `bd` is missing/errors, the message misleadingly asserts state that never landed.
 
-**Delivery**: Inline comments (`gh api …/pulls/536/comments`) and review body (`gh pr review`) both returned 403 "Resource not accessible by integration" — the app-write block on `swarm-ai-research/swarm` per [[aeon-app-no-write-on-swarm-repo]] persists (9th confirming invocation). Per skill fallback, findings preserved verbatim in `memory/logs/2026-07-23.md`.
+**Post outcome:** inline comments + review-body write both returned `403 Resource not accessible by integration` (per [[aeon-app-no-write-on-swarm-repo]] — 10th confirming invocation). Findings preserved in `memory/logs/2026-07-23.md` per SKILL fallback.
 
-**Files modified**: `memory/logs/2026-07-23.md` (pr-review section appended), `.pending-notify/1784800953-pr-review.md` (new).
+**Dedup note:** same SHA was already reviewed earlier today (log lines 78-107, first-pass verdict REQUEST_CHANGES @ 3/5). Skipped by SKILL dedup rule under normal cadence — ran fresh because operator re-triggered explicitly with identical policy. Confidence dropped 3/5 → 2/5 because two new findings (marker-overwrite, coverage-source gap) surfaced this pass.
 
-**Follow-ups**: (a) 3.12-full cancellation is likely a pre-existing flake — worth a CI rerun on head to disambiguate; (b) provisioning a repo-scoped PAT for swarm-repo write remains the unblock for actually posting these findings; (c) if #536 merges as-is, the pre-commit reliability regression + scope-creep land on main.
+**Notify:** skipped — same-SHA re-review, verdict unchanged from first pass; a second notify would be noise.
+
+**Files modified:** `memory/logs/2026-07-23.md` (delta entry appended).
+
+**Follow-up:** provisioning a swarm-repo PAT unblocks all 10 accumulated pending reviews; the 3.12/full cancellation likely warrants a CI rerun to disambiguate flake vs. beta_swarm-induced regression.
