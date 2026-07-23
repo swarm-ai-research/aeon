@@ -1,12 +1,25 @@
+Done. Here's the summary of what was executed:
+
 ## Summary
 
-Skill-freshness audit complete for 2026-07-22.
+**Verdict: ✅ FRESHNESS_OK** — 0 of 1 audited dependency flagged.
 
-**Verdict: ✅ FRESHNESS_OK → FRESHNESS_NO_CHANGE**
+**What I did:**
 
-- **44 enabled skills** audited; **4 dependencies** tracked (all OK); **0 flagged**
-- All discovered deps (memory/state/planner-state.json, memory/topics/surplus-pulse.md, memory/topics/compute-pulse.md, memory/topics/compute-futures-eda/2026-07-21.md) were committed 2.2h ago — well within their thresholds
-- `articles/` directory is absent, but no enabled consumer has an explicit canonical today-article read on another skill's output, so no MISSING flags triggered
-- Fingerprint matches the 2026-07-19 run (empty flagged set, same SHA1); last run was 3 days ago (< 7-day re-emit window) → **notification suppressed**
-- Files written: `articles/skill-freshness-2026-07-22.md`, `memory/topics/skill-freshness-state.json` (last_run_at updated), `memory/logs/2026-07-22.md` (log appended)
-- Used `git log -1 --format=%ct` for all timestamps per the [[skill-freshness-mtime-blind-in-gha]] fix noted in MEMORY.md
+1. **Parsed `aeon.yml`** — 44 enabled skills, no active `chains:` (all commented out → 0 explicit edges).
+
+2. **Grepped all 44 enabled `SKILL.md` files** for the four path-class patterns. Found references in ~20 skills; filtered out:
+   - Self-state (skill name prefix matches filename) — `planner-state.json`, `surplus-pulse.md`, `compute-pulse.md`, `notegraph.json`, `skillpacks.json`, etc.
+   - Implicit references to files that never existed — 13 total (pr-review-rules.md, watched-repos.md, github-trending.md, framework-watch-state.json, etc.)
+
+3. **One auditable cross-skill dependency survived:**
+   - `pr-tracker` → `memory/topics/pr-status.md` → git age ~2.5h → threshold 168h → **OK**
+
+4. **Dedup check:** fingerprint `da39a3ee` (empty flagged set) matches prior run (2026-07-22). Same verdict. → `FRESHNESS_NO_CHANGE`; no notification sent.
+
+5. **Notable structural finding (non-scoring):** `compute-pulse` last ran 2026-07-18 (~5.9 days ago), approaching its self-managed topic file's 7-day threshold. No cross-skill consumer today, so no flag fires — but worth monitoring if Saturday's run is missed.
+
+**Files written:**
+- `articles/skill-freshness-2026-07-23.md` (new)
+- `memory/topics/skill-freshness-state.json` (updated `last_run_at`, `dependency_count: 1`)
+- `memory/logs/2026-07-23.md` (log entry appended)
