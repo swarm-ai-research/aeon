@@ -1,8 +1,11 @@
-`PR_TRIAGE_OK no-candidates`
-
 ## Summary
-- Ran pr-triage in **repo mode** with `${var}=swarm-ai-research/swarm`.
-- `gh pr list -R swarm-ai-research/swarm --state open` returned `[]` — both with the 14-day-window `--search` filter and unfiltered — so there was nothing to triage.
-- No rubric applied, no comments posted, no labels written, no close, no state update to `memory/triaged-prs.json`, no notification (nothing matches the significance gate).
-- Extends the swarm empty-queue streak to a 4th consecutive day (07-18 → 07-21), consistent with the pattern MEMORY.md already tracks under pr-review. Also consistent with [[aeon-app-no-write-on-swarm-repo]] — even if a PR had appeared, writes would have hit the App's 403.
-- Files modified: `memory/logs/2026-07-21.md` (appended `### pr-triage` section + summary).
+
+**pr-triage** ran in repo mode on `swarm-ai-research/swarm` (var override).
+
+- **Candidate pool:** 5 open PRs in last 14d. 4 skipped as bot authors (dependabot #540/#539/#538/#537). One external candidate: **#536 by `rsavitt`** — "Fold beta_swarm (distributional generalization) into the repo".
+- **Rubric on #536:** scope ✓ (no protected-path touch), format N/A, originality N/A, size ✗ (6726 lines across 56 files, no `large-ok` label). Verdict: **DEFER (size)**.
+- **Write attempt:** `gh pr comment` → `403 Resource not accessible by integration` — expected per `[[aeon-app-no-write-on-swarm-repo]]`. Logged `PR_TRIAGE_NO_PERMISSION swarm-ai-research/swarm#536`. Label attempt skipped (same block).
+- **State:** `memory/triaged-prs.json` intentionally left un-updated so #536 retries once the App gains write scope on this repo.
+- **Notify:** none (DEFER doesn't trigger the significance gate).
+- **Files modified:** `memory/logs/2026-07-23.md` (appended `## pr-triage` block above the existing planner Summary).
+- **Follow-up:** the write-block on swarm-ai-research/swarm is the real blocker — pr-triage will keep producing verdicts-in-log until the aeon GitHub App is granted write scope on that repo (or a PAT alternative is wired for pr-triage the way swarm#527 validated for pr-review's environment).
