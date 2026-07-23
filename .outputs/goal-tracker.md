@@ -1,19 +1,20 @@
+Notification is already queued at `.pending-notify/1784832522-goal-tracker.md` — the workflow's postprocess step will pick it up (direct write pattern per `[[notify-inline-cat-substitution-blocked-in-sandbox]]`, so the `./notify $(cat …)` call was correctly rejected by the sandbox).
+
 ## Summary
 
-Executed goal-tracker for 2026-07-22 (Wed) with `${var}` empty → tracked all 19 goals from MEMORY.md `## Next priorities` (SKILL.md fallback — no `## Goals` section exists).
+Executed the goal-tracker skill against `memory/MEMORY.md`'s `## Next priorities` fallback (no `## Goals` header exists) — 19 goals parsed.
 
-**Results:**
-- **16 ON TRACK, 3 BLOCKED, 0 at risk / needs attention / done** (overall → flat; 1 improving, 1 new)
-- **Trend vs 2026-07-21 snapshot:** 15 flat, 1 improving (`close-iss-007-or-add-same-day-grace-window-to-skill-evals` activity 5 → 12, +140%), 1 new (`investigate-batch-health-and-heartbeat-dispatch-gap`), 3 blocked unchanged
-- **BLOCKED goals** all share the same [[github-actions-cannot-create-prs]] meta-blocker (26d): operator PAT provisioning, ISS-006 messages.yml patch, pr-tracker 5-part batch. One action proposed per blocker (all point at the Settings toggle / `AEON_GH_PAT` unblock path).
+**Verdict: flat vs 07-22 snapshot.** No status transitions.
+- **16 ON TRACK** — every remaining goal has ≥4 mentions in last 14d and ≤6d idle.
+- **3 BLOCKED (unchanged):** `operator-pat-provisioning`, `iss-006-fix-*`, `patch-pr-tracker-skill-md` — all three chained to the `[[github-actions-cannot-create-prs]]` meta-blocker. Single unblock (repo Settings toggle OR operator PAT) would release all three.
+- **1 new goal added:** `investigate-planner-06-30z-miss` (replaces yesterday's `investigate-batch-health-and-heartbeat-dispatch-gap` — dropped off MEMORY after the 08:00Z pair late-recovered on 07-22).
+- **No DONE signals** — ISS-008 still ON TRACK pending skill-evals rescan (rule: no completion signal → don't mark done).
 
-**Files:**
-- `memory/goal-state.json` — overwritten with today's 19-goal snapshot (run_at 2026-07-22T13:17:35Z)
-- `.pending-notify/1784747855-goal-tracker.md` — notification queued via direct write
-- `memory/logs/2026-07-22.md` — appended `### goal-tracker` block + summary
+**Files modified:**
+- `memory/goal-state.json` — updated snapshot, `run_at=2026-07-23T18:48:42Z`, 19 goal entries.
+- `.pending-notify/1784832522-goal-tracker.md` — formatted report (workflow postprocess will fan out to configured channels).
+- `memory/logs/2026-07-23.md` — appended `## goal-tracker` section.
 
-**MEMORY.md** not modified — no status transitions since prior run (SKILL.md §7 rule); blocker annotations already present in-line.
+**MEMORY.md write skipped** per skill rule (no status transition since last run).
 
-**Sources:** logs=ok (30d), git=degraded (shallow-1-commit), gh_pr=empty, gh_issue=empty, cron-state=ok — log evidence carried the run per SKILL.md graceful-degradation rule.
-
-**Follow-ups:** (a) ISS-006 Day-3 close-eligibility lands Thu 2026-07-24 if the 08:00Z pocket delivers; (b) `close-iss-007` improving trend suggests skill-evals is landing fresh evidence — worth watching; (c) if 08:00Z batch-health/heartbeat pair delivers overnight, the new dispatch-gap goal may become close-eligible next run.
+**Follow-ups:** the single highest-leverage action across all three BLOCKED goals is the operator Settings toggle / PAT provisioning — flipping it clears the entire blocked cohort; per today's planner it's holding at streak-4 with new-staged-branch trigger technically met.
