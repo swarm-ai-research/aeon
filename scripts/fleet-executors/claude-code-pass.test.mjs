@@ -487,4 +487,58 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. git add -A failure — claude creates an unreadable file, causing git add
+//     to fail with a permission error. Verifies the `if (!addR.ok)` branch:
+//     cleanup(true) must delete the branch and remove the worktree.
+{
+  const CLAUDE_UNREADABLE_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+touch "$(pwd)/unreadable.bin"
+chmod 000 "$(pwd)/unreadable.bin"
+echo "created an unreadable file"
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_UNREADABLE_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "gh should not be called" >&2\nexit 99\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "addfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git add failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after add failure");
+    // Branch must be deleted (cleanup(true) path).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted after git add failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git add failure (unreadable file) → ok:false, worktree and branch cleaned up");
+}
+
+// 18. gh pr create succeeds with non-URL stdout — exercises the `|| pr.stdout.trim()`
+//     fallback on line 248 of claude-code-pass.mjs. When the gh stub returns a
+//     plain message rather than an https:// URL, prUrl is set to the trimmed text.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "PR #99 created successfully"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourlpr" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    // No https:// in gh output → falls back to pr.stdout.trim()
+    assert.equal(result.prUrl, "PR #99 created successfully");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create returns non-URL stdout → prUrl falls back to pr.stdout.trim()");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
