@@ -1,0 +1,174 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-07-22",
+        "description": "Widest outlier surface in 14-filing window"
+      },
+      "children": [
+        "overview-stack",
+        "sep1",
+        "high-alerts",
+        "sep2",
+        "medium-alert",
+        "sep3",
+        "detailed-findings",
+        "sep4",
+        "report-link"
+      ]
+    },
+    "overview-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-rows",
+        "stat-modes",
+        "stat-severity"
+      ]
+    },
+    "stat-rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      }
+    },
+    "stat-modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "stat-severity": {
+      "type": "Stat",
+      "props": {
+        "label": "Alerts",
+        "value": "3 HIGH + 1 MEDIUM"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "high-alerts": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert-1",
+        "alert-2",
+        "alert-3"
+      ]
+    },
+    "alert-1": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "basket realizedAbs: 25%",
+        "message": "First-ever ≥ 10%"
+      }
+    },
+    "alert-2": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "spread maxSpot: 25%",
+        "message": "Up from 8.33% yesterday"
+      }
+    },
+    "alert-3": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "synth maxCurve: 25%",
+        "message": "Recurring column, first at 25%"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "medium-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "basket maxCurve: 16.67%",
+        "message": "MEDIUM severity"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "detailed-findings": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "finding-1",
+        "finding-2",
+        "finding-3",
+        "finding-4"
+      ]
+    },
+    "finding-1": {
+      "type": "Text",
+      "props": {
+        "text": "Yesterday's exact-duo (basket settlementLegs + spread minSpot) both collapse to 0% — rotation-not-persistence holds",
+        "variant": "body"
+      }
+    },
+    "finding-2": {
+      "type": "Text",
+      "props": {
+        "text": "First |r| ≥ 0.8 pair in 8 runs: synth/x402 maxSpot × minCurve = −0.823",
+        "variant": "body"
+      }
+    },
+    "finding-3": {
+      "type": "Text",
+      "props": {
+        "text": "Conservation OK every mode; schema intact",
+        "variant": "body"
+      }
+    },
+    "finding-4": {
+      "type": "Badge",
+      "props": {
+        "text": "Status: Schema Validated",
+        "variant": "secondary"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-07-22.md",
+        "source": "Aeon Memory"
+      }
+    }
+  }
+}
