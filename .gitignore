@@ -58,5 +58,7 @@ node_modules/
 .vuln-scan-workspace/
 
 # Stray local audit/debug artifacts (never commit)
+# NOTE: .audit-bin/ is intentionally committed — it holds pre-built zizmor + actionlint
+# binaries for workflow-security-audit so GHA runners don't need outbound PyPI/curl.
 .audit-tmp/
 .audit*.py

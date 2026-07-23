@@ -353,6 +353,8 @@ scripts/
   skill-runs             ← audit recent GitHub Actions skill runs
   sync-site-data.sh      ← sync memory/logs to docs site data
   memory-checkpoint.sh   ← git-backed memory snapshots (rollback/fork; see docs/memory-checkpoints.md)
+.audit-bin/              ← committed pre-built binaries for workflow-security-audit (zizmor + actionlint)
+                           used as primary source on GHA runners where outbound PyPI/curl may be blocked
 .github/workflows/
   aeon.yml               ← skill runner (workflow_dispatch, issues, quality scoring)
   chain-runner.yml       ← skill chain executor (parallel + sequential pipelines)

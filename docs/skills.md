@@ -6,7 +6,7 @@ permalink: /skills/
 
 # Skills
 
-Aeon ships with 50+ skills. Each skill is a self-contained markdown instruction file in `skills/<name>/SKILL.md`. Enable any skill in `aeon.yml` and it runs on schedule.
+Aeon ships with 121 skills across 6 categories. Each skill is a self-contained markdown instruction file in `skills/<name>/SKILL.md`. Enable any skill in `aeon.yml` and it runs on schedule.
 
 Install any skill into your own agent:
 ```bash
