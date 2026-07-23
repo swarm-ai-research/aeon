@@ -239,4 +239,63 @@ describe("gateRequest (env-driven wrapper)", () => {
     });
     assert.equal(result, null);
   });
+
+  it("accepts a same-origin DELETE via Referer (used by /api/secrets DELETE)", () => {
+    const result = gateRequest({
+      method: "DELETE",
+      headers: headers({ host: "localhost:5555", referer: "http://localhost:5555/settings" }),
+    });
+    assert.equal(result, null);
+  });
+
+  it("rejects a DELETE with no Origin/Referer", async () => {
+    const result = gateRequest({
+      method: "DELETE",
+      headers: headers({ host: "localhost:5555" }),
+    });
+    assert.ok(result instanceof Response);
+    assert.equal(result!.status, 403);
+    const body = await result!.json();
+    assert.equal(body.error, "Cross-origin write rejected");
+  });
+});
+
+describe("isSameOriginWrite (non-POST write methods)", () => {
+  it("DELETE with same-origin Origin passes", () => {
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({ origin: "http://localhost:5555" })),
+      true,
+    );
+  });
+  it("DELETE with cross-origin Origin fails", () => {
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({ origin: "http://attacker.example" })),
+      false,
+    );
+  });
+  it("PUT with same-origin Referer passes", () => {
+    assert.equal(
+      isSameOriginWrite("PUT", headers({ referer: "http://127.0.0.1:5555/page" })),
+      true,
+    );
+  });
+  it("PATCH with no Origin/Referer is rejected", () => {
+    assert.equal(isSameOriginWrite("PATCH", headers({})), false);
+  });
+  it("allowAny=true bypasses even with no headers on a POST", () => {
+    assert.equal(isSameOriginWrite("POST", headers({}), { allowAny: true }), true);
+  });
+});
+
+describe("isAllowedHost (undefined input)", () => {
+  it("rejects undefined host", () => {
+    assert.equal(isAllowedHost(undefined), false);
+  });
+});
+
+describe("parseAllowedHosts (empty segments)", () => {
+  it("skips blank entries produced by consecutive commas", () => {
+    const set = parseAllowedHosts("host-a,,, host-b");
+    assert.deepEqual([...set].sort(), ["host-a", "host-b"]);
+  });
 });
