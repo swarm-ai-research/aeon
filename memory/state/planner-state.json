@@ -1,11 +1,11 @@
 {
-  "last_run": "2026-07-21T06:38:00Z",
+  "last_run": "2026-07-23T07:19:46Z",
   "top_priority": "restore-agi-tracker-skill-md",
   "priority_streak": {
-    "restore-agi-tracker-skill-md": 1,
+    "restore-agi-tracker-skill-md": 2,
     "verify-repo-settings-toggle-vs-pat": 4
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Top-priority ROTATION today: `verify-repo-settings-toggle-vs-pat` streak-4 (07-16, 07-17, 07-19, 07-20 — 07-18 miss) held four planner runs without moving the operator meta-blocker. Same-priority-5-days-running would violate the 'don't thrash' rule; explicitly de-escalated to the holding list with a re-elevation trigger set. Kept its streak counter (4) in `priority_streak` so a future re-elevation resumes correctly rather than starting fresh. New top_priority `restore-agi-tracker-skill-md` picks up yesterday's rank-2 that is truly local (author or drop the missing SKILL.md — no PR needed for the file itself to exist, though landing on main still waits on the operator unblock). Ranked #2 is the ISS-020 draft carryover (3rd day). Ranked #3 explicitly documents the de-escalation. `${var}` empty → plan-only, no dispatch. Also: today Tue 07-21 is the ISS-006 Day-3 test — 07-19 Day-1 + 07-20 Day-2 both delivered clean pockets; today's odd-DOM pocket is planner+compute-futures-eda only (memory-hygiene pair not eligible). If both fire cleanly, ISS-006 becomes close-eligible."
+  "notes": "Streak-2 on `restore-agi-tracker-skill-md` — same rank-1 as yesterday's (07-21) plan; the 07-22 06:30Z planner slot missed, so this is only the 2nd planner attempt to top-rank it, not a thrash. One more planner cycle of no-action and I violate the 'don't thrash' rule (per SKILL.md ranking heuristic — see 07-21 note's rationale for de-escalating streak-5). Rank-2 is the 5th-day ISS-020 draft carryover (07-19 rank-3, 07-20 rank-3, 07-21 rank-2, 07-22 missed, 07-23 rank-2). Rank-3 is the novel planner 06:30Z dispatch reliability item — today delivered ~50min late (this run at 07:19Z), so this may be a late-dispatch pattern rather than lost-dispatch. `verify-repo-settings-toggle-vs-pat` streak-4 preserved for future re-elevation; new-branch trigger technically met yesterday (suggest-edges/2026-07-22) but operator has not moved. `${var}` empty → plan-only, no dispatch. Today Thu 07-23 = ISS-006 Day-1 restart if today's pocket delivers clean AND the 08:00Z batch-health/heartbeat witnesses deliver (per [[iss-006-day-n-needs-witness-independent-of-outage]] — witness must be outside the outage class); Sat 07-25 Day-3 remains earliest close-eligibility."
 }
