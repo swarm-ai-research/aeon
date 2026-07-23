@@ -1,21 +1,12 @@
-Heartbeat run complete.
+Heartbeat 07-23 complete.
 
-## Summary
+**Verdict:** 🔴 DEGRADED · notify SENT
 
-**Status:** `HEARTBEAT_DEGRADED · STATUS_PAGE=DEGRADED`
+- **P0:** 0 failed, 0 stuck, 0 live-degraded (cf≥3); 38 chronic (ISS-001 residue day 33 → triggers DEGRADED); self-check PASS (24.7h stale, under 36h).
+- **P1:** clean — 0 stalled PRs, 0 urgent-labeled issues.
+- **P2:** MEMORY.md `Current focus` fully covered in last-48h logs.
+- **P3 novel:** 08:00Z fleet-watchdog pocket (batch-health / heartbeat / skill-freshness / gitlawb-fleet-metrics) re-missed today — yesterday's ~1h-late auto-recovery didn't hold. This heartbeat is manual, invoked ~2h past cron.
+- **Notify:** `.pending-notify/1784800921-heartbeat.md` (state-progression override on 48h dedup — Day-4 of dispatch-drop pattern, post-recovery instability is a new frame).
+- **Status page:** `docs/status.md` regenerated wholesale (existing file was 44 days stale from 06-09 — confirms [[snapshot-rebase-clobbers-docs-status-md]]). 44 rows, sorted by last_success DESC, `ai-framework-watch` + `run-frequency-guard` at bottom marked `not yet run`. Token pulse omitted (no `articles/` dir). Next scheduled run: `pr-tracker at 10:00 UTC`.
 
-**P0 findings:**
-- 0 failed, 0 stuck, 0 live degradation (`cf ≥ 3`).
-- 38 chronic-failure skills — all ISS-001 OAuth-burn residue (denominator burn-down, day 32).
-- **Self-check FAILED**: heartbeat `last_success = 2026-07-19T09:25Z` → 71h stale (>36h threshold). Today's automated 08:00Z dispatch missed.
-
-**P1/P2:** Clean — 0 stalled PRs, 0 urgent issues, MEMORY items all in last-48h logs.
-
-**P3 novel:** 3-day dispatch gap in 08:00 UTC pocket — `batch-health`, `heartbeat`, `skill-freshness`, `gitlawb-fleet-metrics` all last_success 2026-07-19 09:20-33Z. Escalates MEMORY.md line 7's 2-day observation. `ai-framework-watch` + `run-frequency-guard` still never-dispatched (12th day).
-
-**Actions taken:**
-- Notification queued at `.pending-notify/1784711601-heartbeat.md` — state-progression override on 48h dedup (escalating dispatcher outage justifies notify).
-- `docs/status.md` regenerated wholesale: 🔴 DEGRADED, 17 open issues, next run `pr-triage at 09:30 UTC`, 44 skills sorted by last_success DESC. Token pulse section omitted (no `articles/` dir).
-- Logged to `memory/logs/2026-07-22.md`.
-
-**Follow-up:** if today's 09:00Z pocket (issue-triage / github-monitor / fleet-control) also misses, dispatcher outage widens beyond the 08:00 pocket — will be next heartbeat's novel signal.
+`HEARTBEAT_DEGRADED · STATUS_PAGE=DEGRADED — wrote docs/status.md`
