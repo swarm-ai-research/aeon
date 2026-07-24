@@ -1,11 +1,10 @@
-## Summary
+pr-triage complete on `swarm-ai-research/swarm`.
 
-**pr-triage** ran in repo mode on `swarm-ai-research/swarm` (var override).
+**Verdicts (rubric-computed):**
+- **#543** "docs: remove AI-slop writing patterns" (@rsavitt, +36/-40) → **ACCEPTED** — clean scope (README + docs only), no SKILL touched, ≤500 lines.
+- **#536** "Fold beta_swarm" (@rsavitt, +6699/-27) → **DEFER** — 6726-line size fails auto-triage; not OUT-OF-SCOPE (no protected paths touched), needs maintainer size gate.
+- Skipped: 4 dependabot PRs (#537-#540), bot-authored.
 
-- **Candidate pool:** 5 open PRs in last 14d. 4 skipped as bot authors (dependabot #540/#539/#538/#537). One external candidate: **#536 by `rsavitt`** — "Fold beta_swarm (distributional generalization) into the repo".
-- **Rubric on #536:** scope ✓ (no protected-path touch), format N/A, originality N/A, size ✗ (6726 lines across 56 files, no `large-ok` label). Verdict: **DEFER (size)**.
-- **Write attempt:** `gh pr comment` → `403 Resource not accessible by integration` — expected per `[[aeon-app-no-write-on-swarm-repo]]`. Logged `PR_TRIAGE_NO_PERMISSION swarm-ai-research/swarm#536`. Label attempt skipped (same block).
-- **State:** `memory/triaged-prs.json` intentionally left un-updated so #536 retries once the App gains write scope on this repo.
-- **Notify:** none (DEFER doesn't trigger the significance gate).
-- **Files modified:** `memory/logs/2026-07-23.md` (appended `## pr-triage` block above the existing planner Summary).
-- **Follow-up:** the write-block on swarm-ai-research/swarm is the real blocker — pr-triage will keep producing verdicts-in-log until the aeon GitHub App is granted write scope on that repo (or a PAT alternative is wired for pr-triage the way swarm#527 validated for pr-review's environment).
+**Write outcome:** both `gh pr comment` calls 403'd (`Resource not accessible by integration`), matching [[aeon-app-no-write-on-swarm-repo]] — 11th confirming invocation. Labels skipped. `memory/triaged-prs.json` intentionally left unchanged so a permissions-unblocked re-run can post retroactively. No notification (no OUT-OF-SCOPE; ACCEPTED comment never landed, so no first-PR welcome signal).
+
+**Files modified:** `memory/logs/2026-07-24.md` (log entry).
