@@ -1,0 +1,247 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review",
+        "description": "2026-07-24"
+      },
+      "children": [
+        "summary-section",
+        "separator-1",
+        "pr-section"
+      ]
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-heading",
+        "summary-stats",
+        "skipped-breakdown"
+      ]
+    },
+    "summary-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h3"
+      }
+    },
+    "summary-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-reviewed",
+        "stat-skipped"
+      ]
+    },
+    "stat-reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "1"
+      }
+    },
+    "stat-skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "5"
+      }
+    },
+    "skipped-breakdown": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skipped-label",
+        "skipped-items"
+      ]
+    },
+    "skipped-label": {
+      "type": "Text",
+      "props": {
+        "text": "Skipped breakdown:",
+        "variant": "caption"
+      }
+    },
+    "skipped-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item-drafts",
+        "item-bots",
+        "item-dup-sha",
+        "item-bot-reviewed"
+      ]
+    },
+    "item-drafts": {
+      "type": "Text",
+      "props": {
+        "text": "Drafts: 0",
+        "variant": "body"
+      }
+    },
+    "item-bots": {
+      "type": "Text",
+      "props": {
+        "text": "Bots: 4",
+        "variant": "body"
+      }
+    },
+    "item-dup-sha": {
+      "type": "Text",
+      "props": {
+        "text": "Duplicate SHA: 1",
+        "variant": "body"
+      }
+    },
+    "item-bot-reviewed": {
+      "type": "Text",
+      "props": {
+        "text": "Bot reviewed recently: 0",
+        "variant": "body"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-heading",
+        "pr-card"
+      ]
+    },
+    "pr-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Reviewed PRs",
+        "level": "h3"
+      }
+    },
+    "pr-card": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-link",
+        "pr-status-badges",
+        "pr-stats",
+        "pr-details",
+        "pr-warning"
+      ]
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#543",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/543"
+      }
+    },
+    "pr-status-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-approve",
+        "badge-docs-gates",
+        "badge-quality-gate"
+      ]
+    },
+    "badge-approve": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "badge-docs-gates": {
+      "type": "Badge",
+      "props": {
+        "text": "Docs gates: green",
+        "variant": "default"
+      }
+    },
+    "badge-quality-gate": {
+      "type": "Badge",
+      "props": {
+        "text": "Quality gate: FAILURE",
+        "variant": "destructive"
+      }
+    },
+    "pr-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-critical",
+        "stat-issues",
+        "stat-confidence"
+      ]
+    },
+    "stat-critical": {
+      "type": "Stat",
+      "props": {
+        "label": "Critical issues",
+        "value": "0"
+      }
+    },
+    "stat-issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Issues",
+        "value": "0"
+      }
+    },
+    "stat-confidence": {
+      "type": "Stat",
+      "props": {
+        "label": "Confidence",
+        "value": "4/5"
+      }
+    },
+    "pr-details": {
+      "type": "Text",
+      "props": {
+        "text": "Docs-only prose de-slop (12 .md files)",
+        "variant": "body"
+      }
+    },
+    "pr-warning": {
+      "type": "Alert",
+      "props": {
+        "title": "Write access blocked",
+        "message": "403-blocked (11th invocation of [[aeon-app-no-write-on-swarm-repo]]). Quality gate shows FAILURE due to pre-existing test-3.12-full flake, unrelated to this PR. Review findings preserved in log.",
+        "type": "warning"
+      }
+    }
+  }
+}
