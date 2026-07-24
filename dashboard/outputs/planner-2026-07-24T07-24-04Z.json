@@ -1,0 +1,213 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Planner"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "h-action",
+        "stack-action",
+        "sep1",
+        "h-issue",
+        "stack-issue",
+        "sep2",
+        "h-monitor",
+        "stack-monitor",
+        "sep3",
+        "h-holding",
+        "stack-holding"
+      ]
+    },
+    "h-action": {
+      "type": "Heading",
+      "props": {
+        "text": "Primary Action",
+        "level": "h2"
+      }
+    },
+    "stack-action": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-action-main",
+        "text-action-file",
+        "text-action-reason",
+        "text-action-deadline"
+      ]
+    },
+    "text-action-main": {
+      "type": "Text",
+      "props": {
+        "text": "Calling agi-tracker: set enabled: false",
+        "variant": "lead"
+      }
+    },
+    "text-action-file": {
+      "type": "Text",
+      "props": {
+        "text": "File: aeon.yml:188",
+        "variant": "caption"
+      }
+    },
+    "text-action-reason": {
+      "type": "Text",
+      "props": {
+        "text": "Reason: streak-3 escalation — no more restore-or-drop vagueness",
+        "variant": "body"
+      }
+    },
+    "text-action-deadline": {
+      "type": "Text",
+      "props": {
+        "text": "Deadline: Mon 07-27 is the 4th silent weekly slot if action is not taken",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "h-issue": {
+      "type": "Heading",
+      "props": {
+        "text": "Issue Drafting",
+        "level": "h2"
+      }
+    },
+    "stack-issue": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-issue-main",
+        "badge-ai-framework",
+        "badge-run-frequency",
+        "badge-sweeper"
+      ]
+    },
+    "text-issue-main": {
+      "type": "Text",
+      "props": {
+        "text": "Drafting ISS-020 for the never-dispatched trio:",
+        "variant": "lead"
+      }
+    },
+    "badge-ai-framework": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch: 14d silent",
+        "variant": "outline"
+      }
+    },
+    "badge-run-frequency": {
+      "type": "Badge",
+      "props": {
+        "text": "run-frequency-guard: 14d silent",
+        "variant": "outline"
+      }
+    },
+    "badge-sweeper": {
+      "type": "Badge",
+      "props": {
+        "text": "sweeper miss: 9 days",
+        "variant": "outline"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "h-monitor": {
+      "type": "Heading",
+      "props": {
+        "text": "Active Monitoring",
+        "level": "h2"
+      }
+    },
+    "stack-monitor": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-monitor-window",
+        "text-monitor-trigger"
+      ]
+    },
+    "text-monitor-window": {
+      "type": "Text",
+      "props": {
+        "text": "Watching today's 08:00Z pocket",
+        "variant": "body"
+      }
+    },
+    "text-monitor-trigger": {
+      "type": "Text",
+      "props": {
+        "text": "Trigger: Day-5 of the dispatch-drop pattern",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "h-holding": {
+      "type": "Heading",
+      "props": {
+        "text": "Items on Hold",
+        "level": "h2"
+      }
+    },
+    "stack-holding": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-repo-settings",
+        "badge-pr-tracker"
+      ]
+    },
+    "badge-repo-settings": {
+      "type": "Badge",
+      "props": {
+        "text": "repo-settings toggle",
+        "variant": "secondary"
+      }
+    },
+    "badge-pr-tracker": {
+      "type": "Badge",
+      "props": {
+        "text": "pr-tracker patch",
+        "variant": "secondary"
+      }
+    }
+  }
+}
