@@ -1,0 +1,207 @@
+{
+  "now": "2026-07-24T11:28:10Z",
+  "hash": "5d42d555feea2257",
+  "prev_hash": "85ca269f4eb6c567",
+  "buckets": {
+    "merged_7d": [],
+    "stale_open": [
+      {
+        "repo": "Panniantong/Agent-Reach",
+        "num": 436,
+        "title": "fix(deps): bump yt-dlp, requests, python-dotenv to patch disclosed CVEs",
+        "url": "https://github.com/Panniantong/Agent-Reach/pull/436",
+        "created": "2026-06-26T19:24:30Z",
+        "updated": "2026-07-06T13:32:11Z",
+        "age_d": 27.67,
+        "quiet_d": 17.91
+      }
+    ],
+    "active_open": [
+      {
+        "repo": "ruvnet/RuView",
+        "num": 1409,
+        "title": "fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs)",
+        "url": "https://github.com/ruvnet/RuView/pull/1409",
+        "created": "2026-07-23T23:41:02Z",
+        "updated": "2026-07-23T23:41:02Z",
+        "age_d": 0.49,
+        "quiet_d": 0.49,
+        "comments": 0,
+        "reviews": [],
+        "email": "aeonframework@users.noreply.github.com",
+        "branch": "aeon/dep-bump-ruview-2026-07-23"
+      },
+      {
+        "repo": "jamiepine/voicebox",
+        "num": 958,
+        "title": "fix(deps): bump tauri to >=2.11.1 (GHSA-7gmj-67g7-phm9 / CVE-2026-42184)",
+        "url": "https://github.com/jamiepine/voicebox/pull/958",
+        "created": "2026-07-23T16:34:18Z",
+        "updated": "2026-07-23T18:33:15Z",
+        "age_d": 0.79,
+        "quiet_d": 0.7,
+        "comments": 1,
+        "reviews": [
+          {
+            "state": "COMMENTED",
+            "submittedAt": "2026-07-23T16:36:12Z"
+          }
+        ],
+        "email": "aeonframework@users.noreply.github.com",
+        "branch": "security/bump-tauri-ghsa-7gmj-67g7-phm9"
+      },
+      {
+        "repo": "cocoindex-io/cocoindex",
+        "num": 2315,
+        "title": "fix(deps): bump surrealdb >=3.2.3 to patch quinn-proto DoS (CVSS 7.5) and ammonia XSS",
+        "url": "https://github.com/cocoindex-io/cocoindex/pull/2315",
+        "created": "2026-07-22T15:43:31Z",
+        "updated": "2026-07-23T18:27:21Z",
+        "age_d": 1.82,
+        "quiet_d": 0.71,
+        "comments": 0,
+        "reviews": [],
+        "email": "aeonframework@users.noreply.github.com",
+        "branch": "security/bump-surrealdb-quinn-ammonia"
+      },
+      {
+        "repo": "KnockOutEZ/wigolo",
+        "num": 216,
+        "title": "fix(deps): patch ajv/ws/protobufjs/vite for disclosed CVEs",
+        "url": "https://github.com/KnockOutEZ/wigolo/pull/216",
+        "created": "2026-07-20T07:53:04Z",
+        "updated": "2026-07-23T18:23:40Z",
+        "age_d": 4.15,
+        "quiet_d": 0.71,
+        "comments": 3,
+        "reviews": [
+          {
+            "state": "COMMENTED",
+            "submittedAt": "2026-07-20T07:56:47Z"
+          }
+        ],
+        "email": "aeonframework@users.noreply.github.com",
+        "branch": "security/dep-bump-ajv-ws-protobufjs"
+      },
+      {
+        "repo": "koala73/worldmonitor",
+        "num": 5518,
+        "title": "fix(security): bump tauri >=2.11.1 \u2014 GHSA-7gmj-67g7-phm9 origin confusion (CVE-2026-42184, CVSS 8.8)",
+        "url": "https://github.com/koala73/worldmonitor/pull/5518",
+        "created": "2026-07-23T16:03:16Z",
+        "updated": "2026-07-23T16:05:08Z",
+        "age_d": 0.81,
+        "quiet_d": 0.81,
+        "comments": 2,
+        "reviews": [
+          {
+            "state": "COMMENTED",
+            "submittedAt": "2026-07-23T16:05:08Z"
+          }
+        ],
+        "email": "security@aeonframework.dev",
+        "branch": "security/bump-tauri-GHSA-7gmj-67g7-phm9"
+      },
+      {
+        "repo": "koala73/worldmonitor",
+        "num": 5477,
+        "title": "fix(security): bump sharp >=0.35.0 in blog-site (GHSA-f88m-g3jw-g9cj, HIGH)",
+        "url": "https://github.com/koala73/worldmonitor/pull/5477",
+        "created": "2026-07-23T08:12:21Z",
+        "updated": "2026-07-23T14:11:37Z",
+        "age_d": 1.14,
+        "quiet_d": 0.89,
+        "comments": 2,
+        "reviews": [
+          {
+            "state": "APPROVED",
+            "submittedAt": "2026-07-23T14:11:37Z"
+          }
+        ],
+        "email": "aeonframework@proton.me",
+        "branch": "fix/security/sharp-cve-blog-site"
+      },
+      {
+        "repo": "block/buzz",
+        "num": 2248,
+        "title": "security: track quick-xml DoS advisories (RUSTSEC-2026-0194/0195)",
+        "url": "https://github.com/block/buzz/pull/2248",
+        "created": "2026-07-21T18:08:42Z",
+        "updated": "2026-07-21T18:08:42Z",
+        "age_d": 2.72,
+        "quiet_d": 2.72,
+        "comments": 0,
+        "reviews": [],
+        "email": "aeon@aeonframework.dev",
+        "branch": "security/quick-xml-dos-rustsec-2026-0194"
+      },
+      {
+        "repo": "InsForge/InsForge",
+        "num": 1742,
+        "title": "fix(deps): bump multer to 2.2.0 and nodemailer to 8.0.11 to patch disclosed DoS/CRLF advisories",
+        "url": "https://github.com/InsForge/InsForge/pull/1742",
+        "created": "2026-07-17T07:41:28Z",
+        "updated": "2026-07-17T17:38:02Z",
+        "age_d": 7.16,
+        "quiet_d": 6.74,
+        "comments": 3,
+        "reviews": [
+          {
+            "state": "COMMENTED",
+            "submittedAt": "2026-07-17T07:44:20Z"
+          },
+          {
+            "state": "COMMENTED",
+            "submittedAt": "2026-07-17T07:56:07Z"
+          },
+          {
+            "state": "CHANGES_REQUESTED",
+            "submittedAt": "2026-07-17T17:38:02Z"
+          }
+        ],
+        "email": "aeonframework@users.noreply.github.com",
+        "branch": "security/bump-multer-nodemailer-dos"
+      },
+      {
+        "repo": "openinterpreter/openinterpreter",
+        "num": 1810,
+        "title": "fix(deps): bump gix to 0.83 to patch 5 security advisories (GHSA-f26g / GHSA-fr8x / GHSA-p3hw / GHSA-pg4w / GHSA-f89h)",
+        "url": "https://github.com/openinterpreter/openinterpreter/pull/1810",
+        "created": "2026-07-17T15:43:02Z",
+        "updated": "2026-07-17T15:43:02Z",
+        "age_d": 6.82,
+        "quiet_d": 6.82,
+        "comments": 0,
+        "reviews": [],
+        "email": "aeonframework@users.noreply.github.com",
+        "branch": "security/bump-gix-GHSA-f26g-fr8x-p3hw-pg4w"
+      }
+    ],
+    "closed_no_merge_7d": []
+  },
+  "counts": {
+    "merged_7d": 0,
+    "stale_open": 1,
+    "active_open": 9,
+    "closed_no_merge_7d": 0,
+    "open_total": 10,
+    "fresh_bot_prs": 3
+  },
+  "fresh_bot_prs": [
+    {
+      "repo": "ruvnet/RuView",
+      "num": 1409,
+      "age_h": 11.8
+    },
+    {
+      "repo": "jamiepine/voicebox",
+      "num": 958,
+      "age_h": 18.9
+    },
+    {
+      "repo": "koala73/worldmonitor",
+      "num": 5518,
+      "age_h": 19.4
+    }
+  ]
+}
