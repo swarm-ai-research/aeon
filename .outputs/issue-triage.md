@@ -1,17 +1,12 @@
+Task list not needed — single-step short-circuit run.
+
+`ISSUE_TRIAGE_OK no-watched-repos`
+
 ## Summary
 
-Executed `issue-triage` skill in short-circuit mode.
-
-**Verdict:** `ISSUE_TRIAGE_OK no-watched-repos` — exited without triaging.
-
-**Why:** `${var}` is empty and `memory/watched-repos.md` does not exist. Per SKILL.md §Config, this is the defined exit condition. This is a known-standing state: MEMORY.md "Next priorities" line 58 flags it as a daily wasted-slot pattern affecting 6 skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive).
-
-**Actions taken:**
-- No repos fetched, no issues classified, no `gh` writes.
-- No `./notify` fired (nothing actionable per §9).
-- `memory/triaged-issues.json` untouched (no repos processed per §8's "record only repos that were actually processed").
+Issue-triage skill short-circuited: `memory/watched-repos.md` is absent and `${var}` was empty, so per §Config the run exits with `ISSUE_TRIAGE_OK no-watched-repos`. No repos were probed, no issues fetched, no labels/comments/closes attempted, no notifications sent.
 
 **Files modified:**
-- `memory/logs/2026-07-23.md` — appended `## issue-triage` log entry per §10.
+- `memory/logs/2026-07-24.md` — appended `### issue-triage` block per §10 with the no-watched-repos terminal line.
 
-**Follow-up:** Standing item — populate `memory/watched-repos.md` or set `enabled: false` for `issue-triage` in `aeon.yml` to stop the daily short-circuit.
+**Follow-up already tracked in MEMORY.md priorities:** populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). No new action needed from this run.
