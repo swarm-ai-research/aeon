@@ -347,6 +347,9 @@ memory/
   topics/                ← detailed notes by topic
   logs/                  ← daily activity logs (YYYY-MM-DD.md)
 .outputs/                ← skill chain outputs (passed between chained steps)
+.audit-bin/              ← pre-built security audit binaries committed for sandbox use
+  actionlint             ← GitHub Actions workflow linter (rhysd/actionlint)
+  zizmor                 ← workflow security auditor (Trail of Bits); version pin in skills/workflow-security-audit/SKILL.md
 scripts/
   prefetch-xai.sh        ← pre-fetch X/Grok API data outside sandbox
   postprocess-replicate.sh ← generate images via Replicate after Claude runs
