@@ -1,0 +1,211 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-07-24"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_dataset",
+        "stack_dataset",
+        "separator_1",
+        "heading_top_finding",
+        "stack_top_finding",
+        "separator_2",
+        "heading_persistence",
+        "stack_persistence",
+        "separator_3",
+        "heading_status",
+        "text_conservation",
+        "separator_4",
+        "heading_report",
+        "link_report"
+      ]
+    },
+    "heading_dataset": {
+      "type": "Heading",
+      "props": {
+        "text": "Dataset Summary",
+        "level": "h3"
+      }
+    },
+    "stack_dataset": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      }
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_top_finding": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Finding: Basket RealizedAbs",
+        "level": "h3"
+      }
+    },
+    "stack_top_finding": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_realizedAbs",
+        "badge_firstTime",
+        "text_rows_detail",
+        "text_split_details"
+      ]
+    },
+    "stat_realizedAbs": {
+      "type": "Stat",
+      "props": {
+        "value": "25.00%",
+        "delta": "HIGH"
+      }
+    },
+    "badge_firstTime": {
+      "type": "Badge",
+      "props": {
+        "text": "First time flagged",
+        "variant": "outline"
+      }
+    },
+    "text_rows_detail": {
+      "type": "Text",
+      "props": {
+        "text": "9/36 rows",
+        "variant": "body"
+      }
+    },
+    "text_split_details": {
+      "type": "Text",
+      "props": {
+        "text": "Split: 3-low (153) + 6-high (~276)",
+        "variant": "body"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_persistence": {
+      "type": "Heading",
+      "props": {
+        "text": "Persistence Finding: Spread minSpot",
+        "level": "h3"
+      }
+    },
+    "stack_persistence": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_minSpot",
+        "text_persistence_gate",
+        "text_persistence_dates"
+      ]
+    },
+    "stat_minSpot": {
+      "type": "Stat",
+      "props": {
+        "value": "16.67%"
+      }
+    },
+    "text_persistence_gate": {
+      "type": "Text",
+      "props": {
+        "text": "Clears third-run persistence gate",
+        "variant": "body"
+      }
+    },
+    "text_persistence_dates": {
+      "type": "Text",
+      "props": {
+        "text": "Identical magnitude: 07-10, 07-21, 07-24",
+        "variant": "body"
+      }
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_status": {
+      "type": "Heading",
+      "props": {
+        "text": "Status",
+        "level": "h3"
+      }
+    },
+    "text_conservation": {
+      "type": "Text",
+      "props": {
+        "text": "Conservation OK — all modes",
+        "variant": "body"
+      }
+    },
+    "separator_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_report": {
+      "type": "Heading",
+      "props": {
+        "text": "Report",
+        "level": "h3"
+      }
+    },
+    "link_report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-07-24",
+        "href": "memory/topics/compute-futures-eda/2026-07-24.md",
+        "source": "Report"
+      }
+    }
+  }
+}

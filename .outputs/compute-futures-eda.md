@@ -1,2 +1,1 @@
-*Compute-Futures EDA — 2026-07-21*
-144 rows, 4 modes. Top: basket settlementLegs 16.67% + spread minSpot 16.67% — exact-duo rerun of 2026-07-10 (first joint reappearance in the record; still 12-seed rotation cohort until a third occurrence). All four of 07-20's MEDIUMs collapsed. Conservation: OK across all modes (float dust). 7th consecutive run at zero |r|>=0.8. Report: memory/topics/compute-futures-eda/2026-07-21.md
+Compute-Futures EDA - 2026-07-24. 144 rows, 4 modes. Top: basket realizedAbs 25.00% HIGH (first time flagged, 9/36 rows split 3-low 153 + 6-high ~276). Also spread minSpot 16.67% clears third-run persistence gate (identical magnitude 07-10 / 07-21 / 07-24). Conservation OK all modes. Report: memory/topics/compute-futures-eda/2026-07-24.md

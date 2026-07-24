@@ -1,0 +1,23 @@
+import pandas as pd
+df = pd.read_csv('memory/gitlawb-compute-futures-proofs/2026-07-24.csv')
+syn = df[df['mode']=='synthetic'].reset_index(drop=True)
+x40 = df[df['mode']=='x402'].reset_index(drop=True)
+for c in ['role_pnl','realizedAbs','minSpot','maxSpot','minCurve','maxCurve','settlementLegs']:
+    diff = (syn[c].values - x40[c].values)
+    print(f'{c}: max|diff|={abs(diff).max()}')
+seeds = df['seed'].astype(str).str.len().value_counts().to_dict()
+print('seed strlen counts:', seeds)
+x_sub = df[df['mode']=='x402']['x402Total']
+print('x402Total sum:', round(x_sub.sum(),2), 'mean:', round(x_sub.mean(),2), 'min:', round(x_sub.min(),2), 'max:', round(x_sub.max(),2))
+print('per-mode wallet_sum_pnl stats:')
+print(df.groupby('mode')['wallet_sum_pnl'].agg(['mean','std']))
+print('per-mode role_pnl stats:')
+print(df.groupby('mode')['role_pnl'].agg(['mean','std']))
+print('per-mode realizedAbs stats:')
+print(df.groupby('mode')['realizedAbs'].agg(['mean','std','min','max']))
+print('basket settlementLegs value counts:')
+print(df[df['mode']=='basket']['settlementLegs'].value_counts().sort_index())
+print('basket realizedAbs value counts:')
+print(df[df['mode']=='basket']['realizedAbs'].value_counts().sort_index())
+print('spread minSpot value counts:')
+print(df[df['mode']=='spread']['minSpot'].value_counts().sort_index())
