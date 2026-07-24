@@ -487,4 +487,55 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. gh pr create succeeds but stdout contains no URL-shaped string.
+//     The regex non-match makes `(pr.stdout.match(...) || [])[0]` undefined,
+//     so `prUrl` falls back to `pr.stdout.trim()` — the raw output.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "PR #42 created"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourl" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "PR #42 created",
+      `prUrl should fall back to raw stdout when no URL present; got ${result.prUrl}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create stdout without URL → prUrl falls back to pr.stdout.trim()");
+}
+
+// 18. claude exits 0 but emits only a trailing newline — invokeClaude returns ""
+//     (empty string, not null) because `!proc.stdout` is false for "\n".
+//     workingTreeClean is true (no edits). The no-change path is taken and
+//     extractSummary("") produces "" — the summary suffix is empty.
+{
+  const CLAUDE_WHITESPACE_STUB = `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > /dev/null\nprintf '\\n'\n`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_WHITESPACE_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "gh should not have been called: $@" >&2\nexit 99\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "whitespace-out" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, null, "whitespace-only claude output + no edits should yield no PR");
+    assert.match(result.summary, /no changes warranted/,
+      `summary should contain 'no changes warranted'; got: ${result.summary}`);
+    // extractSummary("") returns "" — the trailing suffix is empty.
+    assert.ok(result.summary.endsWith(". ") || result.summary.endsWith("."),
+      `summary should end after 'warranted' with empty extractSummary; got: ${result.summary}`);
+    // Worktree cleaned up.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no stray worktree should remain");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  whitespace-only claude stdout (truthy, trims to '') → claudeOut='' → no-change path, empty extractSummary");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
