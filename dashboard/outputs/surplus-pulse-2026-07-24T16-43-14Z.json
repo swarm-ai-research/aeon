@@ -1,0 +1,207 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "surplus pulse"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-date",
+        "sep-1",
+        "spot-section",
+        "sep-2",
+        "curve-section",
+        "sep-3",
+        "rail-section",
+        "sep-4",
+        "summary-section"
+      ]
+    },
+    "text-date": {
+      "type": "Text",
+      "props": {
+        "text": "2026-07-24",
+        "variant": "caption"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "spot-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-spot",
+        "stack-model",
+        "stat-spot"
+      ]
+    },
+    "heading-spot": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h3"
+      }
+    },
+    "stack-model": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text-model",
+        "badge-surplus"
+      ]
+    },
+    "text-model": {
+      "type": "Text",
+      "props": {
+        "text": "Llama 4 Scout"
+      }
+    },
+    "badge-surplus": {
+      "type": "Badge",
+      "props": {
+        "text": "Surplus Intelligence"
+      }
+    },
+    "stat-spot": {
+      "type": "Stat",
+      "props": {
+        "label": "Catalog anchor",
+        "value": "$0.0764/M"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "curve-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-curve",
+        "stat-curve-1",
+        "stat-curve-2"
+      ]
+    },
+    "heading-curve": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h3"
+      }
+    },
+    "stat-curve-1": {
+      "type": "Stat",
+      "props": {
+        "label": "Supply crunch at R6 (H100 hyperscaler reserve)",
+        "value": "88.7%",
+        "delta": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "stat-curve-2": {
+      "type": "Stat",
+      "props": {
+        "label": "Demand surge at R30 (10k agent onboard)",
+        "value": "50.7%",
+        "delta": "+50.7%",
+        "trend": "up"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "rail-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-rail",
+        "text-rail-label",
+        "link-rail"
+      ]
+    },
+    "heading-rail": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h3"
+      }
+    },
+    "text-rail-label": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on Base/USDC"
+      }
+    },
+    "link-rail": {
+      "type": "Link",
+      "props": {
+        "label": "surplusintelligence.ai",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-summary",
+        "text-summary"
+      ]
+    },
+    "heading-summary": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h3"
+      }
+    },
+    "text-summary": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus inference market remains supply-constrained — catalog anchor holds at $0.0764/M with the curve pricing a tight supply band through R30.",
+        "variant": "body"
+      }
+    }
+  }
+}
