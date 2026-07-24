@@ -487,4 +487,55 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. claude exits 0 with empty stdout — exercises the `!proc.stdout` branch in
+//     invokeClaude (line 136). Unlike test 8 (--version fails), here --version
+//     succeeds but the main invocation produces no output. Should behave the
+//     same as a failed invocation: ok:false, "claude invocation failed".
+{
+  const CLAUDE_ZERO_EXIT_NO_OUTPUT = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+# exit 0 but produce no stdout
+`;
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_ZERO_EXIT_NO_OUTPUT });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "emptystdout" })
+    );
+    assert.equal(result.ok, false, `expected ok=false when claude exits 0 with no stdout, got ${JSON.stringify(result)}`);
+    assert.match(result.reason, /claude invocation failed/);
+    // Worktree must be cleaned up (cleanup(true) path).
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain");
+    // Branch must be deleted.
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  claude exits 0 with empty stdout → !proc.stdout branch → ok:false");
+}
+
+// 18. gh pr create succeeds but returns no URL in stdout — exercises the
+//     `pr.stdout.trim()` fallback on line 248. Every existing test's gh stub
+//     returns a full https:// URL; this test uses a non-URL string to confirm
+//     the fallback branch is reachable and prUrl carries the raw trimmed output.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "PR created (no URL returned)"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourl" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "PR created (no URL returned)",
+      `prUrl should fall back to pr.stdout.trim() when no https:// URL is present; got ${result.prUrl}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create returns no URL → prUrl fallback to pr.stdout.trim()");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
