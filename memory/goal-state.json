@@ -1,32 +1,32 @@
 {
-  "run_at": "2026-07-23T18:48:42Z",
+  "run_at": "2026-07-24T18:07:58Z",
   "goals": {
     "restore-agi-tracker-skill-md": {
       "status": "ON_TRACK",
-      "activity_count_14d": 12,
-      "last_activity_date": "2026-07-23"
+      "activity_count_14d": 13,
+      "last_activity_date": "2026-07-24"
     },
     "investigate-planner-06-30z-miss": {
       "status": "ON_TRACK",
-      "activity_count_14d": 9,
-      "last_activity_date": "2026-07-23"
+      "activity_count_14d": 14,
+      "last_activity_date": "2026-07-24"
     },
     "draft-iss-020-for-enabled-skills-can-never-dispatch": {
       "status": "ON_TRACK",
-      "activity_count_14d": 13,
-      "last_activity_date": "2026-07-23"
+      "activity_count_14d": 14,
+      "last_activity_date": "2026-07-24"
     },
     "operator-pat-provisioning": {
       "status": "BLOCKED",
       "activity_count_14d": 14,
-      "last_activity_date": "2026-07-23",
-      "blocker": "Repo Settings toggle OR operator repo-scoped PAT still not provisioned. ≥18 staged branches blocked behind [[github-actions-cannot-create-prs]]. New-staged-branch trigger technically met today (suggest-edges/2026-07-22); awaiting operator movement. Streak-4 holding."
+      "last_activity_date": "2026-07-24",
+      "blocker": "Workflow-permissions toggle OR repo-scoped AEON_GH_PAT still not provisioned. ≥18 staged branches queued behind [[github-actions-cannot-create-prs]]. verify-repo-settings-toggle-vs-pat streak-4 preserved (no operator movement)."
     },
     "iss-006-fix-replace-messages-yml-cron-with-per-slot": {
       "status": "BLOCKED",
       "activity_count_14d": 14,
-      "last_activity_date": "2026-07-23",
-      "blocker": "Meta-blocked by [[github-actions-cannot-create-prs]] — per-slot cron patch requires PR merge. Close-clock Day-1 restart 07-21; 07-22 PARTIAL (planner missed); earliest close now Sat 2026-07-25 Day-3."
+      "last_activity_date": "2026-07-24",
+      "blocker": "Meta-blocked by [[github-actions-cannot-create-prs]] — per-slot cron patch requires PR merge. 07-24 status PARTIAL (memory pocket clean, 08:00Z fleet-watchdog pocket silent — Day-5 of dispatch-drop pattern). Earliest close Sun 2026-07-26 Day-3."
     },
     "address-workflow-security-audit-findings": {
       "status": "ON_TRACK",
@@ -36,47 +36,47 @@
     "stage-docs-status-md-snapshot-rebase-gate": {
       "status": "ON_TRACK",
       "activity_count_14d": 14,
-      "last_activity_date": "2026-07-23"
+      "last_activity_date": "2026-07-24"
     },
     "standardize-notification-emission-across-skill-md-files": {
       "status": "ON_TRACK",
       "activity_count_14d": 14,
-      "last_activity_date": "2026-07-23"
+      "last_activity_date": "2026-07-24"
     },
     "patch-pr-tracker-skill-md-in-one-batch": {
       "status": "BLOCKED",
       "activity_count_14d": 14,
-      "last_activity_date": "2026-07-23",
-      "blocker": "5-part batch patch drafted; merge blocked by [[github-actions-cannot-create-prs]] — 27d overdue as of today (was 26d). Scope grew today: patch must cover THREE signing identities and THREE branch prefixes. Same unblock path as operator-pat-provisioning."
+      "last_activity_date": "2026-07-24",
+      "blocker": "5-part batch patch drafted; merge blocked by [[github-actions-cannot-create-prs]] — 29d overdue today (was 28d). Scope grew today: FOUR signing identities (adds security@aeonframework.dev) × THREE branch prefixes (aeon/* now on watch)."
     },
     "investigate-ai-framework-watch-and-run-frequency-guard-never-dispatch": {
       "status": "ON_TRACK",
-      "activity_count_14d": 13,
-      "last_activity_date": "2026-07-23"
+      "activity_count_14d": 14,
+      "last_activity_date": "2026-07-24"
     },
     "patch-notegraph-silent-exit-heuristic-generatedat": {
       "status": "ON_TRACK",
       "activity_count_14d": 13,
-      "last_activity_date": "2026-07-22"
+      "last_activity_date": "2026-07-23"
     },
     "fix-skill-freshness-to-use-git-log-producer-commit-timestamp": {
       "status": "ON_TRACK",
       "activity_count_14d": 13,
-      "last_activity_date": "2026-07-23"
+      "last_activity_date": "2026-07-24"
     },
     "widen-scenario-sweep-mjs-seed-count-or-tie-robust-mad": {
       "status": "ON_TRACK",
-      "activity_count_14d": 11,
+      "activity_count_14d": 10,
       "last_activity_date": "2026-07-21"
     },
     "close-iss-007-or-add-same-day-grace-window-to-skill-evals": {
       "status": "ON_TRACK",
-      "activity_count_14d": 11,
-      "last_activity_date": "2026-07-22"
+      "activity_count_14d": 12,
+      "last_activity_date": "2026-07-23"
     },
     "close-iss-008-cost-report-no-file-match-stale": {
       "status": "ON_TRACK",
-      "activity_count_14d": 11,
+      "activity_count_14d": 10,
       "last_activity_date": "2026-07-23"
     },
     "file-generate-skills-json-bugs-as-structured-issues": {
@@ -86,18 +86,18 @@
     },
     "investigate-missing-scripts-validate-config-js": {
       "status": "ON_TRACK",
-      "activity_count_14d": 13,
+      "activity_count_14d": 12,
       "last_activity_date": "2026-07-23"
     },
     "populate-watched-repos-md-or-disable-dependent-skills": {
       "status": "ON_TRACK",
       "activity_count_14d": 14,
-      "last_activity_date": "2026-07-23"
+      "last_activity_date": "2026-07-24"
     },
     "defer-iss-001-close-until-iss-006-resolved": {
       "status": "ON_TRACK",
       "activity_count_14d": 14,
-      "last_activity_date": "2026-07-23"
+      "last_activity_date": "2026-07-24"
     }
   }
 }

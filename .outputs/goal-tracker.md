@@ -1,20 +1,23 @@
-Notification is already queued at `.pending-notify/1784832522-goal-tracker.md` — the workflow's postprocess step will pick it up (direct write pattern per `[[notify-inline-cat-substitution-blocked-in-sandbox]]`, so the `./notify $(cat …)` call was correctly rejected by the sandbox).
+Goal tracker complete.
 
 ## Summary
 
-Executed the goal-tracker skill against `memory/MEMORY.md`'s `## Next priorities` fallback (no `## Goals` header exists) — 19 goals parsed.
+Ran **goal-tracker** for 2026-07-24 (`${var}` empty → all-goals scope). Tracked 19 goals from MEMORY.md `## Next priorities` (fallback — no `## Goals` header).
 
-**Verdict: flat vs 07-22 snapshot.** No status transitions.
-- **16 ON TRACK** — every remaining goal has ≥4 mentions in last 14d and ≤6d idle.
-- **3 BLOCKED (unchanged):** `operator-pat-provisioning`, `iss-006-fix-*`, `patch-pr-tracker-skill-md` — all three chained to the `[[github-actions-cannot-create-prs]]` meta-blocker. Single unblock (repo Settings toggle OR operator PAT) would release all three.
-- **1 new goal added:** `investigate-planner-06-30z-miss` (replaces yesterday's `investigate-batch-health-and-heartbeat-dispatch-gap` — dropped off MEMORY after the 08:00Z pair late-recovered on 07-22).
-- **No DONE signals** — ISS-008 still ON TRACK pending skill-evals rescan (rule: no completion signal → don't mark done).
+**Status vs 2026-07-23 prior snapshot:**
+- 16 ON TRACK, 3 BLOCKED, 0 at risk / needs attention / done
+- **0 status changes** — MEMORY.md intentionally not rewritten (per SKILL step 7)
+- Trend → flat overall; 1 improving (investigate-planner 9→14 acts/14d, driven by today's Day-5 pocket re-miss signal), 18 flat, 0 degrading
+
+**All 3 blockers share one unblock:** [[github-actions-cannot-create-prs]]. Operator toggling "Allow Actions to create PRs" (or provisioning AEON_GH_PAT) clears operator-pat-provisioning + iss-006-fix + patch-pr-tracker in one move.
+
+**Proximity risks flagged:**
+- file-generate-skills-json: 7d idle (07-17 last) — one more silent day → NEEDS ATTENTION
+- patch-pr-tracker: 29d overdue; scope grew today (4 identities × 3 prefixes after RuView#1409)
 
 **Files modified:**
-- `memory/goal-state.json` — updated snapshot, `run_at=2026-07-23T18:48:42Z`, 19 goal entries.
-- `.pending-notify/1784832522-goal-tracker.md` — formatted report (workflow postprocess will fan out to configured channels).
-- `memory/logs/2026-07-23.md` — appended `## goal-tracker` section.
+- `memory/goal-state.json` (state snapshot updated)
+- `.pending-notify/1784916478-goal-tracker.md` (full formatted report queued for send)
+- `memory/logs/2026-07-24.md` (log entry appended)
 
-**MEMORY.md write skipped** per skill rule (no status transition since last run).
-
-**Follow-ups:** the single highest-leverage action across all three BLOCKED goals is the operator Settings toggle / PAT provisioning — flipping it clears the entire blocked cohort; per today's planner it's holding at streak-4 with new-staged-branch trigger technically met.
+**Sources:** logs=ok, git=degraded (shallow clone, 1 commit), gh_pr/gh_issue=degraded (empty — actions-token permission-limited on aeon repo), cron-state=ok.
