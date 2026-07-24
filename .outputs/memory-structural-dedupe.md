@@ -1,8 +1,9 @@
-Skill ran clean per SKILL.md step 3 — logged and stopped, no notification.
+Per skill step 3, no notification is sent for a clean run.
 
 ## Summary
-- Executed `skills/memory-structural-dedupe/SKILL.md` against `memory/MEMORY.md`.
-- Parsed MEMORY.md sections: `## Current focus`, `## Topics`, `## Conventions`, `## Pointers`, `## Next priorities`. None of the skill's single-canonical target sections (Recent Articles, Skills Built, Lessons Learned, Wallet, Issue Tracker, Recent Newsletters) exist in the current pointer-only index.
-- No structural drift detected → no section rewrite, no `scripts/memory-dedupe --fix` run, no `./notify` sent (per SKILL.md steps 3 & 6).
-- Appended `MEMORY_STRUCTURAL_DEDUPE_OK` entry to `memory/logs/2026-07-22.md`.
-- Files modified: `memory/logs/2026-07-22.md` only. No follow-up actions.
+
+Ran `memory-structural-dedupe` for 2026-07-24. MEMORY.md contains only pointer-index sections (`## Current focus`, `## Topics`, `## Conventions`, `## Pointers`, `## Next priorities`) — none of the single-canonical accumulator sections the skill guards against (`## Recent Articles`, `## Skills Built`, `## Lessons Learned`, `## Wallet`, `## Issue Tracker`, `## Recent Newsletters`) are present, so no structural drift possible.
+
+- **Files modified:** `memory/logs/2026-07-24.md` (created with `MEMORY_STRUCTURAL_DEDUPE_OK` entry)
+- **Notification:** none (per skill spec — clean runs are silent)
+- **Follow-ups:** none
