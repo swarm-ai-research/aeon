@@ -1,7 +1,13 @@
-Skill executed. Verdict: `GLMETRICS_EMPTY` — silent stop.
-
 ## Summary
-- **Pre-flight step 2 tripped:** `memory/gitlawb-fleet.json` is absent (as is `memory/gitlawb-metrics.jsonl`). Per the skill contract, an empty fleet is not news → **no notify, no dashboard card**.
-- **Node OK** (v22.23.1); CLI present at `prototypes/gitlawb-safety/fleet-cli.mjs`. Skipped invoking it — nothing to render.
-- **Files modified:** `memory/logs/2026-07-23.md` (appended `## gitlawb-fleet-metrics` section with `GLMETRICS_EMPTY` verdict).
-- **Follow-up:** none from this skill — the GitLawb fleet has never been minted on this repo, so the daily silent-stop is the expected steady-state until `gitlawb-fleet` provisions an instance.
+
+Ran `gitlawb-fleet-metrics` for 2026-07-24. **Verdict: `GLMETRICS_EMPTY` — silent stop, no notification sent** (per skill contract).
+
+**Pre-flight results:**
+1. Node v22.23.1 present — PASS.
+2. `memory/gitlawb-fleet.json` **absent** (also `memory/gitlawb-metrics.jsonl` absent) — pre-flight 2 gate triggered. The two `gitlawb-*` entries in `memory/` are unrelated (`gitlawb-compute-futures-proofs/` proofs dir + `gitlawb-runner.example.json` template). The Phase 5 safety-layer registry has never been minted on this host, so the CLI was not invoked.
+
+**Why silent:** an empty fleet is not news — the skill explicitly guards against training the operator to ignore the card.
+
+**Files modified:** `memory/logs/2026-07-24.md` (appended `## gitlawb-fleet-metrics` section between `## Summary` and `### compute-futures-eda`).
+
+**Follow-up (optional, not this skill's job):** if the fleet is expected to exist, whichever skill mints/renews the registry (`gitlawb-fleet` per SKILL.md line 51) has never run successfully here — worth a look on a future planner slot, but this skill is read-only and stops silently by design.
