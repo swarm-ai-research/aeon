@@ -1,15 +1,21 @@
 ## Summary
 
-Ran `skill-health` per the SKILL.md contract. Full audit complete, state persisted, no notification sent (gate correctly held).
+Executed `skill-health` for 2026-07-24 at 18:08:25Z.
 
-**What I did:**
-- Gathered state from `aeon.yml` (44 enabled skills), `memory/cron-state.json` (42 tracked entries), `memory/skill-health/*.json`, `memory/issues/INDEX.md` (17 open), and `./scripts/skill-runs --hours 168 --failures --json` (149 runs, 0 failures).
-- Classified: **0 CRITICAL, 0 FLAPPING, 0 WARNING, 38 DEGRADED, 4 HEALTHY, 2 NO DATA** — byte-identical to 2026-07-22T19:16:23Z run (27th consecutive steady-state day, ISS-001 OAuth-outage denominator burn day 33).
-- Reconciled with `memory/issues/`: 0 CRITICAL/FLAPPING → nothing to file; no `detected_by: skill-health` open issues to resolve. `INDEX.md` untouched.
-- **Notify gate result: NOOP.** Hash matches prev (`027503e1b11fd61a`) AND elapsed 23.50h < 24h daily-reminder threshold → per step-5 gate, do not notify. No `.pending-notify` write.
+**Verdict: HEALTH: DEGRADED(38)** — classification byte-identical to 2026-07-23 (28th consecutive steady-state day, ISS-001 residue day 34).
+
+- **0** CRITICAL / FLAPPING / WARNING
+- **38** DEGRADED — all share the systemic ISS-001 OAuth-outage denominator burn (every skill `last_status=success`, `cf=0`, `success_rate` 0.01–0.23 driven by residual zero-token CLI failures from 2026-06-06→06-20 still in denominator; no live degradation)
+- **4** HEALTHY — agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog
+- **2** NO DATA — ai-framework-watch, run-frequency-guard (14th consecutive silent day)
+
+**Notify: SENT** — gate fired on 46.87h elapsed since prev notify (2026-07-22T19:16Z) exceeding the 24h daily-reminder cadence; hash 027503e1b11fd61a preserved but cadence branch triggers. Wrote `.pending-notify/1784916505-skill-health.md` (direct write per sandbox pattern).
+
+**Reconciliation: 0 filed, 0 resolved.** No CRITICAL/FLAPPING to file; grep confirms 0 open issues have `detected_by: skill-health` (all 17 open belong to peer health skills — per CLAUDE.md contract, skill-health does not close their filings).
 
 **Files modified:**
-- `memory/skill-health/last-report.json` — advanced `last_run_at`, preserved `last_notified_at` + `hash`, refreshed delta narrative and NOOP decision reasoning.
-- `memory/logs/2026-07-23.md` — appended `## skill-health` entry with `SKILL_HEALTH_NOOP` marker.
+- `.pending-notify/1784916505-skill-health.md` (new — notification body)
+- `memory/skill-health/last-report.json` (updated hash / timestamps / gate rationale)
+- `memory/logs/2026-07-24.md` (appended skill-health entry)
 
-**Follow-ups:** the 24h cadence trips tomorrow's 18:00Z slot (2026-07-24T18:00Z) — expect NOTIFY then for the still-DEGRADED steady state.
+**Follow-ups:** ISS-001 close remains blocked on either a denominator-reset patch or ISS-006 stabilization — both already tracked in `## Next priorities`. No new signal today.
