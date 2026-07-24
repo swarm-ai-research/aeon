@@ -1,6 +1,13 @@
-Batch health audit complete — 2 skills expected in the 06:00–07:30 UTC window (planner, compute-futures-eda), both ran successfully at 07:17 UTC. Status **OK**, no notification sent, no issue filed. Log entry appended to `memory/logs/2026-07-23.md`.
-
 ## Summary
-- **What I did:** Ran the batch-health skill audit for 2026-07-23 (Thursday, DOM=23 odd). Cross-referenced enabled skills scheduled in 06:00–07:30 UTC against actual GHA runs via `./scripts/skill-runs --json`. Both expected skills ran; classified as OK.
-- **Files modified:** `memory/logs/2026-07-23.md` (appended Batch Health section).
-- **Follow-up:** None. Note the planner delay (~50min late per its own log) is being tracked separately by the planner's rank-3 investigation item; not a batch-health concern since the run still landed within the audit window.
+
+**Batch Health for 2026-07-24 (Friday, DOM=24 even): OK.**
+
+Expected 4 skills in the 06:00–07:30 UTC audit window:
+- `planner` (30 6 * * *)
+- `memory-flush` (0 6 2/2 * * — even DOM)
+- `memory-structural-dedupe` (10 6 2/2 * * — even DOM)
+- `compute-futures-eda` (0 6 * * *)
+
+All 4 fired successfully in a tight ~10s cluster at 07:16:49–07:16:59Z (~47 min late but within window — same delayed-but-in-window pattern as 07-23). N_ok=4, N_failed=0, N_missing=0.
+
+No notification sent (OK status is silent per spec). No issue filed. Logged to `memory/logs/2026-07-24.md`. The separately-tracked 08:00Z fleet-watchdog pocket (heartbeat, batch-health itself, skill-freshness, gitlawb-fleet-metrics, fleet-control, github-monitor, etc.) is outside this audit's window and is monitored elsewhere.
