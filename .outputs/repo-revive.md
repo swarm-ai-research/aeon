@@ -1,9 +1,13 @@
 ## Summary
 
-Executed `repo-revive` for 2026-07-18 (Sat, `0 10 * * 6` weekly slot). **REPO_REVIVE_NO_CONFIG** — pre-select halt at §Config step: `memory/topics/watched-repos.md` is absent, so there is no candidate pool to score. Exited cleanly with no notification per spec ("empty config is not an error"). No `gh` API calls, no clone, no PR filed, no tweet drafted.
+Ran the `repo-revive` skill for Sat 2026-07-25 10:00Z slot.
 
-**Root cause is shared** with today's `issue-triage` (`ISSUE_TRIAGE_OK no-watched-repos`) and `github-monitor` (`GITHUB_MONITOR_EMPTY_CONFIG`) silent-skips — all three depend on the missing `memory/topics/watched-repos.md`.
+**Verdict:** `REPO_REVIVE_NO_CONFIG` — clean pre-select exit.
 
-**Files modified:** `memory/logs/2026-07-18.md` (Repo Revive section appended).
+**What happened:** Step 1 requires `memory/topics/watched-repos.md` as the candidate pool. That file is absent (also `memory/watched-repos.md` absent, and `memory/topics/stale-models.md` absent). Per SKILL.md's §Config rule ("If the file is missing or empty, log `REPO_REVIVE_NO_CONFIG` and exit cleanly (no notification — empty config is not an error)"), the skill halts before any `gh api` calls. Third consecutive Saturday to exit here (07-11, 07-18, 07-25).
 
-**Follow-up:** MEMORY.md next-priority line 49 currently names 5 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog); `repo-revive` is a sixth — worth widening on next reflect so the populate-vs-disable decision reflects the full impact. Weekly (not daily) cadence means the wasted-slot cost here is 1/week, not 1/day.
+**Files modified:** `memory/logs/2026-07-25.md` (appended `## Repo Revive` section + `### Summary (repo-revive)`).
+
+**Not done (intentional, per spec):** no `gh api` calls, no repo clone, no PR, no tweet draft in `/tmp/revival-tweet.md`, no `./notify` — empty config is not an error state.
+
+**Follow-up (unchanged, standing ask from MEMORY.md line 58):** operator either populates `memory/topics/watched-repos.md` with `- owner/repo` bullets, or disables the 6 watched-repos-dependent skills (`code-health`, `github-monitor`, `issue-triage`, `changelog`, `weekly-shiplog`, `repo-revive`) in `aeon.yml`.
