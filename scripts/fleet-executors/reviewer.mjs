@@ -118,9 +118,9 @@ if (!diff) {
 // ── Claude Code-backed review (preferred) ──
 // Apply the pr-review skill methodology via the `claude` CLI. Falls through to
 // the deterministic regex analysis below when the CLI is unavailable/unauth'd.
+const today = new Date().toISOString().slice(0, 10);
 const ai = claudeReview({ diff, focus, target: target || "recent changes", repoDir });
 if (ai) {
-  const today = new Date().toISOString().slice(0, 10);
   const reviewTitle = `Review: ${target || "recent changes"} — ${ai.verdict} (${today})`;
   const body = [
     `## Code Review: ${target || "recent changes"}`,
@@ -230,7 +230,6 @@ else if (mediums > 0) verdict = "MINOR_ISSUES";
 else verdict = "LGTM";
 
 // Build review report
-const today = new Date().toISOString().slice(0, 10);
 const reviewTitle = `Review: ${target || "recent changes"} — ${verdict} (${today})`;
 
 const body = [
