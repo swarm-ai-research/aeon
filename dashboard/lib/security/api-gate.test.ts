@@ -149,6 +149,43 @@ describe("isAllowedHost (edge cases)", () => {
   });
 });
 
+describe("stripPort (unclosed IPv6 bracket)", () => {
+  it("returns trimmed input when the closing bracket is missing", () => {
+    // Branch: `if (end === -1) return trimmed` (line ~66 in api-gate.ts)
+    assert.equal(stripPort("[::1"), "[::1");
+    assert.equal(stripPort("[2001:db8::1"), "[2001:db8::1");
+  });
+});
+
+describe("parseAllowedHosts (sparse commas)", () => {
+  it("ignores blank entries produced by extra or trailing commas", () => {
+    // Exercises the `if (v)` guard that skips empty segments
+    const set = parseAllowedHosts("host-a,,host-b,");
+    assert.deepEqual([...set].sort(), ["host-a", "host-b"]);
+  });
+});
+
+describe("isAllowedHost (whitespace-only host)", () => {
+  it("rejects a host string that is all whitespace", () => {
+    // stripPort('   ') returns '' → hits `if (!host) return false` inside isAllowedHost
+    assert.equal(isAllowedHost("   "), false);
+  });
+});
+
+describe("isSameOriginWrite (allowAny option)", () => {
+  it("allowAny=true short-circuits the same-origin check for write methods", () => {
+    // Branch: `if (opts.allowAny) return true` at the top of isSameOriginWrite
+    assert.equal(
+      isSameOriginWrite("POST", headers({}), { allowAny: true }),
+      true,
+    );
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({ origin: "http://attacker.example" }), { allowAny: true }),
+      true,
+    );
+  });
+});
+
 describe("gateRequest (env-driven wrapper)", () => {
   afterEach(() => {
     delete process.env.AEON_DASHBOARD_ALLOWED_HOSTS;
