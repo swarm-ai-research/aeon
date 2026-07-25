@@ -487,4 +487,54 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. target absent → buildPrompt uses the "No specific files supplied" fallback
+//     rather than a "Recently changed files" line. Captures stdin to verify
+//     the prompt text (symmetric to test #13 which covers the extraFocus branch).
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-target-cap-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "no-target" })
+      // target omitted — should trigger "No specific files supplied" fallback
+    );
+    assert.equal(result.ok, true);
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /No specific files supplied/, "prompt should contain fallback text when target is absent");
+    assert.doesNotMatch(captured, /Recently changed files/, "prompt must NOT contain 'Recently changed files' when target is absent");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  target absent → prompt contains 'No specific files supplied' fallback");
+}
+
+// 18. Long taskId with special chars → shortTaskId strips non-alphanumeric chars
+//     and truncates to 10 chars, producing a predictable branch name.
+//     Prior tests use "happy-001" (→ "happy001", 8 chars, no truncation); this
+//     test exercises the slice(0, 10) truncation branch.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  const today = new Date().toISOString().slice(0, 10);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "my-long-taskid-ABCD" })
+      // "my-long-taskid-ABCD" → strip non-alphanumeric → "mylongtaskidABCD" → slice(0,10) → "mylongtask"
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.branch, `aeon/docs-pass-${today}-mylongtask`,
+      `branch should use stripped+truncated taskId; got ${result.branch}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  long taskId with special chars → shortTaskId strips and truncates to 10 chars");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
