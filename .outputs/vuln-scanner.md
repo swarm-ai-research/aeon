@@ -1,22 +1,15 @@
-`.scratch/` no longer appears — properly gitignored. Task complete.
+All artifacts in place. `.vuln-scan/` is gitignored so the scanner JSON blobs won't be committed.
 
 ## Summary
 
-**Target:** `pixel-point/aval` (1,195★, TypeScript, MIT, HEAD `96ec0fce…`), an interactive-video wire-format library with a published `THREAT-MODEL.md` that explicitly enumerates its hostile-input surfaces.
+Ran the Saturday 07-25 16:00Z **vuln-scanner** slot against **citrolabs/ego-lite** (~3.3k stars, JS/TS, trending +986 today, "share logged-in browser state with AI agents" — credential-adjacent surface, first-time scan).
 
-**Scanner status:** `semgrep=ok · trufflehog-fs=ok · trufflehog-git=ok · osv=ok · slither=n/a`. All four applicable scanners ran cleanly — not a failed-scanner false clean.
+**Scanner status:** semgrep=ok (13 hits), trufflehog=ok (0 verified secrets in fs + git history), osv=ok (0 vulnerable deps across 87 packages), slither=n/a. Fork step blocked (HTTP 403, aeon-bot token per [[github-actions-cannot-create-prs]]) → direct clone fallback at HEAD `02ee972`.
 
-**Verdict — clean audit.** Zero candidates at `ERROR|WARNING`; zero even without the severity filter (161 rules × 909 files). Zero verified secrets across 60 MB of filesystem + git history. Zero dep CVEs across 261 npm packages. Manual spot-checks of the highest-risk surfaces (process-runner shell-outs, worker `onmessage` handlers, format parsers, code-eval sinks, DOM-injection sinks) confirmed the codebase is defensively coded to the standards its threat model implies — `spawn` uses `shell:false` with NUL/type validation and mode-0700 private tmpdir, worker protocol validates every inbound command before dispatch, and no eval-family or `innerHTML` sinks exist in source.
+**Triage:** 13 candidates → **1 confirmed medium** — GitHub Actions shell injection via unquoted `${{ github.head_ref }}` in `.github/workflows/main-pr-source.yml`. Any fork PR author can execute shell on the runner via a specially-crafted branch name. Trigger is `pull_request` (read-only token, no secrets), so scope is RCE-on-runner without secret exfiltration; escalates to high if the workflow ever moves to `pull_request_target`. 12 mutable-action-tag warnings dropped as supply-chain hygiene, not a live vuln.
 
-**Channels used:** none — no findings to disclose. No PVR, no public PR, nothing staged to `.pending-disclosure/`.
+**Disclosure:** PVR drafted to `.pending-disclosure/citrolabs-ego-lite-2026-07-25T160000Z.md` (repo has no SECURITY.md; PVR endpoint reachable). No auto-submit — operator applies the `gh api -X POST /repos/citrolabs/ego-lite/security-advisories` payload out of band per established pattern. Do **not** open a public issue/PR — primitive is unpatched.
 
-**Files:**
-- `articles/vuln-scan-2026-07-18.md` — local report
-- `memory/vuln-scanned.json` — 6th entry appended (30-day dedup engaged until 2026-08-17)
-- `memory/logs/2026-07-18.md` — appended `## vuln-scanner` entry
-- `.pending-notify/1784393146-vuln-scanner.md` — notification queued (fans out via workflow post-process)
-- `.gitignore` — added `.scratch/` entry (last scan's edit did not survive)
+**Files:** `articles/vuln-scan-2026-07-25.md` (new, file/line redacted), `.pending-disclosure/citrolabs-ego-lite-2026-07-25T160000Z.md` (new, full detail + suggested fix), `memory/vuln-scanned.json` (+1 entry, 7th total), `.pending-notify/1784997881-vuln-scanner.md` (new), `memory/logs/2026-07-25.md` (`## Vuln Scanner` section appended). `.pending-disclosure/` queue depth now 2 (this + `oomol-lab/open-connector` 14d).
 
-**Follow-up:** none. Aval was noted as a hardened codebase — future runs should still scan on cadence but expect similar signal-to-noise.
-
-**Fleet notes:** `gh repo fork` returned HTTP 403 `Resource not accessible by integration`, same class as `[[github-actions-cannot-create-prs]]`; fell back to plain clone with no impact on scan work. `xai-org/grok-build` was the top-star candidate but skipped — org IP allow-list blocks the GHA token from reading the repo metadata.
+**Follow-up:** operator to submit PVR; MEMORY.md `.pending-disclosure/` line to move `1 entry` → `2 entries` on next flush.
