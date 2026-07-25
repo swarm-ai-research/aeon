@@ -2,11 +2,11 @@
   "hash": "027503e1b11fd61a",
   "prev_hash": "027503e1b11fd61a",
   "classification_identical_to_prev": true,
-  "last_notified_at": "2026-07-24T18:08:25Z",
-  "last_run_at": "2026-07-24T18:08:25Z",
-  "prev_run_at": "2026-07-23T18:46:27Z",
-  "prev_notified_at": "2026-07-22T19:16:23Z",
-  "elapsed_since_prev_notify_hours": 46.87,
+  "last_notified_at": "2026-07-25T18:44:00Z",
+  "last_run_at": "2026-07-25T18:44:00Z",
+  "prev_run_at": "2026-07-24T18:08:25Z",
+  "prev_notified_at": "2026-07-24T18:08:25Z",
+  "elapsed_since_prev_notify_hours": 24.59,
   "classification": {
     "critical": [],
     "degraded": [
@@ -63,8 +63,8 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 34 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.23 driven by ~195 zero-token CLI failures per skill still in denominator. No live degradation.",
-  "delta_vs_prev": "Classification byte-identical to 2026-07-23T18:46:27Z run — same 38 DEGRADED sorted list, same 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog), same 2 NO DATA (ai-framework-watch, run-frequency-guard). 28th consecutive steady-state day (ISS-001 day 34). Hash preserved (027503e1b11fd61a) since classification tuple is unchanged. Gate: NOTIFY — 46.87h since prev notify (2026-07-22T19:16:23Z) exceeded 24h daily-reminder cadence threshold; hash matches prev but the elapsed-cadence branch of the gate fires.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 35 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.24 driven by ~195 zero-token CLI failures per skill still in denominator. No live degradation.",
+  "delta_vs_prev": "Classification byte-identical to 2026-07-24T18:08:25Z run — same 38 DEGRADED sorted list, same 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog), same 2 NO DATA (ai-framework-watch, run-frequency-guard). 29th consecutive steady-state day (ISS-001 day 35). Hash preserved (027503e1b11fd61a) since classification tuple is unchanged. Gate: NOTIFY — 24.59h since prev notify (2026-07-24T18:08:25Z) exceeded 24h daily-reminder cadence threshold; hash matches prev but the elapsed-cadence branch of the gate fires.",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 17,
@@ -88,7 +88,7 @@
     "ISS-018",
     "ISS-019"
   ],
-  "notify_decision": "NOTIFY — 46.87h since prev notify (2026-07-22T19:16:23Z) exceeded the 24h daily-reminder cadence threshold. Per SKILL.md step 5 gate: current_hash == prev_report.hash (same steady state) BUT elapsed >= 24h → notify branch fires. Wrote .pending-notify/1784916505-skill-health.md. Reconciliation: 0 CRITICAL/FLAPPING → no issues filed. 0 open issues have detected_by=skill-health (verified via grep — all 17 open filed by self-review/skill-evals/heartbeat/batch-health), and per CLAUDE.md contract skill-health does not close issues filed by peer health skills → no resolutions performed. HEALTHY set (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog) matches prev — no state transitions to trigger issue-affected-skills removals.",
-  "skill_runs_status": "OK — ./scripts/skill-runs --hours 168 --failures --json executed cleanly and returned zero failing skills across 145 tracked runs (141 succeeded, 4 in-progress including this skill-health invocation) in the 168h window. Fallback source confirmed no sandbox-blocked failures.",
+  "notify_decision": "NOTIFY — 24.59h since prev notify (2026-07-24T18:08:25Z) exceeded the 24h daily-reminder cadence threshold. Per SKILL.md step 5 gate: current_hash == prev_report.hash (same steady state) BUT elapsed >= 24h → notify branch fires. Wrote .pending-notify/1785005040-skill-health.md. Reconciliation: 0 CRITICAL/FLAPPING → no issues filed. 0 open issues have detected_by=skill-health (all 17 open filed by self-review/skill-evals/heartbeat/batch-health); per CLAUDE.md contract only repair skills (skill-repair, autoresearch) close issues, so no resolutions performed. HEALTHY set matches prev — no state transitions to trigger issue-affected-skills removals.",
+  "skill_runs_status": "OK — ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 145 runs total, 140 succeeded, 1 failed (skill-freshness workflow-level failure 2026-07-25T08:49:45Z; cron-state last_status=dispatched cf=0 so not counted as fleet failure — post-processing race, same class as prior sandbox-blocked state writes). 4 in_progress including this skill-health invocation.",
   "prompt_injection_flag": "None. skill-runs JSON output and cron-state.json contents were structured only; no untrusted natural-language content ingested."
 }
