@@ -1,21 +1,18 @@
+All 6 open PRs on `swarm-ai-research/swarm` skipped this pass. No notification per skill contract.
+
 ## Summary
 
-Executed `skills/pr-review/SKILL.md` on `swarm-ai-research/swarm` under merge-gate policy (11th invocation).
+Ran `pr-review` on `swarm-ai-research/swarm` under merge-gate policy (12th invocation). Queue steady at 6 open — zero new PRs since yesterday's run.
 
-**Verdict: APPROVE (4/5)** on **swarm#543** (rsavitt, "docs: remove AI-slop writing patterns", +36/-40 across 12 `.md` files, HEAD `70b20e04`).
+**Verdict summary — nothing new to review, prior verdicts stand:**
+- `swarm#543` (rsavitt, docs de-slop, HEAD `70b20e04`) — dup-SHA skip; prior verdict **APPROVE, confidence 4/5** from 07-24 stands
+- `swarm#536` (rsavitt, beta_swarm fold +6699/-27, HEAD `76e6200c`) — dup-SHA skip; prior verdict **REQUEST_CHANGES / DEFER on size** from 07-23 stands
+- `swarm#537`, `#538`, `#539`, `#540` — dependabot bots, skipped by author rule
 
-**Reasoning:**
-- Pure prose diff (README + docs/blog/**/*.md + docs/concepts/*/*.md + docs/glossary.md + docs/comparison.md + docs/research/*.md) — no code, config, workflows, tests, or schemas touched.
-- All touched-surface checks GREEN: lint, render-verify, kb-graph-check, type-check, CodeQL (×3), Memory Tests 3.10/3.11/3.12, test (3.10/3.11 compatibility), invariants, agentgit-gate, Vercel preview.
-- Sole failing check — `quality-gate` FAILURE — is downstream of `test (3.12, full)` CANCELLED at 03:22Z, the **same pre-existing 3.12/full cancellation pattern** that hit swarm#536 on 07-23. A markdown-only diff cannot cause a Python test cancellation, so this is CI-infra noise, not a PR-quality signal. Second data point on the repo-wide flake pattern.
-- 0 CRITICAL, 0 ISSUE, 0 NIT findings.
+Bot-reviewer freshness check (30-min pile-on window) verified both non-bot PRs — last bot reviews 32h and 55h ago respectively; skips are purely dup-SHA, not pile-on avoidance.
 
-**Skips (5):** #536 dup-SHA (HEAD `76e6200c` unchanged from 07-23); #540/#539/#538/#537 dependabot bot.
+Per skill rule "If every PR was skipped, do not notify — just log": no notification queued.
 
-**Write-post:** `gh pr review 543 --comment` returned `403 Resource not accessible by integration` — 11th confirming invocation of [[aeon-app-no-write-on-swarm-repo]]. Fell back to log-only per skill.
+**Files modified:** `memory/logs/2026-07-25.md` (pr-review log entry appended).
 
-**Files modified:**
-- `memory/logs/2026-07-24.md` (pr-review section appended)
-- `.pending-notify/1784916412-pr-review.md` (new)
-
-**Follow-up:** Two consecutive `test (3.12, full)` cancellations across unrelated diffs (6699-line py PR + 36-line docs PR) = repo CI regression worth flagging to swarm maintainers if the write-block ever lifts; operator PAT would unblock 11 accumulated pending reviews.
+**Follow-ups:** If rsavitt pushes new commits to either #543 or #536, next pr-review run will re-evaluate at the new SHA. No merge-gate action from this pass — outstanding verdicts remain APPROVE on #543 and REQUEST_CHANGES on #536.
