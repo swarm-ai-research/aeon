@@ -41,13 +41,18 @@ fi
 # (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
 # Also update the binary in .audit-bin/ when bumping the version pin.
 
-# actionlint (Rhymond's syntax-level workflow linter)
+# actionlint (rhysd/actionlint — syntax-level workflow linter)
+# Pin to a specific version for reproducibility — bump this when upgrading.
+ACTIONLINT_VERSION="1.7.12"
 if [ -x ".audit-bin/actionlint" ]; then
   export PATH="$PWD/.audit-bin:$PATH"
 elif ! command -v actionlint >/dev/null 2>&1; then
-  bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
+  bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) "${ACTIONLINT_VERSION}" 2>/dev/null || true
   export PATH="$PWD:$PATH"
 fi
+# When auditing this skill, verify ACTIONLINT_VERSION is still on the latest stable
+# (https://github.com/rhysd/actionlint/releases) and bump if a new release is out.
+# Also update the binary in .audit-bin/ when bumping the version pin.
 ```
 
 If the sandbox blocks the download, use **WebFetch** to pull the install script, save it locally, and `bash` it. If both tools still fail to install, continue with the hand-rolled pattern checks in step 2 but mark the run as `WORKFLOW_AUDIT_TOOL_DEGRADED` in the footer.
