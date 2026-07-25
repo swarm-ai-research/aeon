@@ -1,23 +1,23 @@
-Goal tracker complete.
+Skill executed successfully.
 
 ## Summary
 
-Ran **goal-tracker** for 2026-07-24 (`${var}` empty → all-goals scope). Tracked 19 goals from MEMORY.md `## Next priorities` (fallback — no `## Goals` header).
+**Goal Tracker — 2026-07-25**: tracked 19 goals from MEMORY.md `## Next priorities` (no `## Goals` section present, fallback per SKILL.md).
 
-**Status vs 2026-07-23 prior snapshot:**
-- 16 ON TRACK, 3 BLOCKED, 0 at risk / needs attention / done
-- **0 status changes** — MEMORY.md intentionally not rewritten (per SKILL step 7)
-- Trend → flat overall; 1 improving (investigate-planner 9→14 acts/14d, driven by today's Day-5 pocket re-miss signal), 18 flat, 0 degrading
+**Status distribution** (identical to 07-24 — no transitions in 24h):
+- **BLOCKED**: 3 — `operator-pat-provisioning`, `iss-006-fix-*`, `patch-pr-tracker-skill-md-*` — all share the same meta-blocker (github-actions-cannot-create-prs / repo Settings toggle). pr-tracker patch now 30d overdue; ISS-006 close-clock in Day-6 PARTIAL streak.
+- **ON TRACK**: 16
+- **DONE / NEEDS ATTENTION / AT RISK**: 0
 
-**All 3 blockers share one unblock:** [[github-actions-cannot-create-prs]]. Operator toggling "Allow Actions to create PRs" (or provisioning AEON_GH_PAT) clears operator-pat-provisioning + iss-006-fix + patch-pr-tracker in one move.
+**Trend**: 17 flat, 2 new. The operator rewrote two goal titles in MEMORY.md, so those got new slugs:
+- `restore-agi-tracker-skill-md` → `set-enabled-false-agi-tracker` (escalated action)
+- `investigate-planner-06-30z-miss` → `investigate-planner-08-00z-pocket-delivery-reliability` (scope broadened)
 
-**Proximity risks flagged:**
-- file-generate-skills-json: 7d idle (07-17 last) — one more silent day → NEEDS ATTENTION
-- patch-pr-tracker: 29d overdue; scope grew today (4 identities × 3 prefixes after RuView#1409)
+**Files modified**:
+- `memory/goal-state.json` — rewrote with today's snapshot (19 goals, 2 slug renames)
+- `.pending-notify/1785005100-goal-tracker.md` — notification report (direct write per sandbox pattern)
+- `memory/logs/2026-07-25.md` — appended `### goal-tracker` entry + `### Summary (goal-tracker)`
 
-**Files modified:**
-- `memory/goal-state.json` (state snapshot updated)
-- `.pending-notify/1784916478-goal-tracker.md` (full formatted report queued for send)
-- `memory/logs/2026-07-24.md` (log entry appended)
+**MEMORY.md** left untouched — no goal moved DONE and no status transitions occurred (SKILL.md rule).
 
-**Sources:** logs=ok, git=degraded (shallow clone, 1 commit), gh_pr/gh_issue=degraded (empty — actions-token permission-limited on aeon repo), cron-state=ok.
+**Sources**: logs=ok, git=ok (1 commit on main last 30d — expected per blocker), gh_pr=ok (0 results), gh_issue=ok (0 results), cron-state=ok.
