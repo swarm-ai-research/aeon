@@ -487,4 +487,59 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. git add -A failure — the claude stub edits a file (dirty working tree)
+//     and then creates an index.lock to simulate a concurrent git process,
+//     causing `git add -A` to exit non-zero. Must return ok:false with reason
+//     matching /git add failed/, clean up the worktree, and delete the branch
+//     (cleanup(true) path, same as commit failure).
+{
+  const CLAUDE_ADD_FAIL_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+echo "added a line" >> "$(pwd)/lib.mjs"
+git_dir=$(sed 's/gitdir: //' "$(pwd)/.git")
+touch "$git_dir/index.lock"
+echo "Made a change"
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_ADD_FAIL_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/42"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "addfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git add failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after git add failure");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted after git add failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git add failure (index locked) → ok:false, worktree and branch cleaned up");
+}
+
+// 18. openPRsForKind catch branch — gh pr list returns bytes that are not valid
+//     JSON at all, so JSON.parse throws a SyntaxError and the catch block
+//     returns null. Null means "unknown", so the backlog gate is skipped and
+//     the pass proceeds as normal.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo 'not valid json !!'; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "malformedjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns malformed JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/99");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list returns malformed JSON → catch → null backlog → gate skipped → pass proceeds");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
