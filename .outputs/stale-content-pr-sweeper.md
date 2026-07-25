@@ -1,11 +1,14 @@
-Skill executed. Steady-state no-op result.
-
 ## Summary
 
-- **Ran**: `stale-content-pr-sweeper` on 2026-07-22 (manual invocation).
-- **Open PRs scanned**: 0 (repo-wide `gh pr list --state open` returned `[]`).
-- **Groups checked**: 0.
-- **PRs closed**: 0. No skips of any category — nothing eligible to inspect.
-- **Notify**: not fired (SKILL.md step 6 says notify only on `n_closed > 0`).
-- **Files**: `memory/logs/2026-07-22.md` (new).
-- **Follow-up**: the empty PR set is consistent with `[[github-actions-cannot-create-prs]]` — staged branches never become open PRs. Sweeper's own 23:45 daily cron on a ≥6-day miss streak per MEMORY.md line 16 — today's manual run confirms the skill itself is functional; the miss streak is a dispatch problem, in scope for candidate ISS-020.
+**Skill executed:** `stale-content-pr-sweeper`
+
+**Result:** No-op (steady state)
+
+- `gh pr list --state open --limit 100` returned `[]` — the repo has zero open PRs
+- 0 tracked-content groups to consider, 0 stale PRs to close
+- No `./notify` fired (per skill spec: notify only if `n_closed > 0`)
+
+**Files created:**
+- `memory/logs/2026-07-25.md` — log entry with `SWEEPER_OK`
+
+**Follow-ups:** None from this run. Broader context (unrelated to this skill's action surface): per `memory/MEMORY.md` line 16, this skill's own 23:45 cron slot has a 9-day miss streak — today's manual invocation via prompt doesn't reset that; the underlying [[enabled-skills-can-never-dispatch]] investigation is already tracked as an ISS-020 draft candidate.
