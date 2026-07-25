@@ -1,13 +1,12 @@
 ## Summary
 
-Ran `gitlawb-fleet-metrics` for 2026-07-24. **Verdict: `GLMETRICS_EMPTY` — silent stop, no notification sent** (per skill contract).
+**Verdict:** `GLMETRICS_EMPTY` — silent stop, no notification sent.
 
-**Pre-flight results:**
-1. Node v22.23.1 present — PASS.
-2. `memory/gitlawb-fleet.json` **absent** (also `memory/gitlawb-metrics.jsonl` absent) — pre-flight 2 gate triggered. The two `gitlawb-*` entries in `memory/` are unrelated (`gitlawb-compute-futures-proofs/` proofs dir + `gitlawb-runner.example.json` template). The Phase 5 safety-layer registry has never been minted on this host, so the CLI was not invoked.
+**What I did:**
+- Ran pre-flight checks: `node --version` → v22.23.1 (OK), `memory/gitlawb-fleet.json` → **missing**, `memory/gitlawb-metrics.jsonl` → **missing**.
+- Per SKILL.md rule ("if `memory/gitlawb-fleet.json` is missing or has no instances, log `GLMETRICS_EMPTY` and stop without notifying — an empty fleet is not news"), I skipped the CLI invocation and skipped `./notify`.
+- Appended a `## gitlawb-fleet-metrics` section to `memory/logs/2026-07-25.md` recording the empty-fleet verdict and the pre-flight snapshot.
 
-**Why silent:** an empty fleet is not news — the skill explicitly guards against training the operator to ignore the card.
+**Files modified:** `memory/logs/2026-07-25.md` (appended log entry).
 
-**Files modified:** `memory/logs/2026-07-24.md` (appended `## gitlawb-fleet-metrics` section between `## Summary` and `### compute-futures-eda`).
-
-**Follow-up (optional, not this skill's job):** if the fleet is expected to exist, whichever skill mints/renews the registry (`gitlawb-fleet` per SKILL.md line 51) has never run successfully here — worth a look on a future planner slot, but this skill is read-only and stops silently by design.
+**Follow-up:** None from this skill. The empty state is expected until `gitlawb-fleet` mints its first instance and starts writing to `memory/gitlawb-fleet.json` + `memory/gitlawb-metrics.jsonl`; this metrics skill will start emitting real snapshots the next scheduled run after that happens.
