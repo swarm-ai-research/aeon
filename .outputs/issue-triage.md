@@ -1,12 +1,11 @@
-Task list not needed — single-step short-circuit run.
-
-`ISSUE_TRIAGE_OK no-watched-repos`
-
 ## Summary
 
-Issue-triage skill short-circuited: `memory/watched-repos.md` is absent and `${var}` was empty, so per §Config the run exits with `ISSUE_TRIAGE_OK no-watched-repos`. No repos were probed, no issues fetched, no labels/comments/closes attempted, no notifications sent.
+Ran `skills/issue-triage/SKILL.md`. `${var}` empty and `memory/watched-repos.md` absent, so per the skill's config-guard clause I logged `ISSUE_TRIAGE_OK no-watched-repos` and exited without fetching, classifying, or writing state.
 
-**Files modified:**
-- `memory/logs/2026-07-24.md` — appended `### issue-triage` block per §10 with the no-watched-repos terminal line.
+- No API calls made (no repos to probe)
+- `memory/triaged-issues.json` untouched
+- `memory/triage-advisory/` not created
+- No notification (nothing actionable)
+- **Files modified:** `memory/logs/2026-07-25.md` (appended `## issue-triage` section)
 
-**Follow-up already tracked in MEMORY.md priorities:** populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). No new action needed from this run.
+**Follow-up:** the skill is a no-op until a watched-repos list exists. If issue triage is intended to run on the aeon repo itself (which currently has 0 open issues per today's heartbeat), create `memory/watched-repos.md` with `- aeonframework/aeon` — or invoke this skill with `var: aeonframework/aeon` directly.
