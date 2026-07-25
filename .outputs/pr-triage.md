@@ -1,10 +1,13 @@
-pr-triage complete on `swarm-ai-research/swarm`.
+## Summary
 
-**Verdicts (rubric-computed):**
-- **#543** "docs: remove AI-slop writing patterns" (@rsavitt, +36/-40) → **ACCEPTED** — clean scope (README + docs only), no SKILL touched, ≤500 lines.
-- **#536** "Fold beta_swarm" (@rsavitt, +6699/-27) → **DEFER** — 6726-line size fails auto-triage; not OUT-OF-SCOPE (no protected paths touched), needs maintainer size gate.
-- Skipped: 4 dependabot PRs (#537-#540), bot-authored.
+**pr-triage** ran in repo mode against `swarm-ai-research/swarm`.
 
-**Write outcome:** both `gh pr comment` calls 403'd (`Resource not accessible by integration`), matching [[aeon-app-no-write-on-swarm-repo]] — 11th confirming invocation. Labels skipped. `memory/triaged-prs.json` intentionally left unchanged so a permissions-unblocked re-run can post retroactively. No notification (no OUT-OF-SCOPE; ACCEPTED comment never landed, so no first-PR welcome signal).
+- **Candidates:** 6 open PRs; 4 dependabot skipped, 2 human PRs triaged.
+- **swarm#543** (rsavitt, docs de-slop, 76 lines) → **ACCEPTED** (clean rubric; first-PR welcome candidate).
+- **swarm#536** (rsavitt, beta_swarm subtree fold, 6726 lines) → **DEFER** (size gate exceeds 500 without `large-ok`; scope also fails but no protected-path match, so DEFER wins first-match over OUT-OF-SCOPE — not closed).
+- **Comment writes 403'd** on both PRs (`Resource not accessible by integration`) — 12th confirming instance of the swarm-repo no-write pattern already tracked in MEMORY. Labels skipped to avoid noisy failed calls. Findings preserved log-only per established convention.
+- **State advanced:** `memory/triaged-prs.json` — appended both entries with `note: no-permission (write blocked)`; prior #450 entry retained.
+- **Notify skipped:** recurring known block; no new operator signal beyond the pre-existing Repo Settings toggle / PAT provisioning ask (today's planner rank-1).
+- **Files:** `memory/triaged-prs.json` (updated), `memory/logs/2026-07-25.md` (new `## pr-triage` section).
 
-**Files modified:** `memory/logs/2026-07-24.md` (log entry).
+Terminal: `PR_TRIAGE_OK` with `PR_TRIAGE_NO_PERMISSION swarm-ai-research/swarm#543,#536`.
