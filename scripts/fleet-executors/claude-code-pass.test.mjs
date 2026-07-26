@@ -487,4 +487,64 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. --version succeeds but main claude invocation exits non-zero →
+//     invokeClaude returns null via the `proc.status !== 0` branch (distinct
+//     from test 8 where --version itself fails). Cleanup must still fire.
+{
+  const CLAUDE_RUN_FAILS_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+echo "simulated claude runtime error" >&2
+exit 3
+`;
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_RUN_FAILS_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "runfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /claude invocation failed/);
+    // Worktree must be cleaned up.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain");
+    // Branch must be deleted (cleanup(true) path — no commit was made).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "ephemeral branch should be deleted when claude run fails");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  claude run exits non-zero (version ok) → ok:false, worktree and branch cleaned up");
+}
+
+// 18. model param flows through to claude --model arg. When a custom model is
+//     provided, the --model flag passed to the claude CLI must reflect it.
+{
+  const argsCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-args-cap-")), "args.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+echo "$@" >> "$CLAUDE_ARGS_CAPTURE"
+cat > /dev/null
+echo "nothing to change"
+`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_ARGS_CAPTURE;
+  process.env.CLAUDE_ARGS_CAPTURE = argsCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "refactor-pass", repoDir: env.localDir, taskId: "modeltest", model: "claude-opus-5" })
+    );
+    assert.equal(result.ok, true);
+    const captured = readFileSync(argsCapturePath, "utf8");
+    assert.match(captured, /--model claude-opus-5/, "custom model must appear in claude CLI args");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_ARGS_CAPTURE;
+    else process.env.CLAUDE_ARGS_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(argsCapturePath, { force: true });
+  }
+  console.log("OK  model param flows through to claude --model CLI arg");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
