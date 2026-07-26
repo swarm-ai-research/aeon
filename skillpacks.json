@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-07T06:47:44.509Z",
+  "generatedAt": "2026-07-26T06:23:55.222Z",
   "stats": {
     "skills": 172,
-    "edges": 1273,
+    "edges": 1274,
     "packs": 16,
     "solos": 0
   },
@@ -139,8 +139,7 @@
         "token-report",
         "treasury-info",
         "unlock-monitor",
-        "wallet-digest",
-        "batch-health"
+        "wallet-digest"
       ],
       "cohesion": 1.36
     },
@@ -174,13 +173,13 @@
       "cohesion": 2.26
     },
     {
-      "slug": "fleet-evolve",
-      "label": "fleet · evolve",
+      "slug": "outages-fleet",
+      "label": "outages · fleet",
       "topTerms": [
+        "outages",
         "fleet",
         "evolve",
-        "gitlawb",
-        "instances"
+        "gitlawb"
       ],
       "members": [
         "auto-merge",
@@ -199,6 +198,7 @@
         "stale-content-pr-sweeper",
         "swarm-safety-eval",
         "vercel-projects",
+        "batch-health",
         "memory-structural-dedupe"
       ],
       "cohesion": 1.27
@@ -248,7 +248,7 @@
         "fork-release-tracker",
         "fork-skill-gap"
       ],
-      "cohesion": 3.75
+      "cohesion": 3.76
     },
     {
       "slug": "vulnerability-pvr",
