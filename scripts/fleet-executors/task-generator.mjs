@@ -123,6 +123,24 @@ function createTask(agent, payload, opts = {}) {
   return true;
 }
 
+// Shared helper for daily compute-futures task variants — check cooldown,
+// skip if already pending, create and record state if not.
+function maybeDailyDeployerTask(stateKey, kind, payload) {
+  const hoursSince = state[stateKey] ? (now - new Date(state[stateKey])) / (1000 * 60 * 60) : 999;
+  if (hoursSince <= 24) return;
+  const pending = getPendingTasks(agents.deployer.did);
+  if (pending.some((t) => (t.kind || t.type) === kind)) {
+    console.log(`[deployer] Skipping ${kind} — already pending`);
+    return;
+  }
+  console.log(`[deployer] Creating task: ${kind}`);
+  const created = createTask(agents.deployer, payload, { kind, capability: "git:push" });
+  if (created) {
+    tasksCreated.push(kind);
+    state[stateKey] = iso;
+  }
+}
+
 // Gather repo state
 const openPRs = run("gl", ["pr", "list", "aeon", "--node", node]);
 const prCount = (openPRs.stdout || "").split("\n").filter(Boolean).length;
@@ -346,147 +364,47 @@ if (hoursSinceLastProof > DEPLOY_PROOF_COOLDOWN_H || prCount > 0) {
   }
 }
 
-// ── Compute-futures market sim (daily) ──
-// The deployer runs the compute-futures simulation and records the curve
-// proof. Assigned to the deployer because it holds git:push and the executor
-// pushes a signed proof to the GitLawb-hosted repo.
-const hoursSinceComputeFutures = state.lastComputeFutures
-  ? (now - new Date(state.lastComputeFutures)) / (1000 * 60 * 60)
-  : 999;
+// ── Compute-futures task variants (daily) ──
+// Each variant uses maybeDailyDeployerTask: check 24h cooldown, skip if
+// already pending, create and record state otherwise. Variants have separate
+// state keys so they run independently without dedup blocking each other.
+maybeDailyDeployerTask("lastComputeFutures", "compute-futures-sim", {
+  title: "Run compute-futures market simulation and record curve proof",
+  component: "compute-futures",
+  action: "run compute-futures sim and record curve proof",
+  commit_proof: true,
+  x402: false,
+});
 
-if (hoursSinceComputeFutures > 24) {
-  // Gate only on whether a compute-futures task is already pending — not on
-  // any deployer task — so the deployer's PR-scan work doesn't starve it.
-  const pending = getPendingTasks(agents.deployer.did);
-  const hasComputeFutures = pending.some((t) => (t.kind || t.type) === "compute-futures-sim");
-  if (!hasComputeFutures) {
-    console.log("[deployer] Creating task: compute-futures market sim");
-    const created = createTask(
-      agents.deployer,
-      {
-        title: "Run compute-futures market simulation and record curve proof",
-        component: "compute-futures",
-        action: "run compute-futures sim and record curve proof",
-        commit_proof: true,
-        x402: false,
-      },
-      { kind: "compute-futures-sim", capability: "git:push" },
-    );
-    if (created) {
-      tasksCreated.push("compute-futures");
-      state.lastComputeFutures = iso;
-    }
-  } else {
-    console.log(`[deployer] Skipping compute-futures — already pending`);
-  }
-}
+maybeDailyDeployerTask("lastComputeFuturesX402", "compute-futures-sim-x402", {
+  title: "Run compute-futures market simulation (x402 settlement) and record curve proof",
+  component: "compute-futures",
+  action: "run compute-futures sim (x402) and record curve proof",
+  commit_proof: true,
+  x402: true,
+});
 
-// ── Compute-futures market sim, x402 physical settlement (daily) ──
-// Same sim, settled over the x402 rail — its own task/state so it runs daily
-// alongside the cash variant without the dedup blocking either.
-const hoursSinceComputeFuturesX402 = state.lastComputeFuturesX402
-  ? (now - new Date(state.lastComputeFuturesX402)) / (1000 * 60 * 60)
-  : 999;
+maybeDailyDeployerTask("lastComputeFuturesSweep", "compute-futures-sweep", {
+  title: "Run compute-futures scenario sweep and record analytics proof",
+  component: "compute-futures",
+  action: "run compute-futures scenario sweep and record analytics proof",
+  commit_proof: true,
+  modes: ["synthetic", "basket", "spread", "x402"],
+  seeds: dailySweepSeeds(now),
+  rounds: 60,
+  live: true,
+  pair: true,
+});
 
-if (hoursSinceComputeFuturesX402 > 24) {
-  const pending = getPendingTasks(agents.deployer.did);
-  const hasX402 = pending.some((t) => (t.kind || t.type) === "compute-futures-sim-x402");
-  if (!hasX402) {
-    console.log("[deployer] Creating task: compute-futures market sim (x402)");
-    const created = createTask(
-      agents.deployer,
-      {
-        title: "Run compute-futures market simulation (x402 settlement) and record curve proof",
-        component: "compute-futures",
-        action: "run compute-futures sim (x402) and record curve proof",
-        commit_proof: true,
-        x402: true,
-      },
-      { kind: "compute-futures-sim-x402", capability: "git:push" },
-    );
-    if (created) {
-      tasksCreated.push("compute-futures-x402");
-      state.lastComputeFuturesX402 = iso;
-    }
-  } else {
-    console.log(`[deployer] Skipping compute-futures x402 — already pending`);
-  }
-}
-
-// ── Compute-futures scenario sweep (daily analytics) ──
-// The single cash/x402 runs prove the rail still executes. The sweep produces
-// the useful signal: multiple modes and date-derived seeds so each day captures
-// a small distribution rather than replaying the same deterministic path.
-const hoursSinceComputeFuturesSweep = state.lastComputeFuturesSweep
-  ? (now - new Date(state.lastComputeFuturesSweep)) / (1000 * 60 * 60)
-  : 999;
-
-if (hoursSinceComputeFuturesSweep > 24) {
-  const pending = getPendingTasks(agents.deployer.did);
-  const hasSweep = pending.some((t) => (t.kind || t.type) === "compute-futures-sweep");
-  if (!hasSweep) {
-    const seeds = dailySweepSeeds(now);
-    console.log(`[deployer] Creating task: compute-futures scenario sweep (${seeds.join(",")})`);
-    const created = createTask(
-      agents.deployer,
-      {
-        title: "Run compute-futures scenario sweep and record analytics proof",
-        component: "compute-futures",
-        action: "run compute-futures scenario sweep and record analytics proof",
-        commit_proof: true,
-        modes: ["synthetic", "basket", "spread", "x402"],
-        seeds,
-        rounds: 60,
-        live: true, // pull real OpenRouter prices for the darkbloom-backed modes
-        pair: true, // paired synthetic-vs-basket diff to isolate the basket effect
-      },
-      { kind: "compute-futures-sweep", capability: "git:push" },
-    );
-    if (created) {
-      tasksCreated.push("compute-futures-sweep");
-      state.lastComputeFuturesSweep = iso;
-    }
-  } else {
-    console.log("[deployer] Skipping compute-futures sweep — already pending");
-  }
-}
-
-// ── Compute-futures market sim, Surplus Intelligence live feed (daily) ──
-// Same sim anchored to the Surplus inference market with --surplus --live, so
-// the fleet records a proof against a real venue's prices. Its own task/state
-// so it runs daily alongside the cash + x402 variants without dedup blocking
-// any of them. Live prices come from the prefetch cache (.surplus-cache/) when
-// SURPLUS_PRICING_URL is set; otherwise the sim falls back to its catalog.
-const hoursSinceComputeFuturesSurplus = state.lastComputeFuturesSurplus
-  ? (now - new Date(state.lastComputeFuturesSurplus)) / (1000 * 60 * 60)
-  : 999;
-
-if (hoursSinceComputeFuturesSurplus > 24) {
-  const pending = getPendingTasks(agents.deployer.did);
-  const hasSurplus = pending.some((t) => (t.kind || t.type) === "compute-futures-sim-surplus");
-  if (!hasSurplus) {
-    console.log("[deployer] Creating task: compute-futures market sim (surplus, live)");
-    const created = createTask(
-      agents.deployer,
-      {
-        title: "Run compute-futures market simulation (Surplus live feed) and record curve proof",
-        component: "compute-futures",
-        action: "run compute-futures sim (surplus, live) and record curve proof",
-        commit_proof: true,
-        x402: false,
-        surplus: true,
-        live: true,
-      },
-      { kind: "compute-futures-sim-surplus", capability: "git:push" },
-    );
-    if (created) {
-      tasksCreated.push("compute-futures-surplus");
-      state.lastComputeFuturesSurplus = iso;
-    }
-  } else {
-    console.log(`[deployer] Skipping compute-futures surplus — already pending`);
-  }
-}
+maybeDailyDeployerTask("lastComputeFuturesSurplus", "compute-futures-sim-surplus", {
+  title: "Run compute-futures market simulation (Surplus live feed) and record curve proof",
+  component: "compute-futures",
+  action: "run compute-futures sim (surplus, live) and record curve proof",
+  commit_proof: true,
+  x402: false,
+  surplus: true,
+  live: true,
+});
 
 // ── Forker: mirror + fork ecosystem repos (daily) ──
 // Each target in memory/fork-targets.json with active=true becomes one task
