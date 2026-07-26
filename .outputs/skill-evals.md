@@ -1,22 +1,18 @@
-Skill-evals complete. Here's the summary:
+Done. Here's what ran:
 
 ## Summary
 
-**Verdict:** `SKILL_EVALS_REGRESSED` — 13 new fail, 2 new pass, coverage 28% (14/49 enabled skills covered)
+**Verdict: `SKILL_EVALS_REGRESSED`** — first-ever run (BOOTSTRAP; no prior `articles/skill-evals-*.md` existed).
 
-This was a **BOOTSTRAP run** — no prior `articles/skill-evals-*.md` existed, so all results are `NEW_*`.
+**Coverage: 14/49 = 28%** of enabled skills have eval specs. The `articles/` directory has exactly 1 file (`skill-freshness-2026-07-26.md`), confirming near-total article-output collapse.
 
-**Key findings:**
-- **2 PASS:** `heartbeat` (pattern found in today's log via planner's text) and `skill-health` (last-report.json clean)
-- **13 FAIL (all NO_OUTPUT):** All have existing open issues — no new issues filed
-  - **3 enabled skills need action:** `changelog` (ISS-002), `cost-report` (ISS-008), `swarm-safety-eval` (ISS-005) — these are the real actionable failures
-  - **10 disabled skills:** no output is expected; existing issues track them (ISS-005 through ISS-018)
+**Results (15 skills in evals.json):**
+- **PASS (2):** `heartbeat` (today's log has `HEARTBEAT_DEGRADED` matching the pattern), `skill-health` (last-report.json fresh at 14h, all patterns satisfied)
+- **NO_OUTPUT (13):** changelog, swarm-safety-eval, cost-report, repo-pulse, push-recap, fork-fleet, repo-article, repo-actions, deep-research, hn-digest, rss-digest, polymarket, token-alert — all already covered by open issues (ISS-002/005/008–018); no new ISS filed
 
-**Notable:** ISS-007 (heartbeat: missing pattern) appears to be a false positive now — `heartbeat` appears in today's log via the planner section. Per MEMORY.md's own note, this should be closed as a false positive or given a same-day grace period.
+**Key observations:**
+- ISS-007 (heartbeat: missing_pattern, `detected_by: skill-evals`) is a candidate for closing — heartbeat passes today; next non-BOOTSTRAP run will formally FIXED and close it
+- swarm-safety-eval ran today but exited `SSE_EMPTY` (no `memory/agent-first/` ledger) without writing an article file
+- Top coverage gap: `skill-freshness` (ran today, has output, needs an evals.json entry)
 
-**Coverage gap:** 35 enabled skills have no eval spec. Top candidates to add: `batch-health`, `code-health`, `compute-futures-eda`, `skill-freshness`, `self-review`.
-
-**Files written:**
-- `articles/skill-evals-2026-07-19.md` — full eval report
-- `.pending-notify/1784453099-skill-evals.md` — notification queued
-- `memory/logs/2026-07-19.md` — log entry appended
+**Outputs written:** `articles/skill-evals-2026-07-26.md`, `.pending-notify/1785062853-skill-evals.md`, appended to `memory/logs/2026-07-26.md`.
