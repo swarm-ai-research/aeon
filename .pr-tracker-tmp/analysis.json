@@ -1,0 +1,102 @@
+{
+  "today": "2026-07-26",
+  "canonical_hash": "0d4e2c374767939b",
+  "prior_hash": "0d4e2c374767939b",
+  "hash_diff": false,
+  "counts": {
+    "recent_merges_7d": 0,
+    "stale_open_gt7d": 3,
+    "active_open": 8,
+    "closed_no_merge_7d": 0
+  },
+  "fresh_bot_prs_lt24h": [],
+  "skill_content_trigger": true,
+  "recent_merges": [],
+  "stale_open": [
+    {
+      "repo": "openinterpreter/openinterpreter",
+      "num": 1810,
+      "title": "fix(deps): bump gix to 0.83 to patch 5 security advisories (GHSA-f26g / GHSA-fr8x / GHSA-p3hw / GHSA-pg4w / GHSA-f89h)",
+      "createdAt": "2026-07-17T15:43:02Z",
+      "age_days": 8.76,
+      "activity_days": 8.76
+    },
+    {
+      "repo": "InsForge/InsForge",
+      "num": 1742,
+      "title": "fix(deps): bump multer to 2.2.0 and nodemailer to 8.0.11 to patch disclosed DoS/CRLF advisories",
+      "createdAt": "2026-07-17T07:41:28Z",
+      "age_days": 9.1,
+      "activity_days": 8.68
+    },
+    {
+      "repo": "Panniantong/Agent-Reach",
+      "num": 436,
+      "title": "fix(deps): bump yt-dlp, requests, python-dotenv to patch disclosed CVEs",
+      "createdAt": "2026-06-26T19:24:30Z",
+      "age_days": 29.61,
+      "activity_days": 19.85
+    }
+  ],
+  "active_open": [
+    {
+      "repo": "katanemo/plano",
+      "num": 1001,
+      "title": "fix(deps): patch serde_with, tokio-postgres, turbo, undici, next for disclosed CVEs",
+      "createdAt": "2026-07-24T15:27:20Z",
+      "age_days": 1.77
+    },
+    {
+      "repo": "ruvnet/RuView",
+      "num": 1409,
+      "title": "fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs)",
+      "createdAt": "2026-07-23T23:41:02Z",
+      "age_days": 2.43
+    },
+    {
+      "repo": "jamiepine/voicebox",
+      "num": 958,
+      "title": "fix(deps): bump tauri to >=2.11.1 (GHSA-7gmj-67g7-phm9 / CVE-2026-42184)",
+      "createdAt": "2026-07-23T16:34:18Z",
+      "age_days": 2.73
+    },
+    {
+      "repo": "koala73/worldmonitor",
+      "num": 5518,
+      "title": "fix(security): bump tauri >=2.11.1 \u2014 GHSA-7gmj-67g7-phm9 origin confusion (CVE-2026-42184, CVSS 8.8)",
+      "createdAt": "2026-07-23T16:03:16Z",
+      "age_days": 2.75
+    },
+    {
+      "repo": "koala73/worldmonitor",
+      "num": 5477,
+      "title": "fix(security): bump sharp >=0.35.0 in blog-site (GHSA-f88m-g3jw-g9cj, HIGH)",
+      "createdAt": "2026-07-23T08:12:21Z",
+      "age_days": 3.07
+    },
+    {
+      "repo": "cocoindex-io/cocoindex",
+      "num": 2315,
+      "title": "fix(deps): bump surrealdb >=3.2.3 to patch quinn-proto DoS (CVSS 7.5) and ammonia XSS",
+      "createdAt": "2026-07-22T15:43:31Z",
+      "age_days": 3.76
+    },
+    {
+      "repo": "block/buzz",
+      "num": 2248,
+      "title": "security: track quick-xml DoS advisories (RUSTSEC-2026-0194/0195)",
+      "createdAt": "2026-07-21T18:08:42Z",
+      "age_days": 4.66
+    },
+    {
+      "repo": "KnockOutEZ/wigolo",
+      "num": 216,
+      "title": "fix(deps): patch ajv/ws/protobufjs/vite for disclosed CVEs",
+      "createdAt": "2026-07-20T07:53:04Z",
+      "age_days": 6.09
+    }
+  ],
+  "closed_no_merge": [],
+  "notify_decision": "skip",
+  "notify_reason": "dedup: hash unchanged (0d4e2c374767939b) and no fresh <24h PRs"
+}
