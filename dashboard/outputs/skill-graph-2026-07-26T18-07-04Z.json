@@ -1,0 +1,125 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Graph",
+        "description": "172 skills mapped, 6 categories, 43 enabled"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-initialized",
+        "stack-stats",
+        "sep-1",
+        "alert-pr-blocked",
+        "sep-2",
+        "stack-diagrams"
+      ]
+    },
+    "heading-initialized": {
+      "type": "Heading",
+      "props": {
+        "text": "Skill Graph initialized",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "stack-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-skills",
+        "stat-categories",
+        "stat-enabled"
+      ]
+    },
+    "stat-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills Mapped",
+        "value": "172"
+      },
+      "children": []
+    },
+    "stat-categories": {
+      "type": "Stat",
+      "props": {
+        "label": "Categories",
+        "value": "6"
+      },
+      "children": []
+    },
+    "stat-enabled": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled",
+        "value": "43"
+      },
+      "children": []
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "alert-pr-blocked": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Creation Blocked",
+        "message": "Branch pushed to skill-graph/2026-07-26 but PR blocked by github-actions-cannot-create-prs",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stack-diagrams": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-docs-location",
+        "link-skill-graph"
+      ]
+    },
+    "text-docs-location": {
+      "type": "Text",
+      "props": {
+        "text": "Diagrams available in:",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "link-skill-graph": {
+      "type": "Link",
+      "props": {
+        "label": "docs/skill-graph.md",
+        "href": "docs/skill-graph.md"
+      },
+      "children": []
+    }
+  }
+}
