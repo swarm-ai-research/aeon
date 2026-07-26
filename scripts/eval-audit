@@ -51,9 +51,9 @@ declare -A SKILL_ENABLED
 while IFS= read -r line; do
   skill=$(echo "$line" | sed -n 's/^  \([a-zA-Z0-9_-]*\):.*/\1/p')
   if [ -n "$skill" ]; then
-    if echo "$line" | grep -q 'enabled: true'; then
+    if [[ "$line" == *"enabled: true"* ]]; then
       SKILL_ENABLED["$skill"]="true"
-    elif echo "$line" | grep -q 'enabled: false'; then
+    elif [[ "$line" == *"enabled: false"* ]]; then
       SKILL_ENABLED["$skill"]="false"
     fi
   fi
@@ -83,8 +83,7 @@ infer_output_pattern() {
   if grep -qE "articles/${skill}" "$skill_md" 2>/dev/null; then
     pattern="articles/${skill}-*.md"
   # Check for articles/ with a different name
-  elif grep -qoE 'articles/[a-z0-9_-]+-\$' "$skill_md" 2>/dev/null; then
-    pattern=$(grep -oE 'articles/[a-z0-9_-]+' "$skill_md" 2>/dev/null | head -1)
+  elif pattern=$(grep -oE 'articles/[a-z0-9_-]+-\$' "$skill_md" 2>/dev/null | sed 's/-\$$//' | head -1) && [ -n "$pattern" ]; then
     pattern="${pattern}-*.md"
   # Check for memory/logs pattern
   elif grep -qE 'memory/logs/' "$skill_md" 2>/dev/null && ! grep -qE 'articles/' "$skill_md" 2>/dev/null; then
