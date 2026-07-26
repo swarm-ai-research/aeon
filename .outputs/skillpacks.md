@@ -1,1 +1,1 @@
-*Skillpacks updated* — 1 new pack: outages-fleet (absorbed 17 skills from dissolved fleet-evolve + batch-health from monitor-movers). Branch skillpacks/2026-07-19 pushed; PR create still blocked by GHA perms.
+*Skillpacks updated* — 1 new pack outages-fleet (fleet-evolve dissolved, 18 skills regrouped). Branch: https://github.com/swarm-ai-research/aeon/pull/new/skillpacks/2026-07-26 (PR create blocked by GH Actions perm — 16th instance).
