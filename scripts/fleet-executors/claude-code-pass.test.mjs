@@ -487,4 +487,62 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. Claude exits 0 but produces empty stdout — exercises the `!proc.stdout`
+//     branch of invokeClaude (distinct from test 8 which exercises status ≠ 0).
+//     Both arms of `proc.status !== 0 || !proc.stdout` must be tested
+//     independently; test 8 covers the left arm, this covers the right.
+{
+  const CLAUDE_EMPTY_STDOUT_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+# exit 0 with no output — triggers the !proc.stdout branch
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EMPTY_STDOUT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "emptystdout" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /claude invocation failed/);
+    // Worktree must be cleaned up (cleanup(true) path).
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain");
+    // Ephemeral branch must be deleted.
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain after empty-stdout failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  claude exits 0 with empty stdout → !proc.stdout triggers failure path");
+}
+
+// 18. prUrl extraction fallback — when `gh pr create` exits 0 but outputs text
+//     without an https:// URL, the fallback `pr.stdout.trim()` branch fires.
+//     The regex path (tests 3, 7, 11, …) covers the happy URL case; this test
+//     covers the `|| pr.stdout.trim()` right-hand side.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash
+echo "gh: $@" >> "$GH_LOG"
+if [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi
+echo "PR created (no URL returned)"
+`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "prurlfb" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "PR created (no URL returned)",
+      `prUrl should be the trimmed stdout fallback; got ${result.prUrl}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  prUrl fallback — gh output without https:// URL uses pr.stdout.trim()");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
