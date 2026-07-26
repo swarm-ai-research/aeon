@@ -1,12 +1,7 @@
-## Summary
+batch gap — 2026-07-26
 
-Ran `batch-health` skill for 2026-07-25 (Saturday, odd DOM).
+2 scheduled skills didn't run in the 06:00–07:30 UTC window:
+- planner (30 6 * * *)
+- compute-macro-correlate (30 6 * * 0)
 
-- **Expected in 06:00–07:30 UTC window:** 2 skills (`planner`, `compute-futures-eda`) — everything else enabled either fires outside the window, is even-day-only, or day-of-week-restricted.
-- **Actual:** both fired and succeeded at ~06:37Z (planner 06:37:01Z, compute-futures-eda 06:37:05Z).
-- **Status:** OK — 0 missing, 0 failed.
-- **Notification:** skipped (OK threshold).
-- **Issue filed:** none needed.
-- **Data source:** `./scripts/skill-runs --json --hours 26` (no fallback required).
-- **Files modified:** `memory/logs/2026-07-25.md` (appended `## Batch Health` section with `BATCH_HEALTH_OK` marker).
-- **Follow-up:** none.
+both at 06:30Z slot — consistent with the ISS-006 pocket-drop pattern (memory/06:00Z pocket landed clean at 06:21Z; 07:00Z + 07:30Z fired late at 08:55Z; 06:30Z silent). WARN, not OUTAGE. monitoring.

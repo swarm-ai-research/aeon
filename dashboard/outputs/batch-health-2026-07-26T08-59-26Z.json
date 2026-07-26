@@ -1,0 +1,177 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "batch gap"
+      },
+      "children": [
+        "heading_main",
+        "alert_main",
+        "sep1",
+        "details_section",
+        "sep2",
+        "pattern_section",
+        "sep3",
+        "status_section"
+      ]
+    },
+    "heading_main": {
+      "type": "Heading",
+      "props": {
+        "text": "batch gap — 2026-07-26",
+        "level": "h2"
+      }
+    },
+    "alert_main": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Batch Gap Detected",
+        "message": "2 scheduled skills didn't run in the 06:00–07:30 UTC window"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "details_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "details_label",
+        "skill_planner",
+        "skill_compute",
+        "slot_note"
+      ]
+    },
+    "details_label": {
+      "type": "Text",
+      "props": {
+        "text": "Failed skills:",
+        "variant": "lead"
+      }
+    },
+    "skill_planner": {
+      "type": "Text",
+      "props": {
+        "text": "• planner (30 6 * * *)"
+      }
+    },
+    "skill_compute": {
+      "type": "Text",
+      "props": {
+        "text": "• compute-macro-correlate (30 6 * * 0)"
+      }
+    },
+    "slot_note": {
+      "type": "Text",
+      "props": {
+        "text": "Both failed at the 06:30Z slot",
+        "variant": "muted"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pattern_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pattern_label",
+        "pattern_iss",
+        "pattern_context"
+      ]
+    },
+    "pattern_label": {
+      "type": "Text",
+      "props": {
+        "text": "Pattern Analysis:",
+        "variant": "lead"
+      }
+    },
+    "pattern_iss": {
+      "type": "Text",
+      "props": {
+        "text": "Consistent with ISS-006 pocket-drop pattern (memory/issues/ISS-006.md)"
+      }
+    },
+    "pattern_context": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "timing_06z",
+        "timing_07z",
+        "timing_630z"
+      ]
+    },
+    "timing_06z": {
+      "type": "Text",
+      "props": {
+        "text": "06:00Z pocket landed clean at 06:21Z",
+        "variant": "caption"
+      }
+    },
+    "timing_07z": {
+      "type": "Text",
+      "props": {
+        "text": "07:00Z + 07:30Z fired late at 08:55Z",
+        "variant": "caption"
+      }
+    },
+    "timing_630z": {
+      "type": "Text",
+      "props": {
+        "text": "06:30Z silent",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "status_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "status_badge",
+        "status_text"
+      ]
+    },
+    "status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "WARN",
+        "variant": "secondary"
+      }
+    },
+    "status_text": {
+      "type": "Text",
+      "props": {
+        "text": "Not an outage. Monitoring.",
+        "variant": "lead"
+      }
+    }
+  }
+}
