@@ -1,23 +1,20 @@
-Skill executed successfully.
+Only the intended files changed: `memory/logs/2026-07-26.md` (log entry) and the new `.pending-notify/1785093920-goal-tracker.md`. `memory/goal-state.json` and `memory/MEMORY.md` untouched as required.
 
 ## Summary
 
-**Goal Tracker — 2026-07-25**: tracked 19 goals from MEMORY.md `## Next priorities` (no `## Goals` section present, fallback per SKILL.md).
+Ran `skills/goal-tracker/SKILL.md` on 2026-07-26 — exited **NO_GOALS**.
 
-**Status distribution** (identical to 07-24 — no transitions in 24h):
-- **BLOCKED**: 3 — `operator-pat-provisioning`, `iss-006-fix-*`, `patch-pr-tracker-skill-md-*` — all share the same meta-blocker (github-actions-cannot-create-prs / repo Settings toggle). pr-tracker patch now 30d overdue; ISS-006 close-clock in Day-6 PARTIAL streak.
-- **ON TRACK**: 16
-- **DONE / NEEDS ATTENTION / AT RISK**: 0
+**Root cause:** MEMORY.md has neither `## Goals` nor `## Next Priorities`. The 2026-07-25T18:39Z reflect renamed `## Next priorities` → `## Pointers` (confirmed in today's memory-flush log). SKILL.md fallback list does not include `## Pointers`, so the skill correctly halts before evidence gathering. The 19 goal-like bullets are still present in MEMORY.md lines 41–59 under `## Pointers`, mapping 1:1 to slugs in prior `goal-state.json` (16 ON_TRACK / 3 BLOCKED).
 
-**Trend**: 17 flat, 2 new. The operator rewrote two goal titles in MEMORY.md, so those got new slugs:
-- `restore-agi-tracker-skill-md` → `set-enabled-false-agi-tracker` (escalated action)
-- `investigate-planner-06-30z-miss` → `investigate-planner-08-00z-pocket-delivery-reliability` (scope broadened)
+**Files modified:**
+- `memory/logs/2026-07-26.md` — appended `### goal-tracker` section + Summary
+- `.pending-notify/1785093920-goal-tracker.md` — new (direct-write per [[notify-inline-cat-substitution-blocked-in-sandbox]] + [[notify-script-has-no-f-flag]])
 
-**Files modified**:
-- `memory/goal-state.json` — rewrote with today's snapshot (19 goals, 2 slug renames)
-- `.pending-notify/1785005100-goal-tracker.md` — notification report (direct write per sandbox pattern)
-- `memory/logs/2026-07-25.md` — appended `### goal-tracker` entry + `### Summary (goal-tracker)`
+**Files preserved (untouched per SKILL constraint "never authors"):**
+- `memory/MEMORY.md` — not edited (skill cannot add/rename sections)
+- `memory/goal-state.json` — 07-25 snapshot kept intact so trend continuity survives whichever fix path the operator picks
 
-**MEMORY.md** left untouched — no goal moved DONE and no status transitions occurred (SKILL.md rule).
-
-**Sources**: logs=ok, git=ok (1 commit on main last 30d — expected per blocker), gh_pr=ok (0 results), gh_issue=ok (0 results), cron-state=ok.
+**Follow-up (operator, pick one):**
+- (a) rename `## Pointers` → `## Next Priorities` in MEMORY.md — smallest, reversible
+- (b) add a new `## Goals` section with the same bullets
+- (c) update `skills/goal-tracker/SKILL.md` fallback list to include `## Pointers`
