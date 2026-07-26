@@ -6,7 +6,6 @@ Step names were refactored ('Checkout' -> 'Checkout repo') between audits.
 import json
 import re
 import os
-import hashlib
 from collections import Counter, defaultdict
 
 findings = json.load(open('.audit/classified.json'))

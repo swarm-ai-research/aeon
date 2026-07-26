@@ -7,7 +7,6 @@ breakdowns, so we read them from the carried-over section text).
 import json
 import re
 import os
-import hashlib
 from collections import Counter
 
 findings = json.load(open('.audit/classified.json'))
