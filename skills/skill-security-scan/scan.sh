@@ -179,6 +179,23 @@ TOTAL_WARN=0
 TOTAL_FAIL=0
 JSON_RESULTS=""
 
+# Grep a file against a list of patterns; emit one "L<n>: <content> [pattern: <p>]" line per match.
+collect_matches() {
+  local file="$1"; shift
+  for pattern in "$@"; do
+    local matches
+    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
+    if [[ -n "$matches" ]]; then
+      while IFS= read -r match; do
+        local line_num="${match%%:*}"
+        local line_content="${match#*:}"
+        line_content="${line_content:0:120}"
+        printf '%s\n' "L${line_num}: ${line_content} [pattern: ${pattern}]"
+      done <<< "$matches"
+    fi
+  done
+}
+
 scan_file() {
   local file="$1"
   local skill_name
@@ -189,54 +206,10 @@ scan_file() {
     return 1
   fi
 
-  local content
-  content=$(cat "$file")
-
-  local highs=()
-  local mediums=()
-  local lows=()
-
-  # Check HIGH patterns
-  for pattern in "${HIGH_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"  # truncate
-        highs+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
-
-  # Check MEDIUM patterns
-  for pattern in "${MEDIUM_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        mediums+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
-
-  # Check LOW patterns
-  for pattern in "${LOW_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        lows+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  local highs=() mediums=() lows=()
+  mapfile -t highs   < <(collect_matches "$file" "${HIGH_PATTERNS[@]}")
+  mapfile -t mediums < <(collect_matches "$file" "${MEDIUM_PATTERNS[@]}")
+  mapfile -t lows    < <(collect_matches "$file" "${LOW_PATTERNS[@]}")
 
   # Determine result
   local status="PASS"
