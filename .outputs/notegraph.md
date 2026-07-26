@@ -1,1 +1,1 @@
-*Notegraph updated* — +2 notes wired in (195n/1987e/1o/0b). Branch `notegraph/2026-07-25` staged; PR blocked by Actions-create-PRs toggle (15th confirmed). New: aeon-fourth-signing-identity + pr-tracker-branch-prefix-aeon-slash.
+*Notegraph updated* — +2 notes wired in (200n / 2058e / 0b). Branch `notegraph/2026-07-26` pushed; PR blocked by GitHub Actions PR-creation setting (16th instance). New: aeon-fifth-signing-identity + anthropic-amd-2gw-mi450.
