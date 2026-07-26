@@ -487,4 +487,81 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. test-pass kind is recognised — runCodePass must accept it and return
+//     ok:true rather than the "unknown code-pass kind" error. The KIND_CONFIG
+//     entry for "test-pass" was previously untested.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_NOOP_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "gh should not have been called: $@" >&2\nexit 99\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", repoDir: env.localDir, taskId: "kind-test" })
+    );
+    assert.equal(result.ok, true, `expected ok=true for test-pass kind, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, null);
+    assert.doesNotMatch(result.summary || "", /unknown code-pass kind/);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  test-pass kind is recognised by KIND_CONFIG and returns ok:true on noop");
+}
+
+// 18. buildPrompt omits the 'Additional focus' line when focus is empty —
+//     the `extraFocus ? ... : ""` expression produces "" which filter(Boolean)
+//     strips, so no blank or "Additional focus" line appears in the prompt.
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-nofocus-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/1"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nofocus", focus: "" })
+    );
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.doesNotMatch(captured, /Additional focus from task payload:/,
+      "prompt must not contain 'Additional focus' line when focus is empty");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  buildPrompt omits 'Additional focus' line when focus is empty (filter(Boolean) branch)");
+}
+
+// 19. buildPrompt uses the fallback target line when target is empty —
+//     the `target ? ... : "No specific files supplied..."` else branch.
+//     Test 13 covers the truthy (target provided) path; this covers the falsy path.
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-notarget-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/1"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "notarget" })
+    );
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /No specific files supplied/,
+      "prompt must use fallback target line when no target is provided");
+    assert.doesNotMatch(captured, /Recently changed files \(focus area\):/,
+      "prompt must not contain 'Recently changed files' line when target is empty");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  buildPrompt uses fallback 'No specific files supplied' line when target is empty");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
