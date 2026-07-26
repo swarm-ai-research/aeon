@@ -1,11 +1,13 @@
 ## Summary
 
-Ran `skills/issue-triage/SKILL.md`. `${var}` empty and `memory/watched-repos.md` absent, so per the skill's config-guard clause I logged `ISSUE_TRIAGE_OK no-watched-repos` and exited without fetching, classifying, or writing state.
+Executed `skills/issue-triage/SKILL.md` — hit the §Config early-exit path.
 
-- No API calls made (no repos to probe)
-- `memory/triaged-issues.json` untouched
-- `memory/triage-advisory/` not created
-- No notification (nothing actionable)
-- **Files modified:** `memory/logs/2026-07-25.md` (appended `## issue-triage` section)
+**Preconditions:**
+- `${var}` empty (frontmatter default).
+- `memory/watched-repos.md` missing.
 
-**Follow-up:** the skill is a no-op until a watched-repos list exists. If issue triage is intended to run on the aeon repo itself (which currently has 0 open issues per today's heartbeat), create `memory/watched-repos.md` with `- aeonframework/aeon` — or invoke this skill with `var: aeonframework/aeon` directly.
+**Action:** Per skill contract, logged `ISSUE_TRIAGE_OK no-watched-repos` and exited. No `gh` calls, no permission probes, no notify, no writes to `memory/triaged-issues.json`.
+
+**Files modified:** `memory/logs/2026-07-26.md` (added `## Issue Triage` section with the no-op verdict).
+
+**Follow-up (unchanged, already tracked in MEMORY.md):** Populate `memory/watched-repos.md` or set `enabled: false` on the six watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Until then, every daily 09:00Z issue-triage slot is a wasted workflow dispatch — same pattern as the last several days.
