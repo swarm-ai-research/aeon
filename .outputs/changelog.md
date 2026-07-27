@@ -1,12 +1,7 @@
 ## Summary
 
-**Aborted per skill spec.** `memory/watched-repos.md` is missing and `${var}` is empty, so per SKILL.md §Config I must abort (and must NOT create the file silently).
+Changelog skipped on 2026-07-27 — `memory/watched-repos.md` missing (per SKILL §Config: "abort and notify … do not create it silently"). No repo scan, no article, no `sources` dict, no assembly.
 
-**Actions taken:**
-- Verified `memory/watched-repos.md` absent — corroborated by MEMORY.md line 57 next-priority item flagging the same 6 watched-repos-dependent skills (changelog among them).
-- Wrote spec-mandated notification to `.pending-notify/1784566514-changelog.md`: `changelog: memory/watched-repos.md missing — nothing to scan.` (direct-write pattern per `[[notify-inline-cat-substitution-blocked-in-sandbox]]` + `[[notify-script-has-no-f-flag]]`).
-- Appended `## changelog` + `## Summary (changelog)` entries to `memory/logs/2026-07-20.md`.
-
-**Files:** `.pending-notify/1784566514-changelog.md` (new), `memory/logs/2026-07-20.md` (appended).
-
-**Follow-up:** Operator action needed — populate `memory/watched-repos.md` or disable the skill in `aeon.yml`. This will keep aborting cleanly each Mon window until then.
+- **Files created:** `.pending-notify/1785172665-changelog.md` (queued CHANGELOG_SKIP notify with unblock recipe).
+- **Files modified:** `memory/logs/2026-07-27.md` (appended `## changelog` block + summary).
+- **Follow-up:** unchanged from `memory/MEMORY.md` line 58 — either populate `memory/watched-repos.md` with `- owner/repo` lines or set `enabled: false` on the 6 watched-repos-dependent skills (changelog, code-health, github-monitor, issue-triage, weekly-shiplog, repo-revive) to reclaim their workflow slots. Fourth SKIP-log this week from that class; weekly-shiplog Mon 09:00Z is the next expected short-circuit.
