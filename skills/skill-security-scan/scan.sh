@@ -252,15 +252,16 @@ scan_file() {
 
   # Output
   if [[ "$JSON_OUTPUT" == "true" ]]; then
+    local jq_to_array='split("\n") | map(select(length > 0))'
     local json_highs="[]" json_mediums="[]" json_lows="[]"
     if [[ ${#highs[@]} -gt 0 ]]; then
-      json_highs=$(printf '%s\n' "${highs[@]}" | jq -R -s 'split("\n") | map(select(length > 0))')
+      json_highs=$(printf '%s\n' "${highs[@]}" | jq -R -s "$jq_to_array")
     fi
     if [[ ${#mediums[@]} -gt 0 ]]; then
-      json_mediums=$(printf '%s\n' "${mediums[@]}" | jq -R -s 'split("\n") | map(select(length > 0))')
+      json_mediums=$(printf '%s\n' "${mediums[@]}" | jq -R -s "$jq_to_array")
     fi
     if [[ ${#lows[@]} -gt 0 ]]; then
-      json_lows=$(printf '%s\n' "${lows[@]}" | jq -R -s 'split("\n") | map(select(length > 0))')
+      json_lows=$(printf '%s\n' "${lows[@]}" | jq -R -s "$jq_to_array")
     fi
     local entry
     entry=$(jq -n \
