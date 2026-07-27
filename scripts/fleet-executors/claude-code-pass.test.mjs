@@ -487,4 +487,57 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. gh pr list returns malformed (unparseable) JSON → catch branch returns
+//     null → gate is skipped and the pass proceeds. This is distinct from
+//     test #11 (non-zero exit) and test #12 (valid but non-array JSON): here
+//     JSON.parse itself throws, exercising the `catch { return null }` path.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{broken json'; exit 0; fi\necho "https://github.com/stub/repo/pull/71"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "badjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns malformed JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/71");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list malformed JSON → JSON.parse catch → null backlog → pass proceeds");
+}
+
+// 18. No-target branch of buildPrompt() — when `target` is omitted the prompt
+//     must contain the fallback string "No specific files supplied" rather than
+//     a "Recently changed files" line. Exercises the else branch on line 98.
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-notarget-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/78"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "refactor-pass", repoDir: env.localDir, taskId: "notarget" })
+      // target intentionally omitted → defaults to ""
+    );
+    assert.equal(result.ok, true);
+    assert.equal(result.prUrl, null);
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /No specific files supplied/,
+      "prompt should contain fallback text when target is absent");
+    assert.doesNotMatch(captured, /Recently changed files/,
+      "prompt must NOT contain 'Recently changed files' when target is absent");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  no-target → buildPrompt uses 'No specific files supplied' fallback");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
