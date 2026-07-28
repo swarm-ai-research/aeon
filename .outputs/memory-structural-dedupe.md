@@ -1,12 +1,8 @@
+Clean state — nothing to fix, no notification sent.
+
 ## Summary
-
-Ran `memory-structural-dedupe` skill against `memory/MEMORY.md`.
-
-**Result:** clean — no structural duplicates detected. The MEMORY.md file contains only 4 top-level sections (`Current focus`, `Topics`, `Conventions`, `Pointers`), all of which are either intentionally multi-line or handled by the sibling `scripts/memory-dedupe` script. None of the six single-canonical sections this skill targets (`Recent Articles`, `Skills Built`, `Lessons Learned`, `Wallet`, `Issue Tracker`, `Recent Newsletters`) are present in the current index.
-
-**Actions taken:**
-- Created `memory/logs/2026-07-26.md` with `MEMORY_STRUCTURAL_DEDUPE_OK` marker
-- Skipped pointer dedupe (clean input, no rewrite triggered)
-- Skipped notification (only sent on drift fix)
-
-**Follow-ups:** none.
+- **Task:** Executed `memory-structural-dedupe` skill for 2026-07-28.
+- **Result:** MEMORY.md is clean. Its four sections (`Current focus`, `Topics`, `Conventions`, `Pointers`) contain **none** of the six single-canonical sections the skill checks (`Recent Articles`, `Skills Built`, `Lessons Learned`, `Wallet`, `Issue Tracker`, `Recent Newsletters`) — MEMORY.md was restructured into a pointer-only index, so no structural-row-accumulation drift is possible.
+- **Actions taken:** No rewrite. `scripts/memory-dedupe --fix` not run (clean input). No notification (per skill spec).
+- **Files modified:** `memory/logs/2026-07-28.md` (appended `MEMORY_STRUCTURAL_DEDUPE_OK` log entry + skill run summary).
+- **Follow-up:** If the six flagged section names ever return via `reflect` / `memory-flush`, this skill will begin detecting drift. If the pointer-only restructure is permanent, consider trimming the skill's single-canonical section list to match the new shape.
