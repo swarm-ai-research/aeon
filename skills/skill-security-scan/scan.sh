@@ -172,6 +172,21 @@ LOW_PATTERNS=(
   '>[[:space:]]+/'
 )
 
+# ---------- Helpers ----------
+
+array_to_json() {
+  printf '%s\n' "$@" | jq -R -s 'split("\n") | map(select(length > 0))'
+}
+
+print_findings() {
+  local color="$1" label="$2"
+  shift 2
+  local item
+  for item in "$@"; do
+    echo -e "  ${color}${label}${NC}: $item"
+  done
+}
+
 # ---------- Scanner ----------
 
 TOTAL_PASS=0
@@ -254,13 +269,13 @@ scan_file() {
   if [[ "$JSON_OUTPUT" == "true" ]]; then
     local json_highs="[]" json_mediums="[]" json_lows="[]"
     if [[ ${#highs[@]} -gt 0 ]]; then
-      json_highs=$(printf '%s\n' "${highs[@]}" | jq -R -s 'split("\n") | map(select(length > 0))')
+      json_highs=$(array_to_json "${highs[@]}")
     fi
     if [[ ${#mediums[@]} -gt 0 ]]; then
-      json_mediums=$(printf '%s\n' "${mediums[@]}" | jq -R -s 'split("\n") | map(select(length > 0))')
+      json_mediums=$(array_to_json "${mediums[@]}")
     fi
     if [[ ${#lows[@]} -gt 0 ]]; then
-      json_lows=$(printf '%s\n' "${lows[@]}" | jq -R -s 'split("\n") | map(select(length > 0))')
+      json_lows=$(array_to_json "${lows[@]}")
     fi
     local entry
     entry=$(jq -n \
@@ -286,19 +301,13 @@ scan_file() {
     # Bash 3.2 (macOS default) treats `"${arr[@]}"` as unbound under `set -u`
     # when the array has zero elements, so each loop is gated on length first.
     if [[ ${#highs[@]} -gt 0 ]]; then
-      for h in "${highs[@]}"; do
-        echo -e "  ${RED}HIGH${NC}: $h"
-      done
+      print_findings "$RED" "HIGH" "${highs[@]}"
     fi
     if [[ ${#mediums[@]} -gt 0 ]]; then
-      for m in "${mediums[@]}"; do
-        echo -e "  ${YELLOW}MEDIUM${NC}: $m"
-      done
+      print_findings "$YELLOW" "MEDIUM" "${mediums[@]}"
     fi
     if [[ ${#lows[@]} -gt 0 ]]; then
-      for l in "${lows[@]}"; do
-        echo -e "  ${CYAN}LOW${NC}: $l"
-      done
+      print_findings "$CYAN" "LOW" "${lows[@]}"
     fi
   fi
 }
