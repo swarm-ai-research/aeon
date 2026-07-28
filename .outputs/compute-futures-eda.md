@@ -1,9 +1,2 @@
-## Summary
-
-**No-op run.** Latest CSV on `fleet-state` is `memory/gitlawb-compute-futures-proofs/2026-07-25.csv`, and `memory/topics/compute-futures-eda/2026-07-25.md` already exists — the skill's "don't double-write" constraint triggered a clean exit. No new report, no commit, no notification (skill only notifies on true skip conditions like missing CSV or schema drift).
-
-**Files touched:**
-- Created `memory/logs/2026-07-26.md` — log entry recording the no-op and next-action pointer.
-- Fleet-state checkout of `memory/gitlawb-compute-futures-proofs/` was rolled back to keep main clean.
-
-**Follow-up:** Re-run once the deployer pushes a `2026-07-26.csv` proof.
+*Compute-Futures EDA — 2026-07-27*
+144 rows, 4 modes. Top: (spread, settlementLegs) 16.67% MEDIUM fires as (basket, settlementLegs) 16.67% collapses — same-column mode migration; 07-25's spread maxSpot 25% HIGH also fully collapsed (7th single-run HIGH/MEDIUM collapse). Conservation: basket/spread/synth/x402 all OK (mean 2e−14 to 1.5e−12; 11+ orders under gate). x402 settlementLegs×x402Total sign-flip streak broken at 3 (+0.357→−0.394). Report: memory/topics/compute-futures-eda/2026-07-27.md

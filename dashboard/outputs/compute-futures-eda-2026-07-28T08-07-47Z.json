@@ -1,0 +1,139 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-07-27"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat-rows",
+        "stat-modes",
+        "sep-1",
+        "heading-findings",
+        "stack-findings",
+        "sep-2",
+        "heading-conservation",
+        "text-conservation",
+        "sep-3",
+        "heading-x402",
+        "text-x402",
+        "sep-4",
+        "link-report"
+      ]
+    },
+    "stat-rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Rows",
+        "value": "144"
+      }
+    },
+    "stat-modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "sep-1": {
+      "type": "Separator"
+    },
+    "heading-findings": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Findings",
+        "level": "h2"
+      }
+    },
+    "stack-findings": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-finding1",
+        "text-finding2",
+        "alert-collapse"
+      ]
+    },
+    "text-finding1": {
+      "type": "Text",
+      "props": {
+        "text": "(spread, settlementLegs) 16.67% MEDIUM fires as (basket, settlementLegs) 16.67% collapses — same-column mode migration",
+        "variant": "body"
+      }
+    },
+    "text-finding2": {
+      "type": "Text",
+      "props": {
+        "text": "07-25's spread maxSpot 25% HIGH also fully collapsed",
+        "variant": "body"
+      }
+    },
+    "alert-collapse": {
+      "type": "Alert",
+      "props": {
+        "title": "7th Single-Run HIGH/MEDIUM Collapse",
+        "type": "warning"
+      }
+    },
+    "sep-2": {
+      "type": "Separator"
+    },
+    "heading-conservation": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h2"
+      }
+    },
+    "text-conservation": {
+      "type": "Text",
+      "props": {
+        "text": "basket/spread/synth/x402 all OK (mean 2e−14 to 1.5e−12; 11+ orders under gate)",
+        "variant": "body"
+      }
+    },
+    "sep-3": {
+      "type": "Separator"
+    },
+    "heading-x402": {
+      "type": "Heading",
+      "props": {
+        "text": "x402 Sign-Flip Streak",
+        "level": "h2"
+      }
+    },
+    "text-x402": {
+      "type": "Text",
+      "props": {
+        "text": "settlementLegs×x402Total sign-flip streak broken at 3 (+0.357→−0.394)",
+        "variant": "body"
+      }
+    },
+    "sep-4": {
+      "type": "Separator"
+    },
+    "link-report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Detailed Report",
+        "href": "memory/topics/compute-futures-eda/2026-07-27.md",
+        "source": "Aeon"
+      }
+    }
+  }
+}
