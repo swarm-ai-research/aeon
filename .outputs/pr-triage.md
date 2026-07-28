@@ -1,14 +1,11 @@
+PR triage complete for `swarm-ai-research/swarm` — `PR_TRIAGE_OK no-candidates`.
+
 ## Summary
 
-Ran `pr-triage` in repo mode with `var=swarm-ai-research/swarm`.
-
-- **Verdict:** `PR_TRIAGE_OK no-candidates` — every PR hit a skip rule at step 3 before any rubric ran.
-- **Fetched:** 6 open PRs (#536, #537, #538, #539, #540, #543).
-- **Skipped:** 4 dependabot bots (trusted `[bot]` suffix) + 2 already-triaged (both external PRs by @rsavitt still at their previously-recorded head SHAs; matched `memory/triaged-prs.json` entries: #543 sha `70b20e0` ACCEPTED, #536 sha `76e6200` DEFER).
-- **State file:** unchanged — no new (PR, headRefOid) pairs to record.
-- **Comments/labels/closes:** none posted; no write attempts made against the swarm repo (dedup path fired before the known-broken write path per [[aeon-app-no-write-on-swarm-repo]]).
-- **Notification:** none (SKILL step 10 gates notify on OUT-OF-SCOPE or first-PR ACCEPTED; neither triggered).
-
-**Files modified:** `memory/logs/2026-07-26.md` (appended `## pr-triage` block).
-
-**Follow-up:** the two external PRs will re-triage automatically as soon as either author pushes new commits (head SHA advance). Standing note: the app cannot write to `swarm-ai-research/swarm`, so if a rubric verdict does need to land there, it will surface as `PR_TRIAGE_NO_PERMISSION` and require an operator-driven comment/label.
+- **Task:** Run `pr-triage` on `swarm-ai-research/swarm` (repo mode, `${var}=swarm-ai-research/swarm`).
+- **Result:** All 7 open PRs skipped by SKILL step 3 rules — no candidates progressed to diff/rubric/comment stages.
+  - **5 dependabot bots** (skip-by-author): #545 (next), #540 (langchain-core), #539 (langchain-anthropic), #538 (actions/github-script), #537 (actions/setup-python).
+  - **2 dup-SHA already-triaged**: #543 `70b20e0` matches 07-25 ACCEPTED entry, #536 `76e6200` matches 07-25 DEFER entry in `memory/triaged-prs.json`.
+- **Files modified:** `memory/logs/2026-07-28.md` (appended pr-triage section). `memory/triaged-prs.json` untouched — no new tuples, all three existing entries inside 90-day retention.
+- **Notify:** SKIPPED per step 10 gate (zero OUT-OF-SCOPE, zero new first-time ACCEPTED).
+- **Follow-up:** If rsavitt pushes a new commit to #536 or #543, next run re-triages at the new SHA. New non-bot PR would 403 on the write path per `[[aeon-app-no-write-on-swarm-repo]]` (would be the 13th confirming invocation).
