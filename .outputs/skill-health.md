@@ -1,23 +1,20 @@
-Skill-health audit complete.
-
 ## Summary
 
-**HEALTH: DEGRADED** — but classification is byte-identical to the 2026-07-26 run (hash `e27c0ac60367e7e5` preserved).
+Ran `skill-health` for 2026-07-28. Classified 44 enabled skills against cron-state, skill-health JSON, 7-day skill-runs, and issue-tracker state.
 
-**Classification** (44 enabled skills):
-- 0 CRITICAL / 0 FLAPPING / 0 WARNING
-- 38 DEGRADED (all ISS-001 OAuth-outage denominator residue — every skill `last_status=success`, `cf=0`; success rates 0.01–0.25 driven by historical failure count)
-- 4 HEALTHY: agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog
-- 2 NO DATA: ai-framework-watch, run-frequency-guard (19th consecutive silent day)
+**Classification (byte-identical to 2026-07-27):**
+- 0 CRITICAL · 0 FLAPPING · 0 WARNING
+- 38 DEGRADED (all share ISS-001 OAuth-outage denominator residue, day 38; every skill has `cf: 0` + `last_status: success`)
+- 4 HEALTHY (weekly-shiplog, config-validator, swarm-safety-eval, agi-tracker)
+- 2 NO DATA (`ai-framework-watch`, `run-frequency-guard` — 20th consecutive silent day)
 
-**Notify decision: SKIP** — hash unchanged AND elapsed 23.51h < 24h daily-reminder cadence. Per SKILL.md step 5, both branches fail → NOOP.
+**Notify gate:** SEND. Hash `e27c0ac60367e7e5` unchanged, but 46.68h since prev notify (2026-07-26T19:26Z) > 24h daily-reminder cadence. Yesterday's run at 23.51h had correctly SKIPPED just under the threshold.
 
-**Issue reconciliation**: 0 filed, 0 resolved. No open issues have `detected_by: skill-health`; per CLAUDE.md contract only repair skills close issues.
+**Issues:** 0 filed (no CRITICAL/FLAPPING), 0 resolved (per CLAUDE.md contract, skill-health files but doesn't close; also 0 open issues have `detected_by: skill-health`). 17 open.
 
-**Systemic**: ISS-001 OAuth-outage denominator burn day 37 (single pattern, no live regression).
+**Files modified:**
+- `memory/skill-health/last-report.json` — new run record with SEND decision + full delta narrative
+- `.pending-notify/1785262004-skill-health.md` — notify payload (direct write per sandbox pattern)
+- `memory/logs/2026-07-28.md` — appended skill-health section
 
-Novel morning signals (05:30–07:00Z pocket silence, planner 2×interval breach, cost-report Mon 07:00 miss, ISS-006 07-27 PARTIAL, status-page 11d stale) were seen but not escalated — heartbeat already owns their DEGRADED notify path this morning at 08:49Z.
-
-**Files modified**:
-- `memory/skill-health/last-report.json` — `last_run_at` bumped to 2026-07-27T18:57:15Z; `last_notified_at` preserved
-- `memory/logs/2026-07-27.md` — appended `## skill-health` NOOP entry + summary
+**Follow-ups:** 08:00Z pocket outcome tomorrow determines ISS-006 Day-5 close-eligibility (heartbeat/batch-health own). ISS-020 draft remains 10th-day carryover behind the operator repo-settings toggle rank-1.
