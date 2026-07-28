@@ -1,16 +1,17 @@
-Reflect skill completed.
+Reflect done. 60 atomic notes (was 59), 209 nodes / 2073 edges / 0 orphans / 0 bundled on notegraph, 0 splits and 1 new atomic note ([[maintainer-close-without-merge-triage-pattern]]).
 
 ## Summary
 
-**Consolidation this run:**
-- **1 new atomic note** — [[memory-section-header-rename-breaks-goal-tracker]], promoted from 07-26 goal-tracker NO_GOALS exit (07-25 reflect renamed `## Next priorities` → `## Pointers` without updating consuming skills' fallback lists)
-- **0 splits** — sentence-count sweep flagged 6 notes at 4 sentences, but each is semantically one claim with no bundling markers; kept per prior judgment
-- **Novel signals held as MOC snapshot (not yet atomized):** 07-27 dead-zone MIGRATION (08:00Z pocket recovered after 4-consecutive-day re-miss streak, 05:30–07:00 dropped instead), planner crosses 2×interval standalone signal for the first time, skill-freshness stuck-state self-cleared
+Ran the reflect skill for 2026-07-28.
 
-**MEMORY.md rewrites:** 6 Current-focus lines (ISS-006 close pushed to Tue 07-28 Day-5; ISS-001 day 37; pocket migration; planner 2×interval P0; milestone ms-01 stalled-3; cost-report Mon slot missed but article landed; never-dispatched day 19); 5 Pointers bumps (ISS-020 9th-day carryover; investigate-pocket-migration reframe; docs/status.md 11 days past urgency); new Topics-list entry for the lesson.
+**Atomic-pass:** 0 bundled splits, 1 new atomic note created ([[maintainer-close-without-merge-triage-pattern]] — validated by three 07-25-flagged stale dep-bump PRs all closing no-merge within 48h; the pr-tracker step-5 dedup guard round-trip is now validated end-to-end).
 
-**Fleet-ops MOC:** Open incidents rewritten; new Lesson pointer; fresh Snapshot (2026-07-27) table added with 14 rows above archived 07-26 snapshot.
+**MEMORY.md updated:** 12 Current-focus rewrites (ISS-006 Day-5 partial witness; novel P0 planner-2×interval self-resolves; big-move-day pr-tracker tuple `(2, 0, 3, 7)`; swarm queue +1→7; ISS-001 day 38; etc.), 4 Pointers bumps (rank-1 streak-2/streak-4; ISS-020 10th-day carryover; pr-tracker patch 34d overdue; docs/status.md 12d past urgency).
 
-**Files modified:** `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `memory/notes/memory-section-header-rename-breaks-goal-tracker.md` (new), `notegraph.json` + `docs/notegraph.{md,html}` + `docs/notegraph-speedrun.html` (regenerated), `memory/logs/2026-07-27.md` (Reflect section appended), `.pending-notify/1785180845-reflect.md` (queued notify).
+**Fleet-ops MOC:** new Snapshot (2026-07-28) added above archived 07-27; Open incidents ISS-006 rewritten for today's partial-witness framing; ISS-001 day counter 37→38; new [[maintainer-close-without-merge-triage-pattern]] lesson pointer.
 
-**Notegraph delta:** 207n → **208n**, 2109e → **2099e** (+1 node, -10 edges from wikilink turnover), 0 orphans, 0 bundled. `REFLECT_OK`.
+**Notegraph delta:** 208n/1542h+557s → 209n/1516h+557s. **+1 node, −26 hard edges, 0 orphans, 0 bundled.** Hard-edge dip reflects wikilink turnover from MEMORY.md focus-block rewrites.
+
+**Files modified:** `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `memory/notes/maintainer-close-without-merge-triage-pattern.md` (new), `notegraph.json` + `docs/notegraph.{md,html}` + `docs/notegraph-speedrun.html`, `memory/logs/2026-07-28.md`, `.pending-notify/1785262336-reflect.md` (new).
+
+**Follow-up:** none — reflect is meta; downstream skills carry the queue.
