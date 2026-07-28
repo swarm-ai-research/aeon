@@ -1,36 +1,33 @@
 {
-  "input_fingerprint": "37fd8f4c5d8bc36a1a6183baf61a3fa566d27798",
-  "last_run": "2026-07-25",
+  "input_fingerprint": "a64044ee3f342020d20ba9388849cd07195034a3",
+  "last_run": "2026-07-28",
   "stats": {
-    "nodes": 195,
-    "edges": 1987,
-    "hard": 1459,
-    "soft": 528,
-    "orphans": 1,
-    "atomic": 50,
+    "nodes": 208,
+    "edges": 2099,
+    "hard": 1542,
+    "soft": 557,
+    "orphans": 0,
+    "atomic": 59,
     "bundled": 0
   },
-  "last_verdict": "+2 notes wired in",
+  "last_verdict": "graph refreshed (208n / 2099e / 0b) — timestamp-only diff, silent exit",
   "last_pr": "",
-  "last_branch": "notegraph/2026-07-25",
+  "last_branch": "",
   "delta_vs_head": {
-    "nodes": 2,
-    "edges": 19,
-    "hard": 10,
-    "soft": 9,
+    "nodes": 0,
+    "edges": 0,
+    "hard": 0,
+    "soft": 0,
     "orphans": 0,
     "bundled": 0,
-    "atomic": 2
+    "atomic": 0
   },
-  "new_nodes": [
-    "memory/notes/aeon-fourth-signing-identity-security-aeonframework-dev.md",
-    "memory/notes/pr-tracker-branch-prefix-aeon-slash.md"
-  ],
-  "orphans": ["docs/telegram-instant.md"],
+  "new_nodes": [],
+  "orphans": [],
   "new_orphans": [],
   "resolved_orphans": [],
   "new_bundled": [],
   "resolved_bundled": [],
-  "notify_suppressed": false,
-  "note": "2026-07-25: Input fingerprint moved (f600f07f… → 37fd8f4c…) — 2 new atomic notes landed since 07-22 snapshot: aeon-fourth-signing-identity-security-aeonframework-dev.md + pr-tracker-branch-prefix-aeon-slash.md (both referenced in today's MEMORY.md pr-status bullet). Extractor produced real content diff vs HEAD (846 lines in notegraph.json alone), not just generatedAt-only. Branch notegraph/2026-07-25 pushed cleanly (2786e18). gh pr create BLOCKED with 'GitHub Actions is not permitted to create or approve pull requests' — 15th confirmed instance of [[github-actions-cannot-create-prs]], adding to the ≥18 staged-branches queue behind the Repo Settings toggle. Notify SENT — verdict is not the bland 'graph refreshed' form. Orphans held at 1 (docs/telegram-instant.md, still — no change since 07-22). Bundled held at 0."
+  "notify_suppressed": true,
+  "note": "2026-07-28: Extractor produced 208n / 1542h / 557s / 0o / 0b — byte-identical stats to HEAD:notegraph.json (last run appears to be 2026-07-27 at 19:02:38Z, likely from an unstaged local run since no notegraph PR merged since 07-25). Working-tree diff after regeneration was TIMESTAMP-ONLY (generatedAt in notegraph.json + docs/notegraph.html + docs/notegraph-speedrun.html; date subheader in docs/notegraph.md). Reverted the 4 generated files, no PR opened, no notify sent. Silent exit per SKILL step 3 and [[notegraph-extractor-generatedat-nondeterministic]] follow-up. Fingerprint (a64044ee…) computed via node reproduction of the SKILL's shell pipeline — sandbox blocked the shell pipeline, so future runs computing via the SKILL's own shell command may not match; if so the extractor re-runs harmlessly and step 3 catches the no-op again. Prior fingerprint (37fd8f4c… from 07-25) rolled to reflect current state; orphan `docs/telegram-instant.md` referenced in prior state is no longer orphaned (extractor reports 0 orphans this run — likely resolved by intervening note wiring not yet on main). notegraph/2026-07-25 branch remains staged behind [[github-actions-cannot-create-prs]]; no new branch created today."
 }
