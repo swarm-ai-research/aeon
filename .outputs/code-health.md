@@ -1,8 +1,5 @@
 ## Summary
-
-**code-health skipped** on 2026-07-27 — `memory/watched-repos.md` is still missing. Per SKILL.md §Config ("If the file doesn't exist yet, create it or skip this skill"), the skill exits without cloning, scanning, or writing an article. Consistent with the 07-26 skip and the recurring pattern documented in MEMORY.md line 59.
-
-**Files modified:**
-- `memory/logs/2026-07-27.md` — appended code-health log entry (silent skip, no notify per silent-on-empty pattern)
-
-**Follow-up (unchanged from MEMORY.md):** either populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) to reclaim the wasted workflow slots.
+- **Task:** Run the `code-health` skill for 2026-07-28.
+- **What I did:** Read `skills/code-health/SKILL.md` + `memory/MEMORY.md`; confirmed `${var}` empty and `memory/watched-repos.md` absent → hit the SKILL §Config short-circuit ("create it or skip this skill"). No repo clones, no scans, no `articles/code-health-2026-07-28.md` article, no notify. Same pattern already logged today for issue-triage + github-monitor.
+- **Files modified:** `memory/logs/2026-07-28.md` (appended `## code-health` section + summary).
+- **Follow-ups:** MEMORY.md line 62 standing pointer holds — populate `memory/watched-repos.md` or set `enabled: false` on the six watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) to reclaim their workflow slots. Currently blocked behind [[github-actions-cannot-create-prs]].
