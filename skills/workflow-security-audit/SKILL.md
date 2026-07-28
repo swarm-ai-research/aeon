@@ -26,7 +26,7 @@ Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 **Pre-cached binaries (check first):** The repo ships `.audit-bin/zizmor` and `.audit-bin/actionlint` as committed executables. Always try these before network installs — they are the primary source on GitHub Actions runners where outbound PyPI/curl may be blocked.
 
 ```bash
-# zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
+# zizmor (zizmorcore/zizmor — SARIF-capable GH Actions auditor)
 # Pin to a specific version for reproducibility — bump this when upgrading.
 ZIZMOR_VERSION="1.25.2"
 if [ -x ".audit-bin/zizmor" ]; then
@@ -41,7 +41,7 @@ fi
 # (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
 # Also update the binary in .audit-bin/ when bumping the version pin.
 
-# actionlint (Rhymond's syntax-level workflow linter)
+# actionlint (rhysd/actionlint — syntax-level workflow linter)
 if [ -x ".audit-bin/actionlint" ]; then
   export PATH="$PWD/.audit-bin:$PATH"
 elif ! command -v actionlint >/dev/null 2>&1; then
