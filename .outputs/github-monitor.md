@@ -1,8 +1,7 @@
-Task was a single no-op logging step — no task tracking needed.
-
 ## Summary
 
-**github-monitor** — No-op run. `memory/watched-repos.md` is missing, so per the skill spec I logged `GITHUB_MONITOR_EMPTY_CONFIG` and ended. Zero `gh` calls issued, zero notifications sent (empty config = silent skip by design).
-
-- **Files modified**: `memory/logs/2026-07-28.md` (appended `### github-monitor` entry + summary).
-- **Follow-up (already tracked in MEMORY.md Pointers)**: populate `memory/watched-repos.md` with `owner/repo` entries, or set `enabled: false` on `github-monitor` in `aeon.yml` — one of six watched-repos-dependent skills currently wasting a workflow slot.
+- **Task:** Executed the `github-monitor` skill for 2026-07-29.
+- **Outcome:** Skill hit its documented empty-config exit condition — `memory/watched-repos.md` is not present, so there are no repos to scan. Logged `GITHUB_MONITOR_EMPTY_CONFIG` per spec.
+- **Notification:** none sent (empty tiers = silence, per §4 of SKILL.md).
+- **Files modified:** `memory/logs/2026-07-29.md` — appended `### github-monitor` section with the empty-config marker and a Summary block.
+- **Follow-ups:** Standing operator ask remains — populate `memory/watched-repos.md` with `owner/repo` lines, or disable the 6 watched-repos-dependent skills (github-monitor, code-health, issue-triage, changelog, weekly-shiplog, repo-revive). This is now the daily short-circuit pattern already flagged in `MEMORY.md`.
