@@ -487,4 +487,63 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. test-pass kind — defined in KIND_CONFIG but never exercised by any test.
+//     Smoke-test the happy path to confirm the kind is wired up correctly and
+//     that the PR title / branch name both reflect the "test-pass" kind.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "tp1" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/42");
+    assert.match(result.branch, /^aeon\/test-pass-\d{4}-\d{2}-\d{2}-tp1$/);
+    // gh was called with a title that mentions the kind label.
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /Test pass/);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  test-pass kind is wired in KIND_CONFIG and runs end-to-end");
+}
+
+// 18. git add -A failure — claude makes changes but `git add` fails. Must return
+//     ok:false, remove the worktree, and delete the local branch (cleanup(true)).
+//     This exercises the uncovered branch at line 219 of claude-code-pass.mjs.
+//     A git stub intercepts `add` (index stage) while delegating worktree add,
+//     status, branch, etc. to the real binary.
+{
+  const realGit = spawnSync("which", ["git"], { encoding: "utf8" }).stdout.trim() || "/usr/bin/git";
+  const GIT_ADD_FAIL = `#!/usr/bin/env bash
+if [ "$1" = "add" ]; then
+  echo "simulated git add failure" >&2
+  exit 1
+fi
+exec "${realGit}" "$@"
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "gh should not be called after add failure: $@" >&2\nexit 99\n`,
+  });
+  writeFileSync(join(env.binDir, "git"), GIT_ADD_FAIL);
+  chmodSync(join(env.binDir, "git"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "addfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git add failed/);
+    // Worktree must be removed (cleanup is called with deleteBranch=true).
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after git add failure");
+    // Branch must be deleted — cleanup(true) path.
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted after git add failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git add failure → ok:false, worktree and branch cleaned up");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
