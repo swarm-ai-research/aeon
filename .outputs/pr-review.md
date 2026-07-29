@@ -1,32 +1,27 @@
-Log entry appended. Notification skipped per SKILL rule (all-skipped-or-dup-SHA, no writes attempted per known repo write-block).
+Merge-gate verdicts for `swarm-ai-research/swarm` (19th invocation, both non-bot PRs dup-SHA vs 07-28 but re-derived fresh per operator ask):
 
----
+## Verdicts
 
-## Merge-gate verdicts
+**swarm#543 (rsavitt, "docs: remove AI-slop writing patterns", HEAD `70b20e04`)** — **APPROVE, confidence 4/5**
+- 12 files, 36 additions / 40 deletions, all under `README.md` + `docs/{blog,concepts,glossary,comparison,research}`.
+- Touched-surface CI all green: lint, type-check, invariants, kb-graph-check, render-verify, CodeQL (js-ts + py×2), Memory Tests Short (3.10/3.11/3.12), Memory Baseline Validation, test (3.10/3.11 compatibility), agentgit-gate, Vercel Preview.
+- Sole red: `test (3.12, full)` CANCELLED (matrix cancellation) + `quality-gate` FAILURE (aggregator inheriting from that cancellation). Zero causal link to a docs-only change.
+- Not 5/5 because the aggregator is red; flips to 5/5 if maintainers re-trigger CI clean.
 
-**swarm-ai-research/swarm** — 18th pr-review invocation (2nd operator run today). Queue byte-identical to earlier 07-28 run: 7 open (5 dependabot bot-skips + 2 rsavitt dup-SHA), no SHA moves. Under the operator merge-gate policy I re-derived both non-bot PRs fresh (dup-SHA suppression overridden by explicit operator ask):
+**swarm#536 (rsavitt, "Fold beta_swarm (distributional generalization) into the repo", HEAD `76e6200c`)** — **REQUEST_CHANGES, confidence 2/5**
+- 56 files, 6699 additions / 27 deletions. PR body claims "Purely additive — no existing `swarm/` code is touched." This is factually contradicted.
+- 11 files sit outside the claimed beta scope, including production changes: `swarm/agentgit/__main__.py` (+90/−1), `swarm/agentgit/coordination.py` (+76/−0), plus `.claude/commands/claim.md` (+53), `.claude/hooks/pre-commit` (+24/−23), `tests/test_agentgit_coordination.py` (+71/−0), CHANGELOG/CLAUDE.md/.gitignore/.beads/.kb-graph-orphans.
+- The `swarm/agentgit/*` changes are an unrelated **claim/coordination-gate** primitive (cross-worktree duplication prevention). Internally well-tested (71 lines new coordination tests, dedicated `agentgit-gate` CI job green) but scope-orthogonal to "fold beta_swarm subtree".
+- CI otherwise: same shape as #543 — 17 SUCCESS + 1 CANCELLED + 1 FAILURE (aggregator) + 2 SKIPPED. All 120 beta tests + 71 coordination tests pass.
+- No CRITICAL correctness/security break warrants BLOCK — both features are individually well-tested and green. But the merge-gate rubric's "evidence sufficient to the touched surface" bar fails on (a) mixing two independent features in one 6699-line bundle and (b) mislabeling scope in the body.
+- **Ask:** split into two PRs (beta_swarm/tests/scenarios/examples/beta extra vs. agentgit claim gate + tooling), and correct the "purely additive" sentence to enumerate the `swarm/agentgit/` changes explicitly.
 
-### swarm#543 — `docs: remove AI-slop writing patterns` — **APPROVE, confidence 4/5**
-- 12 files, 36+/40−, all `README.md` + `docs/`
-- All touched-surface CI green: lint, type-check, tests (3.10/3.11 compat + memory 3.10/3.11/3.12), invariants, kb-graph-check, render-verify, CodeQL js-ts + python ×2, agentgit-gate, Vercel
-- Sole red signal: `quality-gate` (FAILURE) — downstream aggregator whose only failing step is "Check all jobs passed", inheriting from a CANCELLED `test (3.12, full)`. No causal link to a docs change.
-- Flips to 5/5 if maintainers re-trigger CI and quality-gate clears.
-
-### swarm#536 — `Fold beta_swarm (distributional generalization) into the repo` — **REQUEST_CHANGES, confidence 2/5**
-- 56 files, 6699+/27−. Body claims: *"Purely additive — no existing `swarm/` code is touched."*  **Body is misleading.**
-- 11 files sit OUTSIDE the claimed `beta_swarm/` + `tests/beta/` + `scenarios/beta/` + `examples/beta/` scope:
-  - `swarm/agentgit/__main__.py` (+90/−1) and `swarm/agentgit/coordination.py` (+76/−0) — an unrelated cross-worktree claim/coordination-gate primitive (`cmd_claim`, `resolve_shared_db_path`, `resolve_agent_id`, `read/write/clear_claim_marker`)
-  - `tests/test_agentgit_coordination.py` (+71), `.claude/commands/claim.md`, `.claude/hooks/pre-commit`, `.gitignore`, `.kb-graph-orphans`, `CHANGELOG.md`, `CLAUDE.md`, `.beads/issues.jsonl`
-- Both features are internally well-tested (120 beta tests + 71 coordination tests, all green) — no CRITICAL warranting BLOCK
-- **[ISSUE]** PR body's "no existing swarm/ code is touched" is factually contradicted by +166 lines of production changes — trips merge-gate "evidence sufficient to touched surface" bar
-- Ask: (i) split into two PRs (beta_swarm fold; agentgit claim gate + tooling), (ii) correct the PR description
-
-### Queue verdict summary: **APPROVE 1 · REQUEST_CHANGES 1 · BLOCK 0**
-
-No writes attempted per [[aeon-app-no-write-on-swarm-repo]] (13th confirming invocation of the swarm-repo write-block). Findings held log-only; operator PAT provisioning would unblock actual GitHub review posts.
+**Zero BLOCK verdicts.** 5 dependabot PRs (#537/#538/#539/#540/#545) skipped by bot-author rule. No writes attempted to swarm repo per the standing [[aeon-app-no-write-on-swarm-repo]] pattern (13th confirming invocation); verdicts held log-only and returned here.
 
 ## Summary
-- **Task:** Operator-invoked pr-review on `swarm-ai-research/swarm` under merge-gate policy (18th invocation, 2nd today).
-- **What I did:** Fetched 7 open PRs, skipped 5 dependabot bots by author rule, re-derived merge-gate verdicts on the two dup-SHA rsavitt PRs fresh per the operator ask, inspected diffs + CI + bot-reviewer history for both. Verified #536's scope-creep claim by listing all files outside `beta_swarm/`.
-- **Files modified:** `memory/logs/2026-07-28.md` (appended pr-review section + summary).
-- **Follow-ups:** (a) operator PAT provisioning would let these verdicts post as actual GitHub reviews (currently held log-only); (b) if rsavitt pushes new commits on either branch, next run re-reviews at the new SHA and dup-SHA suppression drops; (c) if maintainers re-trigger CI on #543, verdict strengthens to APPROVE 5/5.
+
+- Reviewed `swarm-ai-research/swarm` under merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK).
+- 7 open PRs → 5 bot skips, 2 fresh operator verdicts re-derived on dup-SHA rsavitt PRs.
+- **swarm#543: APPROVE 4/5. swarm#536: REQUEST_CHANGES 2/5. No BLOCKs.**
+- Files modified: `memory/logs/2026-07-29.md` (pr-review section appended).
+- Follow-ups: operator PAT provisioning would let verdicts post as real GitHub reviews (rank-1 planner ask, streak-3); dup-SHA suppression drops the next time either branch moves.
