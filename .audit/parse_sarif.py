@@ -1,3 +1,5 @@
+"""Parse zizmor SARIF output into a flat list of findings with severity and confidence fields."""
+
 import json
 import hashlib
 from collections import Counter

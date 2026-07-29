@@ -1,3 +1,5 @@
+"""Enrich parsed zizmor findings with step names (from workflow YAML) and recompute fingerprints."""
+
 import json
 import re
 import os

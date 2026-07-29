@@ -1,3 +1,5 @@
+"""Apply severity mapping and step-anchored fingerprinting to parsed zizmor findings."""
+
 import json
 import hashlib
 import os

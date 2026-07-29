@@ -1,3 +1,5 @@
+"""Tally shellcheck codes from actionlint JSON output; flag SC2086/SC2046 over github.* as high-priority."""
+
 import json
 from collections import Counter
 data = json.load(open('.audit/actionlint.json'))
