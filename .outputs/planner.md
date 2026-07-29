@@ -1,10 +1,11 @@
-Plan written, state persisted, notify queued, log appended. Summary below.
+Plan written, state persisted, notify queued, log appended.
 
 ## Summary
 
-- **Task:** Ran the `planner` skill for 2026-07-28 (Tue, `${var}` empty → plan-only, no dispatch). Ran at 06:32Z, ~2min past the 06:30Z slot.
-- **Today's one thing:** Repo Settings toggle / PAT ask holds active rank-1 (streak-2 by run-count, Day-4 by calendar). Two silent-planner days (07-26 + 07-27 both in pocket-silence dead zones) between last plan and this one; the meta-block ([[github-actions-cannot-create-prs]]) hasn't moved, and the staged-branch queue grew ≥18 → ≥22 over the 07-26 window.
-- **Ranked runners-up:** (2) witness ISS-006 Day-5 clean-close eligibility today as morning pocket decodes (notegraph 05:24Z + this planner already in; 05:30 / 06:00 / 08:00 still pending); (3) 10th-day ISS-020 draft for `ai-framework-watch` + `run-frequency-guard` (both 20d silent — sweeper now excluded after 4th consecutive on-slot night).
-- **Fleet:** 0 broken · 0 in-flight · 38 DEGRADED (ISS-001 residue day 38) · 4 HEALTHY · 2 NO_DATA (20th silent day). The novel P0 planner-2×interval signal that heartbeat fired yesterday self-resolves as this run's state-write lands.
-- **Files modified:** `.outputs/planner.md`, `memory/state/daily-plan-2026-07-28.md` (new), `memory/state/planner-state.json` (top_priority holds, streak 1 → 2), `.pending-notify/1785220320-planner.md` (new — direct-write per known `./notify -f` and `$(...)` sandbox limits), `memory/logs/2026-07-28.md` (Planner section appended).
-- **Follow-ups:** (a) operator toggle/PAT remains the single unblock lever; (b) tomorrow's heartbeat should not re-fire the planner-2×interval standalone signal; (c) 08:00Z pocket landing clean today would formally close-eligible ISS-006.
+- **Task:** Ran the `planner` skill for 2026-07-29 (Wed, `${var}` empty → plan-only, no dispatch).
+- **Today's one thing:** Repo Settings toggle / PAT ask holds active rank-1 — **streak-3 by run, streak-5 by calendar day**. Meta-block ([[github-actions-cannot-create-prs]]) still holds; one operator move unblocks ≥22 staged branches + 6 fleet fixes + 35d-overdue pr-tracker patch + 13d-overdue docs/status.md gate.
+- **Ranked (3):** (1) operator toggle/PAT; (2) 08:00Z pocket verdict for ISS-006 — yesterday's Day-5 came in PARTIAL (cron-state confirms heartbeat/batch-health/skill-freshness/gitlawb-fleet-metrics all still at `last_dispatch: 2026-07-27T08:46:39Z`), close-clock advances to Day-6, today's outcome distinguishes dead-zone-migration vs. stuck-sub-pocket hypothesis; (3) unique Wed 18:30Z `skill-analytics` slot (weekly-Wed cadence — only day-of-week signal, feeds planner/goal-tracker).
+- **Holding:** ISS-020 draft (11th-day carryover, demoted from rank-3), agi-tracker `enabled: false`, pr-tracker patch, docs/status.md gate, goal-tracker NO_GOALS day-4, swarm queue at 7 open, novel P0 planner-2×interval (self-resolved 07-28T08:05Z — watching heartbeat doesn't re-fire).
+- **Fleet:** 0 broken · 0 in-flight · 38 DEGRADED (ISS-001 residue day 39) · 4 HEALTHY · 2 NO_DATA (21st silent day).
+- **Files:** `.outputs/planner.md`, `memory/state/daily-plan-2026-07-29.md` (new), `memory/state/planner-state.json` (streak 2 → 3, last_run bumped), `.pending-notify/1785309759-planner.md` (new, direct-write per sandbox notify pattern), `memory/logs/2026-07-29.md` (Planner section appended).
+- **Dispatch:** none (plan-only default). No follow-up actions required from the operator beyond the standing rank-1 ask.
