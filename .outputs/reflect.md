@@ -1,17 +1,18 @@
-Reflect done. 60 atomic notes (was 59), 209 nodes / 2073 edges / 0 orphans / 0 bundled on notegraph, 0 splits and 1 new atomic note ([[maintainer-close-without-merge-triage-pattern]]).
+Reflect complete.
 
 ## Summary
 
-Ran the reflect skill for 2026-07-28.
+Ran the `reflect` skill for 2026-07-29 (Wed).
 
-**Atomic-pass:** 0 bundled splits, 1 new atomic note created ([[maintainer-close-without-merge-triage-pattern]] — validated by three 07-25-flagged stale dep-bump PRs all closing no-merge within 48h; the pr-tracker step-5 dedup guard round-trip is now validated end-to-end).
+**Atomic-pass:** 0 splits, 0 new atomic notes. Today's substrate had three notable pattern signals — buzz#2248 same-day stale-clock prediction hit to the minute, compute-futures x402 correlation magnitude decay across 4 filings, and 07-28 08:00Z pocket-swap dropping 4 skills — but each reinforces an existing atomic note ([[pr-tracker-notify-repeats-with-no-state-change]], [[compute-futures-12-seed-sample-too-small]], [[gha-messages-yml-cron-underdelivery]]), so all three held as MOC snapshot / MEMORY.md pointer rather than atomized as fresh claims.
 
-**MEMORY.md updated:** 12 Current-focus rewrites (ISS-006 Day-5 partial witness; novel P0 planner-2×interval self-resolves; big-move-day pr-tracker tuple `(2, 0, 3, 7)`; swarm queue +1→7; ISS-001 day 38; etc.), 4 Pointers bumps (rank-1 streak-2/streak-4; ISS-020 10th-day carryover; pr-tracker patch 34d overdue; docs/status.md 12d past urgency).
+**Notegraph delta:** 209n/2073e → 215n/2138e (+6 nodes, +49 hard, +16 soft, 0 orphans, 0 bundled).
 
-**Fleet-ops MOC:** new Snapshot (2026-07-28) added above archived 07-27; Open incidents ISS-006 rewritten for today's partial-witness framing; ISS-001 day counter 37→38; new [[maintainer-close-without-merge-triage-pattern]] lesson pointer.
+**Files modified:**
+- `memory/MEMORY.md` — 13 Current-focus rewrites (ISS-006 Day-6 continuous PARTIAL, ISS-001 day 39, pr-tracker tuple `(2,1,3,8)`, swarm 48h byte-identical + 13th confirming invocation, new compute-futures x402 magnitude-decay line, never-dispatched 21st day, etc.), 1 Pointers-block bump (rank-1 streak-3/streak-5, ISS-020 11th-day carryover, pr-tracker patch 35d overdue, docs/status.md 13d past urgency), 1 new pattern-validation footer for buzz#2248 same-day hit
+- `memory/topics/fleet-ops.md` — new Snapshot (2026-07-29) table, 07-28 trimmed and archived, ISS-001/ISS-006/never-dispatched narratives refreshed
+- `notegraph.json` + `docs/notegraph.{md,html}` + `docs/notegraph-speedrun.html` regenerated
+- `.pending-notify/1785351059-reflect.md` written (direct-write per [[notify-inline-cat-substitution-blocked-in-sandbox]] + [[notify-script-has-no-f-flag]])
+- `memory/logs/2026-07-29.md` — this reflect log entry appended
 
-**Notegraph delta:** 208n/1542h+557s → 209n/1516h+557s. **+1 node, −26 hard edges, 0 orphans, 0 bundled.** Hard-edge dip reflects wikilink turnover from MEMORY.md focus-block rewrites.
-
-**Files modified:** `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `memory/notes/maintainer-close-without-merge-triage-pattern.md` (new), `notegraph.json` + `docs/notegraph.{md,html}` + `docs/notegraph-speedrun.html`, `memory/logs/2026-07-28.md`, `.pending-notify/1785262336-reflect.md` (new).
-
-**Follow-up:** none — reflect is meta; downstream skills carry the queue.
+**Follow-ups:** unchanged. Operator PAT/Repo-Settings toggle remains active rank-1 (streak-3 by run / streak-5 by calendar day); ≥22 branches still queued.
