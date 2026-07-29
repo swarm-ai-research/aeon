@@ -1,9 +1,2 @@
-## Summary
-
-**No-op run.** Latest CSV on `fleet-state` is `memory/gitlawb-compute-futures-proofs/2026-07-25.csv`, and `memory/topics/compute-futures-eda/2026-07-25.md` already exists — the skill's "don't double-write" constraint triggered a clean exit. No new report, no commit, no notification (skill only notifies on true skip conditions like missing CSV or schema drift).
-
-**Files touched:**
-- Created `memory/logs/2026-07-26.md` — log entry recording the no-op and next-action pointer.
-- Fleet-state checkout of `memory/gitlawb-compute-futures-proofs/` was rolled back to keep main clean.
-
-**Follow-up:** Re-run once the deployer pushes a `2026-07-26.csv` proof.
+*Compute-Futures EDA — 2026-07-28*
+144 rows, 4 modes. Top: basket settlementLegs 16.67% MEDIUM recurring (4th fire in 12d, on/off rotation holds — every fire still followed by next-run collapse per 12-seed jitter class). Conservation: all four modes OK (|μ| ≤ 9e−13, σ ≤ 5e−12). No CRITICAL/HIGH; 10th consecutive filed run at zero |r| ≥ 0.8. Notable: seed 202607286 anchors maxSpot high tail in basket + synth + x402 simultaneously (fresh cross-mode single-seed spike); x402 settlementLegs × x402Total 4th consecutive positive but magnitude decays +0.657 → +0.357 → +0.241 toward zero; 3-day filing gap 07-26/07-27 (CSVs exist, skill did not run). Report: memory/topics/compute-futures-eda/2026-07-28.md

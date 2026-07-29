@@ -1,0 +1,220 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-07-28"
+      },
+      "children": [
+        "dataset_intro",
+        "sep1",
+        "metrics_section",
+        "sep2",
+        "conservation_section",
+        "sep3",
+        "health_section",
+        "sep4",
+        "findings_section",
+        "sep5",
+        "report_link"
+      ]
+    },
+    "dataset_intro": {
+      "type": "Text",
+      "props": {
+        "text": "144 rows, 4 modes",
+        "variant": "lead"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "metrics_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metrics_heading",
+        "basket_stat",
+        "rotation_context",
+        "collapse_pattern"
+      ]
+    },
+    "metrics_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Metric",
+        "level": "h3"
+      }
+    },
+    "basket_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "basket settlementLegs",
+        "value": "16.67%",
+        "delta": "MEDIUM recurring"
+      }
+    },
+    "rotation_context": {
+      "type": "Text",
+      "props": {
+        "text": "4th fire in 12d, on/off rotation holds",
+        "variant": "body"
+      }
+    },
+    "collapse_pattern": {
+      "type": "Text",
+      "props": {
+        "text": "Every fire still followed by next-run collapse per 12-seed jitter class",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "conservation_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "conservation_heading",
+        "conservation_badge",
+        "conservation_metrics"
+      ]
+    },
+    "conservation_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h3"
+      }
+    },
+    "conservation_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "All four modes OK",
+        "variant": "default"
+      }
+    },
+    "conservation_metrics": {
+      "type": "Text",
+      "props": {
+        "text": "|μ| ≤ 9e−13, σ ≤ 5e−12",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "health_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_no_critical",
+        "badge_consecutive_runs"
+      ]
+    },
+    "badge_no_critical": {
+      "type": "Badge",
+      "props": {
+        "text": "No CRITICAL/HIGH",
+        "variant": "default"
+      }
+    },
+    "badge_consecutive_runs": {
+      "type": "Badge",
+      "props": {
+        "text": "10th consecutive filed run (zero |r| ≥ 0.8)",
+        "variant": "default"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "findings_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "findings_heading",
+        "seed_spike_alert",
+        "x402_stack",
+        "filing_gap_text"
+      ]
+    },
+    "findings_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Notable Findings",
+        "level": "h3"
+      }
+    },
+    "seed_spike_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Cross-Mode Single-Seed Spike",
+        "message": "Seed 202607286 anchors maxSpot high tail in basket + synth + x402 simultaneously (fresh observation)",
+        "type": "info"
+      }
+    },
+    "x402_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "x402_label",
+        "x402_detail"
+      ]
+    },
+    "x402_label": {
+      "type": "Text",
+      "props": {
+        "text": "x402 settlementLegs × x402Total",
+        "variant": "body"
+      }
+    },
+    "x402_detail": {
+      "type": "Text",
+      "props": {
+        "text": "4th consecutive positive. Magnitude decay: +0.657 → +0.357 → +0.241 (toward zero)",
+        "variant": "caption"
+      }
+    },
+    "filing_gap_text": {
+      "type": "Text",
+      "props": {
+        "text": "3-day filing gap 07-26/07-27: CSVs exist, skill did not run",
+        "variant": "body"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "report_link": {
+      "type": "Link",
+      "props": {
+        "label": "memory/topics/compute-futures-eda/2026-07-28.md",
+        "href": "memory/topics/compute-futures-eda/2026-07-28.md"
+      }
+    }
+  }
+}
