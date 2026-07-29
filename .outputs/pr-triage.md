@@ -1,11 +1,10 @@
-PR triage complete for `swarm-ai-research/swarm` — `PR_TRIAGE_OK no-candidates`.
+PR_TRIAGE_OK no-candidates.
 
 ## Summary
 
-- **Task:** Run `pr-triage` on `swarm-ai-research/swarm` (repo mode, `${var}=swarm-ai-research/swarm`).
-- **Result:** All 7 open PRs skipped by SKILL step 3 rules — no candidates progressed to diff/rubric/comment stages.
-  - **5 dependabot bots** (skip-by-author): #545 (next), #540 (langchain-core), #539 (langchain-anthropic), #538 (actions/github-script), #537 (actions/setup-python).
-  - **2 dup-SHA already-triaged**: #543 `70b20e0` matches 07-25 ACCEPTED entry, #536 `76e6200` matches 07-25 DEFER entry in `memory/triaged-prs.json`.
-- **Files modified:** `memory/logs/2026-07-28.md` (appended pr-triage section). `memory/triaged-prs.json` untouched — no new tuples, all three existing entries inside 90-day retention.
-- **Notify:** SKIPPED per step 10 gate (zero OUT-OF-SCOPE, zero new first-time ACCEPTED).
-- **Follow-up:** If rsavitt pushes a new commit to #536 or #543, next run re-triages at the new SHA. New non-bot PR would 403 on the write path per `[[aeon-app-no-write-on-swarm-repo]]` (would be the 13th confirming invocation).
+- **Task:** `pr-triage` on `swarm-ai-research/swarm` (repo mode via `var` override).
+- **Fetched:** 7 open PRs in the 14-day window.
+- **Skipped:** all 7 — 5 dependabot bots (route to auto-merge / pr-review, not triage); 2 external `rsavitt` PRs already triaged at their current head SHAs per `memory/triaged-prs.json` (#543 sha `70b20e0` = ACCEPTED 2026-07-25; #536 sha `76e6200` = DEFER 2026-07-25).
+- **Writes:** none. No candidates → no comments, labels, closures, or notifications, per skill spec.
+- **Files modified:** `memory/logs/2026-07-29.md` (log entry appended).
+- **Follow-ups:** none from this run. Cross-org write-block for the swarm repo remains ([[aeon-app-no-write-on-swarm-repo]]), covered by planner's standing rank-1 operator ask — no action needed here.
