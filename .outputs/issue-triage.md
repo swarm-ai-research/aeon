@@ -1,8 +1,6 @@
-Skill executed. Terminal line: `ISSUE_TRIAGE_OK no-watched-repos`.
-
 ## Summary
-- **Task:** Ran the `issue-triage` skill for 2026-07-28.
-- **Outcome:** Short-circuit exit per SKILL §Config — `${var}` empty + `memory/watched-repos.md` absent → logged `ISSUE_TRIAGE_OK no-watched-repos` and exited without repo probes, classification, or write attempts. `memory/triaged-issues.json` untouched.
-- **Files modified:** `memory/logs/2026-07-28.md` (appended `## issue-triage` section + summary).
-- **Notification:** none (SKILL §9 — nothing actionable produced).
-- **Follow-up:** Standing MEMORY.md pointer (line 62) still holds — populate `memory/watched-repos.md` or set `enabled: false` on the six watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Blocked behind the same [[github-actions-cannot-create-prs]] meta-block as the rest of today's carryover.
+
+- **Task:** Executed `skills/issue-triage/SKILL.md` for 2026-07-29.
+- **Result:** Clean exit — `${var}` empty AND `memory/watched-repos.md` absent → `ISSUE_TRIAGE_OK no-watched-repos` per skill §Config. No repos targeted, no `gh` calls, no notifications, no state written to `memory/triaged-issues.json`.
+- **Files modified:** `memory/logs/2026-07-29.md` (appended Issue Triage section + summary).
+- **Follow-ups:** Same class as existing MEMORY.md pointer — populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Blocked upstream by [[github-actions-cannot-create-prs]].
