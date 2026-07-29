@@ -134,6 +134,33 @@ describe("stripPort (edge cases)", () => {
   it("returns empty string for whitespace-only input", () => {
     assert.equal(stripPort("   "), "");
   });
+  it("strips port 0 (single digit, all-numeric)", () => {
+    assert.equal(stripPort("localhost:0"), "localhost");
+  });
+});
+
+describe("isSameOriginWrite (additional edge cases)", () => {
+  it("allowAny=true bypasses the check for POST with cross-origin Origin", () => {
+    assert.equal(
+      isSameOriginWrite("POST", headers({ origin: "http://attacker.example" }), { allowAny: true }),
+      true,
+    );
+  });
+
+  it("DELETE is treated as unsafe — rejected without Origin", () => {
+    assert.equal(isSameOriginWrite("DELETE", headers({})), false);
+  });
+
+  it("PATCH is treated as unsafe — rejected without Origin", () => {
+    assert.equal(isSameOriginWrite("PATCH", headers({})), false);
+  });
+
+  it("DELETE with same-origin Origin passes", () => {
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({ origin: "http://localhost:5555" })),
+      true,
+    );
+  });
 });
 
 describe("isAllowedHost (edge cases)", () => {
@@ -146,6 +173,11 @@ describe("isAllowedHost (edge cases)", () => {
     assert.equal(isAllowedHost("aeon.local", { extraAllowed: extras }), true);
     assert.equal(isAllowedHost("internal.lan", { extraAllowed: extras }), true);
     assert.equal(isAllowedHost("attacker.example", { extraAllowed: extras }), false);
+  });
+  it("Array extraAllowed strips ports from both the entry and the request host", () => {
+    // entry carries :8080; request comes in on :9090 — both strip to bare hostname
+    const extras = ["internal.lan:8080"];
+    assert.equal(isAllowedHost("internal.lan:9090", { extraAllowed: extras }), true);
   });
 });
 
@@ -238,5 +270,35 @@ describe("gateRequest (env-driven wrapper)", () => {
       headers: headers({ host: "0.0.0.0:5555" }),
     });
     assert.equal(result, null);
+  });
+
+  it("rejects request with no Host header (null) with 403", async () => {
+    const result = gateRequest({
+      method: "GET",
+      headers: headers({ host: null }),
+    });
+    assert.ok(result instanceof Response);
+    assert.equal(result!.status, 403);
+    const body = await result!.json();
+    assert.equal(body.error, "Host not allowed");
+  });
+
+  it("accepts DELETE with same-origin Origin from localhost", () => {
+    const result = gateRequest({
+      method: "DELETE",
+      headers: headers({ host: "localhost:5555", origin: "http://localhost:5555" }),
+    });
+    assert.equal(result, null);
+  });
+
+  it("rejects DELETE with no Origin (state-changing, not safe)", async () => {
+    const result = gateRequest({
+      method: "DELETE",
+      headers: headers({ host: "localhost:5555" }),
+    });
+    assert.ok(result instanceof Response);
+    assert.equal(result!.status, 403);
+    const body = await result!.json();
+    assert.equal(body.error, "Cross-origin write rejected");
   });
 });
