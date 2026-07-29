@@ -487,4 +487,88 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. gh pr list exits 0 but returns unparseable text → JSON.parse throws in
+//     openPRsForKind's catch block → returns null → gate treated as unknown →
+//     pass proceeds rather than blocking. (Distinct from test 11 which has a
+//     non-zero exit, and test 12 which returns valid-but-non-array JSON.)
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo 'NOT VALID JSON AT ALL'; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "parsefail" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns garbage JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list returns unparseable text → catch branch → null backlog → pass proceeds");
+}
+
+// 18. buildPrompt no-target branch — when target is omitted the prompt must
+//     contain "No specific files supplied" rather than a file list. Exercises
+//     the false branch of: target ? ... : "No specific files supplied...".
+//     Also the first test to exercise the "test-pass" kind in a live run.
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-notgt-cap-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/88"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", repoDir: env.localDir, taskId: "notgt" })
+    );
+    assert.equal(result.ok, true);
+    assert.equal(result.prUrl, null, "no-op run should return prUrl:null");
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /No specific files supplied/,
+      "prompt must contain the no-target fallback line when target is omitted");
+    assert.doesNotMatch(captured, /Recently changed files/,
+      "prompt must NOT contain the target-present line when target is omitted");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  buildPrompt no-target branch → prompt contains 'No specific files supplied'");
+}
+
+// 19. claude --version succeeds but the actual invocation exits non-zero —
+//     exercises the second failure branch of invokeClaude() (proc.status !== 0
+//     on the real run, not the --version preflight). Worktree and branch must
+//     be cleaned up via cleanup(true).
+{
+  const CLAUDE_RUN_FAIL_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+echo "fatal: internal error" >&2
+exit 2
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_RUN_FAIL_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "gh should not have been called: $@" >&2\nexit 99\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", repoDir: env.localDir, taskId: "runfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /claude invocation failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted when claude run fails");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  claude run exits non-zero → invokeClaude second failure branch → ok:false, cleanup done");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
