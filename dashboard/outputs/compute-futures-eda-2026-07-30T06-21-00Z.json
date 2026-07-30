@@ -1,0 +1,270 @@
+{
+  "root": "main_card",
+  "state": {},
+  "elements": {
+    "main_card": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-07-29"
+      },
+      "children": [
+        "overview_section",
+        "findings_separator",
+        "findings_section",
+        "outliers_separator",
+        "outliers_section",
+        "observations_separator",
+        "observations_section",
+        "report_separator",
+        "report_section"
+      ]
+    },
+    "overview_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "rows_stat",
+        "modes_stat"
+      ]
+    },
+    "rows_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      }
+    },
+    "modes_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "findings_separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "findings_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "findings_heading",
+        "basket_shift_heading",
+        "basket_shift_text",
+        "affected_columns_text",
+        "unaffected_columns_text",
+        "first_shift_badge"
+      ]
+    },
+    "findings_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Key Findings",
+        "level": "h2"
+      }
+    },
+    "basket_shift_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Basket Regime Shift",
+        "level": "h3"
+      }
+    },
+    "basket_shift_text": {
+      "type": "Text",
+      "props": {
+        "text": "Basket regime shifted DOWN ~22% wholesale"
+      }
+    },
+    "affected_columns_text": {
+      "type": "Text",
+      "props": {
+        "text": "Affected: all price/curve columns",
+        "variant": "muted"
+      }
+    },
+    "unaffected_columns_text": {
+      "type": "Text",
+      "props": {
+        "text": "Unaffected: synth/spread/x402",
+        "variant": "muted"
+      }
+    },
+    "first_shift_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "First mode-specific shift observed",
+        "variant": "outline"
+      }
+    },
+    "outliers_separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "outliers_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "outliers_heading",
+        "outliers_grid",
+        "first_appearance_badge"
+      ]
+    },
+    "outliers_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Mechanical HIGH Outliers",
+        "level": "h2"
+      }
+    },
+    "outliers_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "outlier1",
+        "outlier2",
+        "outlier3"
+      ]
+    },
+    "outlier1": {
+      "type": "Stat",
+      "props": {
+        "label": "basket minCurve",
+        "value": "33.33%"
+      }
+    },
+    "outlier2": {
+      "type": "Stat",
+      "props": {
+        "label": "synth+x402 minCurve",
+        "value": "25.00%"
+      }
+    },
+    "outlier3": {
+      "type": "Stat",
+      "props": {
+        "label": "basket maxCurve",
+        "value": "16.67%"
+      }
+    },
+    "first_appearance_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "All first-appearance",
+        "variant": "outline"
+      }
+    },
+    "observations_separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "observations_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "observations_heading",
+        "obs_stack"
+      ]
+    },
+    "observations_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Additional Observations",
+        "level": "h2"
+      }
+    },
+    "obs_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "obs1",
+        "obs2",
+        "obs3_stat",
+        "obs3_badge"
+      ]
+    },
+    "obs1": {
+      "type": "Text",
+      "props": {
+        "text": "07-28's basket settlementLegs 16.67% cleared on cue"
+      }
+    },
+    "obs2": {
+      "type": "Text",
+      "props": {
+        "text": "Conservation: all four modes OK (float dust)"
+      }
+    },
+    "obs3_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "x402 settlementLegs×x402Total",
+        "value": "+0.636"
+      }
+    },
+    "obs3_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Five-run positive streak with decay reversed",
+        "variant": "secondary"
+      }
+    },
+    "report_separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "report_heading",
+        "report_link"
+      ]
+    },
+    "report_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Full Report",
+        "level": "h3"
+      }
+    },
+    "report_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-07-29",
+        "href": "memory/topics/compute-futures-eda/2026-07-29.md",
+        "source": "Internal Report"
+      }
+    }
+  }
+}
