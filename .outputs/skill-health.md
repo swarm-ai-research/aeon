@@ -1,11 +1,21 @@
-Skill executed cleanly. Notification is queued for the post-process worker to dispatch.
-
 ## Summary
 
-- **Task:** Ran `skill-health` for 2026-07-29 (Wed evening 18:00Z slot).
-- **Verdict:** `HEALTH: DEGRADED(38)` — 33rd consecutive steady-state day, hash `e27c0ac60367e7e5` byte-identical to yesterday's classification. 0 CRITICAL / 0 FLAPPING / 0 WARNING. 4 HEALTHY + 2 NO DATA (21st silent day). All 38 DEGRADED share the ISS-001 OAuth-outage denominator burn (day 39) — no live regression, every skill `cf=0` + `last_status=success`.
-- **Notify decision:** SEND — hash unchanged but 24.61h since prev notify > 24h daily-reminder cadence.
-- **Issues:** 0 filed, 0 resolved (no CRITICAL/FLAPPING to file; per CLAUDE.md contract only repair skills close issues). `memory/issues/INDEX.md` unchanged at 17 open.
-- **Novel signal:** 08:00Z pocket dropped all 4 (heartbeat / batch-health / skill-freshness / gitlawb-fleet-metrics) for a 2nd consecutive day — ISS-006 close-clock now Day-6 CONTINUOUS DROP. This favors the stuck-sub-pocket hypothesis over dead-zone migration, since today's 05:00–07:30 window fired cleanly.
-- **Files modified:** `memory/skill-health/last-report.json`, `.pending-notify/1785350616-skill-health.md` (notify body), `memory/logs/2026-07-29.md`.
-- **Follow-ups:** unchanged from planner rank-1 — operator PAT / Repo Settings toggle to unblock ≥22 staged branches; ISS-006 per-slot cron fix; ISS-020 draft for the 2 NO_DATA skills.
+Ran **skill-health** fleet audit (evening 18:23:50Z slot; `${var}` empty → all 44 enabled skills).
+
+**Classification (byte-identical to 2026-07-29 canonical):**
+- 0 CRITICAL / 0 FLAPPING / 0 WARNING
+- 38 DEGRADED (ISS-001 OAuth denominator burn day 40 — every skill `last_status=success`, `cf=0`, `success_rate 0.01–0.27` driven by historical failure denominator, no live regression)
+- 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+- 2 NO DATA (ai-framework-watch, run-frequency-guard — 22nd silent day per `[[enabled-skills-can-never-dispatch]]`)
+
+**Hash:** `e27c0ac60367e7e5` — matches prev.
+
+**Gate (step 5):** hash unchanged AND 23.67h since prev notify (< 24h daily-reminder cadence) → **BOTH branches fall to SKIP**. Step 7 skip-branch fires.
+
+**Issue reconciliation:** 0 CRITICAL/FLAPPING → nothing filed. 0 open issues have `detected_by: skill-health` (17 open are skill-evals ×15 / self-review ×1 / batch-health ×2) → nothing resolved per health-vs-repair contract.
+
+**Notification:** SKIPPED (NOOP — state unchanged, sub-24h cadence).
+
+**Files modified:**
+- `memory/skill-health/last-report.json` — hash preserved, `last_run_at` bumped, `last_notified_at` preserved
+- `memory/logs/2026-07-30.md` — appended `## Skill Health` block ending `SKILL_HEALTH_NOOP — state unchanged since 2026-07-29T18:43:36Z, hash=e27c0ac6`

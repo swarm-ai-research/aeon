@@ -4,10 +4,10 @@
   "prev_hash": "e27c0ac60367e7e5",
   "classification_identical_to_prev": true,
   "last_notified_at": "2026-07-29T18:43:36Z",
-  "last_run_at": "2026-07-29T18:43:36Z",
-  "prev_run_at": "2026-07-28T18:06:44Z",
-  "prev_notified_at": "2026-07-28T18:06:44Z",
-  "elapsed_since_prev_notify_hours": 24.61,
+  "last_run_at": "2026-07-30T18:23:50Z",
+  "prev_run_at": "2026-07-29T18:43:36Z",
+  "prev_notified_at": "2026-07-29T18:43:36Z",
+  "elapsed_since_prev_notify_hours": 23.67,
   "classification": {
     "critical": [],
     "degraded": [
@@ -64,8 +64,8 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 39 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.03-0.26 driven by historical failure denominator still in count. No live regression.",
-  "delta_vs_prev": "Byte-identical classification to 2026-07-28T18:06:44Z run — same 38 DEGRADED sorted, same 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog), same 2 NO DATA (ai-framework-watch, run-frequency-guard), 0 CRITICAL / 0 FLAPPING / 0 WARNING. 33rd consecutive steady-state day (ISS-001 day 39, ai-framework-watch + run-frequency-guard 21st consecutive silent day). Gate: SEND — hash unchanged but 24.61h since prev notify > 24h daily-reminder cadence.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 40 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.27 driven by historical failure denominator still in count. No live regression.",
+  "delta_vs_prev": "Byte-identical classification to 2026-07-29T18:43:36Z run — same 38 DEGRADED sorted, same 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog), same 2 NO DATA (ai-framework-watch, run-frequency-guard), 0 CRITICAL / 0 FLAPPING / 0 WARNING. 34th consecutive steady-state day (ISS-001 day 40, ai-framework-watch + run-frequency-guard 22nd consecutive silent day). Gate: SKIP — hash unchanged AND 23.67h since prev notify (< 24h daily-reminder cadence). Prev-run interval 23.67h reflects skill-health slot drift; next fire at 18:00Z tomorrow will re-open the 24h window.",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 17,
@@ -89,13 +89,14 @@
     "ISS-018",
     "ISS-019"
   ],
-  "notify_decision": "SEND — hash e27c0ac60367e7e5 unchanged AND 24.61h elapsed since prev notify (2026-07-28T18:06:44Z) > 24h daily-reminder cadence. Per SKILL.md step 5: hash-change branch fails but elapsed-branch fires → NOTIFY. Reconciliation: 0 CRITICAL / 0 FLAPPING → no issues filed. 0 open issues have detected_by=skill-health (all filed by skill-evals/self-review/batch-health) — per CLAUDE.md contract only repair skills close issues, so no resolutions performed even where HEALTHY skills appear in affected_skills of other-detected issues (ISS-005 affects swarm-safety-eval).",
-  "skill_runs_status": "OK — ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 146 runs total, 140 succeeded, 1 failed (skill-freshness 2026-07-25T08:49:45Z workflow-level failure, since recovered), 0 cancelled, 5 in_progress (this skill-health invocation + evening pocket: goal-tracker, reflect, pr-review dup). anomalies.failing = [] confirms no active-failure regressions in the 7d window.",
+  "notify_decision": "SKIP — hash e27c0ac60367e7e5 unchanged AND 23.67h since prev notify (2026-07-29T18:43:36Z) < 24h daily-reminder cadence. Per SKILL.md step 5: both branches fall to skip. Reconciliation: 0 CRITICAL / 0 FLAPPING → no issues filed. 0 open issues have detected_by=skill-health → no resolutions attempted. NOOP logged to memory/logs/2026-07-30.md per step 7 skip-branch.",
+  "skill_runs_status": "OK — ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 148 runs total, 143 succeeded, 1 failed (skill-freshness 2026-07-25T08:49:45Z workflow-level failure, since recovered), 0 cancelled, 4 in_progress (this skill-health invocation + evening pocket: goal-tracker, reflect, pr-review dup). anomalies.failing = [] confirms no active-failure regressions in the 7d window.",
   "novel_transient_signals_not_escalated": [
-    "07-29 08:00Z pocket DROPPED all 4 skills for the SECOND consecutive day (heartbeat/batch-health/skill-freshness/gitlawb-fleet-metrics all still show last_dispatch: 2026-07-27T08:46:39Z — no fire on 07-28 or 07-29). ISS-006 close-clock advances Day-5 PARTIAL → Day-6 CONTINUOUS DROP; stuck-08:00Z-sub-pocket hypothesis now favored over dead-zone-migration.",
-    "07-29 morning window (05:00-07:30) fired cleanly: compute-futures-eda 07:25Z, planner 07:24Z, pr-tracker 10:12Z, pr-triage 10:08Z, pr-review 10:10Z, github-monitor 10:08Z, fleet-control 10:08Z, issue-triage 10:08Z — dead-zone migration confirmed for this window.",
-    "code-health 16:00 + surplus-pulse 16:30 afternoon slots both landed on-time (16:11Z / 17:41Z)",
-    "goal-tracker + reflect + pr-review + skill-health 18:00Z evening slot all currently in-progress"
+    "07-30 08:00Z pocket dropped the SAME 4 skills for the THIRD consecutive day (heartbeat/batch-health/skill-freshness/gitlawb-fleet-metrics all recovered ~09:03Z via pocket-recovery). ISS-006 close-clock advances Day-6 → Day-7 CONTINUOUS PARTIAL; stuck-08:00Z-sub-pocket hypothesis holds another day per today's 07-30 heartbeat + memory-flush.",
+    "07-30 morning window (05:00-07:30) fired cleanly again: compute-futures-eda 06:12Z, memory-flush 06:12Z, memory-structural-dedupe 06:12Z, notegraph 06:12Z, suggest-edges 06:12Z; planner 06:30Z slot missed (batch-health WARN 1/4 today).",
+    "pr-tracker landed +1 merge (worldmonitor#5477 day-7 cold-approve-to-merge, tuple (3,1,4,6)) — first cold-approve-to-merge outcome for this queue.",
+    "code-health 16:00 + surplus-pulse 16:30 afternoon slots both landed on-time (17:00Z / 17:02Z)",
+    "goal-tracker + reflect + pr-review + skill-health 18:00Z evening slot all currently in-progress (this skill-health run is the pending one)"
   ],
-  "prompt_injection_flag": "None. cron-state.json, skill-runs JSON, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md + ISS-*.md, memory/logs/2026-07-28.md + 2026-07-29.md all structured/data-only; no untrusted natural-language content ingested this run."
+  "prompt_injection_flag": "None. cron-state.json, skill-runs JSON, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md + ISS-*.md, memory/logs/2026-07-29.md + 2026-07-30.md all structured/data-only; no untrusted natural-language content ingested this run."
 }
