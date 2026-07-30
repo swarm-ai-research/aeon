@@ -1,0 +1,79 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_links",
+        "text_top_file",
+        "separator_1",
+        "text_branch",
+        "separator_2",
+        "alert_permission",
+        "link_action"
+      ]
+    },
+    "stat_links": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3"
+      }
+    },
+    "text_top_file": {
+      "type": "Text",
+      "props": {
+        "text": "Top file: 2026-06-24.md",
+        "variant": "body"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed: suggest-edges/2026-07-30",
+        "variant": "body"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_permission": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "PR Creation Blocked",
+        "message": "GitHub Actions cannot create pull requests (github-actions-cannot-create-prs permission)"
+      }
+    },
+    "link_action": {
+      "type": "Link",
+      "props": {
+        "label": "Create PR manually",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-07-30"
+      }
+    }
+  }
+}
