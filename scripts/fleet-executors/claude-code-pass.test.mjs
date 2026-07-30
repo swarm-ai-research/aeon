@@ -379,7 +379,28 @@ echo "nothing worth changing here"
   console.log("OK  gh pr list returns non-array JSON → null backlog → pass proceeds");
 }
 
-// 13. focus param flows into the prompt text passed to claude via stdin.
+// 13. gh pr list exits 0 but outputs malformed JSON → JSON.parse throws → catch
+//     branch in openPRsForKind returns null → gate is skipped → pass proceeds.
+//     Distinct from test 11 (gh exits non-zero) and test 12 (valid non-array JSON):
+//     this is the only path that exercises the catch { return null } branch.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{bad json not parseable'; exit 0; fi\necho "https://github.com/stub/repo/pull/73"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "malformedjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list outputs malformed JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/73");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list outputs malformed JSON → catch returns null → pass proceeds");
+}
+
+// 14. focus param flows into the prompt text passed to claude via stdin.
 //     The extraFocus truthy branch of buildPrompt() is exercised.
 {
   const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-focus-cap-")), "stdin.txt");
@@ -407,7 +428,7 @@ echo "nothing worth changing here"
   console.log("OK  focus param is included in the prompt text passed to claude");
 }
 
-// 14. extractSummary fallback — when the final line is > 400 chars the function
+// 15. extractSummary fallback — when the final line is > 400 chars the function
 //     falls back to slice(-3).join(" ").slice(0, 400), which prepends the
 //     preceding lines. Verify by checking the summary starts with the short
 //     leading line that would be lost if the main branch had been taken instead.
@@ -439,7 +460,7 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  extractSummary fallback — long final line uses slice(-3) join, truncated to 400 chars");
 }
 
-// 15. git commit failure — a pre-commit hook that always exits 1 forces the
+// 16. git commit failure — a pre-commit hook that always exits 1 forces the
 //     commit step to fail after claude has made changes. The code must return
 //     ok:false, remove the worktree, and delete the local branch (cleanup(true)).
 //     Worktrees share hooks with the main .git, so the hook fires inside the worktree.
@@ -468,7 +489,7 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  git commit failure (pre-commit hook) → ok:false, worktree and branch cleaned up");
 }
 
-// 16. Empty taskId → shortTaskId("") returns "x" via the `|| "x"` fallback,
+// 17. Empty taskId → shortTaskId("") returns "x" via the `|| "x"` fallback,
 //     so the branch name ends with "-x" rather than a real task identifier.
 {
   const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
