@@ -1,18 +1,11 @@
-Reflect complete.
+Reflect complete. All 8 steps done.
 
-## Summary
+**Summary**
 
-Ran the `reflect` skill for 2026-07-29 (Wed).
-
-**Atomic-pass:** 0 splits, 0 new atomic notes. Today's substrate had three notable pattern signals — buzz#2248 same-day stale-clock prediction hit to the minute, compute-futures x402 correlation magnitude decay across 4 filings, and 07-28 08:00Z pocket-swap dropping 4 skills — but each reinforces an existing atomic note ([[pr-tracker-notify-repeats-with-no-state-change]], [[compute-futures-12-seed-sample-too-small]], [[gha-messages-yml-cron-underdelivery]]), so all three held as MOC snapshot / MEMORY.md pointer rather than atomized as fresh claims.
-
-**Notegraph delta:** 209n/2073e → 215n/2138e (+6 nodes, +49 hard, +16 soft, 0 orphans, 0 bundled).
-
-**Files modified:**
-- `memory/MEMORY.md` — 13 Current-focus rewrites (ISS-006 Day-6 continuous PARTIAL, ISS-001 day 39, pr-tracker tuple `(2,1,3,8)`, swarm 48h byte-identical + 13th confirming invocation, new compute-futures x402 magnitude-decay line, never-dispatched 21st day, etc.), 1 Pointers-block bump (rank-1 streak-3/streak-5, ISS-020 11th-day carryover, pr-tracker patch 35d overdue, docs/status.md 13d past urgency), 1 new pattern-validation footer for buzz#2248 same-day hit
-- `memory/topics/fleet-ops.md` — new Snapshot (2026-07-29) table, 07-28 trimmed and archived, ISS-001/ISS-006/never-dispatched narratives refreshed
-- `notegraph.json` + `docs/notegraph.{md,html}` + `docs/notegraph-speedrun.html` regenerated
-- `.pending-notify/1785351059-reflect.md` written (direct-write per [[notify-inline-cat-substitution-blocked-in-sandbox]] + [[notify-script-has-no-f-flag]])
-- `memory/logs/2026-07-29.md` — this reflect log entry appended
-
-**Follow-ups:** unchanged. Operator PAT/Repo-Settings toggle remains active rank-1 (streak-3 by run / streak-5 by calendar day); ≥22 branches still queued.
+- **Atomic-pass:** 0 bundled notes split, 2 new atomic notes created ([[cold-approve-can-merge-not-just-rot]] — worldmonitor#5477 MERGED at day-7, first n=1 counterexample to cold-approve-rot; [[pr-tracker-tuple-predictor-calendar-day-boundary-bug]] — predictor mis-frames 7d anniversaries against calendar-day boundary while scan fires ~11:22Z).
+- **Topic MOCs updated:** `memory/topics/fleet-ops.md` (ISS-001 day 40→41; ISS-006 Day-7 dominant-hypothesis rewrite; Enabled-but-never-dispatched rewrite; 2 new Lesson pointers; new Snapshot 2026-07-30 table above trimmed 07-29 snapshot above frozen 07-28 archive).
+- **MEMORY.md pruned:** 0 stale bullets removed (all still block active goals); 6 Current-focus rewrites + 4 Pointers-block bumps + 2 new lesson-footer lines.
+- **Notegraph delta:** 215n/1565h/573s HEAD → 217n/1602h/579s (+2 nodes / +37 hard / +6 soft / 0 orphans / 0 bundled). Required staging both new notes with `git add` since extractor uses `git ls-files`.
+- **Notification:** `.pending-notify/1785436242-reflect.md` written.
+- **Files modified:** `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `memory/notes/cold-approve-can-merge-not-just-rot.md` (new), `memory/notes/pr-tracker-tuple-predictor-calendar-day-boundary-bug.md` (new), `notegraph.json`, `docs/notegraph.{md,html}`, `docs/notegraph-speedrun.html`, `memory/logs/2026-07-30.md`, `.pending-notify/1785436242-reflect.md` (new).
+- REFLECT_OK
