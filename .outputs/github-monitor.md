@@ -1,7 +1,10 @@
 ## Summary
 
-- **Task:** Executed the `github-monitor` skill for 2026-07-29.
-- **Outcome:** Skill hit its documented empty-config exit condition — `memory/watched-repos.md` is not present, so there are no repos to scan. Logged `GITHUB_MONITOR_EMPTY_CONFIG` per spec.
-- **Notification:** none sent (empty tiers = silence, per §4 of SKILL.md).
-- **Files modified:** `memory/logs/2026-07-29.md` — appended `### github-monitor` section with the empty-config marker and a Summary block.
-- **Follow-ups:** Standing operator ask remains — populate `memory/watched-repos.md` with `owner/repo` lines, or disable the 6 watched-repos-dependent skills (github-monitor, code-health, issue-triage, changelog, weekly-shiplog, repo-revive). This is now the daily short-circuit pattern already flagged in `MEMORY.md`.
+Executed `skills/github-monitor/SKILL.md`. The config file `memory/watched-repos.md` is absent, so the skill short-circuited per spec.
+
+- **Repos scanned:** 0
+- **`gh` calls made:** 0
+- **Notification:** none (correct behavior — silence when no config)
+- **Log:** appended `### github-monitor` block with `GITHUB_MONITOR_EMPTY_CONFIG` to `memory/logs/2026-07-30.md`
+
+**Follow-up (already tracked in MEMORY.md pointer, line 65):** populate `memory/watched-repos.md` or disable the six watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) — this is the third same-day short-circuit of this class today's slot would produce and continues to waste a workflow slot per skill per run.
