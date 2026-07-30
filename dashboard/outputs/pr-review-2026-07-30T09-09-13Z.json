@@ -1,0 +1,193 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review"
+      },
+      "children": [
+        "header",
+        "summary_section",
+        "sep1",
+        "pr543_section",
+        "pr536_section",
+        "sep2",
+        "error_section"
+      ]
+    },
+    "header": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-ai-research/swarm — 2026-07-30",
+        "variant": "caption"
+      }
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stats_row",
+        "skip_reason"
+      ]
+    },
+    "stats_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "2"
+      }
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "6"
+      }
+    },
+    "skip_reason": {
+      "type": "Text",
+      "props": {
+        "text": "Skipped: bots (6), dup-SHA re-derived (2) under operator merge-gate policy",
+        "variant": "muted"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr543_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr543_header",
+        "pr543_badges",
+        "pr543_notes"
+      ]
+    },
+    "pr543_header": {
+      "type": "Link",
+      "props": {
+        "label": "swarm#543",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/543"
+      }
+    },
+    "pr543_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_approve",
+        "badge_543_score"
+      ]
+    },
+    "badge_approve": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "badge_543_score": {
+      "type": "Badge",
+      "props": {
+        "text": "4/5",
+        "variant": "secondary"
+      }
+    },
+    "pr543_notes": {
+      "type": "Text",
+      "props": {
+        "text": "docs-only, touched-surface CI green (sole reds are matrix-cancelled 3.12 + inherited quality-gate)",
+        "variant": "body"
+      }
+    },
+    "pr536_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr536_header",
+        "pr536_badges",
+        "pr536_notes"
+      ]
+    },
+    "pr536_header": {
+      "type": "Link",
+      "props": {
+        "label": "swarm#536",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/536"
+      }
+    },
+    "pr536_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_request_changes",
+        "badge_536_score"
+      ]
+    },
+    "badge_request_changes": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      }
+    },
+    "badge_536_score": {
+      "type": "Badge",
+      "props": {
+        "text": "2/5",
+        "variant": "secondary"
+      }
+    },
+    "pr536_notes": {
+      "type": "Text",
+      "props": {
+        "text": "6699-line diff mixes beta_swarm fold with unrelated swarm/agentgit/ claim-gate; body's 'purely additive' claim contradicted by +166/-1 in swarm/agentgit/",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "error_section": {
+      "type": "Alert",
+      "props": {
+        "title": "Write Permission Error",
+        "message": "403 on both 'gh pr review' and 'gh api /comments' (15th occurrence confirming known issue: aeon-app-no-write-on-swarm-repo). Findings returned to operator in reply.",
+        "type": "warning"
+      }
+    }
+  }
+}
