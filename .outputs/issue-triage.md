@@ -1,6 +1,10 @@
+`ISSUE_TRIAGE_OK no-watched-repos`
+
 ## Summary
 
-- **Task:** Executed `skills/issue-triage/SKILL.md` for 2026-07-29.
-- **Result:** Clean exit — `${var}` empty AND `memory/watched-repos.md` absent → `ISSUE_TRIAGE_OK no-watched-repos` per skill §Config. No repos targeted, no `gh` calls, no notifications, no state written to `memory/triaged-issues.json`.
-- **Files modified:** `memory/logs/2026-07-29.md` (appended Issue Triage section + summary).
-- **Follow-ups:** Same class as existing MEMORY.md pointer — populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Blocked upstream by [[github-actions-cannot-create-prs]].
+- **Skill:** `skills/issue-triage/SKILL.md` executed against today (2026-07-30).
+- **Outcome:** early exit at the config gate. `${var}` is empty and `memory/watched-repos.md` does not exist, so there are no targets to triage. Per §Config: log `ISSUE_TRIAGE_OK no-watched-repos` and exit.
+- **Actions taken:** none — no permission probe, no `gh` calls, no labels/comments/closes, no state file mutation. `memory/triaged-issues.json` left untouched (correct per §8: never record repos that weren't actually processed).
+- **Files modified:** `memory/logs/2026-07-30.md` — appended `## Issue Triage` log entry.
+- **Notification:** skipped (no actionable verdicts produced).
+- **Follow-up:** to enable this skill on a schedule, create `memory/watched-repos.md` with one `- owner/repo` line per target, or invoke the skill with a `owner/repo` argument in `${var}`.
