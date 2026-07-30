@@ -1,16 +1,21 @@
+HEARTBEAT_OK · STATUS_PAGE=DEGRADED — wrote docs/status.md
+
 ## Summary
 
-Ran heartbeat at 2026-07-27T08:49Z (Mon). Overall verdict: **🔴 DEGRADED**.
+Ran the `heartbeat` skill for 2026-07-30 at 09:03 UTC.
 
-**Novel P0-adjacent signal:** `planner` crosses the 2×interval threshold on its own — last_success 2026-07-25T06:44Z (~50h stale), having missed both 07-26 and 07-27 06:30Z slots.
+**P0-P3 checks:**
+- No failed/stuck skills, no cf≥3 API degradation.
+- 38 skills at `success_rate < 0.5` (ISS-001 residue day 40) — known.
+- Heartbeat self-check: `last_success` 72h stale (>36h threshold), reflecting Day-7 ISS-006 08:00Z pocket drops — known.
+- Today's 08:00Z pocket verdict: same 4 skills (heartbeat/batch-health/skill-freshness/gitlawb-fleet-metrics) still stuck at `last_dispatch: 2026-07-27T08:46:39Z` → **Day-7 continuous PARTIAL confirmed**, stuck-08:00Z-sub-pocket hypothesis holds.
+- PR #8 dependabot (>24h open) and `ai-framework-watch` + `run-frequency-guard` never-dispatch (day 22) — known.
 
-**Novel P3 pocket shape:** whole 07-27 05:30–07:00 morning batch silent — suggest-edges, compute-futures-eda, planner, and cost-report Monday 07:00 all missed; only notegraph 05:00 fired. First Monday `cost-report` miss since 07-20 recovery.
+**Actions:**
+- Regenerated `docs/status.md` wholesale (clobbered 47-day-stale 2026-06-09 baseline). Overall 🔴 DEGRADED, 44 enabled skills sorted by last-run desc, 17 open issues, next scheduled = pr-triage at 09:30 UTC. Token pulse section omitted (no `articles/` on this branch).
+- Skipped notification — every finding has same-item precedent in the last 48h of logs.
+- Appended Heartbeat section to `memory/logs/2026-07-30.md`.
 
-**Steady-state:** 38 chronic (ISS-001 residue day 37), never-dispatched 19th day (run-frequency-guard), 17 open issues unchanged. 08:00Z pocket verdict deferred (only heartbeat has fired at check time). ISS-006 07-27 PARTIAL → earliest close pushes to Tue 07-28 Day-5.
+**Files modified:** `docs/status.md`, `memory/logs/2026-07-30.md`.
 
-**Files created/modified:**
-- `docs/status.md` — wholesale rewrite from 47+d-stale 06-09 baseline (11th consecutive day past urgency, [[snapshot-rebase-clobbers-docs-status-md]] pattern)
-- `.pending-notify/1785142200-heartbeat.md` — batched DEGRADED notification (dispatched via workflow's post-processing step)
-- `memory/logs/2026-07-27.md` — new day's log with heartbeat entry
-
-**Follow-ups needed:** none new — operator Repo Settings toggle / PAT provisioning remains the single highest-leverage unblock for the ISS-006 per-slot cron fix that would prevent these pocket outages.
+**Follow-ups:** unchanged — ISS-006 batch-grouping investigation blocked upstream by [[github-actions-cannot-create-prs]]; docs/status.md snapshot-rebase gate remains 13d past urgency.
