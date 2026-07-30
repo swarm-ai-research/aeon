@@ -487,4 +487,53 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. git add failure — install a PATH-priority git stub that fails only on
+//     the `add` sub-command. The executor must return ok:false, remove the
+//     worktree, and delete the local branch (cleanup(true) path). This
+//     exercises the `if (!addR.ok)` branch at the git-add step which is
+//     distinct from the commit-failure path tested in test 15.
+{
+  const realGit = spawnSync("/bin/sh", ["-c", "command -v git"], { encoding: "utf8" }).stdout.trim() || "/usr/bin/git";
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  writeFileSync(join(env.binDir, "git"),
+    `#!/bin/sh\nif [ "$1" = "add" ]; then echo "simulated git add failure" >&2; exit 1; fi\nexec ${realGit} "$@"\n`);
+  chmodSync(join(env.binDir, "git"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "addfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git add failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after add failure");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted after git add failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git add failure → ok:false, worktree and branch cleaned up");
+}
+
+// 18. gh pr create stdout contains no URL — the executor falls back to
+//     pr.stdout.trim() as prUrl rather than undefined/blank. Exercises the
+//     `|| pr.stdout.trim()` fallback on the regex match at the end of runCodePass.
+//     Also the first test to exercise the `test-pass` kind in a success path.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "PR #99 created"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourl" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "PR #99 created",
+      `expected fallback to pr.stdout when no URL present; got ${result.prUrl}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create output without URL → prUrl falls back to pr.stdout.trim()");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
