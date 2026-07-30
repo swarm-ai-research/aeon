@@ -1,10 +1,18 @@
-All 4 MEMORY.md edits landed cleanly (lines 9/12/16/17). MEMORY.md at 63 lines — still under the ~50 target's overhead, unchanged from pre-flush at 63 lines.
+The memory-flush is complete. Here's the summary.
 
 ## Summary
-- **Task:** Executed `skills/memory-flush/SKILL.md` for 2026-07-28 (Tue DOM 28 even, `2/2` cron slot; skipped 07-27 odd).
-- **Contradictions resolved (4):** grounded by fresh cron-state evidence — pr-tracker 07-27 08:30Z slot `CONFIRMED SILENT` (line 12), agi-tracker Mon 07-27 13:00Z slot `CONFIRMED SILENT — 4th consecutive weekly` (line 16), never-dispatched counter 19 → 20 days (line 17), ISS-001 residue day 37 → 38 (line 9).
-- **Fleet-ops.md mirror updates (3):** Open-incidents ISS-001 day counter, Enabled-but-never-dispatched counter, NEW class agi-tracker 4th-silent confirmation. The 2026-07-27 dated snapshot table + fleet-ops line 7 (ISS-006 narrative) left frozen — next reflect owns those once today's fleet events land.
-- **Decay pass:** no removals — all Current focus + Pointers items still active; `.pending-disclosure/` age bumps declined because the directory isn't on this branch and I won't invent an unverified age.
-- **Files modified:** `memory/MEMORY.md` (4 line replacements), `memory/topics/fleet-ops.md` (3 line replacements), `memory/logs/2026-07-28.md` (memory-flush section appended).
-- **Notify:** skipped per convention (counter-bump + prediction-confirmation edits are not P0/P1 operator signals).
-- **Follow-up:** heartbeat's next fire will surface any live 07-28 novelty on its own dedup track.
+
+**Task:** Ran the `memory-flush` skill for 2026-07-30 (Thu DOM 30 even, `2/2` cron slot). Window covered 07-28 memory-flush → now (~48h, including all 07-29 activity + today's stale-content-pr-sweeper only).
+
+**Contradictions resolved (3):**
+1. **MEMORY.md line 6 (ISS-006)** — Day-6 → Day-7 continuous PARTIAL, and collapsed the "two live hypotheses" framing to **stuck-08:00Z-sub-pocket favored** (grounded: 07-29 evening skill-health confirmed 08:00Z pocket dropped the same 4 skills for the SECOND consecutive day, while 07-29 05:00–07:30 morning slots fired cleanly — dead-zone did NOT migrate; cron-state shows all four skills still at `last_dispatch: 2026-07-27T08:46:39Z`).
+2. **MEMORY.md line 7 (ISS-001)** — day 39 → day 40 (calendar advance).
+3. **MEMORY.md line 16 (Never-dispatched counter)** — 21st → 22nd consecutive day + added 07-30 00:12:48Z sweeper delivery to streak line.
+
+**Fleet-ops.md live-claim updates (3):** ISS-001 day counter, ISS-006 rewrite with hypothesis resolution, Enabled-but-never-dispatched counter + 07-29 pocket verdict.
+
+**Decay pass:** No decays applied — all Current focus + Pointers items still active. No new atomic notes (07-29 reflect already atomized what was atomizable). No Open Improvement PRs (`gh` confirmed `[]`).
+
+**Files modified:** `memory/MEMORY.md` (3 line replacements), `memory/topics/fleet-ops.md` (3 line replacements), `memory/logs/2026-07-30.md` (this log entry). No notification per convention.
+
+**Follow-ups:** (a) today's 08:00Z pocket outcome will be third witness for stuck-sub-pocket hypothesis; (b) today's pr-tracker Thu 10:00Z slot either lands the predicted tuple `(2, 5, 3, 4)` or refines; (c) operator PAT / Repo Settings toggle remains rank-1 unblock lever.
