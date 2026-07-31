@@ -1,0 +1,255 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-07-30"
+      },
+      "children": [
+        "metadata",
+        "sep1",
+        "findings"
+      ]
+    },
+    "metadata": {
+      "type": "Text",
+      "props": {
+        "text": "144 rows, 4 modes"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "findings": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "section1",
+        "sep2",
+        "section2",
+        "sep3",
+        "section3",
+        "sep4",
+        "section4"
+      ]
+    },
+    "section1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "h_basketlegs",
+        "stat_basketlegs_prev",
+        "stat_basketlegs_now",
+        "badges1"
+      ]
+    },
+    "h_basketlegs": {
+      "type": "Heading",
+      "props": {
+        "text": "Basket SettlementLegs",
+        "level": "h3"
+      }
+    },
+    "stat_basketlegs_prev": {
+      "type": "Stat",
+      "props": {
+        "label": "07-28",
+        "value": "16.67%"
+      }
+    },
+    "stat_basketlegs_now": {
+      "type": "Stat",
+      "props": {
+        "label": "Current",
+        "value": "0.00%",
+        "delta": "-16.67%",
+        "trend": "down"
+      }
+    },
+    "badges1": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_medium",
+        "badge_onschedule",
+        "badge_gate"
+      ]
+    },
+    "badge_medium": {
+      "type": "Badge",
+      "props": {
+        "text": "MEDIUM",
+        "variant": "default"
+      }
+    },
+    "badge_onschedule": {
+      "type": "Badge",
+      "props": {
+        "text": "On Schedule",
+        "variant": "secondary"
+      }
+    },
+    "badge_gate": {
+      "type": "Badge",
+      "props": {
+        "text": "Persistence Gate Uncrossed",
+        "variant": "secondary"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "h_pattern",
+        "text_pattern",
+        "stat_seed",
+        "stat_pattern_consecutive",
+        "badge_jitter"
+      ]
+    },
+    "h_pattern": {
+      "type": "Heading",
+      "props": {
+        "text": "Cross-Mode Single-Seed Anchor Pattern",
+        "level": "h3"
+      }
+    },
+    "text_pattern": {
+      "type": "Text",
+      "props": {
+        "text": "Basket realizedAbs + x402 x402Total simultaneously"
+      }
+    },
+    "stat_seed": {
+      "type": "Stat",
+      "props": {
+        "label": "Current Seed",
+        "value": "202607301"
+      }
+    },
+    "stat_pattern_consecutive": {
+      "type": "Stat",
+      "props": {
+        "label": "Consecutive New Pattern Filings",
+        "value": "2nd"
+      }
+    },
+    "badge_jitter": {
+      "type": "Badge",
+      "props": {
+        "text": "12-Seed Jitter Class Holds",
+        "variant": "secondary"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "h_correlation",
+        "stat_correlation",
+        "stat_correlation_consecutive",
+        "text_decay"
+      ]
+    },
+    "h_correlation": {
+      "type": "Heading",
+      "props": {
+        "text": "x402 SettlementLegs × x402Total Correlation",
+        "level": "h3"
+      }
+    },
+    "stat_correlation": {
+      "type": "Stat",
+      "props": {
+        "label": "Current Correlation",
+        "value": "+0.540",
+        "trend": "up"
+      }
+    },
+    "stat_correlation_consecutive": {
+      "type": "Stat",
+      "props": {
+        "label": "Consecutive Positive Runs",
+        "value": "5th"
+      }
+    },
+    "text_decay": {
+      "type": "Text",
+      "props": {
+        "text": "Decay: +0.657 → +0.357 → +0.241 reverses with bounce"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section4": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "h_conservation",
+        "badge_conservation",
+        "stat_zero_runs",
+        "link_report"
+      ]
+    },
+    "h_conservation": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation & Stability",
+        "level": "h3"
+      }
+    },
+    "badge_conservation": {
+      "type": "Badge",
+      "props": {
+        "text": "Conservation OK — All 4 Modes (11+ Orders Under Gate)",
+        "variant": "secondary"
+      }
+    },
+    "stat_zero_runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Consecutive Filed Runs at Zero |r|≥0.8",
+        "value": "11th"
+      }
+    },
+    "link_report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Detailed Report",
+        "href": "memory/topics/compute-futures-eda/2026-07-30.md",
+        "source": "Aeon Memory"
+      }
+    }
+  }
+}
