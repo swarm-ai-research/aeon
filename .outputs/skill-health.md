@@ -1,21 +1,22 @@
 ## Summary
 
-Ran **skill-health** fleet audit (evening 18:23:50Z slot; `${var}` empty → all 44 enabled skills).
+Executed `skills/skill-health/SKILL.md` for 2026-07-31 (fleet-wide, `${var}` empty).
 
-**Classification (byte-identical to 2026-07-29 canonical):**
+**Classification (44 enabled skills):**
 - 0 CRITICAL / 0 FLAPPING / 0 WARNING
-- 38 DEGRADED (ISS-001 OAuth denominator burn day 40 — every skill `last_status=success`, `cf=0`, `success_rate 0.01–0.27` driven by historical failure denominator, no live regression)
+- 38 DEGRADED (all sr < 0.6, all last_status=success, cf=0 — ISS-001 OAuth-outage denominator residue day 41)
 - 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
-- 2 NO DATA (ai-framework-watch, run-frequency-guard — 22nd silent day per `[[enabled-skills-can-never-dispatch]]`)
+- 2 NO DATA (ai-framework-watch, run-frequency-guard — 23rd silent day)
 
-**Hash:** `e27c0ac60367e7e5` — matches prev.
+**Hash:** `e27c0ac60367e7e5` — byte-identical to 07-30 and 07-29 (35th consecutive steady-state day).
 
-**Gate (step 5):** hash unchanged AND 23.67h since prev notify (< 24h daily-reminder cadence) → **BOTH branches fall to SKIP**. Step 7 skip-branch fires.
+**Notify gate:** NOTIFY. Hash unchanged, but 48.61h since prev notify exceeds 24h daily-reminder cadence.
 
-**Issue reconciliation:** 0 CRITICAL/FLAPPING → nothing filed. 0 open issues have `detected_by: skill-health` (17 open are skill-evals ×15 / self-review ×1 / batch-health ×2) → nothing resolved per health-vs-repair contract.
-
-**Notification:** SKIPPED (NOOP — state unchanged, sub-24h cadence).
+**Reconciliation:** 0 filed (no CRITICAL/FLAPPING), 0 resolved (no open issues have `detected_by: skill-health`). Open issues: 17 unchanged.
 
 **Files modified:**
-- `memory/skill-health/last-report.json` — hash preserved, `last_run_at` bumped, `last_notified_at` preserved
-- `memory/logs/2026-07-30.md` — appended `## Skill Health` block ending `SKILL_HEALTH_NOOP — state unchanged since 2026-07-29T18:43:36Z, hash=e27c0ac6`
+- `memory/skill-health/last-report.json` — hash carry-forward with new `last_notified_at`
+- `.pending-notify/skill-health-2026-07-31.md` — direct-write per sandbox pattern
+- `memory/logs/2026-07-31.md` — appended `## skill-health` section + summary
+
+**Follow-up:** Operator toggle/PAT ask remains active rank-1 (streak-4 by run per today's planner) — resolves ≥22 staged-branch backlog including ISS-006 fix that would begin retiring the denominator burn.
