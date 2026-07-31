@@ -35,6 +35,7 @@ import {
   extractTaskId, classifyOutcome, applyOutcome,
 } from "./goal-store.mjs";
 import { applyGoalUpdate, updateSidecarPath } from "./goal-context.mjs";
+import { FLEET_ROLE_DIDS } from "./fleet-dids.mjs";
 
 const repoDir = process.env.GITLAWB_REPO_DIR || ".";
 const node = process.env.GITLAWB_NODE || "https://node.gitlawb.com";
@@ -45,15 +46,6 @@ const metricsPath  = join(repoDir, "memory/gitlawb-metrics.jsonl");
 const maxPerCycle = parseInt(process.env.FLEET_GOALS_MAX_PER_CYCLE || "2", 10);
 const noopLimit   = parseInt(process.env.FLEET_GOALS_NOOP_LIMIT || "3", 10);
 const lostHours   = parseFloat(process.env.FLEET_GOALS_LOST_HOURS || "2");
-
-// Fleet DIDs — kept in sync with task-generator.mjs. If task-generator moves
-// these into a shared module, this should follow.
-const ROLE_DIDS = {
-  researcher: "did:key:z6MkfnrSDgdDbkvfCCnMyaR4HqoWfWEfGoTFajX1HGkSHRUH",
-  reviewer:   "did:key:z6Mks2KSBfbindXsw2SBEGfqdgMJ4HwxJPfPQjkPKHY7U7SZ",
-  deployer:   "did:key:z6MknGJBoQsbNL956GNiTJRRWKJqMcprWmdYxJPbVGCwcAuS",
-  sentinel:   "did:key:z6MksUuVYyp93QA6pc2qAnXFQZdaoHq46dugXVweeehX4S2M",
-};
 
 function run(cmd, args) {
   const proc = spawnSync(cmd, args, { cwd: repoDir, encoding: "utf8" });
@@ -114,7 +106,7 @@ export function reconcile({ backlog, spawns, now, maxPerCycle: max, pendingFn, c
 
   const spawned = [];
   for (const goal of due) {
-    const did = ROLE_DIDS[goal.owner_role];
+    const did = FLEET_ROLE_DIDS[goal.owner_role];
     if (!did) {
       log(`  skip ${goal.id}: unknown owner_role ${goal.owner_role}`);
       continue;

@@ -14,6 +14,7 @@
 import { spawnSync } from "node:child_process";
 import { readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
+import { FLEET_ROLE_DIDS } from "./fleet-dids.mjs";
 
 const repoDir = process.env.GITLAWB_REPO_DIR || ".";
 const node = process.env.GITLAWB_NODE || "https://node.gitlawb.com";
@@ -40,28 +41,13 @@ function dailySweepSeeds(date) {
   return Array.from({ length: 12 }, (_, i) => Number(`${ymd}${i + 1}`));
 }
 
-// Agent definitions
+// Agent definitions — DIDs are fallbacks; instances.json overlay below
+// updates them to the fork/mirror's actual identities at runtime.
 const agents = {
-  researcher: {
-    did: "did:key:z6MkfnrSDgdDbkvfCCnMyaR4HqoWfWEfGoTFajX1HGkSHRUH",
-    kind: "research",
-    capability: "issue:create",
-  },
-  reviewer: {
-    did: "did:key:z6Mks2KSBfbindXsw2SBEGfqdgMJ4HwxJPfPQjkPKHY7U7SZ",
-    kind: "code-review",
-    capability: "pr:review",
-  },
-  deployer: {
-    did: "did:key:z6MknGJBoQsbNL956GNiTJRRWKJqMcprWmdYxJPbVGCwcAuS",
-    kind: "deploy",
-    capability: "pr:merge",
-  },
-  sentinel: {
-    did: "did:key:z6MksUuVYyp93QA6pc2qAnXFQZdaoHq46dugXVweeehX4S2M",
-    kind: "audit",
-    capability: "repo:admin",
-  },
+  researcher: { did: FLEET_ROLE_DIDS.researcher, kind: "research",    capability: "issue:create" },
+  reviewer:   { did: FLEET_ROLE_DIDS.reviewer,   kind: "code-review", capability: "pr:review"   },
+  deployer:   { did: FLEET_ROLE_DIDS.deployer,   kind: "deploy",      capability: "pr:merge"    },
+  sentinel:   { did: FLEET_ROLE_DIDS.sentinel,   kind: "audit",       capability: "repo:admin"  },
 };
 
 // Overlay agent DIDs from memory/instances.json — the single source of truth
