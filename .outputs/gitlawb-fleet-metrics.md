@@ -1,11 +1,6 @@
 ## Summary
 
-`gitlawb-fleet-metrics` exited at pre-flight step 2 with `GLMETRICS_EMPTY` — silent stop, no notification sent.
-
-- **Node check**: `v22.23.1` present → no `GLMETRICS_NO_NODE`
-- **State check**: `memory/gitlawb-fleet.json` and `memory/gitlawb-metrics.jsonl` both absent → empty fleet, nothing to snapshot
-- **CLI**: `prototypes/gitlawb-safety/fleet-cli.mjs` is present; not invoked because there is no state to read
-
-**Files modified**: `memory/logs/2026-07-30.md` (appended a `## gitlawb-fleet-metrics` entry recording the `GLMETRICS_EMPTY` verdict and rationale).
-
-**Follow-up**: none required by this skill. The fleet registry has never been minted on this branch — if/when `gitlawb-fleet` first mints an instance, subsequent runs will produce a real snapshot.
+- **Task:** Ran the `gitlawb-fleet-metrics` skill for 2026-07-31.
+- **Result:** `GLMETRICS_EMPTY` — pre-flight step 2 short-circuit on missing `memory/gitlawb-fleet.json` (companion `memory/gitlawb-metrics.jsonl` also absent). No CLI invocation, no snapshot rendered, no notify sent — per the SKILL's constraint that empty fleet is not news.
+- **Files modified:** `memory/logs/2026-07-31.md` (appended `## gitlawb-fleet-metrics` section + closing `## Summary` block).
+- **Follow-up:** none for this skill — the empty-fleet silent-stop is the correct state until `gitlawb-fleet` mints the first instance and begins recording metrics events. If the fleet is expected to exist, that's a `gitlawb-fleet` gap, not a metrics gap.
