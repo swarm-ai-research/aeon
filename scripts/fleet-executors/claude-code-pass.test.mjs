@@ -487,4 +487,78 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. prUrl extraction fallback — when gh pr create succeeds but outputs no
+//     URL-shaped string, the `|| pr.stdout.trim()` branch on line 248 is taken
+//     and prUrl is set to whatever gh printed.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\nprintf 'PR-created'\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "prurlfb" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "PR-created", `expected fallback prUrl; got ${result.prUrl}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  prUrl falls back to trimmed gh stdout when output contains no URL");
+}
+
+// 18. focus in PR body — when a focus string is supplied and claude makes edits,
+//     the **Focus:** line must appear in the body passed to `gh pr create`, not
+//     only in the prompt. Distinct from test 13 which only checks the prompt.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    // Write each argument on its own line so the multi-line body is preserved.
+    ghScript: `#!/usr/bin/env bash\nprintf '%s\\n' "$@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/55"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "focusbody", focus: "prefer immutable patterns" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /\*\*Focus:\*\*/, "PR body should contain **Focus:** header");
+    assert.match(ghLog, /prefer immutable patterns/, "PR body should contain the focus text");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  focus param appears in PR body (**Focus:** section)");
+}
+
+// 19. No target supplied → fallback prompt line. When target is omitted (defaults
+//     to ""), buildPrompt uses the "No specific files supplied" branch rather
+//     than the "Recently changed files" branch. Verified via stdin capture.
+{
+  const stdinCaptureDir = mkdtempSync(join(tmpdir(), "code-pass-notarget-"));
+  const stdinCapturePath = join(stdinCaptureDir, "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/1"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "refactor-pass", repoDir: env.localDir, taskId: "notarget" })
+      // target omitted → defaults to ""
+    );
+    assert.equal(result.ok, true);
+    assert.equal(result.prUrl, null);
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /No specific files supplied/, "prompt should use fallback target line");
+    assert.doesNotMatch(captured, /Recently changed files/, "prompt must not include the target line");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCaptureDir, { recursive: true, force: true });
+  }
+  console.log("OK  omitting target → prompt contains fallback 'No specific files supplied' line");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
