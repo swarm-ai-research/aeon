@@ -1,10 +1,6 @@
-`ISSUE_TRIAGE_OK no-watched-repos`
-
 ## Summary
 
-- **Skill:** `skills/issue-triage/SKILL.md` executed against today (2026-07-30).
-- **Outcome:** early exit at the config gate. `${var}` is empty and `memory/watched-repos.md` does not exist, so there are no targets to triage. Per §Config: log `ISSUE_TRIAGE_OK no-watched-repos` and exit.
-- **Actions taken:** none — no permission probe, no `gh` calls, no labels/comments/closes, no state file mutation. `memory/triaged-issues.json` left untouched (correct per §8: never record repos that weren't actually processed).
-- **Files modified:** `memory/logs/2026-07-30.md` — appended `## Issue Triage` log entry.
-- **Notification:** skipped (no actionable verdicts produced).
-- **Follow-up:** to enable this skill on a schedule, create `memory/watched-repos.md` with one `- owner/repo` line per target, or invoke the skill with a `owner/repo` argument in `${var}`.
+- **Task:** Executed `skills/issue-triage/SKILL.md` for 2026-07-31 (`${var}` empty).
+- **Outcome:** Short-circuit exit — `memory/watched-repos.md` is absent and no repo was passed via `${var}`, so per SKILL.md line 34 the terminal line is `ISSUE_TRIAGE_OK no-watched-repos`. Zero repos fetched, zero issues classified, no labels/comments/closes/notifications emitted.
+- **Files modified:** `memory/logs/2026-07-31.md` (appended `## issue-triage` section per Step 10).
+- **Follow-up:** Already tracked in MEMORY.md Pointers — "Populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills" (issue-triage among them). No new action; this is the expected daily skip pattern noted in yesterday's log.
