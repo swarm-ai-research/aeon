@@ -487,4 +487,49 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. taskId with more than 10 alphanumeric chars → shortTaskId truncates to 10,
+//     so the branch name is deterministic and doesn't exceed the expected length.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  const today = new Date().toISOString().slice(0, 10);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "abcdefghijklmnop" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(
+      result.branch,
+      `aeon/docs-pass-${today}-abcdefghij`,
+      `branch should use only the first 10 alphanumeric chars of taskId; got ${result.branch}`,
+    );
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  long taskId → shortTaskId truncates to 10 alphanumeric chars in branch name");
+}
+
+// 18. gh pr create returns output without an https:// URL — prUrl falls back to
+//     pr.stdout.trim() via the `|| pr.stdout.trim()` branch (line 248) rather
+//     than the regex match.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "PR opened as draft #99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "prfallback" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(
+      result.prUrl,
+      "PR opened as draft #99",
+      `prUrl should fall back to trimmed stdout when no https:// URL found; got ${result.prUrl}`,
+    );
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr create returns no URL → prUrl falls back to pr.stdout.trim()");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
