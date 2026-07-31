@@ -1,18 +1,11 @@
+The skill already ran today (log lines 3–11) with the identical state — 1 open PR (dependabot #8) that's not tracked. State unchanged, so I won't duplicate the log entry.
+
 ## Summary
 
-Executed `stale-content-pr-sweeper` on 2026-07-30.
-
-**Result: steady state — nothing to close.**
-
-- Open PRs scanned: 1
-- Eligible content PRs (tracked prefix + allowed author + ISO-date suffix): 0
-- Groups checked: 0
-- PRs closed: 0
-- `./notify` fired: no (per skill rule — only notify when `n_closed > 0`)
-
-**Detail:** The single open PR is `#8` — `dependabot/github_actions/github-actions-a0f12f8676`, authored by `app/dependabot`. Its prefix (`dependabot`) is not in the TRACKED allowlist and its author is not in ALLOWED_AUTHORS, so it is not eligible for sweeping. Left untouched, as designed.
-
-**Files modified:**
-- `memory/logs/2026-07-30.md` — created with the sweeper log block (`SWEEPER_OK`).
-
-**Follow-ups:** none.
+- **Groups scanned:** 0 (0 eligible content PRs)
+- **Open PRs:** 1 total — `dependabot/github_actions/github-actions-a0f12f8676` #8, author `app/dependabot`. Branch prefix `dependabot` is not in `TRACKED`; author is not in `ALLOWED_AUTHORS`. Not eligible.
+- **PRs closed:** 0
+- **Skips:** none applicable — nothing entered the eligibility set
+- **Notify:** not fired (steady state, `n_closed === 0`)
+- **Log:** today's `memory/logs/2026-07-30.md` already carries the sweeper block from an earlier run with the identical outcome; no duplicate entry appended (idempotent re-run).
+- **Follow-ups:** none. The queue is clean.
