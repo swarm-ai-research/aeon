@@ -1,0 +1,94 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_links",
+        "separator1",
+        "stack_details",
+        "separator2",
+        "alert_blocker",
+        "separator3",
+        "link_manual"
+      ]
+    },
+    "stat_links": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_top_date",
+        "text_branch"
+      ]
+    },
+    "text_top_date": {
+      "type": "Text",
+      "props": {
+        "text": "Top date: 2026-06-24"
+      }
+    },
+    "text_branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch suggest-edges/2026-07-31 pushed"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_blocker": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Creation Blocked",
+        "message": "gh pr create blocked by GH-Actions cannot-create-PRs meta-blocker",
+        "type": "warning"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_manual": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Open PR manually",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-07-31"
+      }
+    }
+  }
+}
