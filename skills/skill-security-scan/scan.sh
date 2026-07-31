@@ -179,6 +179,25 @@ TOTAL_WARN=0
 TOTAL_FAIL=0
 JSON_RESULTS=""
 
+# Populates global _COLLECTED with "Lnum: content [pattern: P]" entries.
+_COLLECTED=()
+collect_matches() {
+  local file="$1"; shift
+  _COLLECTED=()
+  for pattern in "$@"; do
+    local matches
+    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
+    if [[ -n "$matches" ]]; then
+      while IFS= read -r match; do
+        local line_num="${match%%:*}"
+        local line_content="${match#*:}"
+        line_content="${line_content:0:120}"
+        _COLLECTED+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
+      done <<< "$matches"
+    fi
+  done
+}
+
 scan_file() {
   local file="$1"
   local skill_name
@@ -196,47 +215,14 @@ scan_file() {
   local mediums=()
   local lows=()
 
-  # Check HIGH patterns
-  for pattern in "${HIGH_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"  # truncate
-        highs+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  collect_matches "$file" "${HIGH_PATTERNS[@]}"
+  [[ ${#_COLLECTED[@]} -gt 0 ]] && highs=("${_COLLECTED[@]}")
 
-  # Check MEDIUM patterns
-  for pattern in "${MEDIUM_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        mediums+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  collect_matches "$file" "${MEDIUM_PATTERNS[@]}"
+  [[ ${#_COLLECTED[@]} -gt 0 ]] && mediums=("${_COLLECTED[@]}")
 
-  # Check LOW patterns
-  for pattern in "${LOW_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        lows+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  collect_matches "$file" "${LOW_PATTERNS[@]}"
+  [[ ${#_COLLECTED[@]} -gt 0 ]] && lows=("${_COLLECTED[@]}")
 
   # Determine result
   local status="PASS"
