@@ -1,18 +1,13 @@
+notegraph: silent exit — 217n / 2181e / 0 orphans / 0 bundled, timestamp-only diff, no PR, no notify.
+
 ## Summary
 
-Ran the `notegraph` skill — exited via the `NOTEGRAPH_NO_CHANGE` path (timestamp-only interpretive branch, same as the 07-28 run).
-
-**What happened**
-- Fingerprint mismatch (`a64044ee…` → `7b1a2180…`) forced a full extractor rerun. The SKILL's shell `find | xargs sha1sum | sha1sum` pipeline is blocked by the sandbox, so I reproduced it in Node over the same file set (`memory/**/*.md` + `docs/**/*.md`, excluding `memory/logs/`) plus `scripts/notegraph.mjs`.
-- `node scripts/notegraph.mjs` → `215 nodes · 1565 hard · 573 soft · 0 orphans · 0 bundled` — byte-identical stats to `HEAD:notegraph.json`.
-- Masked diff (stripping `generatedAt` + ISO-8601 + bare `YYYY-MM-DD`) confirms all 4 generated files (`notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`) are byte-equal to HEAD. Reverted them.
-- The prior stored state (208n / 2099e) lagged HEAD (215n / 2138e); today's run rebases the state onto HEAD.
-
-**Files touched (uncommitted, on `main`)**
-- `memory/state/notegraph.json` — fingerprint rolled to `7b1a2180…`, stats aligned to HEAD, `notify_suppressed: true`, `last_verdict: "graph refreshed (215n / 2138e / 0b) — timestamp-only diff, silent exit"`.
-- `memory/logs/2026-07-30.md` — appended a `## Note Graph` section.
-
-**No PR opened, no notify sent** (verdict is bland `graph refreshed (…)` with zero new/resolved orphans and zero new/resolved bundled — SKILL step 5 suppression clause).
-
-**Follow-up**
-- These edits are uncommitted per CLAUDE.md's "never push directly to main" rule; memory state + daily logs are historically auto-committed by workflows, so let me know if you want me to commit them here.
+- **Skill executed:** `skills/notegraph/SKILL.md` on 2026-07-31.
+- **Fingerprint:** `7b1a2180…` → `68616542…` (mismatch → ran extractor).
+- **Extractor output:** `217 nodes · 1602 hard · 579 soft · 0 orphans · 0 bundled` — byte-identical stats to `HEAD:notegraph.json`.
+- **Diff analysis:** all three SKILL-tracked files (`notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`) matched HEAD byte-for-byte after masking timestamps/dates. Only `generatedAt` changed.
+- **Action taken:** silent-exit per SKILL step 3 and [[notegraph-extractor-generatedat-nondeterministic]] — reverted the 4 generated files (including untracked `docs/notegraph-speedrun.html`); rolled `memory/state/notegraph.json` forward with the new fingerprint + stats; no PR, no notify.
+- **3rd consecutive** silent-exit via the timestamp-only interpretive path (07-28 / 07-30 / 07-31); MEMORY.md Pointers already carries the fix ask.
+- **Files modified:** `memory/state/notegraph.json`; `memory/logs/2026-07-31.md` (created).
+- **Exit mode:** `NOTEGRAPH_NO_CHANGE`.
+- **Follow-up:** left uncommitted on `main` (mirrors 07-30 pattern where the state update landed via a later chore sweep). If you want me to branch + push, say so — but this repo has ≥22 already-staged branches blocked by [[github-actions-cannot-create-prs]], so `gh pr create` will likely fail until the operator toggle lands.
