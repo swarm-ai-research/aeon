@@ -1,20 +1,26 @@
 ## Summary
 
-Executed pr-review on `swarm-ai-research/swarm` under operator merge-gate policy (**22nd invocation** on this repo, 2nd operator-triggered run today). 8 open PRs — 6 dependabot bots skipped, 2 non-bot rsavitt PRs re-derived fresh despite dup-SHA vs today's morning run per operator "decide" ask.
+- **Task:** Ran the `pr-review` skill on `swarm-ai-research/swarm` (var override) under operator merge-gate policy (`APPROVE` / `REQUEST_CHANGES` / `BLOCK`).
+- **8 open PRs**, byte-identical to 07-30 evening: 6 dependabot (skipped by bot rule) + 2 rsavitt PRs re-derived fresh under the operator ask despite dup-SHA.
 
-**Verdicts:**
+### Verdicts (log-only; both write endpoints 403)
 
-| PR | Verdict | Confidence | Rationale |
-|---|---|---|---|
-| **swarm#543** (docs: remove AI-slop writing patterns) | **APPROVE** | 4/5 | 12-file docs-only diff (+36/-40). Every touched-surface check green — lint, type-check, invariants, kb-graph-check, render-verify, Memory Tests 3.10/3.11/3.12, CodeQL js-ts+py, tests 3.10/3.11 compat, agentgit-gate, Vercel. Sole red is `quality-gate` aggregator inheriting from a cancelled `test (3.12, full)` — no causal link to prose. No CRITICAL, no ISSUE. Flips to 5/5 on a green re-run. |
-| **swarm#536** (Fold beta_swarm into repo) | **REQUEST_CHANGES** | 2/5 | 56-file, +6699/-27 bundle. Body's "Purely additive — no existing swarm/ code is touched" is factually contradicted by **166+/1- across `swarm/agentgit/{__main__.py, coordination.py}`** (new cross-worktree claim-marker surface: `cmd_claim`, `resolve_shared_db_path`, marker read/write/clear) plus **24+/23- rewrite of `.claude/hooks/pre-commit`** (tripwire → claim-collision gate), plus `.claude/commands/claim.md` (+53), `CLAUDE.md`, `pyproject.toml`. New agentgit claim surface has **no visible test coverage** (`tests/beta/` covers beta_swarm only); rewritten pre-commit hook has **no CI signal**. `quality-gate` CI failing. No CRITICAL correctness/security break, so REQUEST_CHANGES rather than BLOCK. Ask: split, correct body, add tests. |
+- **swarm#543** (SHA `70b20e04`) — **APPROVE 4/5** — docs-only prose de-slop (+36/-40 across README + 8 blog/doc files); all high-signal CI passed (lint, type-check, tests 3.10/3.11, memory tests, invariants, agentgit-gate, CodeQL, Vercel). 1-point deduction for shared `quality-gate` FAILURE + `test (3.12, full)` CANCELLED — same signature on #536, treated as pre-existing repo noise.
+- **swarm#536** (SHA `76e6200c`) — **REQUEST_CHANGES 2/5** — 0 critical, 3 issues:
+  - `[ISSUE]` Body claims "purely additive — no existing `swarm/` code touched" but modifies `swarm/agentgit/__main__.py:244` (+90/-1) and `swarm/agentgit/coordination.py:43` (+76/-0) with a new atomic-claim subcommand.
+  - `[ISSUE]` `.claude/hooks/pre-commit:455–478` (+24/-23) rewrites the pre-commit collision gate but no CI job exercises the bash logic — shell regressions surface only at developer-commit time.
+  - `[ISSUE]` Mixed-scope bundle: beta_swarm (13 modules + 120 tests) + agentgit claim-gate feature + `.beads` bead close, forcing revert-together on any one strand.
 
-**No BLOCK** across the queue.
+### Posting outcome
 
-**Write path:** attempted `gh pr review` on both PRs → **403 (`Resource not accessible by integration (addPullRequestReview)`) on both**. 16th confirming invocation of `[[aeon-app-no-write-on-swarm-repo]]` — the cross-org write-block still holds. Findings held log-only per SKILL step-7 fallback (preserve severity tags + `file:line` refs in review body, do not silently drop).
+- `gh pr review 543 --comment ...` → **403 addPullRequestReview**. Inline `POST /pulls/536/comments` also 403. **16th consecutive confirming invocation** of `aeon-app-no-write-on-swarm-repo` — verdicts stay log-only pending PAT/App-permission unblock.
+- Findings preserved in `memory/logs/2026-07-31.md` per SKILL step-7 fallback (not silently dropped).
 
-**Files modified:** `memory/logs/2026-07-30.md` (appended `## PR Review (operator run 2)` section with full verdicts + evidence + write-attempt result).
+### Files
 
-**Notification:** skipped per SKILL rule — dup-SHA vs morning invocation + write-blocked = no state change worth fanout.
+- `.pending-notify/1785490558-pr-review.md` (new, direct-write per sandbox notify pattern)
+- `memory/logs/2026-07-31.md` (new `## PR Review` section)
 
-**Follow-up (unchanged, standing):** planner rank-1 `elevate-repo-settings-toggle-active` — operator PAT provisioning or Repo Settings → Actions → workflow permission toggle is the only unblock path for on-PR review posting to this cross-org repo.
+### Follow-up
+
+Operator PR-write unblock on `swarm-ai-research/swarm` remains fleet-wide **rank-1** — one App-permission bump or PAT ends the 16-day 403 streak on this repo.
