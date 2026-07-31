@@ -1,26 +1,27 @@
 ## Summary
 
-- **Task:** Ran the `pr-review` skill on `swarm-ai-research/swarm` (var override) under operator merge-gate policy (`APPROVE` / `REQUEST_CHANGES` / `BLOCK`).
-- **8 open PRs**, byte-identical to 07-30 evening: 6 dependabot (skipped by bot rule) + 2 rsavitt PRs re-derived fresh under the operator ask despite dup-SHA.
+Ran `pr-review` on `swarm-ai-research/swarm` under merge-gate policy (23rd invocation on this repo, 2nd operator run today).
 
-### Verdicts (log-only; both write endpoints 403)
+**Queue** (8 open, byte-identical to 07-30 evening + 07-31 morning; zero SHA moves in ≥24h):
+- **6 dependabot** (skipped per bot rule): #548 / #547 / #546 / #545 / #538 / #537
+- **2 non-bot** re-derived fresh under operator ask despite dup-SHA:
 
-- **swarm#543** (SHA `70b20e04`) — **APPROVE 4/5** — docs-only prose de-slop (+36/-40 across README + 8 blog/doc files); all high-signal CI passed (lint, type-check, tests 3.10/3.11, memory tests, invariants, agentgit-gate, CodeQL, Vercel). 1-point deduction for shared `quality-gate` FAILURE + `test (3.12, full)` CANCELLED — same signature on #536, treated as pre-existing repo noise.
-- **swarm#536** (SHA `76e6200c`) — **REQUEST_CHANGES 2/5** — 0 critical, 3 issues:
-  - `[ISSUE]` Body claims "purely additive — no existing `swarm/` code touched" but modifies `swarm/agentgit/__main__.py:244` (+90/-1) and `swarm/agentgit/coordination.py:43` (+76/-0) with a new atomic-claim subcommand.
-  - `[ISSUE]` `.claude/hooks/pre-commit:455–478` (+24/-23) rewrites the pre-commit collision gate but no CI job exercises the bash logic — shell regressions surface only at developer-commit time.
-  - `[ISSUE]` Mixed-scope bundle: beta_swarm (13 modules + 120 tests) + agentgit claim-gate feature + `.beads` bead close, forcing revert-together on any one strand.
+**Verdicts (log-only — write endpoints 403):**
 
-### Posting outcome
+| PR | Verdict | Confidence | Findings |
+|---|---|---|---|
+| #543 rsavitt "docs: remove AI-slop writing patterns" (`70b20e04`) | **APPROVE** | 4/5 | none (docs-only, all substantive checks green) |
+| #536 rsavitt "Fold beta_swarm" (`76e6200c`) | **REQUEST_CHANGES** | 2/5 | 3 [ISSUE], 0 [CRITICAL] |
 
-- `gh pr review 543 --comment ...` → **403 addPullRequestReview**. Inline `POST /pulls/536/comments` also 403. **16th consecutive confirming invocation** of `aeon-app-no-write-on-swarm-repo` — verdicts stay log-only pending PAT/App-permission unblock.
-- Findings preserved in `memory/logs/2026-07-31.md` per SKILL step-7 fallback (not silently dropped).
+**#536 findings** (0 BLOCK):
+- `[ISSUE] swarm/agentgit/__main__.py:1` — PR body claims "no existing swarm/ code is touched" but modifies `swarm/agentgit/__main__.py` (+90/−1) and `swarm/agentgit/coordination.py` (+76). Misleading scope on a shipped surface.
+- `[ISSUE] .claude/hooks/pre-commit:1` — Hook rewritten (+24/−23) with no CI job exercising it — broken hook fails open silently.
+- `[ISSUE] pyproject.toml:1` — Mixed-scope bundle (package fold + production agentgit change + hook rewrite + packaging) forces all-or-nothing merge and complicates bisection.
 
-### Files
+**Write path:** Both `gh pr review` calls + inline-comment endpoint returned `403 Resource not accessible by integration` → **17th confirming invocation** of `[[aeon-app-no-write-on-swarm-repo]]`. Verdicts held in log per SKILL step-7 fallback.
 
-- `.pending-notify/1785490558-pr-review.md` (new, direct-write per sandbox notify pattern)
-- `memory/logs/2026-07-31.md` (new `## PR Review` section)
+**Notification:** skipped (dup-SHA re-derivation, no state change).
 
-### Follow-up
+**Files modified:** `memory/logs/2026-07-31.md`.
 
-Operator PR-write unblock on `swarm-ai-research/swarm` remains fleet-wide **rank-1** — one App-permission bump or PAT ends the 16-day 403 streak on this repo.
+**Follow-up:** operator PAT / App-permission unblock on `swarm-ai-research/swarm` (still active rank-1 fleet-wide) — until then, verdicts on this repo remain log-only.
