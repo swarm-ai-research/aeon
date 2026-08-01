@@ -44,8 +44,6 @@ for raw in trailer.split('\n'):
         prior_aggregates.append({'rule': head, **props})
 
 # Convert prior per-(rule, file) counts to a dict
-def short_rule(s):
-    return s.split('/')[-1]
 def base(p):
     return os.path.basename(p)
 
