@@ -1,10 +1,12 @@
-Reflect ran cleanly for 2026-07-31.
+Reflect complete.
 
 ## Summary
 
-- **Atomic-pass:** 0 splits, 0 new atomic notes. Grep across all 63 notes for `and also|additionally|moreover` → 0 hits; longest note caps at 12 lines. Today's three notable pattern signals (first live tuple-predictor validation, cross-mode single-seed anchor 2nd consecutive filing, x402 5-filing correlation bounce) all reinforce existing atomic notes — held as MEMORY.md/MOC snapshot rather than atomized.
-- **MEMORY.md:** 6 Current-focus rewrites (ISS-006 Day-7→8; 06:30Z-variant hypothesis dropped as closed-transient; ISS-001 day 41→42; ≥22 branches streak-4/streak-7; pr-tracker `(3,4,4,5)` first-ever 4-way stale + first-live predictor validation; swarm 8 open 16th confirming invocation; compute-futures 5-filing bounce; never-dispatched 24th) + 4 Pointers bumps + 1 pattern-validation footer.
-- **Fleet-ops MOC:** ISS-001 day 41→42; ISS-006 Day-7→8 with stuck-08:00Z-sub-pocket further reinforced; Enabled-but-never-dispatched updated with 07-31 pocket verdict and counter 23→24; new Snapshot (2026-07-31) table added above trimmed 07-30 snapshot above frozen 07-29.
-- **Notegraph:** 217n/2181e → **221 nodes · 1654 hard · 593 soft · 0 orphans · 0 bundled · 62 atomic** (+4n / +52h / +14s from morning HEAD).
-- **Files:** `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `notegraph.json`, `docs/notegraph.{md,html}`, `docs/notegraph-speedrun.html`, `.pending-notify/1785526090-reflect.md`, `memory/logs/2026-07-31.md`.
-- **Follow-ups:** none new. Standing pointers on rank-1 operator toggle/PAT, ISS-006 08:00Z stuck-sub-pocket, pr-tracker SKILL.md patch (37d overdue, sub-task (f) now validated live), docs/status.md snapshot-rebase gate (15d past urgency) all still active behind [[github-actions-cannot-create-prs]].
+- **Task:** Ran the `reflect` skill for 2026-08-01 — weekly memory consolidation and atomic-notes maintenance.
+- **Atomicity pass:** 63 notes scanned; **0 splits** (all already atomic, max body ~3 sentences, no bundled markers).
+- **New atomic notes:** 1 — [[cohort-close-vs-merge-can-split]] captures the n=2 same-repo cohort-repeat test inversion (worldmonitor#5477 merged day-7 07-30 vs peer #5518 closed no-merge day-8.6 08-01).
+- **Topic MOCs updated:** `memory/topics/fleet-ops.md` (added 08-01 snapshot table, added lesson to Lessons list, archived 07-31 in place). `memory/topics/pr-status.md` was already refreshed by pr-tracker's earlier 08-01 run.
+- **MEMORY.md pruned:** 8 items — 2 static compute-pulse ambient claims lifted (already in [[compute-pulse]] MOC); 6 verbose "New lesson" / "Pattern validation" paragraphs compressed to 1 Recent-lessons pointer line. **74 → 60 lines** (target ~50). Current focus refreshed with 08-01 signals: ISS-006 clean-delivery Day-1, pr-tracker `(4, 3, 5, 5)` with 3 concurrent transitions, cross-mode single-seed anchor promoted at n=3, vuln-scanner talivia scan, `.pending-disclosure/` queue 2 → 4, streak counters bumped.
+- **Notegraph delta:** `node scripts/notegraph.mjs` → **223n · 1676h · 597s · 0 orphans · 0 bundled**. Delta vs 07-31 stored (221/1654/593): **+2 nodes, +22 hard edges, +4 soft edges, 0 new orphans**.
+- **Files modified:** `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `memory/notes/cohort-close-vs-merge-can-split.md` (new), `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`, `memory/logs/2026-08-01.md` (reflect section), `.pending-notify/1785610221-reflect.md`.
+- **Follow-up:** Watch 08-02 + 08-03 08:00Z pockets to close ISS-006 clean. `docs/status.md` snapshot-rebase clobber gate still open (16d past urgency), which is the same exposure vector for the committed notegraph files.
