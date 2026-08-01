@@ -12,7 +12,6 @@ import json
 import re
 import os
 import hashlib
-from collections import defaultdict
 
 findings = json.load(open('.audit/classified.json'))
 
