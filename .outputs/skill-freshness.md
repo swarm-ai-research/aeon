@@ -1,22 +1,15 @@
-Skill complete. Here's the summary:
+Skill-freshness run complete.
 
 ## Summary
 
-**Verdict: ✅ FRESHNESS_OK — no stale dependencies**
+**Verdict: ✅ FRESHNESS_OK** — 43 enabled consumers audited, 7 dependencies scored, 0 flagged.
 
-**What I did:**
-1. Parsed `aeon.yml` → 44 enabled skills, PRODUCER_CADENCE map (23 daily, 20 weekly, 1 on-demand)
-2. Found 0 explicit `chains: consume:` edges (chains block fully commented out)
-3. Grepped all 44 enabled SKILL.md files for implicit dependency patterns across articles/, .outputs/, memory/topics/, memory/state/
-4. Filtered self-references, disabled producers, optional/graceful-miss patterns, and general directory globs
-5. Scored 4 surviving real cross-consumer dependencies — all 2.5h old (from snapshot commit 07:09 UTC), well within their class thresholds (topics: 168h, state: 720h)
-6. 10 implicit-missing files skipped per policy (all are first-run-create or optional inputs)
+**Key findings:**
+- All `.outputs/`, `memory/topics/`, and `memory/state/` files check out fresh (~1.7h age from snapshot commit, well within 4h / 168h / 720h thresholds)
+- No `chains: consume:` edges active (chains block in `aeon.yml` is commented out)
+- `articles/` directory does not exist on main — all article references are implicit, and since no articles have ever merged to main (blocked by [[github-actions-cannot-create-prs]]), no MISSING flags fire per the implicit-never-existed rule
+- No notification sent (FRESHNESS_OK never pings)
 
-**Files written:**
-- `articles/skill-freshness-2026-07-31.md` — full audit report
-- `memory/topics/skill-freshness-state.json` — updated `last_run_at` timestamp (same fingerprint as yesterday)
-- `memory/logs/2026-07-31.md` — appended log entry
+**Structural caveat noted in article:** The known ISS-006 staleness (heartbeat, batch-health, gitlawb-fleet-metrics stuck at 2026-07-30 dispatch) would show as WARN/STALE against the live origin's `.outputs/` files (~23–47h old), but is invisible in this snapshot environment where all files share the same checkout timestamp. The git-log fix [[skill-freshness-mtime-blind-in-gha]] is applied for this run but doesn't resolve the staleness in snapshots.
 
-**Notification:** None — FRESHNESS_OK (silence is the signal).
-
-**Note:** Applied `git log -1 --format=%ct` for timestamps per [[skill-freshness-mtime-blind-in-gha]] instead of `stat` to avoid the GHA mtime blind spot.
+Files written: `articles/skill-freshness-2026-08-01.md`, `memory/topics/skill-freshness-state.json` (updated), `memory/logs/2026-08-01.md` (appended).
