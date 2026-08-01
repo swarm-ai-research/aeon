@@ -1,0 +1,94 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stat-links",
+        "sep1",
+        "date-info",
+        "sep2",
+        "alert-blocked",
+        "sep3",
+        "branch-stack"
+      ]
+    },
+    "stat-links": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "date-info": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-06-24",
+        "variant": "caption"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert-blocked": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Creation Blocked",
+        "message": "GitHub Actions permission required",
+        "type": "warning"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "branch-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "branch-label",
+        "branch-name",
+        "status-badge"
+      ]
+    },
+    "branch-label": {
+      "type": "Text",
+      "props": {
+        "text": "Branch",
+        "variant": "muted"
+      }
+    },
+    "branch-name": {
+      "type": "Text",
+      "props": {
+        "text": "suggest-edges/2026-08-01",
+        "variant": "lead"
+      }
+    },
+    "status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Pushed & Staged",
+        "variant": "secondary"
+      }
+    }
+  }
+}

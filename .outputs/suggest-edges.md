@@ -1,1 +1,1 @@
-*Suggest-edges* — 3 missing links proposed (top: 2026-06-24). Branch pushed: suggest-edges/2026-07-26 (PR create blocked by GitHub Actions cannot create PRs — 16th confirmed instance; needs Repo Settings toggle or PAT to open PR).
+*Suggest-edges* — 3 missing links proposed (top: 2026-06-24). PR creation blocked by GitHub Actions perm; branch `suggest-edges/2026-08-01` pushed and staged.
