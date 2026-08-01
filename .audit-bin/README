@@ -1,0 +1,28 @@
+Pre-built scanner binaries for the workflow-security-audit skill.
+
+Committed here so the skill can run on GitHub Actions runners where outbound
+network (PyPI, curl to external hosts) may be sandbox-blocked.  The skill's
+step 0b checks for these binaries before falling back to network installs.
+
+## Bundled tools
+
+| Binary          | Version  | Source                                     |
+|-----------------|----------|--------------------------------------------|
+| zizmor          | 1.25.2   | https://github.com/zizmorcore/zizmor       |
+| actionlint      | see note | https://github.com/rhysd/actionlint        |
+| actionlint.tar.gz | (source archive for the above actionlint binary) | |
+
+actionlint is downloaded via the upstream `download-actionlint.bash` script
+(no explicit version pin).  Run `actionlint --version` on the binary to
+confirm the version in use, and record it here when updating.
+
+## Updating
+
+1. Bump `ZIZMOR_VERSION` in `skills/workflow-security-audit/SKILL.md` step 0b.
+2. Download the matching zizmor release binary for `linux_amd64` from the
+   zizmor releases page and overwrite `.audit-bin/zizmor`.
+3. For actionlint, run `download-actionlint.bash` locally, copy the resulting
+   binary here, and note the version above.
+4. Verify both binaries are executable (`chmod +x`).
+
+See `skills/workflow-security-audit/SKILL.md` "Sandbox note" for full context.
