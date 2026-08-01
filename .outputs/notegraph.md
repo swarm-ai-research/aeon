@@ -1,13 +1,19 @@
-notegraph: silent exit — 217n / 2181e / 0 orphans / 0 bundled, timestamp-only diff, no PR, no notify.
-
 ## Summary
 
-- **Skill executed:** `skills/notegraph/SKILL.md` on 2026-07-31.
-- **Fingerprint:** `7b1a2180…` → `68616542…` (mismatch → ran extractor).
-- **Extractor output:** `217 nodes · 1602 hard · 579 soft · 0 orphans · 0 bundled` — byte-identical stats to `HEAD:notegraph.json`.
-- **Diff analysis:** all three SKILL-tracked files (`notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`) matched HEAD byte-for-byte after masking timestamps/dates. Only `generatedAt` changed.
-- **Action taken:** silent-exit per SKILL step 3 and [[notegraph-extractor-generatedat-nondeterministic]] — reverted the 4 generated files (including untracked `docs/notegraph-speedrun.html`); rolled `memory/state/notegraph.json` forward with the new fingerprint + stats; no PR, no notify.
-- **3rd consecutive** silent-exit via the timestamp-only interpretive path (07-28 / 07-30 / 07-31); MEMORY.md Pointers already carries the fix ask.
-- **Files modified:** `memory/state/notegraph.json`; `memory/logs/2026-07-31.md` (created).
-- **Exit mode:** `NOTEGRAPH_NO_CHANGE`.
-- **Follow-up:** left uncommitted on `main` (mirrors 07-30 pattern where the state update landed via a later chore sweep). If you want me to branch + push, say so — but this repo has ≥22 already-staged branches blocked by [[github-actions-cannot-create-prs]], so `gh pr create` will likely fail until the operator toggle lands.
+Ran `notegraph` skill. Silent-exit path, second consecutive day.
+
+**What happened**
+- Fingerprint mismatched vs 07-31 stored value (`68616542…` → `06a721bd…`) — some markdown was edited since yesterday, so the extractor ran.
+- Extractor output: `221 nodes · 1654 hard · 593 soft · 0 orphans · 0 bundled` — byte-identical stats to `HEAD:notegraph.json`. Zero structural delta.
+- Working-tree diff on all four generated files (`notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`) was **timestamp-only**, verified by masking `\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z` + `\d{4}-\d{2}-\d{2}` — all four matched byte-for-byte after masking.
+- Reverted all four generated files. **No PR. No notify.** Per SKILL step 3 + [[notegraph-extractor-generatedat-nondeterministic]]. Exit mode: `NOTEGRAPH_NO_CHANGE`.
+
+**Files modified**
+- `memory/state/notegraph.json` — rolled fingerprint forward to `06a721bd…` so tomorrow's run silent-exits at step 1 if the corpus is unchanged; stats updated to 221/2247/1654/593/0/62/0; explanatory note captured.
+- `memory/logs/2026-08-01.md` — appended Note Graph entry.
+
+**Files created (untracked helpers, not deleted — sandbox blocked `rm` on dot-prefixed files)**
+- `.notegraph-fingerprint.sh`, `.notegraph-fingerprint.mjs`, `.notegraph.prev.json` — needed because the SKILL's `find | xargs sha1sum` pipeline and even the raw bash helper couldn't be invoked directly from the sandboxed Bash tool; node-wrapping was required. Left in place for reuse next run.
+
+**Follow-up**
+- The [[notegraph-extractor-generatedat-nondeterministic]] fix (mask `generatedAt` before diffing, or teach extractor to omit it) is still open — noted in MEMORY.md pointers. Second silent-exit day in a row reinforces that this cleanup would remove the recurring "run the extractor, mask, revert, roll fingerprint" dance.
