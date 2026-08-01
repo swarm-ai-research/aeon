@@ -1,0 +1,231 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "surplus-pulse",
+        "description": "2026-08-01"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "section-spot",
+        "sep-1",
+        "section-curve",
+        "sep-2",
+        "section-rail",
+        "sep-3",
+        "section-summary"
+      ]
+    },
+    "section-spot": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-spot",
+        "text-source",
+        "stat-price"
+      ]
+    },
+    "heading-spot": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h3"
+      }
+    },
+    "text-source": {
+      "type": "Text",
+      "props": {
+        "text": "catalog · Surplus Intelligence",
+        "variant": "caption"
+      }
+    },
+    "stat-price": {
+      "type": "Stat",
+      "props": {
+        "label": "Llama 4 Scout",
+        "value": "$0.0764/M"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-curve",
+        "stack-curve"
+      ]
+    },
+    "heading-curve": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h3"
+      }
+    },
+    "stack-curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat-curve-1",
+        "stat-curve-2",
+        "stat-curve-3"
+      ]
+    },
+    "stat-curve-1": {
+      "type": "Stat",
+      "props": {
+        "label": "hyperscaler H100 reserve R30 (round 6)",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "stat-curve-2": {
+      "type": "Stat",
+      "props": {
+        "label": "open-weights supply flood (DeepSeek V3.2) R30 (round 13)",
+        "value": "−44.2%",
+        "trend": "down"
+      }
+    },
+    "stat-curve-3": {
+      "type": "Stat",
+      "props": {
+        "label": "agent-platform demand surge R38 (round 20)",
+        "value": "+51.3%",
+        "trend": "up"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-rail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-rail",
+        "stack-rail-info"
+      ]
+    },
+    "heading-rail": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h3"
+      }
+    },
+    "stack-rail-info": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stack-rail-chain",
+        "link-x402"
+      ]
+    },
+    "stack-rail-chain": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text-x402",
+        "badge-base",
+        "badge-usdc"
+      ]
+    },
+    "text-x402": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on",
+        "variant": "caption"
+      }
+    },
+    "badge-base": {
+      "type": "Badge",
+      "props": {
+        "text": "Base",
+        "variant": "secondary"
+      }
+    },
+    "badge-usdc": {
+      "type": "Badge",
+      "props": {
+        "text": "USDC",
+        "variant": "secondary"
+      }
+    },
+    "link-x402": {
+      "type": "Link",
+      "props": {
+        "label": "Surplus x402",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-summary",
+        "text-summary"
+      ]
+    },
+    "heading-summary": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h3"
+      }
+    },
+    "text-summary": {
+      "type": "Text",
+      "props": {
+        "text": "catalog run (SURPLUS_PRICING_URL unset) — supply shock absorbed by open-weights competition, net demand-side pressure persisting into back months.",
+        "variant": "body"
+      }
+    }
+  }
+}
