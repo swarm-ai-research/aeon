@@ -1,6 +1,7 @@
-## Summary
+`ISSUE_TRIAGE_OK no-watched-repos`
 
-- **Task:** Executed `skills/issue-triage/SKILL.md` for 2026-07-31 (`${var}` empty).
-- **Outcome:** Short-circuit exit — `memory/watched-repos.md` is absent and no repo was passed via `${var}`, so per SKILL.md line 34 the terminal line is `ISSUE_TRIAGE_OK no-watched-repos`. Zero repos fetched, zero issues classified, no labels/comments/closes/notifications emitted.
-- **Files modified:** `memory/logs/2026-07-31.md` (appended `## issue-triage` section per Step 10).
-- **Follow-up:** Already tracked in MEMORY.md Pointers — "Populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills" (issue-triage among them). No new action; this is the expected daily skip pattern noted in yesterday's log.
+## Summary
+- **Task:** Executed `skills/issue-triage/SKILL.md` for 2026-08-01.
+- **Result:** Short-circuit exit — `memory/watched-repos.md` is missing and no `${var}` was supplied, so per the skill's Config section the correct behavior is to log `ISSUE_TRIAGE_OK no-watched-repos` and exit without any GitHub API calls, labels, comments, or notifications.
+- **Files:** appended an `### issue-triage` entry to `memory/logs/2026-08-01.md` recording zero triaged and the `no-watched-repos` terminal status.
+- **Follow-up:** This is now the 6th watched-repos-dependent short-circuit since the MEMORY.md Pointer was raised. Two options in the Pointers list remain open: (a) populate `memory/watched-repos.md` with `owner/repo` lines, or (b) set `enabled: false` in `aeon.yml` for the six watched-repos-dependent skills (`code-health`, `github-monitor`, `issue-triage`, `changelog`, `weekly-shiplog`, `repo-revive`) to reclaim workflow slots. Both paths are blocked from auto-PR by the standing `[[github-actions-cannot-create-prs]]` meta-blocker; operator action required.
