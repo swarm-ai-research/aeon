@@ -1,27 +1,13 @@
-## Summary
+PR review complete. Ran the `pr-review` skill on `swarm-ai-research/swarm` under operator merge-gate policy.
 
-Ran `pr-review` on `swarm-ai-research/swarm` under merge-gate policy (23rd invocation on this repo, 2nd operator run today).
+**Result:** 8 open PRs, byte-identical to 07-31.
+- **Skipped 6** — all `app/dependabot` (bot skip rule).
+- **swarm#543** (rsavitt "docs: remove AI-slop writing patterns", SHA `70b20e04`, dup-SHA re-derived) → **APPROVE (4/5)** — 0 CRITICAL / 0 ISSUE. Docs-only diff (+36/-40), all quality signals green except a shared pre-existing `quality-gate` FAILURE + `test (3.12, full)` CANCELLED that also appears on #536 (repo-level noise, not caused by this diff → 1-point confidence deduction only).
+- **swarm#536** (rsavitt "Fold beta_swarm into the repo", SHA `76e6200c`, dup-SHA re-derived) → **REQUEST_CHANGES (2/5)** — 0 CRITICAL / 3 ISSUE:
+  1. `swarm/agentgit/coordination.py:43` + `__main__.py:244` — PR body claims "Purely additive — no existing swarm/ code is touched" but adds substantive new claim-gate logic (+90/-1 and +76/-0).
+  2. `.claude/hooks/pre-commit:455–478` — +24/-23 bash rewrite of the concurrency-safeguard has no CI job that exercises it; regressions fail silently until a developer's next local commit.
+  3. Mixed-scope bundle (beta_swarm import + agentgit claim-gate + pre-commit hook + `.beads`/`CLAUDE.md`/`CHANGELOG` edits) — any one strand needing revert rolls the other two back with it.
 
-**Queue** (8 open, byte-identical to 07-30 evening + 07-31 morning; zero SHA moves in ≥24h):
-- **6 dependabot** (skipped per bot rule): #548 / #547 / #546 / #545 / #538 / #537
-- **2 non-bot** re-derived fresh under operator ask despite dup-SHA:
+**Posting outcome:** All 3 write endpoints (2× `addPullRequestReview` + 1× inline comment) returned HTTP 403 `Resource not accessible by integration` — **17th confirming invocation** of [[aeon-app-no-write-on-swarm-repo]]. Verdicts are log-only until the operator unblocks PR-write permission on this repo.
 
-**Verdicts (log-only — write endpoints 403):**
-
-| PR | Verdict | Confidence | Findings |
-|---|---|---|---|
-| #543 rsavitt "docs: remove AI-slop writing patterns" (`70b20e04`) | **APPROVE** | 4/5 | none (docs-only, all substantive checks green) |
-| #536 rsavitt "Fold beta_swarm" (`76e6200c`) | **REQUEST_CHANGES** | 2/5 | 3 [ISSUE], 0 [CRITICAL] |
-
-**#536 findings** (0 BLOCK):
-- `[ISSUE] swarm/agentgit/__main__.py:1` — PR body claims "no existing swarm/ code is touched" but modifies `swarm/agentgit/__main__.py` (+90/−1) and `swarm/agentgit/coordination.py` (+76). Misleading scope on a shipped surface.
-- `[ISSUE] .claude/hooks/pre-commit:1` — Hook rewritten (+24/−23) with no CI job exercising it — broken hook fails open silently.
-- `[ISSUE] pyproject.toml:1` — Mixed-scope bundle (package fold + production agentgit change + hook rewrite + packaging) forces all-or-nothing merge and complicates bisection.
-
-**Write path:** Both `gh pr review` calls + inline-comment endpoint returned `403 Resource not accessible by integration` → **17th confirming invocation** of `[[aeon-app-no-write-on-swarm-repo]]`. Verdicts held in log per SKILL step-7 fallback.
-
-**Notification:** skipped (dup-SHA re-derivation, no state change).
-
-**Files modified:** `memory/logs/2026-07-31.md`.
-
-**Follow-up:** operator PAT / App-permission unblock on `swarm-ai-research/swarm` (still active rank-1 fleet-wide) — until then, verdicts on this repo remain log-only.
+**Files:** `.pending-notify/1785579814-pr-review.md` (new), `memory/logs/2026-08-01.md` (PR Review section appended).
