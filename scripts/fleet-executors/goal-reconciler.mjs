@@ -221,10 +221,13 @@ export function reconcileOutcomes({
 
 // I/O helpers used by main(); exported only so tests can swap them without
 // touching disk.
-export function defaultReadArtifact(taskId) {
-  const p = join(artifactsDir, `${taskId}.json`);
+function readJsonFile(p) {
   if (!existsSync(p)) return null;
   try { return JSON.parse(readFileSync(p, "utf8")); } catch { return null; }
+}
+
+export function defaultReadArtifact(taskId) {
+  return readJsonFile(join(artifactsDir, `${taskId}.json`));
 }
 
 export function defaultReadMetrics() {
@@ -238,9 +241,7 @@ export function defaultReadMetrics() {
 }
 
 export function defaultReadUpdate(taskId) {
-  const p = updateSidecarPath(taskId, repoDir);
-  if (!existsSync(p)) return null;
-  try { return JSON.parse(readFileSync(p, "utf8")); } catch { return null; }
+  return readJsonFile(updateSidecarPath(taskId, repoDir));
 }
 
 export function defaultConsumeUpdate(taskId) {
