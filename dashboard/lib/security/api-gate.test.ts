@@ -239,4 +239,102 @@ describe("gateRequest (env-driven wrapper)", () => {
     });
     assert.equal(result, null);
   });
+
+  it("accepts a same-Host Referer-only POST (no Origin header)", () => {
+    const result = gateRequest({
+      method: "POST",
+      headers: headers({ host: "localhost:5555", referer: "http://localhost:5555/dashboard" }),
+    });
+    assert.equal(result, null);
+  });
+
+  it("rejects a cross-origin Referer-only POST", async () => {
+    const result = gateRequest({
+      method: "POST",
+      headers: headers({ host: "localhost:5555", referer: "http://attacker.example/evil" }),
+    });
+    assert.ok(result instanceof Response);
+    assert.equal(result!.status, 403);
+    const body = await result!.json();
+    assert.equal(body.error, "Cross-origin write rejected");
+  });
+
+  it("accepts a same-origin DELETE (covers the /api/secrets delete route)", () => {
+    const result = gateRequest({
+      method: "DELETE",
+      headers: headers({ host: "localhost:5555", origin: "http://localhost:5555" }),
+    });
+    assert.equal(result, null);
+  });
+
+  it("rejects a cross-origin DELETE", async () => {
+    const result = gateRequest({
+      method: "DELETE",
+      headers: headers({ host: "localhost:5555", origin: "http://attacker.example" }),
+    });
+    assert.ok(result instanceof Response);
+    assert.equal(result!.status, 403);
+    const body = await result!.json();
+    assert.equal(body.error, "Cross-origin write rejected");
+  });
+});
+
+describe("stripPort (uncovered branches)", () => {
+  it("returns trimmed input for malformed bracketed IPv6 with no closing bracket", () => {
+    // Exercises the `if (end === -1) return trimmed` path in the bracket branch.
+    assert.equal(stripPort("[::1"), "[::1");
+    assert.equal(stripPort("[::1:8080"), "[::1:8080");
+  });
+});
+
+describe("parseAllowedHosts (uncovered branches)", () => {
+  it("skips empty entries produced by double-commas or whitespace-only parts", () => {
+    // Exercises the `if (v)` guard that filters blank entries.
+    const set1 = parseAllowedHosts("host-a,,host-b");
+    assert.deepEqual([...set1].sort(), ["host-a", "host-b"]);
+
+    const set2 = parseAllowedHosts("host-a, ,host-b");
+    assert.deepEqual([...set2].sort(), ["host-a", "host-b"]);
+  });
+});
+
+describe("isSameOriginWrite (uncovered branches)", () => {
+  it("allowAny=true bypasses the origin check for state-changing methods", () => {
+    // Exercises the early-return at line `if (opts.allowAny) return true`.
+    assert.equal(
+      isSameOriginWrite("POST", headers({ origin: "http://attacker.example" }), { allowAny: true }),
+      true,
+    );
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({}), { allowAny: true }),
+      true,
+    );
+  });
+
+  it("DELETE and PUT are treated as state-changing methods", () => {
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({ origin: "http://localhost:5555" })),
+      true,
+    );
+    assert.equal(
+      isSameOriginWrite("PUT", headers({ origin: "http://attacker.example" })),
+      false,
+    );
+    assert.equal(
+      isSameOriginWrite("PATCH", headers({ origin: "http://127.0.0.1:5555" })),
+      true,
+    );
+  });
+
+  it("empty-string Origin falls through to Referer", () => {
+    // An empty-string Origin is falsy, so the `||` falls back to Referer.
+    assert.equal(
+      isSameOriginWrite("POST", headers({ origin: "", referer: "http://localhost:5555/" })),
+      true,
+    );
+    assert.equal(
+      isSameOriginWrite("POST", headers({ origin: "", referer: "http://attacker.example/" })),
+      false,
+    );
+  });
 });
