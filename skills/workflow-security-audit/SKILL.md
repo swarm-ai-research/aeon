@@ -41,7 +41,12 @@ fi
 # (https://github.com/zizmorcore/zizmor/releases) and bump if a patch/minor is out.
 # Also update the binary in .audit-bin/ when bumping the version pin.
 
-# actionlint (Rhymond's syntax-level workflow linter)
+# actionlint (rhysd/actionlint — syntax-level workflow linter)
+# No explicit version pin: the curl installer fetches the latest release.
+# To pin a specific version, pass it as the first arg:
+#   bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) v1.7.7
+# When upgrading, replace .audit-bin/actionlint and .audit-bin/actionlint.tar.gz
+# with the new release binary and its source archive.
 if [ -x ".audit-bin/actionlint" ]; then
   export PATH="$PWD/.audit-bin:$PATH"
 elif ! command -v actionlint >/dev/null 2>&1; then
@@ -360,7 +365,7 @@ Append to `memory/logs/${today}.md`:
 
 ## Sandbox note
 
-- **`.audit-bin/` (primary):** `.audit-bin/zizmor` and `.audit-bin/actionlint` are committed pre-built binaries. Step 0b prioritises these over network installs to avoid sandbox-blocked PyPI/curl calls. When the version pin in this file is bumped, replace the binaries here too.
+- **`.audit-bin/` (primary):** `.audit-bin/zizmor` and `.audit-bin/actionlint` are committed pre-built binaries; `.audit-bin/actionlint.tar.gz` is the source archive for the actionlint binary (kept for reproducibility and offline verification). Step 0b prioritises these over network installs to avoid sandbox-blocked PyPI/curl calls. When version pins are bumped, replace the binary and the tar.gz together.
 - `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
 - `gh` CLI uses existing `GITHUB_TOKEN` / `GH_GLOBAL` — no extra auth setup needed.
 - No new secrets required. zizmor and actionlint are offline-only static analyzers.

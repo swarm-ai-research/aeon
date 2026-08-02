@@ -353,6 +353,10 @@ scripts/
   skill-runs             ← audit recent GitHub Actions skill runs
   sync-site-data.sh      ← sync memory/logs to docs site data
   memory-checkpoint.sh   ← git-backed memory snapshots (rollback/fork; see docs/memory-checkpoints.md)
+.audit-bin/              ← pre-built scanner binaries committed to survive sandbox network blocks
+  actionlint            ← rhysd/actionlint binary (GitHub Actions workflow linter)
+  actionlint.tar.gz     ← source archive for the actionlint binary (kept for reproducibility)
+  zizmor                ← Trail of Bits zizmor binary (SARIF-capable Actions security auditor)
 .github/workflows/
   aeon.yml               ← skill runner (workflow_dispatch, issues, quality scoring)
   chain-runner.yml       ← skill chain executor (parallel + sequential pipelines)
