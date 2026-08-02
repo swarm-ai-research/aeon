@@ -487,4 +487,49 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. Backlog gate boundary — two same-kind PRs open (one below the default
+//     limit of 3) must NOT gate the run. Verifies the `>= BACKLOG_LIMIT`
+//     condition rather than `>`.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '[{"headRefName":"aeon/test-pass-2026-08-01-aaa"},{"headRefName":"aeon/test-pass-2026-08-01-bbb"}]'; exit 0; fi\necho "https://github.com/stub/repo/pull/101"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "below-limit" })
+    );
+    assert.equal(result.ok, true, `expected ok=true (below backlog limit), got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/101",
+      "run should proceed and create a PR when backlog is one below the limit");
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /pr create/, "gh pr create should have been called");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  backlog gate boundary — two same-kind PRs (below limit) does not gate the run");
+}
+
+// 18. gh pr list returns malformed JSON (SyntaxError in JSON.parse) →
+//     openPRsForKind returns null via the catch clause → gate is skipped and
+//     the pass proceeds. Distinct from test 11 (exit-code failure) and test 12
+//     (non-array valid JSON).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then printf '{not valid json}'; exit 0; fi\necho "https://github.com/stub/repo/pull/102"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "malformed-json" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns malformed JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/102",
+      "run should proceed (null backlog) when pr list output is unparseable");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list returns malformed JSON → SyntaxError caught → null backlog → pass proceeds");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
