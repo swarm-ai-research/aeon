@@ -1,0 +1,232 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "compute-macro-correlate 2026-08-02",
+        "description": "Correlation analysis across DePIN tokens and macro assets"
+      },
+      "children": [
+        "track_a_section",
+        "sep_1",
+        "track_b_section",
+        "sep_2",
+        "descriptive_section",
+        "sep_3",
+        "preregistered_section",
+        "sep_4",
+        "status_alert"
+      ]
+    },
+    "track_a_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "h_track_a",
+        "note_track_a",
+        "table_track_a"
+      ]
+    },
+    "h_track_a": {
+      "type": "Heading",
+      "props": {
+        "text": "Track A (n=151)",
+        "level": "h2"
+      }
+    },
+    "note_track_a": {
+      "type": "Text",
+      "props": {
+        "text": "All well below the |ρ|≥0.15 threshold after partialling on {BTC, SOL}.",
+        "variant": "caption"
+      }
+    },
+    "table_track_a": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Token",
+          "ρ",
+          "p-value"
+        ],
+        "rows": [
+          [
+            "RENDER",
+            "−0.119",
+            "0.148"
+          ],
+          [
+            "TAO",
+            "−0.116",
+            "0.156"
+          ],
+          [
+            "IO",
+            "−0.030",
+            "0.716"
+          ]
+        ]
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "track_b_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "h_track_b",
+        "note_track_b",
+        "table_track_b"
+      ]
+    },
+    "h_track_b": {
+      "type": "Heading",
+      "props": {
+        "text": "Track B (n=43, First Fire)",
+        "level": "h2"
+      }
+    },
+    "note_track_b": {
+      "type": "Text",
+      "props": {
+        "text": "Cleared 30-day threshold. All null.",
+        "variant": "caption"
+      }
+    },
+    "table_track_b": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Measure",
+          "ρ"
+        ],
+        "rows": [
+          [
+            "basket",
+            "−0.137"
+          ],
+          [
+            "spread",
+            "+0.114"
+          ],
+          [
+            "synthetic",
+            "−0.100"
+          ],
+          [
+            "x402",
+            "−0.100"
+          ]
+        ]
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "descriptive_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "h_descriptive",
+        "note_descriptive",
+        "finding_descriptive"
+      ]
+    },
+    "h_descriptive": {
+      "type": "Heading",
+      "props": {
+        "text": "Wide Descriptive Scan",
+        "level": "h2"
+      }
+    },
+    "note_descriptive": {
+      "type": "Text",
+      "props": {
+        "text": "Weak signal found; descriptive only.",
+        "variant": "caption"
+      }
+    },
+    "finding_descriptive": {
+      "type": "Text",
+      "props": {
+        "text": "TAO × PALLADIUM: ρ=−0.153, p=0.060",
+        "variant": "body"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "preregistered_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "h_preregistered",
+        "desc_preregistered",
+        "table_preregistered"
+      ]
+    },
+    "h_preregistered": {
+      "type": "Heading",
+      "props": {
+        "text": "Pre-registered Test",
+        "level": "h2"
+      }
+    },
+    "desc_preregistered": {
+      "type": "Text",
+      "props": {
+        "text": "Compute economics co-moving with NATGAS net of crypto-beta",
+        "variant": "caption"
+      }
+    },
+    "table_preregistered": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Level",
+          "Result"
+        ],
+        "rows": [
+          [
+            "DePIN-token proxy (2nd snapshot)",
+            "Clean null"
+          ],
+          [
+            "Sweep P&L (1st fire)",
+            "Clean null"
+          ]
+        ]
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "status_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Blocking Issue",
+        "message": "Branch compute-macro/2026-08-02 staged; PR blocked by github-actions-cannot-create-prs",
+        "type": "warning"
+      }
+    }
+  }
+}
