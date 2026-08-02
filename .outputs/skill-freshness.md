@@ -1,15 +1,16 @@
-Skill-freshness run complete.
-
 ## Summary
 
-**Verdict: ✅ FRESHNESS_OK** — 43 enabled consumers audited, 7 dependencies scored, 0 flagged.
+**Verdict: ✅ FRESHNESS_OK** — `FRESHNESS_NO_CHANGE` (same fingerprint as 2026-08-01 run, within 7-day window). No notification sent.
 
-**Key findings:**
-- All `.outputs/`, `memory/topics/`, and `memory/state/` files check out fresh (~1.7h age from snapshot commit, well within 4h / 168h / 720h thresholds)
-- No `chains: consume:` edges active (chains block in `aeon.yml` is commented out)
-- `articles/` directory does not exist on main — all article references are implicit, and since no articles have ever merged to main (blocked by [[github-actions-cannot-create-prs]]), no MISSING flags fire per the implicit-never-existed rule
-- No notification sent (FRESHNESS_OK never pings)
+**What was audited:**
+- 47 enabled skills, 156 total in `aeon.yml`
+- 0 explicit chain dependencies (all `chains:` blocks are commented out)
+- 7 implicit dependencies found on disk across 7 consumer skills — all 2h old (today's 08:02Z batch commit), all well within thresholds (168h for topics, 720h for state)
+- 0 deps flagged
 
-**Structural caveat noted in article:** The known ISS-006 staleness (heartbeat, batch-health, gitlawb-fleet-metrics stuck at 2026-07-30 dispatch) would show as WARN/STALE against the live origin's `.outputs/` files (~23–47h old), but is invisible in this snapshot environment where all files share the same checkout timestamp. The git-log fix [[skill-freshness-mtime-blind-in-gha]] is applied for this run but doesn't resolve the staleness in snapshots.
+**Key structural observation logged in the article:** The `articles/` directory is empty on `main` because all article-writing skills open PRs, which are blocked by [[github-actions-cannot-create-prs]]. If that blocker is resolved, the article-class check will immediately start scoring cross-skill article freshness.
 
-Files written: `articles/skill-freshness-2026-08-01.md`, `memory/topics/skill-freshness-state.json` (updated), `memory/logs/2026-08-01.md` (appended).
+**Files written:**
+- `articles/skill-freshness-2026-08-02.md`
+- `memory/topics/skill-freshness-state.json` (updated `last_run_at`, `consumer_count: 47`)
+- `memory/logs/2026-08-02.md` (appended log block)
