@@ -149,6 +149,69 @@ describe("isAllowedHost (edge cases)", () => {
   });
 });
 
+describe("stripPort (unclosed IPv6 bracket)", () => {
+  it("returns bracketed prefix when closing bracket is absent", () => {
+    // Covers the `if (end === -1) return trimmed` branch (line ~66).
+    assert.equal(stripPort("[::1"), "[::1");
+    assert.equal(stripPort("[2001:db8::1"), "[2001:db8::1");
+  });
+});
+
+describe("isAllowedHost (whitespace-only host)", () => {
+  it("rejects a whitespace-only host that strips to empty string", () => {
+    // Covers the `if (!host) return false` branch (line ~108):
+    // "   " is truthy so it passes the !headerHost guard, but
+    // stripPort("   ") returns "" which then hits the !host guard.
+    assert.equal(isAllowedHost("   "), false);
+    assert.equal(isAllowedHost("\t"), false);
+  });
+});
+
+describe("isSameOriginWrite (uncovered branches)", () => {
+  it("allowAny=true bypasses the write-origin check", () => {
+    // Covers the `if (opts.allowAny) return true` branch (line ~133).
+    assert.equal(
+      isSameOriginWrite(
+        "POST",
+        headers({ origin: "http://attacker.example" }),
+        { allowAny: true },
+      ),
+      true,
+    );
+  });
+
+  it("DELETE with loopback Origin is accepted", () => {
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({ origin: "http://localhost:5555" })),
+      true,
+    );
+  });
+
+  it("DELETE with cross-origin Origin is rejected", () => {
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({ origin: "http://attacker.example" })),
+      false,
+    );
+  });
+
+  it("PUT with cross-origin Origin is rejected", () => {
+    assert.equal(
+      isSameOriginWrite("PUT", headers({ origin: "http://attacker.example" })),
+      false,
+    );
+  });
+
+  it("Referer with https scheme resolves to loopback correctly", () => {
+    assert.equal(
+      isSameOriginWrite(
+        "POST",
+        headers({ referer: "https://localhost:5555/dashboard" }),
+      ),
+      true,
+    );
+  });
+});
+
 describe("gateRequest (env-driven wrapper)", () => {
   afterEach(() => {
     delete process.env.AEON_DASHBOARD_ALLOWED_HOSTS;
@@ -236,6 +299,35 @@ describe("gateRequest (env-driven wrapper)", () => {
     const result = gateRequest({
       method: "GET",
       headers: headers({ host: "0.0.0.0:5555" }),
+    });
+    assert.equal(result, null);
+  });
+
+  it("rejects DELETE with cross-origin Origin (CSRF on non-POST write)", async () => {
+    const result = gateRequest({
+      method: "DELETE",
+      headers: headers({ host: "localhost:5555", origin: "http://attacker.example" }),
+    });
+    assert.ok(result instanceof Response);
+    assert.equal(result!.status, 403);
+    const body = await result!.json();
+    assert.equal(body.error, "Cross-origin write rejected");
+  });
+
+  it("accepts DELETE with matching loopback Origin", () => {
+    const result = gateRequest({
+      method: "DELETE",
+      headers: headers({ host: "localhost:5555", origin: "http://localhost:5555" }),
+    });
+    assert.equal(result, null);
+  });
+
+  it("AEON_DASHBOARD_ALLOWED_HOSTS strips port from env-var entries", () => {
+    // "host:port" in the env var should work — parseAllowedHosts strips the port.
+    process.env.AEON_DASHBOARD_ALLOWED_HOSTS = "internal.lan:8080";
+    const result = gateRequest({
+      method: "GET",
+      headers: headers({ host: "internal.lan:9090" }),
     });
     assert.equal(result, null);
   });
