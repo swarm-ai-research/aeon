@@ -1,0 +1,215 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-08-01 Analysis"
+      },
+      "children": [
+        "heading-summary",
+        "stack-summary-stats",
+        "separator-1",
+        "heading-findings",
+        "alert-high",
+        "alert-medium-1",
+        "alert-medium-2",
+        "stack-artifact-details",
+        "separator-2",
+        "heading-metrics",
+        "stack-metrics",
+        "separator-3",
+        "heading-status",
+        "stack-status",
+        "separator-4",
+        "link-report"
+      ]
+    },
+    "heading-summary": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h2"
+      }
+    },
+    "stack-summary-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-rows",
+        "stat-modes"
+      ]
+    },
+    "stat-rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Rows",
+        "value": "144"
+      }
+    },
+    "stat-modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-findings": {
+      "type": "Heading",
+      "props": {
+        "text": "Key Findings",
+        "level": "h3"
+      }
+    },
+    "alert-high": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "HIGH: Basket settlementLegs 41.67%",
+        "message": "Mode-collapse artifact migrates from spread (07-31: 33.33%) to basket and intensifies with 21/36 rows at 81; classified as same class per compute-futures-12-seed-sample-too-small"
+      }
+    },
+    "alert-medium-1": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "title": "MEDIUM: Cross-mode single-seed anchor",
+        "message": "n=4, seed 202608012 dominates curve-column low tails across all 4 modes"
+      }
+    },
+    "alert-medium-2": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "title": "MEDIUM: Basket maxCurve 16.67%",
+        "message": "Fresh finding"
+      }
+    },
+    "stack-artifact-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-artifact-1",
+        "text-artifact-2"
+      ]
+    },
+    "text-artifact-1": {
+      "type": "Text",
+      "props": {
+        "text": "streak-6 x402 settlementLegs×x402Total sign flip: -0.282 reclassifies to jitter",
+        "variant": "body"
+      }
+    },
+    "text-artifact-2": {
+      "type": "Text",
+      "props": {
+        "text": "spread role_pnl σ widens 24% without triggering an outlier",
+        "variant": "body"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-metrics": {
+      "type": "Heading",
+      "props": {
+        "text": "Metrics",
+        "level": "h3"
+      }
+    },
+    "stack-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-sigma-widening",
+        "stat-pnl-width"
+      ]
+    },
+    "stat-sigma-widening": {
+      "type": "Stat",
+      "props": {
+        "label": "spread role_pnl σ widening",
+        "value": "24%",
+        "trend": "up"
+      }
+    },
+    "stat-pnl-width": {
+      "type": "Stat",
+      "props": {
+        "label": "Absolute width",
+        "value": "$9,086"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-status": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h3"
+      }
+    },
+    "stack-status": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-modes-ok",
+        "badge-schema-intact"
+      ]
+    },
+    "badge-modes-ok": {
+      "type": "Badge",
+      "props": {
+        "text": "All 4 modes OK",
+        "variant": "default"
+      }
+    },
+    "badge-schema-intact": {
+      "type": "Badge",
+      "props": {
+        "text": "Schema intact",
+        "variant": "default"
+      }
+    },
+    "separator-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link-report": {
+      "type": "Link",
+      "props": {
+        "label": "Full Report: memory/topics/compute-futures-eda/2026-08-01.md",
+        "href": "memory/topics/compute-futures-eda/2026-08-01.md"
+      }
+    }
+  }
+}
