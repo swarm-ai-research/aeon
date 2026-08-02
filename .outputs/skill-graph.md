@@ -1,1 +1,1 @@
-*Skill Graph initialized* — 173 skills mapped across 5 categories (44 enabled). Branch pushed: skill-graph/2026-06-28 (PR blocked by App perm gap — open manually: https://github.com/swarm-ai-research/aeon/pull/new/skill-graph/2026-06-28)
+*Skill Graph initialized* — 174 skills mapped across 5 categories, 44 enabled. Branch `skill-graph/2026-08-02` pushed; PR creation blocked (github-actions-cannot-create-prs), staged for the operator toggle / AEON_GH_PAT unblock.

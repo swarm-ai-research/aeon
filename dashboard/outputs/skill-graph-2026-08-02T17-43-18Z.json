@@ -1,0 +1,94 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Graph"
+      },
+      "children": [
+        "heading-init",
+        "stack-stats",
+        "separator-1",
+        "text-branch",
+        "separator-2",
+        "alert-pr"
+      ]
+    },
+    "heading-init": {
+      "type": "Heading",
+      "props": {
+        "text": "Skill Graph initialized",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "stack-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-skills",
+        "stat-categories",
+        "stat-enabled"
+      ]
+    },
+    "stat-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills mapped",
+        "value": "174"
+      },
+      "children": []
+    },
+    "stat-categories": {
+      "type": "Stat",
+      "props": {
+        "label": "Categories",
+        "value": "5"
+      },
+      "children": []
+    },
+    "stat-enabled": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled",
+        "value": "44"
+      },
+      "children": []
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "text-branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch skill-graph/2026-08-02 pushed"
+      },
+      "children": []
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "alert-pr": {
+      "type": "Alert",
+      "props": {
+        "title": "PR creation blocked",
+        "message": "github-actions-cannot-create-prs — staged for operator toggle / AEON_GH_PAT unblock",
+        "type": "warning"
+      },
+      "children": []
+    }
+  }
+}
