@@ -42,6 +42,9 @@ fi
 # Also update the binary in .audit-bin/ when bumping the version pin.
 
 # actionlint (Rhymond's syntax-level workflow linter)
+# No version pin — the download script installs the current stable release.
+# When refreshing .audit-bin/actionlint, run `actionlint --version` after install
+# and record the version here so it's traceable in code review.
 if [ -x ".audit-bin/actionlint" ]; then
   export PATH="$PWD/.audit-bin:$PATH"
 elif ! command -v actionlint >/dev/null 2>&1; then
