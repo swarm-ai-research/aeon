@@ -29,9 +29,13 @@ Try in order; if both fail, exit with `WORKFLOW_AUDIT_TOOL_FAIL`.
 # zizmor (Trail of Bits, SARIF-capable GH Actions auditor)
 # Pin to a specific version for reproducibility — bump this when upgrading.
 ZIZMOR_VERSION="1.25.2"
-if [ -x ".audit-bin/zizmor" ]; then
+
+# Add .audit-bin to PATH once — covers both zizmor and actionlint cached binaries.
+if [ -x ".audit-bin/zizmor" ] || [ -x ".audit-bin/actionlint" ]; then
   export PATH="$PWD/.audit-bin:$PATH"
-elif ! command -v zizmor >/dev/null 2>&1; then
+fi
+
+if ! command -v zizmor >/dev/null 2>&1; then
   pipx install "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
     || python3 -m pip install --user "zizmor==${ZIZMOR_VERSION}" 2>/dev/null \
     || true
@@ -42,9 +46,7 @@ fi
 # Also update the binary in .audit-bin/ when bumping the version pin.
 
 # actionlint (Rhymond's syntax-level workflow linter)
-if [ -x ".audit-bin/actionlint" ]; then
-  export PATH="$PWD/.audit-bin:$PATH"
-elif ! command -v actionlint >/dev/null 2>&1; then
+if ! command -v actionlint >/dev/null 2>&1; then
   bash <(curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 2>/dev/null || true
   export PATH="$PWD:$PATH"
 fi
