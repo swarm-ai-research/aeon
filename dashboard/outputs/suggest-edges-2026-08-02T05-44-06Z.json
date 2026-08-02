@@ -1,0 +1,72 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Suggest-edges"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat-links",
+        "text-metadata",
+        "separator-1",
+        "text-branch",
+        "alert-blocker",
+        "link-pr"
+      ]
+    },
+    "stat-links": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3"
+      }
+    },
+    "text-metadata": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-06-24",
+        "variant": "caption"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text-branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed",
+        "variant": "body"
+      }
+    },
+    "alert-blocker": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Creation Blocked",
+        "message": "github-actions-cannot-create-prs meta-blocker (23rd staged branch). Open manually.",
+        "type": "warning"
+      }
+    },
+    "link-pr": {
+      "type": "Link",
+      "props": {
+        "label": "Open PR manually",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-08-02"
+      }
+    }
+  }
+}
