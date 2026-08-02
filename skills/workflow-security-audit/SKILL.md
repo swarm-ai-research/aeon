@@ -42,6 +42,7 @@ fi
 # Also update the binary in .audit-bin/ when bumping the version pin.
 
 # actionlint (Rhymond's syntax-level workflow linter)
+# Committed binary is 1.7.12; bump .audit-bin/actionlint when upgrading.
 if [ -x ".audit-bin/actionlint" ]; then
   export PATH="$PWD/.audit-bin:$PATH"
 elif ! command -v actionlint >/dev/null 2>&1; then

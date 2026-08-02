@@ -347,6 +347,7 @@ memory/
   topics/                ← detailed notes by topic
   logs/                  ← daily activity logs (YYYY-MM-DD.md)
 .outputs/                ← skill chain outputs (passed between chained steps)
+.audit-bin/              ← pre-built scanner binaries (zizmor 1.25.2, actionlint 1.7.12); committed to avoid PyPI/curl sandbox restrictions — workflow-security-audit prefers these over network installs
 scripts/
   prefetch-xai.sh        ← pre-fetch X/Grok API data outside sandbox
   postprocess-replicate.sh ← generate images via Replicate after Claude runs
