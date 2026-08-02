@@ -1,19 +1,9 @@
-skill-health complete. No notify sent.
+Executed skill-health for 2026-08-02.
 
 ## Summary
-
-Ran skill-health for 2026-08-01 at 18:41Z (18:00Z evening slot, ~40min drift).
-
-**Classification** (byte-identical to prev notify at 2026-07-31T19:20:20Z):
-- 0 CRITICAL / 0 FLAPPING / 0 WARNING
-- 38 DEGRADED (ISS-001 OAuth-outage denominator burn day 42 — all `cf=0`, `last_status=success`, chronic-low `success_rate` driven by historical failure count)
-- 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
-- 2 NO DATA (ai-framework-watch, run-frequency-guard — 24th silent day per [[enabled-skills-can-never-dispatch]])
-
-**Gate: SKIP** — hash `e27c0ac0` unchanged AND 23.35h since prev notify is under the 24h daily-reminder threshold. Same skip pattern as 07-30 (23.67h); tomorrow's evening slot will land past 24h and fire NOTIFY as interval drift heals.
-
-**Reconciliation:** 0 issues filed (no CRITICAL/FLAPPING); 0 resolved (no open issues have `detected_by: skill-health` — ISS-006 owned by batch-health, ISS-001 by self-review, ISS-002/005/007-018 by skill-evals). 17 open issues unchanged.
-
-**Notable transient not escalated:** today's 08:00Z pocket delivered CLEAN — 4 previously-stuck ISS-006 skills fired in a 10s window at 08:39Z, breaking the 8-day continuous PARTIAL streak (owner = batch-health, not skill-health).
-
-**Files modified:** `memory/skill-health/last-report.json` (snapshot updated, `last_notified_at` preserved), `memory/logs/2026-08-01.md` (NOOP entry appended). No notification sent.
+- **HEALTH: DEGRADED(38)** — byte-identical classification to the 08-01 SKIP run; 37th consecutive steady-state day, ISS-001 OAuth-outage denominator residue day 43.
+- **Hash** `e27c0ac60367e7e5` unchanged from prev, but **47.37h since last notify** (2026-07-31T19:20:20Z) exceeded the 24h daily-reminder cadence → **NOTIFY** fired (interval-healing as predicted by 08-01's SKIP report).
+- **Reconciliation:** 0 CRITICAL / 0 FLAPPING → 0 issues filed. 0 open issues have `detected_by: skill-health` → no HEALTHY-side resolutions. Open issue count stays at 17.
+- **Classification:** 0 critical / 0 flapping / 38 degraded (all ISS-001 residue, cf=0 last_status=success) / 4 healthy / 2 no-data (ai-framework-watch + run-frequency-guard 25th silent day).
+- **Files:** `memory/skill-health/last-report.json` (updated), `.pending-notify/1785696167-skill-health.md` (new), `memory/logs/2026-08-02.md` (skill-health entry appended).
+- **Follow-up:** Next SKIP expected 08-03 evening (~23h post-notify), then NOTIFY 08-04 as the interval-healing cycle repeats. ISS-001 residue self-resolves mechanically as denominator burns off.

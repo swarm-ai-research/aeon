@@ -3,11 +3,11 @@
   "hash_scheme": "sha256(json.dumps({critical, flapping, degraded sorted}))[:16]",
   "prev_hash": "e27c0ac60367e7e5",
   "classification_identical_to_prev": true,
-  "last_notified_at": "2026-07-31T19:20:20Z",
-  "last_run_at": "2026-08-01T18:41:29Z",
-  "prev_run_at": "2026-07-31T19:20:20Z",
+  "last_notified_at": "2026-08-02T18:42:47Z",
+  "last_run_at": "2026-08-02T18:42:47Z",
+  "prev_run_at": "2026-08-01T18:41:29Z",
   "prev_notified_at": "2026-07-31T19:20:20Z",
-  "elapsed_since_prev_notify_hours": 23.35,
+  "elapsed_since_prev_notify_hours": 47.37,
   "classification": {
     "critical": [],
     "degraded": [
@@ -64,8 +64,8 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 42 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.28 driven by historical failure denominator still in count. No live regression.",
-  "delta_vs_prev": "Byte-identical classification to 2026-07-31T19:20:20Z notify: same 38 DEGRADED, same 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog), same 2 NO DATA (ai-framework-watch, run-frequency-guard), 0 CRITICAL / 0 FLAPPING / 0 WARNING. 36th consecutive steady-state day (ISS-001 day 42, ai-framework-watch + run-frequency-guard 24th consecutive silent day). Gate: SKIP — hash e27c0ac60367e7e5 unchanged and 23.35h since prev notify (< 24h daily-reminder cadence). Same skip pattern as 2026-07-30 (23.67h skip); tomorrow's evening slot will fire past 24h → NOTIFY, then interval healing repeats.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 43 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.29 driven by historical failure denominator still in count. No live regression.",
+  "delta_vs_prev": "Byte-identical classification to 2026-08-01T18:41:29Z run (which was gated SKIP at hash e27c0ac60367e7e5 with 23.35h since prev notify). 37th consecutive steady-state day (ISS-001 day 43, ai-framework-watch + run-frequency-guard 25th consecutive silent day). Gate: NOTIFY — hash unchanged but 47.37h since prev notify (2026-07-31T19:20:20Z) exceeds 24h daily-reminder cadence. Interval-healing repeats as predicted by prior report ('tomorrow's evening slot will fire past 24h → NOTIFY').",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 17,
@@ -89,14 +89,14 @@
     "ISS-018",
     "ISS-019"
   ],
-  "notify_decision": "SKIP — hash unchanged AND 23.35h since prev notify (2026-07-31T19:20:20Z) is under 24h daily-reminder threshold. NOOP logged to memory/logs/2026-08-01.md. Reconciliation: 0 CRITICAL / 0 FLAPPING → no issues filed; 0 open issues have detected_by=skill-health → no resolutions attempted (ISS-001 detected_by=self-review, ISS-006/019 detected_by=batch-health, ISS-002/005/007-018 detected_by=skill-evals).",
-  "skill_runs_status": "OK — ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 144 runs total, 140 succeeded, 0 failed, 0 cancelled, 4 in_progress (this skill-health invocation + goal-tracker/reflect/pr-review at 18:40Z evening slot). anomalies.failing = [] confirms no active-failure regressions in the 7d window.",
+  "notify_decision": "NOTIFY — hash unchanged but 47.37h since prev notify (2026-07-31T19:20:20Z) exceeds 24h daily-reminder cadence. Reconciliation: 0 CRITICAL / 0 FLAPPING → no issues filed; 0 open issues have detected_by=skill-health → no resolutions attempted (ISS-001 detected_by=self-review, ISS-006/019 detected_by=batch-health, ISS-002/005/007-018 detected_by=skill-evals).",
+  "skill_runs_status": "OK — ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 151 runs total, 146 succeeded, 0 failed, 0 cancelled, 5 in_progress (this skill-health invocation + goal-tracker/reflect/pr-review/self-review at 18:40Z evening slot). anomalies.failing = [] confirms no active-failure regressions in the 7d window.",
   "novel_transient_signals_not_escalated": [
-    "ISS-006 morning 08:00Z pocket delivered CLEAN today per heartbeat log — all 4 previously-stuck skills (batch-health 08:39:03Z, gitlawb-fleet-metrics 08:39:06Z, skill-freshness 08:39:09Z, heartbeat 08:39:13Z) fired within a 10-second window. Breaks the 8-day continuous PARTIAL streak; starts clean-close counter Day-1 (earliest possible clean-close 2026-08-03 needs 3 consecutive clean deliveries). Not escalated because ISS-006 is detected_by=batch-health, not skill-health — batch-health owns the close motion.",
-    "planner missed 06:30Z slot today (not in expected list this DOM; batch-health flagged WARN 1 missing, no OUTAGE). Isolated slot miss consistent with prior planner intermittent silent-slot pattern (07-26/07-27/07-30 all silent); does not reflect fleet degradation.",
-    "compute-futures-eda + notegraph + suggest-edges all fired cleanly in the 05:00-06:30Z pocket on-schedule.",
-    "code-health 16:00Z, surplus-pulse 16:30Z (delivered 17:35Z with drift), compute-pulse 11:00Z (Sat weekly), vuln-scanner 16:00Z all landed today.",
-    "goal-tracker + reflect + pr-review + skill-health 18:00Z evening slot all firing on-time (this skill-health run is the pending one; slot drift ~40min from nominal 18:00Z)."
+    "ISS-006 morning pocket delivered CLEAN today per heartbeat log — 08:00Z window fired 4 skills within 30s at 09:53Z (batch-health 09:53:14Z, gitlawb-fleet-metrics 09:53:37Z, skill-freshness 09:53:41Z, heartbeat 09:53:44Z). Day-2 clean delivery per [[iss-006-pocket-recovery-is-noise]] close-clock — earliest possible clean-close still 2026-08-03. Cadence shifted 39min → 113min late day-over-day; if Day-3 lands 90+min late, that is a pocket-slot migration signal. Not escalated because ISS-006 is detected_by=batch-health, not skill-health — batch-health owns the close motion.",
+    "compute-futures-eda + notegraph + suggest-edges + janitor all fired cleanly in the 05:00-07:53Z morning pocket on-schedule.",
+    "code-health 16:00Z, workflow-security-audit 16:00Z (UNCHANGED, 8th weekly, first fully clean-carry-over), surplus-pulse 16:30Z (delivered 17:33Z with drift), vuln-scanner Sat 16:00Z all landed today.",
+    "goal-tracker + reflect + pr-review + skill-health + self-review 18:00Z Sunday evening slot all firing on-time (this skill-health run is one of five in-progress at 18:40Z scan).",
+    "pr-tracker first fully stationary scan since 07-30 → 07-31 pause window; predictor hit 3 of 4 axes."
   ],
   "prompt_injection_flag": "None. cron-state.json, skill-runs JSON, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md + ISS-*.md all structured/data-only; no untrusted natural-language content ingested this run."
 }
