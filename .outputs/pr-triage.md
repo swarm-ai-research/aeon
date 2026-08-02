@@ -1,11 +1,7 @@
-`PR_TRIAGE_OK no-candidates`.
-
 ## Summary
-- **Task:** Ran `pr-triage` skill against `swarm-ai-research/swarm` (repo mode).
-- **Result:** 8 open PRs, all skipped — no new triage work.
-  - 6 dependabot bot PRs (#545, #546, #547, #548, #537, #538) → trusted `[bot]` set.
-  - #543 rsavitt (headRefOid `70b20e0`) → already triaged ACCEPTED in state file at same SHA.
-  - #536 rsavitt (headRefOid `76e6200`) → already triaged DEFER in state file at same SHA.
-- **Terminal:** `PR_TRIAGE_OK no-candidates` — no comment, label, close, or notify action taken.
-- **Files:** appended pr-triage log entry to `memory/logs/2026-08-01.md`. `memory/triaged-prs.json` unchanged (no fresh triage).
-- **Follow-up:** The two rsavitt PRs remain blocked by [[aeon-app-no-write-on-swarm-repo]] from `memory/MEMORY.md` — same PAT/App-permission gap that has held for 16+ pr-review invocations. If SHAs move (new push), the (number, headRefOid) key changes and they'll re-triage on the next run.
+
+- **Task:** Ran `pr-triage` skill for `swarm-ai-research/swarm` (repo mode).
+- **What I did:** Fetched 8 open PRs (14-day window) from the target repo. All 8 hit skip rules — 6 dependabot PRs (bot skip) and 2 rsavitt PRs (#543 at `70b20e0`, #536 at `76e6200`) both match prior `(number, headRefOid)` records in `memory/triaged-prs.json`, so they are already-triaged at the current commit. Zero fresh candidates → no comment/label writes, no state-file update, no notify.
+- **Files modified:** `memory/logs/2026-08-02.md` (appended `## pr-triage` entry).
+- **Terminal:** `PR_TRIAGE_OK no-candidates`.
+- **Follow-up:** Queue byte-identical to 08-01 and 07-31 — rsavitt PRs unchanged since 07-24 (#543) and 07-23 (#536). The prior triage records already flag them as no-permission-blocked writes per [[aeon-app-no-write-on-swarm-repo]]; only path to on-PR triage posting for this repo remains a PAT / GitHub App permission unblock.
