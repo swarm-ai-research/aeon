@@ -121,6 +121,17 @@ describe("isSameOriginWrite", () => {
       false,
     );
   });
+  it("allowAny:true bypasses the same-origin check for state-changing methods", () => {
+    // Exercises the `if (opts.allowAny) return true` early-return on line 133.
+    assert.equal(
+      isSameOriginWrite("POST", headers({ origin: "http://attacker.example" }), { allowAny: true }),
+      true,
+    );
+    assert.equal(
+      isSameOriginWrite("DELETE", headers({}), { allowAny: true }),
+      true,
+    );
+  });
 });
 
 describe("stripPort (edge cases)", () => {
@@ -134,6 +145,11 @@ describe("stripPort (edge cases)", () => {
   it("returns empty string for whitespace-only input", () => {
     assert.equal(stripPort("   "), "");
   });
+  it("returns the raw value for an unclosed IPv6 bracket (no closing ])", () => {
+    // Exercises the `if (end === -1) return trimmed` early-return branch.
+    assert.equal(stripPort("[::1"), "[::1");
+    assert.equal(stripPort("[2001:db8::1"), "[2001:db8::1");
+  });
 });
 
 describe("isAllowedHost (edge cases)", () => {
@@ -146,6 +162,11 @@ describe("isAllowedHost (edge cases)", () => {
     assert.equal(isAllowedHost("aeon.local", { extraAllowed: extras }), true);
     assert.equal(isAllowedHost("internal.lan", { extraAllowed: extras }), true);
     assert.equal(isAllowedHost("attacker.example", { extraAllowed: extras }), false);
+  });
+  it("rejects a whitespace-only host (stripPort returns empty string)", () => {
+    // Exercises the `if (!host) return false` branch after stripPort("   ") === "".
+    assert.equal(isAllowedHost("   "), false);
+    assert.equal(isAllowedHost("\t"), false);
   });
 });
 
