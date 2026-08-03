@@ -1,0 +1,239 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-08-03",
+        "description": "28th operator invocation on swarm-ai-research/swarm"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-section",
+        "sep-1",
+        "pr-543-section",
+        "sep-2",
+        "pr-536-section",
+        "sep-3",
+        "log-section"
+      ]
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat-reviewed",
+        "stat-skipped",
+        "text-summary"
+      ]
+    },
+    "stat-reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "2"
+      }
+    },
+    "stat-skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "6"
+      }
+    },
+    "text-summary": {
+      "type": "Text",
+      "props": {
+        "text": "all dependabot; queue byte-identical for 11 days; three same-day operator invocations",
+        "variant": "caption"
+      }
+    },
+    "sep-1": {
+      "type": "Separator"
+    },
+    "pr-543-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-543-header",
+        "pr-543-score",
+        "pr-543-issues",
+        "pr-543-notes"
+      ]
+    },
+    "pr-543-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-543-link",
+        "pr-543-sha",
+        "pr-543-status"
+      ]
+    },
+    "pr-543-link": {
+      "type": "Link",
+      "props": {
+        "label": "swarm-ai-research/swarm#543",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/543"
+      }
+    },
+    "pr-543-sha": {
+      "type": "Badge",
+      "props": {
+        "text": "70b20e04",
+        "variant": "secondary"
+      }
+    },
+    "pr-543-status": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "pr-543-score": {
+      "type": "Stat",
+      "props": {
+        "label": "Score",
+        "value": "4/5"
+      }
+    },
+    "pr-543-issues": {
+      "type": "Text",
+      "props": {
+        "text": "0 critical issues, 0 total issues"
+      }
+    },
+    "pr-543-notes": {
+      "type": "Text",
+      "props": {
+        "text": "docs-only, all quality gates pass",
+        "variant": "caption"
+      }
+    },
+    "sep-2": {
+      "type": "Separator"
+    },
+    "pr-536-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-536-header",
+        "pr-536-score",
+        "pr-536-issues",
+        "pr-536-notes"
+      ]
+    },
+    "pr-536-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-536-link",
+        "pr-536-sha",
+        "pr-536-status"
+      ]
+    },
+    "pr-536-link": {
+      "type": "Link",
+      "props": {
+        "label": "swarm-ai-research/swarm#536",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/536"
+      }
+    },
+    "pr-536-sha": {
+      "type": "Badge",
+      "props": {
+        "text": "76e6200c",
+        "variant": "secondary"
+      }
+    },
+    "pr-536-status": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      }
+    },
+    "pr-536-score": {
+      "type": "Stat",
+      "props": {
+        "label": "Score",
+        "value": "2/5"
+      }
+    },
+    "pr-536-issues": {
+      "type": "Text",
+      "props": {
+        "text": "0 critical issues, 3 total issues"
+      }
+    },
+    "pr-536-notes": {
+      "type": "Text",
+      "props": {
+        "text": "misleading-body + no-CI-signal-for-hook + mixed-scope bundle",
+        "variant": "caption"
+      }
+    },
+    "sep-3": {
+      "type": "Separator"
+    },
+    "log-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "log-text-1",
+        "log-text-2",
+        "log-alert"
+      ]
+    },
+    "log-text-1": {
+      "type": "Text",
+      "props": {
+        "text": "gh pr review + inline-comment 403 on both PRs",
+        "variant": "caption"
+      }
+    },
+    "log-text-2": {
+      "type": "Text",
+      "props": {
+        "text": "19th confirming invocation of aeon-app-no-write-on-swarm-repo",
+        "variant": "caption"
+      }
+    },
+    "log-alert": {
+      "type": "Alert",
+      "props": {
+        "message": "Operator PR-write unblock still rank-1 fleet-wide",
+        "type": "info"
+      }
+    }
+  }
+}
