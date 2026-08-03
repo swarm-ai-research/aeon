@@ -1,16 +1,12 @@
 ## Summary
 
-**Verdict: ✅ FRESHNESS_OK** — `FRESHNESS_NO_CHANGE` (same fingerprint as 2026-08-01 run, within 7-day window). No notification sent.
+Ran skill-freshness audit for 2026-08-03. **Verdict: ✅ FRESHNESS_OK** — all 7 tracked dependencies are fresh (age ~6 minutes, well within thresholds).
 
-**What was audited:**
-- 47 enabled skills, 156 total in `aeon.yml`
-- 0 explicit chain dependencies (all `chains:` blocks are commented out)
-- 7 implicit dependencies found on disk across 7 consumer skills — all 2h old (today's 08:02Z batch commit), all well within thresholds (168h for topics, 720h for state)
-- 0 deps flagged
+Key findings:
+- **44 enabled skills** audited; **0 chains: consume: edges** are active (chains block fully commented out in aeon.yml)
+- **7 implicit dependencies on disk** — all `memory/state/`, `memory/topics/`, and `.outputs/` files share a recent mtime and score OK
+- **6 implicit references skipped** (files never created on disk: `compute-futures-macro-correlations.md`, `framework-watch-state.json`, `skill-graph-state.json`, `fleet-control-state.json`, `skill-repair-history.json`, `suggest-edges.json`) — not flagged per the MISSING-only-for-explicit rule
+- **articles/ directory is empty** — no article-consuming dependencies trigger MISSING because all such producers are either disabled/on_demand or are self-reads
+- No notification sent (FRESHNESS_OK → silence is the signal)
 
-**Key structural observation logged in the article:** The `articles/` directory is empty on `main` because all article-writing skills open PRs, which are blocked by [[github-actions-cannot-create-prs]]. If that blocker is resolved, the article-class check will immediately start scoring cross-skill article freshness.
-
-**Files written:**
-- `articles/skill-freshness-2026-08-02.md`
-- `memory/topics/skill-freshness-state.json` (updated `last_run_at`, `consumer_count: 47`)
-- `memory/logs/2026-08-02.md` (appended log block)
+Files written: `articles/skill-freshness-2026-08-03.md`, `memory/topics/skill-freshness-state.json` (state updated), `memory/logs/2026-08-03.md` (log appended).
