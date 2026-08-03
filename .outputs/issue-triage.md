@@ -1,8 +1,8 @@
-Task is a single-step early-exit — no task tracking needed. The skill terminated per its documented no-targets branch.
+`ISSUE_TRIAGE_OK no-watched-repos`.
 
 ## Summary
 
-- **Task:** Ran `issue-triage` skill for 2026-08-02. `${var}` empty and `memory/watched-repos.md` absent → executed the documented early-exit branch.
-- **Outcome:** `ISSUE_TRIAGE_OK no-watched-repos`. No repos scanned, no labels applied, no comments posted, no notify (nothing actionable).
-- **Files modified:** appended `## issue-triage` block to `memory/logs/2026-08-02.md` per §10.
-- **Follow-up:** matches MEMORY.md standing pointer #59 — populate `memory/watched-repos.md` or disable the six watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) to stop wasting a workflow slot per skill per day.
+- **Verdict:** Short-circuited per §Config — `memory/watched-repos.md` is missing and `${var}` was empty, so exited without fetching any issues.
+- **Files modified:** `memory/logs/2026-08-03.md` — appended `## issue-triage` entry per §10 recording the no-target skip.
+- **No writes:** no labels applied, no comments posted, no `memory/triaged-issues.json` update (nothing was triaged).
+- **Follow-up:** MEMORY.md line 59 already tracks this — either populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills (issue-triage among them). Today marks another same-day short-circuit joining the 3 already logged (issue-triage + github-monitor + code-health).
