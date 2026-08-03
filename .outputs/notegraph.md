@@ -1,1 +1,1 @@
-*Notegraph updated* — +1 notes wired in (224n / 2266e / 63 atomic). New: memory/notes/cohort-close-vs-merge-can-split.md. Branch notegraph/2026-08-02 pushed; PR blocked by [[github-actions-cannot-create-prs]] — 18th staged branch awaiting operator toggle / AEON_GH_PAT.
+*Notegraph updated* — +1 notes wired in (228n / 2312e / 0o / 0b). New: pr-tracker-tuple-predictor-scan-time-vs-cutoff-hour. Branch notegraph/2026-08-03 pushed — PR blocked by GitHub Actions PR-create restriction (19th staged notegraph branch).
