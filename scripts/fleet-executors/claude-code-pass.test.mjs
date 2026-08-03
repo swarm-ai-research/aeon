@@ -487,4 +487,36 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. git add -A failure — a git wrapper stub that exits non-zero specifically
+//     for `git add -A` (but delegates all other git commands to the real binary)
+//     exercises the uncovered error path at the staging step. cleanup(true)
+//     must fire: worktree removed and local branch deleted.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  // Find the real git binary before any PATH manipulation so the stub can
+  // delegate non-add commands to it via hardcoded path.
+  const realGit = spawnSync("which", ["git"], { encoding: "utf8" }).stdout.trim();
+  writeFileSync(
+    join(env.binDir, "git"),
+    `#!/usr/bin/env bash\nif [ "$1" = "add" ] && [ "$2" = "-A" ]; then\n  echo "staged file bad content" >&2\n  exit 1\nfi\nexec "${realGit}" "$@"\n`,
+  );
+  chmodSync(join(env.binDir, "git"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "addfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git add failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after add failure");
+    // Local branch must be deleted (cleanup(true) path).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted after add failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git add failure (stub rejects -A) → ok:false, worktree and branch cleaned up");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
