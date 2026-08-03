@@ -1,0 +1,89 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges",
+        "description": "3 missing links proposed"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_links",
+        "text_date",
+        "separator_1",
+        "alert_blocked",
+        "stack_action"
+      ]
+    },
+    "stat_links": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3"
+      },
+      "children": []
+    },
+    "text_date": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-06-24",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "alert_blocked": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Create Blocked",
+        "message": "github-actions-cannot-create-prs",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "stack_action": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_action",
+        "link_branch"
+      ]
+    },
+    "text_action": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed:",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "link_branch": {
+      "type": "Link",
+      "props": {
+        "label": "suggest-edges/2026-08-03",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/new/suggest-edges/2026-08-03"
+      },
+      "children": []
+    }
+  }
+}
