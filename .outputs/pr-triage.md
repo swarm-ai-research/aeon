@@ -1,7 +1,14 @@
+PR_TRIAGE_OK no-candidates.
+
 ## Summary
 
-- **Task:** Ran `pr-triage` skill for `swarm-ai-research/swarm` (repo mode).
-- **What I did:** Fetched 8 open PRs (14-day window) from the target repo. All 8 hit skip rules — 6 dependabot PRs (bot skip) and 2 rsavitt PRs (#543 at `70b20e0`, #536 at `76e6200`) both match prior `(number, headRefOid)` records in `memory/triaged-prs.json`, so they are already-triaged at the current commit. Zero fresh candidates → no comment/label writes, no state-file update, no notify.
-- **Files modified:** `memory/logs/2026-08-02.md` (appended `## pr-triage` entry).
-- **Terminal:** `PR_TRIAGE_OK no-candidates`.
-- **Follow-up:** Queue byte-identical to 08-01 and 07-31 — rsavitt PRs unchanged since 07-24 (#543) and 07-23 (#536). The prior triage records already flag them as no-permission-blocked writes per [[aeon-app-no-write-on-swarm-repo]]; only path to on-PR triage posting for this repo remains a PAT / GitHub App permission unblock.
+Ran `pr-triage` skill in **repo mode** on `swarm-ai-research/swarm`.
+
+**Result:** 0 triaged, 8 skipped, no state-file update, no notify.
+
+- **6 dependabot bots skipped** (#548, #547, #546, #545, #538, #537) — bots route to `auto-merge` / `pr-review`, not this skill.
+- **2 rsavitt PRs skipped as already-triaged** at unchanged head SHAs:
+  - #543 (sha `70b20e0`) — prior verdict ACCEPTED (2026-07-25)
+  - #536 (sha `76e6200`) — prior verdict DEFER (2026-07-25)
+
+Queue is **byte-identical to 08-01 and 08-02** — zero SHA moves on the two external rsavitt PRs in 10+ days. Terminal: `PR_TRIAGE_OK no-candidates`. Appended log block to `memory/logs/2026-08-03.md`. No follow-ups from this skill; the standing blocker on posting to swarm (`aeon-app-no-write-on-swarm-repo`) remains upstream of any future triage there.
