@@ -172,6 +172,16 @@ LOW_PATTERNS=(
   '>[[:space:]]+/'
 )
 
+# ---------- Helpers ----------
+
+# Format a single grep match line into a finding entry string.
+_format_finding() {
+  local match="$1" pattern="$2"
+  local line_num="${match%%:*}"
+  local line_content="${match#*:}"
+  echo "L${line_num}: ${line_content:0:120} [pattern: ${pattern}]"
+}
+
 # ---------- Scanner ----------
 
 TOTAL_PASS=0
@@ -202,10 +212,7 @@ scan_file() {
     matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
     if [[ -n "$matches" ]]; then
       while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"  # truncate
-        highs+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
+        highs+=("$(_format_finding "$match" "$pattern")")
       done <<< "$matches"
     fi
   done
@@ -216,10 +223,7 @@ scan_file() {
     matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
     if [[ -n "$matches" ]]; then
       while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        mediums+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
+        mediums+=("$(_format_finding "$match" "$pattern")")
       done <<< "$matches"
     fi
   done
@@ -230,10 +234,7 @@ scan_file() {
     matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
     if [[ -n "$matches" ]]; then
       while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        lows+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
+        lows+=("$(_format_finding "$match" "$pattern")")
       done <<< "$matches"
     fi
   done
