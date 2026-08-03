@@ -171,6 +171,40 @@ console.log("\nUNTRUSTED_CONTENT_INSTRUCTION:");
   assert(UNTRUSTED_CONTENT_INSTRUCTION.includes("INSTRUCTIONS"), "says not instructions");
 }
 
+// ── edge cases: non-string inputs and uncovered branches ─────
+
+console.log("\nedge cases:");
+{
+  // sanitize type guard — non-string returns ""
+  assert(sanitize(null) === "", "sanitize(null) → empty string");
+  assert(sanitize(42) === "", "sanitize(42) → empty string");
+  assert(sanitize(undefined) === "", "sanitize(undefined) → empty string");
+
+  // assessThreat type guard — non-string returns safe baseline
+  const nonStr = assessThreat(null);
+  assert(nonStr.level === "safe", "assessThreat(null) → safe level");
+  assert(nonStr.score === 0, "assessThreat(null) → zero score");
+  assert(nonStr.matches.length === 0, "assessThreat(null) → no matches");
+
+  // assessThreat "low" level — a single weight-1 social-engineering pattern
+  // ("this is an emergency") scores 1, which maps to the "low" branch
+  // (0 < score ≤ 2 → "low") that none of the existing tests exercise.
+  const lowThreat = assessThreat("this is an emergency");
+  assert(lowThreat.level === "low", "score=1 → low threat level");
+  assert(lowThreat.score === 1, "single weight-1 pattern scores 1");
+  assert(lowThreat.matches.some(m => m.category === "social_engineering"),
+    "low threat categorized as social_engineering");
+
+  // buildSafePrompt with no taskPrompt — the `if (taskPrompt)` branch is
+  // skipped and the output must end with the wrapped content closing tag
+  // rather than appending a trailing taskPrompt section.
+  const noTask = buildSafePrompt("You are an agent.", "some content");
+  assert(noTask.includes("You are an agent"), "system prompt present without taskPrompt");
+  assert(noTask.includes("<UNTRUSTED_AGENT_CONTENT"), "content wrapped without taskPrompt");
+  assert(noTask.trimEnd().endsWith("</UNTRUSTED_AGENT_CONTENT>"),
+    "output ends at closing UNTRUSTED tag when taskPrompt is omitted");
+}
+
 // ── Results ──────────────────────────────────────────────────
 
 console.log(`\n${passed} passed, ${failed} failed`);

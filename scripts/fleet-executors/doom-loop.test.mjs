@@ -158,6 +158,43 @@ console.log("Test 10: reset");
   assert(d.check() === null, "after reset — no loop");
 }
 
+// ── Test 11: fromMessages skips assistant messages without tool_calls ──
+
+console.log("Test 11: fromMessages skips messages without tool_calls");
+{
+  // Only the third assistant message has tool_calls — the first two should be
+  // ignored, so the detector sees just one record and returns no loop.
+  const messages = [
+    { role: "assistant", content: "thinking..." },          // no tool_calls → skip
+    { role: "assistant", content: "still thinking..." },    // no tool_calls → skip
+    { role: "assistant", tool_calls: [{ function: { name: "search", arguments: "{}" } }] },
+  ];
+  const d = DoomLoopDetector.fromMessages(messages, { threshold: 3 });
+  assert(d.signatures.length === 1, "only the one tool_call message is recorded");
+  assert(d.check() === null, "single recorded call → no loop");
+}
+
+// ── Test 12: fromMessages skips tool_calls without function.name ────────
+
+console.log("Test 12: fromMessages skips tool_calls with missing function.name");
+{
+  // Two tool_calls lack a function.name and should be silently skipped;
+  // only the valid third call is recorded.
+  const messages = [
+    {
+      role: "assistant",
+      tool_calls: [
+        { function: { name: "", arguments: "{}" } },        // falsy name → skip
+        { function: { arguments: "{}" } },                  // no name field → skip
+        { function: { name: "write_file", arguments: "{}" } },
+      ],
+    },
+  ];
+  const d = DoomLoopDetector.fromMessages(messages, { threshold: 3 });
+  assert(d.signatures.length === 1, "only the named tool_call is recorded");
+  assert(d.signatures[0].name === "write_file", "recorded call is write_file");
+}
+
 // ── Results ──────────────────────────────────────────────────
 
 console.log(`\n${passed} passed, ${failed} failed`);
