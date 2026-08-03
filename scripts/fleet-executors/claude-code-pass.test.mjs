@@ -487,4 +487,58 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. Claude --version passes but the main invocation exits 0 with no stdout.
+//     The `!proc.stdout` branch inside invokeClaude fires and returns null even
+//     though the exit code is 0. runCodePass must return ok:false, clean up the
+//     worktree (cleanup(true)), and delete the local branch.
+{
+  const CLAUDE_ZERO_STDOUT_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+# exits 0 with no stdout — exercises the !proc.stdout condition in invokeClaude
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_ZERO_STDOUT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "zerostdout" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /claude invocation failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted after empty-stdout failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  claude exits 0 with no stdout → !proc.stdout branch → ok:false, cleanup(true)");
+}
+
+// 18. Backlog below the limit — two open PRs of the same kind with the default
+//     limit of 3. The `backlog >= BACKLOG_LIMIT` condition is false so the gate
+//     must not block the pass; a PR should be opened normally.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '[{"headRefName":"aeon/docs-pass-2026-06-06-aaa"},{"headRefName":"aeon/docs-pass-2026-06-06-bbb"}]'; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "belowlimit" })
+    );
+    assert.equal(result.ok, true, `expected ok=true (below backlog limit), got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+    assert.match(result.branch, /^aeon\/docs-pass-/);
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /pr list/);
+    assert.match(ghLog, /pr create/);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  backlog below limit (2/3 open same-kind PRs) → gate skips, PR opened");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
