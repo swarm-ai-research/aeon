@@ -1,16 +1,18 @@
 ## Summary
 
-Ran the `pr-review` skill for `swarm-ai-research/swarm` under the operator's merge-gate policy (29th invocation on this repo).
+Ran the pr-review skill on `swarm-ai-research/swarm` under operator merge-gate policy (30th operator invocation, second today). Queue byte-identical for 12 consecutive days — 8 open PRs, zero SHA moves.
 
-**Queue:** 8 open, byte-identical for **12 consecutive days**. Skipped 6 dependabot PRs. Reviewed rsavitt #543 and #536 (SHAs matched dedup, but operator explicit re-invocation of the merge-gate policy re-emitted verdicts).
+**Verdicts (log-only per 22nd confirming invocation of `aeon-app-no-write-on-swarm-repo`):**
+- **swarm-ai-research/swarm#543** (rsavitt "docs: remove AI-slop writing patterns", docs +36 -40, 12 files) → **APPROVE 4/5** — 0 critical, 0 issues. All substantive checks pass; `test (3.12, full)` CANCELLED per repo-wide timeout pattern and `quality-gate` FAILURE is a pre-existing main-branch signal unrelated to a docs-only diff.
+- **swarm-ai-research/swarm#536** (rsavitt "Fold beta_swarm", +6699 -27, 55 files) → **REQUEST_CHANGES 2/5** — 0 critical, 3 issues:
+  - [ISSUE] `.claude/hooks/pre-commit:1` — 47-line rewrite of the commit gate with no CI signal validating it
+  - [ISSUE] `swarm/agentgit/coordination.py:1` — PR body claims "Purely additive" but diff modifies agentgit +166 lines, `.claude/hooks/pre-commit` +47, `CLAUDE.md` +18, `pyproject.toml` +11
+  - [ISSUE] `pyproject.toml:1` — 6,699 additions bundle three independent strands into one unreviewable/unrevertable unit
 
-**Verdicts (log-only — all 3 write endpoints returned 403 `Resource not accessible by integration`, 21st confirming invocation of `aeon-app-no-write-on-swarm-repo`):**
-- **swarm-ai-research/swarm#543 — APPROVE 4/5**. Docs-only (+36 -40, 12 files). All quality signals green; `test (3.12, full)` CANCELLED and `quality-gate` FAILURE are known repo-wide patterns unrelated to the diff.
-- **swarm-ai-research/swarm#536 — REQUEST_CHANGES 2/5**. Three standing issues re-verified live via `gh api /pulls/536/files`:
-  - `[ISSUE]` PR body claims "Purely additive — no existing swarm/ code is touched," but diff modifies `swarm/agentgit/__main__.py` (+90 -1), `swarm/agentgit/coordination.py` (+76), `.claude/hooks/pre-commit` (+24 -23), `CLAUDE.md`, `pyproject.toml`.
-  - `[ISSUE]` 47-line `.claude/hooks/pre-commit` rewrite has no CI signal validating hook behavior.
-  - `[ISSUE]` 6,699 additions bundle three independent concerns (subtree fold + agentgit runtime changes + pre-commit/CLAUDE.md tooling rewrite).
+**Skipped:** 6 dependabot PRs (#548, #547, #546, #545, #538, #537).
 
-**Files modified:** `memory/logs/2026-08-04.md` (pr-review section appended), `.pending-notify/1785835371-pr-review.md` (new, direct-write).
+**Writes attempted:** `gh pr review` on #543 and #536, inline comment on #536 — all three 403'd (`Resource not accessible by integration`). Findings preserved in the log per skill fallback rule, not silently dropped.
 
-**Follow-up:** Operator PR-write unblock on `swarm-ai-research/swarm` (App permission bump OR PAT) remains rank-1 fleet-wide. Zero verdict deltas across the last 5 invocations — rsavitt queue is in structural stasis on day 12.
+**Files modified:** `memory/logs/2026-08-04.md` (30th-invocation entry), `.pending-notify/1785855000-pr-review.md` (combined notify).
+
+**Follow-up:** Operator toggle rank-1 (repo Settings → Allow Actions to create/approve PRs OR `AEON_GH_PAT` provisioning) unblocks PR-write on this repo. No verdict deltas vs prior 29 invocations.
