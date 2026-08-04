@@ -42,6 +42,8 @@ fi
 # Also update the binary in .audit-bin/ when bumping the version pin.
 
 # actionlint (Rhymond's syntax-level workflow linter)
+# Pin: ACTIONLINT_VERSION="1.7.12" — bump here and replace .audit-bin/actionlint (and actionlint.tar.gz) when upgrading.
+# (https://github.com/rhysd/actionlint/releases)
 if [ -x ".audit-bin/actionlint" ]; then
   export PATH="$PWD/.audit-bin:$PATH"
 elif ! command -v actionlint >/dev/null 2>&1; then
@@ -360,7 +362,7 @@ Append to `memory/logs/${today}.md`:
 
 ## Sandbox note
 
-- **`.audit-bin/` (primary):** `.audit-bin/zizmor` and `.audit-bin/actionlint` are committed pre-built binaries. Step 0b prioritises these over network installs to avoid sandbox-blocked PyPI/curl calls. When the version pin in this file is bumped, replace the binaries here too.
+- **`.audit-bin/` (primary):** `.audit-bin/zizmor` and `.audit-bin/actionlint` are committed pre-built binaries; `.audit-bin/actionlint.tar.gz` is the upstream release archive that the binary was extracted from (kept for provenance). Step 0b prioritises these over network installs to avoid sandbox-blocked PyPI/curl calls. When the version pins in this file are bumped, replace the binaries and archive here too.
 - `pipx install zizmor` and `pip install --user zizmor` both hit PyPI — expected to work from GitHub-hosted runners (outbound to PyPI is allowed), but if the sandbox blocks them use **WebFetch** to retrieve the zizmor install script from `https://docs.zizmor.sh/install.sh` (or the release tarball from the `zizmorcore/zizmor` releases page) and run it locally.
 - `gh` CLI uses existing `GITHUB_TOKEN` / `GH_GLOBAL` — no extra auth setup needed.
 - No new secrets required. zizmor and actionlint are offline-only static analyzers.
