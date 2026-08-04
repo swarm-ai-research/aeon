@@ -1,16 +1,16 @@
-All 3 files landed: `docs/status.md` regenerated, log entry appended, notify queued. Heartbeat complete.
+HEARTBEAT_OK · STATUS_PAGE=DEGRADED
 
-## Summary
+**Findings (all previously logged — no notify fired per dedup rule):**
+- **P0 chronic-failure residue** literal-triggers 🔴 DEGRADED (~38 skills at success_rate<0.5, all ISS-001 June-outage residue; close deferred until ISS-006 stabilizes).
+- **P0 planner silent 49h** — last success 08-02T07:59Z, 2nd consecutive skipped 06:30Z slot (both inside the ISS-006 pocket-migration outage clusters). Known — MEMORY.md line 8 "frozen at streak-5 by run / streak-10 by calendar day".
+- **P3 agi-tracker** 15d silent (>2x weekly) — known HEALTHY-but-empty class.
+- **P3 ai-framework-watch + run-frequency-guard** — never-dispatched 26+d, known.
+- **P1** — 1 open Dependabot PR (#8), no urgent issues.
+- Today's morning batch (planner + 3 skills at 08:00Z + 4 skills at 09:00Z) still hadn't fired at 09:20Z — same ~09:58Z late-delivery shape as 08-03's Day-3 118min-late anchor.
 
-Ran the `heartbeat` skill for 2026-08-03 09:59Z.
+**Actions:**
+- Regenerated `docs/status.md` wholesale (9th consecutive rebase-clobber-then-regen — was frozen at 2026-06-09). Verdict 🔴 DEGRADED, 18 open issues, next run pr-triage 09:30Z.
+- Appended heartbeat entry to `memory/logs/2026-08-04.md`.
+- No `./notify` — every finding already in 08-02/08-03 logs.
 
-**Fresh signal:** ISS-006 pocket-slot migration CONFIRMED at Day-3. Today's 08:00Z pocket delivered clean (10 skills within 33s at 09:58Z) but ~118min late. Three-day cadence: Day-1 39min → Day-2 113min → Day-3 118min crosses yesterday's explicit "90+min late again → pocket-slot migration signal" trip-wire. Clean delivery has effectively migrated from 08:00Z to a ~09:58Z de-facto slot; the close-clock counter needs re-scoping.
-
-**Other signals:** 0 failed, 0 stuck, 0 cf≥3. Self-check ~24h (OK, under 36h). 38 chronic-failure skills unchanged (ISS-001 residue day 45, known). Dependabot #8 stalled ~200h (known). ai-framework-watch + run-frequency-guard both 26th silent day (known). weekly-shiplog + agi-tracker at 14d exactly (2× edge) — weekly-shiplog already in-flight this batch, agi-tracker's 13:00Z slot still upcoming.
-
-**Files modified:**
-- `docs/status.md` — 🔴 DEGRADED, all 44 enabled skills, 17 open issues (8th consecutive rebase-clobber-then-regen from the 06-09 baseline)
-- `.pending-notify/1785751378-heartbeat.md` — one-paragraph notify
-- `memory/logs/2026-08-03.md` — heartbeat section appended
-
-**HEARTBEAT_OK · STATUS_PAGE=DEGRADED**
+**Files modified:** `docs/status.md`, `memory/logs/2026-08-04.md`.
