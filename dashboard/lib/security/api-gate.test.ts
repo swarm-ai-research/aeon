@@ -134,6 +134,12 @@ describe("stripPort (edge cases)", () => {
   it("returns empty string for whitespace-only input", () => {
     assert.equal(stripPort("   "), "");
   });
+  it("returns the full string when an IPv6 opening bracket has no closing bracket", () => {
+    // The end === -1 branch: the input looks like an IPv6 literal but the ']'
+    // is missing.  stripPort must not crash and must not strip anything.
+    assert.equal(stripPort("[::1"), "[::1");
+    assert.equal(stripPort("[2001:db8::1"), "[2001:db8::1");
+  });
 });
 
 describe("isAllowedHost (edge cases)", () => {
