@@ -487,4 +487,60 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. Claude exits 0 but produces empty stdout — the `!proc.stdout` branch of
+//     invokeClaude (line 136) fires. The version check passes but the main run
+//     produces no output. Code must return ok:false, worktree and branch cleaned up.
+{
+  const CLAUDE_EMPTY_STDOUT = `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > /dev/null\n`;
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EMPTY_STDOUT });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "emptystdout" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /claude invocation failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted when claude returns empty stdout");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  claude exits 0 with empty stdout → !proc.stdout branch → ok:false, cleaned up");
+}
+
+// 18. git add failure — a stub `git` intercepts `git add -A` and exits 1 while
+//     passing all other git calls through to the real binary. This exercises the
+//     `if (!addR.ok)` branch (cleanup(true) path): ok:false, worktree removed,
+//     local branch deleted.
+{
+  const realGitPath = spawnSync("which", ["git"], { encoding: "utf8" }).stdout.trim() || "/usr/bin/git";
+  const GIT_ADD_FAIL_STUB = [
+    "#!/usr/bin/env bash",
+    `if [ "$1" = "add" ] && [ "$2" = "-A" ]; then`,
+    `  echo "error: cannot update index" >&2`,
+    `  exit 1`,
+    "fi",
+    `exec ${realGitPath} "$@"`,
+    "",
+  ].join("\n");
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  writeFileSync(join(env.binDir, "git"), GIT_ADD_FAIL_STUB);
+  chmodSync(join(env.binDir, "git"), 0o755);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "gitaddfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git add failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after git add failure");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted after git add failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git add -A failure → ok:false, worktree and branch cleaned up");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
