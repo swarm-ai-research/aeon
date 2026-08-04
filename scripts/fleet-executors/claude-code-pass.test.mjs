@@ -487,4 +487,50 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. openPRsForKind ignores entries where headRefName is not a string —
+//     null / numeric headRefName values are filtered out, so only genuine
+//     same-kind string refs count towards the backlog limit.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    // Two non-string entries plus one real docs-pass ref → count = 1 < limit(3) → proceed.
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '[{"headRefName":null},{"headRefName":42},{"headRefName":"aeon/docs-pass-2026-06-06-abc"}]'; exit 0; fi\necho "https://github.com/stub/repo/pull/17"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nonstr" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/17");
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /pr create/, "gh pr create should have been called (gate not triggered)");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  openPRsForKind ignores entries with non-string headRefName");
+}
+
+// 18. shortTaskId slices to the first 10 alphanumeric chars — a taskId with
+//     more than 10 alphanumeric characters produces a branch name that ends
+//     with exactly the first 10, not the full string.
+{
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EDIT_STUB });
+  const today = new Date().toISOString().slice(0, 10);
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "abcdefghij-extra" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    // "abcdefghij-extra" → strip "-" → "abcdefghijextra" (15 chars) → slice(0,10) → "abcdefghij"
+    assert.equal(
+      result.branch,
+      `aeon/docs-pass-${today}-abcdefghij`,
+      `branch should contain only first 10 alphanumeric chars of taskId; got ${result.branch}`,
+    );
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  shortTaskId slices taskId to first 10 alphanumeric chars");
+}
+
 console.log("\nAll claude-code-pass tests passed.");

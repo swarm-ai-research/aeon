@@ -134,6 +134,10 @@ describe("stripPort (edge cases)", () => {
   it("returns empty string for whitespace-only input", () => {
     assert.equal(stripPort("   "), "");
   });
+  it("returns bracketed IPv6 intact when closing bracket is absent", () => {
+    assert.equal(stripPort("[::1"), "[::1");
+    assert.equal(stripPort("[2001:db8::1"), "[2001:db8::1");
+  });
 });
 
 describe("isAllowedHost (edge cases)", () => {
@@ -146,6 +150,10 @@ describe("isAllowedHost (edge cases)", () => {
     assert.equal(isAllowedHost("aeon.local", { extraAllowed: extras }), true);
     assert.equal(isAllowedHost("internal.lan", { extraAllowed: extras }), true);
     assert.equal(isAllowedHost("attacker.example", { extraAllowed: extras }), false);
+  });
+  it("rejects whitespace-only host where stripPort returns empty string", () => {
+    assert.equal(isAllowedHost("   "), false);
+    assert.equal(isAllowedHost("\t"), false);
   });
 });
 
