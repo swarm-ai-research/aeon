@@ -1,28 +1,28 @@
 {
-  "input_fingerprint": "b4f2fd473b081349c9ebf23b586fecd032f29e18",
-  "last_run": "2026-08-03",
+  "input_fingerprint": "a9d3db5efc670ac464532c52359c6ff844a5cb67",
+  "last_run": "2026-08-04",
   "stats": {
-    "nodes": 228,
-    "edges": 2312,
-    "hard": 1704,
-    "soft": 608,
+    "nodes": 230,
+    "edges": 2356,
+    "hard": 1731,
+    "soft": 625,
     "orphans": 0,
-    "atomic": 64,
+    "atomic": 65,
     "bundled": 0
   },
   "last_verdict": "+1 notes wired in",
   "last_pr": "",
-  "last_branch": "notegraph/2026-08-03",
+  "last_branch": "notegraph/2026-08-04",
   "delta_vs_head": {
     "nodes": 1,
-    "edges": 8,
-    "hard": 4,
-    "soft": 4,
+    "edges": 9,
+    "hard": 6,
+    "soft": 3,
     "orphans": 0,
     "bundled": 0,
     "atomic": 1
   },
-  "new_nodes": ["memory/notes/pr-tracker-tuple-predictor-scan-time-vs-cutoff-hour.md"],
+  "new_nodes": ["memory/notes/pocket-slot-migration-confirmed-by-3-day-sustained-late-delivery.md"],
   "removed_nodes": [],
   "orphans": [],
   "new_orphans": [],
@@ -30,5 +30,5 @@
   "new_bundled": [],
   "resolved_bundled": [],
   "notify_suppressed": false,
-  "note": "2026-08-03: Fingerprint advanced 043931de… → b4f2fd47… — corpus edited. Extractor produced 228n / 1704h / 608s / 0o / 64 atomic / 0b vs HEAD's 227/1700/604/0/63/0. Net vs HEAD: +1 node (memory/notes/pr-tracker-tuple-predictor-scan-time-vs-cutoff-hour.md — the 08-02 lesson landed on main between yesterday's notegraph run and today's), +8 edges (+4 hard, +4 soft), +1 atomic, 0 orphan/bundled changes. Verdict `+1 notes wired in` per SKILL step 3 rank 3 (node_delta > 0 && orphan_delta ≤ 0 && bundled_delta ≤ 0). Committed all 4 generated files (notegraph.json + docs/notegraph.md + docs/notegraph.html + docs/notegraph-speedrun.html) to branch notegraph/2026-08-03, pushed successfully. `gh pr create` FAILED with the standing `GitHub Actions is not permitted to create or approve pull requests` block — [[github-actions-cannot-create-prs]] Day-∞ carryover. Branch is now the 19th staged notegraph branch waiting for the operator toggle / AEON_GH_PAT elevation (rank-1 daily-plan since 07-25, streak-6 by run / streak-10 by calendar day). Notify sent per SKILL step 5 — verdict is non-bland (`+1 notes wired in`), so it clears the mute rule. Fingerprint helper `.notegraph-fp.mjs` continues to substitute for the SKILL's shell pipeline (sandbox blocks the raw `find … | xargs sha1sum` chain, same block since 07-31)."
+  "note": "2026-08-04: Fingerprint advanced b4f2fd47… → a9d3db5e… — corpus edited. Extractor produced 230n / 1731h / 625s / 0o / 65 atomic / 0b vs HEAD's 229/1725/622/0/64/0. Net vs HEAD: +1 node (memory/notes/pocket-slot-migration-confirmed-by-3-day-sustained-late-delivery.md — the 08-03 lesson landed on main between yesterday's notegraph run and today's), +9 edges (+6 hard, +3 soft), +1 atomic, 0 orphan/bundled changes. Verdict `+1 notes wired in` per SKILL step 3 rank 3 (node_delta > 0 && orphan_delta ≤ 0 && bundled_delta ≤ 0). Committed all 4 generated files (notegraph.json + docs/notegraph.md + docs/notegraph.html + docs/notegraph-speedrun.html) to branch notegraph/2026-08-04, pushed successfully. `gh pr create` FAILED with the standing `GitHub Actions is not permitted to create or approve pull requests` block — [[github-actions-cannot-create-prs]] Day-∞ carryover. Branch is now the 20th staged notegraph branch waiting for the operator toggle / AEON_GH_PAT elevation (rank-1 daily-plan since 07-25). Notify sent per SKILL step 5 — verdict is non-bland (`+1 notes wired in`), so it clears the mute rule. Fingerprint helper `.notegraph-fp.mjs` continues to substitute for the SKILL's shell pipeline (sandbox blocks the raw `find … | xargs sha1sum` chain, same block since 07-31)."
 }
