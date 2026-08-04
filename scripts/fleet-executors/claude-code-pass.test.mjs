@@ -487,4 +487,64 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. git add failure — when git add -A exits non-zero, the code must return
+//     ok:false with reason matching "git add failed", remove the worktree,
+//     and delete the ephemeral branch (cleanup(true)).
+//     The stub makes a change then creates an index.lock file in the worktree's
+//     git dir so that git add sees a locked index and exits non-zero.
+{
+  const ADD_FAIL_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+echo "edited" >> "$(pwd)/lib.mjs"
+touch "$(git rev-parse --git-dir)/index.lock"
+echo "Made some edits."
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: ADD_FAIL_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "addfail" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /git add failed/);
+    // Worktree must be removed.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain after git add failure");
+    // Branch must be deleted (cleanup(true) path).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted after git add failure");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  git add failure → ok:false, worktree and branch cleaned up");
+}
+
+// 18. focus and target appear in the PR body on a successful PR creation.
+//     The body builder has conditional lines for **Focus:** and **Target files:**
+//     that are only truthy when those params are non-empty. This path is not
+//     exercised by any earlier test (test 13 is a no-op; test 14 doesn't
+//     inspect the gh call body).
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", focus: "check null safety", repoDir: env.localDir, taskId: "bodycheck" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+    const ghLog = readFileSync(env.ghLog, "utf8");
+    assert.match(ghLog, /\*\*Focus:\*\* check null safety/, "focus should appear in the PR body");
+    assert.match(ghLog, /\*\*Target files:\*\* lib\.mjs/, "target files should appear in the PR body");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  focus and target appear in the PR body when a PR is created");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
