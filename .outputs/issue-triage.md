@@ -1,8 +1,5 @@
-`ISSUE_TRIAGE_OK no-watched-repos`.
+The task is a single-step short-circuit — no task list needed.
 
 ## Summary
 
-- **Verdict:** Short-circuited per §Config — `memory/watched-repos.md` is missing and `${var}` was empty, so exited without fetching any issues.
-- **Files modified:** `memory/logs/2026-08-03.md` — appended `## issue-triage` entry per §10 recording the no-target skip.
-- **No writes:** no labels applied, no comments posted, no `memory/triaged-issues.json` update (nothing was triaged).
-- **Follow-up:** MEMORY.md line 59 already tracks this — either populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills (issue-triage among them). Today marks another same-day short-circuit joining the 3 already logged (issue-triage + github-monitor + code-health).
+Ran `skills/issue-triage/SKILL.md` for 2026-08-04. With `${var}` empty and `memory/watched-repos.md` absent, the skill's §Config rule fires: log `ISSUE_TRIAGE_OK no-watched-repos` and exit. Appended the log entry to `memory/logs/2026-08-04.md`; no notify (nothing actionable), no writes to `memory/triaged-issues.json`. This is the 3rd same-day short-circuit in the pattern already tracked in MEMORY.md ("Populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills").
