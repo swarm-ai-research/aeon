@@ -1,0 +1,55 @@
+{
+  "root": "card_suggest_edges",
+  "state": {},
+  "elements": {
+    "card_suggest_edges": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "badge_status",
+        "text_top_date",
+        "badge_branch_info",
+        "alert_blocker"
+      ]
+    },
+    "badge_status": {
+      "type": "Badge",
+      "props": {
+        "text": "3 missing links proposed"
+      }
+    },
+    "text_top_date": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-06-24",
+        "variant": "muted"
+      }
+    },
+    "badge_branch_info": {
+      "type": "Badge",
+      "props": {
+        "text": "Branch: suggest-edges/2026-08-04 (staged)"
+      }
+    },
+    "alert_blocker": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Blocked",
+        "message": "github-actions-cannot-create-prs (25th staged branch)",
+        "type": "warning"
+      }
+    }
+  }
+}
