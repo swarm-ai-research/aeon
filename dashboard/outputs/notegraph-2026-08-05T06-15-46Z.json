@@ -1,0 +1,113 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "update_summary",
+        "separator1",
+        "metrics_grid",
+        "separator2",
+        "pr_status_stack"
+      ]
+    },
+    "update_summary": {
+      "type": "Text",
+      "props": {
+        "text": "+1 notes wired in",
+        "variant": "lead"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat_notes",
+        "stat_edges",
+        "stat_atomic"
+      ]
+    },
+    "stat_notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "234"
+      }
+    },
+    "stat_edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "2407"
+      }
+    },
+    "stat_atomic": {
+      "type": "Stat",
+      "props": {
+        "label": "Atomic",
+        "value": "66"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr_status_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "alert_pr_blocked",
+        "branch_info",
+        "operator_action"
+      ]
+    },
+    "alert_pr_blocked": {
+      "type": "Alert",
+      "props": {
+        "title": "PR blocked",
+        "type": "warning"
+      }
+    },
+    "branch_info": {
+      "type": "Text",
+      "props": {
+        "text": "Branch: notegraph/2026-08-05 (staged)"
+      }
+    },
+    "operator_action": {
+      "type": "Badge",
+      "props": {
+        "text": "21st awaiting operator toggle",
+        "variant": "outline"
+      }
+    }
+  }
+}
