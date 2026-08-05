@@ -487,4 +487,55 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. Claude exits 0 with empty stdout → ok:false.
+//     Exercises the `!proc.stdout` branch inside invokeClaude (distinct from
+//     test 8 which covers `ver.ok === false` on --version). When the claude
+//     binary exits cleanly but writes nothing, the executor must still treat it
+//     as a failure, clean up the worktree, and delete the ephemeral branch.
+{
+  const CLAUDE_EMPTY_STDOUT = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+# exits 0 but produces no stdout — triggers the !proc.stdout branch
+`;
+  const env = freshRepoWithRemote({ claudeScript: CLAUDE_EMPTY_STDOUT });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "emptystdout" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /claude invocation failed/);
+    // Worktree must be cleaned up.
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain");
+    // Branch must be deleted (cleanup(true) path — same as the unavailable case).
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "local branch should be deleted when claude emits empty stdout");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  claude exits 0 with empty stdout → ok:false, worktree and branch cleaned up");
+}
+
+// 18. gh pr list returns malformed (unparseable) JSON → openPRsForKind hits the
+//     catch block, returns null → backlog gate is skipped → pass proceeds.
+//     Complements test 12 (valid non-array JSON hits the !Array.isArray branch)
+//     by exercising the JSON.parse throw path specifically.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '{broken json'; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "brokenjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list emits malformed JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list emits malformed JSON → catch returns null → pass proceeds");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
