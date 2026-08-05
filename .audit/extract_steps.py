@@ -2,7 +2,7 @@ import json
 import re
 import os
 import hashlib
-from collections import Counter, defaultdict
+from collections import Counter
 
 findings = json.load(open('.audit/parsed.json'))
 
