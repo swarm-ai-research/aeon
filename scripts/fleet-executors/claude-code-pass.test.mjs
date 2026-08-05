@@ -5,7 +5,7 @@
 //
 // Run: node scripts/fleet-executors/claude-code-pass.test.mjs
 
-import { mkdtempSync, writeFileSync, rmSync, chmodSync, mkdirSync, readFileSync, existsSync, readdirSync } from "node:fs";
+import { mkdtempSync, writeFileSync, rmSync, chmodSync, mkdirSync, readFileSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
@@ -17,21 +17,7 @@ function git(args, cwd) {
   return { status: r.status, stdout: (r.stdout || "").trim(), stderr: (r.stderr || "").trim() };
 }
 
-function freshRepo() {
-  const dir = mkdtempSync(join(tmpdir(), "code-pass-test-"));
-  for (const args of [
-    ["init", "-q"],
-    ["config", "user.email", "t@e.st"],
-    ["config", "user.name", "t"],
-    ["commit", "--allow-empty", "-q", "-m", "init"],
-  ]) {
-    const r = git(args, dir);
-    assert.equal(r.status, 0, `git ${args.join(" ")} failed: ${r.stderr}`);
-  }
-  return dir;
-}
-
-// freshRepo() + bare remote + bin/ dir with stub claude/gh installed at the
+// Creates a bare remote + bin/ dir with stub claude/gh installed at the
 // front of PATH. Returns { work, localDir, remoteDir, binDir, ghLog }.
 function freshRepoWithRemote({ claudeScript, ghScript = `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\necho "https://github.com/stub/repo/pull/42"\n` }) {
   const work = mkdtempSync(join(tmpdir(), "code-pass-e2e-"));
