@@ -1,0 +1,191 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Analytics — 2026-08-05"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metrics_section",
+        "sep1",
+        "silent_section",
+        "sep2",
+        "skip_section",
+        "sep3",
+        "report_section"
+      ]
+    },
+    "metrics_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_runs",
+        "stat_skills",
+        "stat_success"
+      ]
+    },
+    "stat_runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Runs",
+        "value": "160"
+      }
+    },
+    "stat_skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills",
+        "value": "39"
+      }
+    },
+    "stat_success": {
+      "type": "Stat",
+      "props": {
+        "label": "Success Rate",
+        "value": "100%"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "silent_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "silent_heading",
+        "silent_badges"
+      ]
+    },
+    "silent_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Silent Scheduled Skills",
+        "level": "h3"
+      }
+    },
+    "silent_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_rfg",
+        "badge_afw",
+        "badge_agt",
+        "badge_cr"
+      ]
+    },
+    "badge_rfg": {
+      "type": "Badge",
+      "props": {
+        "text": "run-frequency-guard",
+        "variant": "secondary"
+      }
+    },
+    "badge_afw": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "secondary"
+      }
+    },
+    "badge_agt": {
+      "type": "Badge",
+      "props": {
+        "text": "agi-tracker",
+        "variant": "secondary"
+      }
+    },
+    "badge_cr": {
+      "type": "Badge",
+      "props": {
+        "text": "cost-report",
+        "variant": "secondary"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "skip_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skip_heading",
+        "skip_text"
+      ]
+    },
+    "skip_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "ALL_SKIP Skills",
+        "level": "h3"
+      }
+    },
+    "skip_text": {
+      "type": "Text",
+      "props": {
+        "text": "4 skills marked ALL_SKIP",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "report_heading",
+        "report_link"
+      ]
+    },
+    "report_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Full Report",
+        "level": "h3"
+      }
+    },
+    "report_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Skill Analytics Report",
+        "href": "articles/skill-analytics-2026-08-05.md"
+      }
+    }
+  }
+}
