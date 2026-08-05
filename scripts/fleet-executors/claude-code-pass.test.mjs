@@ -487,4 +487,61 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. prUrl fallback — when gh pr create exits 0 but its output contains no
+//     URL-shaped string, prUrl falls back to pr.stdout.trim() rather than
+//     returning undefined. This exercises the `|| pr.stdout.trim()` branch on
+//     the last return of runCodePass.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "PR created (no URL in output)"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "prurlfallback" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "PR created (no URL in output)",
+      `prUrl should fall back to raw stdout when gh returns no URL; got ${result.prUrl}`);
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  prUrl fallback → raw stdout.trim() when gh output contains no URL");
+}
+
+// 18. target param flows into the prompt text — the buildPrompt() target
+//     branch produces "Recently changed files (focus area): <target>" when a
+//     target is supplied. Test 13 captures stdin but uses no target; this test
+//     is the complement: a target is given and its presence in the prompt is
+//     verified, while the "No specific files supplied" fallback must be absent.
+{
+  const stdinCapturePath = join(mkdtempSync(join(tmpdir(), "code-pass-target-cap-")), "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", repoDir: env.localDir, taskId: "target-test", target: "src/utils.mjs" })
+    );
+    assert.equal(result.ok, true);
+    assert.equal(result.prUrl, null, "no-op run should return prUrl:null");
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /Recently changed files \(focus area\):/,
+      "captured prompt should contain the 'Recently changed files' target line");
+    assert.match(captured, /src\/utils\.mjs/,
+      "captured prompt should contain the target file path");
+    assert.doesNotMatch(captured, /No specific files supplied/,
+      "the 'No specific files' fallback must not appear when a target is given");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(stdinCapturePath, { force: true });
+  }
+  console.log("OK  target param appears as 'Recently changed files (focus area):' in prompt sent to claude");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
