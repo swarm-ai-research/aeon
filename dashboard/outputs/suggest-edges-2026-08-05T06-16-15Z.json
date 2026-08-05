@@ -1,0 +1,150 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status-section",
+        "sep1",
+        "pr-section",
+        "sep2",
+        "branch-section",
+        "sep3",
+        "targets-section"
+      ]
+    },
+    "status-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "links-stat",
+        "top-text"
+      ]
+    },
+    "links-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Missing links proposed",
+        "value": "3"
+      }
+    },
+    "top-text": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-06-24.md",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-section": {
+      "type": "Alert",
+      "props": {
+        "title": "PR Blocked",
+        "message": "github-actions-cannot-create-prs",
+        "type": "warning"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "branch-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "branch-header",
+        "branch-content"
+      ]
+    },
+    "branch-header": {
+      "type": "Heading",
+      "props": {
+        "text": "Branch",
+        "level": "h4"
+      }
+    },
+    "branch-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "branch-name",
+        "branch-status"
+      ]
+    },
+    "branch-name": {
+      "type": "Badge",
+      "props": {
+        "text": "suggest-edges/2026-08-05",
+        "variant": "default"
+      }
+    },
+    "branch-status": {
+      "type": "Badge",
+      "props": {
+        "text": "staged",
+        "variant": "secondary"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "targets-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "targets-header",
+        "targets-text"
+      ]
+    },
+    "targets-header": {
+      "type": "Heading",
+      "props": {
+        "text": "Targets",
+        "level": "h4"
+      }
+    },
+    "targets-text": {
+      "type": "Text",
+      "props": {
+        "text": "All 3 targets are compute-futures scenario sweep siblings at similarity 1.00",
+        "variant": "body"
+      }
+    }
+  }
+}
