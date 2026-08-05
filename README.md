@@ -357,6 +357,8 @@ scripts/
   aeon.yml               ← skill runner (workflow_dispatch, issues, quality scoring)
   chain-runner.yml       ← skill chain executor (parallel + sequential pipelines)
   messages.yml           ← cron scheduler + message polling (Telegram/Discord/Slack)
+.audit-bin/              ← pre-built scanner binaries for workflow-security-audit (zizmor + actionlint)
+                            committed so Actions runners can use them without network installs
 ```
 
 ---
