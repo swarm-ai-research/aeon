@@ -333,7 +333,7 @@ skills/                  ← each skill is a SKILL.md prompt file
   article/
   digest/
   heartbeat/
-  ...                    ← 121 skills total
+  ...                    ← 160+ skills; see skills.json for the current count
 workflows/               ← GitHub Agentic Workflow templates (.md)
 mcp-server/              ← MCP server — exposes skills as Claude tools
 a2a-server/              ← A2A protocol gateway — exposes skills to any agent framework
@@ -347,6 +347,7 @@ memory/
   topics/                ← detailed notes by topic
   logs/                  ← daily activity logs (YYYY-MM-DD.md)
 .outputs/                ← skill chain outputs (passed between chained steps)
+.audit-bin/              ← pre-built static binaries for workflow-security-audit (zizmor, actionlint); committed so Actions runners don't need outbound installs
 scripts/
   prefetch-xai.sh        ← pre-fetch X/Grok API data outside sandbox
   postprocess-replicate.sh ← generate images via Replicate after Claude runs
