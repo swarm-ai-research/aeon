@@ -50,6 +50,7 @@ Install any skill into your own agent:
 | `feature` | Build new features from GitHub issues or improve the agent | Daily 4 PM UTC |
 | `build-skill` | Design and build a new reusable skill | Daily 4 PM UTC |
 | `search-skill` | Search the open agent skills ecosystem for useful skills to install | Daily 2 PM UTC |
+| `workflow-security-audit` | Audit `.github/` workflows with zizmor + actionlint, classify findings vs prior run, auto-fix Critical/High regressions | Weekly |
 
 ---
 
