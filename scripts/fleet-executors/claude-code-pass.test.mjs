@@ -487,4 +487,45 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. gh pr list returns invalid JSON (parse exception) → catch fires → null
+//     backlog → pass proceeds rather than blocking. Distinct from test 12
+//     (non-array valid JSON): this exercises the try/catch branch.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo 'this is not json {{{'; exit 0; fi\necho "https://github.com/stub/repo/pull/77"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "badjson" })
+    );
+    assert.equal(result.ok, true, `expected ok=true when gh pr list returns invalid JSON, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/77");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh pr list returns invalid JSON → parse throws → null backlog → pass proceeds");
+}
+
+// 18. gh pr list returns an array that includes null items and items with a
+//     non-string headRefName. Only the single matching docs-pass entry should
+//     count (below the limit of 3), so the pass must proceed.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '[null,{},{"headRefName":null},{"headRefName":42},{"headRefName":"aeon/docs-pass-2026-01-01-aaa"},{"headRefName":"aeon/refactor-pass-2026-01-01-bbb"}]'; exit 0; fi\necho "https://github.com/stub/repo/pull/88"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nullrefs" })
+    );
+    assert.equal(result.ok, true, `expected ok=true (1 matching PR, below limit), got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/88",
+      "pass should proceed when only 1 valid matching PR found (null/non-string headRefNames ignored)");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  PR list items with null/non-string headRefName are ignored by the backlog counter");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
