@@ -1,16 +1,13 @@
-HEARTBEAT_OK · STATUS_PAGE=DEGRADED
+HEARTBEAT_OK · STATUS_PAGE=DEGRADED — wrote docs/status.md
 
-**Findings (all previously logged — no notify fired per dedup rule):**
-- **P0 chronic-failure residue** literal-triggers 🔴 DEGRADED (~38 skills at success_rate<0.5, all ISS-001 June-outage residue; close deferred until ISS-006 stabilizes).
-- **P0 planner silent 49h** — last success 08-02T07:59Z, 2nd consecutive skipped 06:30Z slot (both inside the ISS-006 pocket-migration outage clusters). Known — MEMORY.md line 8 "frozen at streak-5 by run / streak-10 by calendar day".
-- **P3 agi-tracker** 15d silent (>2x weekly) — known HEALTHY-but-empty class.
-- **P3 ai-framework-watch + run-frequency-guard** — never-dispatched 26+d, known.
-- **P1** — 1 open Dependabot PR (#8), no urgent issues.
-- Today's morning batch (planner + 3 skills at 08:00Z + 4 skills at 09:00Z) still hadn't fired at 09:20Z — same ~09:58Z late-delivery shape as 08-03's Day-3 118min-late anchor.
+## Summary
 
-**Actions:**
-- Regenerated `docs/status.md` wholesale (9th consecutive rebase-clobber-then-regen — was frozen at 2026-06-09). Verdict 🔴 DEGRADED, 18 open issues, next run pr-triage 09:30Z.
-- Appended heartbeat entry to `memory/logs/2026-08-04.md`.
-- No `./notify` — every finding already in 08-02/08-03 logs.
+Ran the `heartbeat` skill for 2026-08-05 at 09:07Z (late-window firing, matches ISS-006 pocket-slot migration).
 
-**Files modified:** `docs/status.md`, `memory/logs/2026-08-04.md`.
+- **P0:** chronic-failure residue (ISS-001 day 46, ~38 skills) + planner silent 73h (3rd consecutive missed 06:30Z slot) — both known/tracked.
+- **P1:** 1 Dependabot PR open 9d, 0 urgent issues.
+- **P3:** 3 stale skills (agi-tracker weekly-late, ai-framework-watch never-dispatched, run-frequency-guard never-dispatched) — all previously tracked.
+- **Dedup:** all findings duplicate 08-03/08-04 logs → **no `./notify` fired**.
+- Regenerated `docs/status.md` wholesale (10th consecutive rebase-clobber-then-regen from 55d-stale baseline). Verdict **🔴 DEGRADED**, 18 open issues, next run `pr-triage` 09:30Z.
+- Files modified: `docs/status.md`, `memory/logs/2026-08-05.md`.
+- Follow-up: none new. Operator-toggle rank-1 (repo Settings → Actions → allow PR creation, or `AEON_GH_PAT`) remains the single unblock.
