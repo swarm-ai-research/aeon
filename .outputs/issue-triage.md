@@ -1,10 +1,11 @@
-Task is a single short-circuit — no task tracking needed.
+Task tracking isn't warranted for a single log-and-exit run.
 
 ## Summary
 
-Executed `skills/issue-triage/SKILL.md` for 2026-08-05.
+Executed `issue-triage` for 2026-08-06.
 
-- **Verdict:** `ISSUE_TRIAGE_OK no-watched-repos` — short-circuit per SKILL §Config (`${var}` empty AND `memory/watched-repos.md` absent).
-- **Actions taken:** none (no gh calls, no writes to any repo, no notify).
-- **File modified:** `memory/logs/2026-08-05.md` (appended `## issue-triage` entry + summary).
-- **Follow-up:** already tracked in MEMORY.md line 59 — populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) to stop wasting a daily workflow slot per skill.
+- **Result:** `ISSUE_TRIAGE_OK no-watched-repos` — short-circuited at the Config gate.
+- **Reason:** `${var}` empty and `memory/watched-repos.md` absent.
+- **Files modified:** `memory/logs/2026-08-06.md` (appended `### issue-triage` section + summary).
+- **Files untouched:** `memory/triaged-issues.json` (preserved 6 existing entries for `aaronjmars/aeon`, last 2026-06-07).
+- **No API calls, no notifications** — matches §9 (nothing actionable) and today's planner rank-3 `watched-repos-population-or-disable` already tracks the fix.
