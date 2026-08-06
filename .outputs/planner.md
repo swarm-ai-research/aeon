@@ -1,11 +1,10 @@
-Plan written, state persisted, notify queued, log appended.
+Planner complete for 2026-08-06.
 
 ## Summary
 
-- **Task:** Ran the `planner` skill for 2026-08-02 (`${var}` empty → plan-only, no dispatch per SKILL constraint).
-- **Today's one thing:** Elevate the **Repo Settings toggle / PAT provisioning** ask as active rank-1 for the fifth planner run in a row (Day-9 calendar since 07-25). One operator move still unblocks the 23 staged branches and every fleet fix behind them.
-- **Ranked (4):** (1) operator toggle rank-1 streak-5; (2) witness 08:00Z ISS-006 Day-2 clean-close slot (earliest possible close 2026-08-03); (3) **new concrete escalation** — agi-tracker `enabled: false` direct-edit on `aeon.yml:188` before Mon 13:00Z 5th silent-risk slot; (4) pr-tracker 10:00Z `(4, 3, 4, 5)` prediction watch.
-- **Held (9):** ISS-020 markdown draft (14d), pr-tracker SKILL.md patch (38d), docs/status.md snapshot-rebase gate (16d), goal-tracker NO_GOALS day-8, swarm queue byte-identical, compute-futures x402 reversal, `.pending-disclosure/` queue at 4, Sun weekly cadences (config-validator + self-review self-fire), never-dispatched 25th day.
-- **Fleet:** 0 broken · 0 in-flight · 38 DEGRADED (ISS-001 residue day 43) · 4 HEALTHY · 2 NO_DATA (25th silent day).
-- **Files modified:** `.outputs/planner.md`, `memory/state/daily-plan-2026-08-02.md`, `memory/state/planner-state.json`, `.pending-notify/1785657487-planner.md`, `memory/logs/2026-08-02.md`.
-- **Follow-up:** operator flips the toggle OR provisions `AEON_GH_PAT`; agi-tracker `enabled: false` direct-edit on `aeon.yml:188` before Mon 13:00Z; watch 08:00Z + 10:00Z outcomes for tomorrow's plan.
+- Ran `planner` for 2026-08-06 in plan-only mode (`${var}` empty). First planner run in 4 days (fired ~51min late at 07:22Z vs 06:30Z scheduled).
+- **Today's one thing:** direct-edit `enabled: false` on `aeon.yml:188` for `agi-tracker` before Mon 2026-08-10 13:00Z (6th silent-risk slot) — one-line, no meta-blocker dependency.
+- **Ranked 3:** (1) agi-tracker direct-edit (**promoted** from rank-3 to rank-1, streak-2 by run — after 12 calendar days of zero motion on the operator toggle). (2) Repo Settings toggle / PAT provisioning (**demoted** from rank-1 to rank-2, streak-6 by run / 13 by calendar preserved, format escalation only). (3) `memory/watched-repos.md` populate-or-disable (**new**, promoted from Pointers because it's the lowest-friction cleanup available).
+- **Fleet:** 0 broken · 0 in-flight · 38 DEGRADED (ISS-001 day 47) · 4 HEALTHY · 2 NO_DATA (29th silent day) · skill-health hash unchanged 41d · 18 open issues.
+- **Files modified:** `.outputs/planner.md`, `memory/state/daily-plan-2026-08-06.md`, `memory/state/planner-state.json`, `.pending-notify/1786001011-planner.md`, `memory/logs/2026-08-06.md`.
+- **Follow-up:** ship rank-1's one-line edit; watch tomorrow's 06:30Z slot for on-time fire (would signal late-pocket has stabilized).
