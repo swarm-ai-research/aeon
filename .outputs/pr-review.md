@@ -1,18 +1,17 @@
-32nd operator invocation of `pr-review` on `swarm-ai-research/swarm` complete. State byte-identical for day 13; verdicts unchanged from prior 6 invocations.
-
 ## Summary
 
-**Reviewed** (2):
-- **swarm-ai-research/swarm#543** (SHA `70b20e04`, docs, +36/-40): **APPROVE 4/5** — 0 critical, 0 issues. All quality gates pass; `quality-gate` failure is pre-existing main-branch signal unrelated to a docs-only diff; `test (3.12, full)` CANCELLED is repo-wide timeout pattern.
-- **swarm-ai-research/swarm#536** (SHA `76e6200c`, beta_swarm subtree, +6699/-27): **REQUEST_CHANGES 2/5** — 0 critical, 3 issues:
-  1. `[ISSUE]` PR body claims "Purely additive — no existing swarm/ code is touched" but `swarm/agentgit/__main__.py` (+90/-1) and `swarm/agentgit/coordination.py` (+76/-0) are modified.
-  2. `[ISSUE]` 47-line `.claude/hooks/pre-commit` rewrite gates every commit going forward with no CI job exercising the new hook logic.
-  3. `[ISSUE]` 6,699 additions bundle three independent strands (beta_swarm subtree + agentgit runtime deltas + pre-commit/CLAUDE.md/pyproject tooling rewrite) into a single reviewable unit — cannot be scoped-verified or reverted independently.
+Ran pr-review skill against `swarm-ai-research/swarm` — 33rd operator invocation with merge-gate policy (`APPROVE` / `REQUEST_CHANGES` / `BLOCK`).
 
-**Skipped** (6): all dependabot bots (#548, #547, #546, #545, #538, #537).
+**Queue delta:** first advance in 14 days — new rsavitt #549 (Prime Agent bridge) opened 08-06T01:36Z; dependabot #548→#550 (langchain-core supersede). 9 open (was byte-identical 8 for 13 days).
 
-**Write endpoints:** all three 403 (review-level on both PRs + inline comment) → 24th confirming invocation of `aeon-app-no-write-on-swarm-repo`. Findings preserved in log per skill fallback rule.
+**Verdicts** (log-only — all write endpoints 403 → 25th confirming invocation of `aeon-app-no-write-on-swarm-repo`):
 
-**Files modified:** `memory/logs/2026-08-05.md`, `.pending-notify/1785955915-pr-review.md`.
+- **swarm#549** (`cc720dd5`, Prime Agent bridge, +3818 -0): **REQUEST_CHANGES 2/5** — 0 critical, 1 issue. `quality-gate` FAILURE is downstream of `test (3.12, full)` being CANCELLED at ~99% after ~25 min (runner timeout at `test_moltipedia_scenario_loads`, unrelated to this PR). Lint / type-check / invariants / 3.10 & 3.11 compat / CodeQL / memory tests / render-verify / agentgit-gate all SUCCESS. Bridge itself is well-scoped (offline-only, `require_evidence=False` default, governance knobs reused from LiveSWE), extensively tested (96 tests, 1212 lines), 0-deletion additive module. Would be APPROVE 4/5 on its own if the full-suite 3.12 signal were clean; per operator policy, missing quality-gate evidence blocks approve.
+- **swarm#543** (`70b20e04`, docs AI-slop, +36 -40): **APPROVE 4/5** — docs-only (README.md + 11 files under docs/), no production code touched. Same 3.12 infra timeout unrelated to change.
+- **swarm#536** (`76e6200c`, beta_swarm subtree, +6699 -27): **REQUEST_CHANGES 2/5** unchanged — 3 standing issues (misleading "purely additive" body vs 5 modified files outside `beta_swarm/`; no CI signal for the 47-line pre-commit rewrite; 6699-line mixed-scope bundle).
 
-**Follow-up:** Operator unblock of PR-write permission on `swarm-ai-research/swarm` (App perm bump or `AEON_GH_PAT`) remains active rank-1 fleet-wide.
+**Files modified:**
+- `memory/logs/2026-08-06.md` — full pr-review entry appended
+- `.pending-notify/1786011136-pr-review.md` — combined notify (postprocess step will fan out)
+
+**Follow-up:** operator toggle rank-1 (repo Settings → "Allow Actions to create PRs" OR `AEON_GH_PAT` provisioning) unblocks PR-write on swarm alongside ≥26 staged branches. MEMORY.md line 11/12 counter refresh (32→33 invocations, 24→25 no-write confirmations) at next reflect/memory-flush.
