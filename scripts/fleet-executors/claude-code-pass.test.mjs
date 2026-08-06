@@ -487,4 +487,47 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. gh pr create succeeds but outputs text without a URL → prUrl falls back
+//     to stdout.trim() rather than undefined. Exercises the
+//     `|| pr.stdout.trim()` fallback at line 248 of claude-code-pass.mjs.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "PR created (no url here)"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nourl" })
+    );
+    assert.equal(result.ok, true, `expected ok=true, got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "PR created (no url here)",
+      "prUrl should fall back to stdout.trim() when gh output contains no URL pattern");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  gh output without URL → prUrl falls back to stdout.trim()");
+}
+
+// 18. openPRsForKind filters entries where headRefName is null or absent.
+//     An array with 1 valid matching entry, 1 null headRefName, and 1 entry
+//     with no headRefName field should count as 1 — below the default limit
+//     of 3 — so the pass proceeds rather than being blocked.
+{
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EDIT_STUB,
+    ghScript: `#!/usr/bin/env bash\necho "gh: $@" >> "$GH_LOG"\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo '[{"headRefName":"aeon/docs-pass-2026-01-01-abc"},{"headRefName":null},{}]'; exit 0; fi\necho "https://github.com/stub/repo/pull/99"\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", target: "lib.mjs", repoDir: env.localDir, taskId: "nullref" })
+    );
+    assert.equal(result.ok, true, `expected ok=true (gate count=1, limit=3), got ${JSON.stringify(result)}`);
+    assert.equal(result.prUrl, "https://github.com/stub/repo/pull/99",
+      "should proceed past backlog gate when null/missing headRefName entries are correctly excluded");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  openPRsForKind ignores entries with null or missing headRefName");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
