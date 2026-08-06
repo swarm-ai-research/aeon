@@ -1,0 +1,183 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-08-06",
+        "description": "144 rows, 4 modes"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert_high",
+        "sep1",
+        "heading_stats",
+        "grid_metrics",
+        "sep2",
+        "alert_medium",
+        "sep3",
+        "heading_key_findings",
+        "stack_findings",
+        "sep4",
+        "heading_status",
+        "text_status",
+        "sep5",
+        "link_report"
+      ]
+    },
+    "alert_high": {
+      "type": "Alert",
+      "props": {
+        "title": "HIGH ALERT: maxCurve Spread",
+        "message": "25.00% spread detected with 9 outliers across 3 seeds. First ≥20% fire since 08-01's basket settlementLegs collapse. Same 3 seeds anchor spread's largest retail losses — watch for cross-column persistence.",
+        "type": "warning"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_stats": {
+      "type": "Heading",
+      "props": {
+        "text": "Key Metrics",
+        "level": "h3"
+      }
+    },
+    "grid_metrics": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat_maxcurve",
+        "stat_outliers",
+        "stat_seeds"
+      ]
+    },
+    "stat_maxcurve": {
+      "type": "Stat",
+      "props": {
+        "label": "maxCurve Spread",
+        "value": "25.00%",
+        "trend": "up"
+      }
+    },
+    "stat_outliers": {
+      "type": "Stat",
+      "props": {
+        "label": "Outliers",
+        "value": "9"
+      }
+    },
+    "stat_seeds": {
+      "type": "Stat",
+      "props": {
+        "label": "Seeds Involved",
+        "value": "3"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_medium": {
+      "type": "Alert",
+      "props": {
+        "title": "MEDIUM: Fresh Updates",
+        "message": "spread settlementLegs 16.67% + basket minCurve 16.67% — 2nd consecutive observation via un-analyzed 08-04 data.",
+        "type": "info"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_key_findings": {
+      "type": "Heading",
+      "props": {
+        "text": "Key Findings",
+        "level": "h3"
+      }
+    },
+    "stack_findings": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_findings1",
+        "text_findings2",
+        "text_findings3"
+      ]
+    },
+    "text_findings1": {
+      "type": "Text",
+      "props": {
+        "text": "Anchor pattern shifts from single-seed to 4 concurrent multi-mode anchors with peak 202608064 at 15 positions."
+      }
+    },
+    "text_findings2": {
+      "type": "Text",
+      "props": {
+        "text": "08-03's realizedAbs × maxSpot 3-mode |r|≥0.8 fire fully collapses — single-filing coincidence, streak restarts."
+      }
+    },
+    "text_findings3": {
+      "type": "Text",
+      "props": {
+        "text": "08-01 basket settlementLegs collapse marked first ≥20% fire — observation holds."
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_status": {
+      "type": "Heading",
+      "props": {
+        "text": "Status",
+        "level": "h3"
+      }
+    },
+    "text_status": {
+      "type": "Text",
+      "props": {
+        "text": "Conservation OK across all modes."
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_report": {
+      "type": "Link",
+      "props": {
+        "label": "View detailed report",
+        "href": "memory/topics/compute-futures-eda/2026-08-06.md"
+      }
+    }
+  }
+}
