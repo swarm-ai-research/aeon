@@ -1,0 +1,241 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "surplus pulse",
+        "description": "2026-08-07"
+      },
+      "children": [
+        "spot-section",
+        "sep1",
+        "curve-section",
+        "sep2",
+        "rail-section",
+        "sep3",
+        "summary-section"
+      ]
+    },
+    "spot-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "spot-heading",
+        "spot-content"
+      ]
+    },
+    "spot-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h3"
+      }
+    },
+    "spot-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "spot-badge",
+        "spot-stat"
+      ]
+    },
+    "spot-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "catalog · Llama 4 Scout"
+      }
+    },
+    "spot-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Surplus Intelligence",
+        "value": "$0.0764/M"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "curve-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "curve-heading",
+        "h100-row",
+        "deepseek-row",
+        "demand-row"
+      ]
+    },
+    "curve-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h3"
+      }
+    },
+    "h100-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "h100-desc",
+        "h100-stat"
+      ]
+    },
+    "h100-desc": {
+      "type": "Text",
+      "props": {
+        "text": "Hyperscaler H100 reserve at R30 (round 6)"
+      }
+    },
+    "h100-stat": {
+      "type": "Stat",
+      "props": {
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "deepseek-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "deepseek-desc",
+        "deepseek-stat"
+      ]
+    },
+    "deepseek-desc": {
+      "type": "Text",
+      "props": {
+        "text": "DeepSeek V3.2 open-weights flush undoes it at R24–R38"
+      }
+    },
+    "deepseek-stat": {
+      "type": "Stat",
+      "props": {
+        "value": "−43–44%",
+        "trend": "down"
+      }
+    },
+    "demand-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "demand-desc",
+        "demand-stat"
+      ]
+    },
+    "demand-desc": {
+      "type": "Text",
+      "props": {
+        "text": "Agent platform demand surge reclaims into expiry"
+      }
+    },
+    "demand-stat": {
+      "type": "Stat",
+      "props": {
+        "value": "+47–51%",
+        "trend": "up"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "rail-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "rail-heading",
+        "rail-content"
+      ]
+    },
+    "rail-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h3"
+      }
+    },
+    "rail-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rail-badge",
+        "rail-link"
+      ]
+    },
+    "rail-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "x402 on Base/USDC"
+      }
+    },
+    "rail-link": {
+      "type": "Link",
+      "props": {
+        "label": "Surplus x402",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-heading",
+        "summary-text"
+      ]
+    },
+    "summary-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h3"
+      }
+    },
+    "summary-text": {
+      "type": "Text",
+      "props": {
+        "text": "Curve runs through three full regime flips in 30 rounds — the Surplus inference market is volatile and mean-reverting, with open-weights supply shocks sufficient to fully cancel a hyperscaler reserve spike mid-run.",
+        "variant": "lead"
+      }
+    }
+  }
+}
