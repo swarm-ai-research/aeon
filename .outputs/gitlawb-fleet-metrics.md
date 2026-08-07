@@ -1,8 +1,8 @@
-Skill complete. Result: `GLMETRICS_EMPTY` — `memory/gitlawb-fleet.json` is absent, so the skill logged the empty-fleet verdict to `memory/logs/2026-08-05.md` and stopped without notifying (per Pre-flight step 2: "an empty fleet is not news").
-
 ## Summary
-- Executed `gitlawb-fleet-metrics` for 2026-08-05.
-- Pre-flight: `node --version` = v22.23.1 ✓; `memory/gitlawb-fleet.json` missing → `GLMETRICS_EMPTY`.
-- CLI (`prototypes/gitlawb-safety/fleet-cli.mjs metrics`) not invoked; `./notify` not called.
-- Only file modified: `memory/logs/2026-08-05.md` (appended the run log).
-- Follow-up: skill will start emitting real snapshots once the Phase 5 safety layer mints its first instance.
+
+- Ran `gitlawb-fleet-metrics` for 2026-08-07.
+- Pre-flight: `node v22.23.1` present; `prototypes/gitlawb-safety/fleet-cli.mjs` present; but `memory/gitlawb-fleet.json` is **missing**.
+- Per skill pre-flight rule ("if `memory/gitlawb-fleet.json` is missing or has no instances, log `GLMETRICS_EMPTY` and stop without notifying — an empty fleet is not news"), stopped silently.
+- Files modified: `memory/logs/2026-08-07.md` (appended `GLMETRICS_EMPTY` entry).
+- No notify fired. No follow-up needed unless the fleet gets provisioned.
+- Exit: `GLMETRICS_EMPTY`
