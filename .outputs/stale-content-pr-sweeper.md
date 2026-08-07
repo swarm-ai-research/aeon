@@ -1,10 +1,9 @@
 ## Summary
 
-Ran the `stale-content-pr-sweeper` skill for 2026-08-05.
+Ran `stale-content-pr-sweeper` for 2026-08-07.
 
-- **Open PRs on repo:** 1 (dependabot #8, `dependabot/github_actions/github-actions-a0f12f8676`).
-- **Eligible content PRs:** 0 — branch prefix not in TRACKED list, author `app/dependabot` not in `aeonframework` allowlist.
-- **Groups checked:** 0. **PRs closed:** 0. Skips: 0/0/0.
-- **Notify:** not fired (steady-state no-op per SKILL step 6).
-- **Files modified:** `memory/logs/2026-08-05.md` (new log with `SWEEPER_OK`).
-- **Follow-up:** actual sweeps stay gated on unblocking content-skill PR creation (rank-1 operator toggle per MEMORY.md).
+- **Open PRs scanned:** 1 (dependabot #8 — `dependabot/github_actions/…`, author `app/dependabot`)
+- **Eligible content PRs:** 0 (fails both branch-prefix TRACKED allowlist and author allowlist)
+- **Groups:** 0 · **Closed:** 0 · **Skipped:** 0 · **Notify:** none (steady state)
+- **Root cause of empty queue:** `github-actions-cannot-create-prs` still blocks content skills from opening PRs at all — ≥26 branches remain staged unmerged, so the sweeper naturally has nothing to prune. Skill is idempotent no-op until the Repo Settings toggle lands.
+- **Files modified:** `memory/logs/2026-08-07.md` (created).
