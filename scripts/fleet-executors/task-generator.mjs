@@ -124,6 +124,9 @@ function createTask(agent, payload, opts = {}) {
 }
 
 // Gather repo state
+// Bare repo name on purpose: `gl pr list <owner>/<repo>` fails with
+// "invalid JSON" even for a repo that exists, so this one can't be qualified
+// the way the issue-create calls in reviewer.mjs / sentinel.mjs are.
 const openPRs = run("gl", ["pr", "list", "aeon", "--node", node]);
 const prCount = (openPRs.stdout || "").split("\n").filter(Boolean).length;
 

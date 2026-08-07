@@ -13,8 +13,10 @@
 import { spawnSync } from "node:child_process";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { gitlawbRepoRef } from "./gitlawb-repo.mjs";
 
 const repoDir = process.env.GITLAWB_REPO_DIR || ".";
+const gitlawbRepo = gitlawbRepoRef();
 const task = JSON.parse(process.env.GITLAWB_TASK_JSON || "{}");
 const agent = JSON.parse(process.env.GITLAWB_AGENT_JSON || "{}");
 
@@ -179,7 +181,7 @@ const result = spawnSync("gl", [
   "issue", "create",
   "--title", auditTitle,
   "--body", body.join("\n"),
-  "aeon",
+  gitlawbRepo,
 ], { cwd: repoDir, encoding: "utf8" });
 
 if (result.status !== 0) {

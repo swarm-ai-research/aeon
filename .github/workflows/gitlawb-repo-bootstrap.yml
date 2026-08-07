@@ -1,0 +1,117 @@
+name: GitLawb Repo Bootstrap
+
+# One-off, dispatch-only: create the GitLawb repo this fleet writes its reviews,
+# audits and proofs to, owned by *this* repo's operator identity.
+#
+# Why it exists: `gl issue create` resolves a repo under the DID that runs it.
+# The private fleet's operator owns `aeon` on the node; a mirror or fork runs as
+# a different operator that owns nothing, so every code-review and audit task
+# 404s. That operator's key only ever exists as a secret inside its own repo, so
+# the repo has to be created from a run there — hence this workflow rather than
+# a script an operator runs locally.
+#
+# After a successful run, set the printed URL as the `GITLAWB_REPO_URL`
+# repository variable (Settings → Secrets and variables → Actions → Variables).
+# scripts/fleet-executors/gitlawb-repo.mjs reads it via fleet-runner.yml.
+#
+# Safe to leave in place: it never runs on its own, and re-running it against an
+# existing repo is a no-op.
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Repo name to create on the GitLawb node"
+        required: false
+        default: "aeon"
+      description:
+        description: "Repo description"
+        required: false
+        default: "Autonomous agent fleet — Aeon on GitLawb"
+
+# Least-privilege: no permissions by default; the job grants only what it needs.
+permissions: {}
+
+env:
+  GITLAWB_NODE: https://node.gitlawb.com
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      # Only for `gh release download` of the gl CLI from gitlawb/releases.
+      contents: read
+
+    steps:
+      - name: Install GitLawb CLI
+        # Same pinned-release install as fleet-runner.yml — `curl
+        # gitlawb.com/install.sh` is rate-limited from shared GHA IPs and
+        # silently no-ops when piped to bash. Bump GL_VERSION in both files.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GL_VERSION: v0.3.8
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.local/bin"
+          asset="gitlawb-${GL_VERSION}-x86_64-unknown-linux-musl.tar.gz"
+          downloaded=0
+          for attempt in 1 2 3; do
+            if gh release download "$GL_VERSION" -R gitlawb/releases \
+                 --pattern "$asset" --output /tmp/gl.tar.gz --clobber; then
+              downloaded=1
+              break
+            fi
+            echo "gl download attempt $attempt failed; retrying in $((attempt * 5))s"
+            sleep $((attempt * 5))
+          done
+          if [ "$downloaded" -ne 1 ]; then
+            echo "::error::GitLawb CLI download failed — $asset from gitlawb/releases after 3 attempts"
+            exit 1
+          fi
+          tar -xzf /tmp/gl.tar.gz -C "$HOME/.local/bin" gl git-remote-gitlawb
+          chmod +x "$HOME/.local/bin/gl" "$HOME/.local/bin/git-remote-gitlawb"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          "$HOME/.local/bin/gl" --version
+
+      - name: Restore operator identity
+        run: |
+          set -euo pipefail
+          if [ -z '${{ secrets.GITLAWB_OPERATOR_PEM }}' ]; then
+            echo "::error::GITLAWB_OPERATOR_PEM is not set — nothing to create the repo as"
+            exit 1
+          fi
+          mkdir -p ~/.gitlawb
+          echo '${{ secrets.GITLAWB_OPERATOR_PEM }}' > ~/.gitlawb/identity.pem
+          echo '${{ secrets.GITLAWB_OPERATOR_UCAN }}' > ~/.gitlawb/ucan.json
+          chmod 600 ~/.gitlawb/identity.pem
+
+      - name: Create repo if absent
+        env:
+          REPO_NAME: ${{ inputs.name }}
+          REPO_DESC: ${{ inputs.description }}
+        run: |
+          set -euo pipefail
+          did=$(gl identity show)
+          echo "Operator: $did"
+
+          # `gl repo list` prints one row per repo, name in the first column.
+          if gl repo list --node "$GITLAWB_NODE" | awk '{print $1}' | grep -qx "$REPO_NAME"; then
+            echo "Repo '$REPO_NAME' already exists under $did — nothing to do."
+          else
+            gl repo create "$REPO_NAME" --description "$REPO_DESC" --node "$GITLAWB_NODE"
+            echo "Created '$REPO_NAME' under $did."
+          fi
+
+          url="gitlawb://${did}/${REPO_NAME}"
+          {
+            echo "### GitLawb repo ready"
+            echo
+            echo '```'
+            echo "$url"
+            echo '```'
+            echo
+            echo "Set this as the \`GITLAWB_REPO_URL\` **repository variable**"
+            echo "(Settings → Secrets and variables → Actions → Variables) so the"
+            echo "fleet's reviewer and sentinel write their issues here."
+          } >> "$GITHUB_STEP_SUMMARY"

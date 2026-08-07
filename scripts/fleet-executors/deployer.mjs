@@ -14,6 +14,7 @@ import { spawnSync } from "node:child_process";
 import { mkdirSync, mkdtempSync, copyFileSync, appendFileSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { tmpdir, homedir } from "node:os";
+import { DEFAULT_GITLAWB_REPO_URL } from "./gitlawb-repo.mjs";
 
 const repoDir = process.env.GITLAWB_REPO_DIR || ".";
 const task = JSON.parse(process.env.GITLAWB_TASK_JSON || "{}");
@@ -25,9 +26,7 @@ const action = payload.action || task.kind || "record commit proof";
 const component = payload.component || "fleet-deployer";
 
 // The GitLawb-hosted repo the fleet pushes signed proofs to.
-const GITLAWB_REPO_URL =
-  process.env.GITLAWB_REPO_URL ||
-  "gitlawb://did:key:z6MkpiXbCJzXGLw9bQXw5t8ja734YsrhYWEQMqsicwUcjHbH/aeon";
+const GITLAWB_REPO_URL = process.env.GITLAWB_REPO_URL || DEFAULT_GITLAWB_REPO_URL;
 const GITLAWB_BRANCH = process.env.GITLAWB_BRANCH || "main";
 
 function run(cmd, args, opts = {}) {
@@ -357,6 +356,8 @@ if (kind === "compute-futures-sim" || action.includes("compute-futures")) {
 // Determine what to do based on action
 if (action.includes("merge")) {
   // ── PR Merge Mode ──
+  // Bare repo name on purpose — see the note in task-generator.mjs: `gl pr list`
+  // rejects an `<owner>/<repo>` ref, unlike `gl issue create`.
   const prList = tryRun("gl", ["pr", "list", "aeon"]);
   if (!prList.ok) {
     console.log("Could not list PRs — skipping merge action");
