@@ -1,18 +1,19 @@
+Skill complete.
+
 ## Summary
 
-Ran `pr-triage` for `swarm-ai-research/swarm` (repo mode via `${var}` override).
+Executed `pr-triage` in **repo mode** against `swarm-ai-research/swarm`.
 
-**Triaged: 1** (deferred=1) · **Skipped: 8** (bots=6, already-triaged=2)
+**Triaged 2 external PRs** (both rsavitt, both at new head SHAs since prior triage):
+- **#543** "docs: remove AI-slop writing patterns" (+36/-40, README + 11 docs) → **ACCEPTED**
+- **#549** "feat(bridges): incorporate Prime Agent" (+3818/-0, no `large-ok`) → **DEFER** (size)
 
-- **PR #549** — rsavitt, `cc720dd`, +3818/-0 across 13 files (feat: Prime Agent bridge) → verdict **DEFER** on Size (3818 > 500, no `large-ok`). Originality ✓ (new `prime_agent`, distinct from existing `prime_intellect`); Format n/a (no SKILL.md); no protected-path touch → not OUT-OF-SCOPE.
-- **Write ops on swarm 403'd as expected** — `gh pr comment` and `gh label create/edit` both returned `Resource not accessible by integration`. 25th confirming observation of [[aeon-app-no-write-on-swarm-repo]] (log-only verdict). State file records the intent.
-- **Skipped bots** (dependabot): #550, #547, #546, #545, #538, #537.
-- **Skipped already-triaged** at current head: #543 (sha `70b20e0`), #536 (sha `76e6200`).
+**Skipped 4** dependabot PRs (bots route to auto-merge/pr-review, not triage).
 
-**Files modified:**
-- `memory/triaged-prs.json` — appended #549 record (now 4 entries under swarm; oldest #450 at 73d, no 90d purge).
-- `memory/logs/2026-08-06.md` — appended `### pr-triage` section.
+**Write status:** All comment/label endpoints returned HTTP 403 — 25th confirming observation of `aeon-app-no-write-on-swarm-repo`. No comments landed; verdicts recorded to state only. This is a distinct write-permission blocker from the aeon-repo unblock that landed overnight per today's planner.
 
-**Notify:** not sent (gate not met — no OUT-OF-SCOPE close, no first-time author).
+**Notify:** Suppressed per gate (no OUT-OF-SCOPE; rsavitt not first-time contributor with 4 prior records).
 
-**Follow-up:** Same operator toggle blocker as prior runs — until `AEON_GH_PAT` or App write perms on swarm are provisioned, on-PR comments/labels for external swarm PRs remain intent-only in the state file. `PR_TRIAGE_OK`.
+**Files modified:** `memory/triaged-prs.json` (+2 entries), `memory/logs/2026-08-07.md` (pr-triage log entry).
+
+**Follow-up:** Operator PR-write unblock on `swarm-ai-research/swarm` remains rank-1 fleet-wide, unaffected by the aeon-repo unblock.
