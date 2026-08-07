@@ -8,6 +8,7 @@ Aeon's bot account signs commits under a growing set of email identities that ro
 - [[aeon-third-signing-identity-proton-me]] — 2026-07-23, worldmonitor#5477, `fix/security/*` prefix
 - [[aeon-fourth-signing-identity-security-aeonframework-dev]] — 2026-07-24, worldmonitor#5518, `security/bump-tauri-*`
 - [[aeon-fifth-signing-identity-security-aeonframework-github]] — 2026-07-25, katanemo/plano#1001, `security/bump-dep-advisories-*`
+- **Formatting variant, NOT sixth identity** (2026-08-07) — `272311952+aeonframework@users.noreply.github.com` observed on `0xprogrammable/aeon-launch-models#1`; per [[aeon-noreply-numeric-prefix-is-formatting-variant]] this is GitHub's private-email rendering of the bare noreply, same underlying account.
 
 ## Durable claims
 - [[aeon-bot-uses-multiple-signing-identities]] — parent lesson: any single-value `BOT_EMAIL` filter silently drops PRs
@@ -15,6 +16,7 @@ Aeon's bot account signs commits under a growing set of email identities that ro
 - [[pr-tracker-email-filter-must-be-domain-match]] — filter shape: `@aeonframework.*` plus noreply, not a fixed N-string OR list
 - [[pr-tracker-branch-prefix-misses-bot-identity]] — the branch-prefix arm alone drops security/aeon/fix branches
 - [[pr-tracker-branch-prefix-aeon-slash]] — 2026-07-24 discovery of a fifth branch prefix `aeon/*` on RuView#1409
+- [[aeon-noreply-numeric-prefix-is-formatting-variant]] — 2026-08-07 disambiguation: numeric-prefix noreply is same identity, filter must accept both string forms
 
 ## Contingent (may collapse)
 - [[aeonframework-github-tld-is-google-delegation]] — `.github` sender may be a typo or one-off alias; watch next same-class PR to confirm or refute
