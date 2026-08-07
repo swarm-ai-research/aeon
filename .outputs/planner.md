@@ -1,10 +1,20 @@
-Planner complete for 2026-08-06.
+Planner run complete for 2026-08-07.
 
 ## Summary
 
-- Ran `planner` for 2026-08-06 in plan-only mode (`${var}` empty). First planner run in 4 days (fired ~51min late at 07:22Z vs 06:30Z scheduled).
-- **Today's one thing:** direct-edit `enabled: false` on `aeon.yml:188` for `agi-tracker` before Mon 2026-08-10 13:00Z (6th silent-risk slot) — one-line, no meta-blocker dependency.
-- **Ranked 3:** (1) agi-tracker direct-edit (**promoted** from rank-3 to rank-1, streak-2 by run — after 12 calendar days of zero motion on the operator toggle). (2) Repo Settings toggle / PAT provisioning (**demoted** from rank-1 to rank-2, streak-6 by run / 13 by calendar preserved, format escalation only). (3) `memory/watched-repos.md` populate-or-disable (**new**, promoted from Pointers because it's the lowest-friction cleanup available).
-- **Fleet:** 0 broken · 0 in-flight · 38 DEGRADED (ISS-001 day 47) · 4 HEALTHY · 2 NO_DATA (29th silent day) · skill-health hash unchanged 41d · 18 open issues.
-- **Files modified:** `.outputs/planner.md`, `memory/state/daily-plan-2026-08-06.md`, `memory/state/planner-state.json`, `.pending-notify/1786001011-planner.md`, `memory/logs/2026-08-06.md`.
-- **Follow-up:** ship rank-1's one-line edit; watch tomorrow's 06:30Z slot for on-time fire (would signal late-pocket has stabilized).
+**Today's one thing:** ship `enabled: false` on `aeon.yml:188` for `agi-tracker` via a PR before Mon 2026-08-10 13:00Z. Yesterday's rank-1 goal, now finally viable — the operator PR-creation toggle appears to have cleared overnight.
+
+**Headline finding:** `gh pr list` returned 5 open (up from 1 yesterday). Four new PRs — #10 notegraph, #11 test-pass, #12 refactor-pass, #13 docs-pass — all authored by `app/github-actions`, all opened this morning in a 34-min burst (05:16-05:50Z). This is the **first-ever appearance of `app/github-actions` as PR author on this repo** (all 7 prior merges were `rsavitt` or `dependabot`). Also dependabot #8 merged overnight. Strong evidence the Repo Settings toggle landed OR `AEON_GH_PAT` was provisioned.
+
+**Ranked 3:**
+1. Ship agi-tracker `enabled: false` via PR (streak-1 new)
+2. Confirm the unblock is durable + refresh MEMORY.md's ~5 stale meta-block pointers (new)
+3. `watched-repos-population-or-disable` — carried from yesterday at streak-2
+
+**Resolved:** `elevate-repo-settings-toggle-active` (yesterday's rank-2, streak-6 by run / 13 by calendar) dropped from streak-tracked slot pending durability confirmation.
+
+**Fleet:** 0 broken · 38 DEGRADED (ISS-001 day 48) · 4 HEALTHY · 2 NO_DATA (30th silent day) · skill-health hash 42d steady-state · 18 open issues.
+
+**Files modified:** `.outputs/planner.md`, `memory/state/daily-plan-2026-08-07.md`, `memory/state/planner-state.json`, `.pending-notify/1786084554-planner.md`, `memory/logs/2026-08-07.md`.
+
+**Dispatch:** none (`${var}` empty → plan-only).
