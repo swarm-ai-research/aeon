@@ -3,11 +3,11 @@
   "hash_scheme": "sha256(json.dumps({critical, flapping, degraded sorted}))[:16]",
   "prev_hash": "e27c0ac60367e7e5",
   "classification_identical_to_prev": true,
-  "last_notified_at": "2026-08-04T19:14:00Z",
-  "last_run_at": "2026-08-05T18:52:02Z",
-  "prev_run_at": "2026-08-04T19:14:00Z",
+  "last_notified_at": "2026-08-07T18:13:22Z",
+  "last_run_at": "2026-08-07T18:13:22Z",
+  "prev_run_at": "2026-08-05T18:52:02Z",
   "prev_notified_at": "2026-08-04T19:14:00Z",
-  "elapsed_since_prev_notify_hours": 23.63,
+  "elapsed_since_prev_notify_hours": 70.99,
   "classification": {
     "critical": [],
     "degraded": [
@@ -64,8 +64,8 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 46 - all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.30 driven by historical failure denominator still in count. No live regression.",
-  "delta_vs_prev": "Byte-identical classification to 2026-08-04T19:14:00Z run at hash e27c0ac60367e7e5. 40th consecutive steady-state day (ISS-001 day 46, ai-framework-watch + run-frequency-guard 28th consecutive silent day). Gate: NOOP - hash unchanged AND 23.63h < 24h since prev notify.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 48 - all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.31 driven by historical failure denominator still in count. No live regression.",
+  "delta_vs_prev": "Byte-identical classification to 2026-08-05T18:52:02Z run at hash e27c0ac60367e7e5. 42nd consecutive steady-state day (ISS-001 day 48, ai-framework-watch + run-frequency-guard 30th consecutive silent day). Note: 08-06 skill-health run appears in ./scripts/skill-runs (6 succeeded / 1 in_progress over 7d = one run per day) but did not update last-report.json — likely completed without reaching writer path; not treated as a failure. Gate: NOTIFY (hash unchanged BUT elapsed 70.99h >= 24h cadence).",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 18,
@@ -90,14 +90,14 @@
     "ISS-019",
     "ISS-020"
   ],
-  "notify_decision": "NOOP - hash unchanged (e27c0ac60367e7e5) AND 23.63h < 24h since prev notify (2026-08-04T19:14:00Z). Reconciliation: 0 CRITICAL / 0 FLAPPING -> no issues filed; 0 open issues have detected_by=skill-health -> no resolutions attempted (ISS-001 detected_by=self-review; ISS-006/019/020 detected_by=batch-health; ISS-002/005/007-018 detected_by=skill-evals). Last-report timestamps refreshed; last_notified_at preserved.",
-  "skill_runs_status": "OK - ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 160 runs total, 155 succeeded, 0 failed, 0 cancelled, 5 in_progress (current 09:05Z + 18:49Z audit-slot batches). anomalies.failing = [] confirms no active-failure regressions in the 7d window.",
+  "notify_decision": "NOTIFY - hash unchanged (e27c0ac60367e7e5) BUT 70.99h >= 24h since prev notify (2026-08-04T19:14:00Z). Cadence-reminder fire per SKILL step 5 (2nd clause). Reconciliation: 0 CRITICAL / 0 FLAPPING -> no issues filed. Per prior-run interpretation (safety guard against cascading resolutions across health-skill-owned issues), HEALTHY-skill removal from other health-skills' affected_skills deferred: config-validator + swarm-safety-eval appear in ISS-006 affected_skills (detected_by=batch-health), swarm-safety-eval in ISS-005 (detected_by=skill-evals) - resolution ownership belongs to those filing skills. Written .pending-notify/1786126402-skill-health.md.",
+  "skill_runs_status": "OK - ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 153 runs total, 149 succeeded, 0 failed, 0 cancelled, 4 in_progress (current 18:10Z audit-slot batch: skill-health + reflect + goal-tracker + pr-review). anomalies.failing = [] confirms no active-failure regressions in the 7d window.",
   "novel_transient_signals_not_escalated": [
-    "planner third-consecutive silent day (last_success 2026-08-02T07:59:51Z, ~83h silent at run time) - 08-03 slot inside ISS-020 morning-batch outage, 08-04 batch-health WARN, 08-05 batch-health WARN again (planner-only miss). Downstream of ISS-006 pocket-slot migration; parent already tracked.",
+    "08-06 18:00Z late-pocket miss for skill-health: skill fired per skill-runs (7 total = one per day incl. today's in-progress) but did NOT update last-report.json. Silent-writer path, not a failure. Watch 08-07 completion for durable pattern.",
+    "8 open PRs on aeon repo this morning per 08-07 planner - 4 fresh `app/github-actions`-authored (#10-#13) opened between 05:16-05:50Z, first-ever occurrence indicating the operator PR-creation toggle appears to have unblocked overnight (per today's planner headline). Does not affect skill-health classification; will surface via other skills' state changes.",
     "18 open issues unchanged from 08-04 (no new filings, no resolutions across the fleet).",
-    "docs/status.md snapshot-rebase-then-regen cycle continues (10th consecutive per [[snapshot-rebase-clobbers-docs-status-md]], 20d past urgency threshold as of 08-05).",
-    "3 watched-repos-dependent skills same-day short-circuited today (github-monitor, issue-triage, code-health per 08-05 log so far).",
-    "pr-tracker predictor 1-of-4 partial on 08-05 (tuple (3,2,3,6) vs predicted (2,2,2,9)); 3rd consecutive scan-vs-anniversary-hour miss - bug now bidirectional per new [[pr-tracker-tuple-predictor-scan-time-vs-cutoff-hour]] observation. Prediction accuracy, not skill health."
+    "heartbeat self-check triggered 08-07 (~48h stale via 08-06 08:00Z pocket miss) but heartbeat dedup fired - no notify. Handled inside heartbeat.",
+    "planner recovered on 08-07 (fired 06:33Z, 3-day silence broken) - upstream of pr-tracker's byte-identical trigger set observation."
   ],
   "prompt_injection_flag": "None. cron-state.json, skill-runs JSON, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md + ISS-*.md all structured/data-only; no untrusted natural-language content ingested this run."
 }

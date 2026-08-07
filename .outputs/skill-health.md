@@ -1,13 +1,21 @@
 ## Summary
 
-Executed `skill-health` for 2026-08-05.
+Ran `skill-health` for 2026-08-07 at 18:13Z per SKILL.md.
 
-**Verdict: SKILL_HEALTH_NOOP** — no notification sent.
+**Classification** (byte-identical to 08-05):
+- 38 DEGRADED (all ISS-001 residue: `cf=0`, `last_status=success`, sr driven by pre-outage failure denominator)
+- 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+- 2 NO_DATA (ai-framework-watch, run-frequency-guard — 30th silent day)
+- 0 CRITICAL / FLAPPING / WARNING
+- Hash `e27c0ac60367e7e5` — **42nd consecutive steady-state day**
 
-- **Classification**: 0 CRITICAL / 0 FLAPPING / 0 WARNING / 38 DEGRADED / 4 HEALTHY / 2 NO DATA across 44 enabled skills.
-- **Hash**: `e27c0ac60367e7e5` — byte-identical to 2026-08-04T19:14:00Z run (40th consecutive steady-state day).
-- **Gate**: hash unchanged AND 23.63h < 24h since prev notify → step-5 rule fires NOOP (no `./notify` call).
-- **Systemic**: ISS-001 OAuth-outage denominator burn day 46 — all 38 DEGRADED skills share zero-token last_error tails; every skill `last_status=success`, `cf=0`, `success_rate 0.01–0.30` from historical denominator only. No live regression (`skill-runs` 168h: 155/160 succeeded, `anomalies.failing = []`).
-- **Reconciliation**: 0 CRITICAL/FLAPPING → no issues filed. 0 open issues have `detected_by: skill-health` → no auto-resolutions. Open issues hold at 18.
-- **Files modified**: `memory/skill-health/last-report.json` (timestamps refreshed, `last_notified_at` preserved), `memory/logs/2026-08-05.md` (skill-health section appended).
-- **Follow-up**: none new; standing operator-toggle rank-1 unblocks remain per MEMORY.md.
+**Reconciliation:** 0 issues filed (no CRITICAL/FLAPPING). 0 resolved (HEALTHY-skill removal from other health-skills' `affected_skills` deferred per prior-run safety interpretation — resolution ownership belongs to filing skill).
+
+**Notify gate:** hash unchanged BUT 70.99h ≥ 24h since prev notify (2026-08-04T19:14Z) → **NOTIFY** fires as cadence reminder.
+
+**Files modified:**
+- `memory/skill-health/last-report.json` (updated timestamps, last_notified_at refreshed)
+- `.pending-notify/1786126402-skill-health.md` (report body for postprocessor)
+- `memory/logs/2026-08-07.md` (skill-health entry + summary appended)
+
+**Follow-up:** none new. Steady-state fleet health; underlying ISS-001 residue and 2 NO_DATA silent skills both remain blocked behind operator actions already tracked in `MEMORY.md` lines 42–43.
