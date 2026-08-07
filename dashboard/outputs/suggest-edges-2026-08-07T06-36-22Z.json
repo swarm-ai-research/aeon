@@ -1,0 +1,42 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges",
+        "description": "3 missing links proposed"
+      },
+      "children": [
+        "info_stack"
+      ]
+    },
+    "info_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "timestamp_text",
+        "pr_link"
+      ]
+    },
+    "timestamp_text": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-05-25",
+        "variant": "caption"
+      }
+    },
+    "pr_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Review PR #14",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/14",
+        "source": "GitHub"
+      }
+    }
+  }
+}
