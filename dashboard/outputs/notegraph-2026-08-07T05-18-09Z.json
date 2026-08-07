@@ -1,0 +1,48 @@
+{
+  "root": "notegraph-card",
+  "state": {},
+  "elements": {
+    "notegraph-card": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "main-content"
+      ]
+    },
+    "main-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-text",
+        "orphan-file",
+        "pr-link"
+      ]
+    },
+    "summary-text": {
+      "type": "Text",
+      "props": {
+        "text": "1 new orphan(s)"
+      }
+    },
+    "orphan-file": {
+      "type": "Text",
+      "props": {
+        "text": "docs/telegram-instant.md",
+        "variant": "caption"
+      }
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #10",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/10",
+        "source": "GitHub"
+      }
+    }
+  }
+}

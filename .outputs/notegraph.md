@@ -1,1 +1,1 @@
-*Notegraph updated* — +1 notes wired in (234n / 2407e / 66 atomic). PR blocked, branch `notegraph/2026-08-05` staged (21st awaiting operator toggle).
+*Notegraph updated* — 1 new orphan(s): docs/telegram-instant.md…. PR: https://github.com/swarm-ai-research/aeon/pull/10
