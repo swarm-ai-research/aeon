@@ -82,7 +82,7 @@ jobs:
     steps:
       - name: Early checkout
         if: github.event_name == 'issues'
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4.4.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -118,7 +118,7 @@ jobs:
 
       - name: Checkout repo
         if: steps.work.outputs.mode != ''
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4.4.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
