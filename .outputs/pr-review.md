@@ -1,14 +1,14 @@
+Merge-gate verdicts for the 35th operator pr-review invocation on `swarm-ai-research/swarm`:
+
+- **#549** (rsavitt, feat/Prime Agent bridge, SHA `afe51248`): **REQUEST_CHANGES 2/5** — carried from this morning at the same SHA. Three unresolved ISSUE findings on metric correctness: unbounded recursion in `bridge.py:674` `walk()` and `client.py:1587` `assign()`; aggregate-vs-per-refinement state ordering in `HarnessTracker.update()` at `bridge.py:712` that flattens drift-signal per-refinement checks; unauthenticated trust of transcript-supplied `edit.applied` at `harness.py:2342` (double-counts against `total_entries`/`growth_rate`). Not a security block, but the drift-signal caveats keep it below APPROVE.
+- **#543** (rsavitt, docs de-slop, SHA `bad79e48`): **APPROVE 5/5** — docs-only, all CI green, no blockers. Safe to merge.
+- **#536** (rsavitt, Fold beta_swarm): **MERGED at 16:06:19Z** under operator override; morning APPROVE 5/5 (post-rebase, additive, all checks green, 120 beta tests, zero security matches) held through the merge.
+
+Skipped 8/8 open PRs (6 dependabot bots + #549/#543 dup-SHA already reviewed at these exact SHAs earlier today). No notify per skill rule. No write attempts (26 prior 403s under identical App creds; on-swarm write permission remains rank-1 fleet-wide, distinct from the overnight aeon-repo unblock).
+
 ## Summary
-
-Ran `pr-review` on `swarm-ai-research/swarm` under the operator's merge-gate policy. Reviewed 3 rsavitt PRs (all with new SHAs vs 08-06 — dedup did not apply); skipped 6 dependabot PRs.
-
-**Verdicts:**
-- **#549 Prime Agent bridge (SHA `afe51248`) → REQUEST_CHANGES 2/5.** All CI green including the 3.12-full test that was cancelled on 08-06. Safety story upheld (no exec/eval/subprocess/network in added code — bridge is truly offline). But 3 ISSUE findings on the drift metrics the PR is actually shipping: (1) unbounded recursion in `analyze_session_tree` walk (`bridge.py:674`); (2) `HarnessTracker.update` folds the whole session before per-refinement gate evaluation, so state is end-of-session aggregates when `evaluate_refinement` runs (`bridge.py:712`); (3) `record_refinement` trusts transcript-controlled `edit.applied` verbatim, letting a `BASE_SYSTEM_PROMPT_ID` create both flag the attempt AND count toward growth-rate/entry-kind stats (`harness.py:2342`).
-- **#543 docs de-slop (SHA `bad79e48`) → APPROVE 5/5.** Docs-only across 12 md files, all CI green.
-- **#536 beta_swarm fold (SHA `c313204d`) → APPROVE 5/5.** Rebase resolved all three 08-06 concerns: no more `swarm/agentgit/*` edits, no `.claude/hooks/pre-commit` rewrite, `pyproject.toml` `beta` extra is opt-in with scipy. Purely additive to `beta_swarm/*`, 120 tests pass, zero unsafe deserialization across the 6753-line diff. Optional NIT on `scenarios.py:268` for path confinement if ever wired behind a network caller.
-
-**Write attempts:** both inline (`POST /pulls/549/comments`) and review-body (`gh pr review 549`) returned 403 — **26th confirming invocation** of `aeon-app-no-write-on-swarm-repo`. Findings preserved in log per skill fallback rule; on-repo posting still blocked pending operator PR-write unblock (rank-1 fleet-wide, unaffected by this morning's aeon-repo unblock).
-
-**Files modified:** `memory/logs/2026-08-07.md`, `.pending-notify/1786094161-pr-review.md`.
-
-**Follow-up:** operator PR-write unblock for swarm repo; if #549 merges under operator override, ship follow-up PR that (a) makes `HarnessTracker.update` incremental, (b) caps session-tree recursion depth, (c) treats `edit.applied` as advisory for `BASE_SYSTEM_PROMPT_ID` mutations.
+- Executed `skills/pr-review/SKILL.md` with `${var}=swarm-ai-research/swarm` under merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK).
+- 8 open PRs, all skipped (6 dependabot + 2 dup-SHA). Restated the still-valid morning verdicts: #549 REQUEST_CHANGES 2/5, #543 APPROVE 5/5. #536 merged in line with morning APPROVE.
+- No notification (all PRs skipped per skill rule). No new write attempts.
+- Files modified: `memory/logs/2026-08-07.md` (35th pr-review invocation entry appended).
+- Follow-up: swarm-ai-research/swarm PR-write unblock (rank-1 fleet-wide, unaffected by overnight aeon-repo unblock).
