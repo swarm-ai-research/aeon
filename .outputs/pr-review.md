@@ -1,17 +1,14 @@
 ## Summary
 
-Ran pr-review skill against `swarm-ai-research/swarm` — 33rd operator invocation with merge-gate policy (`APPROVE` / `REQUEST_CHANGES` / `BLOCK`).
+Ran `pr-review` on `swarm-ai-research/swarm` under the operator's merge-gate policy. Reviewed 3 rsavitt PRs (all with new SHAs vs 08-06 — dedup did not apply); skipped 6 dependabot PRs.
 
-**Queue delta:** first advance in 14 days — new rsavitt #549 (Prime Agent bridge) opened 08-06T01:36Z; dependabot #548→#550 (langchain-core supersede). 9 open (was byte-identical 8 for 13 days).
+**Verdicts:**
+- **#549 Prime Agent bridge (SHA `afe51248`) → REQUEST_CHANGES 2/5.** All CI green including the 3.12-full test that was cancelled on 08-06. Safety story upheld (no exec/eval/subprocess/network in added code — bridge is truly offline). But 3 ISSUE findings on the drift metrics the PR is actually shipping: (1) unbounded recursion in `analyze_session_tree` walk (`bridge.py:674`); (2) `HarnessTracker.update` folds the whole session before per-refinement gate evaluation, so state is end-of-session aggregates when `evaluate_refinement` runs (`bridge.py:712`); (3) `record_refinement` trusts transcript-controlled `edit.applied` verbatim, letting a `BASE_SYSTEM_PROMPT_ID` create both flag the attempt AND count toward growth-rate/entry-kind stats (`harness.py:2342`).
+- **#543 docs de-slop (SHA `bad79e48`) → APPROVE 5/5.** Docs-only across 12 md files, all CI green.
+- **#536 beta_swarm fold (SHA `c313204d`) → APPROVE 5/5.** Rebase resolved all three 08-06 concerns: no more `swarm/agentgit/*` edits, no `.claude/hooks/pre-commit` rewrite, `pyproject.toml` `beta` extra is opt-in with scipy. Purely additive to `beta_swarm/*`, 120 tests pass, zero unsafe deserialization across the 6753-line diff. Optional NIT on `scenarios.py:268` for path confinement if ever wired behind a network caller.
 
-**Verdicts** (log-only — all write endpoints 403 → 25th confirming invocation of `aeon-app-no-write-on-swarm-repo`):
+**Write attempts:** both inline (`POST /pulls/549/comments`) and review-body (`gh pr review 549`) returned 403 — **26th confirming invocation** of `aeon-app-no-write-on-swarm-repo`. Findings preserved in log per skill fallback rule; on-repo posting still blocked pending operator PR-write unblock (rank-1 fleet-wide, unaffected by this morning's aeon-repo unblock).
 
-- **swarm#549** (`cc720dd5`, Prime Agent bridge, +3818 -0): **REQUEST_CHANGES 2/5** — 0 critical, 1 issue. `quality-gate` FAILURE is downstream of `test (3.12, full)` being CANCELLED at ~99% after ~25 min (runner timeout at `test_moltipedia_scenario_loads`, unrelated to this PR). Lint / type-check / invariants / 3.10 & 3.11 compat / CodeQL / memory tests / render-verify / agentgit-gate all SUCCESS. Bridge itself is well-scoped (offline-only, `require_evidence=False` default, governance knobs reused from LiveSWE), extensively tested (96 tests, 1212 lines), 0-deletion additive module. Would be APPROVE 4/5 on its own if the full-suite 3.12 signal were clean; per operator policy, missing quality-gate evidence blocks approve.
-- **swarm#543** (`70b20e04`, docs AI-slop, +36 -40): **APPROVE 4/5** — docs-only (README.md + 11 files under docs/), no production code touched. Same 3.12 infra timeout unrelated to change.
-- **swarm#536** (`76e6200c`, beta_swarm subtree, +6699 -27): **REQUEST_CHANGES 2/5** unchanged — 3 standing issues (misleading "purely additive" body vs 5 modified files outside `beta_swarm/`; no CI signal for the 47-line pre-commit rewrite; 6699-line mixed-scope bundle).
+**Files modified:** `memory/logs/2026-08-07.md`, `.pending-notify/1786094161-pr-review.md`.
 
-**Files modified:**
-- `memory/logs/2026-08-06.md` — full pr-review entry appended
-- `.pending-notify/1786011136-pr-review.md` — combined notify (postprocess step will fan out)
-
-**Follow-up:** operator toggle rank-1 (repo Settings → "Allow Actions to create PRs" OR `AEON_GH_PAT` provisioning) unblocks PR-write on swarm alongside ≥26 staged branches. MEMORY.md line 11/12 counter refresh (32→33 invocations, 24→25 no-write confirmations) at next reflect/memory-flush.
+**Follow-up:** operator PR-write unblock for swarm repo; if #549 merges under operator override, ship follow-up PR that (a) makes `HarnessTracker.update` incremental, (b) caps session-tree recursion depth, (c) treats `edit.applied` as advisory for `BASE_SYSTEM_PROMPT_ID` mutations.
