@@ -1,18 +1,24 @@
-Skill run complete. Task tracking not applicable here — this is a single-flow skill execution with a clear terminal step (log + notify write).
-
 ## Summary
 
-Ran `pr-review` on `swarm-ai-research/swarm` under merge-gate policy (36th operator invocation on this repo; first on 08-08).
+**37th pr-review invocation on `swarm-ai-research/swarm`** (2nd on 08-08 — repeating yesterday's same-day double). All 8 open PRs skipped per SKILL rules; no writes attempted; no notify (skip-all rule).
 
-**Merge-gate verdicts (all SHAs unchanged since 08-07 morning — dup-SHA holds prior review):**
-- **swarm#549** (rsavitt, Prime Agent bridge, SHA `afe51248`) → **REQUEST_CHANGES** (2/5 confidence) — 3 ISSUE findings still standing: unbounded recursion at `swarm/bridges/prime_agent/bridge.py:674`, aggregate-vs-per-refinement metric skew at `bridge.py:712`, unauthenticated `edit.applied` trust at `swarm/bridges/prime_agent/harness.py:2342`.
-- **swarm#543** (rsavitt, docs, SHA `bad79e48`) → **APPROVE** (5/5) — docs-only, no blockers.
-- **6 dependabot PRs** (#550, #547, #546, #545, #538, #537) → skipped per SKILL bot rule; policy-level APPROVE-class pending CI.
+**Merge-gate verdicts (standing, unchanged since 34th invocation ~40h ago — SHAs identical):**
 
-**Queue state:** 8 open (unchanged from 08-07 evening post-#536 merge). Zero fresh SHAs in ~30h — first invocation on this repo where 100% of the queue skips.
+| PR | Author | SHA | Verdict | Confidence |
+|---|---|---|---|---|
+| #549 — Prime Agent bridge | rsavitt | `afe51248` | **REQUEST_CHANGES** | 2/5 |
+| #543 — docs: remove AI-slop | rsavitt | `bad79e48` | **APPROVE** | 5/5 |
+| #550, #547, #546, #545, #538, #537 | dependabot | — | skipped (bot rule) | — |
 
-**Writes:** none attempted — pre-emptive respect of the 26+ confirmed App-perm 403 pattern on this repo per `[[aeon-app-no-write-on-swarm-repo]]`. SHAs unchanged so a new probe would add no information.
+**#549 — REQUEST_CHANGES 2/5** — 0 critical, 3 ISSUEs on metric correctness (from 34th invocation, still standing):
+- `[ISSUE] swarm/bridges/prime_agent/bridge.py:674` — unbounded recursion on session-tree walks; needs depth cap.
+- `[ISSUE] swarm/bridges/prime_agent/bridge.py:712` — aggregate-vs-per-refinement metric skew; `HarnessTracker.update` should be incremental so gate evaluation sees prior-refinement state.
+- `[ISSUE] swarm/bridges/prime_agent/harness.py:2342` — unauthenticated `edit.applied` trust when target = `BASE_SYSTEM_PROMPT_ID`; treat as advisory.
 
-**Files modified:** `memory/logs/2026-08-08.md` (pr-review section appended), `.pending-notify/1786181763-pr-review.md` (compact operator-facing status).
+Not ready to merge until these are addressed.
 
-**Follow-up:** if operator wants queue movement — #543 is easy merge; #549 needs rsavitt to address 3 correctness ISSUEs; 6 dependabot PRs need off-skill operator decisions.
+**#543 — APPROVE 5/5** — docs-only, no blockers.
+
+**Skips:** 6 dependabot (bot rule) + 2 rsavitt dup-SHA against last-2-days logs. Last copilot bot review ~40h old on both rsavitt PRs, so 30-min bot-recently rule N/A.
+
+**Files modified:** `memory/logs/2026-08-08.md` (37th invocation entry). No writes attempted to swarm-repo (App-write gap still open per [[aeon-app-no-write-on-swarm-repo]], counter unchanged at 26). **Follow-up:** operator PR-write unblock on `swarm-ai-research/swarm` (App-perm bump or `AEON_GH_PAT`) — remains rank-1 fleet-wide, distinct from aeon-repo unblock.
