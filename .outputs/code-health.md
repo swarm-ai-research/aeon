@@ -1,7 +1,5 @@
 ## Summary
-
-- Executed `skills/code-health/SKILL.md` for 2026-08-07. Skill short-circuited at the Config gate: `${var}` empty AND `memory/watched-repos.md` absent (verified via `ls` + `find`).
-- No repos cloned, no code scans (TODO/FIXME/dead-code/coverage/large-files/secrets), no report at `articles/code-health-2026-08-07.md`, no notification sent.
-- Today's 4th short-circuit on the same missing-config gate (after `issue-triage` and `github-monitor` earlier in the log); matches the planner's rank-3 `watched-repos-population-or-disable` (streak-2) and MEMORY.md line 58.
-- Files modified: `memory/logs/2026-08-07.md` (added `## Code Health` entry + summary).
-- Follow-up: populate `memory/watched-repos.md` or set `enabled: false` on the six watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) to reclaim the wasted workflow slots.
+- Ran `code-health` for 2026-08-08. `memory/watched-repos.md` is missing, so per the skill's step-0 intent ("create it or skip this skill") the run short-circuited: no clone, no scan, no report, no notify.
+- This is the **5th watched-repos-dependent skill to no-op today** (after github-monitor, issue-triage, repo-revive) and the 5th consecutive same-day short-circuit cycle since 08-04. Already tracked as planner rank-3 (`watched-repos-population-or-disable`, streak-3) with two remediation paths listed in MEMORY.md.
+- Files modified: `memory/logs/2026-08-08.md` (appended `## Code Health` + summary entry).
+- Follow-up: none new.
