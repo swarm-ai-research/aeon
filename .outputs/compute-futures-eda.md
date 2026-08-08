@@ -1,2 +1,7 @@
-*Compute-Futures EDA — 2026-08-07*
-144 rows, 4 modes. Top: 3 fresh spread MEDIUMs (settlementLegs 16.67% 2nd-consecutive with rotated seeds, minSpot 16.67% + maxSpot 16.67% both fresh) + fresh within-mode strong pair spread realizedAbs × maxCurve = +0.897 (first |r|≥0.8 fire since 08-03). Basket cleanest day in the window (0 column-fires outside seed encoding). 08-06's HIGH spread maxCurve 25% and basket minCurve 16.67% both COLLAPSE. Anchor pattern dissolves from concurrent-4 to diffuse-8+. Conservation: all OK (basket +1.18e−14, spread −1.09e−12, synth/x402 −4.51e−16). Report: memory/topics/compute-futures-eda/2026-08-07.md
+## Summary
+
+Ran `compute-futures-eda` for 2026-08-08. **NO-OP** — the newest CSV in `fleet-state` is `2026-08-07.csv`, which was already analyzed at `memory/topics/compute-futures-eda/2026-08-07.md`. The skill's step-1 same-date guard fired cleanly: no fresh sweep from the deployer for today yet, so no analysis was warranted.
+
+- Files modified: `memory/logs/2026-08-08.md` (log entry appended)
+- No commit, no notify, no double-write.
+- Follow-up: if the deployer emits a `2026-08-08.csv` before end-of-day, the next scheduled invocation of this skill will pick it up.
