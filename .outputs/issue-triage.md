@@ -1,6 +1,9 @@
-## Summary
+Per skill spec §Config, no `${var}` was passed and `memory/watched-repos.md` is missing → terminal `ISSUE_TRIAGE_OK no-watched-repos`, no notification.
 
-- Ran `issue-triage` for 2026-08-07. Short-circuited at the Config gate per SKILL.md: `${var}` is empty AND `memory/watched-repos.md` is missing.
-- Terminal state: `ISSUE_TRIAGE_OK no-watched-repos`. No `gh` calls, no labels/comments/closes, no notification.
-- Files modified: `memory/logs/2026-08-07.md` (appended `## Issue Triage` + `## Summary` sections).
-- Follow-up: the same underlying blocker MEMORY.md and today's planner both flag — populate `memory/watched-repos.md` or disable the six watched-repos-dependent skills. Third same-day short-circuit today (with github-monitor + code-health).
+## Summary
+- **Skill**: issue-triage
+- **Verdict**: `ISSUE_TRIAGE_OK no-watched-repos`
+- **Triaged**: 0 issues across 0 repos (short-circuit — no targets configured)
+- **Notification**: none (nothing actionable)
+- **Files modified**: `memory/logs/2026-08-08.md` (appended `### issue-triage` entry)
+- **Follow-up**: Populate `memory/watched-repos.md` or disable the 6 watched-repos-dependent skills (already tracked at MEMORY.md line 44, planner rank-3, streak-2). This is the persistent same-day short-circuit — 5th cycle since 08-04.
