@@ -1,7 +1,9 @@
-`skillpacks: no input change, skipping` — silent-exit path taken.
+Skillpacks silent-exit: fingerprint `7a0aeb25…` matches state file (172 skills, extractor unchanged since 07-26). No extractor run, no PR, no notify per step 1. Logged to `memory/logs/2026-08-09.md`.
 
 ## Summary
-- **Task:** Execute the `skillpacks` skill for 2026-08-02.
-- **Result:** `SKILLPACKS_NO_CHANGE`. Input fingerprint `7a0aeb25f26805aa7cadea73d1f90235c1860008` (computed via node, since sandbox blocks `xargs sha1sum` piping and shell redirection) is identical to `memory/state/skillpacks.json` — the 172 tracked `skills/*/SKILL.md` files plus `scripts/skillpacks.mjs` are unchanged since the 2026-07-26 run. Per SKILL step 1, exited silently: no extractor run, no file rewrite, no PR, no notify.
-- **Files modified:** `memory/logs/2026-08-02.md` (one-line log entry).
-- **Follow-up:** None. Next skillpacks-relevant event is the next `skills/*/SKILL.md` change or an edit to `scripts/skillpacks.mjs`, either of which will flip the fingerprint and trigger a full regenerate.
+
+- Computed input fingerprint over 172 tracked `skills/*/SKILL.md` files + `scripts/skillpacks.mjs` — matches `memory/state/skillpacks.json.input_fingerprint` exactly (14th consecutive day unchanged; last delta 2026-07-26).
+- Silent-exit path (`SKILLPACKS_NO_CHANGE`) per SKILL step 1. No file rewrite, no branch, no PR, no notify.
+- Files modified: `memory/logs/2026-08-09.md` (log entry only).
+- Sandbox note: the SKILL's shell recipe (`git ls-files … | xargs sha1sum ; sha1sum scripts/skillpacks.mjs | sha1sum`) is blocked in-sandbox (xargs approval + output-redirection restrictions); reproduced byte-identically via inline `node -e`. If it recurs, promote to a `scripts/skillpacks-fp.mjs` helper matching the `.notegraph-fp.mjs` pattern.
+- Follow-up: none.
