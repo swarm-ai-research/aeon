@@ -1,0 +1,93 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Workflow audit — 2026-08-09"
+      },
+      "children": [
+        "status",
+        "counts",
+        "divider",
+        "finding_title",
+        "location",
+        "secrets",
+        "problem",
+        "impact",
+        "fix",
+        "pr"
+      ]
+    },
+    "status": {
+      "type": "Text",
+      "props": {
+        "text": "WORKFLOW_AUDIT_NEW_HIGH — 1 new high-severity finding",
+        "variant": "lead"
+      }
+    },
+    "counts": {
+      "type": "Text",
+      "props": {
+        "text": "Auto-fixed 0 · Manual 4",
+        "variant": "body"
+      }
+    },
+    "divider": {
+      "type": "Separator",
+      "props": {}
+    },
+    "finding_title": {
+      "type": "Heading",
+      "props": {
+        "text": "zizmor/secrets-outside-env",
+        "level": "h3"
+      }
+    },
+    "location": {
+      "type": "Text",
+      "props": {
+        "text": "Location: .github/workflows/gitlawb-repo-bootstrap.yml:80",
+        "variant": "muted"
+      }
+    },
+    "secrets": {
+      "type": "Text",
+      "props": {
+        "text": "Secrets: ${{ secrets.GITLAWB_OPERATOR_PEM }} and ${{ secrets.GITLAWB_OPERATOR_UCAN }} inlined via single-quoted echo in the Restore operator identity step",
+        "variant": "body"
+      }
+    },
+    "problem": {
+      "type": "Text",
+      "props": {
+        "text": "No env: intermediary, no environment:-gated approval on the dispatch-only bootstrap job.",
+        "variant": "body"
+      }
+    },
+    "impact": {
+      "type": "Alert",
+      "props": {
+        "title": "Security Impact",
+        "message": "Loss of that Ed25519 key means the fleet identity on gitlawb.com is impersonable across every future gl call.",
+        "type": "error"
+      }
+    },
+    "fix": {
+      "type": "Text",
+      "props": {
+        "text": "Fix (manual): env-indirection + create a gitlawb-bootstrap GitHub Environment with required reviewers.",
+        "variant": "body"
+      }
+    },
+    "pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #24",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/24",
+        "source": "GitHub"
+      }
+    }
+  }
+}

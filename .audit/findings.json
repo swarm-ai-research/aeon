@@ -1,0 +1,2349 @@
+{
+  "summary": {
+    "total_current": 78,
+    "crit": 3,
+    "high": 22,
+    "med": 9,
+    "low": 44,
+    "by_rule": {
+      "zizmor/template-injection": 19,
+      "zizmor/secrets-outside-env": 16,
+      "zizmor/artipacked": 8,
+      "zizmor/anonymous-definition": 8,
+      "zizmor/ref-version-mismatch": 6,
+      "actionlint/SC2129": 6,
+      "zizmor/undocumented-permissions": 5,
+      "zizmor/unpinned-uses": 3,
+      "zizmor/concurrency-limits": 2,
+      "actionlint/SC2034": 2,
+      "actionlint/SC2155": 2,
+      "actionlint/SC2086": 1
+    },
+    "new_count": 4,
+    "new_by_sev": {
+      "Low": 3,
+      "High": 1
+    },
+    "new_crit": 0,
+    "new_high": 1,
+    "new_med": 0,
+    "new_low": 3,
+    "reintroduced_count": 0,
+    "unchanged_count": 74,
+    "resolved_count": 1,
+    "fuzzy_carryover_count": 23,
+    "prior_date": "2026-07-26",
+    "prior_count": 75,
+    "workflow_count": 8,
+    "action_count": 0,
+    "file_count": 8
+  },
+  "current": [
+    {
+      "fingerprint": "d42af71c10f4",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/aeon.yml",
+      "line": 83,
+      "step": "Early checkout",
+      "pattern": "name: Early checkout",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "0c66d5f673cf",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/aeon.yml",
+      "line": 119,
+      "step": "Checkout repo",
+      "pattern": "name: Checkout repo",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "f102d53867b2",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 98,
+      "step": "Determine skill",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "5535ba0c284b",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 112,
+      "step": "Check if there's work",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "51de415c8adb",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 150,
+      "step": "Validate skill secrets",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "b63d3b0e1177",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 194,
+      "step": "Run pre-fetch scripts",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "907c10fb7244",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 288,
+      "step": "Run",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "1b9eeff4363e",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 602,
+      "step": "Log token usage",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "051949b55347",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 625,
+      "step": "Track token costs",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "7aafea20960b",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 630,
+      "step": "Capture skill output",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "3332f8b86f42",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 651,
+      "step": "Analyze skill output",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "5ba103396fae",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 752,
+      "step": "Convert feed outputs",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "cf45a18cee4a",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 863,
+      "step": "Commit results",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "f2d8296c0167",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 927,
+      "step": "Update cron state",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "9fb519eb4fdb",
+      "severity": "Critical",
+      "rule_id": "zizmor/unpinned-uses",
+      "file": ".github/workflows/aeon.yml",
+      "line": 85,
+      "step": "Early checkout",
+      "pattern": "actions/checkout@v4.4.0",
+      "source": "zizmor",
+      "message": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+    },
+    {
+      "fingerprint": "7491c14fbe74",
+      "severity": "Critical",
+      "rule_id": "zizmor/unpinned-uses",
+      "file": ".github/workflows/aeon.yml",
+      "line": 121,
+      "step": "Checkout repo",
+      "pattern": "actions/checkout@v4.4.0",
+      "source": "zizmor",
+      "message": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+    },
+    {
+      "fingerprint": "920a2c40af77",
+      "severity": "Critical",
+      "rule_id": "zizmor/unpinned-uses",
+      "file": ".github/workflows/aeon.yml",
+      "line": 133,
+      "step": "Setup Node.js",
+      "pattern": "actions/setup-node@v5",
+      "source": "zizmor",
+      "message": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+    },
+    {
+      "fingerprint": "ca298be1d2d1",
+      "severity": "Low",
+      "rule_id": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/aeon.yml",
+      "line": 77,
+      "step": "(unknown)",
+      "pattern": "contents: write",
+      "source": "zizmor",
+      "message": "permissions without explanatory comments: needs an explanatory comment"
+    },
+    {
+      "fingerprint": "e96ff3f42d77",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/aeon.yml",
+      "line": 72,
+      "step": "(unknown)",
+      "pattern": "run",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job"
+    },
+    {
+      "fingerprint": "d2fc7a994dfa",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 28,
+      "step": "Checkout repo",
+      "pattern": "name: Checkout repo",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "e0ecebefad2d",
+      "severity": "Low",
+      "rule_id": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 24,
+      "step": "(unknown)",
+      "pattern": "contents: write",
+      "source": "zizmor",
+      "message": "permissions without explanatory comments: needs an explanatory comment"
+    },
+    {
+      "fingerprint": "549a46f9e41b",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 20,
+      "step": "(unknown)",
+      "pattern": "run",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job"
+    },
+    {
+      "fingerprint": "92de995e00e5",
+      "severity": "High",
+      "rule_id": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 29,
+      "step": "Checkout repo",
+      "pattern": "v5",
+      "source": "zizmor",
+      "message": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24"
+    },
+    {
+      "fingerprint": "cfad683f1a80",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 31,
+      "step": "Checkout repo",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "92be19585492",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 40,
+      "step": "Run chain",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "bde515abcfd3",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 288,
+      "step": "Update cron state",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "07c66694806a",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 347,
+      "step": "Sync state to aeon-private (Phase 1 dual-write)",
+      "pattern": "secrets.AEON_PRIVATE_PAT",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "66f9cf0a3bde",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 63,
+      "step": "Checkout",
+      "pattern": "name: Checkout",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "58b55d8838c8",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 157,
+      "step": "Restore fleet identities",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "93c5d3921f5c",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 322,
+      "step": "Commit results",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "5b3558adc1dc",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 354,
+      "step": "Notify",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "c5e6e31ecabb",
+      "severity": "Low",
+      "rule_id": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 55,
+      "step": "(unknown)",
+      "pattern": "contents: write",
+      "source": "zizmor",
+      "message": "permissions without explanatory comments: needs an explanatory comment"
+    },
+    {
+      "fingerprint": "b272fb7c7d18",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 51,
+      "step": "(unknown)",
+      "pattern": "run",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job"
+    },
+    {
+      "fingerprint": "d5fac004ec2a",
+      "severity": "High",
+      "rule_id": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 64,
+      "step": "Checkout",
+      "pattern": "v5",
+      "source": "zizmor",
+      "message": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24"
+    },
+    {
+      "fingerprint": "6de4062a004e",
+      "severity": "Low",
+      "rule_id": "zizmor/concurrency-limits",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 4,
+      "step": "(unknown)",
+      "pattern": "on:",
+      "source": "zizmor",
+      "message": "insufficient job-level concurrency limits: workflow is missing concurrency setting"
+    },
+    {
+      "fingerprint": "8970a9ecf814",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 157,
+      "step": "Restore fleet identities",
+      "pattern": "secrets.GITLAWB_OPERATOR_PEM",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "492f5627d723",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 278,
+      "step": "Prefetch live Surplus prices (best-effort, outside sandbox)",
+      "pattern": "secrets.SURPLUS_PRICING_URL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "9e568b8ce48d",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 294,
+      "step": "Run fleet task runner",
+      "pattern": "secrets.CLAUDE_CODE_OAUTH_TOKEN",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "6a78074b9b49",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 361,
+      "step": "Sync state to aeon-private (Phase 1 dual-write)",
+      "pattern": "secrets.AEON_PRIVATE_PAT",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "5990eb101b1e",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
+      "line": 80,
+      "step": "Restore operator identity",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "3f73d5880a40",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
+      "line": 39,
+      "step": "(unknown)",
+      "pattern": "bootstrap",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job"
+    },
+    {
+      "fingerprint": "9d01e01f8dab",
+      "severity": "Low",
+      "rule_id": "zizmor/concurrency-limits",
+      "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
+      "line": 20,
+      "step": "(unknown)",
+      "pattern": "on:",
+      "source": "zizmor",
+      "message": "insufficient job-level concurrency limits: workflow is missing concurrency setting"
+    },
+    {
+      "fingerprint": "a001d09f6dce",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
+      "line": 80,
+      "step": "Restore operator identity",
+      "pattern": "secrets.GITLAWB_OPERATOR_PEM",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "20e02889fa19",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/lint.yml",
+      "line": 32,
+      "step": "Checkout",
+      "pattern": "name: Checkout",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "e04aa697aeac",
+      "severity": "High",
+      "rule_id": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/lint.yml",
+      "line": 33,
+      "step": "Checkout",
+      "pattern": "v4",
+      "source": "zizmor",
+      "message": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267"
+    },
+    {
+      "fingerprint": "026cbff74a33",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/messages.yml",
+      "line": 56,
+      "step": "Checkout repo",
+      "pattern": "name: Checkout repo",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "c8163d0d9e92",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/messages.yml",
+      "line": 670,
+      "step": "Extract message",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "17e914f3a957",
+      "severity": "Low",
+      "rule_id": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/messages.yml",
+      "line": 658,
+      "step": "Sync state to aeon-private (Phase 1 dual-write)",
+      "pattern": "issues: read",
+      "source": "zizmor",
+      "message": "permissions without explanatory comments: needs an explanatory comment"
+    },
+    {
+      "fingerprint": "a9762072a520",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/messages.yml",
+      "line": 47,
+      "step": "(unknown)",
+      "pattern": "tick",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job"
+    },
+    {
+      "fingerprint": "ab0972e6be9a",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/messages.yml",
+      "line": 651,
+      "step": "Sync state to aeon-private (Phase 1 dual-write)",
+      "pattern": "run",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job"
+    },
+    {
+      "fingerprint": "43037ab85149",
+      "severity": "High",
+      "rule_id": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/messages.yml",
+      "line": 57,
+      "step": "Checkout repo",
+      "pattern": "v5",
+      "source": "zizmor",
+      "message": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24"
+    },
+    {
+      "fingerprint": "e619ae84091a",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "line": 59,
+      "step": "Checkout repo",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "eb3f904202e5",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "line": 68,
+      "step": "Determine and dispatch scheduled skills",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "d07b94573673",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "line": 551,
+      "step": "Collect and dispatch messages",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "9cff378b979c",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "line": 648,
+      "step": "Sync state to aeon-private (Phase 1 dual-write)",
+      "pattern": "secrets.AEON_PRIVATE_PAT",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "b38245804892",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "line": 717,
+      "step": "Run",
+      "pattern": "secrets.ANTHROPIC_API_KEY",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "e227de85a27c",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/sync-aeon-public-results.yml",
+      "line": 28,
+      "step": "Checkout aeon",
+      "pattern": "name: Checkout aeon",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "49c90512632e",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/sync-aeon-public-results.yml",
+      "line": 23,
+      "step": "(unknown)",
+      "pattern": "sync",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job"
+    },
+    {
+      "fingerprint": "f77041a532da",
+      "severity": "High",
+      "rule_id": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/sync-aeon-public-results.yml",
+      "line": 29,
+      "step": "Checkout aeon",
+      "pattern": "v4",
+      "source": "zizmor",
+      "message": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267"
+    },
+    {
+      "fingerprint": "7c001f1bd15a",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 22,
+      "step": "Checkout fork",
+      "pattern": "name: Checkout fork",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "f90eb9ea17da",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 71,
+      "step": "Push sync branch",
+      "pattern": "git push origin \"${{ steps.merge.outputs.branch }}\"",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "0b8717f70ea1",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 78,
+      "step": "Open or update PR",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "980627b69ffe",
+      "severity": "Low",
+      "rule_id": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 19,
+      "step": "(unknown)",
+      "pattern": "contents: write",
+      "source": "zizmor",
+      "message": "permissions without explanatory comments: needs an explanatory comment"
+    },
+    {
+      "fingerprint": "a325358363ef",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 16,
+      "step": "(unknown)",
+      "pattern": "sync",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job"
+    },
+    {
+      "fingerprint": "63faf96ee9e4",
+      "severity": "High",
+      "rule_id": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 23,
+      "step": "Checkout fork",
+      "pattern": "v4",
+      "source": "zizmor",
+      "message": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267"
+    },
+    {
+      "fingerprint": "7b4cecdf97db",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 29,
+      "step": "Checkout fork",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "8ea38df05599",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 76,
+      "step": "Open or update PR",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "83699d9e5699",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2129",
+      "file": ".github/workflows/aeon.yml",
+      "line": 286,
+      "step": "Run",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2129:style:259:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects"
+    },
+    {
+      "fingerprint": "91b96544b7f7",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2129",
+      "file": ".github/workflows/aeon.yml",
+      "line": 601,
+      "step": "Log token usage",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2129:style:7:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects"
+    },
+    {
+      "fingerprint": "08b995f41897",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2034",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 42,
+      "step": "Run chain",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2034:warning:3:1: NOW_ISO appears unused. Verify use (or export if used externally)"
+    },
+    {
+      "fingerprint": "08ca247f92f5",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2129",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 42,
+      "step": "Run chain",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2129:style:100:7: Consider using { cmd1; cmd2; } >> file instead of individual redirects"
+    },
+    {
+      "fingerprint": "a660bb47c98f",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2155",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 42,
+      "step": "Run chain",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2155:warning:41:9: Declare and assign separately to avoid masking return values"
+    },
+    {
+      "fingerprint": "67d1bc1fcdc9",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2155",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 186,
+      "step": "Bootstrap fleet registry",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2155:warning:2:8: Declare and assign separately to avoid masking return values"
+    },
+    {
+      "fingerprint": "ae6e84d38c01",
+      "severity": "Medium",
+      "rule_id": "actionlint/SC2086",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 301,
+      "step": "Run fleet task runner",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2086:info:6:82: Double quote to prevent globbing and word splitting"
+    },
+    {
+      "fingerprint": "06fe941af2e4",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2034",
+      "file": ".github/workflows/messages.yml",
+      "line": 69,
+      "step": "Determine and dispatch scheduled skills",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2034:warning:247:5: IN_STEPS appears unused. Verify use (or export if used externally)"
+    },
+    {
+      "fingerprint": "d9f23e63cdb8",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2129",
+      "file": ".github/workflows/messages.yml",
+      "line": 669,
+      "step": "Extract message",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2129:style:16:3: Consider using { cmd1; cmd2; } >> file instead of individual redirects"
+    },
+    {
+      "fingerprint": "dbea56861609",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2129",
+      "file": ".github/workflows/messages.yml",
+      "line": 734,
+      "step": "Run",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2129:style:64:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects"
+    },
+    {
+      "fingerprint": "de91c5dc7925",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2129",
+      "file": ".github/workflows/messages.yml",
+      "line": 815,
+      "step": "Log token usage",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2129:style:7:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects"
+    }
+  ],
+  "new": [
+    {
+      "fingerprint": "5990eb101b1e",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
+      "line": 80,
+      "step": "Restore operator identity",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "3f73d5880a40",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
+      "line": 39,
+      "step": "(unknown)",
+      "pattern": "bootstrap",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job"
+    },
+    {
+      "fingerprint": "9d01e01f8dab",
+      "severity": "Low",
+      "rule_id": "zizmor/concurrency-limits",
+      "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
+      "line": 20,
+      "step": "(unknown)",
+      "pattern": "on:",
+      "source": "zizmor",
+      "message": "insufficient job-level concurrency limits: workflow is missing concurrency setting"
+    },
+    {
+      "fingerprint": "a001d09f6dce",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
+      "line": 80,
+      "step": "Restore operator identity",
+      "pattern": "secrets.GITLAWB_OPERATOR_PEM",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    }
+  ],
+  "reintroduced": [],
+  "unchanged": [
+    {
+      "fingerprint": "d42af71c10f4",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/aeon.yml",
+      "line": 83,
+      "step": "Early checkout",
+      "pattern": "name: Early checkout",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "0c66d5f673cf",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/aeon.yml",
+      "line": 119,
+      "step": "Checkout repo",
+      "pattern": "name: Checkout repo",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "f102d53867b2",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 98,
+      "step": "Determine skill",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "5535ba0c284b",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 112,
+      "step": "Check if there's work",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "51de415c8adb",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 150,
+      "step": "Validate skill secrets",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "b63d3b0e1177",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 194,
+      "step": "Run pre-fetch scripts",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "1b9eeff4363e",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 602,
+      "step": "Log token usage",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "051949b55347",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 625,
+      "step": "Track token costs",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "7aafea20960b",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 630,
+      "step": "Capture skill output",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "3332f8b86f42",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 651,
+      "step": "Analyze skill output",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "5ba103396fae",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 752,
+      "step": "Convert feed outputs",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "cf45a18cee4a",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 863,
+      "step": "Commit results",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "f2d8296c0167",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 927,
+      "step": "Update cron state",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "9fb519eb4fdb",
+      "severity": "Critical",
+      "rule_id": "zizmor/unpinned-uses",
+      "file": ".github/workflows/aeon.yml",
+      "line": 85,
+      "step": "Early checkout",
+      "pattern": "actions/checkout@v4.4.0",
+      "source": "zizmor",
+      "message": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+    },
+    {
+      "fingerprint": "7491c14fbe74",
+      "severity": "Critical",
+      "rule_id": "zizmor/unpinned-uses",
+      "file": ".github/workflows/aeon.yml",
+      "line": 121,
+      "step": "Checkout repo",
+      "pattern": "actions/checkout@v4.4.0",
+      "source": "zizmor",
+      "message": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+    },
+    {
+      "fingerprint": "920a2c40af77",
+      "severity": "Critical",
+      "rule_id": "zizmor/unpinned-uses",
+      "file": ".github/workflows/aeon.yml",
+      "line": 133,
+      "step": "Setup Node.js",
+      "pattern": "actions/setup-node@v5",
+      "source": "zizmor",
+      "message": "unpinned action reference: action is not pinned to a hash (required by blanket policy)"
+    },
+    {
+      "fingerprint": "d2fc7a994dfa",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 28,
+      "step": "Checkout repo",
+      "pattern": "name: Checkout repo",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "92de995e00e5",
+      "severity": "High",
+      "rule_id": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 29,
+      "step": "Checkout repo",
+      "pattern": "v5",
+      "source": "zizmor",
+      "message": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24"
+    },
+    {
+      "fingerprint": "cfad683f1a80",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 31,
+      "step": "Checkout repo",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "92be19585492",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 40,
+      "step": "Run chain",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "bde515abcfd3",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 288,
+      "step": "Update cron state",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "07c66694806a",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 347,
+      "step": "Sync state to aeon-private (Phase 1 dual-write)",
+      "pattern": "secrets.AEON_PRIVATE_PAT",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "66f9cf0a3bde",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 63,
+      "step": "Checkout",
+      "pattern": "name: Checkout",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "58b55d8838c8",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 157,
+      "step": "Restore fleet identities",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "93c5d3921f5c",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 322,
+      "step": "Commit results",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "5b3558adc1dc",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 354,
+      "step": "Notify",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "d5fac004ec2a",
+      "severity": "High",
+      "rule_id": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 64,
+      "step": "Checkout",
+      "pattern": "v5",
+      "source": "zizmor",
+      "message": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24"
+    },
+    {
+      "fingerprint": "8970a9ecf814",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 157,
+      "step": "Restore fleet identities",
+      "pattern": "secrets.GITLAWB_OPERATOR_PEM",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "492f5627d723",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 278,
+      "step": "Prefetch live Surplus prices (best-effort, outside sandbox)",
+      "pattern": "secrets.SURPLUS_PRICING_URL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "9e568b8ce48d",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 294,
+      "step": "Run fleet task runner",
+      "pattern": "secrets.CLAUDE_CODE_OAUTH_TOKEN",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "6a78074b9b49",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 361,
+      "step": "Sync state to aeon-private (Phase 1 dual-write)",
+      "pattern": "secrets.AEON_PRIVATE_PAT",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "20e02889fa19",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/lint.yml",
+      "line": 32,
+      "step": "Checkout",
+      "pattern": "name: Checkout",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "e04aa697aeac",
+      "severity": "High",
+      "rule_id": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/lint.yml",
+      "line": 33,
+      "step": "Checkout",
+      "pattern": "v4",
+      "source": "zizmor",
+      "message": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267"
+    },
+    {
+      "fingerprint": "026cbff74a33",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/messages.yml",
+      "line": 56,
+      "step": "Checkout repo",
+      "pattern": "name: Checkout repo",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "c8163d0d9e92",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/messages.yml",
+      "line": 670,
+      "step": "Extract message",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "17e914f3a957",
+      "severity": "Low",
+      "rule_id": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/messages.yml",
+      "line": 658,
+      "step": "Sync state to aeon-private (Phase 1 dual-write)",
+      "pattern": "issues: read",
+      "source": "zizmor",
+      "message": "permissions without explanatory comments: needs an explanatory comment"
+    },
+    {
+      "fingerprint": "ab0972e6be9a",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/messages.yml",
+      "line": 651,
+      "step": "Sync state to aeon-private (Phase 1 dual-write)",
+      "pattern": "run",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job"
+    },
+    {
+      "fingerprint": "43037ab85149",
+      "severity": "High",
+      "rule_id": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/messages.yml",
+      "line": 57,
+      "step": "Checkout repo",
+      "pattern": "v5",
+      "source": "zizmor",
+      "message": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24"
+    },
+    {
+      "fingerprint": "e619ae84091a",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "line": 59,
+      "step": "Checkout repo",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "eb3f904202e5",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "line": 68,
+      "step": "Determine and dispatch scheduled skills",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "d07b94573673",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "line": 551,
+      "step": "Collect and dispatch messages",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "9cff378b979c",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "line": 648,
+      "step": "Sync state to aeon-private (Phase 1 dual-write)",
+      "pattern": "secrets.AEON_PRIVATE_PAT",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "b38245804892",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "line": 717,
+      "step": "Run",
+      "pattern": "secrets.ANTHROPIC_API_KEY",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "e227de85a27c",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/sync-aeon-public-results.yml",
+      "line": 28,
+      "step": "Checkout aeon",
+      "pattern": "name: Checkout aeon",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "f77041a532da",
+      "severity": "High",
+      "rule_id": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/sync-aeon-public-results.yml",
+      "line": 29,
+      "step": "Checkout aeon",
+      "pattern": "v4",
+      "source": "zizmor",
+      "message": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267"
+    },
+    {
+      "fingerprint": "7c001f1bd15a",
+      "severity": "Medium",
+      "rule_id": "zizmor/artipacked",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 22,
+      "step": "Checkout fork",
+      "pattern": "name: Checkout fork",
+      "source": "zizmor",
+      "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false"
+    },
+    {
+      "fingerprint": "f90eb9ea17da",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 71,
+      "step": "Push sync branch",
+      "pattern": "git push origin \"${{ steps.merge.outputs.branch }}\"",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "0b8717f70ea1",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 78,
+      "step": "Open or update PR",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code"
+    },
+    {
+      "fingerprint": "63faf96ee9e4",
+      "severity": "High",
+      "rule_id": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 23,
+      "step": "Checkout fork",
+      "pattern": "v4",
+      "source": "zizmor",
+      "message": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267"
+    },
+    {
+      "fingerprint": "7b4cecdf97db",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 29,
+      "step": "Checkout fork",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "8ea38df05599",
+      "severity": "High",
+      "rule_id": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 76,
+      "step": "Open or update PR",
+      "pattern": "secrets.GH_GLOBAL",
+      "source": "zizmor",
+      "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment"
+    },
+    {
+      "fingerprint": "907c10fb7244",
+      "severity": "Low",
+      "rule_id": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "line": 288,
+      "step": "Run",
+      "pattern": "|",
+      "source": "zizmor",
+      "message": "code injection via template expansion: may expand into attacker-controllable code",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "ca298be1d2d1",
+      "severity": "Low",
+      "rule_id": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/aeon.yml",
+      "line": 77,
+      "step": "(unknown)",
+      "pattern": "contents: write",
+      "source": "zizmor",
+      "message": "permissions without explanatory comments: needs an explanatory comment",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "e96ff3f42d77",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/aeon.yml",
+      "line": 72,
+      "step": "(unknown)",
+      "pattern": "run",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "e0ecebefad2d",
+      "severity": "Low",
+      "rule_id": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 24,
+      "step": "(unknown)",
+      "pattern": "contents: write",
+      "source": "zizmor",
+      "message": "permissions without explanatory comments: needs an explanatory comment",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "549a46f9e41b",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 20,
+      "step": "(unknown)",
+      "pattern": "run",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "c5e6e31ecabb",
+      "severity": "Low",
+      "rule_id": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 55,
+      "step": "(unknown)",
+      "pattern": "contents: write",
+      "source": "zizmor",
+      "message": "permissions without explanatory comments: needs an explanatory comment",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "b272fb7c7d18",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 51,
+      "step": "(unknown)",
+      "pattern": "run",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "6de4062a004e",
+      "severity": "Low",
+      "rule_id": "zizmor/concurrency-limits",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 4,
+      "step": "(unknown)",
+      "pattern": "on:",
+      "source": "zizmor",
+      "message": "insufficient job-level concurrency limits: workflow is missing concurrency setting",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "a9762072a520",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/messages.yml",
+      "line": 47,
+      "step": "(unknown)",
+      "pattern": "tick",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "49c90512632e",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/sync-aeon-public-results.yml",
+      "line": 23,
+      "step": "(unknown)",
+      "pattern": "sync",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "980627b69ffe",
+      "severity": "Low",
+      "rule_id": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 19,
+      "step": "(unknown)",
+      "pattern": "contents: write",
+      "source": "zizmor",
+      "message": "permissions without explanatory comments: needs an explanatory comment",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "a325358363ef",
+      "severity": "Low",
+      "rule_id": "zizmor/anonymous-definition",
+      "file": ".github/workflows/sync-upstream.yml",
+      "line": 16,
+      "step": "(unknown)",
+      "pattern": "sync",
+      "source": "zizmor",
+      "message": "workflow or action definition without a name: this job",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "83699d9e5699",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2129",
+      "file": ".github/workflows/aeon.yml",
+      "line": 286,
+      "step": "Run",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2129:style:259:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "91b96544b7f7",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2129",
+      "file": ".github/workflows/aeon.yml",
+      "line": 601,
+      "step": "Log token usage",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2129:style:7:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "08b995f41897",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2034",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 42,
+      "step": "Run chain",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2034:warning:3:1: NOW_ISO appears unused. Verify use (or export if used externally)",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "08ca247f92f5",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2129",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 42,
+      "step": "Run chain",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2129:style:100:7: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "a660bb47c98f",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2155",
+      "file": ".github/workflows/chain-runner.yml",
+      "line": 42,
+      "step": "Run chain",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2155:warning:41:9: Declare and assign separately to avoid masking return values",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "67d1bc1fcdc9",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2155",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 186,
+      "step": "Bootstrap fleet registry",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2155:warning:2:8: Declare and assign separately to avoid masking return values",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "ae6e84d38c01",
+      "severity": "Medium",
+      "rule_id": "actionlint/SC2086",
+      "file": ".github/workflows/fleet-runner.yml",
+      "line": 301,
+      "step": "Run fleet task runner",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2086:info:6:82: Double quote to prevent globbing and word splitting",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "06fe941af2e4",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2034",
+      "file": ".github/workflows/messages.yml",
+      "line": 69,
+      "step": "Determine and dispatch scheduled skills",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2034:warning:247:5: IN_STEPS appears unused. Verify use (or export if used externally)",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "d9f23e63cdb8",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2129",
+      "file": ".github/workflows/messages.yml",
+      "line": 669,
+      "step": "Extract message",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2129:style:16:3: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "dbea56861609",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2129",
+      "file": ".github/workflows/messages.yml",
+      "line": 734,
+      "step": "Run",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2129:style:64:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
+      "fuzzy_carryover": true
+    },
+    {
+      "fingerprint": "de91c5dc7925",
+      "severity": "Low",
+      "rule_id": "actionlint/SC2129",
+      "file": ".github/workflows/messages.yml",
+      "line": 815,
+      "step": "Log token usage",
+      "pattern": "run: |",
+      "source": "actionlint",
+      "message": "shellcheck reported issue in this script: SC2129:style:7:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
+      "fuzzy_carryover": true
+    }
+  ],
+  "resolved": [
+    {
+      "fingerprint": "0161d10d9ac4",
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "line480"
+    }
+  ],
+  "prior_fps": {
+    "9fb519eb4fdb": {
+      "severity": "Critical",
+      "status": "manual",
+      "rule": "zizmor/unpinned-uses",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Early_checkout"
+    },
+    "7491c14fbe74": {
+      "severity": "Critical",
+      "status": "manual",
+      "rule": "zizmor/unpinned-uses",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Checkout_repo"
+    },
+    "920a2c40af77": {
+      "severity": "Critical",
+      "status": "manual",
+      "rule": "zizmor/unpinned-uses",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Setup_Node.js"
+    },
+    "92de995e00e5": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "Checkout_repo"
+    },
+    "cfad683f1a80": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "Checkout_repo"
+    },
+    "92be19585492": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "Run_chain"
+    },
+    "bde515abcfd3": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "Update_cron_state"
+    },
+    "07c66694806a": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "Sync_state_to_aeon-private_(Phase_1_dual-write)"
+    },
+    "d5fac004ec2a": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "Checkout"
+    },
+    "8970a9ecf814": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "Restore_fleet_identities"
+    },
+    "492f5627d723": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "Prefetch_live_Surplus_prices_(best-effort,_outside_sandbox)"
+    },
+    "9e568b8ce48d": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "Run_fleet_task_runner"
+    },
+    "a4607c388772": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "actionlint/SC2086",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "Run_fleet_task_runner"
+    },
+    "6a78074b9b49": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "Sync_state_to_aeon-private_(Phase_1_dual-write)"
+    },
+    "e04aa697aeac": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/lint.yml",
+      "step": "Checkout"
+    },
+    "43037ab85149": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/messages.yml",
+      "step": "Checkout_repo"
+    },
+    "e619ae84091a": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "step": "Checkout_repo"
+    },
+    "eb3f904202e5": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "step": "Determine_and_dispatch_scheduled_skills"
+    },
+    "d07b94573673": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "step": "Collect_and_dispatch_messages"
+    },
+    "9cff378b979c": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "step": "Sync_state_to_aeon-private_(Phase_1_dual-write)"
+    },
+    "b38245804892": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/messages.yml",
+      "step": "Run"
+    },
+    "f77041a532da": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/sync-aeon-public-results.yml",
+      "step": "Checkout_aeon"
+    },
+    "63faf96ee9e4": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/ref-version-mismatch",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "Checkout_fork"
+    },
+    "7b4cecdf97db": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "Checkout_fork"
+    },
+    "8ea38df05599": {
+      "severity": "High",
+      "status": "manual",
+      "rule": "zizmor/secrets-outside-env",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "Open_or_update_PR"
+    },
+    "d42af71c10f4": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "zizmor/artipacked",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Early_checkout"
+    },
+    "0c66d5f673cf": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "zizmor/artipacked",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Checkout_repo"
+    },
+    "334c42a63d7c": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "actionlint/SC2129",
+      "file": ".github/workflows/aeon.yml",
+      "step": "line286"
+    },
+    "7a1f9fdf91af": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "actionlint/SC2129",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Log_token_usage"
+    },
+    "d2fc7a994dfa": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "zizmor/artipacked",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "Checkout_repo"
+    },
+    "702850a97b82": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "actionlint/SC2034",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "Run_chain"
+    },
+    "dd98f1f6a2c9": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "actionlint/SC2129",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "Run_chain"
+    },
+    "29d03232aa7d": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "actionlint/SC2155",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "Run_chain"
+    },
+    "66f9cf0a3bde": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "zizmor/artipacked",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "Checkout"
+    },
+    "5d41bf641832": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "actionlint/SC2155",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "Bootstrap_fleet_registry"
+    },
+    "20e02889fa19": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "zizmor/artipacked",
+      "file": ".github/workflows/lint.yml",
+      "step": "Checkout"
+    },
+    "026cbff74a33": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "zizmor/artipacked",
+      "file": ".github/workflows/messages.yml",
+      "step": "Checkout_repo"
+    },
+    "18034f95d5c4": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "actionlint/SC2034",
+      "file": ".github/workflows/messages.yml",
+      "step": "Determine_and_dispatch_scheduled_skills"
+    },
+    "a29cbcbd68f8": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "actionlint/SC2129",
+      "file": ".github/workflows/messages.yml",
+      "step": "Extract_message"
+    },
+    "6891f7605ed3": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "actionlint/SC2129",
+      "file": ".github/workflows/messages.yml",
+      "step": "Run"
+    },
+    "698da72eb125": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "actionlint/SC2129",
+      "file": ".github/workflows/messages.yml",
+      "step": "Log_token_usage"
+    },
+    "e227de85a27c": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "zizmor/artipacked",
+      "file": ".github/workflows/sync-aeon-public-results.yml",
+      "step": "Checkout_aeon"
+    },
+    "7c001f1bd15a": {
+      "severity": "Medium",
+      "status": "manual",
+      "rule": "zizmor/artipacked",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "Checkout_fork"
+    },
+    "785abd2ebb28": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/anonymous-definition",
+      "file": ".github/workflows/aeon.yml",
+      "step": "line72"
+    },
+    "dd80fdbef2c4": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/aeon.yml",
+      "step": "line77"
+    },
+    "f102d53867b2": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Determine_skill"
+    },
+    "5535ba0c284b": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Check_if_there's_work"
+    },
+    "51de415c8adb": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Validate_skill_secrets"
+    },
+    "b63d3b0e1177": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Run_pre-fetch_scripts"
+    },
+    "9e2d05e269a4": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "line288"
+    },
+    "0161d10d9ac4": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "line480"
+    },
+    "1b9eeff4363e": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Log_token_usage"
+    },
+    "051949b55347": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Track_token_costs"
+    },
+    "7aafea20960b": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Capture_skill_output"
+    },
+    "3332f8b86f42": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Analyze_skill_output"
+    },
+    "5ba103396fae": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Convert_feed_outputs"
+    },
+    "cf45a18cee4a": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Commit_results"
+    },
+    "f2d8296c0167": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/aeon.yml",
+      "step": "Update_cron_state"
+    },
+    "e0307ca942f4": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/anonymous-definition",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "Chain_Runner"
+    },
+    "7b882d81724b": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/chain-runner.yml",
+      "step": "Chain_Runner"
+    },
+    "f2bd25abbf6c": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/concurrency-limits",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "Fleet_Runner"
+    },
+    "f58e305ea1b5": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/anonymous-definition",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "line44"
+    },
+    "e1b8430c54f1": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "line48"
+    },
+    "58b55d8838c8": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "Restore_fleet_identities"
+    },
+    "93c5d3921f5c": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "Commit_results"
+    },
+    "5b3558adc1dc": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/fleet-runner.yml",
+      "step": "Notify"
+    },
+    "762e0b5fef12": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/anonymous-definition",
+      "file": ".github/workflows/messages.yml",
+      "step": "line47"
+    },
+    "ab0972e6be9a": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/anonymous-definition",
+      "file": ".github/workflows/messages.yml",
+      "step": "Sync_state_to_aeon-private_(Phase_1_dual-write)"
+    },
+    "17e914f3a957": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/messages.yml",
+      "step": "Sync_state_to_aeon-private_(Phase_1_dual-write)"
+    },
+    "c8163d0d9e92": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/messages.yml",
+      "step": "Extract_message"
+    },
+    "2b2df0cba03e": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/anonymous-definition",
+      "file": ".github/workflows/sync-aeon-public-results.yml",
+      "step": "Sync_from_public_mirror"
+    },
+    "8b7aa1385c14": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/anonymous-definition",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "Sync_from_upstream"
+    },
+    "18d4cf1a9964": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/undocumented-permissions",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "Sync_from_upstream"
+    },
+    "f90eb9ea17da": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "Push_sync_branch"
+    },
+    "0b8717f70ea1": {
+      "severity": "Low",
+      "status": "manual",
+      "rule": "zizmor/template-injection",
+      "file": ".github/workflows/sync-upstream.yml",
+      "step": "Open_or_update_PR"
+    }
+  },
+  "fuzzy_carryover_new_fps": [
+    "907c10fb7244",
+    "c5e6e31ecabb",
+    "83699d9e5699",
+    "ca298be1d2d1",
+    "dbea56861609",
+    "e96ff3f42d77",
+    "549a46f9e41b",
+    "980627b69ffe",
+    "a660bb47c98f",
+    "6de4062a004e",
+    "de91c5dc7925",
+    "d9f23e63cdb8",
+    "b272fb7c7d18",
+    "49c90512632e",
+    "ae6e84d38c01",
+    "08ca247f92f5",
+    "91b96544b7f7",
+    "06fe941af2e4",
+    "67d1bc1fcdc9",
+    "e0ecebefad2d",
+    "a9762072a520",
+    "08b995f41897",
+    "a325358363ef"
+  ]
+}
