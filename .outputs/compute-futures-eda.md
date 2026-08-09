@@ -1,7 +1,1 @@
-## Summary
-
-Ran `compute-futures-eda` for 2026-08-08. **NO-OP** — the newest CSV in `fleet-state` is `2026-08-07.csv`, which was already analyzed at `memory/topics/compute-futures-eda/2026-08-07.md`. The skill's step-1 same-date guard fired cleanly: no fresh sweep from the deployer for today yet, so no analysis was warranted.
-
-- Files modified: `memory/logs/2026-08-08.md` (log entry appended)
-- No commit, no notify, no double-write.
-- Follow-up: if the deployer emits a `2026-08-08.csv` before end-of-day, the next scheduled invocation of this skill will pick it up.
+Compute-Futures EDA — 2026-08-08 · 144 rows, 4 modes. HIGH: cross-mode 3-seed cluster fires `maxCurve` 25% in basket+synth≡x402 (same seeds 202608083/087/088). Super-anchor 202608083 spans 4 modes / 5 positions — deepest spread loss ever at -$27,701 retail. Complete flip vs 08-07: spread-dominant → small-price-mode-dominant. 08-07's LOW correlation + 3 spread MEDIUM fires all collapse (rotation-not-persistence holds). Conservation OK everywhere. Report: memory/topics/compute-futures-eda/2026-08-08.md
