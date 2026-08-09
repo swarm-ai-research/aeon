@@ -15,6 +15,7 @@ import { mkdirSync, mkdtempSync, copyFileSync, appendFileSync, existsSync, readF
 import { join, resolve } from "node:path";
 import { tmpdir, homedir } from "node:os";
 import { DEFAULT_GITLAWB_REPO_URL } from "./gitlawb-repo.mjs";
+import { planMirror, describeMirrorFailure } from "./fork-plan.mjs";
 
 const repoDir = process.env.GITLAWB_REPO_DIR || ".";
 const task = JSON.parse(process.env.GITLAWB_TASK_JSON || "{}");
@@ -146,20 +147,33 @@ if (kind === "fork") {
     // mirror command writes to <operator>/<repo-tail>; we treat that as the
     // post-mirror handle for the fork step.
     const sourceTail = (t.source || "").replace(/^https?:\/\//, "").split("/").pop() || name;
-    if (t.kind === "github-mirror" && t.source) {
-      const mirror = tryRun("gl", ["mirror", t.source, "--node", node]);
-      if (!mirror.ok && !/already exists|exists on node/i.test(mirror.stderr + mirror.stdout)) {
-        const msg = `${name}: mirror failed — ${(mirror.stderr || mirror.stdout).slice(0, 120)}`;
-        summary.push(msg);
-        failures.push(msg);
-        continue;
-      }
-      summary.push(`${name}: mirror ok`);
-    }
-    // Probe whether the operator already has a fork. `gl repo info` succeeds
-    // only for repos that exist on the node under the queried owner.
+    // `gl repo info` succeeds only for repos that exist on the node under the
+    // queried owner — the authoritative answer for both steps below.
     const probe = tryRun("gl", ["repo", "info", `${operatorShort}/${sourceTail}`, "--node", node]);
-    if (probe.ok) {
+    // Tracks the destination across both steps: a mirror that lands creates the
+    // repo, which makes the fork below a same-owner no-op.
+    let destExists = probe.ok;
+    if (t.kind === "github-mirror" && t.source) {
+      const plan = planMirror({ kind: t.kind, destExists: probe.ok });
+      if (plan.action === "skip") {
+        // Destination is already on the node. `gl mirror` would still try to
+        // create it and be refused by the iCaptcha gate, so skip rather than
+        // fail a step with nothing left to do. Refs stay at their last mirror
+        // until the node's creation gate is passable again.
+        summary.push(`${name}: mirror skipped — already on node (refs not refreshed)`);
+      } else {
+        const mirror = tryRun("gl", ["mirror", t.source, "--node", node]);
+        if (!mirror.ok && !/already exists|exists on node/i.test(mirror.stderr + mirror.stdout)) {
+          const msg = `${name}: mirror failed — ${describeMirrorFailure(mirror.stderr || mirror.stdout)}`;
+          summary.push(msg);
+          failures.push(msg);
+          continue;
+        }
+        summary.push(`${name}: mirror ok`);
+        destExists = true;
+      }
+    }
+    if (destExists) {
       summary.push(`${name}: fork already exists, skipping`);
       continue;
     }
