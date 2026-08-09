@@ -1,14 +1,16 @@
-Task was small enough that task tracking isn't needed. Skipping notification per the skill (no deletions).
+Clean run — nothing to delete, so no notification per skill spec.
 
 ## Summary
 
-Ran the Janitor skill. All three target areas were within TTL — nothing deleted.
+Ran the janitor skill per `skills/janitor/SKILL.md`.
 
-- **Root `.notify-*` files:** 0 total
-- **`.pending-notify-temp/`:** 2 total (both dated 2026-08-01, within 2-day protection window)
-- **`.outputs/`:** 41 total (all mtime today, well within 14d TTL)
+**Scan results:**
+- Root `.notify-*.md`/`.notify-*.txt`: **0 total** (only `.notify-runner.sh` and `.notify-sent-hashes` exist in root; neither matches the `.md`/`.txt` glob patterns the skill targets)
+- `.pending-notify-temp/`: **2 total, 0 marked** — `compute-pulse-2026-08-08.md`, `surplus-pulse-2026-08-08.md`. Filename date suffix is 2026-08-08 (1 day ago, inside 2-day protection window)
+- `.outputs/`: **41 total, 0 marked** — all mtimes reflect the fresh Actions checkout time (Aug 9 05:34); mtime-based 14d rule flags none
 
-**Files created:**
-- `memory/logs/2026-08-02.md` — logged `JANITOR_OK` with zeros
+**Total deleted: 0.** No notification sent (skill says skip if nothing deleted).
 
-**No notification sent** (nothing deleted). No follow-up needed.
+**Files created:** `memory/logs/2026-08-09.md` (new day log with `JANITOR_OK` entry).
+
+**Follow-up worth flagging:** the `.outputs/` mtime rule is a structural blind spot on GitHub Actions runners — `git checkout` rewrites mtimes to the checkout time, so mtime-based aging never fires. To ever prune tracked `.outputs/` files, the skill needs to switch to `git log -1 --format=%ct` on each file (same fix pattern as [[skill-freshness-mtime-blind-in-gha]] in MEMORY.md). Not touching it this run — that's a SKILL.md patch, not a janitor task.
