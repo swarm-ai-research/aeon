@@ -1,0 +1,139 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Evals"
+      },
+      "children": [
+        "alert",
+        "stats_stack",
+        "separator1",
+        "action_section",
+        "article_link",
+        "separator2",
+        "regressions_section"
+      ]
+    },
+    "alert": {
+      "type": "Alert",
+      "props": {
+        "title": "SKILL_EVALS_REGRESSED",
+        "type": "error"
+      }
+    },
+    "stats_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_new_fail",
+        "stat_fixed",
+        "stat_coverage"
+      ]
+    },
+    "stat_new_fail": {
+      "type": "Stat",
+      "props": {
+        "label": "New Fails",
+        "value": "13"
+      }
+    },
+    "stat_fixed": {
+      "type": "Stat",
+      "props": {
+        "label": "Fixed",
+        "value": "0"
+      }
+    },
+    "stat_coverage": {
+      "type": "Stat",
+      "props": {
+        "label": "Coverage",
+        "value": "28%"
+      }
+    },
+    "separator1": {
+      "type": "Separator"
+    },
+    "action_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action_label",
+        "action_text"
+      ]
+    },
+    "action_label": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Action",
+        "level": "h3"
+      }
+    },
+    "action_text": {
+      "type": "Text",
+      "props": {
+        "text": "Investigate changelog — no_file_match (ISS-002)"
+      }
+    },
+    "article_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "skill-evals-2026-08-09.md",
+        "href": "articles/skill-evals-2026-08-09.md"
+      }
+    },
+    "separator2": {
+      "type": "Separator"
+    },
+    "regressions_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "regressions_heading",
+        "regressions_table"
+      ]
+    },
+    "regressions_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Regressions",
+        "level": "h3"
+      }
+    },
+    "regressions_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Issue"
+        ],
+        "rows": [
+          [
+            "changelog",
+            "no_file_match (ISS-002)"
+          ],
+          [
+            "swarm-safety-eval",
+            "no_file_match (ISS-005)"
+          ],
+          [
+            "cost-report",
+            "no_file_match (ISS-008)"
+          ]
+        ]
+      }
+    }
+  }
+}
