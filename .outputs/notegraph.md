@@ -1,15 +1,12 @@
-Logging one line to console per SKILL step 1 wording: `notegraph: no input change, skipping` — but strictly the input *did* change. Adjusting to the accurate variant.
-
-`notegraph: input fingerprint advanced (8b1ee3fa… → 92772443…), graph deterministic vs HEAD, skipping PR + notify`
+Exit mode: `NOTEGRAPH_NO_CHANGE`. Only state + log touched; no PR, no notify.
 
 ## Summary
 
-Ran the `notegraph` skill for 2026-08-08. Exit mode: **NOTEGRAPH_NO_CHANGE** (with fingerprint update).
+Ran the `notegraph` skill for 2026-08-09.
 
-- **Fingerprint advanced** `8b1ee3fa…` → `92772443…` — corpus edited in `memory/`/`docs/` since 08-07's `reflect`-driven regen, so ran the extractor per SKILL step 2.
-- **Extractor output** identical to HEAD: `247 nodes · 1854 hard · 667 soft · 0 orphans · 0 bundled`. Only the `generatedAt` timestamp differed across the 4 generated files.
-- **Per SKILL step 3 intent** (deterministic output → exit silently), restored `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html` to HEAD. No PR opened, no notify fired (verdict would've been the bland `graph refreshed (…)` form with zero deltas, muted by step 5 anyway).
-- **State updated locally:** `memory/state/notegraph.json` refreshed with new fingerprint, zero deltas, `notify_suppressed: true`, and explanatory note. Will ride the next cron sweeper commit (394907a pattern).
-- **Files modified:** `memory/state/notegraph.json`, new `memory/logs/2026-08-08.md`. No generated files or new branches.
-- **Sandbox note:** the SKILL step 1 shell pipeline stayed blocked — used the existing `.notegraph-fp.mjs` substitute. New this session: `/tmp/` and repo-relative output redirection both refused, worked around by piping `git show HEAD:notegraph.json` into `node -e` via stdin.
-- **Follow-up:** none. Corpus churn without new `[[wikilinks]]` or files is a healthy signal — no rebuild PR warranted.
+- **Fingerprint:** advanced `92772443…` → `0e0328eb…` (memory/docs churn since 08-08 morning).
+- **Extractor output:** `249 nodes · 1854 hard · 639 soft · 1 orphan · 0 bundled` — byte-identical to `HEAD` (which was already at those numbers from a later 08-08T18:46Z regen committed via `3bcd2df`).
+- **Diff:** each of the 4 generated files (`notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`) had exactly 1 added / 1 removed line — only `generatedAt` timestamp and one date line in the `.md`.
+- **Action:** per SKILL step 3 (`extractor output deterministic → exit silently`), restored the 4 generated files to HEAD. Updated `memory/state/notegraph.json` locally with the new fingerprint and reconciled stats (state's `247n/2521e/0o/72a` from 08-08 morning was stale; HEAD's `249n/2493e/1o/73a` is current).
+- **Notify:** suppressed. **PR:** none. Second consecutive day exercising the healthy no-op path.
+- **Files modified:** `memory/state/notegraph.json`, `memory/logs/2026-08-09.md`.

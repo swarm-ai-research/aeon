@@ -1,16 +1,16 @@
 {
-  "input_fingerprint": "92772443634a98e412422352a883ef5ee90b1c0a",
-  "last_run": "2026-08-08",
+  "input_fingerprint": "0e0328eb4be15d01f62a7d2d10704b7ea22d839a",
+  "last_run": "2026-08-09",
   "stats": {
-    "nodes": 247,
-    "edges": 2521,
+    "nodes": 249,
+    "edges": 2493,
     "hard": 1854,
-    "soft": 667,
-    "orphans": 0,
-    "atomic": 72,
+    "soft": 639,
+    "orphans": 1,
+    "atomic": 73,
     "bundled": 0
   },
-  "last_verdict": "graph refreshed (247n / 2521e / 0b) — deterministic no-op vs HEAD",
+  "last_verdict": "graph refreshed (249n / 2493e / 0b) — deterministic no-op vs HEAD",
   "last_pr": "",
   "last_branch": "",
   "delta_vs_head": {
@@ -30,5 +30,5 @@
   "new_bundled": [],
   "resolved_bundled": [],
   "notify_suppressed": true,
-  "note": "2026-08-08: Fingerprint advanced 8b1ee3fa… → 92772443… (corpus edited in memory/ or docs/ between yesterday's 08-07 reflect-driven regen and today's run — likely MEMORY.md/topics/notes churn from the 08-07 reflect wholesale refresh). Extractor produced 247n / 1854h / 667s / 0o / 72 atomic / 0b — byte-identical to HEAD's stored graph. `git diff` on the 4 generated files (notegraph.json + docs/notegraph.md + docs/notegraph.html + docs/notegraph-speedrun.html) showed ONLY `generatedAt` timestamp changes; every node/edge/degree/bundle-score field unchanged. Per SKILL step 3 intent (`extractor output deterministic → exit silently`), restored the 4 generated files to HEAD state, updated only this fingerprint state locally, skipped PR + notify. Bland-verdict form (`graph refreshed (…)`) + zero orphan/bundled deltas would have muted notify anyway per SKILL step 5. Exit mode: NOTEGRAPH_NO_CHANGE (fingerprint advanced but graph unchanged — the extractor already caught up on 08-07 via reflect; today's fingerprint reflects downstream memory edits that don't add new [[wikilinks]] or files). No new orphan/bundled surprises. Staged notegraph branch queue count unchanged from 08-07's ≥21."
+  "note": "2026-08-09: Fingerprint advanced 92772443… → 0e0328eb… (corpus edits since 08-08 run — MEMORY.md pointer refresh + notes churn + today's log entries). Extractor produced 249n / 1854h / 639s / 1o / 73 atomic / 0b — byte-identical to HEAD (which was regenerated 2026-08-08T18:46:57Z by some later 08-08 run and committed via 3bcd2df). `git diff --numstat` on the 4 generated files reports 1 added / 1 removed per file (only `generatedAt` timestamps in JSON+HTML and the `Auto-generated ... on YYYY-MM-DD` line in the .md). Every node/edge/degree/bundle-score field unchanged. Per SKILL step 3 intent (`extractor output deterministic → exit silently`), restored the 4 generated files to HEAD state, updated only this state file locally with new fingerprint + accurate HEAD-matching stats (stale state from 08-08 morning had 247n/2521e/0o/72a — superseded by the 08-08 18:46Z regen which lifted to 249n/2493e/1o/73a). Bland-verdict form (`graph refreshed (…)`) + zero orphan/bundled deltas would have muted notify anyway per SKILL step 5. Exit mode: NOTEGRAPH_NO_CHANGE. The 1 orphan (persistent from HEAD, not new today) is NOT surfaced — new_orphans is empty because this delta is computed vs HEAD, not vs the stale state file. Staged notegraph branch queue count unchanged."
 }
