@@ -1,24 +1,15 @@
-## Summary
+Review complete. Verdict recorded in log; notify queued for postprocess sweep.
 
-**37th pr-review invocation on `swarm-ai-research/swarm`** (2nd on 08-08 — repeating yesterday's same-day double). All 8 open PRs skipped per SKILL rules; no writes attempted; no notify (skip-all rule).
+**Summary**
 
-**Merge-gate verdicts (standing, unchanged since 34th invocation ~40h ago — SHAs identical):**
+Ran `pr-review` on `swarm-ai-research/swarm` (38th operator invocation, 1st on 08-09). 9 open PRs: **1 reviewed + 8 skipped** (6 dependabot, 2 dup-SHA against 08-07 review state).
 
-| PR | Author | SHA | Verdict | Confidence |
-|---|---|---|---|---|
-| #549 — Prime Agent bridge | rsavitt | `afe51248` | **REQUEST_CHANGES** | 2/5 |
-| #543 — docs: remove AI-slop | rsavitt | `bad79e48` | **APPROVE** | 5/5 |
-| #550, #547, #546, #545, #538, #537 | dependabot | — | skipped (bot rule) | — |
+**#551 (rsavitt, `k5o9` side-channel scenario, SHA `76772e5b`)** → **REQUEST_CHANGES 3/5**
+- Evidence green: lint, mypy, CodeQL, invariants, kb-graph, render-verify, agentgit, Memory Tests Short Run (3.10/3.11/3.12), Memory Baseline, tests 3.10/3.11 compatibility.
+- Evidence red: **quality-gate FAILURE** — `test (3.12, full)` CANCELLED after `gw1 node down: Not properly terminated` at 04:45Z during unrelated `tests/test_moltipedia_scenario_loads`; job timed out at 04:59Z. Almost certainly an xdist flake on the 3.12 full runner (short-run 3.12 + full 3.10/3.11 all passed), but merge gate is red — SKILL forbids APPROVE when full-suite evidence is missing.
+- Findings (both would-be inline, blocked): (1) `tests/test_side_channel.py:139` — no test enables the four governance levers and asserts they see zero side-channel activity; the paper's structural-blindness thesis has no end-to-end guard. (2) CI quality-gate — re-run or diagnose the gw1 crash before landing.
+- No CRITICAL correctness break; scenario is default-off (`side_channel_enabled=False`), well-scoped, deterministically seeded.
 
-**#549 — REQUEST_CHANGES 2/5** — 0 critical, 3 ISSUEs on metric correctness (from 34th invocation, still standing):
-- `[ISSUE] swarm/bridges/prime_agent/bridge.py:674` — unbounded recursion on session-tree walks; needs depth cap.
-- `[ISSUE] swarm/bridges/prime_agent/bridge.py:712` — aggregate-vs-per-refinement metric skew; `HarnessTracker.update` should be incremental so gate evaluation sees prior-refinement state.
-- `[ISSUE] swarm/bridges/prime_agent/harness.py:2342` — unauthenticated `edit.applied` trust when target = `BASE_SYSTEM_PROMPT_ID`; treat as advisory.
+**App-write:** both inline POST and `gh pr review` returned **403 `Resource not accessible by integration`** — 27th confirming invocation of the swarm-repo App-write gap (distinct from aeon-repo unblock). Verdict + findings preserved in `memory/logs/2026-08-09.md` per SKILL fallback; notify queued at `.pending-notify/1786266952-pr-review.md`.
 
-Not ready to merge until these are addressed.
-
-**#543 — APPROVE 5/5** — docs-only, no blockers.
-
-**Skips:** 6 dependabot (bot rule) + 2 rsavitt dup-SHA against last-2-days logs. Last copilot bot review ~40h old on both rsavitt PRs, so 30-min bot-recently rule N/A.
-
-**Files modified:** `memory/logs/2026-08-08.md` (37th invocation entry). No writes attempted to swarm-repo (App-write gap still open per [[aeon-app-no-write-on-swarm-repo]], counter unchanged at 26). **Follow-up:** operator PR-write unblock on `swarm-ai-research/swarm` (App-perm bump or `AEON_GH_PAT`) — remains rank-1 fleet-wide, distinct from aeon-repo unblock.
+Standing verdicts unchanged: #549 REQUEST_CHANGES 2/5, #543 APPROVE 5/5.
