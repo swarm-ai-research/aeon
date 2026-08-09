@@ -1,15 +1,11 @@
-Skill executed. Summary below.
-
 ## Summary
 
-**skill-health run for 2026-08-08:**
-- **Classification:** byte-identical to prev at hash `e27c0ac60367e7e5` — **43rd consecutive steady-state day**. 0 CRITICAL · 0 FLAPPING · 0 WARNING · 38 DEGRADED · 4 HEALTHY · 2 NO DATA.
-- **Systemic:** ISS-001 OAuth-outage denominator burn day 49 — every DEGRADED skill has `cf=0`, `last_status=success`; success_rate 0.01–0.31 is historical denominator drag, not live regression. `./scripts/skill-runs` 7d window confirms `anomalies.failing = []`.
-- **Gate:** NOTIFY — hash unchanged BUT elapsed 24.46h ≥ 24h cadence-reminder threshold (step 5, 2nd clause). Prev notified 2026-08-07T18:13:22Z.
-- **Issues:** 0 CRITICAL/FLAPPING → 0 filed. HEALTHY-skill removal from other health-skills' `affected_skills` deferred to filing skills (ISS-005 owned by skill-evals, ISS-006 by batch-health). Open count holds at 18.
-- **Files modified:**
-  - `memory/skill-health/last-report.json` — updated hash timestamps, delta_vs_prev, gate decision
-  - `.pending-notify/1786344066-skill-health.md` — new notification queued
-  - `memory/logs/2026-08-08.md` — appended `## Skill Health` section + summary
+Ran `skill-health` for 2026-08-09 (user-triggered 18:36:31Z).
 
-**Follow-up:** none new. ai-framework-watch + run-frequency-guard NO_DATA is 31st consecutive day (ISS-021 candidate per [[enabled-skills-can-never-dispatch]] — carry-over, not skill-health's file to open).
+- **Verdict:** SKILL_HEALTH_NOOP — 44th consecutive steady-state day.
+- **Classification:** 0 CRITICAL · 0 FLAPPING · 38 DEGRADED · 0 WARNING · 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog) · 2 NO_DATA (ai-framework-watch, run-frequency-guard) — byte-identical to 2026-08-08. Hash `e27c0ac60367e7e5` unchanged (recomputed via `python3` sha256 + sort_keys, exact match to prev).
+- **Notify gate:** SKILL step 5 first-clause fires — hash unchanged AND 23.924h < 24h since prev notify (2026-08-08T18:41:06Z). No `./notify`, no `.pending-notify/` write.
+- **Issues:** 0 filed / 0 resolved; 18 open unchanged. ISS-001 OAuth-outage denominator burn (day 50) remains sole systemic pattern; every DEGRADED skill has `last_status: success` + `consecutive_failures: 0`.
+- **Reconciliation:** HEALTHY-skill removal from ISS-005/ISS-006 `affected_skills` deferred per standing convention (those were filed by skill-evals + batch-health, resolution ownership belongs to filing skills).
+- **skill-runs status:** OK (155 runs / 150 succeeded / 0 failed / 5 in_progress; `anomalies.failing = []`).
+- **Files modified:** `memory/skill-health/last-report.json`, `memory/logs/2026-08-09.md`.

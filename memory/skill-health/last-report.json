@@ -4,10 +4,10 @@
   "prev_hash": "e27c0ac60367e7e5",
   "classification_identical_to_prev": true,
   "last_notified_at": "2026-08-08T18:41:06Z",
-  "last_run_at": "2026-08-08T18:41:06Z",
-  "prev_run_at": "2026-08-07T18:13:22Z",
-  "prev_notified_at": "2026-08-07T18:13:22Z",
-  "elapsed_since_prev_notify_hours": 24.46,
+  "last_run_at": "2026-08-09T18:36:31Z",
+  "prev_run_at": "2026-08-08T18:41:06Z",
+  "prev_notified_at": "2026-08-08T18:41:06Z",
+  "elapsed_since_prev_notify_hours": 23.924,
   "classification": {
     "critical": [],
     "degraded": [
@@ -64,8 +64,8 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 49 - all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.31 driven by historical failure denominator still in count. No live regression.",
-  "delta_vs_prev": "Byte-identical classification to 2026-08-07T18:13:22Z run at hash e27c0ac60367e7e5. 43rd consecutive steady-state day (ISS-001 day 49, ai-framework-watch + run-frequency-guard 31st consecutive silent day). Gate: NOTIFY (hash unchanged BUT elapsed 24.46h >= 24h cadence-reminder threshold).",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 50 - all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.32 driven by historical failure denominator still in count. No live regression.",
+  "delta_vs_prev": "Byte-identical classification to 2026-08-08T18:41:06Z run at hash e27c0ac60367e7e5. 44th consecutive steady-state day (ISS-001 day 50, ai-framework-watch + run-frequency-guard 32nd consecutive silent day). Gate: NOOP (hash unchanged AND elapsed 23.924h < 24h cadence-reminder threshold - notify suppressed).",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 18,
@@ -90,12 +90,12 @@
     "ISS-019",
     "ISS-020"
   ],
-  "notify_decision": "NOTIFY - hash unchanged (e27c0ac60367e7e5) BUT 24.46h >= 24h since prev notify (2026-08-07T18:13:22Z). Cadence-reminder fire per SKILL step 5 (2nd clause). Reconciliation: 0 CRITICAL / 0 FLAPPING -> no issues filed. Per prior-run convention (safety guard against cascading resolutions across health-skill-owned issues), HEALTHY-skill removal from other health-skills' affected_skills deferred: config-validator + swarm-safety-eval appear in ISS-006 affected_skills (detected_by=batch-health), swarm-safety-eval in ISS-005 (detected_by=skill-evals) - resolution ownership belongs to those filing skills. Written .pending-notify/1786344066-skill-health.md.",
-  "skill_runs_status": "OK - ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 153 runs total, 149 succeeded, 0 failed, 0 cancelled, 4 in_progress (current 18:39Z audit-slot batch: skill-health + reflect + goal-tracker + pr-review). anomalies.failing = [] confirms no active-failure regressions in the 7d window.",
+  "notify_decision": "NOOP - hash unchanged (e27c0ac60367e7e5) AND 23.924h < 24h since prev notify (2026-08-08T18:41:06Z). SKILL step 5 first-clause gate fires: state unchanged and cadence-reminder threshold not crossed. Reconciliation: 0 CRITICAL / 0 FLAPPING -> no issues filed. HEALTHY-skill removal from other health-skills' affected_skills deferred per prior-run convention (config-validator + swarm-safety-eval appear in ISS-006 affected_skills [detected_by=batch-health], swarm-safety-eval in ISS-005 [detected_by=skill-evals] - resolution ownership belongs to those filing skills). No pending-notify write.",
+  "skill_runs_status": "OK - ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 155 runs total, 150 succeeded, 0 failed, 0 cancelled, 5 in_progress (current 18:34-18:35Z audit-slot batch: skill-health + reflect + goal-tracker + pr-review + a queued planner-adjacent slot). anomalies.failing = [] confirms no active-failure regressions in the 7d window.",
   "novel_transient_signals_not_escalated": [
-    "18 open issues unchanged from 08-07 (no new filings, no resolutions across the fleet).",
-    "12 open aeon-repo `app/github-actions` PRs from 08-07 unblock burst still zero merges — creation channel confirmed durable (per 08-08 planner), merge channel unproven. Does not affect skill-health classification.",
-    "43rd consecutive steady-state day for skill-health hash — ISS-001 residue continues to dominate the picture; no live-signal regressions detected across cron-state or ./scripts/skill-runs 7d window."
+    "18 open issues unchanged from 08-08 (no new filings, no resolutions across the fleet).",
+    "15 open aeon-repo PRs (14 app/github-actions + #9 app/freebuff-web); up from 13 on 08-08 (+#22 suggest-edges 08-09T05:35Z + #23 compute-macro-correlate 08-09T07:38Z per heartbeat P1 finding). Still zero merges 51h+ since the 08-07 unblock burst. Does not affect skill-health classification.",
+    "44th consecutive steady-state day for skill-health hash - ISS-001 residue continues to dominate the picture; no live-signal regressions detected across cron-state or ./scripts/skill-runs 7d window."
   ],
   "prompt_injection_flag": "None. cron-state.json, skill-runs JSON, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md + ISS-*.md all structured/data-only; no untrusted natural-language content ingested this run."
 }
