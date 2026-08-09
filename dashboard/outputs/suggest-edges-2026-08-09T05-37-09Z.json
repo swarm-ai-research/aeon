@@ -1,0 +1,39 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "message_text",
+        "pr_link"
+      ]
+    },
+    "message_text": {
+      "type": "Text",
+      "props": {
+        "text": "3 missing links proposed (top: 2026-06-24)"
+      }
+    },
+    "pr_link": {
+      "type": "Link",
+      "props": {
+        "label": "Review PR",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/22"
+      }
+    }
+  }
+}
