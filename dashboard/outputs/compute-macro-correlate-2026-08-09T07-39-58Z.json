@@ -1,0 +1,194 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "compute-macro-correlate",
+        "description": "2026-08-09"
+      },
+      "children": [
+        "track-a-heading",
+        "track-a-stack",
+        "sep-1",
+        "track-b-heading",
+        "track-b-stack",
+        "sep-2",
+        "preregistered-heading",
+        "preregistered-stack",
+        "sep-3",
+        "pr-badge"
+      ]
+    },
+    "track-a-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Track A",
+        "level": "h2"
+      }
+    },
+    "track-a-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "track-a-assets",
+        "track-a-n",
+        "track-a-status",
+        "track-a-natgas",
+        "track-a-significance"
+      ]
+    },
+    "track-a-assets": {
+      "type": "Text",
+      "props": {
+        "text": "Assets: RENDER, TAO, IO",
+        "variant": "body"
+      }
+    },
+    "track-a-n": {
+      "type": "Stat",
+      "props": {
+        "label": "Sample size",
+        "value": "158"
+      }
+    },
+    "track-a-status": {
+      "type": "Badge",
+      "props": {
+        "text": "all null",
+        "variant": "secondary"
+      }
+    },
+    "track-a-natgas": {
+      "type": "Text",
+      "props": {
+        "text": "NATGAS partial-ρ range: −0.04 to −0.12",
+        "variant": "body"
+      }
+    },
+    "track-a-significance": {
+      "type": "Badge",
+      "props": {
+        "text": "none significant",
+        "variant": "outline"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "track-b-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Track B",
+        "level": "h2"
+      }
+    },
+    "track-b-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "track-b-status-run",
+        "track-b-n",
+        "track-b-assets",
+        "track-b-status-null"
+      ]
+    },
+    "track-b-status-run": {
+      "type": "Badge",
+      "props": {
+        "text": "first live run",
+        "variant": "default"
+      }
+    },
+    "track-b-n": {
+      "type": "Stat",
+      "props": {
+        "label": "Sample size",
+        "value": "50"
+      }
+    },
+    "track-b-assets": {
+      "type": "Text",
+      "props": {
+        "text": "Assets: basket, spread, synthetic, x402",
+        "variant": "body"
+      }
+    },
+    "track-b-status-null": {
+      "type": "Badge",
+      "props": {
+        "text": "all null",
+        "variant": "secondary"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "preregistered-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Pre-registered Test",
+        "level": "h2"
+      }
+    },
+    "preregistered-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "preregistered-name",
+        "preregistered-result",
+        "preregistered-levels"
+      ]
+    },
+    "preregistered-name": {
+      "type": "Text",
+      "props": {
+        "text": "NATGAS energy-cost test",
+        "variant": "lead"
+      }
+    },
+    "preregistered-result": {
+      "type": "Badge",
+      "props": {
+        "text": "no signal found",
+        "variant": "outline"
+      }
+    },
+    "preregistered-levels": {
+      "type": "Text",
+      "props": {
+        "text": "Checked at: token-market and clearing-rate levels",
+        "variant": "caption"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "PR #23 staged",
+        "variant": "default"
+      }
+    }
+  }
+}
