@@ -1,12 +1,7 @@
+Registry check complete. `memory/instances.json` has `.instances = []` — no managed instances. Per the SKILL's pre-flight step 1, I logged `FLEET_EMPTY` to `memory/logs/2026-08-10.md` and **did not notify** (silent stop is the specified behavior). No gh auth check, rate-limit check, or per-instance work needed.
+
 ## Summary
-
-Executed `fleet-control` skill in default Health Check mode.
-
-**Result: `FLEET_EMPTY`** — `memory/instances.json` contains `{"instances": []}`. Per SKILL.md pre-flight step 1, logged the exit code to `memory/logs/2026-08-09.md` and stopped silently. **No notification sent** (as required for the empty-registry path — operator would be trained to ignore recurring "nothing to do" pings).
-
-Files modified:
-- `memory/logs/2026-08-09.md` — appended `## fleet-control (health check)` entry with `FLEET_EMPTY` verdict
-
-No other side effects: registry preserved, state file untouched (no per-instance rows to write), no `gh` calls made (skipped auth + rate-limit checks since there are zero GitHub-hosted entries).
-
-Follow-up: none — the skill will remain a silent no-op on every schedule until an operator adds an instance to `memory/instances.json`.
+- Ran `fleet-control` (Health Check mode, default) for 2026-08-10.
+- Registry empty → halted at pre-flight step 1 with `FLEET_EMPTY`. No notify per SKILL rule.
+- Files modified: `memory/logs/2026-08-10.md` (appended one entry).
+- Follow-up: none — the operator adds instances to `memory/instances.json` when there are managed children to monitor.
