@@ -1,15 +1,9 @@
 ## Summary
 
-Ran `goal-tracker` for 2026-08-09.
+Ran `skills/goal-tracker/SKILL.md` for 2026-08-10 (scope: all).
 
-**Verdict:** `GOAL_TRACKER_NO_GOALS` — MEMORY.md has no `## Goals` or `## Next Priorities` section, so the skill exited at input-parse per its own rules.
-
-**Context:** the prior state file (`memory/goal-state.json`, last run 2026-07-25) tracked 19 goals whose slugs still map cleanly onto the unheadered bullet list at `memory/MEMORY.md:42-61` (`Prove end-to-end merge flow` through `Defer ISS-001 close`). Those bullets sit between `## Pointers` and end-of-file with no header, most likely lost during a memory-flush. The skill's constraint (`This skill reads and annotates — it never authors`) prevented me from inserting a header inline.
-
-**Files modified:**
-- `.pending-notify/1786300581-goal-tracker.md` (new) — carries `Goal Tracker — NO_GOALS (add a '## Goals' section to memory/MEMORY.md)` for post-run delivery
-- `memory/logs/2026-08-09.md` — appended `## goal-tracker` entry
-
-**Untouched:** `memory/goal-state.json` (prior snapshot preserved as a reconstruction reference), `memory/MEMORY.md` (per constraint).
-
-**Follow-up for operator:** relabel the `memory/MEMORY.md:42-61` bullet block with a `## Goals` header (matches the tracked-goal shape from the state file). Once added, the next `goal-tracker` run will resume producing the full quantified status report.
+- **Verdict:** `GOAL_TRACKER_NO_GOALS` (day 2). `memory/MEMORY.md` still has neither `## Goals` nor `## Next Priorities` header — the same state as yesterday's 08-09 run. Per the skill's explicit constraint (*"This skill reads and annotates — it never authors"*), I took the mandated exit path without inserting a header.
+- **Note:** the 20 unheadered action-item bullets at `memory/MEMORY.md:42-63` still match the shape of the prior `memory/goal-state.json` (last snapshot 2026-07-25) and are the natural candidate for an operator-added `## Next Priorities` relabel.
+- **Notify:** direct-write to `.pending-notify/1786386857-goal-tracker.md` (message verbatim per skill: `Goal Tracker — NO_GOALS (add a '## Goals' section to memory/MEMORY.md)`) — postprocess picks up on next `scripts/postprocess-*.sh` sweep.
+- **Files modified:** `.pending-notify/1786386857-goal-tracker.md` (new), `memory/logs/2026-08-10.md` (goal-tracker entry appended). `memory/goal-state.json` left untouched.
+- **Follow-up:** operator inserts a `## Goals` or `## Next Priorities` header above MEMORY.md:42 to end the NO_GOALS streak.
