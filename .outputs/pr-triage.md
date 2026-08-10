@@ -1,16 +1,15 @@
 ## Summary
 
-Ran `pr-triage` on `swarm-ai-research/swarm` (repo mode).
+Ran `pr-triage` for `swarm-ai-research/swarm` (repo mode via `${var}` override). **`PR_TRIAGE_OK no-candidates`** — every open PR was skipped.
 
-**Actions taken:**
-- Fetched 5 open PRs (14-day window). Skipped 4 (3 dependabot bots, #549 already-triaged at SHA `afe5124`).
-- Triaged **#551** (rsavitt, side-channel scenario k5o9, `76772e5b`, 1011+/6-) → **DEFER** — size 1017 exceeds 500-line ceiling with no `large-ok` label. Body substantive; no protected paths touched.
-- App-write blocked (28th confirming invocation of swarm-repo write-permission gap): `gh pr comment` and `gh pr edit --add-label` both returned `Resource not accessible by integration`. Verdict + rendered comment preserved in log.
-- Updated `memory/triaged-prs.json` with new entry `{n: 551, sha: "76772e5", verdict: "DEFER", note: "no-permission (write blocked); size 1017 no large-ok"}`.
-- Appended pr-triage entry to `memory/logs/2026-08-09.md`.
-- Notify gate: not fired (DEFER is routine per §10).
+**Skipped 7/7 open PRs:**
+- **5 bots** (trusted set): #550, #547, #546, #538, #537 — all `dependabot[bot]` (`type: Bot`)
+- **2 already-triaged at current head** (matched `memory/triaged-prs.json`): #549 rsavitt `afe51248` (DEFER 2026-08-07), #543 rsavitt `bad79e48` (ACCEPTED 2026-08-07)
 
-**Files modified:** `memory/triaged-prs.json`, `memory/logs/2026-08-09.md`.
-**Follow-up:** Operator write-permission unblock on `swarm-ai-research/swarm` remains open (distinct from aeon-repo path). Leftover scratch file `.notify/triage-551.md` — sandbox blocked `rm`; safe untracked noise.
+**No writes attempted** (no candidates), so no `PR_TRIAGE_NO_PERMISSION` this run — but the confirming counter for [[aeon-app-no-write-on-swarm-repo]] still advances to **29 invocations** (was 28), narrower shape this time (doubly no-op: write-blocked ∧ no candidates).
 
-Exit mode: `PR_TRIAGE_OK`.
+**State:** `memory/triaged-prs.json` unchanged — oldest entry #450 (2026-05-25, 77d) still within the 90d retention window, no truncation needed.
+
+**Notify:** not fired (§10 gate — no OUT-OF-SCOPE, no first-PR welcome).
+
+**Files modified:** `memory/logs/2026-08-10.md` (this entry only).
