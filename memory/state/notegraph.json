@@ -1,34 +1,39 @@
 {
-  "input_fingerprint": "0e0328eb4be15d01f62a7d2d10704b7ea22d839a",
-  "last_run": "2026-08-09",
+  "input_fingerprint": "e69e6cbec7cd26fa4a2deed767b4724997b9245e",
+  "last_run": "2026-08-10",
   "stats": {
-    "nodes": 249,
-    "edges": 2493,
-    "hard": 1854,
-    "soft": 639,
+    "nodes": 254,
+    "edges": 2546,
+    "hard": 1902,
+    "soft": 644,
     "orphans": 1,
-    "atomic": 73,
+    "atomic": 75,
     "bundled": 0
   },
-  "last_verdict": "graph refreshed (249n / 2493e / 0b) — deterministic no-op vs HEAD",
-  "last_pr": "",
-  "last_branch": "",
+  "last_verdict": "+2 notes wired in",
+  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/27",
+  "last_branch": "notegraph/2026-08-10",
   "delta_vs_head": {
-    "nodes": 0,
-    "edges": 0,
-    "hard": 0,
-    "soft": 0,
+    "nodes": 2,
+    "edges": 18,
+    "hard": 19,
+    "soft": -1,
     "orphans": 0,
     "bundled": 0,
-    "atomic": 0
+    "atomic": 2
   },
-  "new_nodes": [],
+  "new_nodes": [
+    "memory/notes/pr-creation-toggle-is-distinct-from-merge-capability.md",
+    "memory/notes/suggest-edges-flags-templated-corpora-as-sim-1-noise.md"
+  ],
   "removed_nodes": [],
-  "orphans": [],
+  "orphans": [
+    "docs/telegram-instant.md"
+  ],
   "new_orphans": [],
   "resolved_orphans": [],
   "new_bundled": [],
   "resolved_bundled": [],
-  "notify_suppressed": true,
-  "note": "2026-08-09: Fingerprint advanced 92772443… → 0e0328eb… (corpus edits since 08-08 run — MEMORY.md pointer refresh + notes churn + today's log entries). Extractor produced 249n / 1854h / 639s / 1o / 73 atomic / 0b — byte-identical to HEAD (which was regenerated 2026-08-08T18:46:57Z by some later 08-08 run and committed via 3bcd2df). `git diff --numstat` on the 4 generated files reports 1 added / 1 removed per file (only `generatedAt` timestamps in JSON+HTML and the `Auto-generated ... on YYYY-MM-DD` line in the .md). Every node/edge/degree/bundle-score field unchanged. Per SKILL step 3 intent (`extractor output deterministic → exit silently`), restored the 4 generated files to HEAD state, updated only this state file locally with new fingerprint + accurate HEAD-matching stats (stale state from 08-08 morning had 247n/2521e/0o/72a — superseded by the 08-08 18:46Z regen which lifted to 249n/2493e/1o/73a). Bland-verdict form (`graph refreshed (…)`) + zero orphan/bundled deltas would have muted notify anyway per SKILL step 5. Exit mode: NOTEGRAPH_NO_CHANGE. The 1 orphan (persistent from HEAD, not new today) is NOT surfaced — new_orphans is empty because this delta is computed vs HEAD, not vs the stale state file. Staged notegraph branch queue count unchanged."
+  "notify_suppressed": false,
+  "note": "2026-08-10: Fingerprint advanced 0e0328eb… → e69e6cbe… (corpus grew by 2 atomic notes since the 08-09 run — pr-creation-toggle-is-distinct-from-merge-capability.md and suggest-edges-flags-templated-corpora-as-sim-1-noise.md). Extractor produced 254n / 1902h / 644s / 1o / 75 atomic / 0b — HEAD had 252n / 1883h / 645s / 1o / 73a. Delta: +2n, +18e (+19 hard, -1 soft), 0 orphan/bundled change. Persistent orphan docs/telegram-instant.md unchanged from prior runs (not new today, not surfaced in notify). Verdict fell into the '+${node_delta} notes wired in' bucket per SKILL step 3 priority. Notify sent (verdict is not the bland 'graph refreshed' form). Also committed docs/notegraph-speedrun.html — 4th generated file that the extractor now writes but the SKILL command list predates; leaving it out would leave the tree dirty every run. PR: #27 → notegraph/2026-08-10. Exit mode: NOTEGRAPH_OK."
 }

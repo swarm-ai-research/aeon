@@ -1,0 +1,97 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_status",
+        "grid_stats",
+        "separator_1",
+        "link_pr"
+      ]
+    },
+    "text_status": {
+      "type": "Text",
+      "props": {
+        "text": "+2 notes wired in",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "grid_stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_notes",
+        "stat_edges",
+        "stat_orphans",
+        "stat_broken"
+      ]
+    },
+    "stat_notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "254"
+      },
+      "children": []
+    },
+    "stat_edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "2546"
+      },
+      "children": []
+    },
+    "stat_orphans": {
+      "type": "Stat",
+      "props": {
+        "label": "Orphans",
+        "value": "1"
+      },
+      "children": []
+    },
+    "stat_broken": {
+      "type": "Stat",
+      "props": {
+        "label": "Broken links",
+        "value": "0"
+      },
+      "children": []
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "link_pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #27",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/27",
+        "source": "GitHub"
+      },
+      "children": []
+    }
+  }
+}
