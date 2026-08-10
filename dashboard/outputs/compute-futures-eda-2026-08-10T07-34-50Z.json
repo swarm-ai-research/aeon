@@ -1,0 +1,282 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-08-09"
+      },
+      "children": [
+        "heading-overview",
+        "grid-overview",
+        "sep1",
+        "heading-retail",
+        "content-retail",
+        "sep2",
+        "heading-cross",
+        "content-cross",
+        "sep3",
+        "heading-curve",
+        "content-curve",
+        "sep4",
+        "heading-conservation",
+        "content-conservation",
+        "sep5",
+        "section-report"
+      ]
+    },
+    "heading-overview": {
+      "type": "Heading",
+      "props": {
+        "text": "Overview",
+        "level": "h3"
+      }
+    },
+    "grid-overview": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-rows",
+        "stat-modes"
+      ]
+    },
+    "stat-rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      }
+    },
+    "stat-modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-retail": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Finding [HIGH]",
+        "level": "h3"
+      }
+    },
+    "content-retail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-retail-title",
+        "badge-high",
+        "retail-metrics",
+        "text-retail-structural"
+      ]
+    },
+    "text-retail-title": {
+      "type": "Text",
+      "props": {
+        "text": "Retail-role systematically absorbs spread-mode losses",
+        "variant": "lead"
+      }
+    },
+    "badge-high": {
+      "type": "Badge",
+      "props": {
+        "text": "HIGH",
+        "variant": "destructive"
+      }
+    },
+    "retail-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-seeds",
+        "stat-losses",
+        "stat-filings"
+      ]
+    },
+    "stat-seeds": {
+      "type": "Stat",
+      "props": {
+        "label": "Seeds negative retail",
+        "value": "11/12"
+      }
+    },
+    "stat-losses": {
+      "type": "Stat",
+      "props": {
+        "label": "Top losses (all retail)",
+        "value": "7"
+      }
+    },
+    "stat-filings": {
+      "type": "Stat",
+      "props": {
+        "label": "Filings",
+        "value": "4"
+      }
+    },
+    "text-retail-structural": {
+      "type": "Text",
+      "props": {
+        "text": "Promoted to structural per yesterday's rule",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-cross": {
+      "type": "Heading",
+      "props": {
+        "text": "Cross-Mode maxSpot",
+        "level": "h3"
+      }
+    },
+    "content-cross": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat-maxspot",
+        "text-anchor"
+      ]
+    },
+    "stat-maxspot": {
+      "type": "Stat",
+      "props": {
+        "label": "maxSpot persists at n=2",
+        "value": "16.67%"
+      }
+    },
+    "text-anchor": {
+      "type": "Text",
+      "props": {
+        "text": "Rotated 2-seed anchor: 093+096",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-curve": {
+      "type": "Heading",
+      "props": {
+        "text": "Yesterday's HIGH maxCurve Cluster",
+        "level": "h3"
+      }
+    },
+    "content-curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat-curve-collapse",
+        "text-curve-modes"
+      ]
+    },
+    "stat-curve-collapse": {
+      "type": "Stat",
+      "props": {
+        "label": "Cluster collapse",
+        "value": "25% → 0%",
+        "delta": "-25%",
+        "trend": "down"
+      }
+    },
+    "text-curve-modes": {
+      "type": "Text",
+      "props": {
+        "text": "In modes: basket, synth, x402",
+        "variant": "body"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-conservation": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation",
+        "level": "h3"
+      }
+    },
+    "content-conservation": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "badge-ok",
+        "stat-orders"
+      ]
+    },
+    "badge-ok": {
+      "type": "Badge",
+      "props": {
+        "text": "All 4 modes OK",
+        "variant": "secondary"
+      }
+    },
+    "stat-orders": {
+      "type": "Stat",
+      "props": {
+        "label": "Orders under gates",
+        "value": "11+"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-report": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "link-report"
+      ]
+    },
+    "link-report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Compute-Futures EDA Analysis — 2026-08-09",
+        "href": "memory/topics/compute-futures-eda/2026-08-09.md"
+      }
+    }
+  }
+}
