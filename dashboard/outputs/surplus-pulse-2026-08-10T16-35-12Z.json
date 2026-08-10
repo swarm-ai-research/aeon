@@ -1,0 +1,133 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse"
+      },
+      "children": [
+        "heading_date",
+        "stack_sections",
+        "separator",
+        "text_summary"
+      ]
+    },
+    "heading_date": {
+      "type": "Heading",
+      "props": {
+        "text": "2026-08-10",
+        "level": "h4"
+      },
+      "children": []
+    },
+    "stack_sections": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "section_spot",
+        "section_curve",
+        "section_rail"
+      ]
+    },
+    "section_spot": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_spot_label",
+        "stat_spot"
+      ]
+    },
+    "text_spot_label": {
+      "type": "Text",
+      "props": {
+        "text": "Spot: catalog · Llama 4 Scout (Surplus Intelligence)",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "stat_spot": {
+      "type": "Stat",
+      "props": {
+        "value": "$0.0764/M"
+      },
+      "children": []
+    },
+    "section_curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_curve_label",
+        "stat_curve"
+      ]
+    },
+    "text_curve_label": {
+      "type": "Text",
+      "props": {
+        "text": "Curve: hyperscaler H100 reserve R30 (round 6 supply tightening)",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "stat_curve": {
+      "type": "Stat",
+      "props": {
+        "value": "+88.7%",
+        "trend": "up"
+      },
+      "children": []
+    },
+    "section_rail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_rail_label",
+        "link_rail"
+      ]
+    },
+    "text_rail_label": {
+      "type": "Text",
+      "props": {
+        "text": "Rail: x402 on Base/USDC",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "link_rail": {
+      "type": "Link",
+      "props": {
+        "label": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      },
+      "children": []
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "text_summary": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus inference market holding firm — catalog mode, no live feed; curve re-pricing unchanged from prior runs, tightening pattern persistent at R30.",
+        "variant": "body"
+      },
+      "children": []
+    }
+  }
+}
