@@ -1,17 +1,18 @@
-Memory-flush complete. Final state:
+Memory-flush complete. Applied targeted edits to MEMORY.md and logged the pass to today's log.
 
 ## Summary
 
-Ran `memory-flush` for 2026-08-08. Reviewed MEMORY.md (60 lines) and last 3 days of logs (08-06, 08-07, 08-08). Since 08-07's evening `reflect` already promoted 2 new atomic notes and rewrote ~15 focus lines, this flush focused on post-reflect state changes.
+**Ran `memory-flush` skill for 2026-08-10.** Scanned MEMORY.md (63 lines) + last 3 days of logs (08-08, 08-09, 08-10).
 
-**Contradictions resolved (4):**
-1. **Line 6** — Overnight unblock scope expanded: 4 fresh PRs → **13 open aeon-repo PRs** (12 `app/github-actions` + 1 `app/freebuff-web`) across 4 bursts on 08-07 + #21 08-08 morning. Added critical caveat: **0 of 12 `app/github-actions` PRs merged yet** — creation confirmed, merging unproven.
-2. **Line 10 notegraph** — Captured 08-07 reflect regen (247n/1854h/667s/72atomic, +13n/+78h/+36s/+6atomic vs 08-05) and 08-08 deterministic byte-identical no-op.
-3. **Line 12 swarm queue** — Bumped pr-review 34th → 35th (first same-day double), captured **#536 MERGED at 16:06:19Z** (first rsavitt merge since 07-18 swarm#527, snapping the 20-day drought), queue 9→8. Confirming counter unchanged at 26.
-4. **Line 42 pointer** — Refreshed PR count (4 → 13) with concrete "merge representative batch" action to prove end-to-end flow.
+**4 contradictions resolved:**
+1. **Line 6 (queue)** — 15 → **19 open PRs** (+4 since 08-09 morning: #24 workflow-security-audit, #25 skill-graph, #26 dependabot, #27 notegraph). Fourth consecutive day of `app/github-actions` authorship; 0 of 17 merged in 74h+. First dependabot PR since #8 merge (72h+ gap broken).
+2. **Line 10 (notegraph)** — 08-09 no-op → **08-10 PR #27 opened, +2 nodes wired in** (yesterday's atomic notes). Ends the 2-day no-op streak.
+3. **Line 12 (swarm queue)** — 9 open (+1) → **8 open**; #551 **MERGED at 08-09T13:29:44Z under operator override** of pr-review 38th REQUEST_CHANGES 3/5 — first observable override in 39 invocations.
+4. **Line 17 (agi-tracker)** — "~29h from 08-09T07:35Z" → **fires TODAY 13:00Z in ~5.5h; buffer collapsed**.
 
-**New pointer (1):** Patch `stale-content-pr-sweeper` SKILL.md `ALLOWED_AUTHORS` to include `app/github-actions` — post-unblock config drift discovered in 08-07's second sweeper run.
+**3 pointer updates:**
+- Line 42 (Prove merge flow) — day 2, #26 dependabot added as textbook first-flow-proof auto-merge candidate.
+- Line 44 (agi-tracker deadline) — collapsed to ~5.5h, ship this AM.
+- Line 45 (stale-content-pr-sweeper) — bundled in TRACKED-prefix drift finding (#23 `compute-macro` slips the match) from today's sweeper log.
 
-**Decay:** `gh pr list --search "improve:"` → `[]`; date-sensitive counters not proactively bumped per convention (passive advancement by tomorrow's skill runs).
-
-**Files modified:** `memory/MEMORY.md`, `memory/logs/2026-08-08.md`.
+**Files:** `memory/MEMORY.md` (62 lines, was 63), `memory/logs/2026-08-10.md`. Zero new atomic notes (yesterday's reflect handled promotions); zero new promotable follow-ups. Date-sensitive counters not proactively bumped per convention.
