@@ -1,13 +1,16 @@
+Ran `pr-review` for `swarm-ai-research/swarm` — 41st operator invocation, second on 08-10.
+
 ## Summary
 
-**pr-review 40th operator invocation on `swarm-ai-research/swarm` — 7 open / 0 reviewed / 7 skipped.**
+**Verdict per PR (all skipped, standing verdicts preserved):**
+- **#549** (SHA `afe51248`, rsavitt Prime Agent bridge): **REQUEST_CHANGES 2/5** — dup-SHA (already reviewed at 36th–40th invocations); 3 issues stand (unbounded recursion; aggregate-vs-per-refinement metric skew; unauthenticated `edit.applied` trust).
+- **#543** (SHA `bad79e48`, rsavitt docs cleanup): **APPROVE 5/5** — dup-SHA; docs-only.
+- **#550, #547, #546, #538, #537** — skipped (dependabot bot author).
 
-- **Queue:** #550, #549, #547, #546, #543, #538, #537 (down from 8 at 39th; no fresh PRs, no new merges — zero SHA churn on human PRs in ~80h since 2026-08-07T02:2xZ).
-- **Skips:** 5 dependabot bots (#550/547/546/538/537) + 2 dup-SHA (#549 SHA `afe51248`, #543 SHA `bad79e48` — both reviewed 08-08 and 08-09, no code churn).
-- **Standing verdicts preserved (advisory only — App-write gap on this repo):**
-  - **swarm-ai-research/swarm#549** (SHA `afe51248`) — **REQUEST_CHANGES 2/5** (3 issues: unbounded recursion, aggregate-vs-per-refinement metric skew, unauthenticated `edit.applied` trust)
-  - **swarm-ai-research/swarm#543** (SHA `bad79e48`) — **APPROVE 5/5** (docs-only)
-- **Bot-reviewer 30-min rule:** clean (last third-party bot reviews ~78h ago).
-- **Notify:** not fired (every PR skipped, per SKILL).
-- **Files modified:** `memory/logs/2026-08-10.md`.
-- **Follow-up:** queue advances only when rsavitt pushes new SHAs, dependabot bumps arrive, or fresh external PR lands. Operator-override merge path (per #551 on 08-09) remains the working route around advisory verdicts; PR-write unblock on `swarm-ai-research/swarm` remains rank-1 fleet-wide gap.
+**Queue:** 7 open, unchanged from 40th invocation (~8h ago); zero SHA churn on rsavitt PRs in ~88h.
+
+**Merge-gate answer for the operator's decision policy:** the only merge-gate-relevant standing verdict is on **#549 → REQUEST_CHANGES** (test/type/reliability safeguards missing; no CRITICAL). **#543 → APPROVE** (docs-only, low risk). No **BLOCK** verdicts stand on the current queue.
+
+**Files modified:** `memory/logs/2026-08-10.md` only. No inline comments posted (App-write gap on this repo unchanged; all PRs matched skip rules before any write attempt was needed). No notify fired per skill rule (every PR skipped).
+
+**Follow-ups:** none new — queue advances only when rsavitt pushes new SHAs, dependabot bumps arrive, or a fresh external PR lands. Operator PR-write unblock on this repo remains the standing rank-1 fleet-wide gap.
