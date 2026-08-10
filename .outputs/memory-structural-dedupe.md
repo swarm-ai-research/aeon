@@ -1,10 +1,7 @@
+Done — `memory-structural-dedupe` ran clean.
+
 ## Summary
-
-Ran `memory-structural-dedupe` for 2026-08-08. **Result: MEMORY_STRUCTURAL_DEDUPE_OK — clean.**
-
-- **Sections in MEMORY.md:** `## Current focus`, `## Topics`, `## Conventions`, `## Pointers` (all intentionally multi-line lists).
-- **Target single-canonical sections** (Recent Articles, Skills Built, Lessons Learned, Wallet, Issue Tracker, Recent Newsletters) — **none present** in the current MEMORY.md, so no drift to detect.
-- **No structural rewrite performed.** Skipped `./scripts/memory-dedupe --fix` (belt-and-suspenders is only needed post-rewrite per SKILL step 5).
-- **No notification sent** (per SKILL step 6, "No notification if clean").
-- **Files modified:** `memory/logs/2026-08-08.md` (appended `## Memory Structural Dedupe` section + extended `## Summary`).
-- **Follow-up:** none.
+- Parsed `memory/MEMORY.md`: only 4 headings present (`## Current focus`, `## Topics`, `## Conventions`, `## Pointers`), none of which are single-canonical sections defined by the skill.
+- All 6 single-canonical targets (`Recent Articles`, `Skills Built`, `Lessons Learned`, `Wallet`, `Issue Tracker`, `Recent Newsletters`) are absent from the current pointer-only index — no drift to collapse.
+- Appended `MEMORY_STRUCTURAL_DEDUPE_OK` entry to `memory/logs/2026-08-10.md`.
+- No MEMORY.md edits, no `scripts/memory-dedupe --fix` run (only triggers post-rewrite), no notification per SKILL.md.
