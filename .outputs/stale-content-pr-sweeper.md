@@ -1,14 +1,19 @@
-Executed `stale-content-pr-sweeper` for 2026-08-08. Enumerated 13 open PRs, grouped by prefix per the SKILL's `TRACKED` list.
+## Summary
 
-**Result: 0 closures, no notify** (steady state per SKILL step 6).
+Ran `stale-content-pr-sweeper` per SKILL.md against the current 17 open PRs.
 
-**Groups:**
-- `suggest-edges`: 2 date-stamped PRs (#21 `suggest-edges/2026-08-08`, #14 `suggest-edges/2026-08-07`)
-- `notegraph`: 1 date-stamped PR (#10 `notegraph/2026-08-07`)
-- 10 others on non-TRACKED prefixes (`aeon/*` × 9 + `freebuff/*` × 1) — correctly untouched
+**Result: 0 closed, no notify fired (steady state).**
 
-**Blocker:** the SKILL's `ALLOWED_AUTHORS = {"aeonframework"}` filter drops all 13 PRs (post-08-07 unblock cron authorship shifted to `app/github-actions`). Strict execution → no eligible entries → no closures. This is the **known documented gap** — MEMORY.md line 44 + today's planner rank-2 (`stale-content-pr-sweeper-allowed-authors-patch`, streak-1) already track the one-line patch.
+**Filter trace:**
+- 4 PRs matched the TRACKED prefix + ISO-date pattern: #10 (notegraph/2026-08-07), #14 (suggest-edges/2026-08-07), #21 (suggest-edges/2026-08-08), #22 (suggest-edges/2026-08-09).
+- All 4 authored by `app/github-actions`, which is not in the hardcoded `ALLOWED_AUTHORS = {"aeonframework"}` — all excluded at step 1.
+- #23 branch is `compute-macro/2026-08-09` but TRACKED entry is `compute-macro-correlate` (branch/skill-name drift) — excluded.
 
-**Notable:** the `suggest-edges` group is now n=2 coexisting date-stamped PRs — exactly the pile-up the sweeper is designed to catch. Under a patched allowlist, #14 would be swept as superseded by #21 today. Sitting until the patch PR ships.
+**Findings for the known ALLOWED_AUTHORS patch (MEMORY.md line 45):**
+- Confirming counter is now **streak-3** — today is the first day a real n=3 supersession chain has formed: #22 would supersede #21 and #14. The sweeper is now silently no-op'ing on actual sweep targets.
+- Flagged branch-prefix drift on #23 (`compute-macro` vs `compute-macro-correlate`) to bundle into the same allowlist-patch PR.
 
-Only file modified: `memory/logs/2026-08-08.md` (log entry appended). No notify sent.
+**Files:**
+- Created `memory/logs/2026-08-10.md` with the run summary.
+
+**Follow-up:** the ALLOWED_AUTHORS patch (rank-3 planner item) is now cost-worthy — first real target queue. No PR opened here per skill scope (it doesn't self-patch).
