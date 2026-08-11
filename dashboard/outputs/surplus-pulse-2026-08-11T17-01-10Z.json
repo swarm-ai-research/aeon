@@ -1,0 +1,174 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse",
+        "description": "2026-08-11"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_spot",
+        "stack_spot",
+        "separator1",
+        "heading_curve",
+        "stack_curve",
+        "separator2",
+        "heading_rail",
+        "stack_rail",
+        "separator3",
+        "text_read"
+      ]
+    },
+    "heading_spot": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h2"
+      }
+    },
+    "stack_spot": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_catalog",
+        "stat_scout",
+        "text_provider"
+      ]
+    },
+    "badge_catalog": {
+      "type": "Badge",
+      "props": {
+        "text": "catalog"
+      }
+    },
+    "stat_scout": {
+      "type": "Stat",
+      "props": {
+        "label": "Llama 4 Scout",
+        "value": "$0.0764/M"
+      }
+    },
+    "text_provider": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus Intelligence",
+        "variant": "caption"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_curve": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h2"
+      }
+    },
+    "stack_curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat_h100",
+        "stat_openweights",
+        "stat_agent"
+      ]
+    },
+    "stat_h100": {
+      "type": "Stat",
+      "props": {
+        "label": "Hyperscaler H100 reserve tightens (R30, round 6)",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "stat_openweights": {
+      "type": "Stat",
+      "props": {
+        "label": "Open-weights flood reverses (R30, round 13)",
+        "value": "−44.2%",
+        "trend": "down"
+      }
+    },
+    "stat_agent": {
+      "type": "Stat",
+      "props": {
+        "label": "Agent platform demand surge rebounds (R30, round 20)",
+        "value": "+50.7%",
+        "trend": "up"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_rail": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h2"
+      }
+    },
+    "stack_rail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_rail_desc",
+        "story_x402"
+      ]
+    },
+    "text_rail_desc": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on Base/USDC"
+      }
+    },
+    "story_x402": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Surplus x402",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_read": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "title": "Status",
+        "message": "Catalog mode — Surplus live feed not yet wired (SURPLUS_PRICING_URL unset); curve continues the same supply-tighten → open-weights-flush → demand-rebound arc, net spot +50.5% by run end."
+      }
+    }
+  }
+}
