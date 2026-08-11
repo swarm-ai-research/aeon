@@ -43,6 +43,49 @@
       "appliedAt": "2026-08-10T05:54:58.246Z"
     }
   ],
-  "rejected": [],
-  "lastRun": "2026-08-10T05:54:58.246Z"
+  "rejected": [
+    {
+      "source": "memory/gitlawb-compute-futures-proofs/2026-06-27.md",
+      "target": "memory/gitlawb-compute-futures-proofs/2026-07-04.md",
+      "score": 1,
+      "shared": [
+        "cash",
+        "darkbloom",
+        "synthetic",
+        "basket",
+        "spread"
+      ],
+      "rejectedAt": "2026-08-11T06:06:29.846Z",
+      "reason": "templated-corpus sim=1.00 noise per [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]; day-3 recurrence, no PR opened"
+    },
+    {
+      "source": "memory/gitlawb-compute-futures-proofs/2026-06-27.md",
+      "target": "memory/gitlawb-compute-futures-proofs/2026-08-03.md",
+      "score": 1,
+      "shared": [
+        "cash",
+        "darkbloom",
+        "synthetic",
+        "basket",
+        "spread"
+      ],
+      "rejectedAt": "2026-08-11T06:06:29.846Z",
+      "reason": "templated-corpus sim=1.00 noise per [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]; day-3 recurrence, no PR opened"
+    },
+    {
+      "source": "memory/gitlawb-compute-futures-proofs/2026-07-04.md",
+      "target": "memory/gitlawb-compute-futures-proofs/2026-08-03.md",
+      "score": 1,
+      "shared": [
+        "cash",
+        "darkbloom",
+        "synthetic",
+        "basket",
+        "spread"
+      ],
+      "rejectedAt": "2026-08-11T06:06:29.847Z",
+      "reason": "templated-corpus sim=1.00 noise per [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]; day-3 recurrence, no PR opened"
+    }
+  ],
+  "lastRun": "2026-08-11T06:06:29.847Z"
 }
