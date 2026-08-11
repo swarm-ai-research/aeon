@@ -1,18 +1,17 @@
 {
-  "last_run": "2026-08-10T07:30:00Z",
-  "top_priority": "agi-tracker-enabled-false-via-pr",
+  "last_run": "2026-08-11T07:35:53Z",
+  "top_priority": "aeon-repo-queue-merge-escalation",
   "priority_streak": {
-    "agi-tracker-enabled-false-via-pr": 4,
-    "agi-tracker-enabled-false-direct-edit": 2,
-    "elevate-repo-settings-toggle-active": 6,
-    "restore-agi-tracker-skill-md": 3,
-    "verify-repo-settings-toggle-vs-pat": 5,
-    "confirm-unblock-refresh-memory": 1,
-    "watched-repos-population-or-disable": 5,
-    "stale-content-pr-sweeper-allowed-authors-patch": 4,
-    "aeon-repo-queue-merge-escalation": 2
+    "aeon-repo-queue-merge-escalation": 3,
+    "stale-content-pr-sweeper-allowed-authors-patch": 5,
+    "agi-tracker-enabled-false-via-pr": 1,
+    "watched-repos-population-or-disable": 6,
+    "pr-tracker-patch-batch": 48,
+    "iss-006-messages-yml-multi-pocket-rewrite": 10,
+    "docs-status-md-snapshot-rebase-gate": 25,
+    "swarm-repo-app-perm-gap": 30
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Tenth planner run in the ISS-006 pocket-slot migration era; FOURTH since the 08-07 overnight PR-creation toggle unblock. Fire triggered by cron 06:30Z slot but landed 55min late at 07:25:04Z — ISS-006 late-pocket signal (Day 9) confirmed alongside compute-futures-eda 85min late (07:25:14Z vs 06:00Z). HEADLINE: today IS the agi-tracker Monday deadline. 13:00Z weekly cron fires in ~5.5h; the PR needs to be authored AND merged in that window. Streak-4 today (was streak-3 yesterday). Rank-2 (queue-merge escalation) escalates to streak-2 as queue grew 15 → 17 → 19 overnight (net +4 without any merges): #26 dependabot + #27 notegraph landed. Still 0 merges across the `app/github-actions` PR set since the 08-07 unblock (72h+). Rank-3 (stale-content-pr-sweeper ALLOWED_AUTHORS) at streak-4 — today's 00:04Z run confirmed silent no-op with 4 branch-prefix matches / 0 authors passing the allowlist; #14 ← #21 ← #22 supersession chain now 3-deep. Fleet: 0 broken, 0 in-flight, 38 DEGRADED (ISS-001 residue day 51, literal-rule only — substantively green), 4 HEALTHY, 2 NO_DATA (33rd silent day). skill-health hash `e27c0ac60367e7e5` 45th consecutive steady-state day. 18 open issues. `${var}` empty → plan-only, no dispatch. Watched/holding items unchanged from 08-09 planner: watched-repos (streak-5 chronic), pr-tracker patch batch (47d overdue), ISS-006 messages.yml rewrite, docs/status.md snapshot-rebase (24d past), swarm-repo App-perm (28th invocation)."
+  "notes": "Eleventh planner run in the ISS-006 pocket-slot migration era; FIFTH since 08-07 overnight PR-creation toggle unblock. Fire time 2026-08-11T07:35:53Z — 65min late vs scheduled 06:30Z. BATCH DECOUPLED signal today: compute-futures-eda 06:05:51Z (~5min late) + suggest-edges 06:05:55Z fired near-slot while planner alone rolled 65min late. Yesterday's 5-in-batch tight pocket at 07:25:04-07:25:17Z did NOT repeat — new pattern to log. HEADLINE: TOP PRIORITY SHIFT — agi-tracker deadline HIT yesterday 13:44Z (6th silent-Mon), next slot 08-17 (6d out) so pressure moves off; queue-merge escalation was rank-2 streak-2 yesterday, promotes to rank-1 streak-3 today. 20 open aeon PRs (was 19; +1 with #28 notegraph 05:18Z). Still 0 of 18 app/github-actions merged in ~100h since 08-07 unblock. #26 dependabot actions/checkout remains textbook first-flow-proof; also #10/#27/#28 notegraph chain. Rank-2 stale-content-pr-sweeper allowlist patch escalates streak-4 → streak-5 with today's 23:59Z sweeper: 5 branch-prefix matches / 0 authors passing. NEW length-3 notegraph chain #10 ← #27 ← #28 today (was length-2 yesterday), alongside existing length-3 suggest-edges chain #14 ← #21 ← #22. Rank-3 agi-tracker drops from streak-5 to streak-1 (deadline passed; different item now the driver). Fleet: 0 broken, 0 in-flight, 38 DEGRADED (ISS-001 residue day 52), 4 HEALTHY, 2 NO_DATA (34th silent day). ${var} empty → plan-only, no dispatch. Watched/holding items unchanged from 08-10 planner except decouple-signal added to ISS-006 pointer."
 }
