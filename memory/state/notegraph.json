@@ -1,30 +1,29 @@
 {
-  "input_fingerprint": "e69e6cbec7cd26fa4a2deed767b4724997b9245e",
-  "last_run": "2026-08-10",
+  "input_fingerprint": "ea1b666b9e6478a5a5d69a29abbfa1d52a84d59a",
+  "last_run": "2026-08-11",
   "stats": {
-    "nodes": 254,
-    "edges": 2546,
-    "hard": 1902,
-    "soft": 644,
+    "nodes": 256,
+    "edges": 2561,
+    "hard": 1915,
+    "soft": 646,
     "orphans": 1,
-    "atomic": 75,
+    "atomic": 76,
     "bundled": 0
   },
-  "last_verdict": "+2 notes wired in",
-  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/27",
-  "last_branch": "notegraph/2026-08-10",
+  "last_verdict": "+1 notes wired in",
+  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/28",
+  "last_branch": "notegraph/2026-08-11",
   "delta_vs_head": {
-    "nodes": 2,
-    "edges": 18,
-    "hard": 19,
-    "soft": -1,
+    "nodes": 1,
+    "edges": 4,
+    "hard": 4,
+    "soft": 0,
     "orphans": 0,
     "bundled": 0,
-    "atomic": 2
+    "atomic": 1
   },
   "new_nodes": [
-    "memory/notes/pr-creation-toggle-is-distinct-from-merge-capability.md",
-    "memory/notes/suggest-edges-flags-templated-corpora-as-sim-1-noise.md"
+    "memory/notes/advisory-verdict-can-be-operator-overridden-via-merge.md"
   ],
   "removed_nodes": [],
   "orphans": [
@@ -35,5 +34,5 @@
   "new_bundled": [],
   "resolved_bundled": [],
   "notify_suppressed": false,
-  "note": "2026-08-10: Fingerprint advanced 0e0328eb… → e69e6cbe… (corpus grew by 2 atomic notes since the 08-09 run — pr-creation-toggle-is-distinct-from-merge-capability.md and suggest-edges-flags-templated-corpora-as-sim-1-noise.md). Extractor produced 254n / 1902h / 644s / 1o / 75 atomic / 0b — HEAD had 252n / 1883h / 645s / 1o / 73a. Delta: +2n, +18e (+19 hard, -1 soft), 0 orphan/bundled change. Persistent orphan docs/telegram-instant.md unchanged from prior runs (not new today, not surfaced in notify). Verdict fell into the '+${node_delta} notes wired in' bucket per SKILL step 3 priority. Notify sent (verdict is not the bland 'graph refreshed' form). Also committed docs/notegraph-speedrun.html — 4th generated file that the extractor now writes but the SKILL command list predates; leaving it out would leave the tree dirty every run. PR: #27 → notegraph/2026-08-10. Exit mode: NOTEGRAPH_OK."
+  "note": "2026-08-11: Fingerprint advanced e69e6cbe… → ea1b666b… (corpus grew by 1 atomic note since the 08-10 run — advisory-verdict-can-be-operator-overridden-via-merge.md, promoted by reflect on 08-10 and referenced from MEMORY.md line 11). Extractor produced 256n / 1915h / 646s / 1o / 76 atomic / 0b — HEAD had 255n / 1911h / 646s / 1o / 75a. Delta: +1n, +4e (+4 hard, 0 soft), 0 orphan/bundled change. Persistent orphan docs/telegram-instant.md unchanged from prior runs (not new today, not surfaced in notify). Verdict fell into the '+${node_delta} notes wired in' bucket per SKILL step 3 priority (no new_bundled, no new_orphans, node_delta>0 with orphan_delta≤0 and bundled_delta≤0). Notify sent (verdict is not the bland 'graph refreshed' form). PR: #28 → notegraph/2026-08-11. Streak update: previous no-op streak was already broken at 08-10 (PR #27); today extends the change streak to 2 consecutive days of graph growth. Exit mode: NOTEGRAPH_OK."
 }

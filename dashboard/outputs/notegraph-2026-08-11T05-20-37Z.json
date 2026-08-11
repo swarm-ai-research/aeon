@@ -1,0 +1,90 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "badge_update",
+        "text_change",
+        "grid_stats",
+        "link_pr"
+      ]
+    },
+    "badge_update": {
+      "type": "Badge",
+      "props": {
+        "text": "+1 notes wired in",
+        "variant": "secondary"
+      }
+    },
+    "text_change": {
+      "type": "Text",
+      "props": {
+        "text": "advisory-verdict-can-be-operator-overridden-via-merge",
+        "variant": "muted"
+      }
+    },
+    "grid_stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_n",
+        "stat_e",
+        "stat_o",
+        "stat_b"
+      ]
+    },
+    "stat_n": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "256"
+      }
+    },
+    "stat_e": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "2561"
+      }
+    },
+    "stat_o": {
+      "type": "Stat",
+      "props": {
+        "label": "Operators",
+        "value": "1"
+      }
+    },
+    "stat_b": {
+      "type": "Stat",
+      "props": {
+        "label": "Bugs",
+        "value": "0"
+      }
+    },
+    "link_pr": {
+      "type": "Link",
+      "props": {
+        "label": "PR #28",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/28"
+      }
+    }
+  }
+}
