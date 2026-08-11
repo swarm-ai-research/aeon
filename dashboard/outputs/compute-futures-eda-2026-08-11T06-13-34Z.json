@@ -1,0 +1,127 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-08-10"
+      },
+      "children": [
+        "overview",
+        "separator-1",
+        "findings-section",
+        "separator-2",
+        "alerts-section",
+        "separator-3",
+        "report"
+      ]
+    },
+    "overview": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "rows-stat",
+        "modes-stat"
+      ]
+    },
+    "rows-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      }
+    },
+    "modes-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "separator-1": {
+      "type": "Separator"
+    },
+    "findings-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "findings-heading",
+        "finding-1",
+        "finding-2",
+        "finding-3"
+      ]
+    },
+    "findings-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Analysis",
+        "level": "h3"
+      }
+    },
+    "finding-1": {
+      "type": "Text",
+      "props": {
+        "text": "Cross-mode maxCurve: HIGH→MEDIUM (25%→16.67%)"
+      }
+    },
+    "finding-2": {
+      "type": "Text",
+      "props": {
+        "text": "Anchor contracts: 2 seeds (202608106 + padded 2026081012, HIGH tail only)"
+      }
+    },
+    "finding-3": {
+      "type": "Text",
+      "props": {
+        "text": "Fresh basket settlementLegs: MEDIUM 16.67%"
+      }
+    },
+    "separator-2": {
+      "type": "Separator"
+    },
+    "alerts-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "promote-alert",
+        "conservation-status"
+      ]
+    },
+    "promote-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Retail spread-loss concentration",
+        "message": "n=4 filings — PROMOTE",
+        "type": "success"
+      }
+    },
+    "conservation-status": {
+      "type": "Badge",
+      "props": {
+        "text": "Conservation: all OK",
+        "variant": "secondary"
+      }
+    },
+    "separator-3": {
+      "type": "Separator"
+    },
+    "report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Detailed Report",
+        "href": "memory/topics/compute-futures-eda/2026-08-10.md"
+      }
+    }
+  }
+}
