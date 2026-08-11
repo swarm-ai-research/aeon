@@ -1,11 +1,15 @@
-Reflect complete for 2026-08-10.
+Ran the reflect skill for 2026-08-11.
 
 ## Summary
-
-- **Atomic-pass:** 75 notes scanned; 0 splits (all >3-sentence flagged notes are coherent single-claim per the "rich detail can stay one note" rule).
-- **New atomic note (1):** `memory/notes/advisory-verdict-can-be-operator-overridden-via-merge.md` — promoted from today's swarm#551 override event (first observable operator-override of a `pr-review` verdict in 39 invocations on `swarm-ai-research/swarm`).
-- **MOC updates:** `memory/topics/fleet-ops.md` — added 2026-08-10 Snapshot, archived 08-09, pruned three old snapshots (08-01/08-02/08-03).
-- **MEMORY.md:** `## Current focus` rewritten wholesale to 2026-08-10 state; Pointer counters bumped (docs/status.md 14th, pr-tracker patch 47d overdue, never-dispatch 23d/33-silent, watched-repos streak-5, stale-content-pr-sweeper streak-4, agi-tracker 6th silent-Mon hit).
-- **Notegraph delta:** +1 node, +9 hard edges, +2 soft edges, 0 orphan/bundled change (255n / 1911h / 646s / 1o / 0b).
-- **Files modified:** 1 new note, 2 MOC/index edits, 4 regenerated notegraph outputs, `memory/logs/2026-08-10.md` (Reflect entry), `.pending-notify/1786387517-reflect.md`.
-- **Follow-ups:** none new — all standing items already tracked in MEMORY.md `## Pointers`.
+- **State read:** MEMORY.md + last 8d of logs (08-04→08-11) + articles + skill-health (`e27c0ac60367e7e5`, 46th steady-state day, 18 open issues) + issue index.
+- **2 new atomic notes** promoted from today's activity:
+  - `memory/notes/pr-tracker-repo-deletion-loses-pr-permanently.md` — repo-deletion 404 on both search AND direct-fetch, distinct from archive class (recoverable)
+  - `memory/notes/compute-futures-spread-retail-loss-concentration.md` — 4-consecutive-run retail-role spread-loss pattern per 08-08 n=4 promotion criterion
+- **Atomicity pass over 76 notes** via Explore subagent: 2 borderline candidates flagged (`gha-messages-yml-cron-underdelivery`, `aeon-noreply-numeric-prefix-is-formatting-variant`), **0 splits performed** — umbrella framing on both is more useful than the split would be (both cited canonically by MEMORY.md / MOCs / issues).
+- **`memory/topics/fleet-ops.md`** — added both new lessons + fresh `## Snapshot (2026-08-11)` block.
+- **`memory/MEMORY.md`** — 13 focus bullets rewritten in-place to 08-11 state; 5 pointer bullets updated (trigger day 2→3, agi rank-1→rank-3 deadline reset, sweeper rank-3→rank-2 streak-5, watched-repos streak-5→6, ISS-021 23rd-day); Recent-lessons pointer prepended.
+- **Notegraph regenerated:** 260n / 1962h / 656s / 1o / 78 atomic / 0b. **Delta vs HEAD: +4n / +47e / 0 orphan/bundled** (the +4 = 2 new atomic notes + 2 ad-hoc scripts flagged as follow-up).
+- **Follow-up:** promote today's notegraph sandbox-workaround helpers (`scripts/notegraph-fingerprint.sh` + `scripts/notegraph-diff.mjs`) into first-class SKILL helpers OR delete.
+- **Files modified:** 2 new notes, `memory/topics/fleet-ops.md`, `memory/MEMORY.md`, notegraph outputs (4), `.pending-notify/1786476011-reflect.md`, `memory/logs/2026-08-11.md`.
+- **Notify queued:** `memory consolidated — 2026-08-11 · +4n / +47e (0 splits, 2 new)`
+- REFLECT_OK
