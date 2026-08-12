@@ -1,17 +1,5 @@
-## Summary
+Ran `stale-content-pr-sweeper` per SKILL.md — 21 open PRs enumerated, 7 branch-prefix matches (adds #29 vs the morning 05:33Z run), 0 passed the `ALLOWED_AUTHORS = {"aeonframework"}` filter → **0 closed** (SWEEPER_OK).
 
-Ran `stale-content-pr-sweeper` per SKILL.md.
+Under the pending planner-rank-2 allowlist patch: 4 PRs would close — #27, #10, #21, #14. Same total as morning projection despite the notegraph chain growing length-3 → length-4, because new #29 pushed #28 into the stale set but #28's 1-day age gates it out. All 4 candidates verified `mergeable=UNKNOWN` (pass the conflict-only check).
 
-**Scanned:** 19 open PRs. 6 matched TRACKED branch prefixes:
-- `notegraph`: #28 (2026-08-11), #27 (2026-08-10), #10 (2026-08-07) — chain grew length-2 → length-3
-- `suggest-edges`: #22 (2026-08-09), #21 (2026-08-08), #14 (2026-08-07) — steady length-3
-
-**Filtered:** All 6 authored by `app/github-actions`; SKILL.md hardcodes `ALLOWED_AUTHORS = {"aeonframework"}` → all dropped.
-
-**Closed:** 0. **Notify:** not fired (steady-state).
-
-**Files touched:** `memory/logs/2026-08-12.md` (new).
-
-**Follow-ups (unchanged from prior days):**
-- Allowlist-patch confirming counter now **streak-5**. Landing the MEMORY.md:46 patch (add `"app/github-actions"` to `ALLOWED_AUTHORS`; add `compute-macro` to TRACKED) would close 4 stale PRs today (#10, #27, #14, #21), up from 3 on 08-11.
-- Branch-prefix drift on #23 (`compute-macro` vs TRACKED `compute-macro-correlate`) — streak-3.
+`ALLOWED_AUTHORS` patch confirming counter now streak-6. No PRs closed, no notify fired. Appended a "re-run, operator-triggered" section to `memory/logs/2026-08-12.md` — did not duplicate the morning run's entry.
