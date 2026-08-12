@@ -1,11 +1,16 @@
 ## Summary
 
-**skill-freshness ran for 2026-08-11 — status: `FRESHNESS_NO_CHANGE`.**
+**skill-freshness** completed. Verdict: ✅ **FRESHNESS_OK** — no notification sent.
 
-- **Scope**: 44 enabled skills (fleet audit, `${var}` empty)
-- **Explicit `chains: consume:` edges**: 0 — all chain definitions are commented out in `aeon.yml`
-- **Cross-skill implicit dependencies**: 0 after filtering self-references (most `articles/${skill}-${today}.md` references in SKILL.md files are self-referential; `goal-tracker` references `articles/token-report-*.md` but via a glob pattern against a disabled producer — not canonical)
-- **File ages**: All git-tracked files ~56 min old (committed in `db1e08f`). Well within all thresholds (articles: 28h/192h, .outputs: 4h, topics: 168h, state: 720h). Note: `stat` mtimes are checkout-time (GHA mtime-blind bug [[skill-freshness-mtime-blind-in-gha]]) — `git log` used as proxy.
-- **Fleet verdict**: ✅ `FRESHNESS_OK`
-- **Dedup**: fingerprint matches yesterday's run (`da39a3ee…`, sha1 of empty flagged set) + same verdict + last run < 7 days → **`FRESHNESS_NO_CHANGE`** → notification suppressed
-- **Files written**: `articles/skill-freshness-2026-08-11.md`, `memory/topics/skill-freshness-state.json` (updated `last_run_at`), `memory/logs/2026-08-11.md` (appended)
+**What was audited:**
+- 44 enabled skills, 0 explicit chain edges (chains block is commented out)
+- 19 implicit (consumer, dep) pairs discovered via SKILL.md grep
+- 7 scored (files exist on disk): `planner-state.json`, `notegraph.json`, `skillpacks.json`, `suggest-edges.json`, `pr-status.md`, `surplus-pulse.md`, `compute-pulse.md` — all within threshold
+- 12 implicit-missing deps skipped (never existed on disk, not flagged per spec)
+- 2 disabled-producer article refs skipped (`push-recap`, `token-report` both `enabled: false`, treated as on_demand)
+
+**Key caveat noted in the article:** GHA mtime blind spot — all file ages read as ~0.02h (checkout time), making threshold comparisons non-informative. The fix (`git log -1 --format=%ct`) is a known open item per [[skill-freshness-mtime-blind-in-gha]].
+
+**Structural gaps surfaced** (not new, but captured): `repo-revive`'s `watched-repos.md` never populated (silent short-circuit streak-6), `compute-macro-correlate` topic on unmerged branch, `agi-tracker` missing SKILL.md.
+
+**Files written:** `articles/skill-freshness-2026-08-12.md`, `memory/topics/skill-freshness-state.json` (last_run_at updated), `memory/logs/2026-08-12.md` (appended).
