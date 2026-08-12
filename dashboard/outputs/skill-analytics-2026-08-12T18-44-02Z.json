@@ -1,0 +1,334 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Analytics",
+        "description": "2026-08-12"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "section_unscheduled",
+        "sep_1",
+        "section_overview",
+        "sep_2",
+        "section_anomalies",
+        "sep_3",
+        "section_top_performers",
+        "sep_4",
+        "section_details",
+        "sep_5",
+        "link_full_article"
+      ]
+    },
+    "section_unscheduled": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_unscheduled_header",
+        "badge_ai_framework",
+        "badge_run_frequency"
+      ]
+    },
+    "text_unscheduled_header": {
+      "type": "Text",
+      "props": {
+        "text": "2 scheduled skill(s) didn't run this window:",
+        "variant": "body"
+      }
+    },
+    "badge_ai_framework": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "destructive"
+      }
+    },
+    "badge_run_frequency": {
+      "type": "Badge",
+      "props": {
+        "text": "run-frequency-guard",
+        "variant": "destructive"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_overview": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_overview",
+        "grid_overview_stats"
+      ]
+    },
+    "heading_overview": {
+      "type": "Heading",
+      "props": {
+        "text": "7-Day Window Overview",
+        "level": "h2"
+      }
+    },
+    "grid_overview_stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_runs",
+        "stat_skills",
+        "stat_success",
+        "stat_anomalies"
+      ]
+    },
+    "stat_runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Runs",
+        "value": "166"
+      }
+    },
+    "stat_skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills",
+        "value": "41"
+      }
+    },
+    "stat_success": {
+      "type": "Stat",
+      "props": {
+        "label": "Success Rate",
+        "value": "100.0%",
+        "trend": "up"
+      }
+    },
+    "stat_anomalies": {
+      "type": "Stat",
+      "props": {
+        "label": "Anomalies",
+        "value": "2"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_anomalies": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_critical",
+        "alert_ai_framework_detail",
+        "alert_run_frequency_detail"
+      ]
+    },
+    "heading_critical": {
+      "type": "Heading",
+      "props": {
+        "text": "🔴 Critical",
+        "level": "h2"
+      }
+    },
+    "alert_ai_framework_detail": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "ai-framework-watch",
+        "message": "SILENT: scheduled 30 8 * * 1 (Mon 08:30 UTC), zero runs in 7d window — 35th consecutive silent day; ISS-021 candidate"
+      }
+    },
+    "alert_run_frequency_detail": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "run-frequency-guard",
+        "message": "SILENT: scheduled 0 23 * * * (daily 23:00 UTC), zero runs in 7d window — 35th consecutive silent day; same root cause"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_top_performers": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_top_performers",
+        "table_top_runs"
+      ]
+    },
+    "heading_top_performers": {
+      "type": "Heading",
+      "props": {
+        "text": "Top by Runs",
+        "level": "h2"
+      }
+    },
+    "table_top_runs": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Run Count"
+        ],
+        "rows": [
+          [
+            "pr-review",
+            "14"
+          ],
+          [
+            "planner",
+            "7"
+          ],
+          [
+            "fleet-control",
+            "7"
+          ],
+          [
+            "github-monitor",
+            "7"
+          ],
+          [
+            "goal-tracker",
+            "7"
+          ],
+          [
+            "issue-triage",
+            "7"
+          ],
+          [
+            "pr-tracker",
+            "7"
+          ],
+          [
+            "pr-triage",
+            "7"
+          ],
+          [
+            "reflect",
+            "7"
+          ],
+          [
+            "skill-health",
+            "7"
+          ],
+          [
+            "compute-futures-eda",
+            "7"
+          ]
+        ]
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_details",
+        "text_zero_failures",
+        "text_exit_stats",
+        "badge_exit_ok",
+        "alert_suggest_edges",
+        "alert_config_shortcircuit"
+      ]
+    },
+    "heading_details": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet Details",
+        "level": "h2"
+      }
+    },
+    "text_zero_failures": {
+      "type": "Text",
+      "props": {
+        "text": "Zero failures fleet-wide.",
+        "variant": "body"
+      }
+    },
+    "text_exit_stats": {
+      "type": "Text",
+      "props": {
+        "text": "Exit dominant: ok (63%)",
+        "variant": "body"
+      }
+    },
+    "badge_exit_ok": {
+      "type": "Badge",
+      "props": {
+        "text": "63% — ok exit",
+        "variant": "default"
+      }
+    },
+    "alert_suggest_edges": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "suggest-edges",
+        "message": "6 runs / 0 useful outputs (NOISE_ABORT streak-4)"
+      }
+    },
+    "alert_config_shortcircuit": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Empty-config short-circuit",
+        "message": "fleet-control, github-monitor, code-health, gitlawb-fleet-metrics all 100% GHA-success but empty-config short-circuit every run (watched-repos gap, streak-7)"
+      }
+    },
+    "sep_5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_full_article": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report: Skill Analytics 2026-08-12",
+        "href": "articles/skill-analytics-2026-08-12.md",
+        "source": "Aeon Analytics"
+      }
+    }
+  }
+}
