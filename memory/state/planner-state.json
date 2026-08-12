@@ -1,17 +1,17 @@
 {
-  "last_run": "2026-08-11T07:35:53Z",
+  "last_run": "2026-08-12T06:35:00Z",
   "top_priority": "aeon-repo-queue-merge-escalation",
   "priority_streak": {
-    "aeon-repo-queue-merge-escalation": 3,
-    "stale-content-pr-sweeper-allowed-authors-patch": 5,
-    "agi-tracker-enabled-false-via-pr": 1,
-    "watched-repos-population-or-disable": 6,
-    "pr-tracker-patch-batch": 48,
-    "iss-006-messages-yml-multi-pocket-rewrite": 10,
-    "docs-status-md-snapshot-rebase-gate": 25,
-    "swarm-repo-app-perm-gap": 30
+    "aeon-repo-queue-merge-escalation": 4,
+    "stale-content-pr-sweeper-allowed-authors-patch": 6,
+    "agi-tracker-enabled-false-via-pr": 2,
+    "watched-repos-population-or-disable": 7,
+    "pr-tracker-patch-batch": 49,
+    "iss-006-messages-yml-multi-pocket-rewrite": 11,
+    "docs-status-md-snapshot-rebase-gate": 26,
+    "swarm-repo-app-perm-gap": 31
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Eleventh planner run in the ISS-006 pocket-slot migration era; FIFTH since 08-07 overnight PR-creation toggle unblock. Fire time 2026-08-11T07:35:53Z — 65min late vs scheduled 06:30Z. BATCH DECOUPLED signal today: compute-futures-eda 06:05:51Z (~5min late) + suggest-edges 06:05:55Z fired near-slot while planner alone rolled 65min late. Yesterday's 5-in-batch tight pocket at 07:25:04-07:25:17Z did NOT repeat — new pattern to log. HEADLINE: TOP PRIORITY SHIFT — agi-tracker deadline HIT yesterday 13:44Z (6th silent-Mon), next slot 08-17 (6d out) so pressure moves off; queue-merge escalation was rank-2 streak-2 yesterday, promotes to rank-1 streak-3 today. 20 open aeon PRs (was 19; +1 with #28 notegraph 05:18Z). Still 0 of 18 app/github-actions merged in ~100h since 08-07 unblock. #26 dependabot actions/checkout remains textbook first-flow-proof; also #10/#27/#28 notegraph chain. Rank-2 stale-content-pr-sweeper allowlist patch escalates streak-4 → streak-5 with today's 23:59Z sweeper: 5 branch-prefix matches / 0 authors passing. NEW length-3 notegraph chain #10 ← #27 ← #28 today (was length-2 yesterday), alongside existing length-3 suggest-edges chain #14 ← #21 ← #22. Rank-3 agi-tracker drops from streak-5 to streak-1 (deadline passed; different item now the driver). Fleet: 0 broken, 0 in-flight, 38 DEGRADED (ISS-001 residue day 52), 4 HEALTHY, 2 NO_DATA (34th silent day). ${var} empty → plan-only, no dispatch. Watched/holding items unchanged from 08-10 planner except decouple-signal added to ISS-006 pointer."
+  "notes": "Twelfth planner run in the ISS-006 pocket-slot migration era; SIXTH since 08-07 overnight PR-creation toggle unblock. HEADLINE: notegraph log's claim that #28 merged overnight is CONTRADICTED by gh — `gh pr view 28` returns state=OPEN mergedAt=null. Last aeon-repo merge was #8 on 2026-08-07T01:36Z (~124h ago); 0 `app/github-actions`-authored PRs merged since unblock. Queue grew 20 → 21 with #29 notegraph opened today. Rank-1 stays queue-merge escalation (streak-4, was streak-3) — merge flow STILL UNPROVEN despite yesterday's follow-up prediction that it would rotate. Reconcile the notegraph #28-merged hallucination as part of this rank-1 work. Rank-2 sweeper allowlist escalates streak-5 → streak-6 (2 length-3 chains: notegraph #10 ← #27 ← #29 evolving from yesterday's #10 ← #27 ← #28; suggest-edges #14 ← #21 ← #22 unchanged); 4 would-be-close PRs if patch landed. Rank-3 agi-tracker toggle streak-2 (was streak-1) — deadline hit 08-10, next slot 08-17 5d out. Fleet: 0 broken, 0 in-flight, 38 DEGRADED (ISS-001 residue day 53), 4 HEALTHY, 2 NO_DATA (35th silent day). ${var} empty → plan-only, no dispatch. Watched/holding items advanced by 1d each from 08-11."
 }
