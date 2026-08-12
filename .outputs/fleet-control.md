@@ -1,3 +1,9 @@
-The task was a single silent-stop branch (registry empty → log + halt), so no task tracking needed.
+The registry is empty, so no task tracking is warranted — the skill's pre-flight rule is a one-step silent stop.
 
-Fleet Control ran health-check mode. `memory/instances.json` has `instances: []`, so the pre-flight step 1 fired: logged `FLEET_EMPTY: no managed instances` to `memory/logs/2026-08-11.md` and stopped without notifying (per SKILL.md). Skipped `gh auth`/rate-limit checks since there are zero GitHub-hosted entries.
+## Summary
+
+- **Mode**: Health Check (default; `var` empty)
+- **Result**: `FLEET_EMPTY` — `memory/instances.json` contains `{"instances": []}`, no managed instances to check
+- **Action taken**: appended a `## fleet-control (health check)` block to `memory/logs/2026-08-12.md` per SKILL.md pre-flight step 1
+- **Notifications**: none sent (spec: "Stop. Do NOT notify.")
+- **Follow-up**: none — registry is intentionally empty; skill will remain a silent no-op until an instance is registered
