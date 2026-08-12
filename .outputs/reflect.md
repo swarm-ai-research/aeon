@@ -1,15 +1,17 @@
-Ran the reflect skill for 2026-08-11.
+All 7 reflect steps completed.
 
 ## Summary
-- **State read:** MEMORY.md + last 8d of logs (08-04→08-11) + articles + skill-health (`e27c0ac60367e7e5`, 46th steady-state day, 18 open issues) + issue index.
-- **2 new atomic notes** promoted from today's activity:
-  - `memory/notes/pr-tracker-repo-deletion-loses-pr-permanently.md` — repo-deletion 404 on both search AND direct-fetch, distinct from archive class (recoverable)
-  - `memory/notes/compute-futures-spread-retail-loss-concentration.md` — 4-consecutive-run retail-role spread-loss pattern per 08-08 n=4 promotion criterion
-- **Atomicity pass over 76 notes** via Explore subagent: 2 borderline candidates flagged (`gha-messages-yml-cron-underdelivery`, `aeon-noreply-numeric-prefix-is-formatting-variant`), **0 splits performed** — umbrella framing on both is more useful than the split would be (both cited canonically by MEMORY.md / MOCs / issues).
-- **`memory/topics/fleet-ops.md`** — added both new lessons + fresh `## Snapshot (2026-08-11)` block.
-- **`memory/MEMORY.md`** — 13 focus bullets rewritten in-place to 08-11 state; 5 pointer bullets updated (trigger day 2→3, agi rank-1→rank-3 deadline reset, sweeper rank-3→rank-2 streak-5, watched-repos streak-5→6, ISS-021 23rd-day); Recent-lessons pointer prepended.
-- **Notegraph regenerated:** 260n / 1962h / 656s / 1o / 78 atomic / 0b. **Delta vs HEAD: +4n / +47e / 0 orphan/bundled** (the +4 = 2 new atomic notes + 2 ad-hoc scripts flagged as follow-up).
-- **Follow-up:** promote today's notegraph sandbox-workaround helpers (`scripts/notegraph-fingerprint.sh` + `scripts/notegraph-diff.mjs`) into first-class SKILL helpers OR delete.
-- **Files modified:** 2 new notes, `memory/topics/fleet-ops.md`, `memory/MEMORY.md`, notegraph outputs (4), `.pending-notify/1786476011-reflect.md`, `memory/logs/2026-08-11.md`.
-- **Notify queued:** `memory consolidated — 2026-08-11 · +4n / +47e (0 splits, 2 new)`
-- REFLECT_OK
+
+Ran `reflect` for 2026-08-12 per `skills/reflect/SKILL.md`.
+
+**Actions:**
+- Read state: MEMORY.md, 7 days of logs (08-06 → 08-12, 2445 lines), articles/, skill-health last-report (47th steady-state day), issues INDEX.
+- Consolidated: 1 new atomic note promoted — `notegraph-head-vs-state-delta-misread-as-pr-merge` (notegraph skill's HEAD-vs-last-state heuristic misattributed reflect's 08-11 direct commit as a #28 merge; verified false via `gh pr view 28`). Two other 08-12 lessons already atomized by today's earlier pr-tracker run.
+- Atomicity pass over 79 notes: 0 bundled hits on the anti-pattern grep; longest single-claim note at 5 sentences; 0 splits performed.
+- Updated `memory/topics/fleet-ops.md` with 3 new lessons and a fresh 08-12 snapshot (08-11 archived).
+- Regenerated notegraph in-sandbox: **267n / 2018h / 677s / 1o / 0 bundled** — Δ **+5n / +60e** vs 08-12 PR #29 extract.
+- Appended log entry to `memory/logs/2026-08-12.md` and wrote notify to `.pending-notify/1786560269-reflect.md`.
+
+**Files modified:** `memory/notes/notegraph-head-vs-state-delta-misread-as-pr-merge.md` (new), `memory/topics/fleet-ops.md`, `memory/MEMORY.md`, `notegraph.json`, `docs/notegraph.{md,html}`, `docs/notegraph-speedrun.html`, `memory/logs/2026-08-12.md`, `.pending-notify/1786560269-reflect.md` (new).
+
+**Follow-ups flagged:** (a) `memory/notes/daily/` last entry is 2026-07-11 — `note-taking` skill has a 32-day gap; (b) day-3 sandbox `>` redirect + `xargs sha1sum` workaround needs promotion to first-class `scripts/notegraph-{fingerprint,diff}.mjs` helpers.
