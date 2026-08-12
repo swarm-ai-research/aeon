@@ -1,9 +1,11 @@
-`PR_TRIAGE_OK no-candidates` — all 4 open swarm PRs in the 14-day window skipped. Details in log entry above.
+Skill complete. Summary below.
 
-**Skip breakdown (4/4):**
-- `#550`, `#547`, `#546` — dependabot bots (trusted set, route to `pr-review`/`auto-merge`).
-- `#549` (rsavitt, Prime Agent bridge) — already triaged at head `afe5124` per `memory/triaged-prs.json` (2026-08-07 DEFER).
+## Summary
 
-**No writes attempted.** Rubric would land `#549` as DEFER-unchanged (3818 lines, no `large-ok`), but the `(PR, headRefOid)` dedup short-circuits before the rubric runs. Swarm write-perm gap (~31st confirming invocation) means even a fresh verdict couldn't post a comment or label — the DEFER decision from 2026-08-07 is still invisible to @rsavitt.
-
-**Files modified:** `memory/logs/2026-08-11.md` only. No PR/state/notify changes.
+- Ran `pr-triage` in repo mode against `swarm-ai-research/swarm` (`${var}` override): 4 PRs in the 14-day window (#550, #549, #547, #546), all 4 skipped.
+  - **#550 / #547 / #546** — dependabot bot author (trusted set)
+  - **#549** — `(number=549, sha=afe51248)` already present in `memory/triaged-prs.json` (DEFER, 2026-08-07); head unchanged in ~5d → no re-triage
+- Zero comments posted, zero labels applied, `memory/triaged-prs.json` untouched, no notify fired.
+- Terminal log line: `PR_TRIAGE_OK no-candidates`.
+- Files modified: `memory/logs/2026-08-12.md` (log entry appended).
+- Follow-up: swarm write-perm gap is not exercised this run; the ~5-day byte-freeze on the queue means dedup will keep `#549` skipped until rsavitt pushes a new SHA or a fresh external PR lands. Landing the App-perm fix remains the only lever that unblocks a held-back DEFER-repeat.
