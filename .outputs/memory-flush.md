@@ -1,18 +1,5 @@
-Memory-flush complete. Applied targeted edits to MEMORY.md and logged the pass to today's log.
+Memory-flush done. MEMORY.md updated in-place (5 targeted bullet rewrites: focus lines 6/12/13, pointers 44/46) and today's log carries the flush entry plus a correction footnote.
 
-## Summary
+**Key contradiction resolved:** today's notegraph 08-12 log wrongly inferred `#28 merged between 08-11 and 08-12` from HEAD-vs-last-state extractor delta. `gh pr view 28` confirms state=OPEN, mergedAt=null — the HEAD advance was actually 08-11 reflect's direct `notegraph.json` regen commit, not a PR merge. Merge-flow streak-of-none continues (0 of 19 `app/github-actions` PRs merged in ~132h+ since 08-07 unblock). Both MEMORY.md line 6 and the RANK-1 pointer (line 44) now carry the explicit correction, and the notegraph log's follow-up (c) is footnoted invalid.
 
-**Ran `memory-flush` skill for 2026-08-10.** Scanned MEMORY.md (63 lines) + last 3 days of logs (08-08, 08-09, 08-10).
-
-**4 contradictions resolved:**
-1. **Line 6 (queue)** — 15 → **19 open PRs** (+4 since 08-09 morning: #24 workflow-security-audit, #25 skill-graph, #26 dependabot, #27 notegraph). Fourth consecutive day of `app/github-actions` authorship; 0 of 17 merged in 74h+. First dependabot PR since #8 merge (72h+ gap broken).
-2. **Line 10 (notegraph)** — 08-09 no-op → **08-10 PR #27 opened, +2 nodes wired in** (yesterday's atomic notes). Ends the 2-day no-op streak.
-3. **Line 12 (swarm queue)** — 9 open (+1) → **8 open**; #551 **MERGED at 08-09T13:29:44Z under operator override** of pr-review 38th REQUEST_CHANGES 3/5 — first observable override in 39 invocations.
-4. **Line 17 (agi-tracker)** — "~29h from 08-09T07:35Z" → **fires TODAY 13:00Z in ~5.5h; buffer collapsed**.
-
-**3 pointer updates:**
-- Line 42 (Prove merge flow) — day 2, #26 dependabot added as textbook first-flow-proof auto-merge candidate.
-- Line 44 (agi-tracker deadline) — collapsed to ~5.5h, ship this AM.
-- Line 45 (stale-content-pr-sweeper) — bundled in TRACKED-prefix drift finding (#23 `compute-macro` slips the match) from today's sweeper log.
-
-**Files:** `memory/MEMORY.md` (62 lines, was 63), `memory/logs/2026-08-10.md`. Zero new atomic notes (yesterday's reflect handled promotions); zero new promotable follow-ups. Date-sensitive counters not proactively bumped per convention.
+**Streaks advanced** — PR-authoring durability day 5→6, notegraph change-streak day 2→3 (PR #29, +2n), suggest-edges templated-corpus streak-3→4 (state now 3 applied + 6 rejected), sweeper `notegraph` chain length-3→4 (#10 ← #27 ← #28 ← #29), would-be-closes 3→4. **No new atomic notes** (today re-confirms existing lessons); **no decay removals** (all pointers still actively referenced). No notify fired — log-only maintenance.
