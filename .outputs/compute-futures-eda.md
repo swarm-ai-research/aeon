@@ -1,2 +1,1 @@
-*Compute-Futures EDA — 2026-08-10*
-144 rows, 4 modes. Top: cross-mode maxCurve steps down HIGH→MEDIUM (25%→16.67%), anchor contracts to 2 seeds (202608106 + padded 2026081012, HIGH tail only); fresh basket settlementLegs MEDIUM 16.67%; retail spread-loss concentration hits n=4 filings — PROMOTE. Conservation: all OK. Report: memory/topics/compute-futures-eda/2026-08-10.md
+*Compute-Futures EDA — 2026-08-11* — 144 rows, 4 modes. Top: MEDIUM cross-mode maxSpot resurface at 16.67% (2-seed both-tail: 202608119 HIGH + padded 2026081110 LOW) with EXACT 3.025× basket/synth multiplier, plus retail-loss n=5 (new floor at 202608111 retail −$24,696). Conservation: all OK. Full: memory/topics/compute-futures-eda/2026-08-11.md
