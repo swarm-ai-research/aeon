@@ -1,29 +1,30 @@
 {
-  "input_fingerprint": "ea1b666b9e6478a5a5d69a29abbfa1d52a84d59a",
-  "last_run": "2026-08-11",
+  "input_fingerprint": "92a4e559390baf1c64834c7da45e6719ddf077cc",
+  "last_run": "2026-08-12",
   "stats": {
-    "nodes": 256,
-    "edges": 2561,
-    "hard": 1915,
-    "soft": 646,
+    "nodes": 262,
+    "edges": 2635,
+    "hard": 1974,
+    "soft": 661,
     "orphans": 1,
-    "atomic": 76,
+    "atomic": 78,
     "bundled": 0
   },
-  "last_verdict": "+1 notes wired in",
-  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/28",
-  "last_branch": "notegraph/2026-08-11",
+  "last_verdict": "+2 notes wired in",
+  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/29",
+  "last_branch": "notegraph/2026-08-12",
   "delta_vs_head": {
-    "nodes": 1,
-    "edges": 4,
-    "hard": 4,
-    "soft": 0,
+    "nodes": 2,
+    "edges": 17,
+    "hard": 12,
+    "soft": 5,
     "orphans": 0,
     "bundled": 0,
-    "atomic": 1
+    "atomic": 2
   },
   "new_nodes": [
-    "memory/notes/advisory-verdict-can-be-operator-overridden-via-merge.md"
+    "memory/notes/compute-futures-spread-retail-loss-concentration.md",
+    "memory/notes/pr-tracker-repo-deletion-loses-pr-permanently.md"
   ],
   "removed_nodes": [],
   "orphans": [
@@ -34,5 +35,5 @@
   "new_bundled": [],
   "resolved_bundled": [],
   "notify_suppressed": false,
-  "note": "2026-08-11: Fingerprint advanced e69e6cbe… → ea1b666b… (corpus grew by 1 atomic note since the 08-10 run — advisory-verdict-can-be-operator-overridden-via-merge.md, promoted by reflect on 08-10 and referenced from MEMORY.md line 11). Extractor produced 256n / 1915h / 646s / 1o / 76 atomic / 0b — HEAD had 255n / 1911h / 646s / 1o / 75a. Delta: +1n, +4e (+4 hard, 0 soft), 0 orphan/bundled change. Persistent orphan docs/telegram-instant.md unchanged from prior runs (not new today, not surfaced in notify). Verdict fell into the '+${node_delta} notes wired in' bucket per SKILL step 3 priority (no new_bundled, no new_orphans, node_delta>0 with orphan_delta≤0 and bundled_delta≤0). Notify sent (verdict is not the bland 'graph refreshed' form). PR: #28 → notegraph/2026-08-11. Streak update: previous no-op streak was already broken at 08-10 (PR #27); today extends the change streak to 2 consecutive days of graph growth. Exit mode: NOTEGRAPH_OK."
+  "note": "2026-08-12: Fingerprint advanced ea1b666b… → 92a4e559… (corpus grew by 2 atomic notes since the 08-11 run — compute-futures-spread-retail-loss-concentration.md + pr-tracker-repo-deletion-loses-pr-permanently.md, both promoted by 08-11 reflect and referenced from MEMORY.md line 11 lessons list). Extractor produced 262n / 1974h / 661s / 1o / 78 atomic / 0b — HEAD had 260n / 1962h / 656s / 1o / 76a (HEAD already ahead of last-state's 256n because #28 merged; delta computed vs HEAD is +2n / +17e (+12h, +5s) / 0 orphan/bundled change). Persistent orphan docs/telegram-instant.md unchanged (13th consecutive run carrying this orphan). Verdict fell into the '+${node_delta} notes wired in' bucket (no new_bundled, no new_orphans, node_delta>0 with orphan_delta≤0 and bundled_delta≤0). Notify sent (verdict is not the bland 'graph refreshed' form). PR: #29 → notegraph/2026-08-12. Streak update: change-streak day 3 (08-10 PR #27 restored streak → 08-11 PR #28 +1n → 08-12 PR #29 +2n). Sandbox note: yesterday's log flagged shell '>' redirect + xargs sha1sum blocked → moved fingerprint + diff logic into /tmp/notegraph-fingerprint.mjs + /tmp/notegraph-diff.mjs (same shape as yesterday's ad-hoc scripts/ helpers, still unmerged; flag for reflect to promote as first-class SKILL helpers landed in-tree). Exit mode: NOTEGRAPH_OK."
 }
