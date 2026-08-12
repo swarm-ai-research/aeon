@@ -1,0 +1,851 @@
+{
+  "data": {
+    "search": {
+      "issueCount": 23,
+      "nodes": [
+        {
+          "number": 2732,
+          "title": "fix(deps): bump ws, protobufjs, and protobufjs-cli for 5 disclosed CVEs",
+          "state": "OPEN",
+          "headRefName": "security/bump-ws-protobufjs-7-28",
+          "url": "https://github.com/WhiskeySockets/Baileys/pull/2732",
+          "createdAt": "2026-07-28T23:40:13Z",
+          "updatedAt": "2026-08-12T02:17:00Z",
+          "mergedAt": null,
+          "closedAt": null,
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "WhiskeySockets/Baileys",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": [
+              {
+                "state": "COMMENTED",
+                "submittedAt": "2026-07-28T23:45:34Z"
+              }
+            ]
+          },
+          "comments": {
+            "totalCount": 3
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@users.noreply.github.com"
+                  },
+                  "committedDate": "2026-07-28T23:39:26Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 2,
+          "title": "Use keccak256(\"aeon\") for PROVIDER_ID (onchain provider hash)",
+          "state": "OPEN",
+          "headRefName": "aeon/provider-id-keccak",
+          "url": "https://github.com/aeonframework/aeon-programmable-hooks/pull/2",
+          "createdAt": "2026-08-10T13:26:47Z",
+          "updatedAt": "2026-08-10T13:26:47Z",
+          "mergedAt": null,
+          "closedAt": null,
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "aeonframework/aeon-programmable-hooks",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@proton.me"
+                  },
+                  "committedDate": "2026-08-10T13:26:21Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 1,
+          "title": "Reproducible closure, exact-input fee basis, model binding + tests",
+          "state": "MERGED",
+          "headRefName": "aeon/reproducible-source-and-binding",
+          "url": "https://github.com/aeonframework/aeon-programmable-hooks/pull/1",
+          "createdAt": "2026-08-08T19:13:49Z",
+          "updatedAt": "2026-08-08T19:17:30Z",
+          "mergedAt": "2026-08-08T19:17:29Z",
+          "closedAt": "2026-08-08T19:17:29Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "aeonframework/aeon-programmable-hooks",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@proton.me"
+                  },
+                  "committedDate": "2026-08-08T19:13:26Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 547,
+          "title": "fix(deps): bump fast-uri and find-my-way to patch published advisories",
+          "state": "CLOSED",
+          "headRefName": "security/bump-fast-uri-find-my-way",
+          "url": "https://github.com/NomaDamas/k-skill/pull/547",
+          "createdAt": "2026-08-03T23:44:39Z",
+          "updatedAt": "2026-08-08T12:48:51Z",
+          "mergedAt": null,
+          "closedAt": "2026-08-08T12:48:51Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "NomaDamas/k-skill",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@users.noreply.github.com"
+                  },
+                  "committedDate": "2026-08-03T23:44:09Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 78346,
+          "title": "fix(deps): bump desktop agent tar to 7.5.22 and minimatch to 10.2.5 (CVE fixes)",
+          "state": "OPEN",
+          "headRefName": "security/agent-tar-minimatch-cves",
+          "url": "https://github.com/PostHog/posthog/pull/78346",
+          "createdAt": "2026-08-05T14:08:39Z",
+          "updatedAt": "2026-08-05T14:08:44Z",
+          "mergedAt": null,
+          "closedAt": null,
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "PostHog/posthog",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@proton.me"
+                  },
+                  "committedDate": "2026-08-05T14:07:36Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 1457,
+          "title": "fix(deps): bump next to 15.5.21 to patch 8 disclosed advisories",
+          "state": "MERGED",
+          "headRefName": "security/bump-next-15.5.21",
+          "url": "https://github.com/usekaneo/kaneo/pull/1457",
+          "createdAt": "2026-08-01T08:08:05Z",
+          "updatedAt": "2026-08-04T19:59:09Z",
+          "mergedAt": "2026-08-04T19:59:04Z",
+          "closedAt": "2026-08-04T19:59:04Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "usekaneo/kaneo",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": [
+              {
+                "state": "COMMENTED",
+                "submittedAt": "2026-08-01T08:09:47Z"
+              }
+            ]
+          },
+          "comments": {
+            "totalCount": 4
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@users.noreply.github.com"
+                  },
+                  "committedDate": "2026-08-02T16:29:53Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 871,
+          "title": "fix(deps): bump next to 15.5.21 to patch 8 disclosed advisories",
+          "state": "OPEN",
+          "headRefName": "security/bump-next-15.5.21",
+          "url": "https://github.com/workweave/router/pull/871",
+          "createdAt": "2026-08-02T23:44:07Z",
+          "updatedAt": "2026-08-03T13:05:59Z",
+          "mergedAt": null,
+          "closedAt": null,
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "workweave/router",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": [
+              {
+                "state": "COMMENTED",
+                "submittedAt": "2026-08-02T23:45:59Z"
+              }
+            ]
+          },
+          "comments": {
+            "totalCount": 2
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@users.noreply.github.com"
+                  },
+                  "committedDate": "2026-08-02T23:43:24Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 1409,
+          "title": "fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs)",
+          "state": "OPEN",
+          "headRefName": "aeon/dep-bump-ruview-2026-07-23",
+          "url": "https://github.com/ruvnet/RuView/pull/1409",
+          "createdAt": "2026-07-23T23:41:02Z",
+          "updatedAt": "2026-08-02T18:33:49Z",
+          "mergedAt": null,
+          "closedAt": null,
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "ruvnet/RuView",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@proton.me"
+                  },
+                  "committedDate": "2026-08-02T18:33:28Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 2248,
+          "title": "security: track quick-xml DoS advisories (RUSTSEC-2026-0194/0195)",
+          "state": "OPEN",
+          "headRefName": "security/quick-xml-dos-rustsec-2026-0194",
+          "url": "https://github.com/block/buzz/pull/2248",
+          "createdAt": "2026-07-21T18:08:42Z",
+          "updatedAt": "2026-08-02T18:29:12Z",
+          "mergedAt": null,
+          "closedAt": null,
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "block/buzz",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeon@aeonframework.dev"
+                  },
+                  "committedDate": "2026-07-21T18:08:03Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 958,
+          "title": "fix(deps): bump tauri to >=2.11.1 (GHSA-7gmj-67g7-phm9 / CVE-2026-42184)",
+          "state": "OPEN",
+          "headRefName": "security/bump-tauri-ghsa-7gmj-67g7-phm9",
+          "url": "https://github.com/jamiepine/voicebox/pull/958",
+          "createdAt": "2026-07-23T16:34:18Z",
+          "updatedAt": "2026-08-02T18:29:00Z",
+          "mergedAt": null,
+          "closedAt": null,
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "jamiepine/voicebox",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": [
+              {
+                "state": "COMMENTED",
+                "submittedAt": "2026-07-23T16:36:12Z"
+              }
+            ]
+          },
+          "comments": {
+            "totalCount": 2
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@users.noreply.github.com"
+                  },
+                  "committedDate": "2026-07-23T18:33:00Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 5518,
+          "title": "fix(security): bump tauri >=2.11.1 \u2014 GHSA-7gmj-67g7-phm9 origin confusion (CVE-2026-42184, CVSS 8.8)",
+          "state": "CLOSED",
+          "headRefName": "security/bump-tauri-GHSA-7gmj-67g7-phm9",
+          "url": "https://github.com/koala73/worldmonitor/pull/5518",
+          "createdAt": "2026-07-23T16:03:16Z",
+          "updatedAt": "2026-08-01T06:11:46Z",
+          "mergedAt": null,
+          "closedAt": "2026-08-01T06:11:46Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "koala73/worldmonitor",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": [
+              {
+                "state": "COMMENTED",
+                "submittedAt": "2026-07-23T16:05:08Z"
+              }
+            ]
+          },
+          "comments": {
+            "totalCount": 3
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "security@aeonframework.dev"
+                  },
+                  "committedDate": "2026-07-23T16:02:34Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 1116,
+          "title": "chore(deps): pin builder-util-runtime >=9.7.0 to fix GHSA-p2f4-r6v6-j797",
+          "state": "MERGED",
+          "headRefName": "security/bump-builder-util-runtime-9.7.0",
+          "url": "https://github.com/makecindy/cindy/pull/1116",
+          "createdAt": "2026-07-30T20:16:04Z",
+          "updatedAt": "2026-07-31T14:40:08Z",
+          "mergedAt": "2026-07-31T14:39:41Z",
+          "closedAt": "2026-07-31T14:39:41Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "makecindy/cindy",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": [
+              {
+                "state": "APPROVED",
+                "submittedAt": "2026-07-31T14:39:31Z"
+              }
+            ]
+          },
+          "comments": {
+            "totalCount": 6
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@proton.me"
+                  },
+                  "committedDate": "2026-07-31T13:51:12Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 5477,
+          "title": "fix(security): bump sharp >=0.35.0 in blog-site (GHSA-f88m-g3jw-g9cj, HIGH)",
+          "state": "MERGED",
+          "headRefName": "fix/security/sharp-cve-blog-site",
+          "url": "https://github.com/koala73/worldmonitor/pull/5477",
+          "createdAt": "2026-07-23T08:12:21Z",
+          "updatedAt": "2026-07-30T08:17:20Z",
+          "mergedAt": "2026-07-30T08:17:20Z",
+          "closedAt": "2026-07-30T08:17:20Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "koala73/worldmonitor",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": [
+              {
+                "state": "APPROVED",
+                "submittedAt": "2026-07-23T14:11:37Z"
+              }
+            ]
+          },
+          "comments": {
+            "totalCount": 2
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "test@worldmonitor.app"
+                  },
+                  "committedDate": "2026-07-30T07:51:59Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 216,
+          "title": "fix(deps): patch ajv/ws/protobufjs/vite for disclosed CVEs",
+          "state": "OPEN",
+          "headRefName": "security/dep-bump-ajv-ws-protobufjs",
+          "url": "https://github.com/KnockOutEZ/wigolo/pull/216",
+          "createdAt": "2026-07-20T07:53:04Z",
+          "updatedAt": "2026-07-29T20:50:22Z",
+          "mergedAt": null,
+          "closedAt": null,
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "KnockOutEZ/wigolo",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": [
+              {
+                "state": "COMMENTED",
+                "submittedAt": "2026-07-20T07:56:47Z"
+              }
+            ]
+          },
+          "comments": {
+            "totalCount": 5
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@proton.me"
+                  },
+                  "committedDate": "2026-07-29T16:02:55Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 541,
+          "title": "fix(deps): bump brace-expansion to ^5.0.8 (GHSA-mh99-v99m-4gvg, HIGH)",
+          "state": "CLOSED",
+          "headRefName": "security/bump-brace-expansion-ghsa-mh99-v99m-4gvg",
+          "url": "https://github.com/alibaba/open-code-review/pull/541",
+          "createdAt": "2026-07-27T17:05:23Z",
+          "updatedAt": "2026-07-29T20:47:45Z",
+          "mergedAt": null,
+          "closedAt": "2026-07-29T20:47:45Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "alibaba/open-code-review",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": [
+              {
+                "state": "COMMENTED",
+                "submittedAt": "2026-07-27T17:06:16Z"
+              }
+            ]
+          },
+          "comments": {
+            "totalCount": 3
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@users.noreply.github.com"
+                  },
+                  "committedDate": "2026-07-27T17:04:41Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 6929,
+          "title": "fix(deps): bump qs, fast-xml-parser, postcss for disclosed CVEs",
+          "state": "OPEN",
+          "headRefName": "security/bump-qs-fxp-postcss-2026-07-28",
+          "url": "https://github.com/NangoHQ/nango/pull/6929",
+          "createdAt": "2026-07-28T16:10:19Z",
+          "updatedAt": "2026-07-28T16:18:46Z",
+          "mergedAt": null,
+          "closedAt": null,
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "NangoHQ/nango",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": [
+              {
+                "state": "COMMENTED",
+                "submittedAt": "2026-07-28T16:18:46Z"
+              }
+            ]
+          },
+          "comments": {
+            "totalCount": 0
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@users.noreply.github.com"
+                  },
+                  "committedDate": "2026-07-28T16:08:57Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 1001,
+          "title": "fix(deps): patch serde_with, tokio-postgres, turbo, undici, next for disclosed CVEs",
+          "state": "MERGED",
+          "headRefName": "security/bump-dep-advisories-2026-07-24",
+          "url": "https://github.com/katanemo/plano/pull/1001",
+          "createdAt": "2026-07-24T15:27:20Z",
+          "updatedAt": "2026-07-27T22:36:12Z",
+          "mergedAt": "2026-07-27T22:36:11Z",
+          "closedAt": "2026-07-27T22:36:12Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "katanemo/plano",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": [
+              {
+                "state": "APPROVED",
+                "submittedAt": "2026-07-27T22:36:05Z"
+              }
+            ]
+          },
+          "comments": {
+            "totalCount": 0
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "security@aeonframework.github"
+                  },
+                  "committedDate": "2026-07-24T15:26:37Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 436,
+          "title": "fix(deps): bump yt-dlp, requests, python-dotenv to patch disclosed CVEs",
+          "state": "CLOSED",
+          "headRefName": "security/bump-vulnerable-deps",
+          "url": "https://github.com/Panniantong/Agent-Reach/pull/436",
+          "createdAt": "2026-06-26T19:24:30Z",
+          "updatedAt": "2026-07-27T13:16:01Z",
+          "mergedAt": null,
+          "closedAt": "2026-07-27T13:16:01Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "Panniantong/Agent-Reach",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 3
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@users.noreply.github.com"
+                  },
+                  "committedDate": "2026-06-26T19:23:53Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 1810,
+          "title": "fix(deps): bump gix to 0.83 to patch 5 security advisories (GHSA-f26g / GHSA-fr8x / GHSA-p3hw / GHSA-pg4w / GHSA-f89h)",
+          "state": "CLOSED",
+          "headRefName": "security/bump-gix-GHSA-f26g-fr8x-p3hw-pg4w",
+          "url": "https://github.com/openinterpreter/openinterpreter/pull/1810",
+          "createdAt": "2026-07-17T15:43:02Z",
+          "updatedAt": "2026-07-27T08:59:01Z",
+          "mergedAt": null,
+          "closedAt": "2026-07-27T08:59:01Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "openinterpreter/openinterpreter",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 1
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@users.noreply.github.com"
+                  },
+                  "committedDate": "2026-07-17T15:41:32Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 2315,
+          "title": "fix(deps): bump surrealdb >=3.2.3 to patch quinn-proto DoS (CVSS 7.5) and ammonia XSS",
+          "state": "MERGED",
+          "headRefName": "security/bump-surrealdb-quinn-ammonia",
+          "url": "https://github.com/cocoindex-io/cocoindex/pull/2315",
+          "createdAt": "2026-07-22T15:43:31Z",
+          "updatedAt": "2026-07-26T23:05:36Z",
+          "mergedAt": "2026-07-26T23:05:35Z",
+          "closedAt": "2026-07-26T23:05:35Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "cocoindex-io/cocoindex",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@users.noreply.github.com"
+                  },
+                  "committedDate": "2026-07-23T18:27:18Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 1742,
+          "title": "fix(deps): bump multer to 2.2.0 and nodemailer to 8.0.11 to patch disclosed DoS/CRLF advisories",
+          "state": "CLOSED",
+          "headRefName": "security/bump-multer-nodemailer-dos",
+          "url": "https://github.com/InsForge/InsForge/pull/1742",
+          "createdAt": "2026-07-17T07:41:28Z",
+          "updatedAt": "2026-07-26T19:14:04Z",
+          "mergedAt": null,
+          "closedAt": "2026-07-26T19:14:04Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "InsForge/InsForge",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": [
+              {
+                "state": "COMMENTED",
+                "submittedAt": "2026-07-26T19:07:47Z"
+              }
+            ]
+          },
+          "comments": {
+            "totalCount": 4
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@proton.me"
+                  },
+                  "committedDate": "2026-07-26T18:54:29Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 390,
+          "title": "fix(deps): bump Pillow and langchain floors past disclosed CVEs",
+          "state": "MERGED",
+          "headRefName": "security/bump-pillow-langchain-cves",
+          "url": "https://github.com/HKUDS/Vibe-Trading/pull/390",
+          "createdAt": "2026-07-03T08:14:08Z",
+          "updatedAt": "2026-07-05T15:33:53Z",
+          "mergedAt": "2026-07-05T15:33:53Z",
+          "closedAt": "2026-07-05T15:33:53Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "HKUDS/Vibe-Trading",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeon@aeonframework.dev"
+                  },
+                  "committedDate": "2026-07-03T08:13:38Z"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 66,
+          "title": "fix(deps): bump golang.org/x/image to v0.43.0 (3 advisories)",
+          "state": "CLOSED",
+          "headRefName": "security/bump-x-image-0.43.0",
+          "url": "https://github.com/tamnd/kage/pull/66",
+          "createdAt": "2026-07-02T23:30:19Z",
+          "updatedAt": "2026-07-03T12:20:11Z",
+          "mergedAt": null,
+          "closedAt": "2026-07-03T12:20:11Z",
+          "isDraft": false,
+          "repository": {
+            "nameWithOwner": "tamnd/kage",
+            "isArchived": false
+          },
+          "reviews": {
+            "nodes": []
+          },
+          "comments": {
+            "totalCount": 0
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "author": {
+                    "email": "aeonframework@users.noreply.github.com"
+                  },
+                  "committedDate": "2026-07-02T23:29:42Z"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
