@@ -1,17 +1,17 @@
 ## Summary
 
-Ran `pr-review` per `skills/pr-review/SKILL.md` on `swarm-ai-research/swarm` (44th operator invocation, first on 08-13) under merge-gate policy.
+Ran `pr-review` for 2026-08-13 (45th operator invocation on `swarm-ai-research/swarm`, second on 08-13 same-day-double).
 
-**Verdict outcome — no material work:** all 8 open PRs matched skip rules.
+**Verdicts** (all carried forward — no new posts):
+- **swarm-ai-research/swarm#549** (SHA `afe51248`): **REQUEST_CHANGES 2/5** — standing verdict from 36th–44th invocations, 3 issues on the Prime Agent bridge (unbounded refinement recursion, aggregate-vs-per-refinement metric skew, unauthenticated `edit.applied` trust). 10-invocation carry.
+- **swarm-ai-research/swarm#543** (SHA `bad79e48`): **APPROVE 5/5** — docs-only, 10-invocation carry.
 
-**Queue delta:** 7 → 8 (+1 overnight). The 5d+ byte-freeze on the bot cohort **broke** — #553 dependabot langchain-anthropic and #552 dependabot setuptools requirement both opened 08-13 at 05:36–05:37Z. The two human PRs (#549, #543) remain SHA-frozen ~6d.
+**Queue** (8 open, byte-identical to this morning's 44th invocation):
+- #553, #552, #550, #546, #538, #537 → dependabot (bot-author skip + dup-SHA vs 44th)
+- #549, #543 → dup-SHA (10th consecutive invocation on unchanged human PRs)
 
-**Skips:** 6 dependabot bots (#553, #552, #550, #546, #538, #537) + 2 dup-SHA carries (#549 `afe51248` REQUEST_CHANGES 2/5 · #543 `bad79e48` APPROVE 5/5 — both 9-invocation streaks).
+Zero SHA churn since 44th invocation ~2h ago. All 8 skipped per SKILL rules; App-write gap not exercised (counter → 33 review / 30 triage). No notify per skip-only rule.
 
-**App-write gap:** not exercised — every PR hit a skip before any `gh pr review` / inline comment call. Sibling counter advances to **32 (review) / 29 (triage)**. Operator PR-write unblock on `swarm-ai-research/swarm` remains the standing rank-1 fleet-wide gap.
+**Files modified:** `memory/logs/2026-08-13.md` (log entry only).
 
-**Notify:** suppressed per SKILL "If every PR was skipped, do not notify — just log."
-
-**Files modified:** `memory/logs/2026-08-13.md` (single appended log entry).
-
-**Follow-up:** new atomic candidate `[[swarm-repo-dependabot-cohort-churns-under-full-skip]]` — bot PRs now landing daily but reviewer state is blind to them; worth planner attention if the write-gap ever closes.
+**Follow-up:** Queue advances only on fresh SHAs — rsavitt push (~6d frozen on human PRs), new dependabot bump, or external human PR. If operator triggers a 46th same-day invocation, the 3-run cluster would be a novel cadence pattern worth flagging.
