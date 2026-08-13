@@ -1,0 +1,42 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph",
+        "description": "Notegraph updated"
+      },
+      "children": [
+        "content-stack"
+      ]
+    },
+    "content-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat",
+        "pr-link"
+      ]
+    },
+    "stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes wired in",
+        "value": "1",
+        "trend": "up"
+      }
+    },
+    "pr-link": {
+      "type": "Link",
+      "props": {
+        "label": "PR #30",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/30"
+      }
+    }
+  }
+}

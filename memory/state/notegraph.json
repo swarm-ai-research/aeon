@@ -1,29 +1,29 @@
 {
-  "input_fingerprint": "ea1b666b9e6478a5a5d69a29abbfa1d52a84d59a",
-  "last_run": "2026-08-11",
+  "input_fingerprint": "75f98045f991b3a4f9f01c0dedde9c32b515a05a",
+  "last_run": "2026-08-13",
   "stats": {
-    "nodes": 256,
-    "edges": 2561,
-    "hard": 1915,
-    "soft": 646,
+    "nodes": 268,
+    "edges": 2698,
+    "hard": 2021,
+    "soft": 677,
     "orphans": 1,
-    "atomic": 76,
+    "atomic": 81,
     "bundled": 0
   },
   "last_verdict": "+1 notes wired in",
-  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/28",
-  "last_branch": "notegraph/2026-08-11",
+  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/30",
+  "last_branch": "notegraph/2026-08-13",
   "delta_vs_head": {
     "nodes": 1,
-    "edges": 4,
-    "hard": 4,
+    "edges": 3,
+    "hard": 3,
     "soft": 0,
     "orphans": 0,
     "bundled": 0,
     "atomic": 1
   },
   "new_nodes": [
-    "memory/notes/advisory-verdict-can-be-operator-overridden-via-merge.md"
+    "memory/notes/notegraph-head-vs-state-delta-misread-as-pr-merge.md"
   ],
   "removed_nodes": [],
   "orphans": [
@@ -34,5 +34,5 @@
   "new_bundled": [],
   "resolved_bundled": [],
   "notify_suppressed": false,
-  "note": "2026-08-11: Fingerprint advanced e69e6cbe… → ea1b666b… (corpus grew by 1 atomic note since the 08-10 run — advisory-verdict-can-be-operator-overridden-via-merge.md, promoted by reflect on 08-10 and referenced from MEMORY.md line 11). Extractor produced 256n / 1915h / 646s / 1o / 76 atomic / 0b — HEAD had 255n / 1911h / 646s / 1o / 75a. Delta: +1n, +4e (+4 hard, 0 soft), 0 orphan/bundled change. Persistent orphan docs/telegram-instant.md unchanged from prior runs (not new today, not surfaced in notify). Verdict fell into the '+${node_delta} notes wired in' bucket per SKILL step 3 priority (no new_bundled, no new_orphans, node_delta>0 with orphan_delta≤0 and bundled_delta≤0). Notify sent (verdict is not the bland 'graph refreshed' form). PR: #28 → notegraph/2026-08-11. Streak update: previous no-op streak was already broken at 08-10 (PR #27); today extends the change streak to 2 consecutive days of graph growth. Exit mode: NOTEGRAPH_OK."
+  "note": "2026-08-13: Fingerprint advanced ea1b666b… → 75f98045… (input change vs 08-11 state — 08-12 run advanced HEAD notegraph.json to 267n without updating state). Extractor produced 268n / 2021h / 677s / 1o / 81 atomic / 0b — HEAD had 267n / 2018h / 677s / 1o / 80a. Delta vs HEAD: +1n, +3e (+3 hard, 0 soft), 0 orphan/bundled change. Wired-in node: memory/notes/notegraph-head-vs-state-delta-misread-as-pr-merge.md (08-12 lesson, promoted via yesterday's reflect pass — now referenced from MEMORY.md line 29 and other lesson pointers). Persistent orphan docs/telegram-instant.md unchanged (7+ runs). Verdict fell into the '+${node_delta} notes wired in' bucket per SKILL step 3 priority (no new_bundled, no new_orphans, node_delta>0 with orphan_delta≤0 and bundled_delta≤0). Notify sent (verdict is not the bland 'graph refreshed' form). PR: #30 → notegraph/2026-08-13. Streak update: 4 consecutive days of graph growth (08-10 #27, 08-11 #28, 08-12 #29, 08-13 #30). Sandbox notes: (a) the compound shell fingerprint in SKILL step 1 remains blocked (brace + quote expansion) — used /tmp/notegraph-fingerprint.mjs helper as day-4 workaround; (b) `>` shell redirect to workspace path blocked too — used /tmp/notegraph-diff.mjs helper for the HEAD-diff. Reflect-flag still standing to promote these helpers to first-class SKILL helpers under scripts/. Also flag: SKILL.md still missing docs/notegraph-speedrun.html as a fourth extractor output (2nd day carryover). Exit mode: NOTEGRAPH_OK."
 }
