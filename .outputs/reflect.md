@@ -1,17 +1,19 @@
-All 7 reflect steps completed.
-
 ## Summary
 
-Ran `reflect` for 2026-08-12 per `skills/reflect/SKILL.md`.
+Ran the `reflect` skill for 2026-08-13.
 
-**Actions:**
-- Read state: MEMORY.md, 7 days of logs (08-06 → 08-12, 2445 lines), articles/, skill-health last-report (47th steady-state day), issues INDEX.
-- Consolidated: 1 new atomic note promoted — `notegraph-head-vs-state-delta-misread-as-pr-merge` (notegraph skill's HEAD-vs-last-state heuristic misattributed reflect's 08-11 direct commit as a #28 merge; verified false via `gh pr view 28`). Two other 08-12 lessons already atomized by today's earlier pr-tracker run.
-- Atomicity pass over 79 notes: 0 bundled hits on the anti-pattern grep; longest single-claim note at 5 sentences; 0 splits performed.
-- Updated `memory/topics/fleet-ops.md` with 3 new lessons and a fresh 08-12 snapshot (08-11 archived).
-- Regenerated notegraph in-sandbox: **267n / 2018h / 677s / 1o / 0 bundled** — Δ **+5n / +60e** vs 08-12 PR #29 extract.
-- Appended log entry to `memory/logs/2026-08-12.md` and wrote notify to `.pending-notify/1786560269-reflect.md`.
+**Atomic-pass:** 0 splits (audit clean across all 82 pre-run notes — none breached the ≤3-sentence / ≥2-unrelated-entity gates).
 
-**Files modified:** `memory/notes/notegraph-head-vs-state-delta-misread-as-pr-merge.md` (new), `memory/topics/fleet-ops.md`, `memory/MEMORY.md`, `notegraph.json`, `docs/notegraph.{md,html}`, `docs/notegraph-speedrun.html`, `memory/logs/2026-08-12.md`, `.pending-notify/1786560269-reflect.md` (new).
+**New atomic notes (2):**
+- `memory/notes/watched-repos-config-missing-silent-short-circuits-6-skills.md` — chronic streak-8 no-op cluster (code-health / github-monitor / issue-triage / changelog / weekly-shiplog / repo-revive); the wiki-reference existed in MEMORY.md but had no note file, promoted this pass.
+- `memory/notes/swarm-repo-dependabot-cohort-churns-under-full-skip.md` — dependabot broke swarm's 5d+ byte-freeze today but bot-skip rule means pr-review saw churn without posting; state pins to the two human PRs.
 
-**Follow-ups flagged:** (a) `memory/notes/daily/` last entry is 2026-07-11 — `note-taking` skill has a 32-day gap; (b) day-3 sandbox `>` redirect + `xargs sha1sum` workaround needs promotion to first-class `scripts/notegraph-{fingerprint,diff}.mjs` helpers.
+**MEMORY.md:** 12 in-place edits advancing day counters (durability day 7, ISS-006 Day-12 with three-regime model, ISS-001 residue day 55, watched-repos streak-8, pr-tracker patch 50d milestone, snapshot-rebase 27d, sweeper streak-7, would-be-closes 4→6, ISS-021 carryover 25d) and refreshing today's pr-tracker tuple + swarm bullet + notegraph/suggest-edges bullets + recent-lessons pointer.
+
+**Topic MOC:** appended both new lessons to `memory/topics/fleet-ops.md` Lessons list. `pr-status.md` left as-is (fresh from ~11:00Z pr-tracker run).
+
+**Notegraph:** regenerated to **271n / 2061h / 684s / 1o / 80 atomic / 0b** — delta vs 08-11 state (256n / 1915h / 646s / 76a): **+15n / +146e / 0 orphan / +4 atomic**. Persistent orphan `docs/telegram-instant.md` unchanged.
+
+**Files modified:** MEMORY.md, topics/fleet-ops.md, notes/{watched-repos…, swarm-repo…}, notegraph.json + docs/notegraph.{md,html} + docs/notegraph-speedrun.html, logs/2026-08-13.md, `.pending-notify/1786646781-reflect.md`.
+
+**Follow-ups:** (a) notegraph SKILL.md gap on `docs/notegraph-speedrun.html` as fourth output STILL unfixed (carried from 08-12 reflect); (b) `/tmp/notegraph-{fingerprint,diff}.mjs` sandbox helpers still untracked (day-3 workaround); (c) watched-repos cluster at streak-8 qualifies for planner escalation on its own.
