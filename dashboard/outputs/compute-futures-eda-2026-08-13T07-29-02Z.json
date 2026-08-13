@@ -1,0 +1,264 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-08-12"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "overview-section",
+        "top-finding-section",
+        "retail-analysis-section",
+        "price-expansion-section",
+        "status-section",
+        "report-section"
+      ]
+    },
+    "overview-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "overview-heading",
+        "overview-stats"
+      ]
+    },
+    "overview-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Dataset Overview",
+        "level": "h3"
+      }
+    },
+    "overview-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-rows",
+        "stat-modes"
+      ]
+    },
+    "stat-rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      }
+    },
+    "stat-modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "top-finding-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "top-finding-heading",
+        "top-finding-main",
+        "top-finding-detail1",
+        "top-finding-detail2"
+      ]
+    },
+    "top-finding-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Finding: synth/x402 settlementLegs",
+        "level": "h3"
+      }
+    },
+    "top-finding-main": {
+      "type": "Stat",
+      "props": {
+        "label": "Cross-Mode LOW Cluster",
+        "value": "16.67%"
+      }
+    },
+    "top-finding-detail1": {
+      "type": "Text",
+      "props": {
+        "text": "Anchors: 202608126, 202608129",
+        "variant": "body"
+      }
+    },
+    "top-finding-detail2": {
+      "type": "Text",
+      "props": {
+        "text": "Mode-rotated from 08-10 basket-only",
+        "variant": "caption"
+      }
+    },
+    "retail-analysis-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "retail-heading",
+        "retail-stat",
+        "retail-detail1",
+        "retail-detail2",
+        "retail-detail3"
+      ]
+    },
+    "retail-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Retail Loss Analysis",
+        "level": "h3"
+      }
+    },
+    "retail-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Retail Loss Cases",
+        "value": "6"
+      }
+    },
+    "retail-detail1": {
+      "type": "Text",
+      "props": {
+        "text": "Top-5 spread losses: 100% retail",
+        "variant": "body"
+      }
+    },
+    "retail-detail2": {
+      "type": "Badge",
+      "props": {
+        "text": "First Counter-Signal",
+        "variant": "outline"
+      }
+    },
+    "retail-detail3": {
+      "type": "Text",
+      "props": {
+        "text": "202608127 retail holds single top gain: +$14,006",
+        "variant": "body"
+      }
+    },
+    "price-expansion-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "price-heading",
+        "price-detail",
+        "price-stats"
+      ]
+    },
+    "price-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "x402Total: Both-Sided Range Expansion",
+        "level": "h3"
+      }
+    },
+    "price-detail": {
+      "type": "Text",
+      "props": {
+        "text": "New all-time low and high",
+        "variant": "lead"
+      }
+    },
+    "price-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-low",
+        "stat-high"
+      ]
+    },
+    "stat-low": {
+      "type": "Stat",
+      "props": {
+        "label": "All-Time Low",
+        "value": "$249.56"
+      }
+    },
+    "stat-high": {
+      "type": "Stat",
+      "props": {
+        "label": "All-Time High",
+        "value": "$429.30"
+      }
+    },
+    "status-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "status-heading",
+        "status-badge"
+      ]
+    },
+    "status-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h3"
+      }
+    },
+    "status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "OK — All Modes",
+        "variant": "default"
+      }
+    },
+    "report-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "report-heading",
+        "report-link"
+      ]
+    },
+    "report-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Full Report",
+        "level": "h3"
+      }
+    },
+    "report-link": {
+      "type": "Link",
+      "props": {
+        "label": "memory/topics/compute-futures-eda/2026-08-12.md",
+        "href": "memory/topics/compute-futures-eda/2026-08-12.md"
+      }
+    }
+  }
+}
