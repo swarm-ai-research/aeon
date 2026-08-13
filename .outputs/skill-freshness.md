@@ -1,16 +1,15 @@
 ## Summary
 
-**skill-freshness** completed. Verdict: ✅ **FRESHNESS_OK** — no notification sent.
+Skill-freshness audit complete for 2026-08-13.
 
-**What was audited:**
-- 44 enabled skills, 0 explicit chain edges (chains block is commented out)
-- 19 implicit (consumer, dep) pairs discovered via SKILL.md grep
-- 7 scored (files exist on disk): `planner-state.json`, `notegraph.json`, `skillpacks.json`, `suggest-edges.json`, `pr-status.md`, `surplus-pulse.md`, `compute-pulse.md` — all within threshold
-- 12 implicit-missing deps skipped (never existed on disk, not flagged per spec)
-- 2 disabled-producer article refs skipped (`push-recap`, `token-report` both `enabled: false`, treated as on_demand)
+**Verdict: ✅ FRESHNESS_OK** — 44 enabled skills audited, 0 cross-skill dependencies flagged.
 
-**Key caveat noted in the article:** GHA mtime blind spot — all file ages read as ~0.02h (checkout time), making threshold comparisons non-informative. The fix (`git log -1 --format=%ct`) is a known open item per [[skill-freshness-mtime-blind-in-gha]].
+Key findings:
+- **No active chain edges** — `chains:` block in `aeon.yml` is fully commented out; zero explicit `consume:` dependencies to score.
+- **13 raw implicit refs discovered** across enabled SKILL.md files; all 13 filtered before scoring: 8 self-references, 3 implicit refs to files never on disk, 2 references to disabled (on-demand) producers.
+- **All on-disk files fresh** — `memory/topics/`, `memory/state/`, and `.outputs/` files all carry git-log timestamp ~1.1h ago (snapshot commit), well within every class threshold (topics 168h / state 720h / .outputs 4h).
+- **`articles/` empty** — no article files exist on this checkout. No MISSING fires because no enabled consumer holds an explicit `chains:consume:` edge or a canonical `articles/{producer}-${today}.md` cross-skill reference.
+- **Notable gap**: `skills/agi-tracker/SKILL.md` is absent — that skill's implicit deps are undetectable. Tracked in [[agi-tracker-missing-skill-md-dispatches-no-op]].
+- **No notification sent** — FRESHNESS_OK suppresses notification by design.
 
-**Structural gaps surfaced** (not new, but captured): `repo-revive`'s `watched-repos.md` never populated (silent short-circuit streak-6), `compute-macro-correlate` topic on unmerged branch, `agi-tracker` missing SKILL.md.
-
-**Files written:** `articles/skill-freshness-2026-08-12.md`, `memory/topics/skill-freshness-state.json` (last_run_at updated), `memory/logs/2026-08-12.md` (appended).
+Files written: `articles/skill-freshness-2026-08-13.md`, `memory/topics/skill-freshness-state.json` (updated `last_run_at` to 2026-08-13T08:00:00Z), appended to `memory/logs/2026-08-13.md`.
