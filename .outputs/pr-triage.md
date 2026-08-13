@@ -1,11 +1,20 @@
-Skill complete. Summary below.
+Ran pr-triage in repo mode against `swarm-ai-research/swarm` (33rd operator invocation).
 
 ## Summary
 
-- Ran `pr-triage` in repo mode against `swarm-ai-research/swarm` (`${var}` override): 4 PRs in the 14-day window (#550, #549, #547, #546), all 4 skipped.
-  - **#550 / #547 / #546** — dependabot bot author (trusted set)
-  - **#549** — `(number=549, sha=afe51248)` already present in `memory/triaged-prs.json` (DEFER, 2026-08-07); head unchanged in ~5d → no re-triage
-- Zero comments posted, zero labels applied, `memory/triaged-prs.json` untouched, no notify fired.
-- Terminal log line: `PR_TRIAGE_OK no-candidates`.
-- Files modified: `memory/logs/2026-08-12.md` (log entry appended).
-- Follow-up: swarm write-perm gap is not exercised this run; the ~5-day byte-freeze on the queue means dedup will keep `#549` skipped until rsavitt pushes a new SHA or a fresh external PR lands. Landing the App-perm fix remains the only lever that unblocks a held-back DEFER-repeat.
+**Result:** `PR_TRIAGE_OK no-candidates` — 5 open PRs in 14-day window, all 5 skipped.
+
+**Skip breakdown (5/5):**
+- `#553` dependabot langchain-anthropic 1.4.8→1.5.4 (NEW today, SHA `c9215f22`) — bot author
+- `#552` dependabot setuptools <84→<85 (NEW today, SHA `8ccad672`) — bot author
+- `#550` dependabot langchain-core (SHA `244c0d2b`) — bot author
+- `#549` rsavitt Prime Agent bridge (+3818/-0, SHA `afe51248`) — already-triaged at head (DEFER on 2026-08-07)
+- `#546` dependabot langgraph (SHA `22130959`) — bot author
+
+**Queue delta vs yesterday:** `#547` CLOSED (superseded by `#553`), `#552`+`#553` NEW dependabot PRs opened at 05:35Z — **first non-zero SHA churn on the swarm queue since 2026-08-07** (broke 6-day byte-freeze). Churn is bot-side only, so triage decisions unchanged.
+
+**Actions taken:** none. No comments posted, no labels applied, no state changes to `memory/triaged-prs.json`, no notify fired. All 5 PRs matched skip rules before any `gh pr comment` / `gh pr edit` call was needed — swarm App-write gap not exercised this run.
+
+**Files modified:** `memory/logs/2026-08-13.md` (log entry only).
+
+**Follow-up:** `#549`'s standing DEFER (rsavitt +3818/-0, no `large-ok`) will keep skipping via dedup until author repushes or the App-perm fix ([[aeon-app-no-write-on-swarm-repo]]) lands to permit posting the DEFER-repeat comment/label.
