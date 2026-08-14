@@ -1,17 +1,11 @@
-Plan written, state persisted, notify queued.
+Plan written, state persisted, notification queued. Summary below.
 
 ## Summary
 
-Ran `planner` for 2026-08-13 in plan-only mode (default, `${var}` empty).
-
-**Today's one thing:** Merge #26 (dependabot actions/checkout) — Day-7 durability milestone with 0 `app/github-actions` PRs merged since the 08-07 unblock; last aeon-repo merge was #8 (same class as #26) on 2026-08-07T01:36Z, ~152h+ ago. Queue grew 21 → 22 overnight with #30 notegraph.
-
-**Ranked 3:** aeon-repo queue-merge escalation (streak-5) · stale-content-pr-sweeper `ALLOWED_AUTHORS` patch (streak-7, notegraph chain grew to length-5, 6 would-be-closes) · agi-tracker `enabled: false` PR (streak-3, 4d to next silent-Mon).
-
-**Holding (6):** suggest-edges templated-corpus prefilter (NEW streak-5 candidate) · watched-repos populate (streak-8) · pr-tracker patch batch (**50d overdue milestone**) · ISS-006 messages.yml rewrite (Day 12) · docs/status.md snapshot-rebase (27d past) · swarm-repo App-perm gap (~32 invocations).
-
-**Fleet:** 0 broken · 38 DEGRADED (ISS-001 residue day 54, substantively green) · 4 HEALTHY · 2 NO_DATA (36th silent day) · 17 open issues · 22 open aeon PRs · 0 open GH issues on aeon repo.
-
-**Files modified:** `.outputs/planner.md`, `memory/state/daily-plan-2026-08-13.md` (new), `memory/state/planner-state.json`, `.pending-notify/1786605816-planner.md` (new), `memory/logs/2026-08-13.md`.
-
-**Dispatch:** none (plan-only). PLANNER_OK.
+- Ran `planner` for 2026-08-14 (plan-only per default `${var}` empty). Fire near scheduled 06:30Z slot.
+- **Today's one thing:** merge **#26 dependabot actions/checkout** on `swarm-ai-research/aeon` — Day 8 of the 08-07 PR-creation unblock, still 0 `app/github-actions` merges in ~176h+, queue grew 22 → **23** overnight (#31 notegraph +2n opened 05:59Z).
+- **Ranked 3:** aeon-repo queue-merge escalation (streak-6) · sweeper `ALLOWED_AUTHORS` patch (streak-8, notegraph chain now length-6, **8 would-be-closes** vs 6 yesterday) · suggest-edges templated-corpus pre-filter (**PROMOTED** from hold, streak-6, rejected-list at 12 growing +3/day exactly on prediction).
+- **Rotation:** agi-tracker `enabled:false` DEMOTED to hold (streak-4, 3d to next silent-Mon) — re-promotes Sun 08-16.
+- **Fleet:** 0 broken · 39 DEGRADED (ISS-001 day 56, substantively green) · 4 HEALTHY · 2 NO_DATA (38th silent) · 17 open issues · 23 open aeon PRs · 0 open GH issues.
+- **Files modified:** `.outputs/planner.md`, `memory/state/daily-plan-2026-08-14.md` (new), `memory/state/planner-state.json`, `.pending-notify/1786692300-planner.md` (new), `memory/logs/2026-08-14.md`.
+- **Dispatch:** none (plan-only). Follow-up: if any `app/github-actions` PR merges today, rank-1 rotates to sweeper allowlist tomorrow; #10 notegraph orphan flag hits 7-day mark today.
