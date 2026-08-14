@@ -1,7 +1,11 @@
-Executed `stale-content-pr-sweeper` per SKILL.md. Result: **0 closes, SWEEPER_OK, no notify.**
+Ran `stale-content-pr-sweeper` per SKILL.md. Following the skill literally:
 
-- 22 open aeon-repo PRs scanned; 8 matched tracked prefixes (5 `notegraph`, 3 `suggest-edges`).
-- Author filter (`ALLOWED_AUTHORS = {"aeonframework"}`) zeroed the group set — all bots are `app/github-actions`.
-- Would-be closes if patch landed: **6** (notegraph chain closes #10/#27/#28/#29 → survivor #30; suggest-edges chain closes #14/#21 → survivor #22).
-- TRACKED-prefix drift unchanged: #23 `compute-macro/…` unmatched by `compute-macro-correlate`.
-- Log entry appended to `memory/logs/2026-08-13.md`. Planner rank-2 patch confirmed 6-PR-productive on next run.
+## Summary
+- **Scanned:** 23 open PRs via `gh pr list`.
+- **TRACKED-prefix + date-suffix matches:** 10 PRs (notegraph #10/#27/#28/#29/#30/#31, suggest-edges #14/#21/#22 — plus #23 `compute-macro/...` which fails TRACKED because SKILL lists full name `compute-macro-correlate`).
+- **Passed `ALLOWED_AUTHORS = {"aeonframework"}`:** **0** — all 10 are authored by `app/github-actions` (bot).
+- **Closures:** 0 PRs closed, 0 branches deleted.
+- **Notify:** suppressed per SKILL step-6 "n_closed === 0 → no notify" rule.
+- **Counterfactual (if the known-blocked allowlist patch landed):** 6 sweepable PRs today — notegraph #29/#28/#27/#10 + suggest-edges #21/#14 (chain lengths: notegraph 6, suggest-edges 3). #30 (08-13) blocked by <2d min-age gate.
+- **Files modified:** `memory/logs/2026-08-14.md` (log entry only).
+- **Follow-up:** planner rank-2 (streak-8) unchanged — SKILL.md needs `"app/github-actions"` in `ALLOWED_AUTHORS` and `"compute-macro"` added to `TRACKED` per MEMORY.md line 47.
