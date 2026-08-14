@@ -1,0 +1,135 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Freshness"
+      },
+      "children": [
+        "date",
+        "status-alert",
+        "sep1",
+        "worst-heading",
+        "worst-list",
+        "sep2",
+        "actions-heading",
+        "actions-list",
+        "sep3",
+        "full-report-link"
+      ]
+    },
+    "date": {
+      "type": "Text",
+      "props": {
+        "text": "2026-08-14",
+        "variant": "caption"
+      }
+    },
+    "status-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "FRESHNESS_STALE",
+        "message": "3 of 5 deps flagged across 3 of 44 enabled consumers",
+        "type": "warning"
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "worst-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Worst Cases",
+        "level": "h3"
+      }
+    },
+    "worst-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "worst-item-1",
+        "worst-item-2",
+        "worst-item-3"
+      ]
+    },
+    "worst-item-1": {
+      "type": "Text",
+      "props": {
+        "text": "heartbeat ← articles/token-report-*.md (MISSING — producer `token-report` disabled)",
+        "variant": "body"
+      }
+    },
+    "worst-item-2": {
+      "type": "Text",
+      "props": {
+        "text": "weekly-shiplog ← articles/push-recap-*.md (MISSING — producer `push-recap` disabled)",
+        "variant": "body"
+      }
+    },
+    "worst-item-3": {
+      "type": "Text",
+      "props": {
+        "text": "fleet-control ← articles/fleet-status-2026-08-14.md (MISSING — heuristic false-positive; fleet-control self-reads prior fleet-status; not a real gap)",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "actions-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Recommended Actions",
+        "level": "h3"
+      }
+    },
+    "actions-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "action-1",
+        "action-2",
+        "action-3"
+      ]
+    },
+    "action-1": {
+      "type": "Text",
+      "props": {
+        "text": "Enable `token-report` + `push-recap` if their data is wanted",
+        "variant": "body"
+      }
+    },
+    "action-2": {
+      "type": "Text",
+      "props": {
+        "text": "Or add <!-- skill-freshness:ignore --> to suppress",
+        "variant": "body"
+      }
+    },
+    "action-3": {
+      "type": "Text",
+      "props": {
+        "text": "fleet-control finding is a prefix-mismatch known limitation",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator"
+    },
+    "full-report-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/skill-freshness-2026-08-14.md"
+      }
+    }
+  }
+}
