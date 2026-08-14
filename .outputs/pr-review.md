@@ -1,17 +1,16 @@
+Executed `skills/pr-review/SKILL.md` against `${var}=swarm-ai-research/swarm` with the operator merge-gate policy layered on top.
+
 ## Summary
 
-Ran `pr-review` for 2026-08-13 (45th operator invocation on `swarm-ai-research/swarm`, second on 08-13 same-day-double).
+**Scope**: swarm-ai-research/swarm — 8 open PRs.
 
-**Verdicts** (all carried forward — no new posts):
-- **swarm-ai-research/swarm#549** (SHA `afe51248`): **REQUEST_CHANGES 2/5** — standing verdict from 36th–44th invocations, 3 issues on the Prime Agent bridge (unbounded refinement recursion, aggregate-vs-per-refinement metric skew, unauthenticated `edit.applied` trust). 10-invocation carry.
-- **swarm-ai-research/swarm#543** (SHA `bad79e48`): **APPROVE 5/5** — docs-only, 10-invocation carry.
+**Decisions**: 0 fresh reviews posted. All 8 PRs hit skip rules:
+- **6 dependabot bot-authored**: #553 (langchain-anthropic), #552 (setuptools), #550 (langchain-core), #546 (langgraph), #538 (actions/github-script), #537 (actions/setup-python) — SKIP `bot-author`.
+- **#549** (rsavitt, Prime Agent, SHA `afe51248`): SKIP `dup-SHA` — headRefOid already reviewed in 08-12 + 08-13 logs (10 prior invocations, ~7d frozen). **Standing merge-gate verdict: REQUEST_CHANGES 2/5** — carried forward.
+- **#543** (rsavitt, docs AI-slop removal, SHA `bad79e48`): SKIP `dup-SHA` — same dedup pattern. **Standing merge-gate verdict: APPROVE 5/5** — carried forward.
 
-**Queue** (8 open, byte-identical to this morning's 44th invocation):
-- #553, #552, #550, #546, #538, #537 → dependabot (bot-author skip + dup-SHA vs 44th)
-- #549, #543 → dup-SHA (10th consecutive invocation on unchanged human PRs)
+Bot-reviewer-recently rule not triggered — latest `copilot-pull-request-reviewer` reviews are 2026-08-07, far outside the 30-min window.
 
-Zero SHA churn since 44th invocation ~2h ago. All 8 skipped per SKILL rules; App-write gap not exercised (counter → 33 review / 30 triage). No notify per skip-only rule.
+**Notify**: not fired (all-skip → log-only per skill).
 
-**Files modified:** `memory/logs/2026-08-13.md` (log entry only).
-
-**Follow-up:** Queue advances only on fresh SHAs — rsavitt push (~6d frozen on human PRs), new dependabot bump, or external human PR. If operator triggers a 46th same-day invocation, the 3-run cluster would be a novel cadence pattern worth flagging.
+**Files**: `memory/logs/2026-08-14.md` (this run's `## pr-review` entry). No PR, no inline comments. 45th consecutive invocation on this repo producing zero human-review action.
