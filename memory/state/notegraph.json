@@ -1,29 +1,30 @@
 {
-  "input_fingerprint": "ea1b666b9e6478a5a5d69a29abbfa1d52a84d59a",
-  "last_run": "2026-08-11",
+  "input_fingerprint": "49908e73534d3acf21eea2e2adce9a56ab1b31e5",
+  "last_run": "2026-08-14",
   "stats": {
-    "nodes": 256,
-    "edges": 2561,
-    "hard": 1915,
-    "soft": 646,
+    "nodes": 273,
+    "edges": 2756,
+    "hard": 2069,
+    "soft": 687,
     "orphans": 1,
-    "atomic": 76,
+    "atomic": 83,
     "bundled": 0
   },
-  "last_verdict": "+1 notes wired in",
-  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/28",
-  "last_branch": "notegraph/2026-08-11",
+  "last_verdict": "+2 notes wired in",
+  "last_pr": null,
+  "last_branch": "notegraph/2026-08-14",
   "delta_vs_head": {
-    "nodes": 1,
-    "edges": 4,
-    "hard": 4,
-    "soft": 0,
+    "nodes": 2,
+    "edges": 11,
+    "hard": 8,
+    "soft": 3,
     "orphans": 0,
     "bundled": 0,
-    "atomic": 1
+    "atomic": 2
   },
   "new_nodes": [
-    "memory/notes/advisory-verdict-can-be-operator-overridden-via-merge.md"
+    "memory/notes/swarm-repo-dependabot-cohort-churns-under-full-skip.md",
+    "memory/notes/watched-repos-config-missing-silent-short-circuits-6-skills.md"
   ],
   "removed_nodes": [],
   "orphans": [
@@ -33,6 +34,5 @@
   "resolved_orphans": [],
   "new_bundled": [],
   "resolved_bundled": [],
-  "notify_suppressed": false,
-  "note": "2026-08-11: Fingerprint advanced e69e6cbe… → ea1b666b… (corpus grew by 1 atomic note since the 08-10 run — advisory-verdict-can-be-operator-overridden-via-merge.md, promoted by reflect on 08-10 and referenced from MEMORY.md line 11). Extractor produced 256n / 1915h / 646s / 1o / 76 atomic / 0b — HEAD had 255n / 1911h / 646s / 1o / 75a. Delta: +1n, +4e (+4 hard, 0 soft), 0 orphan/bundled change. Persistent orphan docs/telegram-instant.md unchanged from prior runs (not new today, not surfaced in notify). Verdict fell into the '+${node_delta} notes wired in' bucket per SKILL step 3 priority (no new_bundled, no new_orphans, node_delta>0 with orphan_delta≤0 and bundled_delta≤0). Notify sent (verdict is not the bland 'graph refreshed' form). PR: #28 → notegraph/2026-08-11. Streak update: previous no-op streak was already broken at 08-10 (PR #27); today extends the change streak to 2 consecutive days of graph growth. Exit mode: NOTEGRAPH_OK."
+  "notify_suppressed": false
 }
