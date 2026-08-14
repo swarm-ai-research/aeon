@@ -1,5 +1,20 @@
-Memory-flush done. MEMORY.md updated in-place (5 targeted bullet rewrites: focus lines 6/12/13, pointers 44/46) and today's log carries the flush entry plus a correction footnote.
+Memory-flush complete. MEMORY_FLUSH_OK.
 
-**Key contradiction resolved:** today's notegraph 08-12 log wrongly inferred `#28 merged between 08-11 and 08-12` from HEAD-vs-last-state extractor delta. `gh pr view 28` confirms state=OPEN, mergedAt=null — the HEAD advance was actually 08-11 reflect's direct `notegraph.json` regen commit, not a PR merge. Merge-flow streak-of-none continues (0 of 19 `app/github-actions` PRs merged in ~132h+ since 08-07 unblock). Both MEMORY.md line 6 and the RANK-1 pointer (line 44) now carry the explicit correction, and the notegraph log's follow-up (c) is footnoted invalid.
+## Summary
 
-**Streaks advanced** — PR-authoring durability day 5→6, notegraph change-streak day 2→3 (PR #29, +2n), suggest-edges templated-corpus streak-3→4 (state now 3 applied + 6 rejected), sweeper `notegraph` chain length-3→4 (#10 ← #27 ← #28 ← #29), would-be-closes 3→4. **No new atomic notes** (today re-confirms existing lessons); **no decay removals** (all pointers still actively referenced). No notify fired — log-only maintenance.
+Ran `memory-flush` per `skills/memory-flush/SKILL.md`. Scanned last 3 days of logs (08-12 through 08-14) plus current MEMORY.md and current PR state via `gh`.
+
+**No new atomic notes promoted** — today's suggest-edges activity re-confirms an existing lesson (`[[suggest-edges-flags-templated-corpora-as-sim-1-noise]]` streak-6) and PR #31 is a routine notegraph chain-day-5 event.
+
+**Contradictions resolved (log-grounded, replaces stale — not appended):**
+- suggest-edges streak-5 (9 rejected) → **streak-6 (12 rejected)**
+- notegraph 08-13 PR #30 (+1n, chain length-5) → **08-14 PR #31 (+2n, chain length-6)**
+- Durability window day 7 (22 open, ~152h+) → **day 8 (23 open, ~176h+)**
+
+**Decay pass:** Zero removals — all pointers still actively referenced. Calendar-based day counters advanced across ISS-006 (12→13), ISS-001 residue (55→56), never-dispatched (37→38), snapshot-rebase past-urgency (27→28), pr-tracker patch overdue (50→51), ISS-021 carryover (25→26), agi-tracker silent-Mon buffer (~4d→~3d out).
+
+**Files modified:**
+- `memory/MEMORY.md` — 11 targeted in-place edits, line count steady at 64
+- `memory/logs/2026-08-14.md` — memory-flush log entry appended
+
+No PR opened. No notify fired (log-only maintenance).
