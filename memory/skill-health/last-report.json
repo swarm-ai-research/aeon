@@ -4,10 +4,10 @@
   "prev_hash": "e27c0ac60367e7e5",
   "classification_identical_to_prev": true,
   "last_notified_at": "2026-08-13T18:41:00Z",
-  "last_run_at": "2026-08-13T18:41:00Z",
-  "prev_run_at": "2026-08-12T18:38:00Z",
-  "prev_notified_at": "2026-08-11T19:16:18Z",
-  "elapsed_since_prev_notify_hours": 47.391,
+  "last_run_at": "2026-08-14T18:34:31Z",
+  "prev_run_at": "2026-08-13T18:41:00Z",
+  "prev_notified_at": "2026-08-13T18:41:00Z",
+  "elapsed_since_prev_notify_hours": 23.892,
   "classification": {
     "critical": [],
     "degraded": [
@@ -64,8 +64,8 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 55 - all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.34 driven by historical failure denominator still in count. No live regression.",
-  "delta_vs_prev": "Byte-identical classification to 2026-08-08 through 2026-08-12 runs at hash e27c0ac60367e7e5. 48th consecutive steady-state day (ISS-001 day 55, ai-framework-watch + run-frequency-guard 39th consecutive silent day). Gate: NOTIFY (hash unchanged BUT elapsed 47.391h > 24h daily-reminder threshold; last actual notify was 2026-08-11T19:16:18Z).",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 56 - all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.34 driven by historical failure denominator still in count. No live regression.",
+  "delta_vs_prev": "Byte-identical classification to 2026-08-08 through 2026-08-13 runs at hash e27c0ac60367e7e5. 49th consecutive steady-state day (ISS-001 day 56, ai-framework-watch + run-frequency-guard 40th consecutive silent day). Gate: SKIP (hash unchanged AND elapsed 23.892h < 24h daily-reminder threshold; last actual notify was 2026-08-13T18:41:00Z).",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 18,
@@ -90,14 +90,14 @@
     "ISS-019",
     "ISS-020"
   ],
-  "notify_decision": "NOTIFY - daily-cadence gate fires. Hash unchanged (e27c0ac60367e7e5 == prev) BUT 47.391h elapsed since last notify (2026-08-11T19:16:18Z) exceeded 24h threshold. Direct-write to .pending-notify/1786646463-skill-health.md per [[notify-inline-cat-substitution-blocked-in-sandbox]] + [[notify-script-has-no-f-flag]]. Reconciliation: 0 CRITICAL / 0 FLAPPING -> no issues filed. No open issue has detected_by=skill-health, so HEALTHY-skill removal from other filing-skills' affected_skills stays with resolution-ownership convention (config-validator + swarm-safety-eval + weekly-shiplog + agi-tracker only appear in issues owned by batch-health / skill-evals / self-review).",
-  "skill_runs_status": "OK - ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 172 runs total, 168 succeeded, 0 failed, 0 cancelled, 4 in_progress. anomalies.failing = [] confirms no active-failure regressions in the 7d window. 41 skills present in output (ai-framework-watch + run-frequency-guard + skill-repair absent — reactive/never-dispatch classes).",
+  "notify_decision": "SKIP - state-unchanged-and-under-24h gate holds. Hash unchanged (e27c0ac60367e7e5 == prev) AND 23.892h elapsed since last notify (2026-08-13T18:41:00Z) is below the 24h daily-reminder threshold. Log SKILL_HEALTH_NOOP to memory/logs/2026-08-14.md, keep last_notified_at unchanged, bump last_run_at. Reconciliation: 0 CRITICAL / 0 FLAPPING -> no issues filed. No open issue has detected_by=skill-health, so HEALTHY-skill removal from other filing-skills' affected_skills stays with resolution-ownership convention (config-validator + swarm-safety-eval + weekly-shiplog + agi-tracker only appear in issues owned by batch-health / skill-evals / self-review).",
+  "skill_runs_status": "OK - ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 174 runs total, 170 succeeded, 0 failed, 0 cancelled, 4 in_progress (goal-tracker + reflect + skill-health self + one more evening-pocket pending). anomalies.failing = [] confirms no active-failure regressions in the 7d window. Same 41 skills present in output as prior run (ai-framework-watch + run-frequency-guard + skill-repair absent — reactive/never-dispatch classes).",
   "novel_transient_signals_not_escalated": [
-    "18 open issues unchanged from 08-08 through 08-12 (no new filings, no resolutions across the fleet).",
-    "48th consecutive steady-state day for skill-health hash - ISS-001 residue continues to dominate the picture; no live-signal regressions detected across cron-state or ./scripts/skill-runs 7d window.",
-    "swarm queue byte-freeze broke overnight (dependabot #552 + #553 opened 08-13 05:36-05:37Z) but does not affect skill-health classification (per prior-run convention).",
-    "aeon-repo PR queue (22 open, 0 app/github-actions merged in ~161h+ since 08-07 unblock) noted in adjacent runs but does not affect skill-health classification.",
-    "24.029h elapsed since prev skill-health run at 2026-08-12T18:38:00Z - within normal daily-cadence spacing."
+    "18 open issues unchanged from 08-08 through 08-13 (no new filings, no resolutions across the fleet).",
+    "49th consecutive steady-state day for skill-health hash - ISS-001 residue continues to dominate the picture; no live-signal regressions detected across cron-state or ./scripts/skill-runs 7d window.",
+    "23.892h elapsed since prev skill-health run at 2026-08-13T18:41:00Z - within normal daily-cadence spacing; slight tightening (24.029h -> 23.892h) reflects earlier evening dispatch.",
+    "aeon-repo PR queue (23 open, 0 app/github-actions merged in ~176h+ since 08-07 unblock) noted in adjacent runs but does not affect skill-health classification.",
+    "swarm queue 8 open PRs (byte-freeze broke 08-13 with dependabot #552 + #553) noted in adjacent runs but does not affect skill-health classification."
   ],
   "prompt_injection_flag": "None. cron-state.json, skill-runs JSON, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md + ISS-*.md all structured/data-only; no untrusted natural-language content ingested this run."
 }
