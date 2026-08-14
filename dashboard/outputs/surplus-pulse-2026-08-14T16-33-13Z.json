@@ -1,0 +1,230 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "surplus pulse"
+      },
+      "children": [
+        "date_text",
+        "sep1",
+        "spot_section",
+        "sep2",
+        "curve_section",
+        "sep3",
+        "rail_section",
+        "sep4",
+        "summary_section"
+      ]
+    },
+    "date_text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-08-14",
+        "variant": "caption"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "spot_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "spot_heading",
+        "spot_stack"
+      ]
+    },
+    "spot_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h3"
+      }
+    },
+    "spot_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "catalog_badge",
+        "model_name",
+        "price_stat",
+        "provider_badge"
+      ]
+    },
+    "catalog_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "catalog"
+      }
+    },
+    "model_name": {
+      "type": "Text",
+      "props": {
+        "text": "Llama 4 Scout"
+      }
+    },
+    "price_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Price",
+        "value": "$0.0764/M"
+      }
+    },
+    "provider_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Surplus Intelligence",
+        "variant": "secondary"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "curve_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "curve_heading",
+        "curve_stack"
+      ]
+    },
+    "curve_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h3"
+      }
+    },
+    "curve_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "h100_stat",
+        "spike_description"
+      ]
+    },
+    "h100_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "hyperscaler H100 reserve (R30)",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "spike_description": {
+      "type": "Text",
+      "props": {
+        "text": "largest single-event spike this run",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "rail_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "rail_heading",
+        "rail_stack"
+      ]
+    },
+    "rail_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h3"
+      }
+    },
+    "rail_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "x402_badge",
+        "chain_badge",
+        "api_link"
+      ]
+    },
+    "x402_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "x402"
+      }
+    },
+    "chain_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Base/USDC",
+        "variant": "outline"
+      }
+    },
+    "api_link": {
+      "type": "Link",
+      "props": {
+        "label": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary_heading",
+        "summary_text"
+      ]
+    },
+    "summary_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "One-Line Read",
+        "level": "h3"
+      }
+    },
+    "summary_text": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus inference market stays tight — H100 reserve shock dominates the term structure; no live feed override, catalog fallback in effect.",
+        "variant": "lead"
+      }
+    }
+  }
+}
