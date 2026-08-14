@@ -1,20 +1,15 @@
-Ran pr-triage in repo mode against `swarm-ai-research/swarm` (33rd operator invocation).
+PR_TRIAGE_OK no-candidates. No state update needed (nothing triaged), no notify.
 
 ## Summary
 
-**Result:** `PR_TRIAGE_OK no-candidates` — 5 open PRs in 14-day window, all 5 skipped.
+Ran `pr-triage` skill against `swarm-ai-research/swarm` (repo mode). Fetched 4 open PRs in the 14-day window; all 4 skipped:
 
-**Skip breakdown (5/5):**
-- `#553` dependabot langchain-anthropic 1.4.8→1.5.4 (NEW today, SHA `c9215f22`) — bot author
-- `#552` dependabot setuptools <84→<85 (NEW today, SHA `8ccad672`) — bot author
-- `#550` dependabot langchain-core (SHA `244c0d2b`) — bot author
-- `#549` rsavitt Prime Agent bridge (+3818/-0, SHA `afe51248`) — already-triaged at head (DEFER on 2026-08-07)
-- `#546` dependabot langgraph (SHA `22130959`) — bot author
+- **#553** (dependabot langchain-anthropic bump) — bot author, skip
+- **#552** (dependabot setuptools bump) — bot author, skip
+- **#550** (dependabot langchain-core bump) — bot author, skip
+- **#549** (rsavitt, Prime Agent, 3818+/0-) — already-triaged: head sha `afe5124…` matches 2026-08-07 DEFER entry in `memory/triaged-prs.json`
 
-**Queue delta vs yesterday:** `#547` CLOSED (superseded by `#553`), `#552`+`#553` NEW dependabot PRs opened at 05:35Z — **first non-zero SHA churn on the swarm queue since 2026-08-07** (broke 6-day byte-freeze). Churn is bot-side only, so triage decisions unchanged.
+**Files modified:**
+- `memory/logs/2026-08-14.md` — appended pr-triage log entry
 
-**Actions taken:** none. No comments posted, no labels applied, no state changes to `memory/triaged-prs.json`, no notify fired. All 5 PRs matched skip rules before any `gh pr comment` / `gh pr edit` call was needed — swarm App-write gap not exercised this run.
-
-**Files modified:** `memory/logs/2026-08-13.md` (log entry only).
-
-**Follow-up:** `#549`'s standing DEFER (rsavitt +3818/-0, no `large-ok`) will keep skipping via dedup until author repushes or the App-perm fix ([[aeon-app-no-write-on-swarm-repo]]) lands to permit posting the DEFER-repeat comment/label.
+**Terminal:** `PR_TRIAGE_OK no-candidates`. Notify not fired (no OUT-OF-SCOPE, no first-time ACCEPTED). No comments posted, no labels applied, no state file changes. Confirms the swarm-repo bot-cohort full-skip pattern for the 33rd consecutive run.
