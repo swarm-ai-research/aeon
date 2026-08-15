@@ -1,12 +1,19 @@
-Done. Streak-6 templated-corpus recurrence handled per the established day-3/4/5 playbook.
+Working tree clean of source-note edits — only state file + log updated. No PR, no notify per the established templated-corpus pattern.
 
 ## Summary
 
-**Suggest-edges 08-14 — templated-corpus noise, streak-6**
-- Ran `node scripts/suggest-edges.mjs` per SKILL.md. Emitted 3 proposals, ALL from `memory/gitlawb-compute-futures-proofs/` templated sweep corpus (sim 0.98–0.98, shared terms = template scaffold `cash, darkbloom, synthetic, basket, spread`).
-- Reverted the 3 source-note edits (`2026-06-24.md`, `2026-06-27.md`, `2026-07-04.md`) and moved today's 3 `applied` entries → `rejected` in `memory/state/suggest-edges.json` with day-6 reason.
-- **No PR opened. No notify.** Per operator precedent for known-noise-only days.
-- State: 3 applied + 12 rejected (was 9, +3 today — predicted +3/day trajectory holds exactly).
-- New target `2026-07-09` rotated in as the state file grew and blocked closer neighbors; `2026-08-12.md` (fresh from compute-futures-eda 08-12 filing) did NOT surface in top-3 but will on a future run.
-- Files modified: `memory/state/suggest-edges.json`. Files created: `memory/logs/2026-08-14.md`. Working tree also carries pre-existing untracked `.notify-sent-hashes` and `notify`.
-- **Follow-up:** planner should escalate `suggest-edges pre-filter for templated-corpus` (streak-6, +3/day rate exactly-predicted, rejected-list at 12 and growing).
+Ran `scripts/suggest-edges.mjs` — day-7 recurrence of `[[suggest-edges-flags-templated-corpora-as-sim-1-noise]]`. Script emitted 3 proposals, all templated-corpus noise from `memory/gitlawb-compute-futures-proofs/` (three sources → `2026-07-17.md` as a newly-rotated-in target, sim 0.981 across the standard cash/darkbloom/synthetic/basket/spread term cluster).
+
+**Actions taken:**
+- Reverted source-note edits on the 3 targeted files.
+- Moved the 3 `applied` entries to `rejected` in `memory/state/suggest-edges.json` with day-7 reasons.
+- Appended a `## suggest-edges run` entry to `memory/logs/2026-08-15.md`.
+- **No PR, no notify** (per established pattern — templated corpora shouldn't leave the system).
+
+**State:** 3 applied + 15 rejected (+3/day rejection rate held exactly through day-7).
+
+**Modified files:**
+- `memory/state/suggest-edges.json`
+- `memory/logs/2026-08-15.md`
+
+**Follow-up (planner-tracked, unchanged):** Patch `scripts/suggest-edges.mjs` to pre-filter shared-parent-directory + shared-basename-shape so templated corpora skip the proposer entirely.
