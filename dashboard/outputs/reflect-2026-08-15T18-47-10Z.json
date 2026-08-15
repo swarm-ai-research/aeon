@@ -1,0 +1,66 @@
+{
+  "root": "card-reflect",
+  "state": {},
+  "elements": {
+    "card-reflect": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-status",
+        "stack-metrics"
+      ]
+    },
+    "text-status": {
+      "type": "Text",
+      "props": {
+        "text": "memory consolidated",
+        "variant": "lead"
+      }
+    },
+    "stack-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-date",
+        "badge-notes",
+        "badge-entries"
+      ]
+    },
+    "badge-date": {
+      "type": "Badge",
+      "props": {
+        "text": "2026-08-15",
+        "variant": "secondary"
+      }
+    },
+    "badge-notes": {
+      "type": "Badge",
+      "props": {
+        "text": "+3n",
+        "variant": "outline"
+      }
+    },
+    "badge-entries": {
+      "type": "Badge",
+      "props": {
+        "text": "+41e",
+        "variant": "outline"
+      }
+    }
+  }
+}
