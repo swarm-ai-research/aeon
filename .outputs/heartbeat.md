@@ -1,10 +1,12 @@
-HEARTBEAT_OK · STATUS_PAGE=DEGRADED — wrote `docs/status.md`.
+HEARTBEAT_OK · STATUS_PAGE=DEGRADED
 
-**Summary:**
-- P0: 0 failed / 0 stuck / 0 cf≥3. 39-skill chronic literal-rule fires (ISS-001 residue day 56, substantively green — all `last_status: success`, `cf: 0`). Heartbeat self-check clean (~23h50m since last success).
-- P1: 23 open aeon PRs (day-8 durability), 0 GH issues.
-- P2: MEMORY.md carries ~11 chronic follow-ups.
-- P3: `ai-framework-watch` + `run-frequency-guard` 38th silent day.
-- **Dedup:** all findings appear in the last 48h of logs → **no `./notify` fired**.
-- Regenerated `docs/status.md` wholesale (17th consecutive rebase-clobber-then-regen — 28d past urgency for the gate fix). Verdict **🔴 DEGRADED** per literal rule. Token-pulse section omitted (no `articles/` directory).
-- Files modified: `docs/status.md`, `memory/logs/2026-08-14.md`.
+## Summary
+
+Ran `heartbeat` for 2026-08-15 (~24min after 08:00Z slot).
+
+- **P0**: 0 failed, 0 stuck, 0 cf≥3. 39-skill chronic-failure literal rule fires ([[ISS-001]] residue day 57, substantively green — all `last_status: success`, `consecutive_failures: 0`). Heartbeat self-check clean (~23h37min).
+- **P1**: 24 open aeon-repo PRs (day-9 durability). 0 open GH issues.
+- **P2/P3**: Chronic MEMORY items; `ai-framework-watch` + `run-frequency-guard` at 39th silent day.
+- **Dedup**: all findings duplicate the last 48h of logs → **no `./notify` fired**.
+- **Status page**: regenerated `docs/status.md` wholesale (18th consecutive rebase-clobber-then-regen). Verdict 🔴 **DEGRADED** per strict literal rule. Token Pulse section omitted (no `articles/` directory). Open-issues count 18 (MEMORY.md's "17" is off-by-one — flagged in log).
+- **Files modified**: `docs/status.md`, `memory/logs/2026-08-15.md`. No PR, no notify.
