@@ -1,3 +1,9 @@
-`repo-revive` completed as `REPO_REVIVE_NO_CONFIG` — the candidate pool file `memory/topics/watched-repos.md` is missing and no `${var}` target was provided. Per SKILL step "Config", exited cleanly with no notification and no PR. Log entry appended to `memory/logs/2026-08-08.md`.
+Skill executed. Both candidate config paths (`memory/topics/watched-repos.md` per SKILL, `memory/watched-repos.md` per MEMORY) absent → short-circuited to `REPO_REVIVE_NO_CONFIG` per SKILL §Config rule.
 
-This is the 4th watched-repos-dependent skill to short-circuit on the same missing config today (after github-monitor + issue-triage + implicit code-health), continuing the 5th consecutive same-day cycle since 08-04. Remediation is already tracked as planner rank-3 (`watched-repos-population-or-disable`, streak-3) in MEMORY.md.
+## Summary
+- Ran `repo-revive` for 2026-08-15 (Sat 10:00Z slot, `${var}` empty).
+- **Verdict:** `REPO_REVIVE_NO_CONFIG` — silent short-circuit, no notification per SKILL rule.
+- Day-11 chronic for repo-revive in the [[watched-repos-config-missing-silent-short-circuits-6-skills]] 6-skill cluster (was streak-10 per today's earlier planner headline). Today's cluster confirmations: 3-of-6 (repo-revive + issue-triage + github-monitor).
+- No repo audited, no PR opened, no tweet drafted, no notify sent.
+- **Files modified:** `memory/logs/2026-08-15.md` (this entry only).
+- **Follow-up:** binary fix unchanged — populate `memory/topics/watched-repos.md` OR set `enabled: false` on the 6 cluster skills in `aeon.yml`. Secondary reconciliation opportunity: SKILL.md specifies `memory/topics/watched-repos.md` while MEMORY.md references `memory/watched-repos.md` — worth aligning so a populate attempt lands in the right location.
