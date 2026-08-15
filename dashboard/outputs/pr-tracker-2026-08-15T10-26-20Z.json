@@ -1,0 +1,300 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Tracker"
+      },
+      "children": [
+        "date-text",
+        "separator-1",
+        "stats-section",
+        "separator-2",
+        "landed-section",
+        "separator-3",
+        "stale-section",
+        "separator-4",
+        "closed-section",
+        "separator-5",
+        "predictor-section"
+      ]
+    },
+    "date-text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-08-15",
+        "variant": "muted"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "stats-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-landed",
+        "stat-stale-letter",
+        "stat-stale-substantive",
+        "stat-closed"
+      ]
+    },
+    "stat-landed": {
+      "type": "Stat",
+      "props": {
+        "label": "Landed (7d)",
+        "value": "1"
+      }
+    },
+    "stat-stale-letter": {
+      "type": "Stat",
+      "props": {
+        "label": "Stale Open—Letter",
+        "value": "6"
+      }
+    },
+    "stat-stale-substantive": {
+      "type": "Stat",
+      "props": {
+        "label": "Stale Open—Substantive",
+        "value": "8"
+      }
+    },
+    "stat-closed": {
+      "type": "Stat",
+      "props": {
+        "label": "Closed No-Merge (7d)",
+        "value": "1"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "landed-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "landed-heading",
+        "landed-pr-1"
+      ]
+    },
+    "landed-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Landed (7d)",
+        "level": "h3"
+      }
+    },
+    "landed-pr-1": {
+      "type": "StoryLink",
+      "props": {
+        "title": "aeonframework/aeon-programmable-hooks #1",
+        "href": "https://github.com/aeonframework/aeon-programmable-hooks/pull/1"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "stale-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stale-heading",
+        "stale-note",
+        "stale-letter-group",
+        "stale-substantive-note",
+        "stale-substantive-group"
+      ]
+    },
+    "stale-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Stale Open (>7d)",
+        "level": "h3"
+      }
+    },
+    "stale-note": {
+      "type": "Text",
+      "props": {
+        "text": "6 letter / 8 substantive",
+        "variant": "muted"
+      }
+    },
+    "stale-letter-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stale-pr-1",
+        "stale-pr-2",
+        "stale-pr-3",
+        "stale-pr-4",
+        "stale-pr-5",
+        "stale-pr-6"
+      ]
+    },
+    "stale-pr-1": {
+      "type": "StoryLink",
+      "props": {
+        "title": "workweave/router #871",
+        "href": "https://github.com/workweave/router/pull/871",
+        "source": "12d"
+      }
+    },
+    "stale-pr-2": {
+      "type": "StoryLink",
+      "props": {
+        "title": "ruvnet/RuView #1409",
+        "href": "https://github.com/ruvnet/RuView/pull/1409",
+        "source": "22d"
+      }
+    },
+    "stale-pr-3": {
+      "type": "StoryLink",
+      "props": {
+        "title": "block/buzz #2248",
+        "href": "https://github.com/block/buzz/pull/2248",
+        "source": "25d"
+      }
+    },
+    "stale-pr-4": {
+      "type": "StoryLink",
+      "props": {
+        "title": "jamiepine/voicebox #958",
+        "href": "https://github.com/jamiepine/voicebox/pull/958",
+        "source": "23d"
+      }
+    },
+    "stale-pr-5": {
+      "type": "StoryLink",
+      "props": {
+        "title": "KnockOutEZ/wigolo #216",
+        "href": "https://github.com/KnockOutEZ/wigolo/pull/216",
+        "source": "26d"
+      }
+    },
+    "stale-pr-6": {
+      "type": "StoryLink",
+      "props": {
+        "title": "NangoHQ/nango #6929",
+        "href": "https://github.com/NangoHQ/nango/pull/6929",
+        "source": "18d"
+      }
+    },
+    "stale-substantive-note": {
+      "type": "Text",
+      "props": {
+        "text": "Substantive (stale-bot flagged):",
+        "variant": "caption"
+      }
+    },
+    "stale-substantive-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stale-pr-7",
+        "stale-pr-8"
+      ]
+    },
+    "stale-pr-7": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PostHog/posthog #78346",
+        "href": "https://github.com/PostHog/posthog/pull/78346",
+        "source": "stale-bot day 3"
+      }
+    },
+    "stale-pr-8": {
+      "type": "StoryLink",
+      "props": {
+        "title": "WhiskeySockets/Baileys #2732",
+        "href": "https://github.com/WhiskeySockets/Baileys/pull/2732",
+        "source": "stale-bot day 4"
+      }
+    },
+    "separator-4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "closed-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "closed-heading",
+        "closed-pr-1"
+      ]
+    },
+    "closed-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Closed No-Merge (7d)",
+        "level": "h3"
+      }
+    },
+    "closed-pr-1": {
+      "type": "StoryLink",
+      "props": {
+        "title": "NomaDamas/k-skill #547",
+        "href": "https://github.com/NomaDamas/k-skill/pull/547"
+      }
+    },
+    "separator-5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "predictor-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "predictor-heading",
+        "predictor-status",
+        "predictor-forecast"
+      ]
+    },
+    "predictor-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Predictor",
+        "level": "h3"
+      }
+    },
+    "predictor-status": {
+      "type": "Badge",
+      "props": {
+        "text": "4-of-4 HIT (letter + substantive)"
+      }
+    },
+    "predictor-forecast": {
+      "type": "Text",
+      "props": {
+        "text": "Byte-identical tuple day 3. Tomorrow: merged + closed_no_merge roll off → (0, 6, 0, 3) letter",
+        "variant": "body"
+      }
+    }
+  }
+}
