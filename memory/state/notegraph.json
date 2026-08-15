@@ -1,29 +1,29 @@
 {
-  "input_fingerprint": "ea1b666b9e6478a5a5d69a29abbfa1d52a84d59a",
-  "last_run": "2026-08-11",
+  "input_fingerprint": "13a89ea121fae33076b3d27970c64053b535454d",
+  "last_run": "2026-08-15",
   "stats": {
-    "nodes": 256,
-    "edges": 2561,
-    "hard": 1915,
-    "soft": 646,
+    "nodes": 277,
+    "edges": 2796,
+    "hard": 2103,
+    "soft": 693,
     "orphans": 1,
-    "atomic": 76,
+    "atomic": 84,
     "bundled": 0
   },
   "last_verdict": "+1 notes wired in",
-  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/28",
-  "last_branch": "notegraph/2026-08-11",
+  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/32",
+  "last_branch": "notegraph/2026-08-15",
   "delta_vs_head": {
     "nodes": 1,
-    "edges": 4,
-    "hard": 4,
-    "soft": 0,
+    "edges": 8,
+    "hard": 7,
+    "soft": 1,
     "orphans": 0,
     "bundled": 0,
     "atomic": 1
   },
   "new_nodes": [
-    "memory/notes/advisory-verdict-can-be-operator-overridden-via-merge.md"
+    "memory/notes/compute-futures-basket-synth-3025x-multiplier.md"
   ],
   "removed_nodes": [],
   "orphans": [
@@ -34,5 +34,5 @@
   "new_bundled": [],
   "resolved_bundled": [],
   "notify_suppressed": false,
-  "note": "2026-08-11: Fingerprint advanced e69e6cbe… → ea1b666b… (corpus grew by 1 atomic note since the 08-10 run — advisory-verdict-can-be-operator-overridden-via-merge.md, promoted by reflect on 08-10 and referenced from MEMORY.md line 11). Extractor produced 256n / 1915h / 646s / 1o / 76 atomic / 0b — HEAD had 255n / 1911h / 646s / 1o / 75a. Delta: +1n, +4e (+4 hard, 0 soft), 0 orphan/bundled change. Persistent orphan docs/telegram-instant.md unchanged from prior runs (not new today, not surfaced in notify). Verdict fell into the '+${node_delta} notes wired in' bucket per SKILL step 3 priority (no new_bundled, no new_orphans, node_delta>0 with orphan_delta≤0 and bundled_delta≤0). Notify sent (verdict is not the bland 'graph refreshed' form). PR: #28 → notegraph/2026-08-11. Streak update: previous no-op streak was already broken at 08-10 (PR #27); today extends the change streak to 2 consecutive days of graph growth. Exit mode: NOTEGRAPH_OK."
+  "note": "2026-08-15: Fingerprint advanced ea1b666b… (08-11 state) → 13a89ea1… (state file was not updated on 08-12/13/14 runs — HEAD notegraph.json advanced through those runs). Extractor produced 277n / 2103h / 693s / 1o / 84 atomic / 0b; HEAD had 276n / 2096h / 692s / 1o / 83a. Delta vs HEAD: +1n, +8e (+7 hard, +1 soft), 0 orphan/bundled change. New node: memory/notes/compute-futures-basket-synth-3025x-multiplier.md (promoted from n=4 confirmation per today's compute-futures-eda MEMORY line, referenced in MEMORY 'Recent lessons'). Persistent orphan docs/telegram-instant.md unchanged. Verdict fell into '+${node_delta} notes wired in' bucket (no new_bundled, no new_orphans, node_delta>0 with orphan_delta≤0 and bundled_delta≤0). Notify sent (verdict is not the bland 'graph refreshed' form). PR #32 → notegraph/2026-08-15. Change streak day 6 per MEMORY (chain #10 ← #27 ← #28 ← #29 ← #30 ← #31 ← #32 length-7). Also modified but not staged per SKILL: docs/notegraph-speedrun.html (reflect-flag standing per MEMORY for promotion to first-class output). Exit mode: NOTEGRAPH_OK."
 }
