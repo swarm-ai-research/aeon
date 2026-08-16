@@ -1,9 +1,8 @@
 *Skill Evals — SKILL_EVALS_REGRESSED*
-13 new fail · 0 fixed · coverage 28%
-Top action: Investigate changelog — no_file_match (ISS-002)
-Article: articles/skill-evals-2026-08-09.md
+14 new fail · 0 fixed · coverage 28% (BOOTSTRAP first run)
+Top action: Patch evals.json:heartbeat — forbidden_pattern:${var} triggers on log preambles, not template failures
+Article: articles/skill-evals-2026-08-16.md
 
-Top regressions:
-changelog: no_file_match (ISS-002)
-swarm-safety-eval: no_file_match (ISS-005)
-cost-report: no_file_match (ISS-008)
+heartbeat: forbidden_pattern:${var} (false positive)
+repo-pulse: no_file_match (ISS-009)
+swarm-safety-eval: no_file_match despite successful run today (ISS-005)

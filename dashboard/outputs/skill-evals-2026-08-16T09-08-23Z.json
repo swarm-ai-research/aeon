@@ -1,0 +1,178 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Evals — SKILL_EVALS_REGRESSED"
+      },
+      "children": [
+        "stats_section",
+        "top_action_alert",
+        "sep1",
+        "issues_section",
+        "sep2",
+        "article_link"
+      ]
+    },
+    "stats_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "metrics_row",
+        "coverage_progress"
+      ]
+    },
+    "metrics_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_new_fail",
+        "stat_fixed"
+      ]
+    },
+    "stat_new_fail": {
+      "type": "Stat",
+      "props": {
+        "label": "New Failures",
+        "value": "14"
+      }
+    },
+    "stat_fixed": {
+      "type": "Stat",
+      "props": {
+        "label": "Fixed",
+        "value": "0"
+      }
+    },
+    "coverage_progress": {
+      "type": "Progress",
+      "props": {
+        "label": "Coverage (Bootstrap first run)",
+        "value": 28,
+        "max": 100
+      }
+    },
+    "top_action_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Top Action",
+        "message": "Patch evals.json:heartbeat — forbidden_pattern:${var} triggers on log preambles, not template failures"
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "issues_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_issues",
+        "issue_heartbeat",
+        "issue_repo_pulse",
+        "issue_swarm"
+      ]
+    },
+    "heading_issues": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues",
+        "level": "h3"
+      }
+    },
+    "issue_heartbeat": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text_heartbeat",
+        "badge_false_positive"
+      ]
+    },
+    "text_heartbeat": {
+      "type": "Text",
+      "props": {
+        "text": "heartbeat: forbidden_pattern:${var}"
+      }
+    },
+    "badge_false_positive": {
+      "type": "Badge",
+      "props": {
+        "text": "false positive",
+        "variant": "outline"
+      }
+    },
+    "issue_repo_pulse": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text_repo_pulse",
+        "badge_iss009"
+      ]
+    },
+    "text_repo_pulse": {
+      "type": "Text",
+      "props": {
+        "text": "repo-pulse: no_file_match"
+      }
+    },
+    "badge_iss009": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-009",
+        "variant": "outline"
+      }
+    },
+    "issue_swarm": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text_swarm",
+        "badge_iss005"
+      ]
+    },
+    "text_swarm": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-safety-eval: no_file_match despite successful run today"
+      }
+    },
+    "badge_iss005": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-005",
+        "variant": "outline"
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "article_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "skill-evals-2026-08-16.md",
+        "href": "articles/skill-evals-2026-08-16.md",
+        "source": "skill-evals"
+      }
+    }
+  }
+}
