@@ -1,30 +1,28 @@
 {
-  "input_fingerprint": "ea1b666b9e6478a5a5d69a29abbfa1d52a84d59a",
-  "last_run": "2026-08-11",
+  "input_fingerprint": "832a210f9ab538ec3e1269a8f973dc7504c6ae59",
+  "last_run": "2026-08-16",
   "stats": {
-    "nodes": 256,
-    "edges": 2561,
-    "hard": 1915,
-    "soft": 646,
+    "nodes": 280,
+    "edges": 2837,
+    "hard": 2134,
+    "soft": 703,
     "orphans": 1,
-    "atomic": 76,
+    "atomic": 84,
     "bundled": 0
   },
-  "last_verdict": "+1 notes wired in",
-  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/28",
-  "last_branch": "notegraph/2026-08-11",
+  "last_verdict": "graph refreshed (280n / 2837e / 0b)",
+  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/32",
+  "last_branch": "notegraph/2026-08-15",
   "delta_vs_head": {
-    "nodes": 1,
-    "edges": 4,
-    "hard": 4,
+    "nodes": 0,
+    "edges": 0,
+    "hard": 0,
     "soft": 0,
     "orphans": 0,
     "bundled": 0,
-    "atomic": 1
+    "atomic": 0
   },
-  "new_nodes": [
-    "memory/notes/advisory-verdict-can-be-operator-overridden-via-merge.md"
-  ],
+  "new_nodes": [],
   "removed_nodes": [],
   "orphans": [
     "docs/telegram-instant.md"
@@ -33,6 +31,6 @@
   "resolved_orphans": [],
   "new_bundled": [],
   "resolved_bundled": [],
-  "notify_suppressed": false,
-  "note": "2026-08-11: Fingerprint advanced e69e6cbe… → ea1b666b… (corpus grew by 1 atomic note since the 08-10 run — advisory-verdict-can-be-operator-overridden-via-merge.md, promoted by reflect on 08-10 and referenced from MEMORY.md line 11). Extractor produced 256n / 1915h / 646s / 1o / 76 atomic / 0b — HEAD had 255n / 1911h / 646s / 1o / 75a. Delta: +1n, +4e (+4 hard, 0 soft), 0 orphan/bundled change. Persistent orphan docs/telegram-instant.md unchanged from prior runs (not new today, not surfaced in notify). Verdict fell into the '+${node_delta} notes wired in' bucket per SKILL step 3 priority (no new_bundled, no new_orphans, node_delta>0 with orphan_delta≤0 and bundled_delta≤0). Notify sent (verdict is not the bland 'graph refreshed' form). PR: #28 → notegraph/2026-08-11. Streak update: previous no-op streak was already broken at 08-10 (PR #27); today extends the change streak to 2 consecutive days of graph growth. Exit mode: NOTEGRAPH_OK."
+  "notify_suppressed": true,
+  "note": "2026-08-16: Fingerprint advanced ea1b666b… (stale 08-11 state; interim runs on 08-12/13/14/15 never persisted) → 832a210f…. Extractor produced 280n / 2134h / 703s / 1o / 84 atomic / 0b — byte-identical to HEAD notegraph.json (already at 280n from merged #32). git diff on notegraph.json + docs/notegraph.md + docs/notegraph.html shows ONLY `generatedAt` / date-stamp changes; content masked-equal per [[notegraph-extractor-generatedat-nondeterministic]]. Reverted the three extractor outputs (and side-output docs/notegraph-speedrun.html) to HEAD. No PR, no notify — interpretive silent-exit path per SKILL step 3 (extractor-deterministic branch), same as 08-08 run. Persistent orphan docs/telegram-instant.md unchanged. Change-streak day 6 (from 08-15) breaks; no-op streak begins day 1. Exit mode: NOTEGRAPH_NO_CHANGE (interpretive)."
 }
