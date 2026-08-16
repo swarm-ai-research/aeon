@@ -1,0 +1,283 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-08-15 | 144 rows, 4 modes"
+      },
+      "children": [
+        "header-stack",
+        "sep1",
+        "finding-section",
+        "sep2",
+        "retail-metrics",
+        "sep3",
+        "conservation-section",
+        "sep4",
+        "report-link"
+      ]
+    },
+    "header-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "date-badge",
+        "mode-info"
+      ]
+    },
+    "date-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "2026-08-15",
+        "variant": "outline"
+      }
+    },
+    "mode-info": {
+      "type": "Text",
+      "props": {
+        "text": "144 rows across 4 modes"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "finding-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "finding-title",
+        "severity-badge",
+        "cluster-description",
+        "loss-cluster-details"
+      ]
+    },
+    "finding-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Finding",
+        "level": "h3"
+      }
+    },
+    "severity-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "MEDIUM severity",
+        "variant": "secondary"
+      }
+    },
+    "cluster-description": {
+      "type": "Text",
+      "props": {
+        "text": "Spread retail loss cluster detected (9 consecutive filed runs)"
+      }
+    },
+    "loss-cluster-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "top-losses-badge",
+        "top-gains-badge"
+      ]
+    },
+    "top-losses-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "5/5 top losses retail",
+        "variant": "destructive"
+      }
+    },
+    "top-gains-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "0/5 top gains retail",
+        "variant": "outline"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "retail-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metrics-title",
+        "metrics-grid",
+        "trend-note"
+      ]
+    },
+    "metrics-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Retail Loss Metrics",
+        "level": "h3"
+      }
+    },
+    "metrics-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-current-mean",
+        "stat-shallows-val",
+        "stat-previous-mean"
+      ]
+    },
+    "stat-current-mean": {
+      "type": "Stat",
+      "props": {
+        "label": "Retail Mean (Current)",
+        "value": "−$7,793",
+        "delta": "+$3,299",
+        "trend": "up"
+      }
+    },
+    "stat-shallows-val": {
+      "type": "Stat",
+      "props": {
+        "label": "Shallows",
+        "value": "$3,299"
+      }
+    },
+    "stat-previous-mean": {
+      "type": "Stat",
+      "props": {
+        "label": "Previous (08-14)",
+        "value": "−$11,092"
+      }
+    },
+    "trend-note": {
+      "type": "Text",
+      "props": {
+        "text": "Improvement after 3-day deepening streak on 08-14",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "conservation-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "conservation-title",
+        "conservation-status",
+        "conservation-checks"
+      ]
+    },
+    "conservation-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation & Health Checks",
+        "level": "h3"
+      }
+    },
+    "conservation-status": {
+      "type": "Badge",
+      "props": {
+        "text": "All 4 modes: OK",
+        "variant": "default"
+      }
+    },
+    "conservation-checks": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "check-float-dust",
+        "check-sign-flip",
+        "check-cross-mode"
+      ]
+    },
+    "check-float-dust": {
+      "type": "Text",
+      "props": {
+        "text": "✓ Float dust: passed"
+      }
+    },
+    "check-sign-flip": {
+      "type": "Text",
+      "props": {
+        "text": "✓ Sign-flip: all sign-flip + → − vs 08-14"
+      }
+    },
+    "check-cross-mode": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "cross-mode-title",
+        "cross-mode-detail"
+      ]
+    },
+    "cross-mode-title": {
+      "type": "Text",
+      "props": {
+        "text": "✓ Cross-mode ≥10% MEDIUM count: 2 → 0"
+      }
+    },
+    "cross-mode-detail": {
+      "type": "Text",
+      "props": {
+        "text": "Spread minSpot/maxSpot MEDIUMs from 08-14 both revert to 0%",
+        "variant": "caption"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "report-link": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "report-section-title",
+        "full-report-link"
+      ]
+    },
+    "report-section-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Full Report",
+        "level": "h4"
+      }
+    },
+    "full-report-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-08-15",
+        "href": "memory/topics/compute-futures-eda/2026-08-15.md",
+        "source": "Aeon"
+      }
+    }
+  }
+}
