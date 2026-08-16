@@ -1,18 +1,18 @@
 {
-  "last_run": "2026-08-15T06:30:00Z",
-  "top_priority": "aeon-repo-queue-merge-escalation",
+  "last_run": "2026-08-16T06:30:00Z",
+  "top_priority": "agi-tracker-enabled-false-via-pr",
   "priority_streak": {
-    "aeon-repo-queue-merge-escalation": 7,
-    "stale-content-pr-sweeper-allowed-authors-patch": 9,
-    "suggest-edges-templated-corpus-prefilter": 7,
-    "agi-tracker-enabled-false-via-pr": 5,
-    "watched-repos-population-or-disable": 10,
-    "pr-tracker-patch-batch": 52,
-    "iss-006-messages-yml-multi-pocket-rewrite": 14,
-    "docs-status-md-snapshot-rebase-gate": 29,
-    "swarm-repo-app-perm-gap": 34
+    "agi-tracker-enabled-false-via-pr": 1,
+    "aeon-repo-queue-merge-escalation": 8,
+    "stale-content-pr-sweeper-allowed-authors-patch": 10,
+    "suggest-edges-templated-corpus-prefilter": 8,
+    "watched-repos-population-or-disable": 11,
+    "pr-tracker-patch-batch": 53,
+    "iss-006-messages-yml-multi-pocket-rewrite": 15,
+    "docs-status-md-snapshot-rebase-gate": 30,
+    "swarm-repo-app-perm-gap": 35
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Fifteenth planner run in the ISS-006 pocket-slot migration era; NINTH since 08-07 overnight PR-creation toggle unblock. HEADLINE: Day-9 durability milestone — queue grew 23 → 24 overnight (#32 notegraph +1n opened 05:25Z), still 0 `app/github-actions` merges in ~200h+ since 08-07 unblock; last aeon-repo merge #8 on 2026-08-07T01:36Z. Rank-1 STAYS queue-merge escalation (streak-6 → 7), rank-2 STAYS sweeper allowlist (streak-8 → 9, notegraph chain length-6 → 7 with #32, total would-be-closes 8 → 9), rank-3 STAYS suggest-edges templated-corpus prefilter (streak-6 → 7, +3/day rejection cadence hitting on prediction, rejected-list at 15). Agi-tracker HOLD (streak-4 → 5, 2d out); re-promote Sun 08-16 day-before-deadline per prior cadence. Fleet: 0 broken, 0 in-flight, 39 DEGRADED (ISS-001 residue day 57), 4 HEALTHY, 2 NO_DATA (39th silent day). 0 open GH issues on aeon repo. ${var} empty → plan-only, no dispatch. All prior holds advanced 1d each from 08-14."
+  "notes": "Sixteenth planner run in the ISS-006 pocket-slot migration era; TENTH since 08-07 overnight PR-creation toggle unblock. HEADLINE: agi-tracker PROMOTES to rank-1 as day-before-deadline (per prior planner cadence — 7th silent-Mon fires tomorrow 2026-08-17 13:00Z if enabled:false doesn't land). Queue-merge escalation drops from rank-1 (streak-7) to rank-2 (streak-8) with escalated framing (bundle #26 dependabot + notegraph chain-head + auto-merge policy configure — not just single-PR restate). Sweeper allowlist patch STAYS rank-3 (streak-9 → 10, notegraph chain steady length-7 after 08-16 NO_CHANGE, would-be-closes recount 8). Suggest-edges pre-filter drops to Holding (streak-7 → 8, promotable moment queue-merge lands). Fleet: 0 broken, 0 in-flight, 38 DEGRADED (down 1 from 39 — one skill improved above 0.5 threshold, ISS-001 residue day 58), 4 HEALTHY, 2 NO_DATA (40th silent day). 0 open GH issues on aeon repo. 24 open aeon PRs (0 net-change overnight, first zero-net day since 08-13). ${var} empty → plan-only, no dispatch. All other holds advanced 1d each from 08-15."
 }

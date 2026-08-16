@@ -1,0 +1,28 @@
+# Plan — 2026-08-16
+
+**Today's one thing:** Land the **agi-tracker `enabled: false` PR** before Mon 08-17 13:00Z — deadline is ~30h out and the 7th consecutive silent-Mon fire is the guaranteed outcome if nothing merges. Package it with **#26 dependabot merge** in the same operator session so the trip also breaks the ~9-day zero-merge silence on the aeon repo.
+
+## Ranked
+
+1. **Ship `agi-tracker` `enabled: false` (single-line PR on `aeon.yml:188`) — deadline is tomorrow 13:00Z** — per prior planner cadence this promotes today (Sun, day-before-deadline) from HOLD to rank. 6th silent-Mon fire hit 08-10; 7th fires 2026-08-17T13:00Z if nothing lands. Lowest-friction path (single line + one-line PR body). Alt path (restore/author `skills/agi-tracker/SKILL.md` from the [[agi-tracker]] MOC) is still open but higher effort and pulls ms-02 the wrong way. Per [[agi-tracker-missing-skill-md-dispatches-no-op]]. Operator lift — no skill runs this.
+
+2. **Merge a representative aeon-repo PR to prove end-to-end flow — Day 10 durability, streak-8 top-priority** — 24 open PRs (unchanged overnight — first zero-net-add day since 08-13), 0 `app/github-actions` merges in ~217h+ since 08-07 unblock; last aeon merge #8 (dependabot actions/checkout) on 2026-08-07T01:36:39Z. Escalation vs 7 prior identical rank-1 restates: **bundle #26 dependabot + a notegraph chain-head merge (#10 or #32) into a single operator pass and configure an `app/github-actions` auto-merge policy on the repo** so this doesn't accumulate another week. Textbook candidate stays #26 (same class as merged #8). Per [[pr-creation-toggle-is-distinct-from-merge-capability]]. Gating step for rank-3 (sweeper allowlist patch also chains through queue-merge to be worth landing).
+
+3. **Ship `stale-content-pr-sweeper` `ALLOWED_AUTHORS` + TRACKED-prefix patch (streak-10 chronic)** — hardcoded `{"aeonframework"}` but all 22 post-unblock aeon-repo `app/github-actions` PRs are locked out. Notegraph chain steady at **length-7** (`#10 ← #27 ← #28 ← #29 ← #30 ← #31 ← #32`) after today's 08-16 NO_CHANGE (no new #33 opened); suggest-edges chain steady length-3 (`#14 ← #21 ← #22`). Total would-be-closes if patch landed today: **8** (down from 9 on 08-15 as the sweeper recount corrected). Bundle with the TRACKED-prefix drift fix for #23 (`compute-macro/2026-08-09` branch doesn't match skill's `compute-macro-correlate` prefix). Manual PR to `skills/stale-content-pr-sweeper/SKILL.md`.
+
+## Holding / watching
+
+- **`suggest-edges` templated-corpus pre-filter (streak-8)** — today's 05:52Z run emitted 3 templated pairs for the 8th consecutive day; state now 3 applied + 18 rejected at exact +3/day cadence per [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]. Target rotated to `2026-08-14.md` at **sim 1.000** (first sim-1.000 hit — target is byte-identical template instance). Fix: pre-filter shared-parent-directory + shared-basename-shape in `scripts/suggest-edges.mjs`. Trigger to promote: operator willingness to touch the script (rank-3 candidate the moment queue-merge lands).
+- **`memory/watched-repos.md` populate OR disable 6 dependent skills (streak-11 chronic)** — same-day silent short-circuit cycle continues. Trigger to promote: any operator signal that the six skills should run this quarter, OR SKILL.md path-reconciliation session (repo-revive refs `memory/topics/watched-repos.md`, others ref `memory/watched-repos.md`).
+- **`pr-tracker` SKILL.md patch batch items a–k (53d overdue)** — item (d) hash-based dedup guard is 3+ consecutive-day exhibit-textbook urgent (byte-identical `sent` tuples 08-13/08-14/08-15). Blocked on operator willingness to land a large multi-item patch.
+- **ISS-006 messages.yml multi-pocket rewrite (Day-15)** — 08-15 batch recoupled again 06:31Z (tight late-pocket cluster). Trigger to promote: next decouple event.
+- **`docs/status.md` snapshot-rebase gate (30 days past urgency threshold)** — 18th consecutive rebase-clobber-then-regen. Two-part fix (heartbeat auto-commit glob + snapshot-merge exclusion) unchanged.
+- **swarm-repo App-perm gap (streak-35)** — 47th pr-review + 34th pr-triage on 08-15 both 100%-skip; queue byte-frozen 2+ days on human PRs #549/#543. Trigger to promote: operator grants write access OR either human PR gets a fresh commit.
+
+## Fleet note
+
+0 broken · 0 in-flight · 38 DEGRADED (ISS-001 residue **day 58**, substantively green — all `last_status: success`, `cf: 0`; net +1 skill above 0.5 vs yesterday's 39) · 4 HEALTHY · 2 NO_DATA (`ai-framework-watch` + `run-frequency-guard`, **40th** consecutive silent day per [[enabled-skills-can-never-dispatch]]) · 17 open issues · **24 open aeon PRs** (0 net-change overnight, first zero-net day since 08-13) · **0 open GH issues on aeon repo**.
+
+## Source footer
+
+Inputs read: `memory/MEMORY.md` (64 lines), `memory/state/planner-state.json` (last run 2026-08-15T06:30Z, top_priority `aeon-repo-queue-merge-escalation` streak-7 → escalated framing today), `memory/cron-state.json` (42 tracked skills, 0 cf≥2, 0 dispatched, 4 healthy / 38 degraded), `memory/logs/2026-08-15.md` (full) + `memory/logs/2026-08-16.md` (janitor + suggest-edges + notegraph + skillpacks + memory-flush + compute-futures-eda entries; heartbeat/pr-tracker/skill-health/reflect not yet fired), `memory/issues/INDEX.md` (17 open, 2 resolved), `gh pr list --state open` (24 open, 0 net change vs 24 yesterday), `gh pr list --state merged --limit 5` (last aeon merge #8 dependabot 2026-08-07T01:36:39Z, ~217h+ ago), `gh issue list --state open` (0), `aeon.yml` (agi-tracker at line 188, `enabled: true, schedule: "0 13 * * 1"`). `soul/` absent → clear-direct first-person tone. `${var}` empty → plan-only, no dispatch.
