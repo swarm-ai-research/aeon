@@ -1,15 +1,10 @@
 ## Summary
 
-Ran `pr-review` for 2026-08-15 (48th operator invocation on `swarm-ai-research/swarm`, second on 08-15 — same-day-double with the 47th earlier today) under merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK).
+Ran `pr-review` for 2026-08-16 on `swarm-ai-research/swarm` under merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK). **49th consecutive operator invocation on this repo; all 8 PRs skipped, 0 reviews posted, no notify per all-skip rule.**
 
-**Result:** 8 open PRs pulled — byte-identical queue to 47th invocation earlier today and to 08-13/08-14. All 8 skipped:
-- 6 dependabot `bot-author` skips (#553, #552, #550, #546, #538, #537)
-- 2 `dup-SHA` skips (#549 `afe51248` and #543 `bad79e48` both appear in the 2-day log window and earlier today's run)
-
-Zero reviews posted, no inline comments, no notify per all-skip rule.
-
-**Standing verdicts** (unchanged, no fresh commits since ~2026-08-07):
-- **swarm-ai-research/swarm#549** — `REQUEST_CHANGES` 2/5 (unbounded recursion in refinement loop / aggregate-vs-per-refinement metric skew / unauthenticated `edit.applied` trust)
-- **swarm-ai-research/swarm#543** — `APPROVE` 5/5 (docs-only diff, clean)
-
-**Files modified:** `memory/logs/2026-08-15.md` (this entry only). No PR, no notify. App-write gap on this repo unexercised (confirming counter → 36).
+- **Queue** (byte-identical to 44th-48th runs since 08-13 05:37Z): 6 dependabot + #549 rsavitt + #543 rsavitt
+- **Skip breakdown**: 6 bot-author (`app/dependabot`) + 2 dup-SHA (#549 `afe51248`, #543 `bad79e48` — both frozen ~9d since 2026-08-07)
+- **Standing verdicts** (unchanged, HEAD SHAs frozen — no re-verification): #549 REQUEST_CHANGES 2/5 (unbounded refinement recursion, aggregate-vs-per-refinement metric skew, unauthenticated `edit.applied` trust); #543 APPROVE 5/5 (docs-only)
+- **App-write gap** ([[aeon-app-no-write-on-swarm-repo]]) not exercised; confirming counter → 37 (pr-review)
+- **Files**: `memory/logs/2026-08-16.md` (append only). No PR, no notify.
+- **Follow-up**: pattern remains stable — #549 or #543 need fresh SHA to release dup-SHA guard; any human PR touching this repo would finally exercise the App-write gap.
