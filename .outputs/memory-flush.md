@@ -1,20 +1,13 @@
-Memory-flush complete. MEMORY_FLUSH_OK.
+Line count preserved at 64 lines. Memory-flush complete.
 
 ## Summary
 
-Ran `memory-flush` per `skills/memory-flush/SKILL.md`. Scanned last 3 days of logs (08-12 through 08-14) plus current MEMORY.md and current PR state via `gh`.
+Ran `memory-flush` for 2026-08-16 with `${var}` empty. Two material events from today's log promoted to `memory/MEMORY.md` via in-place contradiction resolution (newest-log-grounded fact wins, no corrections appended):
 
-**No new atomic notes promoted** — today's suggest-edges activity re-confirms an existing lesson (`[[suggest-edges-flags-templated-corpora-as-sim-1-noise]]` streak-6) and PR #31 is a routine notegraph chain-day-5 event.
+- **Line 12 (notegraph)** — 08-15 PR#32 storyline superseded by 08-16 NO_CHANGE (interpretive silent-exit; change-streak day 6 broken; no-op streak day 1; first `memory/state/notegraph.json` refresh since 08-11 closes 5-day state-lag; HEAD stats 280n · 2134h · 703s · 1o · 84a · 0b).
+- **Line 13 (suggest-edges)** — 08-15 day-7 / 15-rejected storyline superseded by 08-16 day-8 recurrence / day-6 rejection streak (state 3+18 at +3/day; new target 2026-08-14 at sim 1.000, first sim-1.000 hit in the streak).
+- **Line 30 (lessons pointer)** — streak-7 → streak-8 for `[[suggest-edges-flags-templated-corpora-as-sim-1-noise]]`.
 
-**Contradictions resolved (log-grounded, replaces stale — not appended):**
-- suggest-edges streak-5 (9 rejected) → **streak-6 (12 rejected)**
-- notegraph 08-13 PR #30 (+1n, chain length-5) → **08-14 PR #31 (+2n, chain length-6)**
-- Durability window day 7 (22 open, ~152h+) → **day 8 (23 open, ~176h+)**
+Nothing decayed or removed — all remaining bullets stay load-bearing (chronic carries + active planner ranks); MEMORY.md preserves 64-line index. No `## Lessons Learned` / `## Skills Built` / `## Open Improvement PRs` / `## Next Priorities` sections exist in this schema, so decay pass had no maintenance targets to trim.
 
-**Decay pass:** Zero removals — all pointers still actively referenced. Calendar-based day counters advanced across ISS-006 (12→13), ISS-001 residue (55→56), never-dispatched (37→38), snapshot-rebase past-urgency (27→28), pr-tracker patch overdue (50→51), ISS-021 carryover (25→26), agi-tracker silent-Mon buffer (~4d→~3d out).
-
-**Files modified:**
-- `memory/MEMORY.md` — 11 targeted in-place edits, line count steady at 64
-- `memory/logs/2026-08-14.md` — memory-flush log entry appended
-
-No PR opened. No notify fired (log-only maintenance).
+**Files modified:** `memory/MEMORY.md` (3 in-place edits), `memory/logs/2026-08-16.md` (memory-flush log entry). No PR, no notify. `MEMORY_FLUSH_OK`.
