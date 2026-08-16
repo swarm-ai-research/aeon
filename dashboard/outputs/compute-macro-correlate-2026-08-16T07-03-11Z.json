@@ -1,0 +1,163 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "compute-macro-correlate",
+        "description": "2026-08-16"
+      },
+      "children": [
+        "track-a-section",
+        "separator-1",
+        "track-b-section",
+        "separator-2",
+        "summary-section"
+      ]
+    },
+    "track-a-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-a",
+        "text-a-status",
+        "table-a",
+        "text-a-meta"
+      ]
+    },
+    "heading-a": {
+      "type": "Heading",
+      "props": {
+        "text": "Track A",
+        "level": "h2"
+      }
+    },
+    "text-a-status": {
+      "type": "Text",
+      "props": {
+        "text": "all null",
+        "variant": "muted"
+      }
+    },
+    "table-a": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Metric",
+          "rho",
+          "p-value"
+        ],
+        "rows": [
+          [
+            "RENDER partial",
+            "-0.11",
+            "0.14"
+          ],
+          [
+            "TAO",
+            "-0.12",
+            "0.12"
+          ],
+          [
+            "IO",
+            "-0.07",
+            "0.34"
+          ]
+        ]
+      }
+    },
+    "text-a-meta": {
+      "type": "Text",
+      "props": {
+        "text": "n=180, controlling {BTC,SOL}",
+        "variant": "caption"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "track-b-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-b",
+        "text-b-status",
+        "text-b-metrics",
+        "text-b-corr"
+      ]
+    },
+    "heading-b": {
+      "type": "Heading",
+      "props": {
+        "text": "Track B",
+        "level": "h2"
+      }
+    },
+    "text-b-status": {
+      "type": "Text",
+      "props": {
+        "text": "Fires for first time (n=57 joined days)",
+        "variant": "lead"
+      }
+    },
+    "text-b-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "basket/spread/synthetic/x402 all null",
+        "variant": "body"
+      }
+    },
+    "text-b-corr": {
+      "type": "Text",
+      "props": {
+        "text": "|rho|<0.05, p>0.73",
+        "variant": "caption"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-threshold",
+        "text-findings",
+        "link-pr"
+      ]
+    },
+    "text-threshold": {
+      "type": "Text",
+      "props": {
+        "text": "Signal threshold: 0.15 — No signal clears threshold in either track",
+        "variant": "lead"
+      }
+    },
+    "text-findings": {
+      "type": "Text",
+      "props": {
+        "text": "No flagged findings",
+        "variant": "body"
+      }
+    },
+    "link-pr": {
+      "type": "Link",
+      "props": {
+        "label": "PR #33",
+        "href": "#pr/33"
+      }
+    }
+  }
+}
