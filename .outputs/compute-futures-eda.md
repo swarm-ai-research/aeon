@@ -1,2 +1,2 @@
-*Compute-Futures EDA — 2026-08-15*
-144 rows, 4 modes. Top: MEDIUM — spread retail loss cluster n=9 consecutive filed runs, retail mean −$7,793 (shallows $3,299 vs 08-14's −$11,092 after 3-day deepening streak; 5/5 top losses retail, 0/5 top gains retail). Conservation: all 4 modes OK (float dust, all sign-flip + → − vs 08-14). Cross-mode ≥10% MEDIUM count 2 → 0 (spread minSpot/maxSpot MEDIUMs from 08-14 both revert to 0%). Report: memory/topics/compute-futures-eda/2026-08-15.md
+*Compute-Futures EDA — 2026-08-16*
+144 rows, 4 modes. Top: retail spread loss cluster STABILIZES at n=10 (mean −$7,966, flat vs 08-15's −$7,793; first cross-role mixing since 08-13 with 1 operator top-loss + 1 retail top-gain). Conservation: all modes OK (all-negative float dust holds day 2, n=2). basket/synth 3.0250× multiplier cemented n=7. Zero within-mode |r|≥0.8 pairs n=8. x402Total range narrows sharply ($83.55, −$38.34 vs 08-15). Report: memory/topics/compute-futures-eda/2026-08-16.md

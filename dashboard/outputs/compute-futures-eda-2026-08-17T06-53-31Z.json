@@ -1,0 +1,240 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-08-16"
+      },
+      "children": [
+        "overview",
+        "sep1",
+        "retail-cluster",
+        "sep2",
+        "conservation",
+        "sep3",
+        "metrics",
+        "sep4",
+        "range",
+        "sep5",
+        "report"
+      ]
+    },
+    "overview": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-rows",
+        "stat-modes"
+      ]
+    },
+    "stat-rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Dataset Size",
+        "value": "144 rows"
+      }
+    },
+    "stat-modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "retail-cluster": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "retail-heading",
+        "retail-status",
+        "retail-metrics",
+        "retail-detail"
+      ]
+    },
+    "retail-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Retail Spread Loss Cluster",
+        "level": "h3"
+      }
+    },
+    "retail-status": {
+      "type": "Badge",
+      "props": {
+        "text": "STABILIZES at n=10",
+        "variant": "secondary"
+      }
+    },
+    "retail-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-mean-current",
+        "stat-mean-prev"
+      ]
+    },
+    "stat-mean-current": {
+      "type": "Stat",
+      "props": {
+        "label": "Mean Loss (Current)",
+        "value": "−$7,966"
+      }
+    },
+    "stat-mean-prev": {
+      "type": "Stat",
+      "props": {
+        "label": "Mean Loss (08-15)",
+        "value": "−$7,793",
+        "delta": "−$173",
+        "trend": "down"
+      }
+    },
+    "retail-detail": {
+      "type": "Text",
+      "props": {
+        "text": "First cross-role mixing since 08-13: 1 operator top-loss + 1 retail top-gain",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "conservation": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "conservation-heading",
+        "conservation-text"
+      ]
+    },
+    "conservation-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h3"
+      }
+    },
+    "conservation-text": {
+      "type": "Text",
+      "props": {
+        "text": "All modes OK. All-negative float dust holds day 2 (n=2).",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metrics-heading",
+        "basket-stat",
+        "correlation-stat"
+      ]
+    },
+    "metrics-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Technical Metrics",
+        "level": "h3"
+      }
+    },
+    "basket-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Basket/Synth Multiplier (n=7)",
+        "value": "3.0250×"
+      }
+    },
+    "correlation-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Zero Within-Mode |r|≥0.8 Pairs",
+        "value": "n=8"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "range": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "range-heading",
+        "range-status",
+        "range-stat"
+      ]
+    },
+    "range-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "x402Total Range",
+        "level": "h3"
+      }
+    },
+    "range-status": {
+      "type": "Text",
+      "props": {
+        "text": "Narrows sharply vs 08-15",
+        "variant": "lead"
+      }
+    },
+    "range-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Range",
+        "value": "$83.55 to −$38.34"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report: Compute-Futures EDA 2026-08-16",
+        "href": "memory/topics/compute-futures-eda/2026-08-16.md",
+        "source": "Local Report"
+      }
+    }
+  }
+}
