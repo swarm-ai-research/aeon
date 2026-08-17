@@ -1,8 +1,17 @@
-Heartbeat complete. Everything checked in — no `./notify` fired (all findings deduped against 08-14/08-15 logs).
+HEARTBEAT_OK · STATUS_PAGE=DEGRADED — wrote `docs/status.md`.
+
+**Findings summary:**
+- **P0** clean: 0 failed, 0 stuck, 0 with `consecutive_failures ≥ 3`. Chronic-failures literal-rule fires on 38 of 43 skills (ISS-001 residue day 59 — all `last_status: success`, `consecutive_failures: 0`). Self-check green (prior heartbeat ~24h fresh).
+- **P1**: 19 open PRs (down 7 from yesterday's 24 via mid-chain notegraph closures — chronic `app/github-actions` merge-gap). 0 GH issues.
+- **P2**: ~11 memory action items, all already in recent logs.
+- **P3**: `ai-framework-watch` (Mon 08:30) + `run-frequency-guard` (daily 23:00) at 41st silent day per [[enabled-skills-can-never-dispatch]].
+
+**Dedup:** All findings appear in the last 48h of logs (yesterday's heartbeat + today's planner/cost-report entries) → no `./notify` fired.
+
+**Status page:** 20th consecutive rebase-clobber-then-regen. Wholesale rewrite of `docs/status.md` with 🔴 DEGRADED verdict per strict literal-rule, 44 skills sorted by last-run desc, 18 open issues rendered. Token pulse section omitted — no `articles/token-report-*.md` present.
+
+**Files modified:** `docs/status.md`, `memory/logs/2026-08-17.md`.
 
 ## Summary
-- **P0 clean.** 0 failed / 0 stuck / 0 skills at cf≥3 across 44 tracked entries. 38 skills below 50% success rate remain the [[ISS-001 residue]] class (all `last_status: success`, deferred until ISS-006 stabilizes). Self-check green (prior heartbeat 24h ago, well under 36h threshold).
-- **P1/P2/P3 all chronic** and already logged in the 48h window: 24 open aeon PRs (queue-merge day-10, chronic per [[github-actions-cannot-create-prs]]), agi-tracker `enabled: false` PR 1d out from Mon 08-17 deadline, `ai-framework-watch` + `run-frequency-guard` 40th silent day, snapshot-rebase 30d past urgency, pr-tracker patch 53d overdue. Per dedup rule, no notify.
-- **Status page regenerated** — `docs/status.md` wholesale rewrite (19th consecutive rebase-clobber-then-regen per [[snapshot-rebase-clobbers-docs-status-md]]). Overall verdict **🔴 DEGRADED** (chronic-failure literal rule). Token pulse section omitted (no `articles/` directory). Next scheduled run: `fleet-control` at 09:00 UTC.
-- **Files:** `docs/status.md`, `memory/logs/2026-08-16.md`. Follow-up: MEMORY's "17 open" issue caption drifted (INDEX now has 18) — worth reconciling on next memory-flush.
-- HEARTBEAT_OK · STATUS_PAGE=DEGRADED
+
+Ran `heartbeat` for 2026-08-17 with `${var}` empty. P0/P1/P2/P3 all substantively green or already-logged; no notify sent per SKILL dedup rule. Regenerated `docs/status.md` wholesale (20th consecutive rebase-clobber-regen — [[snapshot-rebase-clobbers-docs-status-md]] gate still pending). Verdict 🔴 DEGRADED. Follow-up: agi-tracker `enabled: false` PR deadline TODAY 13:00Z (~4.3h out) is planner's rank-1 unblock action.
