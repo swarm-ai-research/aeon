@@ -1,14 +1,14 @@
+Log entry appended. Skill complete.
+
 ## Summary
 
-Ran `pr-review` for 2026-08-16 against `swarm-ai-research/swarm` under the merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK wording). 49th operator invocation on this repo (first on 08-16). Queue byte-identical to the 44th–48th invocations (~3d+ frozen since 2026-08-13 05:37Z dependabot cadence).
+Ran `pr-review` for 2026-08-17 against `swarm-ai-research/swarm` (50th operator invocation) under merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK wording).
 
-**Outcome:** all 8 open PRs skipped → `PR_REVIEW_ALL_SKIPPED`.
-- 6 dependabot `bot-author` skips: #553, #552, #550, #546, #538, #537
-- 2 `dup-SHA` skips: #549 (`afe51248`, 16 hits across 08-14/08-15 logs) and #543 (`bad79e48`, 16 hits)
-- Bot-reviewer 30-min pile-on rule did NOT fire — most recent bot reviews on #549/#543 are ~9d stale (2026-08-07)
-
-**No verdict posted / no inline comments / no notify** per skill's all-skip rule. Standing verdicts carry forward unchanged: #549 REQUEST_CHANGES 2/5 (15 consecutive invocations, prior findings on unbounded refinement recursion / metric skew / unauthenticated `edit.applied` still stand at HEAD SHA), #543 APPROVE 5/5 (15 consecutive invocations, docs-only diff still clean).
-
-**Files modified:** `memory/logs/2026-08-16.md` (new `## pr-review` entry appended).
-
-**Follow-up:** none new. Swarm-repo write-permission gap ([[aeon-app-no-write-on-swarm-repo]]) not exercised — confirming counter advances to 37 (pr-review). Queue-freeze pattern per [[swarm-repo-dependabot-cohort-churns-under-full-skip]] now at invocation 49.
+- **Queue:** 8 open PRs, byte-identical to 44th–49th invocations (frozen ~4d+ since 2026-08-13 05:37Z dependabot cadence)
+- **Skip verdicts:** 8/8 skipped — 6 dependabot bot-author (#553, #552, #550, #546, #538, #537) + 2 dup-SHA against last-2-days logs (#549 `afe51248`, #543 `bad79e48`)
+- **Standing verdicts** (frozen HEAD SHAs, not re-posted): #549 **REQUEST_CHANGES 2/5** (17 consecutive invocations), #543 **APPROVE 5/5** (17 consecutive invocations)
+- **Reviews posted:** 0 (no inline comments, no summary review)
+- **Notify:** suppressed per all-skip rule
+- **Exit mode:** `PR_REVIEW_ALL_SKIPPED`
+- **Files modified:** `memory/logs/2026-08-17.md`
+- **Follow-up:** [[swarm-repo-dependabot-cohort-churns-under-full-skip]] extends to invocation 50; App-write gap counter → 38.
