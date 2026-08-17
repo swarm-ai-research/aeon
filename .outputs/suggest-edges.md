@@ -1,11 +1,13 @@
-Skill executed. Working tree clean of source-note edits; state file + today's log carry the durable change.
+Done. Summary:
 
-**Summary**
+**suggest-edges 2026-08-17 — day-9 recurrence, class break to second templated cluster**
 
-- Ran `node scripts/suggest-edges.mjs` — emitted 3 proposals, all `gitlawb-compute-futures-proofs/{06-24,06-27,07-04}.md → 2026-08-14.md` at similarity **1.000** (up from 08-15's 0.981; new target is a byte-identical template instance).
-- Matches documented **day-8 templated-corpus recurrence** [[suggest-edges-flags-templated-corpora-as-sim-1-noise]] (day-6 of the tracked rejection streak beginning 08-11).
-- Followed established operator pattern: reverted the 3 source-note edits (`git checkout --`), moved the 3 `applied` entries → `rejected` in `memory/state/suggest-edges.json` with day-8 reason.
-- State: **3 applied + 18 rejected** (+3/day rejection rate held exact through day-6-of-streak).
-- **No PR, no notify** per established pattern (`SUGGEST_EDGES_NO_PROPOSALS` effective exit after manual rejection loop).
-- Files modified: `memory/state/suggest-edges.json`, `memory/logs/2026-08-16.md` (new).
-- Follow-up unchanged: planner still holding the shared-parent-directory + shared-basename-shape pre-filter fix for `scripts/suggest-edges.mjs`.
+The script emitted 3 proposals (top-3 sim=1.000) from `gitlawb-compute-futures-proofs/` — **class break** from the 6-day-locked source triple `{06-24, 06-27, 07-04}` × `[cash, darkbloom, synthetic, basket, spread]` onto NEW all-pairs within `{05-25, 05-26, 05-27}` × NEW shared-term signature `[sha, settlement, task, physical, cash]`. Second templated cluster surfacing after prior-triple combinations exhausted the reject list.
+
+- **Reverted** source-note edits on `2026-05-25.md` and `2026-05-26.md` via `git checkout --`.
+- **Moved** the 3 today's `applied` entries to `rejected` in `memory/state/suggest-edges.json` with class-break note. State now **3 applied + 21 rejected** (+3/day rate held).
+- **No PR, no notify** per established templated-corpus noise pattern.
+- **Files modified:** `memory/state/suggest-edges.json`, `memory/logs/2026-08-17.md`.
+- **Exit mode:** effectively `SUGGEST_EDGES_NO_PROPOSALS` (post-manual-rejection).
+
+**Follow-up strengthened:** the planner's shared-parent-dir + basename-shape pre-filter for `scripts/suggest-edges.mjs` **must generalize** — a single-cluster hardcoded skip won't stop the now-observed multi-cluster rotation. Needs tokenization-signature dedup across the whole corpus subtree.
