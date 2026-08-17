@@ -1,0 +1,243 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Cost Report — 2026-08-17 (last 7 days)",
+        "description": "Spend tracking and anomaly detection"
+      },
+      "children": [
+        "header_stack",
+        "sep1",
+        "top3_section",
+        "sep2",
+        "actions_section",
+        "sep3",
+        "anomalies_section",
+        "sep4",
+        "projection_section",
+        "sep5",
+        "report_link"
+      ]
+    },
+    "header_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_spend",
+        "stat_runs",
+        "stat_wow",
+        "stat_anomalies",
+        "burn_watch_alert"
+      ]
+    },
+    "stat_spend": {
+      "type": "Stat",
+      "props": {
+        "label": "Spent (7d)",
+        "value": "$396.85"
+      }
+    },
+    "stat_runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs",
+        "value": "69"
+      }
+    },
+    "stat_wow": {
+      "type": "Stat",
+      "props": {
+        "label": "WoW Change",
+        "value": "+50.8%",
+        "trend": "up"
+      }
+    },
+    "stat_anomalies": {
+      "type": "Stat",
+      "props": {
+        "label": "Anomalies",
+        "value": "5"
+      }
+    },
+    "burn_watch_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "message": "burn-rate watch"
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "top3_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "top3_heading",
+        "top3_table"
+      ]
+    },
+    "top3_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top 3 by cost",
+        "level": "h3"
+      }
+    },
+    "top3_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Cost",
+          "Runs"
+        ],
+        "rows": [
+          [
+            "reflect",
+            "$78.43",
+            "6"
+          ],
+          [
+            "pr-tracker",
+            "$63.74",
+            "7"
+          ],
+          [
+            "compute-futures-eda",
+            "$62.76",
+            "7"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "actions_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "actions_heading",
+        "actions_text"
+      ]
+    },
+    "actions_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Actions this week",
+        "level": "h3"
+      }
+    },
+    "actions_text": {
+      "type": "Text",
+      "props": {
+        "text": "milestone-tracker → downgrade Opus→Sonnet (~$1.80/wk saved, median output/input ratio 0.196)",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator"
+    },
+    "anomalies_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "anomalies_heading",
+        "anomalies_table"
+      ]
+    },
+    "anomalies_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "5 Anomalies flagged",
+        "level": "h3"
+      }
+    },
+    "anomalies_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "WoW Change",
+          "Cost",
+          "Notes"
+        ],
+        "rows": [
+          [
+            "notegraph",
+            "+238%",
+            "$39.11",
+            "run-level spike today"
+          ],
+          [
+            "pr-review",
+            "+260%",
+            "$10.27",
+            "—"
+          ],
+          [
+            "stale-content-pr-sweeper",
+            "+104%",
+            "$18.74",
+            "run-level spike today"
+          ]
+        ]
+      }
+    },
+    "sep4": {
+      "type": "Separator"
+    },
+    "projection_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "projection_heading",
+        "projection_stat"
+      ]
+    },
+    "projection_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "30-day projection",
+        "level": "h3"
+      }
+    },
+    "projection_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Projected Monthly Burn",
+        "value": "$1,700.77"
+      }
+    },
+    "sep5": {
+      "type": "Separator"
+    },
+    "report_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Cost Report",
+        "href": "articles/cost-report-2026-08-17.md",
+        "source": "Aeon"
+      }
+    }
+  }
+}

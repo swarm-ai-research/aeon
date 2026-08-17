@@ -1,13 +1,16 @@
-*Cost Report — 2026-08-10 (last 7 days)*
+*Cost Report — 2026-08-17 (last 7 days)*
 
-Spent $270.62 across 50 runs (↑13.9% WoW); 0 anomalies flagged, projected monthly burn ~$1,159.79 ⚠.
+Spent **$396.85** across **69 runs** (↑50.8% WoW); **5 anomalies flagged**, projected monthly burn **~$1,700.77**. ⚠ burn-rate watch.
 
 Top 3 by cost:
-1. reflect — $90.22 (6 runs)
-2. compute-futures-eda — $45.65 (5 runs)
-3. pr-tracker — $40.89 (6 runs)
+1. reflect — $78.43 (6 runs)
+2. pr-tracker — $63.74 (7 runs)
+3. compute-futures-eda — $62.76 (7 runs)
 
-No optimization levers found this week.
+Actions this week:
+• milestone-tracker → downgrade Opus→Sonnet (~$1.80/wk saved, median output/input ratio 0.196)
 
-⚠ 30-day projection: $1,159.79 — cache-read volume from reflect + compute-futures-eda is the primary driver.
-Full: articles/cost-report-2026-08-10.md
+⚠ 5 anomalies flagged — notegraph +238% WoW ($39.11), pr-review +260% WoW ($10.27), stale-content-pr-sweeper +104% WoW ($18.74); run-level spikes on notegraph + stale-content-pr-sweeper today.
+
+30-day projection: $1,700.77
+Full: articles/cost-report-2026-08-17.md
