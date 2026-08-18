@@ -1,1 +1,7 @@
-Goal Tracker — NO_GOALS (add a '## Goals' section to memory/MEMORY.md)
+## Summary
+
+Ran `skills/goal-tracker/SKILL.md` on 2026-08-18 with `${var}` empty. Exited **NO_GOALS** at step 0 input check: `memory/MEMORY.md` has neither `## Goals` nor `## Next Priorities` — its pointer-only layout only carries `## Current focus`, `## Topics`, `## Conventions`, `## Pointers`. Per SKILL constraint "reads and annotates — never authors", I did not lift bullets from `## Pointers` into goals (though several are clearly actionable — sweeper allowlist patch, watched-repos populate/disable, agi-tracker `enabled: false`, ISS-020 draft, PR-tracker patch batch). Prior `memory/goal-state.json` snapshot (2026-07-25, 19 goals) left untouched.
+
+- **Notification:** queued to `.pending-notify/1787078000-goal-tracker.md` with the SKILL-mandated exit message `Goal Tracker — NO_GOALS (add a '## Goals' section to memory/MEMORY.md)`. Wrote the file directly rather than calling `./notify "..."` per [[notify-inline-cat-substitution-blocked-in-sandbox]] + [[notify-script-has-no-f-flag]] in MEMORY.md.
+- **Files created/modified:** `.pending-notify/1787078000-goal-tracker.md` (new), `memory/logs/2026-08-18.md` (appended goal-tracker section + summary).
+- **Follow-up:** Operator action required — add a `## Goals` section to `memory/MEMORY.md` (or promote `## Pointers` to `## Next Priorities`) to reactivate the skill. Once activated, next run will use `memory/goal-state.json` (still from 2026-07-25) as the trend-comparison snapshot — expect broad "degrading" trend deltas on the first live run given the 24-day gap.
