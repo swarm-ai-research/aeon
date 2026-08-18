@@ -1,45 +1,45 @@
 {
-  "input_fingerprint": "8a90f24c4c2ae918dd4cfd5e4f85f4c6add3571d",
-  "last_run": "2026-08-17",
+  "input_fingerprint": "2317e62445a239d83eaa6f45aafe61574102d8b8",
+  "last_run": "2026-08-18",
   "stats": {
-    "nodes": 283,
-    "edges": 2881,
-    "hard": 2169,
-    "soft": 712,
-    "orphans": 1,
-    "atomic": 84,
+    "nodes": 289,
+    "edges": 2972,
+    "hard": 2244,
+    "soft": 728,
+    "orphans": 0,
+    "atomic": 86,
     "bundled": 0
   },
   "last_verdict": "+3 notes wired in",
-  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/35",
-  "last_branch": "notegraph/2026-08-17",
+  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/36",
+  "last_branch": "notegraph/2026-08-18",
   "delta_vs_state": {
-    "nodes": 3,
-    "edges": 44,
-    "hard": 35,
-    "soft": 9,
-    "orphans": 0,
+    "nodes": 6,
+    "edges": 91,
+    "hard": 75,
+    "soft": 16,
+    "orphans": -1,
     "bundled": 0,
-    "atomic": 0
+    "atomic": 2
   },
   "delta_vs_head": {
-    "nodes": 162,
-    "edges": 2025,
-    "hard": 1575,
-    "soft": 450,
-    "orphans": 1,
+    "nodes": 3,
+    "edges": 47,
+    "hard": 39,
+    "soft": 8,
+    "orphans": 0,
     "bundled": 0,
-    "atomic": 30
+    "atomic": 2
   },
   "new_nodes": [],
   "removed_nodes": [],
-  "orphans": [
+  "orphans": [],
+  "new_orphans": [],
+  "resolved_orphans": [
     "docs/telegram-instant.md"
   ],
-  "new_orphans": [],
-  "resolved_orphans": [],
   "new_bundled": [],
   "resolved_bundled": [],
   "notify_suppressed": false,
-  "note": "2026-08-17: Fingerprint advanced 832a210f… → 8a90f24c…. Extractor produced 283n / 2169h / 712s / 1o / 84 atomic / 0b. HEAD-vs-state delta says +162 nodes but that's an artifact — origin/main's notegraph.json is stuck at 121n from 06-25 (last touched by commit 96ccdb0); notegraph PR chain #10 ← #27 ← #28 ← #29 ← #30 ← #31 ← #32 never merged. Real daily delta vs state is +3 nodes / +44 edges / 0 orphans / 0 bundled — normal growth from today's daily-plan-2026-08-16 + reflect notes. Persistent orphan docs/telegram-instant.md unchanged; HEAD-vs-state flagged as 'new' is [[notegraph-head-vs-state-delta-misread-as-pr-merge]] class artifact — state confirms persistence. Used interpretive verdict '+3 notes wired in' (state comparison) instead of algorithmic 'new orphan' (HEAD comparison). PR #35 opened on notegraph/2026-08-17 → chain grows length-8: #10 ← #27 ← #28 ← #29 ← #30 ← #31 ← #32 ← #35. No-op streak breaks at day 1; change-streak resumes day 1. Exit mode: NOTEGRAPH_OK."
+  "note": "2026-08-18: Fingerprint advanced 8a90f24c… → 2317e624…. Extractor produced 289n / 2244h / 728s / 0 orphans / 86 atomic / 0 bundled. HEAD baseline REFRESH (286n / 2925e) — the long-stuck 121n-from-06-25 origin/main baseline is gone; notegraph PR chain (#10 ← … ← #35) evidently merged since last run, dissolving the [[notegraph-head-baseline-drift-inflates-new-orphans]] false-positive class for this run. Delta vs HEAD +3n / +47e / 0 orphans / 0 bundled — normal daily growth (matches delta vs state directionally, though state delta is +6n / +91e because state was 08-17). Persistent orphan docs/telegram-instant.md resolved (0 orphans this run). Verdict '+3 notes wired in' — clean, no-orphan, no-bundled priority path. PR #36 opened on notegraph/2026-08-18. Change-streak resumes day 2 (from yesterday's day-1); no-op streak stays 0. Exit mode: NOTEGRAPH_OK."
 }
