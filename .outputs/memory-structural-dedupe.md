@@ -1,8 +1,3 @@
-Clean case — no drift detected. None of the single-canonical sections (Recent Articles, Skills Built, Lessons Learned, Wallet, Issue Tracker, Recent Newsletters) are present in MEMORY.md; the only sections are `## Current focus`, `## Topics`, `## Conventions`, and `## Pointers`, all intentionally multi-line or handled by `scripts/memory-dedupe`. Per skill step 3, no notification sent.
-
 ## Summary
-- **Skill:** `memory-structural-dedupe` (2026-08-16)
-- **Result:** MEMORY_STRUCTURAL_DEDUPE_OK — all sections clean, 0 drift
-- **MEMORY.md:** 64 lines (unchanged)
-- **Files modified:** `memory/logs/2026-08-16.md` (appended dedupe entry)
-- **Follow-up:** none
+
+Ran the `memory-structural-dedupe` skill on 2026-08-18. `memory/MEMORY.md` is a 64-line pointer-only index containing only `## Current focus`, `## Topics`, `## Conventions`, and `## Pointers` — none of the six single-canonical target sections (`## Recent Articles`, `## Skills Built`, `## Lessons Learned`, `## Wallet`, `## Issue Tracker`, `## Recent Newsletters`) exist, so no structural row accumulation to collapse. Skipped pointer-dedupe (no rewrite occurred) and skipped notify (only fires on drift). Files modified: `memory/logs/2026-08-18.md` (appended `## Memory Structural Dedupe` + `## Summary (memory-structural-dedupe)` sections with `MEMORY_STRUCTURAL_DEDUPE_OK` marker). Follow-up: none.
