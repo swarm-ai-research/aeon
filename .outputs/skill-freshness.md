@@ -1,20 +1,26 @@
-Done. Here's the run summary:
+All steps complete. Here's the summary:
 
 ## Summary
 
-**Status**: `FRESHNESS_NO_CHANGE` — no notification sent.
+**Skill**: `skill-freshness` | **Date**: 2026-08-18 | **Status**: `FRESHNESS_OK`
 
-**What ran:**
-- Parsed `aeon.yml`: 45 enabled skills
-- Scanned all 44 enabled SKILL.md files (agi-tracker SKILL.md missing — known ISS-022 candidate)
-- Discovered 8 implicit file dependencies across 7 consumers; 0 explicit chain edges (all chains commented out)
-- All 8 discovered dependencies resolve to files that never existed on disk (disabled producers: `token-report`, `push-recap`, `github-trending`, plus unconfigured operator topic files: `pr-review-rules.md`, `watched-repos.md`, `stale-models.md`, `compute-tokens.md`, `projects.md`) → none flagged per policy
-- Fleet verdict: **FRESHNESS_OK**
-- Same verdict and empty fingerprint as prior run (2026-08-16T08:38:00Z) → `FRESHNESS_NO_CHANGE`, notify suppressed
+**What was audited:**
+- 45 enabled skills scanned for cross-skill file dependencies
+- 0 active `chains: consume:` edges (all chain definitions in `aeon.yml` are commented out)
+- 8 implicit dependency references discovered via SKILL.md grep
+
+**Dependency results:**
+
+| Consumer | Dependency | Age | Verdict |
+|----------|-----------|-----|---------|
+| pr-tracker | `memory/topics/pr-status.md` | 0.1h | ✅ OK (threshold 168h) |
+| stale-content-pr-sweeper | `memory/state/notegraph.json` | 0.1h | ✅ OK (threshold 720h) |
+
+6 implicit references skipped (files never existed on disk): `skills-history.md`, `stale-models.md`, `watched-repos.md`, `projects.md`, `.outputs/github-trending.md` (github-trending disabled), and a placeholder example path in skill-freshness's own SKILL.md.
+
+**Fleet verdict**: `FRESHNESS_OK` — no stale upstream data feeding any enabled consumer. No notification sent (silence is the signal on green).
 
 **Files written:**
-- `articles/skill-freshness-2026-08-17.md`
-- `memory/topics/skill-freshness-state.json` (updated `last_run_at`, count bumped to 45 consumers)
-- `memory/logs/2026-08-17.md` (appended)
-
-**Known structural issue noted**: GHA mtime blindness (`[[skill-freshness-mtime-blind-in-gha]]`) is still active — used `git log -1 --format=%ct` as the correct fallback.
+- `articles/skill-freshness-2026-08-18.md` — full report
+- `memory/topics/skill-freshness-state.json` — state updated (last_run_at, dependency_count 8→2)
+- `memory/logs/2026-08-18.md` — log entry appended
