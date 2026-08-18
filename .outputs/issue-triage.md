@@ -1,5 +1,5 @@
-`ISSUE_TRIAGE_OK no-watched-repos`.
+`ISSUE_TRIAGE_OK no-watched-repos`
 
 ## Summary
 
-Ran `issue-triage` on 2026-08-17. `${var}` empty and `memory/watched-repos.md` missing → per the skill's short-circuit rule, logged `ISSUE_TRIAGE_OK no-watched-repos` and exited without work. No repos triaged, no labels/comments applied, no notification. Extends the [[watched-repos-config-missing-silent-short-circuits-6-skills]] chronic streak (12th+ consecutive silent short-circuit for this skill). Files modified: `memory/logs/2026-08-17.md`. Follow-up: MEMORY's rank-4 hold — populate `memory/watched-repos.md` OR ship `enabled: false` on the six watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) to stop the daily silent-dispatch cycle.
+Ran `issue-triage` on 2026-08-18. `${var}` was empty and `memory/watched-repos.md` is absent, which per SKILL §Config is an immediate clean-exit condition: no GitHub calls, no probes, no labels, no comments, no closes. `memory/triaged-issues.json` untouched. No notification (nothing actionable). Logged the run to `memory/logs/2026-08-18.md`. Follow-up: create `memory/watched-repos.md` with `- owner/repo` lines to activate the skill.
