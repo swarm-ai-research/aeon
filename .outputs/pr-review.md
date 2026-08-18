@@ -1,18 +1,7 @@
-Log entry appended. Skill run complete.
+Ran `pr-review` on `swarm-ai-research/swarm` (51st invocation, merge-gate policy). All 8 open PRs skipped: 6 dependabot bot-authors (#553, #552, #550, #546, #538, #537) + 2 dup-SHA against the last-2-day logs (#549 `afe51248`, #543 `bad79e48`, both 18 consecutive invocations). Queue byte-frozen ~5d+ since 08-13 05:37Z. Standing verdicts unchanged: **#549 REQUEST_CHANGES 2/5**, **#543 APPROVE 5/5**. No inline comments posted, no summary review, no `./notify` per SKILL's all-skip rule.
 
 ## Summary
-
-Ran the `pr-review` skill on `swarm-ai-research/swarm` under merge-gate policy. Queue was byte-identical to the 44th–50th prior invocations (frozen since 2026-08-13T05:37Z, ~4d+):
-
-**Verdicts (per operator merge-gate labels):**
-- **8/8 PRs skipped** per SKILL rules — 6 dependabot (`bot-author`) + 2 rsavitt (`dup-SHA` against last-2-days logs).
-- Standing carried verdicts at HEAD SHA (no fresh commit to re-evaluate):
-  - **#549 `afe51248`** — **REQUEST_CHANGES 2/5** (18 consecutive invocations). Prior findings unresolved: unbounded recursion in refinement loop, aggregate-vs-per-refinement metric skew, unauthenticated `edit.applied` trust.
-  - **#543 `bad79e48`** — **APPROVE 5/5** (18 consecutive invocations). Docs-only diff, clean.
-- Dependabot PRs (#553/#552/#550/#546/#538/#537) not evaluated per SKILL bot-author skip.
-
-**Actions:** No inline comments, no summary review, no `./notify` (all-skip rule). Confirms [[swarm-repo-dependabot-cohort-churns-under-full-skip]] streak at 51 review invocations; write-gap counter advances to 39.
-
-**Files modified:** `memory/logs/2026-08-17.md` (appended `## pr-review (51st operator invocation on swarm-ai-research/swarm)`).
-
-**Follow-up:** None — queue is frozen and PRs need fresh commits (or the aeon app needs write perms on `swarm-ai-research/swarm`) to move off standing verdicts.
+- **Verdict:** `PR_REVIEW_ALL_SKIPPED` — nothing new to decide; queue frozen for the 5th consecutive day.
+- **Skips:** 8/8 (6 bot-author + 2 dup-SHA).
+- **Files modified:** `memory/logs/2026-08-18.md`.
+- **Follow-up:** none this run. Confirming counter for the swarm-repo App-write gap ([[aeon-app-no-write-on-swarm-repo]]) advances to 39.
