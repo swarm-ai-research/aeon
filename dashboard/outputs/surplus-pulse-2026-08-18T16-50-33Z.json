@@ -1,0 +1,273 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse — 2026-08-18"
+      },
+      "children": [
+        "spot-section",
+        "separator-1",
+        "curve-section",
+        "separator-2",
+        "rail-section",
+        "separator-3",
+        "summary-section"
+      ]
+    },
+    "spot-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "spot-heading",
+        "spot-stat"
+      ]
+    },
+    "spot-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot Price",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "spot-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Llama 4 Scout (Surplus Intelligence)",
+        "value": "$0.0764/M"
+      },
+      "children": []
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "curve-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "curve-heading",
+        "curve-items"
+      ]
+    },
+    "curve-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Market Curve (R30)",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "curve-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "curve-1",
+        "curve-2",
+        "curve-3"
+      ]
+    },
+    "curve-1": {
+      "type": "Stat",
+      "props": {
+        "label": "Hyperscaler H100 Reserve (Round 6)",
+        "value": "+88.7%",
+        "trend": "up"
+      },
+      "children": []
+    },
+    "curve-2": {
+      "type": "Stat",
+      "props": {
+        "label": "DeepSeek V3.2 Open-Weights Flood (Round 13)",
+        "value": "−44.2%",
+        "trend": "down"
+      },
+      "children": []
+    },
+    "curve-3": {
+      "type": "Stat",
+      "props": {
+        "label": "Agent Platform Demand Surge (Round 20)",
+        "value": "+50.7%",
+        "trend": "up"
+      },
+      "children": []
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "rail-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "rail-heading",
+        "rail-details"
+      ]
+    },
+    "rail-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Deployment (x402)",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "rail-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "rail-network",
+        "rail-token",
+        "rail-url",
+        "rail-price"
+      ]
+    },
+    "rail-network": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "rail-network-label",
+        "rail-network-badge"
+      ]
+    },
+    "rail-network-label": {
+      "type": "Text",
+      "props": {
+        "text": "Network:",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "rail-network-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Base (eip155:8453)"
+      },
+      "children": []
+    },
+    "rail-token": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "rail-token-label",
+        "rail-token-badge"
+      ]
+    },
+    "rail-token-label": {
+      "type": "Text",
+      "props": {
+        "text": "Token:",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "rail-token-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "USDC"
+      },
+      "children": []
+    },
+    "rail-url": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rail-url-label",
+        "rail-url-link"
+      ]
+    },
+    "rail-url-label": {
+      "type": "Text",
+      "props": {
+        "text": "Endpoint:",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "rail-url-link": {
+      "type": "Link",
+      "props": {
+        "label": "surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      },
+      "children": []
+    },
+    "rail-price": {
+      "type": "Stat",
+      "props": {
+        "label": "Base Call Price",
+        "value": "$0.0033"
+      },
+      "children": []
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-heading",
+        "summary-text"
+      ]
+    },
+    "summary-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Status",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "summary-text": {
+      "type": "Text",
+      "props": {
+        "text": "Catalog mode (SURPLUS_PRICING_URL unset); curve shows the usual three-act structure — H100 supply squeeze, open-weights flood, then agent-platform demand recovery — all locked at the same steady $0.0764/M spot anchor.",
+        "variant": "body"
+      },
+      "children": []
+    }
+  }
+}
