@@ -1,0 +1,130 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "header",
+        "separator1",
+        "status",
+        "separator2",
+        "details"
+      ]
+    },
+    "header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "action_text",
+        "date_text"
+      ]
+    },
+    "action_text": {
+      "type": "Text",
+      "props": {
+        "text": "Memory consolidated",
+        "variant": "lead"
+      }
+    },
+    "date_text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-08-18",
+        "variant": "muted"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "status": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status_badge",
+        "stats_row",
+        "counts_row"
+      ]
+    },
+    "status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "atomic-pass clean",
+        "variant": "default"
+      }
+    },
+    "stats_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_nodes",
+        "stat_edges"
+      ]
+    },
+    "stat_nodes": {
+      "type": "Stat",
+      "props": {
+        "label": "nodes (notegraph)",
+        "value": "+5"
+      }
+    },
+    "stat_edges": {
+      "type": "Stat",
+      "props": {
+        "label": "edges (notegraph)",
+        "value": "+67"
+      }
+    },
+    "counts_row": {
+      "type": "Text",
+      "props": {
+        "text": "0 splits, 0 new"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "note",
+        "action"
+      ]
+    },
+    "note": {
+      "type": "Text",
+      "props": {
+        "text": "memory-flush already filed today's workspace-HEAD-divergence note",
+        "variant": "caption"
+      }
+    },
+    "action": {
+      "type": "Text",
+      "props": {
+        "text": "Appended to fleet-ops MOC"
+      }
+    }
+  }
+}
