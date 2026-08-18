@@ -1,0 +1,235 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-08-18"
+      },
+      "children": [
+        "overview-stack",
+        "sep1",
+        "findings-group",
+        "sep2",
+        "report-section"
+      ]
+    },
+    "overview-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-rows",
+        "stat-modes",
+        "badge-notes"
+      ]
+    },
+    "stat-rows": {
+      "type": "Stat",
+      "props": {
+        "value": "144",
+        "label": "Rows"
+      }
+    },
+    "stat-modes": {
+      "type": "Stat",
+      "props": {
+        "value": "4",
+        "label": "Modes"
+      }
+    },
+    "badge-notes": {
+      "type": "Badge",
+      "props": {
+        "text": "2-day gap; no 08-17 CSV",
+        "variant": "outline"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "findings-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "find1",
+        "find2",
+        "find3"
+      ]
+    },
+    "find1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "alert1",
+        "details1"
+      ]
+    },
+    "alert1": {
+      "type": "Alert",
+      "props": {
+        "title": "Basket/Synth Spot Multiplier BREAKS",
+        "message": "3.0250 → 2.5000",
+        "type": "warning"
+      }
+    },
+    "details1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-det1a",
+        "text-det1b"
+      ]
+    },
+    "text-det1a": {
+      "type": "Text",
+      "props": {
+        "text": "Byte-identical deterministic step; n=7 promoted class ends",
+        "variant": "caption"
+      }
+    },
+    "text-det1b": {
+      "type": "Text",
+      "props": {
+        "text": "Likely deployer config change",
+        "variant": "caption"
+      }
+    },
+    "find2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "alert2",
+        "details2"
+      ]
+    },
+    "alert2": {
+      "type": "Alert",
+      "props": {
+        "title": "Spread Retail Loss DEEPENS",
+        "message": "−$10,506",
+        "type": "error"
+      }
+    },
+    "details2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat-loss",
+        "text-det2a",
+        "text-det2b"
+      ]
+    },
+    "stat-loss": {
+      "type": "Stat",
+      "props": {
+        "value": "−$10,506",
+        "label": "Spread Retail Loss",
+        "delta": "+$2,540 vs 08-16",
+        "trend": "down"
+      }
+    },
+    "text-det2a": {
+      "type": "Text",
+      "props": {
+        "text": "Purity restored 5/5",
+        "variant": "caption"
+      }
+    },
+    "text-det2b": {
+      "type": "Text",
+      "props": {
+        "text": "n=11 promoted class",
+        "variant": "caption"
+      }
+    },
+    "find3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "alert3",
+        "details3"
+      ]
+    },
+    "alert3": {
+      "type": "Alert",
+      "props": {
+        "title": "Conservation Status",
+        "message": "All 4 modes OK",
+        "type": "success"
+      }
+    },
+    "details3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-det3a",
+        "text-det3b"
+      ]
+    },
+    "text-det3a": {
+      "type": "Text",
+      "props": {
+        "text": "Float dust",
+        "variant": "caption"
+      }
+    },
+    "text-det3b": {
+      "type": "Text",
+      "props": {
+        "text": "Sign turns MIXED after 2-day all-negative",
+        "variant": "caption"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "report-link"
+      ]
+    },
+    "report-link": {
+      "type": "Link",
+      "props": {
+        "label": "memory/topics/compute-futures-eda/2026-08-18.md",
+        "href": "memory/topics/compute-futures-eda/2026-08-18.md"
+      }
+    }
+  }
+}
