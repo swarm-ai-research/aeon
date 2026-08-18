@@ -1,18 +1,18 @@
 {
-  "last_run": "2026-08-17T06:48:00Z",
-  "top_priority": "agi-tracker-enabled-false-via-pr",
+  "last_run": "2026-08-18T06:30:00Z",
+  "top_priority": "aeon-repo-queue-merge-escalation",
   "priority_streak": {
-    "agi-tracker-enabled-false-via-pr": 2,
-    "aeon-repo-queue-merge-escalation": 9,
-    "stale-content-pr-sweeper-allowed-authors-patch": 11,
-    "suggest-edges-templated-corpus-prefilter": 9,
-    "watched-repos-population-or-disable": 12,
-    "pr-tracker-patch-batch": 54,
+    "aeon-repo-queue-merge-escalation": 10,
+    "agi-tracker-enabled-false-via-pr": 3,
+    "stale-content-pr-sweeper-allowed-authors-patch": 12,
+    "suggest-edges-templated-corpus-prefilter": 10,
+    "watched-repos-population-or-disable": 13,
+    "pr-tracker-patch-batch": 55,
     "iss-006-messages-yml-multi-pocket-rewrite": 16,
-    "docs-status-md-snapshot-rebase-gate": 31,
-    "swarm-repo-app-perm-gap": 36
+    "docs-status-md-snapshot-rebase-gate": 32,
+    "swarm-repo-app-perm-gap": 37
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Seventeenth planner run in the ISS-006 pocket-slot migration era; ELEVENTH since 08-07 overnight PR-creation toggle unblock. HEADLINE: agi-tracker holds rank-1 (streak-2) as deadline-day — 7th silent-Mon fires TODAY 13:00Z, ~6.2h out from this run at 06:48Z. Queue-merge escalation holds rank-2 (streak-8 → 9) with #35 (today's notegraph chain head) added to the bundle-and-auto-merge-policy framing. Sweeper allowlist patch STAYS rank-3 (streak-10 → 11); notegraph chain grew to length-8 (7 → 8) after #35 opened this morning, would-be-closes 8 → 9. Suggest-edges holds (streak-8 → 9) with class-break — greedy top-3 rotated off the 6-day-locked source triple {06-24, 06-27, 07-04} onto a NEW cluster {05-25, 05-26, 05-27} at sim 1.000; fix candidate strengthened (single-cluster skip no longer works, needs tokenization-signature dedup across subtree). Fleet: 0 broken, 0 in-flight, 38 DEGRADED (ISS-001 residue day 59), 4 HEALTHY, 2 NO_DATA (41st silent day). 0 open GH issues on aeon repo. 19 open aeon PRs (−7 net vs 08-16 MEMORY.md snapshot; likely 6 stale notegraph mid-chain heads #10/#27/#28/#29/#30/#31 closed as #35 superseded them — worth confirming next planner run). ${var} empty → plan-only, no dispatch. All other holds advanced 1d each from 08-16."
+  "notes": "Eighteenth planner run in the ISS-006 pocket-slot migration era; TWELFTH since 08-07 overnight PR-creation toggle unblock. HEADLINE: rank-1 SWAPS to aeon-repo-queue-merge-escalation (streak 9 → 10), promoted from rank-2 as agi-tracker deadline elapsed yesterday (2026-08-17T13:00Z passed with no ship — 7th silent-Mon fired; next fire 2026-08-24T13:00Z ~6d out, dropping urgency). Agi-tracker slides to rank-2 (streak-3). Sweeper allowlist patch holds rank-3 (streak-11 → 12) with a MEMORY.md correction folded in: yesterday's sweeper run confirmed same-day landable is 1 (notegraph #32), not 9 (that was historical chain length; open-state math is 1). NEW SIGNAL of the day: snapshot commit f52834f 'snapshot: rsavitt/aeon @ 85fb6ac' refreshed notegraph.json HEAD from stuck 06-25 baseline (121n → 286n), and 08-18 notegraph run misinterpreted this as PR chain having merged — gh pr view 35/36/37 all OPEN, gh pr list --state merged still shows #8 (2026-08-07) as newest. New atomic candidate [[snapshot-rebase-carries-fresh-state-into-main]] — companion class to [[snapshot-rebase-clobbers-docs-status-md]], same root but opposite polarity. Fleet: 0 broken, 0 in-flight, 38 DEGRADED (ISS-001 Day-60), 4 truly healthy, 2 NO_DATA (42nd silent day). PR queue: 21 open (up 2 from 19 via #36 notegraph + #37 suggest-edges opened this morning at 05:27Z + 05:55Z). 0 open GH issues. ${var} empty → plan-only, no dispatch. All other holds advanced 1d each from 08-17. Follow-ups worth flagging: (a) reconcile MEMORY.md line 47 sweeper count 9 → 1; (b) file new atomic for snapshot-rebase-carries-fresh-state; (c) investigate #37 suggest-edges PR (surprising given 08-17 revert-all pattern)."
 }
