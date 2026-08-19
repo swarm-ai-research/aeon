@@ -1,0 +1,196 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Analytics — 2026-08-19"
+      },
+      "children": [
+        "summary-stats",
+        "not-running-alert",
+        "sep1",
+        "critical-section",
+        "sep2",
+        "top-performers-section",
+        "sep3",
+        "article-link"
+      ]
+    },
+    "summary-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-runs",
+        "stat-skills",
+        "stat-success",
+        "stat-anomalies"
+      ]
+    },
+    "stat-runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs (last 7d)",
+        "value": "171"
+      }
+    },
+    "stat-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills",
+        "value": "40"
+      }
+    },
+    "stat-success": {
+      "type": "Stat",
+      "props": {
+        "label": "Success Rate",
+        "value": "100%"
+      }
+    },
+    "stat-anomalies": {
+      "type": "Stat",
+      "props": {
+        "label": "Anomalies",
+        "value": "2",
+        "trend": "down"
+      }
+    },
+    "not-running-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "2 Scheduled Skills Not Running",
+        "message": "ai-framework-watch, run-frequency-guard — zero runs in this window"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "critical-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "critical-heading",
+        "critical-issues"
+      ]
+    },
+    "critical-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🔴 Critical Issues",
+        "level": "h3"
+      }
+    },
+    "critical-issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issue-ai-framework",
+        "issue-run-frequency"
+      ]
+    },
+    "issue-ai-framework": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "ai-framework-watch — SILENT",
+        "message": "Scheduled 30 8 * * 1 (Mon 08:30 UTC). Zero runs in window. 43d+ chronic — enabled-skills-can-never-dispatch"
+      }
+    },
+    "issue-run-frequency": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "run-frequency-guard — SILENT",
+        "message": "Scheduled 0 23 * * * (daily 23:00 UTC). Zero runs in window. 43d+ chronic — enabled-skills-can-never-dispatch"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "top-performers-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "top-heading",
+        "top-table"
+      ]
+    },
+    "top-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top by Runs",
+        "level": "h3"
+      }
+    },
+    "top-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Runs"
+        ],
+        "rows": [
+          [
+            "pr-review",
+            "14"
+          ],
+          [
+            "batch-health",
+            "7"
+          ],
+          [
+            "code-health",
+            "7"
+          ],
+          [
+            "compute-futures-eda",
+            "7"
+          ],
+          [
+            "fleet-control",
+            "7"
+          ],
+          [
+            "github-monitor",
+            "7"
+          ]
+        ]
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "article-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Analytics Report",
+        "href": "articles/skill-analytics-2026-08-19.md",
+        "source": "Skill Analytics"
+      }
+    }
+  }
+}
