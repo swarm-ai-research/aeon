@@ -1,0 +1,303 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-08-19"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "overview_section",
+        "sep_1",
+        "findings_section",
+        "sep_2",
+        "clusters_section",
+        "sep_3",
+        "retail_section",
+        "sep_4",
+        "conservation_section",
+        "sep_5",
+        "report_section"
+      ]
+    },
+    "overview_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Dataset Size",
+        "value": "144 rows"
+      }
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "findings_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_findings",
+        "finding_1"
+      ]
+    },
+    "heading_findings": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Findings",
+        "level": "h2"
+      }
+    },
+    "finding_1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_tier",
+        "text_threshold",
+        "text_context"
+      ]
+    },
+    "badge_tier": {
+      "type": "Badge",
+      "props": {
+        "text": "HIGH synth/x402 maxCurve",
+        "variant": "destructive"
+      }
+    },
+    "text_threshold": {
+      "type": "Text",
+      "props": {
+        "text": "Threshold: 25%",
+        "variant": "lead"
+      }
+    },
+    "text_context": {
+      "type": "Text",
+      "props": {
+        "text": "First HIGH-tier outlier cluster since daily cadence began"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "clusters_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_clusters",
+        "cluster_info",
+        "anchor_info"
+      ]
+    },
+    "heading_clusters": {
+      "type": "Heading",
+      "props": {
+        "text": "Cluster Analysis",
+        "level": "h2"
+      }
+    },
+    "cluster_info": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_cluster_seeds",
+        "stat_cluster_positions"
+      ]
+    },
+    "text_cluster_seeds": {
+      "type": "Text",
+      "props": {
+        "text": "3-seed cluster: {202608192, 202608193, 202608194}"
+      }
+    },
+    "stat_cluster_positions": {
+      "type": "Stat",
+      "props": {
+        "label": "Super-anchor 202608194 (non-dust positions)",
+        "value": "19 across all 4 modes"
+      }
+    },
+    "anchor_info": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_anchor_role",
+        "stat_deepest_loss"
+      ]
+    },
+    "text_anchor_role": {
+      "type": "Text",
+      "props": {
+        "text": "Anchors spread's deepest retail loss"
+      }
+    },
+    "stat_deepest_loss": {
+      "type": "Stat",
+      "props": {
+        "label": "Amount",
+        "value": "−$26,855"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "retail_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_retail",
+        "stat_retail_filings",
+        "stat_retail_mean",
+        "text_retail_composition"
+      ]
+    },
+    "heading_retail": {
+      "type": "Heading",
+      "props": {
+        "text": "Retail Spread-Loss Cluster",
+        "level": "h2"
+      }
+    },
+    "stat_retail_filings": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Filings",
+        "value": "n=12"
+      }
+    },
+    "stat_retail_mean": {
+      "type": "Stat",
+      "props": {
+        "label": "Mean Loss",
+        "value": "−$10,290"
+      }
+    },
+    "text_retail_composition": {
+      "type": "Text",
+      "props": {
+        "text": "Top-5 losses: 5/5 retail (100% retail composition)"
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "conservation_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_conservation",
+        "badge_conservation",
+        "text_conservation_detail",
+        "stat_multiplier"
+      ]
+    },
+    "heading_conservation": {
+      "type": "Heading",
+      "props": {
+        "text": "Data Integrity & Conservation",
+        "level": "h2"
+      }
+    },
+    "badge_conservation": {
+      "type": "Badge",
+      "props": {
+        "text": "All 4 modes: OK",
+        "variant": "secondary"
+      }
+    },
+    "text_conservation_detail": {
+      "type": "Text",
+      "props": {
+        "text": "Float dust validation passed; mixed-sign 3rd consecutive rotation detected"
+      }
+    },
+    "stat_multiplier": {
+      "type": "Stat",
+      "props": {
+        "label": "basket/synth Multiplier (n=2 byte-identical)",
+        "value": "2.5000×"
+      }
+    },
+    "sep_5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "report_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_report",
+        "link_full_report"
+      ]
+    },
+    "heading_report": {
+      "type": "Heading",
+      "props": {
+        "text": "Full Report",
+        "level": "h2"
+      }
+    },
+    "link_full_report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "compute-futures-eda/2026-08-19.md",
+        "href": "memory/topics/compute-futures-eda/2026-08-19.md",
+        "source": "Aeon Memory"
+      }
+    }
+  }
+}
