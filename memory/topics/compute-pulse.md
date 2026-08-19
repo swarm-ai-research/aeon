@@ -6,6 +6,7 @@
 - [[inference-cost-1000x-collapse]] — ~1,000× cost collapse since 2022; Gartner forecasts 90%+ further drop by 2030; inference now >$50B market in 2026, growing faster than training for first time
 - [[anthropic-xai-1-25b-month-lease]] — $1.25B/month Colossus lease through May 2029 (superseded by $19B TeraWulf + AMD deals)
 - [[anthropic-amd-2gw-mi450]] — AMD × Anthropic: 2 GW MI450 deal + $5B AMD equity investment (Jul 22, 2026); largest non-NVIDIA compute deal in AI history; first GW H1 2027
+- [[compute-futures-basket-synth-3025x-multiplier]] — **INVALIDATED 2026-08-18** — the basket/synth 3.0250× multiplier promoted on 08-14 and cemented n=7 by 08-17 broke to 2.5000× on 08-18 via upstream deployer config change; see [[compute-futures-multiplier-invalidated-at-n-7]] for the promotion-criterion lesson
 
 ## Inference Pricing Baseline
 

@@ -1,9 +1,11 @@
 ---
 id: gh-search-prs-api-drift
 created: 2026-06-23
+updated: 2026-08-19
 type: lesson
-links: []
+status: superseded
+links: [[gh-search-prs-drops-state-merged-flag]], [[gh-search-prs-drops-headrefname-field]], [[gh-search-prs-drops-mergedat-field]]
 ---
-# `gh search prs` no longer accepts `--state merged`, `headRefName`, or `mergedAt`
+# Split 2026-08-19 into three atomic drift notes — see links
 
-The current `gh` CLI rejects `--state merged` (only `open|closed`; use the dedicated `--merged` flag) and no longer exposes `headRefName` or `mergedAt` in `--json` output (use `closedAt` and branch-filter via the GraphQL primary instead). Skills whose fallback queries still reference these fields will fail silently or error. First hit 2026-06-23 in `pr-tracker`'s fallback path; the `mergedAt` drift was confirmed 2026-06-25.
+Superseded by the three field-specific atomic notes above. Original bundle listed `--state merged`, `headRefName`, and `mergedAt` as one class; each is now its own atomic note so backlinks resolve to a single API field rather than a bundle.

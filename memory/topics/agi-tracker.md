@@ -44,3 +44,4 @@ A public GitHub Pages site that models frontier-agent capability via METR time-h
 ## Adjacent tooling caveats
 - [[generate-skills-json-newline-bug]] — generator splices raw `\n` for skills with two schedules
 - [[skills-json-count-drift]] — committed `skills.json` lags on-disk count
+- [[agi-tracker-missing-skill-md-dispatches-no-op]] — `skills/agi-tracker/SKILL.md` is currently missing; the skill dispatches, reports HEALTHY, and produces zero output; 7th consecutive silent-Mon fire hit 2026-08-17T13:25Z, 8th slot 2026-08-24T13:00Z
