@@ -1,0 +1,209 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse"
+      },
+      "children": [
+        "heading_date",
+        "separator_1",
+        "section_spot",
+        "separator_2",
+        "section_curve",
+        "separator_3",
+        "section_rail",
+        "separator_4",
+        "section_read"
+      ]
+    },
+    "heading_date": {
+      "type": "Text",
+      "props": {
+        "text": "2026-08-19",
+        "variant": "caption"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_spot": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_spot",
+        "stack_spot_content"
+      ]
+    },
+    "heading_spot": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h3"
+      }
+    },
+    "stack_spot_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badges_spot",
+        "stat_llama_price"
+      ]
+    },
+    "badges_spot": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_catalog",
+        "badge_surplus"
+      ]
+    },
+    "badge_catalog": {
+      "type": "Badge",
+      "props": {
+        "text": "catalog",
+        "variant": "secondary"
+      }
+    },
+    "badge_surplus": {
+      "type": "Badge",
+      "props": {
+        "text": "Surplus Intelligence",
+        "variant": "secondary"
+      }
+    },
+    "stat_llama_price": {
+      "type": "Stat",
+      "props": {
+        "label": "Llama 4 Scout",
+        "value": "$0.0764/M"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_curve",
+        "stat_h100",
+        "stat_deepseek",
+        "stat_agent_platform"
+      ]
+    },
+    "heading_curve": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h3"
+      }
+    },
+    "stat_h100": {
+      "type": "Stat",
+      "props": {
+        "label": "Hyperscaler H100 Reserve (R30, Round 6)",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "stat_deepseek": {
+      "type": "Stat",
+      "props": {
+        "label": "DeepSeek V3.2 Open-Weights (R30, Round 13)",
+        "value": "-44.2%",
+        "trend": "down"
+      }
+    },
+    "stat_agent_platform": {
+      "type": "Stat",
+      "props": {
+        "label": "Agent Platform Demand (R30, Round 20)",
+        "value": "+50.7%",
+        "trend": "up"
+      }
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_rail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_rail",
+        "text_x402",
+        "link_api"
+      ]
+    },
+    "heading_rail": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h3"
+      }
+    },
+    "text_x402": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on Base/USDC",
+        "variant": "body"
+      }
+    },
+    "link_api": {
+      "type": "Link",
+      "props": {
+        "label": "Surplus x402 API",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "separator_4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_read": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_read",
+        "alert_summary"
+      ]
+    },
+    "heading_read": {
+      "type": "Heading",
+      "props": {
+        "text": "One-Line Read",
+        "level": "h3"
+      }
+    },
+    "alert_summary": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "message": "Catalog mode (SURPLUS_PRICING_URL unset); curve anchored at $0.0764/M, supply tightening events dominate — H100 reservation shocks still the biggest single-round mover at +88.7%, with open-weights supply floods as the only meaningful offset."
+      }
+    }
+  }
+}
