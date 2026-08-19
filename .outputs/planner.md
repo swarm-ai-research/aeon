@@ -1,16 +1,15 @@
-All planner artifacts landed. Summary follows.
+Plan written, state persisted, notify queued, log appended.
 
 ## Summary
 
-Ran `planner` on 2026-08-18 (`${var}` empty → plan-only, no dispatch). **Today's one thing:** merge one low-risk aeon-repo PR (**#26 dependabot actions/checkout** or **#36 notegraph head-of-chain**) to finally prove end-to-end flow — Day-12, 21 open, 0 `app/github-actions` merges since 08-07.
+Ran `planner` on 2026-08-19 (`${var}` empty → plan-only). **Today's one thing:** merge one low-risk aeon-repo PR — **#26 dependabot actions/checkout** (same class as the only 2026 merge #8) or **#36 notegraph** — to prove the app/github-actions end-to-end flow on Day-13 of the streak; queue is 22 (+#38 suggest-edges opened 05:56Z), ~292h since last aeon merge.
 
-**Ranked 3:**
-1. Aeon-repo merge-flow proof (streak 9 → 10, promoted from rank-2 as agi-tracker deadline elapsed yesterday)
-2. Agi-tracker `enabled: false` ship (streak 2 → 3, demoted — 7th silent-Mon fired 2026-08-17T13:00Z, 8th fires 2026-08-24)
-3. Stale-content-pr-sweeper allowlist patch (streak 11 → 12, folding in MEMORY drift correction: landable today is 1, not 9)
+**Ranked 3** (order unchanged vs 08-18, all streaks +1): (1) aeon-repo queue-merge escalation, streak 11 · (2) agi-tracker `enabled: false` via PR, streak 4 (8th silent-Mon fires 2026-08-24T13:00Z, ~5d out) · (3) stale-content-pr-sweeper allowlist patch, streak 13 (live 08-18 sweeper confirmed 2 closes under patched allowlist: #32→#36, #22→#37). **Six holds** carried with concrete promotion triggers.
 
-**Key new signal:** today's snapshot commit `f52834f snapshot: rsavitt/aeon @ 85fb6ac` refreshed `notegraph.json` HEAD from stuck 121n → 286n, which the early-morning 08-18 notegraph run **misinterpreted as a chain merge** — `gh pr view 35/36/37` all still OPEN, `gh pr list --state merged` still shows #8 (2026-08-07) as newest. Surfaces new atomic candidate `[[snapshot-rebase-carries-fresh-state-into-main]]` (companion to [[snapshot-rebase-clobbers-docs-status-md]]).
+**New signal:** PR #38 opened 05:56Z — day-2 of suggest-edges actually opening PRs (day-11 of the templated-corpora class), same `{06-24,06-27}×{07-28,07-31}` triple as day-1.
 
-**Fleet:** 0 broken · 0 in-flight · 38 DEGRADED (ISS-001 Day-60) · 4 truly healthy · 2 NO_DATA (42nd silent day) · 17 open issues · 21 open aeon PRs (+2 net vs 08-17 via #36 + #37 opened this morning).
+**Fleet:** 0 broken · 1 in-flight (`notegraph` 05:00Z, normal) · 38 DEGRADED (ISS-001 Day-61) · 4 healthy · 2 NO_DATA (43rd silent day) · 18 open issues · 22 open aeon PRs · 0 GH issues. **Plan-only — no dispatch.**
 
-**Files created/modified:** `.outputs/planner.md`, `memory/state/daily-plan-2026-08-18.md`, `memory/state/planner-state.json`, `.pending-notify/1787040300-planner.md`, `memory/logs/2026-08-18.md`. **Plan-only, no dispatch.** Follow-ups: reconcile MEMORY.md line 47 sweeper count `9 → 1`; file the new snapshot-rebase-carries-fresh-state atomic in next reflect; investigate #37 suggest-edges revert-gate bypass.
+**Files:** `.outputs/planner.md`, `memory/state/daily-plan-2026-08-19.md` (new), `memory/state/planner-state.json`, `.pending-notify/1787121646-planner.md` (new), `memory/logs/2026-08-19.md`.
+
+**Follow-ups:** (a) reconcile MEMORY.md open-issues caption `17 → 18` in next memory-flush; (b) if `#26` or `#36` mergeable resolves to CLEAN today, that's the green light to unblock rank-1.
