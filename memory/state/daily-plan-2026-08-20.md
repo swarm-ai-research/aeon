@@ -1,0 +1,24 @@
+# Plan — 2026-08-20
+
+**Today's one thing:** Merge one low-risk aeon-repo PR — **#26 (dependabot actions/checkout, textbook auto-merge candidate — same class as last merged #8)** or **#36 (notegraph head, dep-free, against main)** — to prove end-to-end `app/github-actions` merge flow on **Day-14** (0 merges in ~320h+ since #8 on 08-07; the queue swelled to **24** overnight via +#39 notegraph +#40 suggest-edges).
+
+## Ranked
+
+1. **Prove end-to-end merge flow on the aeon repo** — streak 11 → 12, Day-14 of stalled merge flow. **24 open PRs** (up from 22 yesterday: +#39 notegraph opened 05:26Z, +#40 suggest-edges opened 05:56Z). PR creation has been viable since 08-07; merge lever remains unproven. Serves the [[pr-creation-toggle-is-distinct-from-merge-capability]] two-lever framing. Actions: (a) merge one low-risk PR — #26 (textbook auto-merge — same class as last merged #8) or #36 (notegraph head, dep-free); (b) walk down the 24-deep queue + ≥30 staged branches; (c) configure an auto-merge policy for `app/github-actions` PRs. **Trigger to promote off rank-1:** first `app/github-actions` merge lands.
+
+2. **Ship `enabled: false` on `aeon.yml:188` for `agi-tracker` via PR** — streak 4 → 5, per [[agi-tracker-missing-skill-md-dispatches-no-op]]. 7th silent-Mon fire already fired 2026-08-17T13:25Z; **8th silent-Mon fires 2026-08-24T13:00Z (4d out)**. Alt paths: (a) restore/author `skills/agi-tracker/SKILL.md` matching the [[agi-tracker]] MOC's weekly frontier-agent scoring shape; (b) ship `enabled: false` (lower friction, but pulls ms-02 from 47/50 → 46/50). **Trigger to promote to rank-1:** 24h before 08-24T13:00Z deadline.
+
+3. **Patch `stale-content-pr-sweeper` SKILL.md `ALLOWED_AUTHORS` + TRACKED prefixes** — streak 13 → 14 per [[stale-content-pr-sweeper-tracked-prefix-drift]]. Today's 08-19 sweeper run confirmed the 2-close-under-patched-allowlist outcome (5 tracked-prefix matches, 0 groups reached supersession). Add `"app/github-actions"` to `ALLOWED_AUTHORS` in step-1 snippet AND alias `compute-macro` / `skill-graph` prefixes OR align those skills' branch names to full skill-name form. **Trigger to promote:** third same-day open aeon-repo bot PR without a supersession close.
+
+## Holding / watching
+
+- **Populate `memory/watched-repos.md` OR disable the 6 watched-repos-dependent skills** — streak 14 → 15 chronic. 3-of-6 same-day short-circuit again on 08-19 (code-health, issue-triage, github-monitor). Fix is binary and known; holding pending operator input on which lever. **Trigger:** first non-chronic escalation from any of the 6 skills (e.g. failure not short-circuit).
+- **`pr-tracker` SKILL.md patch batch (57d overdue)** — streak 56 → 57. 12 sub-items known and enumerated in MEMORY.md line 55; recent 08-19 tuple `(0, 8, 1, 1)` letter / `(0, 9, 1, 0)` substantive hit 3-of-4 predictor. Item (d) partially masked by newly-confirmed queue-level [[notify-has-hash-dedup-queue-layer]] but the SKILL-level guard still matters. **Trigger:** any pr-tracker false-positive causing an operator wake.
+- **ISS-006 messages.yml multi-pocket rewrite** — streak 17 → 18, Day-18 of pocket-slot migration era. Yesterday's 06:00–07:30Z pocket delivered 2/2 (planner + compute-futures-eda both 06:37:5xZ). Fix path unchanged (multi-pocket cron rewrite must model 3 regimes). **Trigger:** first failed morning pocket delivery.
+- **`docs/status.md` snapshot-rebase gate** — streak 33 → 34, 34 days past urgency threshold per [[snapshot-rebase-clobbers-docs-status-md]]. Yesterday's heartbeat regenerated wholesale AGAIN (23rd consecutive rebase-clobber-then-regen). **Trigger:** operator time to land the two-part fix (audit heartbeat's auto-commit `git add` glob + exclude `docs/status.md` from snapshot merges).
+- **Suggest-edges within-`gitlawb-compute-futures-proofs/` pre-filter** — streak 11 → 12. Day-12 recurrence of [[suggest-edges-flags-templated-corpora-as-sim-1-noise]] via #40 opened 05:56Z with the same `{06-24, 06-27} × {07-28, 07-31}` signature returning at sim 0.98. Not top-3-worthy on merit alone — a merge-flow proof outranks a fix-a-noise-generator patch. **Trigger:** third consecutive day of same-signature PRs (would be tomorrow).
+- **swarm-repo App write-perm gap** — streak 38 → 39. 42 confirming-counter pr-review invocations + 38 pr-triage against a byte-frozen 8-PR queue with zero write attempts (queue frozen since 08-13 05:37Z, ~7d). Standing verdicts still hold on #549 REQUEST_CHANGES / #543 APPROVE. **Trigger:** first non-frozen SHA in the swarm queue.
+
+## Fleet note
+
+0 broken · 0 in-flight (**notegraph 05:00Z slot completed cleanly at 05:30:52Z — yesterday's stuck-callback did NOT recur**) · 38 DEGRADED (ISS-001 Day-62 residue) · 4 truly healthy · 2 NO_DATA (44th silent day for `ai-framework-watch` + `run-frequency-guard`) · 18 open issues · **24 open aeon PRs** (+#39 notegraph +#40 suggest-edges since yesterday) · 0 open GH issues.
