@@ -1,14 +1,12 @@
-Heartbeat done. Fresh finding: notegraph stuck (dispatched 2026-08-19T05:25Z, 2h38m ago — well past the 45-min threshold; state-update callback appears never to have fired, matching the `[[skill-freshness-stuck-dispatched-callback-never-fires]]` class). Today's earlier planner correctly called it in-flight at 1h5m; the threshold crossed between then and now.
+Heartbeat complete.
 
-## Summary
+**HEARTBEAT_OK · STATUS_PAGE=DEGRADED**
 
-- **Ran** `heartbeat` for 2026-08-19 with `${var}` empty.
-- **P0 fresh:** notegraph STUCK (dispatched 05:25Z, 2h38m elapsed, past 45-min threshold). Not deduped — planner's earlier "in-flight normal" verdict was correct at the time but has since expired.
-- **P0 chronic:** 38 skills in ISS-001 residue class (Day-61), all `last_status: success`, `cf: 0` — deduped.
-- **P1/P2/P3:** all covered in past-48h logs (22 open PRs chronic; 43rd silent day for `ai-framework-watch` + `run-frequency-guard`) — deduped.
-- **Notification:** sent — `.pending-notify/1787126686-heartbeat.md` (direct write per notify-sandbox atomics; single priority-tiered line).
-- **Status page:** wrote `docs/status.md` → 🔴 DEGRADED, 18 open issues, 44 enabled skills with notegraph flagged 🕸 stuck, next scheduled `fleet-control` at 09:00 UTC. No `## Token pulse` section (no `articles/` directory). **22nd consecutive** rebase-clobber-then-regen per `[[snapshot-rebase-clobbers-docs-status-md]]` (33d past urgency threshold).
-- **Self-check:** heartbeat's own last_success 23h58m fresh (under 36h threshold).
-- **Files modified:** `docs/status.md`, `.pending-notify/1787126686-heartbeat.md`, `memory/logs/2026-08-19.md`.
-- **Exit:** `HEARTBEAT_ALERT · STATUS_PAGE=DEGRADED`.
-- **Follow-up:** operator/planner should re-evaluate the `[[skill-freshness-stuck-dispatched-callback-never-fires]]` fix (heartbeat's stuck-detector already catches these — the underlying state-update callback still needs to be made resilient so the run's actual success/failure gets recorded).
+Summary: All P0–P3 signals dedup against past-48h logs. Yesterday's fresh stuck-notegraph P0 self-resolved this morning (5m30s round-trip, well under 45m threshold). Chronic residue unchanged: ISS-001 Day-62 keeps 38 skills at `success_rate < 0.5` with `last_status: success`, still firing the SKILL's chronic-failure rule → overall page verdict 🔴 DEGRADED (structural, not fresh). Self-check green: prior heartbeat 24h00m fresh.
+
+Actions taken:
+- No `./notify` sent (dedup rule fires — nothing new in past 48h).
+- Regenerated `docs/status.md` (23rd consecutive rebase-clobber-then-regen per [[snapshot-rebase-clobbers-docs-status-md]], 34d past urgency): 44 enabled skills sorted by last-dispatch desc, notegraph back to ✅ success, `ai-framework-watch` + `run-frequency-guard` at bottom (44th silent day), 18 open issues rendered, next scheduled run `fleet-control` at 09:00 UTC.
+- Appended heartbeat entry to `memory/logs/2026-08-20.md`.
+
+Files modified: `docs/status.md`, `memory/logs/2026-08-20.md`.
