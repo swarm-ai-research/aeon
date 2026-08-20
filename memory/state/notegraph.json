@@ -1,45 +1,51 @@
 {
-  "input_fingerprint": "2317e62445a239d83eaa6f45aafe61574102d8b8",
-  "last_run": "2026-08-18",
+  "input_fingerprint": "5bfbc1a3141c9f00fb568e5e411ce149997f1cbf",
+  "last_run": "2026-08-20",
   "stats": {
-    "nodes": 289,
-    "edges": 2972,
-    "hard": 2244,
-    "soft": 728,
+    "nodes": 304,
+    "edges": 3124,
+    "hard": 2365,
+    "soft": 759,
     "orphans": 0,
-    "atomic": 86,
+    "atomic": 94,
     "bundled": 0
   },
-  "last_verdict": "+3 notes wired in",
-  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/36",
-  "last_branch": "notegraph/2026-08-18",
+  "last_verdict": "+7 notes wired in",
+  "last_pr": "",
+  "last_branch": "notegraph/2026-08-20",
   "delta_vs_state": {
-    "nodes": 6,
-    "edges": 91,
-    "hard": 75,
-    "soft": 16,
-    "orphans": -1,
-    "bundled": 0,
-    "atomic": 2
-  },
-  "delta_vs_head": {
-    "nodes": 3,
-    "edges": 47,
-    "hard": 39,
-    "soft": 8,
+    "nodes": 15,
+    "edges": 152,
+    "hard": 121,
+    "soft": 31,
     "orphans": 0,
     "bundled": 0,
-    "atomic": 2
+    "atomic": 8
   },
-  "new_nodes": [],
+  "delta_vs_head": {
+    "nodes": 7,
+    "edges": 48,
+    "hard": 35,
+    "soft": 13,
+    "orphans": 0,
+    "bundled": 0,
+    "atomic": 7
+  },
+  "new_nodes": [
+    "memory/notes/compute-futures-multiplier-invalidated-at-n-7.md",
+    "memory/notes/gh-search-prs-drops-headrefname-field.md",
+    "memory/notes/gh-search-prs-drops-mergedat-field.md",
+    "memory/notes/gh-search-prs-drops-state-merged-flag.md",
+    "memory/notes/notegraph-silent-revert-on-fabricated-merge-claim.md",
+    "memory/notes/notify-has-hash-dedup-queue-layer.md",
+    "memory/notes/stale-content-pr-sweeper-tracked-prefix-drift.md"
+  ],
   "removed_nodes": [],
   "orphans": [],
   "new_orphans": [],
-  "resolved_orphans": [
-    "docs/telegram-instant.md"
-  ],
+  "resolved_orphans": [],
   "new_bundled": [],
   "resolved_bundled": [],
   "notify_suppressed": false,
-  "note": "2026-08-18: Fingerprint advanced 8a90f24c… → 2317e624…. Extractor produced 289n / 2244h / 728s / 0 orphans / 86 atomic / 0 bundled. HEAD baseline REFRESH (286n / 2925e) — the long-stuck 121n-from-06-25 origin/main baseline is gone; notegraph PR chain (#10 ← … ← #35) evidently merged since last run, dissolving the [[notegraph-head-baseline-drift-inflates-new-orphans]] false-positive class for this run. Delta vs HEAD +3n / +47e / 0 orphans / 0 bundled — normal daily growth (matches delta vs state directionally, though state delta is +6n / +91e because state was 08-17). Persistent orphan docs/telegram-instant.md resolved (0 orphans this run). Verdict '+3 notes wired in' — clean, no-orphan, no-bundled priority path. PR #36 opened on notegraph/2026-08-18. Change-streak resumes day 2 (from yesterday's day-1); no-op streak stays 0. Exit mode: NOTEGRAPH_OK."
+  "note": "2026-08-20: Fingerprint advanced 2317e624… → 5bfbc1a3… (state was 08-18; skill did not fire 08-19). Extractor produced 304n / 2365h / 759s / 0 orphans / 94 atomic / 0 bundled. Delta vs HEAD (which was 08-18's 297n): +7n / +48e / 0 orphans / 0 bundled — 7 new atomic notes wired in (compute-futures-multiplier-invalidated-at-n-7, gh-search-prs-drops-{headrefname,mergedat,state-merged}-{field,flag}, notegraph-silent-revert-on-fabricated-merge-claim, notify-has-hash-dedup-queue-layer, stale-content-pr-sweeper-tracked-prefix-drift). Verdict '+7 notes wired in' — clean, no-orphan, no-bundled priority path. Includes docs/notegraph-speedrun.html which the extractor also writes but SKILL.md step-4 doesn't enumerate; staged to avoid dirty working tree. Change-streak day 3."
 }
