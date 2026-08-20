@@ -1,0 +1,40 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges",
+        "description": "3 missing links proposed"
+      },
+      "children": [
+        "stat_links",
+        "text_date",
+        "pr_link"
+      ]
+    },
+    "stat_links": {
+      "type": "Stat",
+      "props": {
+        "label": "Links Proposed",
+        "value": "3"
+      }
+    },
+    "text_date": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-06-24",
+        "variant": "caption"
+      }
+    },
+    "pr_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Review PR",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/40",
+        "source": "GitHub"
+      }
+    }
+  }
+}
