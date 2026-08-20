@@ -1,0 +1,22 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "milestone-tracker"
+      },
+      "children": [
+        "text_content"
+      ]
+    },
+    "text_content": {
+      "type": "Text",
+      "props": {
+        "text": "--help"
+      },
+      "children": []
+    }
+  }
+}
