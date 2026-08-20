@@ -1,0 +1,243 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "text_date",
+        "section_spot",
+        "sep1",
+        "section_curve",
+        "sep2",
+        "section_rail",
+        "sep3",
+        "section_summary"
+      ]
+    },
+    "text_date": {
+      "type": "Text",
+      "props": {
+        "text": "2026-08-20",
+        "variant": "muted"
+      }
+    },
+    "section_spot": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_spot",
+        "stack_spot_content"
+      ]
+    },
+    "heading_spot": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h3"
+      }
+    },
+    "stack_spot_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_catalog",
+        "text_spot"
+      ]
+    },
+    "badge_catalog": {
+      "type": "Badge",
+      "props": {
+        "text": "catalog"
+      }
+    },
+    "text_spot": {
+      "type": "Text",
+      "props": {
+        "text": "Llama 4 Scout @ $0.0764/M (Surplus Intelligence)"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_curve",
+        "stack_curve_items"
+      ]
+    },
+    "heading_curve": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h3"
+      }
+    },
+    "stack_curve_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_h100",
+        "stat_deepseek",
+        "stat_agent"
+      ]
+    },
+    "stat_h100": {
+      "type": "Stat",
+      "props": {
+        "label": "Hyperscaler H100 reserve at R6 (tightened near-term)",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "stat_deepseek": {
+      "type": "Stat",
+      "props": {
+        "label": "DeepSeek V3.2 open-weights drop at R13 (supply flushed at R30)",
+        "value": "−44.2%",
+        "trend": "down"
+      }
+    },
+    "stat_agent": {
+      "type": "Stat",
+      "props": {
+        "label": "Agent platform demand surge at R20 (partially recovered at R30)",
+        "value": "+50.7%",
+        "trend": "up"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_rail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_rail",
+        "text_rail_ref",
+        "link_rail",
+        "stack_rail_metrics"
+      ]
+    },
+    "heading_rail": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h3"
+      }
+    },
+    "text_rail_ref": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on Base/USDC"
+      }
+    },
+    "link_rail": {
+      "type": "Link",
+      "props": {
+        "label": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "stack_rail_metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_delivered",
+        "stat_tx",
+        "stat_finality"
+      ]
+    },
+    "stat_delivered": {
+      "type": "Stat",
+      "props": {
+        "label": "Total delivered",
+        "value": "$198.43"
+      }
+    },
+    "stat_tx": {
+      "type": "Stat",
+      "props": {
+        "label": "Per-transaction cost",
+        "value": "$0.00025/tx"
+      }
+    },
+    "stat_finality": {
+      "type": "Stat",
+      "props": {
+        "label": "Finality time",
+        "value": "~400ms"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_summary",
+        "alert_status"
+      ]
+    },
+    "text_summary": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus inference market showed the usual supply-squeeze / open-weights flush / demand-surge three-act pattern."
+      }
+    },
+    "alert_status": {
+      "type": "Alert",
+      "props": {
+        "title": "Catalog Fallback Active",
+        "message": "SURPLUS_PRICING_URL unset — no live Surplus spot anchor today.",
+        "type": "info"
+      }
+    }
+  }
+}
