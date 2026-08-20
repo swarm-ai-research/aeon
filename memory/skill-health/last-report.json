@@ -3,11 +3,11 @@
   "hash_scheme": "sha256(json.dumps({critical, flapping, degraded sorted}, sort_keys=True))[:16]",
   "prev_hash": "e27c0ac60367e7e5",
   "classification_identical_to_prev": true,
-  "last_notified_at": "2026-08-18T18:33:53Z",
-  "last_run_at": "2026-08-19T18:30:31Z",
-  "prev_run_at": "2026-08-18T18:33:53Z",
+  "last_notified_at": "2026-08-20T18:15:03Z",
+  "last_run_at": "2026-08-20T18:15:03Z",
+  "prev_run_at": "2026-08-19T18:30:31Z",
   "prev_notified_at": "2026-08-18T18:33:53Z",
-  "elapsed_since_prev_notify_hours": 23.944,
+  "elapsed_since_prev_notify_hours": 47.685,
   "classification": {
     "critical": [],
     "degraded": [
@@ -64,8 +64,8 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 61 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.36 driven by historical failure denominator still in count. No live regression in cron-state or 7d ./scripts/skill-runs window (175 runs, 171 success, 0 fail, 0 cancelled, 4 in_progress).",
-  "delta_vs_prev": "Byte-identical classification to 2026-08-08 through 2026-08-18 runs at hash e27c0ac60367e7e5. 54th consecutive steady-state day (ISS-001 day 61). Gate: NOOP (hash unchanged AND elapsed 23.944h < 24h daily-reminder threshold; last notify 2026-08-18T18:33:53Z). ai-framework-watch + run-frequency-guard 43rd consecutive silent day per this skill's count. Novel-but-non-escalating: notegraph.last_status=dispatched since 2026-08-19T05:25:37Z (13h+ stuck-callback per heartbeat 08:04Z fresh P0) — does not affect classification (cf=0, not last_status=failed; DEGRADED anyway via success_rate=0.20 ISS-001 residue). Heartbeat already notified on the stuck signal; skill-health defers to that channel per no-duplication convention.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 63 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.37 driven by historical failure denominator still in count. No live regression: 7d ./scripts/skill-runs window shows 177 runs / 173 success / 0 fail / 0 cancelled / 4 in_progress.",
+  "delta_vs_prev": "Byte-identical classification to 2026-08-08 through 2026-08-19 runs at hash e27c0ac60367e7e5. 55th consecutive steady-state day (ISS-001 day 63). Gate: NOTIFY (hash unchanged BUT elapsed 47.685h >= 24h daily-reminder threshold; last notify 2026-08-18T18:33:53Z crossed the cadence gate cleanly at ~yesterday's run+24h; 08-19 run was NOOP at 23.944h just under the gate). ai-framework-watch + run-frequency-guard 44th consecutive silent day per this skill's count (45th in operator-facing message counting from 2026-07-06 baseline used in prior reports). Novel-but-non-escalating: notegraph.last_status=dispatched-then-resolved (05:25:58Z dispatched -> 05:30:52Z success in ~5m30s, well under the 45-min stuck-callback threshold) — the 2026-08-19 stuck-callback recurrence of [[skill-freshness-stuck-dispatched-callback-never-fires]] did NOT re-occur today; heartbeat channel already handled that transient.",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "open_issues_per_index": 18,
@@ -90,16 +90,16 @@
     "ISS-019",
     "ISS-020"
   ],
-  "notify_decision": "NOOP - hash unchanged AND elapsed 23.944h < 24h daily-reminder threshold. No ./notify call issued. Reconciliation: 0 CRITICAL / 0 FLAPPING -> no new issues filed. Only HEALTHY skill in any open issue's affected_skills is swarm-safety-eval in ISS-005 (detected_by=skill-evals, no_file_match signature, not consecutive_failures) -> per resolution-ownership convention (see 08-17/08-18 reports), no removal. notegraph stuck-dispatched flag (heartbeat 08:04Z P0) does not upgrade to CRITICAL under classification rules (cf=0, last_status=dispatched not failed); heartbeat already notified.",
-  "skill_runs_status": "OK - ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 175 runs total, 171 succeeded, 0 failed, 0 cancelled, 4 in_progress. anomalies.failing = [] confirms no active-failure regressions in the 7d window.",
+  "notify_decision": "NOTIFY - hash unchanged (e27c0ac60367e7e5, 55d steady) BUT elapsed 47.685h >= 24h daily-reminder threshold. Wrote .pending-notify/1787249814-skill-health.md per [[notify-inline-cat-substitution-blocked-in-sandbox]] + [[notify-script-has-no-f-flag]]. Reconciliation: 0 CRITICAL / 0 FLAPPING -> no new issues filed. HEALTHY skills appearing in open issue affected_skills: swarm-safety-eval in ISS-005 (detected_by=skill-evals) + config-validator/swarm-safety-eval in ISS-006 (detected_by=batch-health) -> per resolution-ownership convention (skill-health does not touch issues owned by other detectors, established 08-17/08-18/08-19), no removals. notegraph 08-19 stuck-dispatched already-resolved by 08-20 05:30:52Z success; no reclassification needed.",
+  "skill_runs_status": "OK - ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 177 runs total, 173 succeeded, 0 failed, 0 cancelled, 4 in_progress. anomalies.failing = [] confirms no active-failure regressions in the 7d window. Duplicates section shows 4 in-progress runs (pr-review, goal-tracker, reflect, skill-health) mid-flight during this scan — normal cadence overlap.",
   "novel_transient_signals_not_escalated": [
-    "18 open issues unchanged from 08-08 through 08-18 (no new filings, no resolutions across the fleet in the 7d window).",
-    "54th consecutive steady-state day for skill-health hash - ISS-001 residue continues to dominate; no live-signal regressions in cron-state or ./scripts/skill-runs 7d window (175 runs, 171 success, 4 in_progress).",
-    "23.944h elapsed since last notify at 2026-08-18T18:33:53Z - just under 24h daily-reminder gate; NOOP path chosen (next run at typical ~18:30Z cadence tomorrow will cross the threshold cleanly).",
-    "notegraph.last_status=dispatched since 2026-08-19T05:25:37Z (13h+ stuck-callback), matches [[skill-freshness-stuck-dispatched-callback-never-fires]] class (first since 07-25 08:49Z). Heartbeat 08:04Z P0-notified on the fresh stuck signal; skill-health classification unaffected (cf=0, last_status=dispatched not failed; DEGRADED via ISS-001 residue anyway). Defers to heartbeat channel.",
-    "aeon-repo PR queue at 22 open (unchanged vs 08-18 baseline plus +#38 suggest-edges opened 05:56Z), 292h+ since last app/github-actions merge #8 - long-running operator-blocker, not a fleet-health regression.",
-    "compute-futures-eda 08-19 CSV surfaced first HIGH-tier per-mode outlier cluster since daily cadence began (synth/x402 maxCurve 25%, super-anchor seed 202608194 with 19 non-dust positions across all 4 modes); retail spread-loss cluster extends to n=12; does not affect fleet health classification.",
-    "suggest-edges 08-19 opened PR #38 (day-2 of actually-opening PRs after days-8-10 revert-without-commit); day-11 recurrence of [[suggest-edges-flags-templated-corpora-as-sim-1-noise]] with signature returning to original {06-24, 06-27} × {07-28, 07-31}."
+    "18 open issues unchanged from 08-08 through 08-19 (no new filings, no resolutions across the fleet in the 7d window).",
+    "55th consecutive steady-state day for skill-health hash - ISS-001 residue continues to dominate; no live-signal regressions in cron-state or ./scripts/skill-runs 7d window (177 runs, 173 success, 4 in_progress).",
+    "47.685h elapsed since last notify at 2026-08-18T18:33:53Z - crossed the 24h daily-reminder gate cleanly (08-19 run was NOOP at 23.944h just under threshold). Next expected notify at ~18:30Z tomorrow (2026-08-21) or first classification change.",
+    "notegraph 08-19 stuck-dispatched (13h+ callback gap, [[skill-freshness-stuck-dispatched-callback-never-fires]] recurrence) self-resolved on today's 05:25:58Z dispatch -> 05:30:52Z success (5m30s, well under 45-min threshold). Classification unaffected either way (cf=0, DEGRADED via ISS-001 residue).",
+    "aeon-repo PR queue at 24 open (+#39 notegraph opened 05:28Z + #40 suggest-edges opened 05:57Z today), ~320h+ since last app/github-actions merge #8 - long-running operator-blocker (planner rank-1 streak-12 today), not a fleet-health regression.",
+    "compute-futures-eda 08-19 CSV surfaced first HIGH-tier cross-mode outlier cluster (synth/x402 maxCurve 25%, super-anchor seed 202608194 with 19 non-dust positions across all 4 modes); retail spread-loss cluster n=12; does not affect fleet health classification.",
+    "suggest-edges opened PR #40 today with same signature as #38 + #37 (day-12 recurrence of [[suggest-edges-flags-templated-corpora-as-sim-1-noise]] cluster {06-24, 06-27} x {07-28, 07-31}); does not affect fleet health classification."
   ],
-  "prompt_injection_flag": "None. cron-state.json, skill-runs JSON, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md + ISS-*.md, memory/logs/2026-08-19.md all structured/data-only; no untrusted natural-language content ingested this run."
+  "prompt_injection_flag": "None. cron-state.json, skill-runs JSON, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md + ISS-*.md, memory/logs/2026-08-20.md all structured/data-only; no untrusted natural-language content ingested this run."
 }
