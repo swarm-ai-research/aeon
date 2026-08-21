@@ -1,23 +1,11 @@
-All three outputs are in place. Executed `skill-health` per SKILL.md.
+Skill-health ran and gated to NOOP.
 
 ## Summary
 
-Ran `skill-health` for 2026-08-20 (whole-fleet, `${var}` empty). **HEALTH: DEGRADED(38)** — hash `e27c0ac60367e7e5` unchanged for 55th consecutive day (ISS-001 OAuth-outage denominator residue Day-63). Gate flipped from yesterday's NOOP (23.944h) to today's NOTIFY (47.685h ≥ 24h daily-reminder threshold); notification queued.
-
-**Classification** (byte-identical to prior 55 runs):
-- 0 CRITICAL · 0 FLAPPING · 38 DEGRADED (all `cf=0`, `success_rate` 0.01–0.37 from historical denominator, not live regression)
-- 4 HEALTHY: `agi-tracker`, `config-validator`, `swarm-safety-eval`, `weekly-shiplog`
-- 2 NO_DATA: `ai-framework-watch`, `run-frequency-guard` (45th silent day)
-
-**7d skill-runs:** 177 total, 173 succeeded, 0 failed, 4 in_progress. `anomalies.failing = []`.
-
-**Reconciliation:** 0 issues filed (no CRITICAL/FLAPPING). 0 resolved — HEALTHY-in-affected-skills matches (`swarm-safety-eval` in ISS-005 owned by skill-evals; `config-validator` + `swarm-safety-eval` in ISS-006 owned by batch-health) skipped per resolution-ownership convention (skill-health does not touch issues owned by other detectors). Open count unchanged at 18.
-
-**Notable non-escalating:** notegraph's 08-19 stuck-callback recurrence self-resolved — today's 05:25:58Z dispatch → 05:30:52Z success (5m30s, well under 45-min threshold).
-
-**Files modified:**
-- `.pending-notify/1787249814-skill-health.md` (new — notification queued)
-- `memory/skill-health/last-report.json` (updated: `last_notified_at` and `last_run_at` → 2026-08-20T18:15:03Z)
-- `memory/logs/2026-08-20.md` (appended skill-health section + summary)
-
-**Follow-ups:** none — steady state. ISS-021 draft for [[enabled-skills-can-never-dispatch]] remains a planner-owned action.
+- **Classification hash:** `e27c0ac60367e7e5` — byte-identical to the 08-08 → 08-20 runs (56th consecutive steady-state day).
+- **Fleet breakdown:** 0 CRITICAL · 0 FLAPPING · 0 WARNING · 38 DEGRADED (ISS-001 Day-64 residue — all `last_status: success`, `cf: 0`, `success_rate` 0.01–0.37 from the 2026-06-06 → 06-20 OAuth-outage denominator) · 4 HEALTHY (`agi-tracker`, `config-validator`, `swarm-safety-eval`, `weekly-shiplog`) · 2 NO_DATA (`ai-framework-watch`, `run-frequency-guard`, 45th silent day).
+- **Live 7d signal:** `./scripts/skill-runs` 175/171/0/0/4 with `anomalies.failing = []` — no active-failure regressions.
+- **Notify gate:** NOOP — hash unchanged AND elapsed 23.889h < 24h daily-reminder threshold (last notify 2026-08-20T18:15:03Z; today's ~18:08Z run misses the gate by ~7 min). No `./notify` invoked.
+- **Issue reconciliation:** 0 filed, 0 resolved, 18 open unchanged. Honored resolution-ownership convention for `swarm-safety-eval` (ISS-005 owned by skill-evals) + `config-validator`/`swarm-safety-eval` (ISS-006 owned by batch-health) — no removals.
+- **Files modified:** `memory/skill-health/last-report.json` (bumped `last_run_at`, day counter 63→64, `elapsed_since_prev_notify_hours`, decision fields; `last_notified_at` preserved per NOOP), `memory/logs/2026-08-21.md` (appended skill-health entry + summary).
+- **Follow-up:** next scheduled skill-health fire (~18:15Z 2026-08-22) should clear the 24h gate and re-notify with the same steady-state report.
