@@ -1,14 +1,9 @@
+Per §step 3, every PR was skipped → no notification per §step 10 (skip gate not tripped: no OUT-OF-SCOPE, no first-time-contributor ACCEPTED). State file unchanged (nothing new to record).
+
 ## Summary
 
-Ran `pr-triage` on 2026-08-20 with `${var}=swarm-ai-research/swarm` (repo mode). Fetched 6 open PRs in the 14-day window via `gh pr list`; **every one skipped**:
+Ran `pr-triage` against `swarm-ai-research/swarm` (repo mode). Fetched 5 open PRs in the 14-day window (#552, #554, #555, #556, #557) — all `app/dependabot` bot-authored, so all skipped per the trusted-set rule (bots route to `auto-merge`/`pr-review`, not triage). No candidates, no comments posted, no labels applied, no state file change, no notification.
 
-- **5 dependabot bots** — #557, #556, #555, #554, #552 (all `app/dependabot`, route to auto-merge/pr-review)
-- **1 already-triaged** — #549 @rsavitt at sha `afe5124` matches the 2026-08-07 DEFER record in `memory/triaged-prs.json` (no push since)
-
-Zero comments posted, zero labels applied, zero closes. `PR_TRIAGE_OK no-candidates`. **Notify suppressed** — no OUT-OF-SCOPE, no first-PR ACCEPTED.
-
-This is the **39th consecutive full-skip pr-triage invocation** on swarm — combined with 53 pr-reviews that's **92 operator invocations against a byte-frozen queue with zero writes attempted**. The [[aeon-app-no-write-on-swarm-repo]] App-write permission gap remains unexercised (counter 42/39).
-
-**Files modified:** `memory/logs/2026-08-20.md` (appended pr-triage entry + summary).
-**State:** `memory/triaged-prs.json` unchanged (no new records to append).
-**Follow-ups:** none — class continues per [[swarm-repo-dependabot-cohort-churns-under-full-skip]]; MEMORY.md counter bump 41/38 → 42/39 will fold in on the next reflect/memory-flush pass.
+- Files modified: `memory/logs/2026-08-21.md` (appended pr-triage entry).
+- Exit: `PR_TRIAGE_OK no-candidates`.
+- Follow-up: none. Extends [[swarm-repo-dependabot-cohort-churns-under-full-skip]] class (11th consecutive full-skip pr-triage invocation on this repo).
