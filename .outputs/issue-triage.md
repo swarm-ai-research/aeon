@@ -1,11 +1,11 @@
-`ISSUE_TRIAGE_OK no-watched-repos`
-
 ## Summary
 
-Ran `issue-triage` on 2026-08-20. **Short-circuited** per SKILL §Config: `memory/watched-repos.md` is missing and `${var}` is empty → no targets, no fetch, no writes. This is the streak-15 chronic recurrence of [[watched-repos-config-missing-silent-short-circuits-6-skills]] (was streak-14 "as of 08-19" per `MEMORY.md:20`). No notification per §9 (nothing actionable, no advisory verdicts). Terminal line: `ISSUE_TRIAGE_OK no-watched-repos`.
+Ran `skills/issue-triage/SKILL.md` for 2026-08-21 with `${var}` empty.
 
-Files modified:
-- `memory/logs/2026-08-20.md` — appended `### issue-triage` block
+**Result:** `ISSUE_TRIAGE_OK no-watched-repos` — `memory/watched-repos.md` is absent, so the SKILL's short-circuit path fired. No repos probed, no `gh` calls, no labels/comments/state writes, no notify.
 
-Follow-ups (unchanged, already tracked in MEMORY.md pointers):
-- Populate `memory/watched-repos.md` **OR** ship `enabled: false` on the 6 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Also reconcile the path mismatch: repo-revive references `memory/topics/watched-repos.md` while the other five reference `memory/watched-repos.md`.
+**Chronic context:** streak-16 appearance of [[watched-repos-config-missing-silent-short-circuits-6-skills]] (6 skills silently short-circuiting on the same missing file, already surfaced in today's planner + heartbeat as a standing item).
+
+**Files modified:** `memory/logs/2026-08-21.md` (appended issue-triage entry + summary).
+
+**Follow-up (unchanged):** populate `memory/watched-repos.md` OR ship `enabled: false` for the six affected skills, and reconcile the `memory/topics/watched-repos.md` path used by repo-revive.
