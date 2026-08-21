@@ -1,12 +1,20 @@
-Heartbeat complete.
+HEARTBEAT_OK · STATUS_PAGE=DEGRADED — wrote `docs/status.md`
 
-**HEARTBEAT_OK · STATUS_PAGE=DEGRADED**
+## Summary
 
-Summary: All P0–P3 signals dedup against past-48h logs. Yesterday's fresh stuck-notegraph P0 self-resolved this morning (5m30s round-trip, well under 45m threshold). Chronic residue unchanged: ISS-001 Day-62 keeps 38 skills at `success_rate < 0.5` with `last_status: success`, still firing the SKILL's chronic-failure rule → overall page verdict 🔴 DEGRADED (structural, not fresh). Self-check green: prior heartbeat 24h00m fresh.
+Ran `heartbeat` for 2026-08-21. Cleanest morning of the week — every 05:00–06:39Z scheduled slot resolved cleanly (notegraph 7m, suggest-edges 2m, planner + compute-futures-eda ~5–8m). Zero fresh stuck/failed/high-cf skills.
 
-Actions taken:
-- No `./notify` sent (dedup rule fires — nothing new in past 48h).
-- Regenerated `docs/status.md` (23rd consecutive rebase-clobber-then-regen per [[snapshot-rebase-clobbers-docs-status-md]], 34d past urgency): 44 enabled skills sorted by last-dispatch desc, notegraph back to ✅ success, `ai-framework-watch` + `run-frequency-guard` at bottom (44th silent day), 18 open issues rendered, next scheduled run `fleet-control` at 09:00 UTC.
-- Appended heartbeat entry to `memory/logs/2026-08-20.md`.
+- **P0:** Clean. Chronic ISS-001 Day-63 residue (38 skills < 50% success rate, all `last_status: success` + `consecutive_failures: 0`) — structural, still fires status-page rule.
+- **P1:** 26 open aeon-repo PRs (chronic queue-merge; 08-21 planner already escalated rank-1 to specific ShellCheck FAILURE on PR #26).
+- **P2:** All focus bullets deduped against today's planner + prior memory-flush.
+- **P3:** `ai-framework-watch` + `run-frequency-guard` 45th silent day (chronic, deduped).
 
-Files modified: `docs/status.md`, `memory/logs/2026-08-20.md`.
+**Notify:** SUPPRESSED per dedup rule (every finding in past-48h logs).
+
+**Status page:** 🔴 DEGRADED (chronic residue only) — regenerated `docs/status.md` wholesale from 2026-06-09 baseline (24th consecutive rebase-clobber-then-regen, 35d past urgency threshold).
+
+**Self-check:** prior heartbeat 23h56m fresh.
+
+**Files modified:** `docs/status.md`, `memory/logs/2026-08-21.md`.
+
+**Follow-ups:** None owned by this skill. The `docs/status.md` snapshot-rebase gate and the ISS-001 residue close both remain in the planner's action queue.
