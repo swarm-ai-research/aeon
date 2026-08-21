@@ -1,18 +1,18 @@
 {
-  "last_run": "2026-08-20T06:30:00Z",
+  "last_run": "2026-08-21T06:30:00Z",
   "top_priority": "aeon-repo-queue-merge-escalation",
   "priority_streak": {
-    "aeon-repo-queue-merge-escalation": 12,
-    "agi-tracker-enabled-false-via-pr": 5,
-    "stale-content-pr-sweeper-allowed-authors-patch": 14,
-    "suggest-edges-templated-corpus-prefilter": 12,
-    "watched-repos-population-or-disable": 15,
-    "pr-tracker-patch-batch": 57,
-    "iss-006-messages-yml-multi-pocket-rewrite": 18,
-    "docs-status-md-snapshot-rebase-gate": 34,
-    "swarm-repo-app-perm-gap": 39
+    "aeon-repo-queue-merge-escalation": 13,
+    "agi-tracker-enabled-false-via-pr": 6,
+    "stale-content-pr-sweeper-allowed-authors-patch": 15,
+    "suggest-edges-templated-corpus-prefilter": 13,
+    "watched-repos-population-or-disable": 16,
+    "pr-tracker-patch-batch": 58,
+    "iss-006-messages-yml-multi-pocket-rewrite": 19,
+    "docs-status-md-snapshot-rebase-gate": 35,
+    "swarm-repo-app-perm-gap": 40
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Twentieth planner run in the ISS-006 pocket-slot migration era; FOURTEENTH since 08-07 overnight PR-creation toggle unblock. HEADLINE: rank order UNCHANGED from 08-18/08-19 (third consecutive day at same top-3). rank-1 aeon-repo-queue-merge-escalation (streak 11 → 12, Day-14 of stalled merge flow, queue grew from 22 → 24 overnight via +#39 notegraph +#40 suggest-edges), rank-2 agi-tracker-enabled-false-via-pr (streak 4 → 5, 8th silent-Mon fires 2026-08-24T13:00Z ~4d out), rank-3 stale-content-pr-sweeper-allowed-authors-patch (streak 13 → 14, 08-19 sweeper confirmed 2-closes-under-patched-allowlist outcome). All hold streaks advanced 1d each. NEW SIGNAL of the day: notegraph 05:25:58Z → 05:30:52Z SUCCESS (5m clean run) — yesterday's [[skill-freshness-stuck-dispatched-callback-never-fires]] recurrence did NOT re-occur today; state-update callback fired within threshold. Suggest-edges PR #40 opened 05:56Z with same original triple signature at sim 0.98 (day-12 recurrence). No git log activity on main since 99fcd10 snapshot commit yesterday. gh pr view 26/36/39/40 all mergeable: UNKNOWN (GitHub hasn't recomputed). INDEX.md open count 18 (unchanged; MEMORY.md still shows 17 in one caption — worth reconciling in next memory-flush). Fleet: 0 broken, 0 in-flight (cleanest morning in a week), 38 DEGRADED (ISS-001 Day-62), 4 truly healthy, 2 NO_DATA (44th silent day). ${var} empty → plan-only, no dispatch."
+  "notes": "Twenty-first planner run in the ISS-006 pocket-slot migration era; FIFTEENTH since 08-07 overnight PR-creation toggle unblock. FOURTH consecutive day at same top-3 ranking. Rank order UNCHANGED — but rank-1 ESCALATED per stuck-goal rule from streak-12 restatement to specific-blocker diagnosis. NEW SIGNAL: `gh pr view 26 --json statusCheckRollup` shows 4/5 checks PASS + ShellCheck FAILURE (workflow `Lint`, job 95256043957, completed 2026-08-17T01:09:55Z). #26 (dependabot actions/checkout, same class as merged #8) is the textbook auto-merge candidate — the ShellCheck failure is the specific unblock target. Concrete action: read job log, either fix the offending shell file or waive the check on dependabot-authored PRs. #41 (notegraph, opened today 05:10Z) is also merge-eligible with statusCheckRollup=[] (no required checks). Rank-2 agi-tracker deadline tightens 4d → 3d (fires 2026-08-24T13:00Z). Rank-3 sweeper patch — yesterday's run confirmed 8 candidates all `app/github-actions` fail hardcoded `{aeonframework}` allowlist; under a patched allowlist 6 stale PRs would close (notegraph #32/#35/#36 superseded by #41; suggest-edges #22/#37/#38/#40 superseded by #42). New PRs overnight: #41 notegraph 05:10Z (307n/3156e/0b, 16-file diff) + #42 suggest-edges 05:47Z (same signature as #37/#38/#40). Fleet: 0 broken, 0 in-flight (second consecutive clean morning), 38 DEGRADED (ISS-001 Day-63), 4 truly HEALTHY, 2 NO_DATA (45th silent day). 18 open ISS. 26 open aeon PRs (up from 24). ${var} empty → plan-only, no dispatch."
 }
