@@ -1,5 +1,7 @@
-Fleet Control complete. Registry is empty (`memory/instances.json` → `.instances: []`), so per pre-flight step 1 I logged `FLEET_EMPTY: no managed instances` to `memory/logs/2026-08-20.md` and stopped without notifying.
+The task is a single-step short-circuit; no task tracking needed. Skill executed as specified.
 
 ## Summary
 
-Ran `fleet-control` for 2026-08-20 in Health Check Mode (`${var}` empty). Registry is empty → hit the pre-flight stop-silently gate. Verified gh auth (github-actions[bot]) and rate_remaining=4990 in passing, but made no per-instance API calls since there are no targets. No notify sent (empty fleet is not news). No state-file bootstrap (nothing to snapshot). Files modified: `memory/logs/2026-08-20.md` (appended one entry). No follow-ups — registry stays empty until an operator adds an instance.
+Ran `fleet-control` on 2026-08-21 (`${var}` empty → Health Check Mode). Pre-flight step 1 short-circuited: `memory/instances.json` contains `{"instances": []}` — empty registry. Per SKILL, logged `FLEET_EMPTY: no managed instances` to `memory/logs/2026-08-21.md` and stopped. No `gh` calls, no state file created, no notification sent (empty fleet is not news).
+
+Files modified: `memory/logs/2026-08-21.md`. No follow-ups.
