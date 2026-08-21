@@ -1,16 +1,14 @@
 ## Summary
 
-Ran `pr-review` on `swarm-ai-research/swarm` (55th operator invocation, 2nd same-day fire after the 54th earlier today). Fetched 9 open PRs — **queue byte-identical to the 54th invocation** (same 9 headRefOids). All 9 matched a skip rule before any diff-fetch or verdict step:
+Ran `pr-review` on `swarm-ai-research/swarm` (56th operator invocation) under merge-gate policy (`APPROVE` / `REQUEST_CHANGES` / `BLOCK`). Fetched 9 open PRs — queue byte-identical to yesterday's 54th + 55th invocations, no SHA churn overnight. All 9 skipped before any diff-fetch:
 
-- **7 bot-author** (app/dependabot): #557, #556, #555, #554, #552, #538, #537
-- **2 dup-SHA** (last-2-days log): #549 rsavitt `afe51248` (21st consecutive), #543 rsavitt `bad79e48` (21st consecutive)
+- **7 bot-author** (all app/dependabot): #557 langchain-anthropic 1.5.6, #556 langchain-core 1.5.5, #555 langgraph 1.2.11, #554 action-download-artifact 21→23, #552 setuptools, #538 actions/github-script 7→9, #537 actions/setup-python 6→7
+- **2 dup-SHA** (rsavitt, both ~14d frozen since 2026-08-07): #549 `afe51248` (22 prior invocations, standing verdict **REQUEST_CHANGES 2/5**), #543 `bad79e48` (22 prior invocations, standing verdict **APPROVE 5/5**)
 
-**Standing verdicts unchanged**: #549 `REQUEST_CHANGES` 2/5, #543 `APPROVE` 5/5 (both ~13d frozen since 2026-08-07).
+No inline comments, no summary review, no notify (all-skip rule per SKILL). App-write gap on swarm-ai-research/swarm remains unexercised (counter → 44 pr-review). [[swarm-repo-dependabot-cohort-churns-under-full-skip]] class extends to **13 consecutive full-skip invocations** (44th–56th).
 
-**Merge-gate decision**: no reviewable PR reached the verdict step this run — every candidate is either an unauthorized bot (dependabot) or a duplicate of a SHA already reviewed within the 2-day window. No `APPROVE` / `REQUEST_CHANGES` / `BLOCK` emitted; the standing verdicts on #549 (REQUEST_CHANGES) and #543 (APPROVE) remain the operative merge-gate signals for the two human PRs.
+**Verdicts standing from prior full reviews (both PRs frozen at same SHA for ~14d):**
+- **swarm-ai-research/swarm#549** → **REQUEST_CHANGES** (2/5)
+- **swarm-ai-research/swarm#543** → **APPROVE** (5/5)
 
-No inline comments, no summary review, no notify (SKILL rule: all-skip → log only). App-write gap on `swarm-ai-research/swarm` ([[aeon-app-no-write-on-swarm-repo]]) unexercised — confirming counter advances to **43** (pr-review). [[swarm-repo-dependabot-cohort-churns-under-full-skip]] extends to **12 consecutive full-skip invocations** (44th–55th).
-
-**Files modified**: `memory/logs/2026-08-20.md` (55th-invocation entry appended).
-
-**Follow-ups**: none owned by this skill. MEMORY.md counter bump to 43/39 will fold in on the next reflect/memory-flush pass.
+Files modified: `memory/logs/2026-08-21.md`. Exit: `PR_REVIEW_ALL_SKIPPED`.
