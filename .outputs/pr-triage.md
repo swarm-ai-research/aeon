@@ -1,9 +1,5 @@
-Per §step 3, every PR was skipped → no notification per §step 10 (skip gate not tripped: no OUT-OF-SCOPE, no first-time-contributor ACCEPTED). State file unchanged (nothing new to record).
+All 5 open PRs in the 14d window are `app/dependabot` bot-authored → skipped at SKILL §3 bot-author gate. No verdicts issued, no comments/labels posted, no writes attempted. `triaged-prs.json` unchanged; no notify per §10 gate.
 
 ## Summary
 
-Ran `pr-triage` against `swarm-ai-research/swarm` (repo mode). Fetched 5 open PRs in the 14-day window (#552, #554, #555, #556, #557) — all `app/dependabot` bot-authored, so all skipped per the trusted-set rule (bots route to `auto-merge`/`pr-review`, not triage). No candidates, no comments posted, no labels applied, no state file change, no notification.
-
-- Files modified: `memory/logs/2026-08-21.md` (appended pr-triage entry).
-- Exit: `PR_TRIAGE_OK no-candidates`.
-- Follow-up: none. Extends [[swarm-repo-dependabot-cohort-churns-under-full-skip]] class (11th consecutive full-skip pr-triage invocation on this repo).
+Ran `pr-triage` on `swarm-ai-research/swarm` (repo-mode). Scanned 5 open PRs in the 14d created-window (#557, #556, #555, #554, #552 — all `app/dependabot`); all 5 skipped as bot-authored (route to `auto-merge`/`pr-review`). Extends [[swarm-repo-dependabot-cohort-churns-under-full-skip]] to 40th consecutive full-skip pr-triage invocation; combined with today's 57th pr-review, operator load on the frozen swarm queue is now 97 invocations with [[aeon-app-no-write-on-swarm-repo]] still unexercised. Human PRs #549/#543 are outside the 14d created-window filter. Terminal: `PR_TRIAGE_OK no-candidates`. Files modified: `memory/logs/2026-08-22.md`. No follow-up actions.
