@@ -1,11 +1,3 @@
 ## Summary
 
-Ran `skills/issue-triage/SKILL.md` for 2026-08-21 with `${var}` empty.
-
-**Result:** `ISSUE_TRIAGE_OK no-watched-repos` — `memory/watched-repos.md` is absent, so the SKILL's short-circuit path fired. No repos probed, no `gh` calls, no labels/comments/state writes, no notify.
-
-**Chronic context:** streak-16 appearance of [[watched-repos-config-missing-silent-short-circuits-6-skills]] (6 skills silently short-circuiting on the same missing file, already surfaced in today's planner + heartbeat as a standing item).
-
-**Files modified:** `memory/logs/2026-08-21.md` (appended issue-triage entry + summary).
-
-**Follow-up (unchanged):** populate `memory/watched-repos.md` OR ship `enabled: false` for the six affected skills, and reconcile the `memory/topics/watched-repos.md` path used by repo-revive.
+Ran `issue-triage` on 2026-08-22 with `${var}` empty. Config gate short-circuited: neither `memory/watched-repos.md` nor `memory/topics/watched-repos.md` exists, so `targets = []`. Exited immediately per SKILL rule with `ISSUE_TRIAGE_OK no-watched-repos` — no `gh` probe, no label writes, no comments, no notify. Extends the **streak-17 chronic same-day short-circuit cluster** already tracked in MEMORY.md; not filing a duplicate issue (class already owned by [[watched-repos-config-missing-silent-short-circuits-6-skills]] with fix path in the planner holding items). Files modified: `memory/logs/2026-08-22.md`.
