@@ -1,2 +1,8 @@
-*Compute-Futures EDA — 2026-08-21*
-144 rows, 4 modes. Top: spread retail-loss n=14 (mean −$10,437, 30% deeper vs 08-20; 5/5 top-5 retail purity 4th filing). Cross-mode MEDIUM clusters 3→5 (new peak; stress axis pivots curve→spot, minSpot MEDIUM in all 4 modes). Super-anchor TIES 18/18 across 202608212 + 2026082112 (first dual-anchor day). Multiplier 2.5000× n=4 (one filing to n≥5 threshold). Conservation OK all modes (all 4 signs invert vs 08-20). Report: memory/topics/compute-futures-eda/2026-08-21.md
+Latest CSV is `2026-08-21.csv` and `memory/topics/compute-futures-eda/2026-08-21.md` already exists — per skill step 1's guard ("exit cleanly — already analyzed, don't double-write"), no work to do.
+
+## Summary
+
+- **Latest sweep CSV:** `memory/gitlawb-compute-futures-proofs/2026-08-21.csv`
+- **Existing report:** `memory/topics/compute-futures-eda/2026-08-21.md` (already committed)
+- **Action:** Exited cleanly per the skill's double-write guard. No new CSV since the last run, no notification sent, no commit. Today's date (2026-08-22) has no proof yet — deployer hasn't published today's sweep to `fleet-state`.
+- **Next run:** Will fire when a `2026-08-22.csv` (or later) lands under `memory/gitlawb-compute-futures-proofs/`.
