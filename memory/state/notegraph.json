@@ -1,45 +1,31 @@
 {
-  "input_fingerprint": "2317e62445a239d83eaa6f45aafe61574102d8b8",
-  "last_run": "2026-08-18",
+  "input_fingerprint": "86c6cf442b98fdeaafd838fd3d283043de985d8f",
+  "last_run": "2026-08-22",
   "stats": {
-    "nodes": 289,
-    "edges": 2972,
-    "hard": 2244,
-    "soft": 728,
+    "nodes": 311,
+    "edges": 3207,
+    "hard": 2429,
+    "soft": 778,
     "orphans": 0,
-    "atomic": 86,
+    "atomic": 95,
     "bundled": 0
   },
-  "last_verdict": "+3 notes wired in",
-  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/36",
-  "last_branch": "notegraph/2026-08-18",
-  "delta_vs_state": {
-    "nodes": 6,
-    "edges": 91,
-    "hard": 75,
-    "soft": 16,
-    "orphans": -1,
-    "bundled": 0,
-    "atomic": 2
-  },
+  "last_verdict": "+1 notes wired in",
+  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/43",
+  "last_branch": "notegraph/2026-08-22",
   "delta_vs_head": {
-    "nodes": 3,
-    "edges": 47,
-    "hard": 39,
-    "soft": 8,
+    "nodes": 1,
+    "edges": 6,
+    "hard": 5,
+    "soft": 1,
     "orphans": 0,
     "bundled": 0,
-    "atomic": 2
+    "atomic": 1
   },
-  "new_nodes": [],
-  "removed_nodes": [],
-  "orphans": [],
   "new_orphans": [],
-  "resolved_orphans": [
-    "docs/telegram-instant.md"
-  ],
+  "resolved_orphans": [],
   "new_bundled": [],
   "resolved_bundled": [],
   "notify_suppressed": false,
-  "note": "2026-08-18: Fingerprint advanced 8a90f24c… → 2317e624…. Extractor produced 289n / 2244h / 728s / 0 orphans / 86 atomic / 0 bundled. HEAD baseline REFRESH (286n / 2925e) — the long-stuck 121n-from-06-25 origin/main baseline is gone; notegraph PR chain (#10 ← … ← #35) evidently merged since last run, dissolving the [[notegraph-head-baseline-drift-inflates-new-orphans]] false-positive class for this run. Delta vs HEAD +3n / +47e / 0 orphans / 0 bundled — normal daily growth (matches delta vs state directionally, though state delta is +6n / +91e because state was 08-17). Persistent orphan docs/telegram-instant.md resolved (0 orphans this run). Verdict '+3 notes wired in' — clean, no-orphan, no-bundled priority path. PR #36 opened on notegraph/2026-08-18. Change-streak resumes day 2 (from yesterday's day-1); no-op streak stays 0. Exit mode: NOTEGRAPH_OK."
+  "note": "2026-08-22: Fingerprint advanced 2317e624… → 86c6cf44… (state was 4 days stale from 08-18, so intermediate 08-19/20/21 runs also shifted the corpus). HEAD baseline current: 310n / 3201e — this is a fresh HEAD baseline compared to the 08-18 note's 121n-origin/main issue, confirming intermediate notegraph PRs (#39/etc) did land. Delta vs HEAD +1n / +6e / 0 orphans / 0 bundled — small daily wiring increment. Verdict '+1 notes wired in' — clean, no-orphan, no-bundled priority path. PR #43 opened on notegraph/2026-08-22. Exit mode: NOTEGRAPH_OK."
 }
