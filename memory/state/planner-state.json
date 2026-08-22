@@ -1,18 +1,18 @@
 {
-  "last_run": "2026-08-21T06:30:00Z",
+  "last_run": "2026-08-22T06:30:00Z",
   "top_priority": "aeon-repo-queue-merge-escalation",
   "priority_streak": {
-    "aeon-repo-queue-merge-escalation": 13,
-    "agi-tracker-enabled-false-via-pr": 6,
-    "stale-content-pr-sweeper-allowed-authors-patch": 15,
-    "suggest-edges-templated-corpus-prefilter": 13,
-    "watched-repos-population-or-disable": 16,
-    "pr-tracker-patch-batch": 58,
-    "iss-006-messages-yml-multi-pocket-rewrite": 19,
-    "docs-status-md-snapshot-rebase-gate": 35,
-    "swarm-repo-app-perm-gap": 40
+    "aeon-repo-queue-merge-escalation": 14,
+    "agi-tracker-enabled-false-via-pr": 7,
+    "stale-content-pr-sweeper-allowed-authors-patch": 16,
+    "suggest-edges-templated-corpus-prefilter": 14,
+    "watched-repos-population-or-disable": 17,
+    "pr-tracker-patch-batch": 59,
+    "iss-006-messages-yml-multi-pocket-rewrite": 20,
+    "docs-status-md-snapshot-rebase-gate": 36,
+    "swarm-repo-app-perm-gap": 41
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Twenty-first planner run in the ISS-006 pocket-slot migration era; FIFTEENTH since 08-07 overnight PR-creation toggle unblock. FOURTH consecutive day at same top-3 ranking. Rank order UNCHANGED — but rank-1 ESCALATED per stuck-goal rule from streak-12 restatement to specific-blocker diagnosis. NEW SIGNAL: `gh pr view 26 --json statusCheckRollup` shows 4/5 checks PASS + ShellCheck FAILURE (workflow `Lint`, job 95256043957, completed 2026-08-17T01:09:55Z). #26 (dependabot actions/checkout, same class as merged #8) is the textbook auto-merge candidate — the ShellCheck failure is the specific unblock target. Concrete action: read job log, either fix the offending shell file or waive the check on dependabot-authored PRs. #41 (notegraph, opened today 05:10Z) is also merge-eligible with statusCheckRollup=[] (no required checks). Rank-2 agi-tracker deadline tightens 4d → 3d (fires 2026-08-24T13:00Z). Rank-3 sweeper patch — yesterday's run confirmed 8 candidates all `app/github-actions` fail hardcoded `{aeonframework}` allowlist; under a patched allowlist 6 stale PRs would close (notegraph #32/#35/#36 superseded by #41; suggest-edges #22/#37/#38/#40 superseded by #42). New PRs overnight: #41 notegraph 05:10Z (307n/3156e/0b, 16-file diff) + #42 suggest-edges 05:47Z (same signature as #37/#38/#40). Fleet: 0 broken, 0 in-flight (second consecutive clean morning), 38 DEGRADED (ISS-001 Day-63), 4 truly HEALTHY, 2 NO_DATA (45th silent day). 18 open ISS. 26 open aeon PRs (up from 24). ${var} empty → plan-only, no dispatch."
+  "notes": "Twenty-second planner run in the ISS-006 pocket-slot migration era; SIXTEENTH since 08-07 overnight PR-creation toggle unblock. FIFTH consecutive day at same top-3 ranking. Rank order UNCHANGED — but rank-1 ESCALATED AGAIN per stuck-goal rule from streak-13's ShellCheck diagnosis to a specific one-liner fix path. NEW SIGNAL: `gh api repos/swarm-ai-research/aeon/git/trees/{main,2eeed9b}` shows `tmp-skill-graph/{fingerprint.sh, build-graph.mjs, debug*.mjs, result.json, skill-graph.md}` PRESENT on PR #26 head but ABSENT on main. The single ShellCheck FAILURE (SC2164 on `tmp-skill-graph/fingerprint.sh` line 2, workflow `Lint`, job 95256043957, 2026-08-17T01:09:55Z) is STALE — the offending directory was removed from main after PR #26 was created. Concrete action collapses from `read log + fix or waive` to a one-liner: `gh pr comment 26 -b \"@dependabot rebase\"` (or `gh pr close 26 --delete-branch`). If rebase clears checks, PR #26 becomes the textbook merge-flow proof at ~370h+ silence. Rank-2 agi-tracker deadline tightens 3d → 2d (fires 2026-08-24T13:00Z Mon) — depends on rank-1 clearing so a PR opened today can ride the same merge policy. Rank-3 sweeper patch unchanged (streak-16). New PRs overnight: #43 notegraph 06:00Z (+1 wired) + #44 suggest-edges 05:42Z (same signature). Queue 23 → 24 (yesterday's 5-PR sweep held; today's +2 opens no closes). Fleet: 0 broken, 0 in-flight (third consecutive clean morning), 38 DEGRADED (ISS-001 Day-64), 4 truly HEALTHY, 2 NO_DATA (46th silent day). 18 open ISS. 24 open aeon PRs. ${var} empty → plan-only, no dispatch."
 }
