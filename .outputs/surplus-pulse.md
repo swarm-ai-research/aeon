@@ -1,7 +1,7 @@
-surplus pulse — 2026-08-21
+surplus pulse — 2026-08-22
 
 spot: catalog · Llama 4 Scout @ $0.0764/M (Surplus Intelligence)
-curve: hyperscaler H100 reserve R6 +87.4%, R30 +88.7% — sharpest tightening event; DeepSeek V3.2 open-weights flood reverses gains at R13 (−43.8%), then agent-platform demand surge partially restores curve at R20 (+50.7%)
-rail: x402 on Base/USDC — Surplus x402 endpoint · $198.43 total delivered · $0.00025/tx · ~400ms finality
+curve: hyperscaler H100 reserve +88.7% at R30 (R6 event) — biggest single-event re-price of the run
+rail: x402 on Base/USDC — https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions
 
-one-line read: volatile session — supply tightens hard mid-curve before open-weights supply relief flips it, then closes modestly elevated; curve is slightly backwardated heading into expiry.
+one-line read: curve tightened hard on H100 supply grab (+88.7%), partially flushed by DeepSeek V3.2 open-weights flood (-44%), then re-bid on agent platform demand surge (+51%) — final spot $0.1149, 50% above open; market net tightening.
