@@ -1,9 +1,10 @@
-Skill executed. Both candidate config paths (`memory/topics/watched-repos.md` per SKILL, `memory/watched-repos.md` per MEMORY) absent → short-circuited to `REPO_REVIVE_NO_CONFIG` per SKILL §Config rule.
+Skill complete. Log entry landed.
 
 ## Summary
-- Ran `repo-revive` for 2026-08-15 (Sat 10:00Z slot, `${var}` empty).
-- **Verdict:** `REPO_REVIVE_NO_CONFIG` — silent short-circuit, no notification per SKILL rule.
-- Day-11 chronic for repo-revive in the [[watched-repos-config-missing-silent-short-circuits-6-skills]] 6-skill cluster (was streak-10 per today's earlier planner headline). Today's cluster confirmations: 3-of-6 (repo-revive + issue-triage + github-monitor).
-- No repo audited, no PR opened, no tweet drafted, no notify sent.
-- **Files modified:** `memory/logs/2026-08-15.md` (this entry only).
-- **Follow-up:** binary fix unchanged — populate `memory/topics/watched-repos.md` OR set `enabled: false` on the 6 cluster skills in `aeon.yml`. Secondary reconciliation opportunity: SKILL.md specifies `memory/topics/watched-repos.md` while MEMORY.md references `memory/watched-repos.md` — worth aligning so a populate attempt lands in the right location.
+
+- **Skill:** `repo-revive` (scheduled Saturday 10:00Z fire, 2026-08-22)
+- **Outcome:** Short-circuited at Config gate — `memory/topics/watched-repos.md` (SKILL.md canonical path) does not exist; drift-path `memory/watched-repos.md` also absent.
+- **Actions taken:** Per SKILL rule for missing/empty config, logged `REPO_REVIVE_NO_CONFIG` and exited cleanly — no `gh api` calls, no clone, no branch, no PR, no tweet draft, no notification (empty config is not an error).
+- **Files modified:** `memory/logs/2026-08-22.md` (single log entry appended).
+- **Context:** Extends the streak-17 chronic same-day silent-short-circuit cluster ([[watched-repos-config-missing-silent-short-circuits-6-skills]]) — today's 6-skill cluster (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) is now fully accounted-for.
+- **Follow-up (already tracked in planner):** Populate `memory/topics/watched-repos.md` and reconcile the SKILL-path drift so the five sibling skills read the same file — OR ship `enabled: false` across all six affected skills. Not filing a duplicate issue; the class-owning note already exists.
