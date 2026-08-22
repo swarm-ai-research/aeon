@@ -1,7 +1,9 @@
-The task is a single-step short-circuit; no task tracking needed. Skill executed as specified.
-
 ## Summary
 
-Ran `fleet-control` on 2026-08-21 (`${var}` empty → Health Check Mode). Pre-flight step 1 short-circuited: `memory/instances.json` contains `{"instances": []}` — empty registry. Per SKILL, logged `FLEET_EMPTY: no managed instances` to `memory/logs/2026-08-21.md` and stopped. No `gh` calls, no state file created, no notification sent (empty fleet is not news).
+Ran `fleet-control` for 2026-08-22 in **Health Check Mode** (`${var}` empty). Registry `memory/instances.json` is `{"instances": []}` — no managed instances.
 
-Files modified: `memory/logs/2026-08-21.md`. No follow-ups.
+Per pre-flight step 1, logged `FLEET_EMPTY: no managed instances` to `memory/logs/2026-08-22.md` and **stopped without notifying** (silent by design). Skipped gh auth verification, rate-limit check, prior-state load, per-instance parallel calls, and registry/state updates — all downstream logic is instance-scoped and there's nothing to iterate over.
+
+**Files modified:** `memory/logs/2026-08-22.md` (appended fleet-control section + skill summary).
+
+**Follow-up:** none. The empty-registry silent-stop is the documented steady state until an operator populates `memory/instances.json` with managed children.
