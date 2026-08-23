@@ -1,0 +1,184 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "compute-macro-correlate",
+        "description": "2026-08-23"
+      },
+      "children": [
+        "track-a-section",
+        "sep-1",
+        "track-b-section",
+        "sep-2",
+        "findings-section"
+      ]
+    },
+    "track-a-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "track-a-heading",
+        "track-a-status",
+        "track-a-grid"
+      ]
+    },
+    "track-a-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Track A",
+        "level": "h3"
+      }
+    },
+    "track-a-status": {
+      "type": "Badge",
+      "props": {
+        "text": "null",
+        "variant": "secondary"
+      }
+    },
+    "track-a-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "render-r",
+        "tao-r",
+        "io-r"
+      ]
+    },
+    "render-r": {
+      "type": "Stat",
+      "props": {
+        "label": "RENDER",
+        "value": "-0.13"
+      }
+    },
+    "tao-r": {
+      "type": "Stat",
+      "props": {
+        "label": "TAO",
+        "value": "-0.13"
+      }
+    },
+    "io-r": {
+      "type": "Stat",
+      "props": {
+        "label": "IO",
+        "value": "-0.03"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "track-b-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "track-b-heading",
+        "track-b-status",
+        "track-b-n",
+        "track-b-grid"
+      ]
+    },
+    "track-b-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Track B",
+        "level": "h3"
+      }
+    },
+    "track-b-status": {
+      "type": "Badge",
+      "props": {
+        "text": "null",
+        "variant": "secondary"
+      }
+    },
+    "track-b-n": {
+      "type": "Stat",
+      "props": {
+        "label": "Sample size",
+        "value": "60"
+      }
+    },
+    "track-b-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "basket-r",
+        "spread-r",
+        "synthetic-r"
+      ]
+    },
+    "basket-r": {
+      "type": "Stat",
+      "props": {
+        "label": "basket",
+        "value": "-0.11"
+      }
+    },
+    "spread-r": {
+      "type": "Stat",
+      "props": {
+        "label": "spread",
+        "value": "+0.08"
+      }
+    },
+    "synthetic-r": {
+      "type": "Stat",
+      "props": {
+        "label": "synthetic",
+        "value": "-0.09"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "findings-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "consecutive-alert",
+        "natgas-conclusion"
+      ]
+    },
+    "consecutive-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Snapshot Status",
+        "message": "2nd consecutive all-null snapshot",
+        "type": "warning"
+      }
+    },
+    "natgas-conclusion": {
+      "type": "Text",
+      "props": {
+        "text": "No NATGAS signal net of crypto-beta in either track",
+        "variant": "lead"
+      }
+    }
+  }
+}
