@@ -1,0 +1,21 @@
+{
+  search(query: "author:aeonframework is:pr sort:updated-desc", type: ISSUE, first: 60) {
+    nodes {
+      ... on PullRequest {
+        number
+        title
+        state
+        headRefName
+        url
+        createdAt
+        updatedAt
+        mergedAt
+        closedAt
+        repository { nameWithOwner }
+        reviews(last: 1) { nodes { state submittedAt author { login } } }
+        comments(last: 5) { totalCount nodes { createdAt author { login } bodyText } }
+        commits(last: 1) { nodes { commit { author { email } } } }
+      }
+    }
+  }
+}

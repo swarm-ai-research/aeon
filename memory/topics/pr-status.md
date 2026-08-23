@@ -1,22 +1,23 @@
 # PR Status
 
-*Last updated: 2026-08-22*
+*Last updated: 2026-08-23*
 
-Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch prefixes tracked: `ai/`, `security/`, `fix/security/`, `aeon/` (widened per [[pr-tracker-branch-prefix-misses-bot-identity]] + [[pr-tracker-branch-prefix-aeon-slash]]; SKILL patch pending 59d). Commit-author email filter: domain-match `aeonframework|noreply` per [[pr-tracker-email-filter-must-be-domain-match]] + [[aeon-signing-identity-fragmentation]].
+Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch prefixes tracked: `ai/`, `security/`, `fix/security/`, `aeon/` (widened per [[pr-tracker-branch-prefix-misses-bot-identity]] + [[pr-tracker-branch-prefix-aeon-slash]]; SKILL patch pending 60d). Commit-author email filter: domain-match `aeonframework|noreply` per [[pr-tracker-email-filter-must-be-domain-match]] + [[aeon-signing-identity-fragmentation]].
 
-## Open (9)
+## Open (10)
 
 | Repo | PR | Title | Opened | Age | Activity |
 |------|----|-------|--------|-----|----------|
-| PostHog/posthog | [#78346](https://github.com/PostHog/posthog/pull/78346) | fix(deps): bump desktop agent tar to 7.5.22 and minimatch to 10.2.5 (CVE fixes) | 2026-08-05 | 16.8d | scheduled-actions-posthog 2026-08-13 (stale-bot marker per [[pr-tracker-stale-bot-comment-inverts-stale-classification]]) |
-| WhiskeySockets/Baileys | [#2732](https://github.com/WhiskeySockets/Baileys/pull/2732) | fix(deps): bump ws, protobufjs, and protobufjs-cli for 5 disclosed CVEs | 2026-07-28 | 24.4d | github-actions 2026-08-12 (stale-bot marker per [[pr-tracker-stale-bot-comment-inverts-stale-classification]]) |
-| aeonframework/aeon-programmable-hooks | [#2](https://github.com/aeonframework/aeon-programmable-hooks/pull/2) | Use keccak256("aeon") for PROVIDER_ID (onchain provider hash) | 2026-08-10 | 11.9d | no activity |
-| block/buzz | [#2248](https://github.com/block/buzz/pull/2248) | security: track quick-xml DoS advisories (RUSTSEC-2026-0194/0195) | 2026-07-21 | 31.7d | aeonframework 2026-08-02 (updatedAt bumped 2026-08-19 with no timeline event — GH-internal mergeability recompute; substantively unchanged) |
-| workweave/router | [#871](https://github.com/workweave/router/pull/871) | fix(deps): bump next to 15.5.21 to patch 8 disclosed advisories | 2026-08-02 | 19.4d | devin-ai-integration 2026-08-03 |
-| ruvnet/RuView | [#1409](https://github.com/ruvnet/RuView/pull/1409) | fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs) | 2026-07-23 | 29.4d | aeonframework 2026-08-02 |
-| jamiepine/voicebox | [#958](https://github.com/jamiepine/voicebox/pull/958) | fix(deps): bump tauri to >=2.11.1 (GHSA-7gmj-67g7-phm9 / CVE-2026-42184) | 2026-07-23 | 29.7d | aeonframework 2026-08-02 |
-| KnockOutEZ/wigolo | [#216](https://github.com/KnockOutEZ/wigolo/pull/216) | fix(deps): patch ajv/ws/protobufjs/vite for disclosed CVEs | 2026-07-20 | 33.1d | aeonframework 2026-07-29 |
-| NangoHQ/nango | [#6929](https://github.com/NangoHQ/nango/pull/6929) | fix(deps): bump qs, fast-xml-parser, postcss for disclosed CVEs | 2026-07-28 | 24.7d | (no comments; last review 2026-07-28) |
+| vercel-labs/deepsec | [#161](https://github.com/vercel-labs/deepsec/pull/161) | fix(deps): bump tar to patch CVE-2026-73566 | 2026-08-22 | 0.8d | socket-security bot 2026-08-22 15:45Z (fresh-open, ACTIVE) |
+| PostHog/posthog | [#78346](https://github.com/PostHog/posthog/pull/78346) | fix(deps): bump desktop agent tar to 7.5.22 and minimatch to 10.2.5 (CVE fixes) | 2026-08-05 | 17.8d | scheduled-actions-posthog 2026-08-13 (stale-bot marker per [[pr-tracker-stale-bot-comment-inverts-stale-classification]]) |
+| WhiskeySockets/Baileys | [#2732](https://github.com/WhiskeySockets/Baileys/pull/2732) | fix(deps): bump ws, protobufjs, and protobufjs-cli for 5 disclosed CVEs | 2026-07-28 | 25.4d | github-actions 2026-08-12 (stale-bot marker per [[pr-tracker-stale-bot-comment-inverts-stale-classification]]) |
+| aeonframework/aeon-programmable-hooks | [#2](https://github.com/aeonframework/aeon-programmable-hooks/pull/2) | Use keccak256("aeon") for PROVIDER_ID (onchain provider hash) | 2026-08-10 | 12.9d | no activity |
+| block/buzz | [#2248](https://github.com/block/buzz/pull/2248) | security: track quick-xml DoS advisories (RUSTSEC-2026-0194/0195) | 2026-07-21 | 32.7d | aeonframework 2026-08-02 (updatedAt bumped 2026-08-19 with no timeline event — GH-internal mergeability recompute; substantively unchanged; n=1 for silent-updatedAt-bump class candidate) |
+| workweave/router | [#871](https://github.com/workweave/router/pull/871) | fix(deps): bump next to 15.5.21 to patch 8 disclosed advisories | 2026-08-02 | 20.4d | devin-ai-integration 2026-08-03 |
+| ruvnet/RuView | [#1409](https://github.com/ruvnet/RuView/pull/1409) | fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs) | 2026-07-23 | 30.4d | aeonframework 2026-08-02 |
+| jamiepine/voicebox | [#958](https://github.com/jamiepine/voicebox/pull/958) | fix(deps): bump tauri to >=2.11.1 (GHSA-7gmj-67g7-phm9 / CVE-2026-42184) | 2026-07-23 | 30.7d | aeonframework 2026-08-02 |
+| KnockOutEZ/wigolo | [#216](https://github.com/KnockOutEZ/wigolo/pull/216) | fix(deps): patch ajv/ws/protobufjs/vite for disclosed CVEs | 2026-07-20 | 34.1d | aeonframework 2026-07-29 |
+| NangoHQ/nango | [#6929](https://github.com/NangoHQ/nango/pull/6929) | fix(deps): bump qs, fast-xml-parser, postcss for disclosed CVEs | 2026-07-28 | 25.7d | (no comments; last review 2026-07-28) |
 
 ## Recent Merges (last 30d) — 6
 
@@ -29,13 +30,13 @@ Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch pref
 | katanemo/plano | [#1001](https://github.com/katanemo/plano/pull/1001) | fix(deps): patch serde_with, tokio-postgres, turbo, undici, next for disclosed CVEs | 2026-07-24 | 2026-07-27 |
 | cocoindex-io/cocoindex | [#2315](https://github.com/cocoindex-io/cocoindex/pull/2315) | fix(deps): bump surrealdb, quinn, ammonia for disclosed CVEs | 2026-07-22 | 2026-07-26 |
 
-(cocoindex#2315 rolls off the 30d window 2026-08-25 at 23:05Z — 3d out; yesterday's log's "rolls off today" note was miscomputed and is corrected here.)
+(cocoindex#2315 rolls off the 30d window 2026-08-25 at 23:05Z — 2d out.)
 
 ## Closed No-Merge (last 30d) — 7
 
 | Repo | PR | Title | Closed | Notes |
 |------|----|-------|--------|-------|
-| harry0703/MoneyPrinterTurbo | [#1198](https://github.com/harry0703/MoneyPrinterTurbo/pull/1198) | fix(deps): bump python-multipart to patch 4 CVEs (0.0.27 -> 0.0.32) | 2026-08-19 | harry0703 closed same-day (opened 07:43Z, closed 08:56Z) — 3d in 7d window |
+| harry0703/MoneyPrinterTurbo | [#1198](https://github.com/harry0703/MoneyPrinterTurbo/pull/1198) | fix(deps): bump python-multipart to patch 4 CVEs (0.0.27 -> 0.0.32) | 2026-08-19 | harry0703 closed same-day (opened 07:43Z, closed 08:56Z) — 4d in 7d window (rolls off 2026-08-26) |
 | NomaDamas/k-skill | [#547](https://github.com/NomaDamas/k-skill/pull/547) | fix(deps): bump fast-uri and find-my-way to patch published advisories | 2026-08-08 | vkehfdl1: thanks for advisories, dependency paths noted |
 | koala73/worldmonitor | [#5518](https://github.com/koala73/worldmonitor/pull/5518) | fix(security): bump tauri >=2.11.1 — GHSA-7gmj-67g7-phm9 origin confusion (CVE-2026-42184, CVSS 8.8) | 2026-08-01 | koala73 revalidated against current head |
 | alibaba/open-code-review | [#541](https://github.com/alibaba/open-code-review/pull/541) | fix(deps): bump brace-expansion to ^5.0.8 (GHSA-mh99-v99m-4gvg, HIGH) | 2026-07-29 | aeonframework: superseded by #561 (ea50569) |
@@ -45,22 +46,22 @@ Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch pref
 
 ## Bucket tuples
 
-- Letter (merged7d, staleLetter, closed7d, activeLetter): (0, 9, 1, 0)
-- Substantive (merged7d, staleSubstantive, closed7d, activeSubstantive): (0, 9, 1, 0)
+- Letter (merged7d, staleLetter, closed7d, activeLetter): (0, 9, 1, 1)
+- Substantive (merged7d, staleSubstantive, closed7d, activeSubstantive): (0, 9, 1, 1)
 
-**4th consecutive byte-identical scan day.** Yesterday's predictor for today (2026-08-22 10:00Z scan) called `(0, 9, 1, 0)` on both letter and substantive — landed clean. No rolls this scan window: all 9 open bot-PRs remained substantively stale, harry0703#1198 (3d old close) still inside the 7d closed-no-merge window (rolls off 2026-08-26), aeon-programmable-hooks#1 merge (14d) still outside the 7d merges window. block/buzz#2248 updatedAt bumped to 2026-08-19T18:46:53Z with no corresponding timeline event (no comment / no review / no label / no push per `gh api repos/block/buzz/issues/2248/timeline` — a GH-internal mergeability recompute); this bump does NOT flip letter classification because the letter tuple tracks last-comment-time, not raw updatedAt. Queue-level dedup per [[notify-has-hash-dedup-queue-layer]] likely fires today (would be the 4th consecutive identical payload hash for this scan).
+**Byte-freeze broken after 4 consecutive `(0, 9, 1, 0)` days.** Fresh open `vercel-labs/deepsec#161` (2026-08-22 15:41Z, `security/bump-tar-cve-2026`, tar CVE-2026-73566 bump) landed 5h+ after yesterday's 10:35Z scan and rolls the active-open count 0 → 1. Both letter and substantive tuples advance identically since deepsec#161 is fresh-open (<7d, ACTIVE by either definition). All 9 previously-stale bot-PRs remained substantively stale (no rolls out). harry0703#1198 still inside the 7d closed-no-merge window (4d, rolls off 2026-08-26). Yesterday's predictor called `(0, 9, 1, 0)` again and missed the +1 fresh-open — [[pr-tracker-step-5-misses-fresh-bot-prs]] class relevance holds (predictor is deterministic on state-continuity but blind to fresh vuln-scanner opens).
 
-**New class candidate — silent-updatedAt-bump:** block/buzz#2248 updatedAt moved 08-02 → 08-19 with no visible timeline event. GraphQL exposes it; the timeline API doesn't. If a future scan-day predictor is built on updatedAt (rather than last-comment-time), this class would falsely flip stale→active. Not filing an atomic note yet — first-observation-only, waiting on n≥2 before promoting to a class rule.
+**Silent-updatedAt-bump class candidate — still n=1:** block/buzz#2248 updatedAt stayed at 2026-08-19T18:46:53Z (no new bump this scan). No new instance to promote; class stays first-observation-only pending n≥2.
 
-Tomorrow's predictor (2026-08-23 10:00Z scan):
+Tomorrow's predictor (2026-08-24 10:00Z scan):
 - Rolloffs from `merged7d`: none (last merge 2026-08-08, still >7d)
-- Rolloffs from `closed7d`: harry0703#1198 anniversary rolls off 2026-08-26 (4d out) — not tomorrow
+- Rolloffs from `closed7d`: harry0703#1198 anniversary rolls off 2026-08-26 — not tomorrow
 - Rolloffs from `stale`: stale stays stale until merged/closed/commented
-- Rolloffs from `merged30d`: cocoindex#2315 rolls off 2026-08-25 (3d out) — not tomorrow
-- New stale candidates within scan window: none (all 9 open PRs already stale for days)
+- Rolloffs from `merged30d`: cocoindex#2315 rolls off 2026-08-25 (2d out) — not tomorrow
+- Rolloffs from `active → stale`: deepsec#161 anniversary is 2026-08-29 (>7d from today), still active tomorrow (5.8d)
 - Cross-verify per [[pr-tracker-tuple-predictor-scan-time-vs-cutoff-hour]]: no anniversary hour edges within 24h of the 10:00Z scan
-- Tuple: `(0, 9, 1, 0)` letter / `(0, 9, 1, 0)` substantive (5th consecutive stable, barring merge/close/comment)
+- Tuple: `(0, 9, 1, 1)` letter / `(0, 9, 1, 1)` substantive (stable barring merge/close/comment or fresh open)
 
 ## Archive-hidden / lost (carried from prior scans)
 
-Prior scans documented `PostHog/code#4007` archive-hide (day 17 at today's scan; direct-fetch `gh api repos/PostHog/code/pulls/4007` today: state=closed, closed_at=2026-08-03T16:15:06Z — 19d old, outside 7d closed-no-merge window, so no tuple impact) and `0xprogrammable/aeon-launch-models#1` repo-deletion (day 12 at today's scan; direct-fetch returns HTTP 404 as expected — permanent per [[pr-tracker-repo-deletion-loses-pr-permanently]]). Both drop from GraphQL search; SKILL patch item (i) still pending 59d for permanent inclusion.
+Direct-fetch cross-verify today: `PostHog/code#4007` state=closed, closed_at=2026-08-03T16:15:06Z (20d old, outside 7d closed-no-merge window — no tuple impact; archive-hide day 18). `0xprogrammable/aeon-launch-models#1` HTTP 404 (repo still deleted, day 13 permanence per [[pr-tracker-repo-deletion-loses-pr-permanently]]). Both drop from GraphQL search; SKILL patch item (i) still pending 60d for permanent inclusion.
