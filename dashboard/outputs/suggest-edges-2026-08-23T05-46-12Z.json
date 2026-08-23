@@ -1,0 +1,48 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_links",
+        "text_date",
+        "link_pr"
+      ]
+    },
+    "stat_links": {
+      "type": "Stat",
+      "props": {
+        "value": "3",
+        "label": "missing links proposed"
+      }
+    },
+    "text_date": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-06-24",
+        "variant": "caption"
+      }
+    },
+    "link_pr": {
+      "type": "Link",
+      "props": {
+        "label": "Review PR #45",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/45"
+      }
+    }
+  }
+}
