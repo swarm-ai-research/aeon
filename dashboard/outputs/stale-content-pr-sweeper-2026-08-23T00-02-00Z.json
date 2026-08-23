@@ -1,0 +1,78 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "stale-content-pr-sweeper"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-action",
+        "separator-1",
+        "stack-prs",
+        "text-reason"
+      ]
+    },
+    "text-action": {
+      "type": "Text",
+      "props": {
+        "text": "Closed 3 stale PRs",
+        "variant": "lead"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-38",
+        "badge-39",
+        "badge-40"
+      ]
+    },
+    "badge-38": {
+      "type": "Badge",
+      "props": {
+        "text": "#38"
+      }
+    },
+    "badge-39": {
+      "type": "Badge",
+      "props": {
+        "text": "#39"
+      }
+    },
+    "badge-40": {
+      "type": "Badge",
+      "props": {
+        "text": "#40"
+      }
+    },
+    "text-reason": {
+      "type": "Text",
+      "props": {
+        "text": "Superseded by newer runs",
+        "variant": "caption"
+      }
+    }
+  }
+}
