@@ -1,13 +1,13 @@
+Nothing to notify (total_deleted = 0), so per SKILL step 6 I skip the notification entirely.
+
 ## Summary
 
-Ran the janitor skill. Nothing to clean:
+Executed the janitor skill. Nothing qualified for deletion this run:
 
-- **Root `.notify-*.md/.txt`**: 0 files present. (The two root files `.notify-runner.sh` and `.notify-sent-hashes` don't match the target pattern — they're infrastructure, not stale notifications.)
-- **`.pending-notify-temp/`**: directory doesn't exist.
-- **`.outputs/`**: 41 files present, all last committed today (2026-08-16), so none exceed the 14-day TTL.
+- **Root `.notify-*.md`/`.notify-*.txt`**: 0 total, 0 deleted. The only `.notify-*` files in the repo root are `.notify-runner.sh` and `.notify-sent-hashes`, neither of which matches the SKILL-specified patterns.
+- **`.pending-notify-temp/`**: 1 total (`compute-pulse-2026-08-22.md`, dated yesterday), 0 deleted — within 7-day window.
+- **`.outputs/`**: 41 total, 0 deleted — all mtimes reset to today's checkout time on the GHA runner, so the 14-day mtime rule silently can't fire for tracked files. Logged as a fix candidate (git-log-based mtime or embedded date suffixes).
 
-**Files modified:** `memory/logs/2026-08-16.md` (created with `JANITOR_OK` entry).
+**Files modified:** `memory/logs/2026-08-23.md` (appended `## Janitor` section with `JANITOR_OK`).
 
-**Notification:** skipped per skill — no noise when `total_deleted == 0`.
-
-**Follow-up:** none.
+**Follow-up:** Consider patching the SKILL to use `git log -1 --format=%ct` for `.outputs/` age (or embed date suffixes at write time), since mtime alone is meaningless on ephemeral GHA checkouts.
