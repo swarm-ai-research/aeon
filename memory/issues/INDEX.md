@@ -10,7 +10,6 @@ Open and resolved issues filed by health skills (skill-health, skill-evals, hear
 | [ISS-002](ISS-002.md) | changelog: no_file_match | high | 2026-06-20 | open |
 | [ISS-005](ISS-005.md) | swarm-safety-eval: no_file_match | high | 2026-06-20 | open |
 | [ISS-006](ISS-006.md) | Recurring messages.yml cron underdelivery — multi-pocket dead zones across the day, 12 days running (since 2026-06-21) | high | 2026-06-21 | investigating |
-| [ISS-007](ISS-007.md) | heartbeat: missing_pattern:heartbeat\|Heartbeat\|HEARTBEAT | high | 2026-07-05 | open |
 | [ISS-008](ISS-008.md) | cost-report: no_file_match | high | 2026-07-05 | open |
 | [ISS-009](ISS-009.md) | repo-pulse: no_file_match | high | 2026-07-12 | open |
 | [ISS-010](ISS-010.md) | push-recap: no_file_match | high | 2026-07-12 | open |
@@ -31,3 +30,4 @@ Open and resolved issues filed by health skills (skill-health, skill-evals, hear
 |---|---|---|---|---|---|
 | [ISS-003](ISS-003.md) | cost-report: no_file_match | high | 2026-06-20 | 2026-06-21 | resolved |
 | [ISS-004](ISS-004.md) | skill-health: no_file_match | high | 2026-06-20 | 2026-06-21 | resolved |
+| [ISS-007](ISS-007.md) | heartbeat: missing_pattern:heartbeat\|Heartbeat\|HEARTBEAT | high | 2026-07-05 | 2026-08-23 | resolved |
