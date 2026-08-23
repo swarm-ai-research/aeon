@@ -1,8 +1,2 @@
-Latest CSV is `2026-08-21.csv` and `memory/topics/compute-futures-eda/2026-08-21.md` already exists — per skill step 1's guard ("exit cleanly — already analyzed, don't double-write"), no work to do.
-
-## Summary
-
-- **Latest sweep CSV:** `memory/gitlawb-compute-futures-proofs/2026-08-21.csv`
-- **Existing report:** `memory/topics/compute-futures-eda/2026-08-21.md` (already committed)
-- **Action:** Exited cleanly per the skill's double-write guard. No new CSV since the last run, no notification sent, no commit. Today's date (2026-08-22) has no proof yet — deployer hasn't published today's sweep to `fleet-state`.
-- **Next run:** Will fire when a `2026-08-22.csv` (or later) lands under `memory/gitlawb-compute-futures-proofs/`.
+*Compute-Futures EDA — 2026-08-22*
+144 rows, 4 modes. Top: **outlier surface CONTRACTS SHARPLY** — cross-mode MEDIUM count 5 → 0, non-dust positions 63 → 11 (−82%), all clusters cap at 8.33% (no column reaches 10% in any mode). Retail spread loss holds at **−$10,424** (near-identical to −$10,437, n=15 consecutive filed runs, 5/5 top-5 losses retail 5th day; seed 202608228 triple-role anchor, $37,492 within-seed dispersion — new class peak). basket/synth 2.5000× multiplier **n=5, rename threshold met** per compute-futures-multiplier-invalidated-at-n-7 cadence. Conservation: all four modes OK (all-negative regime returns after 08-21's full mirror-inversion; synth/x402 pair flips + → −). Report: memory/topics/compute-futures-eda/2026-08-22.md
