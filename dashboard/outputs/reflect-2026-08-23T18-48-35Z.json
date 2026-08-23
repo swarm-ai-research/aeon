@@ -1,0 +1,105 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Reflect",
+        "description": "Memory consolidated"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "date_text",
+        "metrics_stack",
+        "separator_1",
+        "details_stack"
+      ]
+    },
+    "date_text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-08-23",
+        "variant": "caption"
+      }
+    },
+    "metrics_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_new",
+        "stat_edited"
+      ]
+    },
+    "stat_new": {
+      "type": "Stat",
+      "props": {
+        "label": "New",
+        "value": "+3"
+      }
+    },
+    "stat_edited": {
+      "type": "Stat",
+      "props": {
+        "label": "Edited",
+        "value": "+9"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "details_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "detail_1",
+        "detail_2",
+        "detail_3",
+        "detail_4"
+      ]
+    },
+    "detail_1": {
+      "type": "Text",
+      "props": {
+        "text": "1 split"
+      }
+    },
+    "detail_2": {
+      "type": "Text",
+      "props": {
+        "text": "5 new atomic notes"
+      }
+    },
+    "detail_3": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-007 resolved",
+        "variant": "outline"
+      }
+    },
+    "detail_4": {
+      "type": "Text",
+      "props": {
+        "text": "MEMORY.md rebased to day-17 durability"
+      }
+    }
+  }
+}

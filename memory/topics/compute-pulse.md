@@ -3,10 +3,13 @@
 *Last run: 2026-08-22*
 
 ## Durable claims
-- [[inference-cost-1000x-collapse]] — ~1,000× cost collapse since 2022; Gartner forecasts 90%+ further drop by 2030; inference now >$50B market in 2026, growing faster than training for first time
+- [[inference-cost-1000x-collapse]] — ~1,000× aggregate inference cost collapse since 2022 with 50–75% frontier-vs-prior-flagship spread per cycle; inference now >$50B market in 2026, growing faster than training for first time
 - [[anthropic-xai-1-25b-month-lease]] — $1.25B/month Colossus lease through May 2029 (superseded by $19B TeraWulf + AMD deals)
-- [[anthropic-amd-2gw-mi450]] — AMD × Anthropic: 2 GW MI450 deal + $5B AMD equity investment (Jul 22, 2026); largest non-NVIDIA compute deal in AI history; first GW H1 2027
+- [[anthropic-amd-2gw-mi450-deployment]] — AMD × Anthropic: 2 GW MI450 deployment in Anthropic-owned DCs + neoclouds; first frontier-lab GW-scale routing around NVIDIA (Jul 22, 2026; first GW H1 2027)
+- [[anthropic-amd-5b-equity-investment]] — AMD equity in Anthropic released against deployment milestones; largest non-NVIDIA compute deal in AI history (Jul 22, 2026)
+- [[anthropic-compute-portfolio-five-vendor-fan-out]] — Anthropic upstream compute spans five distinct vendor classes (NVIDIA xAI-lease, TeraWulf build, SpaceX rent, Fluidstack, AMD owned) with no single vendor >50%
 - [[compute-futures-basket-synth-3025x-multiplier]] — **INVALIDATED 2026-08-18** — the basket/synth 3.0250× multiplier promoted on 08-14 and cemented n=7 by 08-17 broke to 2.5000× on 08-18 via upstream deployer config change; see [[compute-futures-multiplier-invalidated-at-n-7]] for the promotion-criterion lesson
+- [[compute-futures-basket-synth-2.5x-multiplier]] — **NEW anchor 2026-08-23** — the 2.5000× basket/synth constant that replaced 3.0250× on 08-18 held n=5 consecutive filings through 08-22 CSV, crossing the [[compute-futures-multiplier-invalidated-at-n-7]] rename threshold
 
 ## Inference Pricing Baseline
 
