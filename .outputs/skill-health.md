@@ -1,15 +1,14 @@
-*Skill Health — 2026-08-22*
-HEALTH: DEGRADED(38)  [systemic: ISS-001 OAuth-outage denominator burn day 66 — historical failure counts still drive success_rate<0.6; 7d skill-runs window 177 runs / 173 success / 0 fail / 4 in-progress → no live regression]
+## Summary
 
-🟡 DEGRADED (38, top 5 by days_since_last_success)
-- skill-repair — sr 0.01 (last_success 63d ago) — INVESTIGATE (ISS-001 residue, cf=0)
-- janitor — sr 0.04 (last_success 6d ago) — INVESTIGATE (ISS-001 residue, cf=0)
-- skillpacks — sr 0.05 (last_success 6d ago) — INVESTIGATE (ISS-001 residue, cf=0)
-- changelog — sr 0.07 (last_success 5d ago) — INVESTIGATE (ISS-001 residue, cf=0)
-- cost-report — sr 0.11 (last_success 5d ago) — INVESTIGATE (ISS-001 residue, cf=0)
-+33 more — see memory/issues/INDEX.md
+Ran `skill-health` for 2026-08-23. **58th consecutive steady-state day** at hash `e27c0ac60367e7e5`.
 
-⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — DISPATCH-SKILL (47d silent)
-🟢 HEALTHY: 4 (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+**Classification (unchanged):** 0 CRITICAL, 0 FLAPPING, 38 DEGRADED (all ISS-001 OAuth-outage denominator burn day 66 — every skill `last_status: success` + `cf: 0`), 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog), 2 NO_DATA (ai-framework-watch, run-frequency-guard — 47th silent day). Live 7d signal clean: 171 runs / 166 success / 0 failed / 5 in-progress.
 
-57th steady-state day (hash e27c0ac60367e7e5, unchanged since 2026-08-08). Daily-reminder cadence fires — 48h since last notify. Open issues: 18 · Resolved this run: 0.
+**Issues:** No new filings (0 CRITICAL/FLAPPING). No resolutions credited to this run — HEALTHY skills in open issues (swarm-safety-eval in ISS-005, config-validator/swarm-safety-eval in ISS-006) are owned by other detectors (skill-evals, batch-health), so untouched per ownership convention. ISS-007 was closed earlier today by skill-evals at 09:28:53Z, dropping the index from 18 → 17 open.
+
+**Notify:** SENT. Hash unchanged but elapsed 24.23h ≥ 24h daily-reminder gate fired. Direct write to `.pending-notify/1787510343-skill-health.md` per broken-`./notify -f` workaround.
+
+**Files modified:**
+- `memory/skill-health/last-report.json` (state snapshot updated)
+- `.pending-notify/1787510343-skill-health.md` (new — notification payload)
+- `memory/logs/2026-08-23.md` (skill-health entry appended)
