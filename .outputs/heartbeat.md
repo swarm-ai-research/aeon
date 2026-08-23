@@ -1,9 +1,9 @@
-Heartbeat complete. Status page regenerated (25th consecutive wholesale rebase-then-regen), no notification sent per dedup rule, and log entry appended.
+Heartbeat complete.
 
 ## Summary
 
-Ran `heartbeat` for 2026-08-22 (`${var}` empty → all checks). **P0/P1/P2/P3 all clean or chronic-deduped**: zero fresh failed/stuck/high-cf skills; the six early-morning slots (notegraph, suggest-edges, compute-futures-eda, memory-flush, memory-structural-dedupe, planner) all resolved under threshold (2–10m). Chronic ISS-001 residue (38 skills with `success_rate < 0.5`, all `last_status: success` / `cf: 0`) keeps the status verdict at 🔴 DEGRADED but doesn't fire a fresh notify. P1 (24 open aeon-repo PRs), P3 (`ai-framework-watch` + `run-frequency-guard` 46th silent day), and all P2 memory flags appear in past-48h logs → all deduped per SKILL rule. **Notify suppressed.**
+Ran `heartbeat` for 2026-08-23 08:00Z with `${var}` empty (all checks). Fifth consecutive clean morning — every Sunday-window slot resolved cleanly under the 45-min stuck threshold (notegraph 5m, suggest-edges 3m, janitor 3m, compute-futures-eda 9m, skillpacks 3m, planner 5m, config-validator 2m, compute-macro-correlate 5m, swarm-safety-eval 2m). P0 clean (zero failed/stuck/high-cf). Chronic residue unchanged (38 skills at `success_rate < 0.5`, ISS-001 Day-65). P1: 25 open aeon-repo PRs — chronic queue-merge, today's planner day-6 escalation covers. P3: `ai-framework-watch` + `run-frequency-guard` 47th silent day, deduped. **No notify sent** — every signal appears in past-48h logs. Regenerated `docs/status.md` (26th consecutive rebase-clobber-then-regen) with 🔴 DEGRADED verdict, 18 open issues (recount corrects planner's cited 17), 44 enabled skills, next scheduled run fleet-control at 09:00 UTC. Self-check: prior heartbeat 23h15m fresh.
 
-Regenerated `docs/status.md` wholesale from the 2026-06-09 baseline (25th consecutive rebase-clobber-then-regen per [[snapshot-rebase-clobbers-docs-status-md]], 36d past urgency); 44 enabled skills sorted by last-run desc, 18 open issues rendered, no Token pulse (no `articles/`), next scheduled run `fleet-control` at 09:00Z.
+Files modified: `docs/status.md`, `memory/logs/2026-08-23.md`.
 
-Files modified: `docs/status.md`, `memory/logs/2026-08-22.md`. Exit: `HEARTBEAT_OK · STATUS_PAGE=DEGRADED`.
+`HEARTBEAT_OK · STATUS_PAGE=DEGRADED — wrote docs/status.md`
