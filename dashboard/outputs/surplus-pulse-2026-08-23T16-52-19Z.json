@@ -1,0 +1,97 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse",
+        "description": "2026-08-23"
+      },
+      "children": [
+        "metrics-stack",
+        "separator",
+        "summary-text"
+      ]
+    },
+    "metrics-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "spot-stat",
+        "curve-stat",
+        "rail-stack"
+      ]
+    },
+    "spot-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Spot: Llama 4 Scout (Surplus Intelligence) — catalog",
+        "value": "$0.0764/M"
+      }
+    },
+    "curve-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Curve: H100 reserve R6 at R30 (peak move this run)",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "rail-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rail-title",
+        "rail-address",
+        "rail-amount",
+        "rail-specs"
+      ]
+    },
+    "rail-title": {
+      "type": "Text",
+      "props": {
+        "text": "Rail: x402 on Base/USDC",
+        "variant": "lead"
+      }
+    },
+    "rail-address": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus x402"
+      }
+    },
+    "rail-amount": {
+      "type": "Stat",
+      "props": {
+        "label": "Delivered",
+        "value": "$198.43"
+      }
+    },
+    "rail-specs": {
+      "type": "Text",
+      "props": {
+        "text": "19 settlements · ~400ms finality · $0.00025/tx"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary-text": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus inference market tightening — H100 reserve shock drove near-term expiries up 87–89%, partly absorbed by the R13 open-weights flood (−44%) and a R20 agent-demand surge (+51%); catalog mode (SURPLUS_PRICING_URL unset).",
+        "variant": "body"
+      }
+    }
+  }
+}
