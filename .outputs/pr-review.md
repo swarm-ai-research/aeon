@@ -1,14 +1,23 @@
-All 9 open PRs in `swarm-ai-research/swarm` matched skip rules — no verdict emitted, no notify sent (SKILL rule: all-skip runs log-only).
+Merge-gate `pr-review` on `swarm-ai-research/swarm` — 60th operator invocation, 9/9 skipped, no writes.
+
+## Verdict
+
+Queue byte-identical to yesterday's 59th run (9 open, all headRefOids unchanged; human PRs #549/#543 now ~17d frozen). Under SKILL skip rules:
+
+- **7 dependabot PRs** (#557 langchain-anthropic, #556 langchain-core, #555 langgraph, #554 action-download-artifact, #552 setuptools, #538 github-script, #537 setup-python) → SKIP `bot-author`.
+- **2 human PRs** (#549 Prime Agent bridge, #543 docs de-slop) → SKIP `dup-SHA` (25 prior review invocations at same SHA).
+
+No new GitHub reviews posted. Standing verdicts under merge-gate policy, unchanged since 08-22 when they were last inlined:
+
+- **swarm-ai-research/swarm#543 → APPROVE (5/5)** — docs-only, +36/-40 across README + blog + docs, all 20 non-conditional CI gates SUCCESS, 2 SKIPPED as designed. Risk low, evidence sufficient.
+- **swarm-ai-research/swarm#549 → REQUEST_CHANGES (2/5)** — 3818-addition Prime Agent bridge, all 20 non-conditional CI gates SUCCESS, but reliability/scope concerns from prior reviews (evidence detection semantics documented-as-syntactic, `require_evidence` defaults off, +0.3 vs +0.8 scoring for ungated clean-stop, delegation-depth accounting for RLM tree) remain unaddressed at frozen SHA. No CRITICAL correctness/security break → REQUEST_CHANGES, not BLOCK.
+
+Notify suppressed per SKILL ("If every PR was skipped, do not notify — just log").
 
 ## Summary
 
-- **Reviewed:** 0 / **Skipped:** 9 (7 bot-author dependabot, 2 dup-SHA on frozen human PRs)
-- **Queue:** byte-identical to yesterday's 58th invocation — all 9 headRefOids unchanged; dependabot cohort last updated 2026-08-20, human PRs #549/#543 frozen ~17d since 2026-08-07
-- **Skip decisions:**
-  - `bot-author`: #557, #556, #555, #554, #552, #538, #537 (all `app/dependabot`)
-  - `dup-SHA`: #549 (`afe51248`, standing verdict `REQUEST_CHANGES 2/5`), #543 (`bad79e48`, standing verdict `APPROVE 5/5`)
-- **Verdicts under the operator merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK):** none newly emitted this run; the two frozen human PRs retain their standing verdicts (`#549 REQUEST_CHANGES 2/5`, `#543 APPROVE 5/5`)
-- **Notify:** suppressed (all-skip)
-- **Files modified:** `memory/logs/2026-08-23.md` — appended `## pr-review (59th operator invocation on swarm-ai-research/swarm)` entry
-- **Class extension:** [[swarm-repo-dependabot-cohort-churns-under-full-skip]] extends to 59th pr-review; combined with 40th pr-triage on 08-22 → 99 combined operator invocations against a fully-skipped queue, zero writes attempted
-- **Follow-up:** none from this run; the underlying [[aeon-app-no-write-on-swarm-repo]] write-gap remains unexercised (confirming counter now 46)
+- **Reviewed on GitHub this run:** 0 (all 9 PRs skipped).
+- **Standing verdicts reported to operator:** #543 APPROVE (5/5); #549 REQUEST_CHANGES (2/5). No BLOCK.
+- **Class milestone:** combined `pr-review` 60 + `pr-triage` 40 = **100 operator invocations against a fully-skipped `swarm-ai-research/swarm` queue with zero writes attempted** — [[aeon-app-no-write-on-swarm-repo]] gap still unexercised.
+- **Files modified:** `memory/logs/2026-08-24.md`.
+- **Follow-up:** unchanged from 08-23 — human PRs' SHAs are frozen since 2026-08-07; no new evidence to warrant a review re-post until an SHA moves.
