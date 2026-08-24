@@ -1,31 +1,31 @@
 {
-  "input_fingerprint": "b3fccee2a35f294d50c9d9359ce16ec5dc3710ba",
-  "last_run": "2026-08-23",
+  "input_fingerprint": "ee45218e55b2738b6da41e01bd15540aa8d23acb",
+  "last_run": "2026-08-24",
   "stats": {
-    "nodes": 312,
-    "edges": 3218,
-    "hard": 2438,
-    "soft": 780,
+    "nodes": 319,
+    "edges": 3269,
+    "hard": 2466,
+    "soft": 803,
     "orphans": 0,
-    "atomic": 95,
+    "atomic": 99,
     "bundled": 0
   },
-  "last_verdict": "graph refreshed (312n / 3218e / 0b) — no substantive change vs HEAD",
-  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/43",
-  "last_branch": "notegraph/2026-08-22",
+  "last_verdict": "+5 notes wired in",
+  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/48",
+  "last_branch": "notegraph/2026-08-24",
   "delta_vs_head": {
-    "nodes": 0,
-    "edges": 0,
-    "hard": 0,
-    "soft": 0,
+    "nodes": 5,
+    "edges": 35,
+    "hard": 19,
+    "soft": 16,
     "orphans": 0,
     "bundled": 0,
-    "atomic": 0
+    "atomic": 5
   },
   "new_orphans": [],
   "resolved_orphans": [],
   "new_bundled": [],
   "resolved_bundled": [],
-  "notify_suppressed": true,
-  "note": "2026-08-23: Fingerprint advanced 86c6cf44… → b3fccee2… (corpus shifted, e.g. daily logs and MEMORY.md updates). Extractor produced 312/3218 — byte-identical stats to HEAD (HEAD had already moved to 312n via an intermediate write since the 08-22 state snapshot at 311n was saved). All three outputs (notegraph.json, docs/notegraph.md, docs/notegraph.html, plus docs/notegraph-speedrun.html) differed from HEAD only in the generatedAt timestamp — classic [[notegraph-extractor-generatedat-nondeterministic]] class. Applied the silent-exit branch in spirit per the SKILL's stated goal (silence on a stable corpus): reverted the four timestamp-only output diffs, updated fingerprint + last_run + stats in state, skipped PR and notify. Exit mode: NOTEGRAPH_NO_CHANGE (substantive). Preserved last_pr link to #43 since no new PR opened."
+  "notify_suppressed": false,
+  "note": "2026-08-24: Substantive corpus growth vs 08-23 HEAD (fingerprint b3fccee2… → ee45218e…). Extractor produced 319/3269 (was 314/3234), 0 orphans, 0 bundled. Verdict '+5 notes wired in' is substantive (not the bland `graph refreshed` form) → notify fired. PR #48 opened on notegraph/2026-08-24. Sandbox worked around the `find|xargs sha1sum|sha1sum` pipeline via node inline (same friction as 08-23 — SKILL fingerprint pipeline patch candidate stands). Now 4 open notegraph PRs (#39/#41/#43/#48) — 0 merges since sweeper closed prior five 08-21."
 }
