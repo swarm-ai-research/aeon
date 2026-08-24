@@ -1,27 +1,23 @@
-The temp script can't be deleted in this sandbox environment — I'll leave it, as it's harmless. The skill run is complete.
+All three outputs are written. Here's the summary:
 
 ## Summary
 
-**Status**: `FRESHNESS_NO_CHANGE` — no notification sent.
+**Skill**: `skill-freshness` | **Date**: 2026-08-24 | **Status**: `FRESHNESS_OK`
 
-**What was done:**
+**What was audited:**
+- 44 enabled skills parsed from `aeon.yml`
+- 0 explicit `chains: consume:` edges (chains block fully commented out)
+- 18 implicit file references discovered across enabled SKILL.md files
+- 8 dependencies resolved on disk and freshness-checked
+- 10 implicit references skipped (files never existed on disk, or self-referencing prior-run patterns)
 
-1. **Parsed `aeon.yml`** — 44 enabled skills identified, all chains commented out (0 explicit consume edges).
+**Verdict: ✅ FRESHNESS_OK — no flags raised.** Every on-disk dependency is ~0.8 hours old (all files land in the single bootstrap commit `b5994f0` at 07:41:06Z), well within all thresholds (4h for `.outputs/`, 168h for topics, 720h for state).
 
-2. **Grepped all 44 enabled SKILL.md files** — 22 implicit dependency references discovered across `memory/topics/`, `memory/state/`, and `.outputs/`.
-
-3. **Scored cross-consumer dependencies** (after filtering self-state reads):
-   - `stale-content-pr-sweeper → memory/state/notegraph.json` — age 0.055h, threshold 720h → **OK**
-   - `pr-tracker → memory/topics/pr-status.md` — age 0.055h, threshold 168h → **OK**
-   - 12 implicit MISSING refs — suppressed (implicit references that never existed are not flagged)
-
-4. **Fleet verdict**: `FRESHNESS_OK` — fingerprint `da39a3ee` (SHA1 of empty = no flagged rows), identical to 2026-08-22 run.
-
-5. **Dedup check**: fingerprint + verdict match yesterday's state, last run 24h ago (< 7-day re-emit window) → `FRESHNESS_NO_CHANGE`, notification suppressed.
+Notable skips: `memory/topics/watched-repos.md` (18-day chronic per MEMORY), `memory/topics/pr-review-rules.md`, `memory/topics/projects.md` — all implicit, never-existed, not flagged per MISSING rules.
 
 **Files written:**
-- `articles/skill-freshness-2026-08-23.md` — report
-- `memory/topics/skill-freshness-state.json` — updated `last_run_at` + `dependency_count: 2`
-- `memory/logs/2026-08-23.md` — log block appended
+- `articles/skill-freshness-2026-08-24.md` (new)
+- `memory/topics/skill-freshness-state.json` (updated `last_run_at`, `dependency_count` 2→8)
+- `memory/logs/2026-08-24.md` (log block appended)
 
-**Active structural gap**: [[skill-freshness-mtime-blind-in-gha]] — git checkout sets all file mtimes to current time, so mtime-based freshness is always OK in GHA regardless of true historical age. The fix (use `git log -1 --format=%ct`) is tracked in MEMORY.md.
+No notification sent (FRESHNESS_OK — silence is the signal).
