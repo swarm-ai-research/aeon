@@ -1,11 +1,10 @@
+Fleet Control ran in default Health Check mode. Registry `memory/instances.json` has `instances: []` — no managed instances. Per the skill's pre-flight step 1, logged `FLEET_EMPTY` to `memory/logs/2026-08-24.md` and stopped silently (no notification, no gh calls, no state file created).
+
 ## Summary
 
-Ran `fleet-control` for 2026-08-23 (`${var}` empty → Health Check mode).
-
-- **Pre-flight step 1 halted the run:** `memory/instances.json` contains `{"instances": []}` — no managed instances.
-- Per SKILL.md rule for empty registry: logged `FLEET_EMPTY: no managed instances` to `memory/logs/2026-08-23.md`, then **stopped without notifying** (silent no-op, as designed).
-- No `gh` calls issued, no state file read/written, no registry mutations. GitLawb-hosted branches also inapplicable since the registry is entirely empty.
-
-**Files modified:** `memory/logs/2026-08-23.md` (appended `## fleet-control (health check)` block).
-
-**Follow-ups:** none required — the registry is intentionally empty; fleet-control will continue to silent-stop until an operator populates `memory/instances.json` with at least one instance entry.
+- **Mode:** Health Check (default — `${var}` empty)
+- **Action:** Read `memory/instances.json`, found empty registry, halted per spec
+- **Files modified:** `memory/logs/2026-08-24.md` (appended fleet-control entry)
+- **Exit:** `FLEET_EMPTY: no managed instances`
+- **Notified:** no (silent stop is the correct behavior for an empty fleet)
+- **Follow-up:** none — when the operator registers a child instance in `memory/instances.json`, the next scheduled run (09:00/15:00 UTC) will begin classifying it.
