@@ -1,13 +1,17 @@
-MEMORY.md is 64 lines (index-shape). Memory-flush complete.
+MEMORY.md is now at 65 lines. All contradictions resolved, counters advanced, composition updates land, and the log is appended.
 
 ## Summary
 
-Ran the `memory-flush` skill on 2026-08-22 (even DOM 22, Sat → memory-flush + memory-structural-dedupe both scheduled in the 06:00–07:30Z window). `${var}` empty → whole-fleet flush. Read `memory/MEMORY.md` + last 3 days of logs (08-20 + 08-21 + 08-22 through notegraph) + `gh pr list --state open` (23 rows).
+Ran `memory-flush` on 2026-08-24 with `${var}` empty (whole-fleet flush).
 
-**Contradictions resolved (8):** (1) open aeon-repo PR count 24 → 23 (26 → 21 after 08-21 operator-invocation sweeper closed 5 stale PRs; then +#43/#44 today); (2) notegraph tracked set #32/#35/#36/#39 → #39/#41/#43; (3) suggest-edges tracked set #22/#37/#38/#40 → #38/#40/#42/#44; (4) swarm counters 53rd/38th → 56th/39th, confirming counter 41/38 → 44/39; (5) swarm queue 8 → 9 open with byte-freeze break 08-20 → SHA-churn-under-full-skip subclass; (6) pr-tracker tuple `(0, 8, 1, 1)`/`(0, 9, 1, 0)` → `(0, 9, 1, 0)`/`(0, 9, 1, 0)` byte-identical 3rd consecutive day; (7) notegraph 08-19 STUCK compressed to footnote after 3-day clean cadence; (8) compute-futures-eda 08-19 → 08-21 CSV signal (new class peaks: 5 pair-collapsed clusters, dual-anchor TIE 18/18, 2.5000× n=4 consecutive, 3rd consecutive same-sign x402 correlation).
+**Contradictions resolved (7):** open PR count 25 → 23; notegraph tracked set #39/#41/#43 → #43/#48; suggest-edges #38/#40/#42/#44/#45 → #42/#45/#49; swarm counters 58/40 → 59/40 (combined 98 → 99); notegraph 4-day clean cadence → 5-day (via PR #48 substantive open); suggest-edges day-15 → day-16 recurrence; notegraph sandbox-friction on fingerprint pipeline n=1 → n=2.
 
-**Calendar counters advanced (14):** day 14→16 durability, ~320h→~365h+, ISS-006 Day-18→20, ISS-001 Day-62→64, never-dispatched 44→46, agi-tracker/cost/milestone-tracker "4d out"→"2d out", ISS-021 32nd→34th carryover, docs/status.md 34→36d + 22nd→24th rebase, pr-tracker patch 57→59d, watched-repos streak-14→17, suggest-edges day-12→14, sweeper streak-13→15.
+**Counters advanced (13):** day 17 → 18 durability, ~389h → ~413h since last aeon merge, ISS-006 Day-21 → 22, ISS-001 Day-65 → 66 (skill-health 57th → 58th steady-state), never-dispatched 47 → 48d, agi-tracker/cost-report/milestone-tracker "1d out" → "TODAY", docs/status.md 37 → 38d past, pr-tracker patch 60 → 61d, sweeper streak-17 → 18, archive-hide 18 → 19, repo-deletion 13 → 14, ISS-021 35 → 36 carryover.
 
-**New signal folded in:** 08-21 planner isolated the specific merge-flow unblock (single ShellCheck FAILURE on PR #26 workflow `Lint`, job `95256043957`, 2026-08-17T01:09:55Z); 08-21 sweeper operator-invocation closed 5 stale PRs proving SKILL works under widened allowlist; 08-21 4th-consecutive-day stuck-goal escalation rule fired.
+**New signal folded in:** today's 00:02Z operator-invocation sweeper (2 more stale closed — second proof-of-concept run for widened `ALLOWED_AUTHORS`); notegraph PR #48 substantive open; suggest-edges PR #49.
 
-**No new atomic notes / no compression pass** — 08-21 reflect already filed [[planner-stuck-goal-escalation-must-probe-status-checks]]; MEMORY.md remains index-shape at 64 lines with all bullets carrying active 48h signal. Files modified: `memory/MEMORY.md`, `memory/logs/2026-08-22.md`.
+**Compressed:** bullet 6 two-lever framing clause + swarm-gap trailing sentence; bullet 7 batch-drift enumeration; bullet 11 predictor phrasing; bullet 22 duplicate "Fix path binary" sentence. MEMORY.md 66 → 65 lines (still +15 over ~50 target; deeper topic-demotion deferred to operator per 08-23 self-review recommendations).
+
+**No new atomic notes filed** (reflect's job); n=2 notegraph fingerprint-friction flagged for reflect to promote as `[[notegraph-fingerprint-pipeline-blocked-by-sandbox]]` at n≥3.
+
+**Files modified:** `memory/MEMORY.md` (17 in-place bullet edits across focus + pointers); `memory/logs/2026-08-24.md` (new memory-flush entry). No PRs, no notifications.
