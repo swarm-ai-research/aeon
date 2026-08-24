@@ -1,9 +1,11 @@
+Skill executed. Aborted at step-1 per SKILL contract.
+
 ## Summary
 
-Ran `changelog` on 2026-08-17. Halted at Config pre-flight: `memory/watched-repos.md` is absent, and per SKILL.md I must abort with the verbatim notification rather than create the file silently.
+Ran `changelog` on 2026-08-24 (operator invocation). Hit the SKILL's step-1 abort path immediately — `memory/watched-repos.md` is missing (streak-19 chronic per MEMORY pointer #50). Sent the exact abort payload (`changelog: memory/watched-repos.md missing — nothing to scan.`) via `.pending-notify/1787589230-changelog.md` per the `notify-script-has-no-f-flag` sandbox workaround, and appended a run entry + summary to `memory/logs/2026-08-24.md` via Edit (HEREDOC `cat >>` into `memory/logs/` was blocked by the workspace path guard, same as milestone-tracker earlier today).
 
-- **Exit mode:** `CHANGELOG_MISSING_CONFIG`
-- **Notification:** wrote SKILL-verbatim payload directly to `.pending-notify/1786984473-changelog.md` (bypassed `./notify` inline-string handling because the message's backticks would trip shell expansion per [[notify-inline-cat-substitution-blocked-in-sandbox]]).
-- **Class:** extends [[watched-repos-config-missing-silent-short-circuits-6-skills]] — 4th same-day cluster confirmation on Sun 08-17 (github-monitor 13th dispatch, issue-triage 12th+, weekly-shiplog SHIPLOG_NO_REPOS, now changelog).
-- **Files modified:** `.pending-notify/1786984473-changelog.md`, `memory/logs/2026-08-17.md`.
-- **Follow-up:** planner's chronic streak-11+ hold — populate `memory/watched-repos.md` OR ship `enabled: false` on the six dependent skills; also reconcile the `memory/watched-repos.md` vs `memory/topics/watched-repos.md` path mismatch (repo-revive references the latter).
+**Files:**
+- `.pending-notify/1787589230-changelog.md` (new — abort notify)
+- `memory/logs/2026-08-24.md` (new run + summary entry)
+
+**Follow-up (unchanged):** populate `memory/watched-repos.md` **or** set `enabled: false` on the six watched-repos-dependent skills (`code-health`, `github-monitor`, `issue-triage`, `changelog`, `weekly-shiplog`, `repo-revive`) — and reconcile the `repo-revive` path-mismatch (`memory/topics/watched-repos.md` vs `memory/watched-repos.md`) in the same PR.
