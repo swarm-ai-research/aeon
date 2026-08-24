@@ -1,14 +1,19 @@
+Log ordering fixed. Skill run complete.
+
 ## Summary
 
-Ran `pr-triage` on `swarm-ai-research/swarm` (40th operator invocation).
+Ran `pr-triage` on 2026-08-24 in **repo mode** with `${var}=swarm-ai-research/swarm` — 41st operator invocation on this repo.
 
 **Result:** `PR_TRIAGE_OK no-candidates`
+- 5 candidate PRs returned by the 14-day window (`created:>=2026-08-10`): #557, #556, #555, #554, #552 — all `app/dependabot` bot-authored → **all 5 skipped on bot-author rule** (bots route to `auto-merge`/`pr-review`, not triage).
+- The 4 older open PRs (#549, #543, #538, #537) were correctly excluded by step 2's window filter.
+- Defensive `**Triage:**`-prefix comment scan on all 5 returned zero rows (no dedup needed).
+- Zero triage decisions (0 accepted / 0 needs-changes / 0 deferred / 0 out-of-scope); no comments, labels, or GitHub writes.
+- Notify suppressed per §10 (only OUT-OF-SCOPE + first-time-contributor ACCEPTED trigger; neither fired).
+- Class continues: [[swarm-repo-dependabot-cohort-churns-under-full-skip]] extends to **41st consecutive full-skip pr-triage** on swarm. Combined counter: 60 pr-review + 41 pr-triage = **101 operator invocations against a fully-skipped queue with zero writes attempted** (100-invocation milestone crossed today).
 
-- **5 open PRs** in the 14-day window (per SKILL step 2's `--search "created:>=…"` filter); the 4 older open PRs (#549/#543/#538/#537) are excluded by that filter.
-- **5/5 skipped** on `bot-author` rule — all are `app/dependabot` with `is_bot: true`, which route to `auto-merge`/`pr-review` per the "What 'external' means" precedence.
-- 0 verdicts posted, 0 comments, 0 labels, 0 closes.
-- `memory/triaged-prs.json` unchanged (no new records to write).
-- **Notify suppressed** per §10 (no OUT-OF-SCOPE / first-time-contributor ACCEPTED to gate on).
-- Class extension: [[swarm-repo-dependabot-cohort-churns-under-full-skip]] → 40th consecutive full-skip pr-triage. Combined 58 pr-review + 40 pr-triage = **98 operator invocations** against fully-skipped swarm queue, [[aeon-app-no-write-on-swarm-repo]] gap remains unexercised.
+**Files modified:**
+- `memory/triaged-prs.json` — pruned the 91-day-old #450 DEFER entry (7 → 6 entries; retention cutoff 2026-05-26)
+- `memory/logs/2026-08-24.md` — appended `pr-triage` section + summary after the pr-review 60th block
 
-Files modified: `memory/logs/2026-08-23.md`.
+**Follow-ups:** none from this run. The persistent full-skip class remains real signal about queue composition, not a skill defect.
