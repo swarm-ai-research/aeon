@@ -3,11 +3,11 @@
   "hash_scheme": "sha256(json.dumps({critical, flapping, degraded sorted}, sort_keys=True))[:16]",
   "prev_hash": "e27c0ac60367e7e5",
   "classification_identical_to_prev": true,
-  "last_notified_at": "2026-08-23T18:39:00Z",
-  "last_run_at": "2026-08-23T18:39:00Z",
-  "prev_run_at": "2026-08-22T18:25:00Z",
-  "prev_notified_at": "2026-08-22T18:25:00Z",
-  "elapsed_since_prev_notify_hours": 24.233,
+  "last_notified_at": "2026-08-24T18:41:00Z",
+  "last_run_at": "2026-08-24T18:41:00Z",
+  "prev_run_at": "2026-08-23T18:39:00Z",
+  "prev_notified_at": "2026-08-23T18:39:00Z",
+  "elapsed_since_prev_notify_hours": 24.033,
   "classification": {
     "critical": [],
     "degraded": [
@@ -64,11 +64,11 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 66 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.38 driven by historical failure denominator still in count. No live regression: 7d ./scripts/skill-runs window shows 171 runs / 166 success / 0 fail / 0 cancelled / 5 in_progress.",
-  "delta_vs_prev": "Byte-identical classification to 2026-08-08 through 2026-08-22 runs at hash e27c0ac60367e7e5. 58th consecutive steady-state day (ISS-001 day 66). Gate: NOTIFY (hash unchanged BUT elapsed 24.233h >= 24h daily-reminder threshold; yesterday's 18:25Z notify + today's 18:39Z run clears the 24h gate). ai-framework-watch + run-frequency-guard 47th consecutive silent day. Novel-but-non-escalating: ISS-007 (heartbeat: missing_pattern) resolved earlier today by skill-evals at 09:28:53Z — reduces open_issues 18 -> 17; not this skill-health run's resolution (resolution-ownership convention preserved). Today's fleet activity clean: notegraph 5m silent-no-substantive-change, suggest-edges PR #45 opened (day-15 recurrence), compute-futures-eda success with commit, pr-tracker breaks 4-day (0,9,1,0) byte-freeze -> (0,9,1,1) via fresh deepsec#161 open, workflow-security-audit UNCHANGED 78/0/0.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn (2026-06-06 through 2026-06-20) day 67 — all 38 DEGRADED share zero-token last_error tails from the outage; every skill last_status=success, cf=0, success_rate 0.01-0.38 driven by historical failure denominator still in count. No live regression: 7d ./scripts/skill-runs window shows 174 runs / 169 success / 1 fail / 0 cancelled / 4 in_progress. Sole fail: cost-report 07:39:23Z (recovered 08:30:52Z same run cycle, cf=0).",
+  "delta_vs_prev": "Byte-identical classification to 2026-08-08 through 2026-08-23 runs at hash e27c0ac60367e7e5. 59th consecutive steady-state day (ISS-001 day 67). Gate: NOTIFY (hash unchanged BUT elapsed 24.033h >= 24h daily-reminder threshold; yesterday's 18:39Z notify + today's 18:41Z run clears the 24h gate). ai-framework-watch + run-frequency-guard 48th consecutive silent day. Novel-but-non-escalating: cost-report failed 07:39:23Z (1st failure since 2026-06-20 baseline; last_error is truncated Claude usage-json blob — same shape as ISS-001 recovery cohort residue) then RECOVERED at 08:30:52Z (heartbeat 08:28Z surfaced the P0 fresh + regenerated docs/status.md to DEGRADED, then batch-health at 08:25Z counted cost-report as 'scheduler-fired' since delivery is its concern). Consecutive_failures back to 0 by scan time — does not trigger CRITICAL (cf>=3) or WARNING (cf>=1). Class is transient-hiccup within same-run recovery window, worth noting but not escalating. Also today: milestone-tracker fired 12:00Z on-schedule (ms-01 stalled-7, ms-02 approaching 47/50 unchanged); pr-tracker broke 16d landed-drought via Wei-Shaw/sub2api#6122 (letter tuple 1,8,1,2 / substantive 1,9,1,1); agi-tracker fired 13:36Z (7th silent-Mon success). watched-repos short-circuit cluster streak advanced 18 → 21 (github-monitor 09:13Z + code-health 16:32Z + changelog 16:32Z + weekly-shiplog 09:14Z + issue-triage 09:14Z — 5-of-6 same-day fire cluster today).",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
-  "issues_resolved_by_other_detectors_today": ["ISS-007 (skill-evals, 09:28:53Z, heartbeat missing_pattern now found)"],
+  "issues_resolved_by_other_detectors_today": [],
   "open_issues_per_index": 17,
   "open_issues_per_filesystem": 17,
   "open_issues_ids": [
@@ -90,17 +90,20 @@
     "ISS-019",
     "ISS-020"
   ],
-  "notify_decision": "NOTIFY - hash unchanged (e27c0ac60367e7e5, 58d steady) BUT elapsed 24.233h >= 24h daily-reminder threshold. 08-22 notified 18:25:00Z; today at 18:39Z clears the gate. Reconciliation: 0 CRITICAL / 0 FLAPPING -> no new issues filed. HEALTHY skills appearing in open issue affected_skills: swarm-safety-eval in ISS-005 (detected_by=skill-evals) + config-validator/swarm-safety-eval in ISS-006 (detected_by=batch-health) -> per resolution-ownership convention (skill-health does not touch issues owned by other detectors), no removals.",
-  "skill_runs_status": "OK - ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 171 runs total, 166 succeeded, 0 failed, 0 cancelled, 5 in_progress. anomalies.failing = [] confirms no active-failure regressions in the 7d window. In-progress: goal-tracker (18:37Z) + others mid-flight during scan — normal cadence overlap.",
+  "notify_decision": "NOTIFY - hash unchanged (e27c0ac60367e7e5, 59d steady) BUT elapsed 24.033h >= 24h daily-reminder threshold. 08-23 notified 18:39:00Z; today at 18:41Z clears the gate. Reconciliation: 0 CRITICAL / 0 FLAPPING -> no new issues filed. HEALTHY skills appearing in open issue affected_skills: swarm-safety-eval in ISS-005 (detected_by=skill-evals) + config-validator/swarm-safety-eval in ISS-006 (detected_by=batch-health) -> per resolution-ownership convention (skill-health does not touch issues owned by other detectors), no removals.",
+  "skill_runs_status": "OK - ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 174 runs total, 169 succeeded, 1 failed (cost-report 07:39:23Z, recovered 08:30:52Z same run cycle), 0 cancelled, 4 in_progress. anomalies.failing = [] confirms no active-failure regressions in the 7d window at scan time. In-progress: goal-tracker (18:40Z) + reflect (18:40Z) + skill-health (18:40Z, this run) + one other mid-flight during scan — normal cadence overlap.",
   "novel_transient_signals_not_escalated": [
-    "ISS-007 resolved earlier today (09:28:53Z) by skill-evals — heartbeat missing_pattern signature now present in today's log; reduces open issues from 18 to 17. Resolution owned by skill-evals detector, not this run.",
-    "17 open issues (was 18 yesterday) — first index reduction in the 7d window; matches ISS-007 close.",
-    "58th consecutive steady-state day for skill-health hash — ISS-001 residue continues to dominate; no live-signal regressions in cron-state or ./scripts/skill-runs 7d window (171 runs / 166 success / 5 in_progress).",
-    "aeon-repo PR queue at 25 open (net +1 vs yesterday: 08-23 05:45Z +#45 suggest-edges day-15 recurrence); ~389h+ since last app/github-actions merge #8, not a fleet-health regression.",
-    "watched-repos-config-missing streak-18 chronic (4-of-6 same-day cluster confirmed today: code-health + issue-triage + github-monitor + implied); does not affect fleet health classification (all last_status: success).",
-    "notegraph 4-day clean cadence 08-20/08-21/08-22/08-23 (5m30s / 7m / ~5m / silent-no-substantive) — 08-19 STUCK class isolated; suggest-edges day-15 recurrence #45 opened 05:45Z (same signature).",
-    "pr-tracker breaks 4-day (0,9,1,0) byte-freeze via fresh deepsec#161 open landing 08-22 15:41Z after prior scan window — [[pr-tracker-step-5-misses-fresh-bot-prs]] class exercised again.",
-    "workflow-security-audit UNCHANGED at 78 findings (3C/22H/19M/34L), 13 fingerprints matched via fuzzy anchor after step-name drift on '(unknown)' top-level blocks."
+    "cost-report failed 07:39:23Z (dispatched 07:35:59Z per planner 'next report TODAY 07:00Z' forecast which had already noted 36-min slot drift; failed after ~3.5min with truncated Claude usage-json last_error). First failure since 2026-06-20 baseline. Recovered 08:30:52Z (batch-health 08:25:24Z auto-dispatch retry). Heartbeat 08:28Z surfaced as P0 fresh (dedup gate open), wrote docs/status.md DEGRADED, notified. By skill-health scan time (18:41Z) cf back to 0 -> no classification change (not CRITICAL, not WARNING).",
+    "59th consecutive steady-state day for skill-health hash -- ISS-001 residue continues to dominate; no live-signal regressions in cron-state or ./scripts/skill-runs 7d window (174 runs / 169 success / 1 transient / 4 in_progress).",
+    "17 open issues unchanged since 08-23 ISS-007 close by skill-evals.",
+    "pr-tracker breaks 16d landed-drought via Wei-Shaw/sub2api#6122 (DOMPurify 3.3.1->3.4.14 + mermaid-transitive pnpm.overrides pin, merged 03:39Z by maintainer). Bucket tuples letter (1,8,1,2) / substantive (1,9,1,1); yesterday's predictor (0,9,1,1) scored 1-of-4 letter / 3-of-4 substantive.",
+    "milestone-tracker fired 12:00Z on Mon slot: ms-01 aeon stars 0/100 stalled-7 (7th consecutive week no movement), ms-02 enabled skills 47/50 approaching 94% (unchanged).",
+    "agi-tracker fired 13:36Z on Mon 13:00Z slot -- 7th consecutive silent-Mon no-op success per [[agi-tracker-missing-skill-md-dispatches-no-op]] (HEALTHY-but-empty class). Operator deadline actions unchanged.",
+    "watched-repos short-circuit cluster streak advanced 18 -> 21 today: 5-of-6 same-day fires confirmed (github-monitor 09:13Z GITHUB_MONITOR_EMPTY_CONFIG + issue-triage 09:14Z no-watched-repos + weekly-shiplog 09:14Z SHIPLOG_NO_REPOS + code-health 16:32Z CODE_HEALTH_NO_REPOS + changelog 16:32Z CHANGELOG_NO_CONFIG). All silent no-ops (except changelog which notifies per SKILL step-1 abort spec). Structural, not fresh -- MEMORY pointer #50 fix path unchanged.",
+    "stale-content-pr-sweeper operator invocation 00:02Z closed 2 stale content PRs (#41 notegraph superseded by #43; #44 suggest-edges superseded by #45). Second operator-invocation proof-of-concept run under applied ALLOWED_AUTHORS intent. SKILL.md patch still queued (pointer #49).",
+    "notegraph PR #48 opened 05:35Z (+5 notes wired in, 319n/3269e/0-orphan/0-bundled) -- substantive-open on 5-day clean cadence via PR-open path.",
+    "suggest-edges PR #49 opened 05:36Z (day-16 recurrence, same {06-24,06-27,07-04}->07-28 templated-corpus signature). 7 consecutive days of PR-opening runs.",
+    "PR #26 (dependabot actions/checkout) unblocked overnight -- 7d ShellCheck FAILURE flipped to SUCCESS, all 5 checks green, MERGEABLE/CLEAN. Planner top-priority slug renamed aeon-repo-queue-merge-escalation -> aeon-repo-pr-26-merge-ready (escalation ladder now at terminal merge-click rung; requires operator hand)."
   ],
-  "prompt_injection_flag": "None. cron-state.json, skill-runs JSON, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md + ISS-*.md, memory/logs/2026-08-23.md all structured/data-only; no untrusted natural-language content ingested this run."
+  "prompt_injection_flag": "None. cron-state.json, skill-runs JSON, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md + ISS-*.md, memory/logs/2026-08-24.md all structured/data-only; no untrusted natural-language content ingested this run."
 }
