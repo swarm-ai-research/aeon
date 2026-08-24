@@ -1,18 +1,18 @@
 {
-  "last_run": "2026-08-23T06:30:00Z",
-  "top_priority": "aeon-repo-queue-merge-escalation",
+  "last_run": "2026-08-24T07:40:00Z",
+  "top_priority": "aeon-repo-pr-26-merge-ready",
   "priority_streak": {
-    "aeon-repo-queue-merge-escalation": 15,
-    "agi-tracker-enabled-false-via-pr": 8,
-    "stale-content-pr-sweeper-allowed-authors-patch": 17,
-    "suggest-edges-templated-corpus-prefilter": 15,
-    "watched-repos-population-or-disable": 18,
-    "pr-tracker-patch-batch": 60,
-    "iss-006-messages-yml-multi-pocket-rewrite": 21,
-    "docs-status-md-snapshot-rebase-gate": 37,
-    "swarm-repo-app-perm-gap": 42
+    "aeon-repo-pr-26-merge-ready": 16,
+    "agi-tracker-enabled-false-via-pr": 9,
+    "stale-content-pr-sweeper-allowed-authors-patch": 18,
+    "suggest-edges-templated-corpus-prefilter": 16,
+    "watched-repos-population-or-disable": 19,
+    "pr-tracker-patch-batch": 61,
+    "iss-006-messages-yml-multi-pocket-rewrite": 22,
+    "docs-status-md-snapshot-rebase-gate": 38,
+    "swarm-repo-app-perm-gap": 43
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Twenty-third planner run in the ISS-006 pocket-slot migration era; SEVENTEENTH since 08-07 overnight PR-creation toggle unblock. SIXTH consecutive day at same top-3 ranking. Rank order UNCHANGED — the one-liner fix path isolated 08-22 (`gh pr comment 26 -b '@dependabot rebase'`) remains the concrete unblock; no operator or dispatched action took it overnight, so PR #26 status is byte-identical (4/5 SUCCESS + 1 ShellCheck FAILURE, same job 95256043957, same timestamp 2026-08-17T01:09:55Z). Rank-2 agi-tracker deadline tightens 2d → 1d (fires 2026-08-24T13:00Z Mon — TOMORROW); rank-3 sweeper patch streak-17. New PRs overnight: #45 suggest-edges 05:45Z (same triple `{06-24, 06-27} × {07-28, 07-31}` signature as #38/#40/#42/#44). Queue 24 → 25 (yesterday's +2 opens held, today's +1 open + 0 closes). Fleet: 0 broken, 0 in-flight (fourth consecutive clean morning: notegraph silent-no-change 05:00Z per generatedAt-only diff, suggest-edges 05:40→05:45Z 5m, compute-futures-eda 06:00Z success), 38 DEGRADED (ISS-001 Day-65), 4 truly HEALTHY, 2 NO_DATA (47th silent day). 17 open ISS (INDEX.md unchanged since 08-22). 25 open aeon PRs. ${var} empty → plan-only, no dispatch."
+  "notes": "Twenty-fourth planner run in the ISS-006 pocket-slot migration era; EIGHTEENTH since 08-07 overnight PR-creation toggle unblock. **MAJOR OVERNIGHT STATE CHANGE:** the 15-day queue-merge escalation flipped from ACT-NEEDED-BY-OPERATOR (`gh pr comment 26 -b '@dependabot rebase'`) to ONE-CLICK-MERGE. PR #26 now returns `mergeable: MERGEABLE`, `mergeStateStatus: CLEAN`, `updatedAt: 2026-08-24T01:08:19Z` (jumped from the 7-day byte-frozen 2026-08-17T01:09:40Z), all 5 checks SUCCESS (ShellCheck flipped from the single anchoring FAILURE). Top-priority slug RENAMED from `aeon-repo-queue-merge-escalation` to `aeon-repo-pr-26-merge-ready` — streak-1's semantic transition marked (streak counter continues at 16 to preserve consecutive-day-attention accounting; the concrete ask is different but the goal is the same). Rank-2 agi-tracker deadline TODAY 13:00Z (~5.5h out); rank-3 sweeper patch streak-18 (00:02Z sweeper closed #41 + #44 under applied intent — second proof-of-concept run after 08-21's 5-close run). Queue 25 → 23 (net -2 via sweeper closes) + 2 fresh opens overnight (#48 notegraph +5 notes wired in / #49 suggest-edges day-16 recurrence) = 23 stable. Fleet: 0 broken, 0 in-flight, 0 failed (5th consecutive clean morning), 38 DEGRADED (ISS-001 Day-66), 4 truly HEALTHY, 2 NO_DATA (48th silent day). 17 open ISS (INDEX.md unchanged since 08-22; MEMORY.md pointer says 18 counting Draft ISS-021 pending). ${var} empty → plan-only, no dispatch."
 }
