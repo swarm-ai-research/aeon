@@ -1,1 +1,1 @@
-memory consolidated — 2026-08-24 · +1n / +11e (0 splits, 0 new — 5 MEMORY.md bullets refreshed post-flush)
+memory consolidated — 2026-08-25 · +4n / +51e (1 new atomic: notegraph-fingerprint-pipeline-blocked-by-sandbox, n=3 promotion)
