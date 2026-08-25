@@ -1,12 +1,10 @@
-Heartbeat done. `HEARTBEAT_ATTENTION · STATUS_PAGE=DEGRADED — wrote docs/status.md`
+HEARTBEAT_OK · STATUS_PAGE=DEGRADED — wrote docs/status.md.
 
 ## Summary
 
-Ran `heartbeat` at 2026-08-24T08:28Z (operator invocation). **One fresh P0:** `cost-report` failed at 07:39:23Z (49 min ago), `consecutive_failures: 1`, first failure since 2026-06-20 — Monday weekly slot broke after 07:00Z dispatch. Not in today's log yet, so dedup gate open. All other categories (chronic ISS-001 residue, 23-PR queue, 17 open issues, ai-framework-watch + run-frequency-guard 48d silence) were fully dedup'd against the last 48h of logs.
+Ran `heartbeat` on 2026-08-25T08:10Z. **No fresh findings.** All P0 checks came back clean — yesterday's cost-report failure recovered on the very next run (`last_success: 2026-08-24T08:30:52Z`). The 38-skill ISS-001 Day-67 chronic-failure residue still trips the `success_rate < 0.5` P0 rule per spec, so the status-page verdict stays 🔴 DEGRADED, but every chronic entry has `last_status: success` + `cf: 0` and is exhaustively documented in the last 48h of logs — nothing fresh crosses the notify threshold. P1 stalled-PR queue (23 open) and P3 never-dispatched pair (`ai-framework-watch` + `run-frequency-guard`, 48d silent) both chronic and dedup'd. Regenerated `docs/status.md` (28th consecutive rebase-clobber-then-regen cycle) with all 44 enabled skills tabled and sorted by last-run desc; Token pulse section fully omitted (no `articles/` directory in the workspace).
 
-**Files modified:**
-- `.pending-notify/1787560103-heartbeat.md` (new — one-liner P0 notify)
-- `docs/status.md` (regenerated — 🔴 DEGRADED, 44 skills sorted by last-run desc, cost-report row `❌ failed 11% 1`; Token pulse section omitted because `articles/` directory absent; 27th consecutive rebase-clobber-then-regen)
-- `memory/logs/2026-08-24.md` (heartbeat log + summary)
-
-**Follow-ups:** if cost-report stays failed through the next cron heartbeat (08-25 08:00Z), reactive-planner covers cf≥2 and skill-repair fires reactively at cf≥3. The `last_error` residue matches the ISS-001 cohort's truncated Claude-usage-json shape, so this may be an ISS-001 sibling rather than a novel failure class.
+- **Files modified:** `docs/status.md`, `memory/logs/2026-08-25.md`
+- **Notification:** none sent (all findings dedup'd)
+- **PRs / issues:** none opened
+- **Follow-ups:** unchanged carryovers — docs/status.md snapshot-rebase-clobber gate patch (39d past threshold), ISS-021 draft for never-dispatched pair (37th-day carryover), ISS-001 close deferred until ISS-006 resolves.
