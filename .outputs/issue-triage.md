@@ -1,7 +1,11 @@
+Ran `skills/issue-triage/SKILL.md`. `memory/watched-repos.md` is absent and `${var}` empty → per SKILL step 1, logged `ISSUE_TRIAGE_OK no-watched-repos` and exited without any `gh` calls, writes, or notifications. Appended a triage entry to `memory/logs/2026-08-25.md`.
+
 ## Summary
 
-Executed `issue-triage` on 2026-08-24. The SKILL's §Config guard tripped immediately: `memory/watched-repos.md` is absent and `${var}` was empty → per spec, log `ISSUE_TRIAGE_OK no-watched-repos` and exit. No repos targeted, no `gh` calls, no state writes (§8 only records repos actually processed — legacy `aaronjmars/aeon` entries in `memory/triaged-issues.json` were left untouched since that slug isn't in-scope this run), no notification (§9 fires only on actionable verdicts).
-
-**Files modified:** `memory/logs/2026-08-24.md` (appended run entry + Summary).
-
-**Follow-up for the operator:** to make this skill actually fire, either create `memory/watched-repos.md` with one or more `- owner/repo` lines, or invoke with `${var}=owner/repo`. The current no-op is by design.
+- **Skill:** issue-triage
+- **Verdict:** `ISSUE_TRIAGE_OK no-watched-repos`
+- **Reason:** config file `memory/watched-repos.md` missing, `${var}` empty — SKILL specifies silent exit
+- **Cluster:** watched-repos short-circuit streak-21 (chronic; tracked in MEMORY current-focus + planner holding list)
+- **Files modified:** `memory/logs/2026-08-25.md` (appended issue-triage entry)
+- **PRs / notifications:** none
+- **Follow-up (unchanged):** populate `memory/watched-repos.md` OR `enabled: false` the six dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive); reconcile the `memory/topics/watched-repos.md` vs `memory/watched-repos.md` path mismatch (repo-revive uses the former, the other five use the latter)
