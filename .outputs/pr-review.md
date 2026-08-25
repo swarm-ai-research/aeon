@@ -1,22 +1,15 @@
+Notify payload queued to `.pending-notify/` for the post-run notify sweeper.
+
 ## Summary
 
-Ran `pr-review` on 2026-08-24 with `var=swarm-ai-research/swarm` under operator merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK + 0–5/5 confidence). **61st operator invocation** on this repo (60th earlier today).
+**pr-review 61st on `swarm-ai-research/swarm`** under operator merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK + confidence 0–5/5).
 
-**Queue:** 9 open PRs, byte-identical to today's 60th invocation and 08-23's 59th. All 9 headRefOids unchanged; human PRs #549/#543 now ~17d frozen at same SHA.
-
-**Skip breakdown (9/9 skipped):**
-- 7 dependabot bot-author (#557, #556, #555, #554, #552, #538, #537)
-- 2 dup-SHA on frozen human PRs (#549 SHA `afe51248`, #543 SHA `bad79e48`) — each has 26 prior invocations at this exact commit
-
-**Standing merge-gate verdicts reported to operator (no new GitHub writes — dup-SHA respected):**
-
-| PR | Verdict | Confidence | Rationale |
-|---|---|---|---|
-| **#543** (docs de-slop, +36/-40) | **APPROVE** | **5/5** | 20/20 non-conditional CI gates SUCCESS (2 SKIPPED by design). Docs-only, zero production code — evidence sufficient. |
-| **#549** (Prime Agent bridge, +3818/-0) | **REQUEST_CHANGES** | **2/5** | All 20 non-conditional CI gates SUCCESS; PR body claims "96 tests; ruff and mypy clean". No CRITICAL correctness or security break. Unresolved reliability/scope concerns from prior reviews: syntactic evidence-detection semantics (`require_evidence` defaults off), scoring choice (+0.3 vs +0.8 for ungated clean-stop), delegation-depth accounting for the RLM tree — hardening or author acknowledgement warranted before merge, but not BLOCK-worthy. |
-
-**No BLOCK** — no critical security/correctness risk in either PR.
-
-**Class:** `[[swarm-repo-dependabot-cohort-churns-under-full-skip]]` extends to 61st consecutive full-skip pr-review (18 consecutive since 08-08); combined 61 pr-review + 41 pr-triage = **102 operator invocations against fully-skipped swarm queue, zero writes attempted** — `[[aeon-app-no-write-on-swarm-repo]]` gap unexercised.
-
-**Files modified:** `memory/logs/2026-08-24.md`. **Notify:** suppressed per SKILL (all-skip runs log-only; standing verdicts delivered to operator inline).
+- **Queue:** 9 open, byte-identical to yesterday's 60th invocation. Human PRs #549/#543 now **~18d frozen** at same SHA (last update 2026-08-07).
+- **Skip application:** **9/9 skipped** — 7 dependabot (`bot-author`) + 2 dup-SHA (#549 `afe51248…` and #543 `bad79e48…`, each with 26 prior invocations at identical SHA).
+- **No GitHub-side writes** — dup-SHA respected; posting a 27th review on unchanged SHAs would spam.
+- **Standing verdicts reported to operator (CI reconfirmed fresh at 08:30Z, 20 SUCCESS + 2 conditional SKIPPED on both):**
+  - **#543 → APPROVE (5/5)** — docs-only, +36/-40, no production code, evidence sufficient.
+  - **#549 → REQUEST_CHANGES (2/5)** — Prime Agent bridge (+3818/-0). CI green but prior reliability/scope concerns (syntactic evidence-detection, `require_evidence` default-off, +0.3-vs-+0.8 clean-stop scoring, RLM delegation-depth accounting) unaddressed at frozen SHA. No CRITICAL break, so REQUEST_CHANGES not BLOCK.
+- **Class extension:** [[swarm-repo-dependabot-cohort-churns-under-full-skip]] → **18 consecutive days of full-skip since 08-08**. Combined cross-skill counter: **101 operator invocations, zero writes attempted** on this repo — [[aeon-app-no-write-on-swarm-repo]] gap still unexercised.
+- **Files modified:** `memory/logs/2026-08-25.md` (61st-invocation entry), `.pending-notify/1787651049-pr-review.md` (operator merge-gate notify).
+- **Follow-ups:** none new — the 18-day frozen human-PR pair and the dependabot cohort will keep re-triggering full-skip until the operator or maintainers move a SHA.
