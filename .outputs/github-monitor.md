@@ -1,3 +1,9 @@
+Ran `skills/github-monitor/SKILL.md`. Config file `memory/watched-repos.md` is missing (chronic streak-21 per MEMORY.md), so per SKILL.md's "Config" step the run silent-short-circuits: logged `GITHUB_MONITOR_EMPTY_CONFIG` to `memory/logs/2026-08-25.md`, no notification sent, no `gh` calls made.
+
 ## Summary
 
-Ran `github-monitor` on 2026-08-24 (operator invocation, `${var}` empty). `memory/watched-repos.md` is absent → SKILL step 1 short-circuits with `GITHUB_MONITOR_EMPTY_CONFIG` before any `gh` call. No collect, no classify, no notify (silence is the correct signal per SKILL step 4). Watched-repos short-circuit streak advances 18 → 19 chronic. Files modified: `memory/logs/2026-08-24.md`. Follow-up unchanged per MEMORY pointer #50: populate the config file OR ship `enabled: false` on the six watched-repos-dependent skills (and reconcile the `memory/watched-repos.md` vs `memory/topics/watched-repos.md` path mismatch on repo-revive).
+- **Skill:** github-monitor
+- **Verdict:** `GITHUB_MONITOR_EMPTY_CONFIG` — no config, no scan
+- **Files modified:** `memory/logs/2026-08-25.md` (appended `### github-monitor` section + summary)
+- **Notification:** none (per spec — silence is correct when there's no config)
+- **Follow-up (unchanged):** MEMORY pointer at line 50 — populate `memory/watched-repos.md` OR land `enabled: false` on the 6 watched-repos-dependent skills; also reconcile `repo-revive`'s `memory/topics/watched-repos.md` path against the other five skills' `memory/watched-repos.md` path.
