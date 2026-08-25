@@ -1,9 +1,7 @@
-Skill executed. Result: `GLMETRICS_EMPTY` — silent stop.
-
 ## Summary
 
-- **Skill:** `gitlawb-fleet-metrics` (operator invocation, `${var}` empty → default 24h, non-dry-run)
-- **Pre-flight:** `node --version` returned `v22.23.2` (✓); `memory/gitlawb-fleet.json` and `memory/gitlawb-metrics.jsonl` are both absent.
-- **Verdict:** `GLMETRICS_EMPTY` — per SKILL step 2, an empty fleet is not news. Stopped without running the CLI and without calling `./notify` (SKILL constraint: "don't train the operator to ignore the card").
-- **Files modified:** `memory/logs/2026-08-24.md` (appended log entry + summary).
-- **No follow-ups:** the skill will start producing snapshots once its sibling `gitlawb-fleet` mints the first registry entry.
+Ran `skills/gitlawb-fleet-metrics/SKILL.md`. Pre-flight step 2 tripped: `memory/gitlawb-fleet.json` is absent (and `memory/gitlawb-metrics.jsonl` too) — no fleet exists to report on. Per SKILL.md, this is a silent stop: `GLMETRICS_EMPTY` logged, no notification sent (an empty fleet isn't news).
+
+- **Verdict:** `GLMETRICS_EMPTY`
+- **Modified:** `memory/logs/2026-08-25.md` (appended `## gitlawb-fleet-metrics` entry)
+- **Follow-up:** none — this exit is expected until `gitlawb-fleet` mints its first instance.
