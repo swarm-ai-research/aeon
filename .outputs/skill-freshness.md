@@ -1,23 +1,19 @@
-All three outputs are written. Here's the summary:
-
 ## Summary
 
-**Skill**: `skill-freshness` | **Date**: 2026-08-24 | **Status**: `FRESHNESS_OK`
+**Skill Freshness — 2026-08-25** completed with verdict **✅ FRESHNESS_OK**.
 
-**What was audited:**
-- 44 enabled skills parsed from `aeon.yml`
-- 0 explicit `chains: consume:` edges (chains block fully commented out)
-- 18 implicit file references discovered across enabled SKILL.md files
-- 8 dependencies resolved on disk and freshness-checked
-- 10 implicit references skipped (files never existed on disk, or self-referencing prior-run patterns)
+| Metric | Value |
+|--------|-------|
+| Enabled consumers audited | 44 |
+| Dependencies checked | 8 |
+| Flagged | **0** |
+| Status | **FRESHNESS_NO_CHANGE** |
+| Notification | None (OK verdict + fingerprint identical to 08-24) |
 
-**Verdict: ✅ FRESHNESS_OK — no flags raised.** Every on-disk dependency is ~0.8 hours old (all files land in the single bootstrap commit `b5994f0` at 07:41:06Z), well within all thresholds (4h for `.outputs/`, 168h for topics, 720h for state).
+**All 8 checked dependencies are fresh** — all tracked files share the same git commit (`a45365c compute-futures-eda success`, 2026-08-25T06:48:42Z), giving an age of ~1.2h against thresholds of 4h (`.outputs/`), 168h (`memory/topics/`), and 720h (`memory/state/`).
 
-Notable skips: `memory/topics/watched-repos.md` (18-day chronic per MEMORY), `memory/topics/pr-review-rules.md`, `memory/topics/projects.md` — all implicit, never-existed, not flagged per MISSING rules.
+Two structural observations carried forward (per [[skill-freshness-mtime-blind-in-gha]]):
+1. **GHA mtime-blind**: used `git log --format=%ct` timestamps instead of `stat`, per the open MEMORY.md fix note.
+2. **`articles/` absent**: article outputs are ephemeral (not git-committed), so cross-skill article dependencies are structurally unresolvable. Not flagged (implicit refs only), but this explains the 13 NEW_FAIL / 12 NO_OUTPUT skill-evals saw on 08-23.
 
-**Files written:**
-- `articles/skill-freshness-2026-08-24.md` (new)
-- `memory/topics/skill-freshness-state.json` (updated `last_run_at`, `dependency_count` 2→8)
-- `memory/logs/2026-08-24.md` (log block appended)
-
-No notification sent (FRESHNESS_OK — silence is the signal).
+Files written: `articles/skill-freshness-2026-08-25.md`, `memory/topics/skill-freshness-state.json` (updated `last_run_at`), `memory/logs/2026-08-25.md` (log block appended).
