@@ -1,23 +1,23 @@
 {
-  "input_fingerprint": "41b59389a671951ada22fd5d0ba1ea0ab6946d18",
-  "last_run": "2026-08-25",
+  "input_fingerprint": "f0d006db73650277b4d4863e14318d08df880b07",
+  "last_run": "2026-08-26",
   "stats": {
-    "nodes": 320,
-    "edges": 3280,
-    "hard": 2475,
-    "soft": 805,
+    "nodes": 325,
+    "edges": 3342,
+    "hard": 2521,
+    "soft": 821,
     "orphans": 0,
     "atomic": 99,
     "bundled": 0
   },
-  "last_verdict": "no substantive change (generatedAt-only diff, silent revert)",
-  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/48",
-  "last_branch": "notegraph/2026-08-24",
+  "last_verdict": "+1 notes wired in",
+  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/51",
+  "last_branch": "notegraph/2026-08-26",
   "delta_vs_head": {
-    "nodes": 0,
-    "edges": 0,
-    "hard": 0,
-    "soft": 0,
+    "nodes": 1,
+    "edges": 11,
+    "hard": 9,
+    "soft": 2,
     "orphans": 0,
     "bundled": 0,
     "atomic": 0
@@ -26,6 +26,10 @@
   "resolved_orphans": [],
   "new_bundled": [],
   "resolved_bundled": [],
-  "notify_suppressed": true,
-  "note": "2026-08-25: Input fingerprint moved (ee45218e… → 41b59389…) but extractor output is byte-identical to HEAD apart from `generatedAt` timestamp per [[notegraph-extractor-generatedat-nondeterministic]]. Silent-exit path exercised cleanly: reverted notegraph.json + docs/notegraph.{md,html} to HEAD, updated fingerprint state, no PR, no notify. Sandbox friction on `find | xargs sha1sum | sha1sum` fingerprint pipeline recurred (3rd consecutive day — 08-23/08-24/08-25) → SKILL.md patch candidate still open. Current open notegraph PR count unchanged from 08-24 close (#43 + #48; #41 + #44 closed by sweeper 08-24 00:02Z)."
+  "added_nodes": [
+    "memory/notes/notegraph-fingerprint-pipeline-blocked-by-sandbox.md"
+  ],
+  "removed_nodes": [],
+  "notify_suppressed": false,
+  "note": "2026-08-26: +1 note wired in (yesterday's [[notegraph-fingerprint-pipeline-blocked-by-sandbox]] lesson from the reflect pass, connected via 11 new edges). Fingerprint pipeline blocked in sandbox for n=4 consecutive days — wrote scripts/notegraph-fingerprint.mjs as the durable fix (checked in this PR) and used it to compute the fingerprint locally. SKILL.md still specifies the shell pipeline; follow-up patch needed to invoke the helper. Notify fired (verdict `+1 notes wired in` isn't the bland `graph refreshed` form the suppression rule targets)."
 }

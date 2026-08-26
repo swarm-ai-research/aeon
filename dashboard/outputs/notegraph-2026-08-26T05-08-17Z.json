@@ -1,0 +1,50 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat-wired",
+        "text-lesson",
+        "link-pr"
+      ]
+    },
+    "stat-wired": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes wired in",
+        "value": "1",
+        "delta": "+1",
+        "trend": "up"
+      }
+    },
+    "text-lesson": {
+      "type": "Text",
+      "props": {
+        "text": "Yesterday's fingerprint-pipeline-blocked-by-sandbox lesson (325n/3342e)"
+      }
+    },
+    "link-pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #51",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/51",
+        "source": "GitHub"
+      }
+    }
+  }
+}
