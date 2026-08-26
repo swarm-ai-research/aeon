@@ -1,10 +1,10 @@
 ## Summary
 
-Executed `skills/fleet-control/SKILL.md` in Health Check Mode (default, `${var}` empty).
+Ran `fleet-control` in Health Check Mode (default — `${var}` empty).
 
-- **Registry state:** `memory/instances.json` exists with `"instances": []` (empty).
-- **Action:** Pre-flight step 1 fired — logged `FLEET_EMPTY: no managed instances` to `memory/logs/2026-08-25.md` and stopped.
-- **No notification sent** (silent stop per spec).
-- **No gh calls made** — nothing to authenticate against.
-- **Files modified:** `memory/logs/2026-08-25.md` (appended fleet-control block).
-- **Follow-up:** none — skill stays dormant until an instance is registered.
+- **Verdict:** `FLEET_EMPTY`
+- **Registry:** `memory/instances.json` = `{"instances": []}` — no managed instances.
+- **Action:** Per skill pre-flight step 1, logged `FLEET_EMPTY` to `memory/logs/2026-08-26.md` and stopped. Skipped gh auth check, rate-limit check, and state file work (empty-registry short-circuit).
+- **Notification:** none sent (silent per spec — "Stop. Do NOT notify.").
+- **Files modified:** `memory/logs/2026-08-26.md` (appended fleet-control entry).
+- **Follow-ups:** none — this is the intended no-op path until the operator registers instances.
