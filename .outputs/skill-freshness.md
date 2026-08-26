@@ -1,19 +1,22 @@
+All three outputs written. Here's the run summary:
+
 ## Summary
 
-**Skill Freshness — 2026-08-25** completed with verdict **✅ FRESHNESS_OK**.
+**Verdict: ✅ FRESHNESS_OK** — no notification sent (silence is the signal).
 
-| Metric | Value |
-|--------|-------|
-| Enabled consumers audited | 44 |
-| Dependencies checked | 8 |
-| Flagged | **0** |
-| Status | **FRESHNESS_NO_CHANGE** |
-| Notification | None (OK verdict + fingerprint identical to 08-24) |
+**What was audited:**
+- 44 enabled skills parsed from `aeon.yml`
+- 0 active `chains: consume:` edges (all chain blocks are commented out)
+- 7 implicit dependencies discovered via SKILL.md scan:
+  - `planner` → `memory/state/planner-state.json` (~1.6h old, threshold 720h) → **OK**
+  - `reflect` → 6 `memory/topics/*.md` MOCs (~1.6h old, threshold 168h) → **OK**
 
-**All 8 checked dependencies are fresh** — all tracked files share the same git commit (`a45365c compute-futures-eda success`, 2026-08-25T06:48:42Z), giving an age of ~1.2h against thresholds of 4h (`.outputs/`), 168h (`memory/topics/`), and 720h (`memory/state/`).
+**Key findings:**
+- `articles/` is absent from the repo tree — skill articles are ephemeral, not committed to git. No enabled inter-skill consumer has a canonical today-dated article dependency on another enabled producer that would trigger MISSING detection (self-reads filtered, disabled producers skipped, broad reads non-canonical).
+- GHA mtime-blind limitation active per [[skill-freshness-mtime-blind-in-gha]] — ages derived from git commit timestamps. This repo has a single root commit (06:51 UTC today), so all tracked files show ~1.6h age.
+- Fingerprint unchanged (empty flagged set, sha1 `da39a3ee...`) — consistent with yesterday's FRESHNESS_OK.
 
-Two structural observations carried forward (per [[skill-freshness-mtime-blind-in-gha]]):
-1. **GHA mtime-blind**: used `git log --format=%ct` timestamps instead of `stat`, per the open MEMORY.md fix note.
-2. **`articles/` absent**: article outputs are ephemeral (not git-committed), so cross-skill article dependencies are structurally unresolvable. Not flagged (implicit refs only), but this explains the 13 NEW_FAIL / 12 NO_OUTPUT skill-evals saw on 08-23.
-
-Files written: `articles/skill-freshness-2026-08-25.md`, `memory/topics/skill-freshness-state.json` (updated `last_run_at`), `memory/logs/2026-08-25.md` (log block appended).
+**Files written:**
+- `articles/skill-freshness-2026-08-26.md`
+- `memory/topics/skill-freshness-state.json` (last_run_at updated)
+- `memory/logs/2026-08-26.md` (log entry appended)
