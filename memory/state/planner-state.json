@@ -1,18 +1,18 @@
 {
-  "last_run": "2026-08-25T06:30:00Z",
+  "last_run": "2026-08-26T06:42:00Z",
   "top_priority": "aeon-repo-pr-26-merge-ready",
   "priority_streak": {
-    "aeon-repo-pr-26-merge-ready": 17,
-    "agi-tracker-enabled-false-via-pr": 10,
-    "stale-content-pr-sweeper-allowed-authors-patch": 19,
-    "suggest-edges-templated-corpus-prefilter": 17,
-    "watched-repos-population-or-disable": 20,
-    "pr-tracker-patch-batch": 62,
-    "iss-006-messages-yml-multi-pocket-rewrite": 23,
-    "docs-status-md-snapshot-rebase-gate": 39,
-    "swarm-repo-app-perm-gap": 44
+    "aeon-repo-pr-26-merge-ready": 18,
+    "agi-tracker-enabled-false-via-pr": 11,
+    "stale-content-pr-sweeper-allowed-authors-patch": 20,
+    "suggest-edges-templated-corpus-prefilter": 18,
+    "watched-repos-population-or-disable": 21,
+    "pr-tracker-patch-batch": 63,
+    "iss-006-messages-yml-multi-pocket-rewrite": 25,
+    "docs-status-md-snapshot-rebase-gate": 40,
+    "swarm-repo-app-perm-gap": 45
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Twenty-fifth planner run in the ISS-006 pocket-slot migration era; NINETEENTH since 08-07 overnight PR-creation toggle unblock. Top priority aeon-repo-pr-26-merge-ready STREAK-17: yesterday's 'one-click merge for the operator' framing did NOT clear — PR #26 remains OPEN, mergedAt: null, all 5 checks still SUCCESS (updatedAt still 2026-08-24T01:08:19Z, no new pushes/rebases). mergeable/mergeStateStatus flipped from yesterday's MERGEABLE/CLEAN to UNKNOWN/UNKNOWN (GitHub's transient recompute — checks unchanged so this is not a regression). Escalation shape: the deliverable rotates from 'click merge' to 'click merge OR install repo-level auto-merge policy for dependabot + app/github-actions' so this class stops requiring a daily operator touch. Rank-2 SUGGEST-EDGES BUMPED OVER AGI-TRACKER: 8th consecutive PR-opening day, PR #50 opened 05:47:33Z with same templated-corpus signature; agi-tracker deadline just re-opened to 6 days out (next silent-Mon 2026-08-31T13:00Z), so suggest-edges +1/day churn dominates today's urgency. Rank-3 sweeper patch streak-19 (fresh evidence: today's 00:01:26Z cron sweep closed 0 despite the growing chain PR tail — proves the literal `{aeonframework}` allowlist in SKILL.md text bites the cron path even though yesterday's operator invocations swept 3). Queue net-flat at 23 open (yesterday close of #43 23:59Z offset by today's #50 open 05:47Z). Fleet: 0 broken, 0 in-flight, 0 hard-failed (6th consecutive clean morning), 38 DEGRADED (ISS-001 Day-67), 4 HEALTHY, 2 NO_DATA (49th silent day). 17 filed open ISS (+1 pending ISS-021 draft). Both gh queries responded (neither PR_LIST_UNAVAILABLE nor ISSUE_LIST_UNAVAILABLE fired). Notegraph fingerprint-pipeline sandbox friction n=3 today — first day past the n≥3 promotion threshold; flagged in Holding, not top-3. ${var} empty → plan-only, no dispatch."
+  "notes": "Twenty-sixth planner run in the ISS-006 pocket-slot migration era; TWENTIETH since 08-07 overnight PR-creation toggle unblock. Top priority aeon-repo-pr-26-merge-ready STREAK-18 (Day-20 without a merge). Verified this morning: PR #26 state:OPEN, mergedAt:null, all 5 checks SUCCESS, updatedAt unchanged at 2026-08-24T01:08:19Z (no new pushes); mergeable/mergeStateStatus UNKNOWN/UNKNOWN (same transient recompute pattern as yesterday, not a check regression). Escalation shape unchanged from Day-17 rotation to 'click merge OR install repo-level auto-merge policy'. Rank-2 SUGGEST-EDGES STREAK-18: PR #52 opened this morning per today's log (9th consecutive PR-opening day, now 5 open suggest-edges PRs #42/#45/#49/#50/#52, +1/day net for 5 straight days). Sits above agi-tracker (next silent-Mon 5d out at 08-31 13:00Z). Rank-3 SWEEPER STREAK-20 with shifted framing: yesterday's operator invocation proved ALLOWED_AUTHORS widening is NOT the operative block anymore — safety gate (only sweeps DIRTY/CONFLICTING/UNKNOWN, not MERGEABLE-UNSTABLE) closed 0 of 3 stale candidates. Today's rank-3 bundles a superseded-cluster override for the UNSTABLE gate alongside the allowlist widening. Queue now 24 open (23 yesterday + suggest-edges #52 today). Fleet: 0 broken, 0 in-flight, 0 hard-failed (7th consecutive clean morning), 38 DEGRADED (ISS-001 Day-68), 4 truly HEALTHY, 2 NO_DATA (50th silent day). 17 filed open ISS (+1 pending ISS-021 draft, 38d carryover). Both gh queries responded (neither PR_LIST_UNAVAILABLE nor ISSUE_LIST_UNAVAILABLE fired). ${var} empty → plan-only, no dispatch."
 }
