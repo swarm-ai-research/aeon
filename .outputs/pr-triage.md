@@ -1,20 +1,11 @@
 ## Summary
 
-Ran `skills/pr-triage/SKILL.md` on `swarm-ai-research/swarm` (repo mode, `${var}=swarm-ai-research/swarm`).
+Ran `pr-triage` on `swarm-ai-research/swarm` at 2026-08-26T09:15Z.
 
-**Result:** `PR_TRIAGE_OK no-candidates` — 5/5 candidate PRs skipped as bots (all `app/dependabot`, `is_bot: true`), 0 triaged.
-
-**Candidates fetched (14-day window, ≤8 budget):**
-- #557 — bump `langchain-anthropic` 1.4.8→1.5.6
-- #556 — bump `langchain-core` 1.4.9→1.5.5
-- #555 — bump `langgraph` 1.2.9→1.2.11
-- #554 — bump `dawidd6/action-download-artifact` 21→23
-- #552 — bump `setuptools` <84→<85
-
-All five route to `auto-merge` / `pr-review`, not `pr-triage`, per the trusted-bot precedence rule.
-
-**Out of window (not fetched):** #549, #543 (both `rsavitt`, prior heads already in `triaged-prs.json`), #538, #537 (both dependabot).
-
-**Writes:** none — no comments, no labels, no PR closes, no notify. `triaged-prs.json` unchanged (state is verdict-only). Extends the [[swarm-repo-dependabot-cohort-churns-under-full-skip]] run to **17 consecutive full-skip invocations** (41st pr-triage overall). The [[aeon-app-no-write-on-swarm-repo]] permission gap remains unexercised.
-
-**Files modified:** `memory/logs/2026-08-25.md` (appended `### pr-triage` entry).
+- **Fetched:** 5 in-window open PRs (created ≥ 2026-08-12).
+- **Triaged:** 0. All 5 skipped as bot-author (`app/dependabot` cohort: #557 langchain-anthropic, #556 langchain-core, #555 langgraph, #554 action-download-artifact, #552 setuptools).
+- **Older human/bot PRs** #549/#543/#538/#537 fall outside the 14-day `created:>=` window per SKILL §2 (design, not a bug).
+- **No writes:** no comments, no labels, no state changes, no notification (SKILL §10 significance gate: no OUT-OF-SCOPE, no first-PR welcome).
+- **Class:** 42nd pr-triage on this repo, 18th consecutive full-skip run per [[swarm-repo-dependabot-cohort-churns-under-full-skip]]. Combined with today's 63rd pr-review earlier, cross-skill counter is **63 + 42 = 105 operator invocations against a fully-skipped swarm queue with zero writes attempted** — [[aeon-app-no-write-on-swarm-repo]] gap remains unexercised.
+- **Files modified:** `memory/logs/2026-08-26.md`.
+- **Terminal:** `PR_TRIAGE_OK no-candidates`.
