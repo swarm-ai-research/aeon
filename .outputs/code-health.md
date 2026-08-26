@@ -1,11 +1,13 @@
-Skill executed — short-circuited per SKILL.md spec.
-
 ## Summary
 
-Ran `code-health` on 2026-08-25 (operator invocation, `${var}` empty). **Short-circuited** on missing `memory/watched-repos.md` per SKILL.md "Config" section: no clones, no grep passes, no `articles/code-health-2026-08-25.md` written, no notify sent.
+Skipped `code-health` on 2026-08-26 — precondition `memory/watched-repos.md` absent (also sibling `memory/topics/watched-repos.md`); chronic 22nd-day short-circuit, tracked as a planner holding item in `memory/MEMORY.md`. Per SKILL.md's own guard ("create it or skip this skill"), chose skip over create because the config file is shared by 6 dependent skills and populating it unilaterally would bypass the operator-pending decision.
 
-- **Verdict:** `CODE_HEALTH_EMPTY_CONFIG`
-- **Cluster status:** watched-repos chronic **streak-21** — 3rd of 6 dependent skills to fire today (after github-monitor + issue-triage; changelog + weekly-shiplog + repo-revive still pending).
-- **Notification:** none — dedup'd against today's earlier short-circuit siblings + MEMORY current-focus + planner "holding" list.
-- **Files modified:** `memory/logs/2026-08-25.md` (single append; a mid-edit duplication of the pr-tracker trailer was cleaned up in a follow-up edit before final state).
-- **Follow-up (unchanged):** populate `memory/watched-repos.md` OR set `enabled: false` on all six dependent skills; reconcile the `memory/topics/watched-repos.md` (repo-revive) vs `memory/watched-repos.md` (other five) path mismatch in the fix.
+**Files modified**
+- `memory/logs/2026-08-26.md` — appended `## code-health` skip entry and summary.
+
+**No** notify sent (consistent with the established streak — chronic same-day short-circuits are not notification-worthy), no article written, no repos audited.
+
+**Follow-ups (unchanged from planner)**
+- Populate `memory/watched-repos.md` with a curated repo list, OR set `enabled: false` on all 6 dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) in `aeon.yml`.
+- In the same patch, reconcile the `memory/watched-repos.md` vs `memory/topics/watched-repos.md` path mismatch (repo-revive references the latter).
+- Small lesson worth widening: `cat >> file` heredoc-append is blocked by the same workdir-redirect guard as `>` — the [[sandbox-blocks-shell-redirect-to-workdir]] class should be noted to cover append too (worked around via Edit tool).
