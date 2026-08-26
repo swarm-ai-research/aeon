@@ -1,0 +1,303 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-08-25"
+      },
+      "children": [
+        "stack-basic-info",
+        "sep1",
+        "section-top",
+        "sep2",
+        "section-mult",
+        "sep3",
+        "section-retail",
+        "sep4",
+        "section-seed",
+        "sep5",
+        "section-x402",
+        "sep6",
+        "conservation",
+        "sep7",
+        "report-link"
+      ]
+    },
+    "stack-basic-info": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-rows",
+        "stat-modes"
+      ]
+    },
+    "stat-rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      }
+    },
+    "stat-modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "section-top": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-top",
+        "text-3mode",
+        "grid-coclusters",
+        "text-settlement"
+      ]
+    },
+    "heading-top": {
+      "type": "Heading",
+      "props": {
+        "text": "HIGH: Cross-Mode Co-Cluster Analysis",
+        "level": "h3"
+      }
+    },
+    "text-3mode": {
+      "type": "Text",
+      "props": {
+        "text": "realizedAbs co-cluster on 3 modes — first-ever 3-mode span",
+        "variant": "lead"
+      }
+    },
+    "grid-coclusters": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-basket-cluster",
+        "stat-synth-cluster",
+        "stat-x402-cluster"
+      ]
+    },
+    "stat-basket-cluster": {
+      "type": "Stat",
+      "props": {
+        "label": "Basket",
+        "value": "25%"
+      }
+    },
+    "stat-synth-cluster": {
+      "type": "Stat",
+      "props": {
+        "label": "Synth",
+        "value": "33%"
+      }
+    },
+    "stat-x402-cluster": {
+      "type": "Stat",
+      "props": {
+        "label": "x402",
+        "value": "33%"
+      }
+    },
+    "text-settlement": {
+      "type": "Text",
+      "props": {
+        "text": "08-24 settlementLegs cluster fully collapses (anchor-column rotates)"
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "section-mult": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-mult",
+        "text-mult-context",
+        "stat-mult"
+      ]
+    },
+    "heading-mult": {
+      "type": "Heading",
+      "props": {
+        "text": "ALSO HIGH: Basket/Synth Multiplier",
+        "level": "h3"
+      }
+    },
+    "text-mult-context": {
+      "type": "Text",
+      "props": {
+        "text": "Holds at n=7 — matches prior 3.025× regime's invalidation cadence"
+      }
+    },
+    "stat-mult": {
+      "type": "Stat",
+      "props": {
+        "label": "Multiplier",
+        "value": "2.5000×"
+      }
+    },
+    "sep3": {
+      "type": "Separator"
+    },
+    "section-retail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-retail",
+        "stat-retail-loss",
+        "text-retail-trades",
+        "text-retail-streak"
+      ]
+    },
+    "heading-retail": {
+      "type": "Heading",
+      "props": {
+        "text": "Retail Spread-Loss",
+        "level": "h3"
+      }
+    },
+    "stat-retail-loss": {
+      "type": "Stat",
+      "props": {
+        "label": "Mean spread-loss",
+        "value": "−$9,091",
+        "delta": "25% shallower",
+        "trend": "up"
+      }
+    },
+    "text-retail-trades": {
+      "type": "Text",
+      "props": {
+        "text": "Extends to n=17 — 10/12 losing"
+      }
+    },
+    "text-retail-streak": {
+      "type": "Text",
+      "props": {
+        "text": "2 padded seeds break the all-loss streak"
+      }
+    },
+    "sep4": {
+      "type": "Separator"
+    },
+    "section-seed": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-seed",
+        "text-seed-role",
+        "stat-seed-dispersion"
+      ]
+    },
+    "heading-seed": {
+      "type": "Heading",
+      "props": {
+        "text": "Seed 202608257",
+        "level": "h3"
+      }
+    },
+    "text-seed-role": {
+      "type": "Text",
+      "props": {
+        "text": "Triple-role anchor with new class-series HIGH"
+      }
+    },
+    "stat-seed-dispersion": {
+      "type": "Stat",
+      "props": {
+        "label": "Dispersion",
+        "value": "$39,158"
+      }
+    },
+    "sep5": {
+      "type": "Separator"
+    },
+    "section-x402": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-x402",
+        "text-x402-context",
+        "stat-x402-value",
+        "stat-x402-swing"
+      ]
+    },
+    "heading-x402": {
+      "type": "Heading",
+      "props": {
+        "text": "x402 Metrics",
+        "level": "h3"
+      }
+    },
+    "text-x402-context": {
+      "type": "Text",
+      "props": {
+        "text": "minSpot × x402Total — near-threshold; first-ever spot-pair anchor for x402Total"
+      }
+    },
+    "stat-x402-value": {
+      "type": "Stat",
+      "props": {
+        "label": "minSpot × x402Total",
+        "value": "+0.785",
+        "trend": "up"
+      }
+    },
+    "stat-x402-swing": {
+      "type": "Stat",
+      "props": {
+        "label": "Swing vs 08-24",
+        "value": "+0.732",
+        "trend": "up"
+      }
+    },
+    "sep6": {
+      "type": "Separator"
+    },
+    "conservation": {
+      "type": "Alert",
+      "props": {
+        "title": "Conservation Status",
+        "message": "All 4 modes OK",
+        "type": "success"
+      }
+    },
+    "sep7": {
+      "type": "Separator"
+    },
+    "report-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-08-25.md"
+      }
+    }
+  }
+}
