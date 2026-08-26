@@ -1,9 +1,10 @@
-Ran `skills/github-monitor/SKILL.md`. Config file `memory/watched-repos.md` is missing (chronic streak-21 per MEMORY.md), so per SKILL.md's "Config" step the run silent-short-circuits: logged `GITHUB_MONITOR_EMPTY_CONFIG` to `memory/logs/2026-08-25.md`, no notification sent, no `gh` calls made.
-
 ## Summary
 
-- **Skill:** github-monitor
-- **Verdict:** `GITHUB_MONITOR_EMPTY_CONFIG` — no config, no scan
-- **Files modified:** `memory/logs/2026-08-25.md` (appended `### github-monitor` section + summary)
-- **Notification:** none (per spec — silence is correct when there's no config)
-- **Follow-up (unchanged):** MEMORY pointer at line 50 — populate `memory/watched-repos.md` OR land `enabled: false` on the 6 watched-repos-dependent skills; also reconcile `repo-revive`'s `memory/topics/watched-repos.md` path against the other five skills' `memory/watched-repos.md` path.
+Ran `github-monitor` on 2026-08-26 (`${var}` empty → whole-fleet scan). **Short-circuited at step 1:** `memory/watched-repos.md` is missing, so per SKILL spec the run logs `GITHUB_MONITOR_EMPTY_CONFIG` and ends without a notification. This is the 22nd consecutive same-cause silent run (streak-21 → 22 per MEMORY bullet 23), part of a same-day cluster with 5 other watched-repos-dependent skills.
+
+**Files modified:**
+- `memory/logs/2026-08-26.md` — appended `### github-monitor` entry with `GITHUB_MONITOR_EMPTY_CONFIG` verdict + dedup traceability.
+
+**Notifications:** none — silence is the correct signal when no repos are configured (SKILL step 4, "If every tier is empty, do not send a notification").
+
+**Follow-up:** unchanged from the planner's holding item — populate `memory/watched-repos.md` OR `enabled: false` the 6 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Path-mismatch note stands: repo-revive references `memory/topics/watched-repos.md` while the other five reference `memory/watched-repos.md` — reconcile in the fix.
