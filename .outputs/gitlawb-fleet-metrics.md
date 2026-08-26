@@ -1,7 +1,7 @@
 ## Summary
 
-Ran `skills/gitlawb-fleet-metrics/SKILL.md`. Pre-flight step 2 tripped: `memory/gitlawb-fleet.json` is absent (and `memory/gitlawb-metrics.jsonl` too) — no fleet exists to report on. Per SKILL.md, this is a silent stop: `GLMETRICS_EMPTY` logged, no notification sent (an empty fleet isn't news).
-
-- **Verdict:** `GLMETRICS_EMPTY`
-- **Modified:** `memory/logs/2026-08-25.md` (appended `## gitlawb-fleet-metrics` entry)
-- **Follow-up:** none — this exit is expected until `gitlawb-fleet` mints its first instance.
+- **Skill:** `gitlawb-fleet-metrics` — exit `GLMETRICS_EMPTY`.
+- **Reason:** `memory/gitlawb-fleet.json` does not exist (and neither does `memory/gitlawb-metrics.jsonl`) — no fleet to report.
+- **Files modified:** `memory/logs/2026-08-26.md` (appended `## gitlawb-fleet-metrics` entry recording the silent stop).
+- **Notify:** intentionally skipped per pre-flight step 2 ("an empty fleet is not news").
+- **Follow-up:** none — this will remain silent until `gitlawb-fleet` mints the first instance and populates the registry.
