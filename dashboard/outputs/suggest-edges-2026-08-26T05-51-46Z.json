@@ -1,0 +1,56 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat-links",
+        "text-date",
+        "separator",
+        "pr-link"
+      ]
+    },
+    "stat-links": {
+      "type": "Stat",
+      "props": {
+        "value": "3",
+        "label": "missing links proposed"
+      }
+    },
+    "text-date": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-08-03",
+        "variant": "caption"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/aeon#52",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/52",
+        "source": "GitHub"
+      }
+    }
+  }
+}
