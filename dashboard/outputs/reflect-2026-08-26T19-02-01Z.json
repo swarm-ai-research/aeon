@@ -1,0 +1,116 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "reflect",
+        "description": "Memory consolidated"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-date",
+        "sep1",
+        "stack-stats",
+        "sep2",
+        "text-activity",
+        "sep3",
+        "stack-issues"
+      ]
+    },
+    "text-date": {
+      "type": "Text",
+      "props": {
+        "text": "2026-08-26",
+        "variant": "muted"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-notes",
+        "stat-events"
+      ]
+    },
+    "stat-notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "+8"
+      }
+    },
+    "stat-events": {
+      "type": "Stat",
+      "props": {
+        "label": "Events",
+        "value": "+115"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text-activity": {
+      "type": "Text",
+      "props": {
+        "text": "1 splits, 1 new",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issue-1",
+        "issue-2"
+      ]
+    },
+    "issue-1": {
+      "type": "StoryLink",
+      "props": {
+        "title": "cloudflare-org-cla-blocks-aeonframework-prs: class-first CLA-block",
+        "href": "https://github.com/cloudflare/workerd/issues/7124",
+        "source": "GitHub"
+      }
+    },
+    "issue-2": {
+      "type": "Alert",
+      "props": {
+        "title": "sandbox-blocks-shell-redirect-to-workdir",
+        "message": "Body widened for heredoc-append confirmation",
+        "type": "info"
+      }
+    }
+  }
+}

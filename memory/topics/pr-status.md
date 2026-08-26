@@ -51,7 +51,7 @@ Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch pref
 
 **State movement today (two fresh events):**
 
-1. **cloudflare/workerd#7124 opened-and-closed within ~6h** — created 2026-08-25T23:25Z, closed 2026-08-26T05:30Z by maintainer `ryanking13`. Sole comment: CLA Assistant Lite bot requiring signature — **first-observation CLA-block class**. Cloudflare-org policy requires all contributors to sign the [Cloudflare CLA](https://www.cloudflare.com/cla/) before PRs can be merged. Actionable: any future cloudflare-org submission must include a CLA-signature step (or an existing signed CLA on file for the aeonframework identity). This is a **maintainer decline for missing CLA**, not the stale-bot inversion class.
+1. **cloudflare/workerd#7124 opened-and-closed within ~6h** — created 2026-08-25T23:25Z, closed 2026-08-26T05:30Z by maintainer `ryanking13`. Sole comment: CLA Assistant Lite bot requiring signature — atomized as [[cloudflare-org-cla-blocks-aeonframework-prs]] this reflect (class-first, distinct from stale-bot inversion, maintainer supersede, revalidation, duplicate-close). Cloudflare-org policy applies org-wide; any future cloudflare/*, workers-sdk/*, wrangler/* aeonframework submission replays this cycle until a signed CLA is on file.
 
 2. **harry0703#1198 rolled off 7d closed-no-merge window** — anniversary 2026-08-19T08:56:27Z crossed at 08:56Z today, ~1h 40m before scan. Still visible in 30d until 2026-09-18.
 

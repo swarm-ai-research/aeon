@@ -1,1 +1,1 @@
-memory consolidated — 2026-08-25 · +4n / +51e (1 new atomic: notegraph-fingerprint-pipeline-blocked-by-sandbox, n=3 promotion)
+memory consolidated — 2026-08-26 · +8n / +115e (1 splits, 1 new — [[cloudflare-org-cla-blocks-aeonframework-prs]] class-first CLA-block from cloudflare/workerd#7124; [[sandbox-blocks-shell-redirect-to-workdir]] body widened for heredoc-append confirmation)
