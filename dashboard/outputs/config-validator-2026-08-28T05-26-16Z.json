@@ -1,0 +1,21 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "config-validator"
+      },
+      "children": [
+        "text_output"
+      ]
+    },
+    "text_output": {
+      "type": "Text",
+      "props": {
+        "text": "-f"
+      }
+    }
+  }
+}
