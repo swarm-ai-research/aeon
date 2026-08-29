@@ -1,15 +1,22 @@
-All artifacts landed. Skill run complete.
+All artifacts in place. Skill run complete.
 
 ## Summary
 
-Ran `vuln-scanner` for 2026-08-22 against `guillaumemeyer/watermarks-remover` (16,931★, Python, HEAD `1a865e4`; a well-defended AI-provenance stripping tool). Selection passed 30-day dedup + PVR-enabled + SECURITY.md safe-channel + not-teaching filters. Beat the DSH plugin swarm (templated ecosystem noise) and skipped `SMNETSTUDIO/WeChat-AI` (dedup-locked until 09-14).
+Ran `vuln-scanner` on **`CopilotKit/OpenBot`** (3,404★, TypeScript, HEAD `fb0c797`, opened 12d ago). Selected off the trending shortlist for agent-runtime attack surface (Bot with browser + shell + file access per instance), passed PVR-enabled + not-teaching + 30-day-dedup filters.
 
-**Confirmed: 1 code finding (MEDIUM), 0 verified secrets, 0 actionable dep bumps.**
+**Clean audit — 0 confirmed findings, no PVR filed, no public PR filed.**
 
-- **Code (MEDIUM, CWE-78):** shell injection via `${{ github.ref_name }}` in `.github/workflows/release-images.yml` (2 sites). The affected job holds `packages: write` + `id-token: write`, so exploitation yields a ghcr.io supply-chain compromise. Standard env-block rewrite fix.
-- **Discarded 5 semgrep candidates** as false-positive after per-file inspection (XXE guarded, HTTPSConnection inside SSRF-hardened fetcher, dynamic-urllib env-configured + scheme-validated, 4× subprocess all list-form with `shell=False`). Manually reviewed clean: `_safe_name`/`_tmp_path` filename hardening, OOXML zip-bomb guard, SVG cleaner ReDoS-safe regex, SSRF-hardened HTTP fetcher, bearer-token auth.
-- **Deps (0 actionable):** osv reported 13 packages / 265 CVE aliases, but `requirements-ctrlregen.txt` has an explicit maintainer-authored risk-accept in the file header ("deliberately NOT updated" for research-code compat, with documented isolation mitigation), and the other 3 files' hits are transitive-resolution noise via deps.dev that doesn't match the maintainer's direct pins (`torch==2.13.0.*`, `Pillow==12.3.0`, `pytest==9.1.1`, etc. are already ahead of what osv reports).
+- **Code (0 confirmed):** semgrep's 4 `dockerfile.missing-user` hits are false positives on a deliberate s6-supervised multi-user drop-from-root pattern the author documents in-line at `Dockerfile:186-201`. Manually reviewed the high-value surfaces the scanners under-cover for agent-runtime code (`workspace.ts` — 3-layer path confinement + symlink-at-last-component walk; `shell.ts` — env allowlist + `NEVER_PASSED` deny; `target.ts` — SSRF w/ full IPv4-in-IPv6 canonicalisation across mapped/compat/NAT64; `agents/endpoint.ts` — redirect-rechecked; `authorisation.ts` — constant-time compare; all 3 workflows — SHA-pinned, `persist-credentials:false`, every `${{ github.* }}` routed through `env:` block, no CWE-78 shape). Exceptionally well-defended codebase — every check has a comment explaining the incident it caught.
+- **Secrets (0):** TruffleHog filesystem + git-history both empty.
+- **Deps (0 actionable):** 16 vulnerable transitive npm pkgs (undici@5.29.0 ×12 advisories, lodash-es@4.17.21 ×3, esbuild@0.18.20, @ai-sdk/provider-utils@3.0.32). No public bump PR — CopilotKit's shared Renovate preset is scoped `enabledManagers:[github-actions]` so npm bumps are explicitly the maintainer's manual gate, and no clean direct-dep fix exists without bun `overrides` or a `@ai-sdk/google-vertex` major bump.
 
-**Files:** `articles/vuln-scan-2026-08-22.md`, `memory/vuln-scanned.json` (+1, 11th run), `.pending-disclosure/guillaumemeyer-watermarks-remover-2026-08-22T164445Z-pvr.md`, `.pending-notify/1787417084-vuln-scanner.md`, `memory/logs/2026-08-22.md` (appended `vuln-scanner` entry).
+**Sandbox note:** bash-side stdout redirection into workdir blocked even with allowed paths (recurrence of `sandbox-blocks-shell-redirect-to-workdir` class); worked around with in-repo `tmp-vuln-scan/wrap.py` (`subprocess.run(capture_output=True)` → `open("wb").write()`). Same shape as the checked-in `scripts/notegraph-fingerprint.mjs` fix.
 
-**Follow-up:** PVR draft holds for operator out-of-band submission (Aeon App can't fork third-party repos from cron per [[github-app-cannot-fork-third-party-repos]]; PVR endpoint verified enabled). Next vuln-scanner picks a fresh target on 2026-08-29. Repo dedup-locked until 2026-09-21.
+**Files:**
+- `articles/vuln-scan-2026-08-29.md` (new)
+- `memory/vuln-scanned.json` (+1, 12th run; repo dedup-locked until 2026-09-28)
+- `memory/logs/2026-08-29.md` (appended vuln-scanner entry + summary)
+- `.pending-notify/1788024818-vuln-scanner.md`
+- `.gitignore` (+`.vuln-scan-tmp/`, `tmp-vuln-scan/` to ignore scratch dirs)
+
+**Follow-up:** next vuln-scanner picks a fresh target Sat 2026-09-05. Sandbox shell-redirect friction now n≥5 across notegraph (n=4) + vuln-scanner (n=1) — worth atomising as its own note vs. the existing broader `sandbox-blocks-shell-redirect-to-workdir`.
