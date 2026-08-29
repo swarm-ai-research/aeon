@@ -1,18 +1,18 @@
 {
-  "last_run": "2026-08-26T06:42:00Z",
+  "last_run": "2026-08-29T06:45:00Z",
   "top_priority": "aeon-repo-pr-26-merge-ready",
   "priority_streak": {
-    "aeon-repo-pr-26-merge-ready": 18,
-    "agi-tracker-enabled-false-via-pr": 11,
-    "stale-content-pr-sweeper-allowed-authors-patch": 20,
-    "suggest-edges-templated-corpus-prefilter": 18,
-    "watched-repos-population-or-disable": 21,
-    "pr-tracker-patch-batch": 63,
-    "iss-006-messages-yml-multi-pocket-rewrite": 25,
-    "docs-status-md-snapshot-rebase-gate": 40,
-    "swarm-repo-app-perm-gap": 45
+    "aeon-repo-pr-26-merge-ready": 19,
+    "agi-tracker-enabled-false-via-pr": 12,
+    "stale-content-pr-sweeper-allowed-authors-patch": 21,
+    "suggest-edges-templated-corpus-prefilter": 19,
+    "watched-repos-population-or-disable": 22,
+    "pr-tracker-patch-batch": 65,
+    "iss-006-messages-yml-multi-pocket-rewrite": 28,
+    "docs-status-md-snapshot-rebase-gate": 43,
+    "swarm-repo-app-perm-gap": 48
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Twenty-sixth planner run in the ISS-006 pocket-slot migration era; TWENTIETH since 08-07 overnight PR-creation toggle unblock. Top priority aeon-repo-pr-26-merge-ready STREAK-18 (Day-20 without a merge). Verified this morning: PR #26 state:OPEN, mergedAt:null, all 5 checks SUCCESS, updatedAt unchanged at 2026-08-24T01:08:19Z (no new pushes); mergeable/mergeStateStatus UNKNOWN/UNKNOWN (same transient recompute pattern as yesterday, not a check regression). Escalation shape unchanged from Day-17 rotation to 'click merge OR install repo-level auto-merge policy'. Rank-2 SUGGEST-EDGES STREAK-18: PR #52 opened this morning per today's log (9th consecutive PR-opening day, now 5 open suggest-edges PRs #42/#45/#49/#50/#52, +1/day net for 5 straight days). Sits above agi-tracker (next silent-Mon 5d out at 08-31 13:00Z). Rank-3 SWEEPER STREAK-20 with shifted framing: yesterday's operator invocation proved ALLOWED_AUTHORS widening is NOT the operative block anymore — safety gate (only sweeps DIRTY/CONFLICTING/UNKNOWN, not MERGEABLE-UNSTABLE) closed 0 of 3 stale candidates. Today's rank-3 bundles a superseded-cluster override for the UNSTABLE gate alongside the allowlist widening. Queue now 24 open (23 yesterday + suggest-edges #52 today). Fleet: 0 broken, 0 in-flight, 0 hard-failed (7th consecutive clean morning), 38 DEGRADED (ISS-001 Day-68), 4 truly HEALTHY, 2 NO_DATA (50th silent day). 17 filed open ISS (+1 pending ISS-021 draft, 38d carryover). Both gh queries responded (neither PR_LIST_UNAVAILABLE nor ISSUE_LIST_UNAVAILABLE fired). ${var} empty → plan-only, no dispatch."
+  "notes": "Twenty-seventh planner run in the ISS-006 pocket-slot migration era; TWENTY-FIRST since 08-07 overnight PR-creation toggle unblock. First planner run in 71h — prior planner-state.last_run 2026-08-26T06:42Z, missed 08-27 + 08-28 06:30Z slots. Operator invoked manually today. Top priority aeon-repo-pr-26-merge-ready STREAK-19 (Day-22 without a merge). Verified this morning: PR #26 state:OPEN, mergedAt:null, all 5 checks SUCCESS, updatedAt unchanged at 2026-08-24T01:08:19Z (5d since last push); mergeable/mergeStateStatus UNKNOWN/UNKNOWN (3rd consecutive transient recompute). Escalation shape unchanged from Day-17 rotation. Rank-2 PROMOTED from holding: agi-tracker enabled:false PR — T-2 window hit today (9th silent-Mon fires 2026-08-31T13:00Z, ~54h out). Rank-3 SWEEPER STREAK-21: stack behind PR #26 now 3 notegraph (#48/#51/#53) + 5 suggest-edges (#42/#45/#49/#50/#52), sweeper closed 0 of prior stack per 08-25 evidence. Fleet: 0 broken, 0 in-flight, 0 hard-failed, 38 DEGRADED (ISS-001 Day-70), 4 truly HEALTHY, 2 NO_DATA (53rd silent day). 17 filed open ISS (+1 pending ISS-021 draft, 41d carryover). Both gh queries responded. Batch-outage signal: planner missed 08-27 + 08-28 slots, 08-28 batch only 3 skills logged (notegraph/code-health/surplus-pulse) — extended pocket-slot dead zone consistent with ISS-006, may warrant a fresh batch-outage ISS filing if today's batch confirms scope. Queue 26 open aeon-repo PRs (24 on 08-26 + notegraph #51 [08-26] + notegraph #53 [08-28], net +2/3d). suggest-edges holding item cadence eased — no new open since #52 on 08-26 because skill hasn't fired successfully in 71h (same outage signal). ${var} empty → plan-only, no dispatch."
 }
