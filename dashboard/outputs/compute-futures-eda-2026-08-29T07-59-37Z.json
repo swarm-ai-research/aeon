@@ -1,0 +1,294 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-08-29"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "section_summary",
+        "sep_1",
+        "section_findings",
+        "sep_2",
+        "section_details",
+        "sep_3",
+        "section_conservation",
+        "sep_4",
+        "report_link"
+      ]
+    },
+    "section_summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes",
+        "stat_gap"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      }
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "stat_gap": {
+      "type": "Stat",
+      "props": {
+        "label": "Filing Gap",
+        "value": "4 days (since 08-25)"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_findings": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_findings",
+        "alert_collapse",
+        "stack_anchor",
+        "stack_multiplier"
+      ]
+    },
+    "heading_findings": {
+      "type": "Heading",
+      "props": {
+        "text": "Key Findings",
+        "level": "h3"
+      }
+    },
+    "alert_collapse": {
+      "type": "Alert",
+      "props": {
+        "title": "Cross-Mode Cluster Count Collapse",
+        "message": "≥10% cluster count COLLAPSES from 3 → 0",
+        "type": "warning"
+      }
+    },
+    "stack_anchor": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_anchor_label",
+        "text_anchor_detail"
+      ]
+    },
+    "text_anchor_label": {
+      "type": "Text",
+      "props": {
+        "text": "08-25 realizedAbs 3-Mode Anchor:",
+        "variant": "lead"
+      }
+    },
+    "text_anchor_detail": {
+      "type": "Text",
+      "props": {
+        "text": "Fully evaporates",
+        "variant": "body"
+      }
+    },
+    "stack_multiplier": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_mult_label",
+        "text_mult_new",
+        "text_mult_old"
+      ]
+    },
+    "text_mult_label": {
+      "type": "Text",
+      "props": {
+        "text": "Basket/Synth Multiplier Regime Shift:",
+        "variant": "lead"
+      }
+    },
+    "text_mult_new": {
+      "type": "Text",
+      "props": {
+        "text": "2.5× multiplier at n=8 (new)",
+        "variant": "body"
+      }
+    },
+    "text_mult_old": {
+      "type": "Text",
+      "props": {
+        "text": "Surpasses prior 3.025× regime at n=7 (invalidation floor)",
+        "variant": "body"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_details",
+        "stack_spread_metrics"
+      ]
+    },
+    "heading_details": {
+      "type": "Heading",
+      "props": {
+        "text": "Retail Spread Metrics",
+        "level": "h3"
+      }
+    },
+    "stack_spread_metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_spread_mean",
+        "text_losing_runs",
+        "text_losing_pct"
+      ]
+    },
+    "text_spread_mean": {
+      "type": "Text",
+      "props": {
+        "text": "Mean retail spread shallows 17% to −$7,554",
+        "variant": "body"
+      }
+    },
+    "text_losing_runs": {
+      "type": "Text",
+      "props": {
+        "text": "n=18 losing runs",
+        "variant": "body"
+      }
+    },
+    "text_losing_pct": {
+      "type": "Text",
+      "props": {
+        "text": "11/12 losing (92% loss rate)",
+        "variant": "body"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_conservation": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_conservation",
+        "stack_conservation_status"
+      ]
+    },
+    "heading_conservation": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h3"
+      }
+    },
+    "stack_conservation_status": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_basket",
+        "badge_spread",
+        "badge_synth",
+        "badge_x402"
+      ]
+    },
+    "badge_basket": {
+      "type": "Badge",
+      "props": {
+        "text": "basket: OK",
+        "variant": "default"
+      }
+    },
+    "badge_spread": {
+      "type": "Badge",
+      "props": {
+        "text": "spread: OK",
+        "variant": "default"
+      }
+    },
+    "badge_synth": {
+      "type": "Badge",
+      "props": {
+        "text": "synth: OK",
+        "variant": "default"
+      }
+    },
+    "badge_x402": {
+      "type": "Badge",
+      "props": {
+        "text": "x402: OK",
+        "variant": "default"
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-08-29.md",
+        "source": "Aeon Memory"
+      }
+    }
+  }
+}
