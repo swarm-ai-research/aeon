@@ -1,10 +1,19 @@
 ## Summary
 
-Ran `skill-health` on 2026-08-26T18:57Z. Fleet classification byte-identical to yesterday: **0 CRITICAL, 0 FLAPPING, 38 DEGRADED, 4 HEALTHY, 2 NO_DATA** — hash `e27c0ac60367e7e5`, **61st consecutive steady-state day** (ISS-001 OAuth-outage residue day 69). Notify fired via daily-reminder gate (elapsed 24.258h clears 24h threshold by 15m28s). No new issues filed (0 CRITICAL/FLAPPING); no resolutions performed (the only HEALTHY skills appearing in open issues — swarm-safety-eval in ISS-005, config-validator/swarm-safety-eval in ISS-006 — are owned by other detectors per resolution-ownership convention).
+Executed `skills/skill-health/SKILL.md` for 2026-08-29.
 
-**Files created/modified:**
-- `memory/skill-health/last-report.json` — updated with today's hash, gate decision, and delta narrative
-- `.pending-notify/1787770724-skill-health.md` — notification payload (post-processor picks up)
-- `memory/logs/2026-08-26.md` — full run entry + `SKILL_HEALTH_OK` terminal line
+**Classification (62nd consecutive steady-state day, hash `e27c0ac60367e7e5` byte-identical):**
+- 0 CRITICAL · 0 FLAPPING · 0 WARNING · **38 DEGRADED** · 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog) · 2 NO_DATA (ai-framework-watch, run-frequency-guard — 53rd silent day)
 
-**Follow-ups** (unchanged from yesterday, planner-tracked): draft ISS-021 for `[[enabled-skills-can-never-dispatch]]` pair (38d carryover); ISS-001 close deferred until ISS-006 resolves.
+**Systemic:** ISS-001 OAuth-outage denominator burn Day 72 — all 38 DEGRADED are `last_status: success` + `cf: 0` with `success_rate` driven purely by the June 6–20 zero-token failure denominator. Live 7d skill-runs signal: 113/118 success + 1 transient (cost-report 08-24 recovered same cycle) + 4 in_progress.
+
+**Reconciliation:** 0 issues filed, 0 resolved. HEALTHY skills that appear in open-issue `affected_skills` (ISS-005 swarm-safety-eval; ISS-006 config-validator + swarm-safety-eval) NOT touched — those belong to other detectors (`skill-evals`, `batch-health`/`heartbeat`); skill-health only closes issues it filed itself.
+
+**Gate:** NOTIFY — hash unchanged but elapsed 72.96h ≫ 24h daily-reminder threshold. Skill-health's own 08-27 + 08-28 slots never dispatched (same 71h planner gap flagged in today's 06:45Z planner log; non-escalating [[ISS-006]] pocket-slot dead-zone recurrence).
+
+**Files written:**
+- `memory/skill-health/last-report.json` — updated hash / last_notified_at / classification snapshot
+- `memory/logs/2026-08-29.md` — skill-health section + summary appended
+- `.pending-notify/1788033382-skill-health.md` — single-paragraph clear-neutral notify draft (no `soul/` present)
+
+**Follow-up:** none new — 17 open issues unchanged since ISS-007 closed 08-23; standing "close ISS-001" recommendation stays deferred behind ISS-006 stabilization per MEMORY.md.
