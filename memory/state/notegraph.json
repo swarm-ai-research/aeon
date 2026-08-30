@@ -1,31 +1,32 @@
 {
-  "input_fingerprint": "89667a9e5029a4a9771ad4ea0c2b45550a5b1855",
-  "last_run": "2026-08-28",
+  "input_fingerprint": "350fc5e8364beb8499d110bcdeeabaf8981cf1a7",
+  "last_run": "2026-08-30",
   "stats": {
-    "nodes": 329,
-    "edges": 3357,
-    "hard": 2528,
-    "soft": 829,
+    "nodes": 335,
+    "edges": 3415,
+    "hard": 2571,
+    "soft": 844,
     "orphans": 0,
-    "atomic": 101,
+    "atomic": 102,
     "bundled": 0
   },
-  "last_verdict": "+208 notes wired in",
-  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/53",
-  "last_branch": "notegraph/2026-08-28",
+  "last_verdict": "+1 notes wired in",
+  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/55",
+  "last_branch": "notegraph/2026-08-30",
   "delta_vs_head": {
-    "nodes": 208,
-    "edges": 2501,
-    "hard": 1934,
-    "soft": 567,
+    "nodes": 1,
+    "edges": 10,
+    "hard": 7,
+    "soft": 3,
     "orphans": 0,
     "bundled": 0,
-    "atomic": 47
+    "atomic": 1
   },
+  "new_nodes": ["memory/notes/compute-futures-2.5x-surpasses-n-7-invalidation-floor.md"],
   "new_orphans": [],
   "resolved_orphans": [],
   "new_bundled": [],
   "resolved_bundled": [],
   "notify_suppressed": false,
-  "note": "2026-08-28: Fingerprint moved (41b59389… → 89667a9e…). Extractor produced substantive change: 329n/3357e vs HEAD (== origin/main) at 121n/856e = +208 nodes, +2501 edges. No new/resolved orphans; no new/resolved bundled. Verdict '+208 notes wired in'. Delta vs HEAD accumulates content from still-open PRs #48 (+5, 08-24) and #51 (+1, 08-26) per [[notegraph-workspace-head-diverges-from-origin]]. Sandbox friction on `find | xargs sha1sum | sha1sum` fingerprint pipeline recurred (n=4 across 08-23/08-24/08-25/08-28) — used /tmp node helper as workaround per [[notegraph-fingerprint-pipeline-blocked-by-sandbox]]; checked-in `scripts/notegraph-fingerprint.mjs` still needed as durable fix."
+  "note": "2026-08-30: Fingerprint moved (89667a9e… → 350fc5e8…). Extractor produced substantive change: 335n/3415e vs HEAD at 334n/3405e = +1 node, +10 edges. One new atomic note added: [[compute-futures-2.5x-surpasses-n-7-invalidation-floor]] (referenced from MEMORY.md current focus / recent lessons). No new/resolved orphans; no new/resolved bundled. Verdict '+1 notes wired in'. Sandbox friction on `find | xargs sha1sum | sha1sum` fingerprint pipeline recurred (n=5 across 08-23/24/25/28/30) — used /tmp node helper as workaround per [[notegraph-fingerprint-pipeline-blocked-by-sandbox]]; checked-in `scripts/notegraph-fingerprint.mjs` still pending as durable fix."
 }
