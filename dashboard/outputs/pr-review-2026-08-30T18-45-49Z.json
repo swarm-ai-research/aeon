@@ -1,0 +1,366 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review",
+        "description": "2026-08-30"
+      },
+      "children": [
+        "summary_section",
+        "separator_1",
+        "merge_gate_section",
+        "separator_2",
+        "pr_verdicts_section",
+        "separator_3",
+        "notes_section"
+      ]
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary_heading",
+        "skip_stats"
+      ]
+    },
+    "summary_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Review Summary",
+        "level": "h3"
+      }
+    },
+    "skip_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped",
+        "stat_bots",
+        "stat_dup_sha",
+        "stat_drafts",
+        "stat_bot_reviewed"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "0"
+      }
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "9"
+      }
+    },
+    "stat_bots": {
+      "type": "Stat",
+      "props": {
+        "label": "Bots",
+        "value": "7"
+      }
+    },
+    "stat_dup_sha": {
+      "type": "Badge",
+      "props": {
+        "text": "Dup-SHA: 2 (#549, #543)",
+        "variant": "outline"
+      }
+    },
+    "stat_drafts": {
+      "type": "Stat",
+      "props": {
+        "label": "Drafts",
+        "value": "0"
+      }
+    },
+    "stat_bot_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Bot-reviewed recently",
+        "value": "0"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "merge_gate_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "merge_gate_heading",
+        "merge_gate_info"
+      ]
+    },
+    "merge_gate_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Merge Gate Status",
+        "level": "h3"
+      }
+    },
+    "merge_gate_info": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "merge_gate_repo",
+        "merge_gate_sha",
+        "merge_gate_ci"
+      ]
+    },
+    "merge_gate_repo": {
+      "type": "Text",
+      "props": {
+        "text": "Repository: swarm-ai-research/swarm",
+        "variant": "body"
+      }
+    },
+    "merge_gate_sha": {
+      "type": "Text",
+      "props": {
+        "text": "SHAs unchanged from 08-29",
+        "variant": "caption"
+      }
+    },
+    "merge_gate_ci": {
+      "type": "Badge",
+      "props": {
+        "text": "21/21 CI SUCCESS",
+        "variant": "secondary"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr_verdicts_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr_heading",
+        "pr_549",
+        "pr_543"
+      ]
+    },
+    "pr_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Standing Merge-Gate Verdicts",
+        "level": "h3"
+      }
+    },
+    "pr_549": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_549_title",
+        "pr_549_details"
+      ]
+    },
+    "pr_549_title": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr_549_link",
+        "pr_549_badge"
+      ]
+    },
+    "pr_549_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Prime Agent bridge",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/549",
+        "source": "swarm-ai-research/swarm"
+      }
+    },
+    "pr_549_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "secondary"
+      }
+    },
+    "pr_549_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_549_commit",
+        "pr_549_ci",
+        "pr_549_parser",
+        "pr_549_defaults",
+        "pr_549_tests"
+      ]
+    },
+    "pr_549_commit": {
+      "type": "Text",
+      "props": {
+        "text": "Commit: afe51248",
+        "variant": "caption"
+      }
+    },
+    "pr_549_ci": {
+      "type": "Badge",
+      "props": {
+        "text": "21/21 CI",
+        "variant": "secondary"
+      }
+    },
+    "pr_549_parser": {
+      "type": "Text",
+      "props": {
+        "text": "Offline-only bounded parser",
+        "variant": "body"
+      }
+    },
+    "pr_549_defaults": {
+      "type": "Text",
+      "props": {
+        "text": "Measurement-first defaults",
+        "variant": "body"
+      }
+    },
+    "pr_549_tests": {
+      "type": "Stat",
+      "props": {
+        "label": "Tests",
+        "value": "96"
+      }
+    },
+    "pr_543": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_543_title",
+        "pr_543_details"
+      ]
+    },
+    "pr_543_title": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr_543_link",
+        "pr_543_badge"
+      ]
+    },
+    "pr_543_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "docs de-slop",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/543",
+        "source": "swarm-ai-research/swarm"
+      }
+    },
+    "pr_543_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "secondary"
+      }
+    },
+    "pr_543_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_543_commit",
+        "pr_543_note"
+      ]
+    },
+    "pr_543_commit": {
+      "type": "Text",
+      "props": {
+        "text": "Commit: bad79e48",
+        "variant": "caption"
+      }
+    },
+    "pr_543_note": {
+      "type": "Text",
+      "props": {
+        "text": "Docs-only trivial",
+        "variant": "body"
+      }
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "notes_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "notes_heading",
+        "skip_streak",
+        "write_path"
+      ]
+    },
+    "notes_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Notes",
+        "level": "h3"
+      }
+    },
+    "skip_streak": {
+      "type": "Text",
+      "props": {
+        "text": "Full-skip streak resumes at 1 after 08-29 breach.",
+        "variant": "body"
+      }
+    },
+    "write_path": {
+      "type": "Text",
+      "props": {
+        "text": "Write path not re-exercised (dup-SHA guard + app-write gap Day-1).",
+        "variant": "muted"
+      }
+    }
+  }
+}
