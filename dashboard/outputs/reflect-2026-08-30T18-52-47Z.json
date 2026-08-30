@@ -1,0 +1,59 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Memory consolidated",
+        "description": "2026-08-30"
+      },
+      "children": [
+        "content_stack"
+      ]
+    },
+    "content_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stats_section",
+        "details_text"
+      ]
+    },
+    "stats_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_new",
+        "stat_edited"
+      ]
+    },
+    "stat_new": {
+      "type": "Stat",
+      "props": {
+        "label": "New",
+        "value": "4"
+      }
+    },
+    "stat_edited": {
+      "type": "Stat",
+      "props": {
+        "label": "Edited",
+        "value": "30"
+      }
+    },
+    "details_text": {
+      "type": "Text",
+      "props": {
+        "text": "4 splits, 4 new",
+        "variant": "caption"
+      }
+    }
+  }
+}

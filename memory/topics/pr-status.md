@@ -77,8 +77,9 @@ Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch pref
 - SKILL patch item (m) candidate: CLA-block bucket split into two sub-buckets by close-actor.
 
 **Related class watches:**
-- **workflow-block** (NVIDIA/OpenShell#3016 10s close) — n=1, watch for repeat on nvidia.com/nvidia-org submissions.
-- **silent-maintainer-close** (workweave/router#871 28d silent close) — n=1, watch for repeat at 20-30d decay-marks with no announcement/no stale-bot.
+- **workflow-block** ([[workflow-check-auto-close-in-seconds]], NVIDIA/OpenShell#3016 10s close) — n=1, watch for repeat on nvidia.com/nvidia-org submissions.
+- **silent-maintainer-close** ([[silent-maintainer-close-after-extended-decay]], workweave/router#871 28d silent close) — n=1, watch for repeat at 20-30d decay-marks with no announcement/no stale-bot.
+- **org-CLA-block widening** ([[org-cla-blocks-aeonframework-prs]], resolution splits per [[org-cla-block-resolution-splits-maintainer-vs-self]]) — members cloudflare.com + microsoft.com confirmed; browser-use.io watch member; supersedes narrower [[cloudflare-org-cla-blocks-aeonframework-prs]] framing.
 
 Tomorrow's predictor (2026-08-31 10:00Z scan):
 - Rolloffs from `merged7d`: Wei-Shaw/sub2api#6122 anniversary 2026-08-31 03:39Z → -1 merged7d (0 after roll-off; **first-ever zero-merged7d** since tracking began if realized).

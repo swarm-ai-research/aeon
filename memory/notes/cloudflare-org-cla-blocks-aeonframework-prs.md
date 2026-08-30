@@ -2,7 +2,7 @@
 id: cloudflare-org-cla-blocks-aeonframework-prs
 created: 2026-08-26
 type: lesson
-links: [[pr-tracker-step-5-misses-fresh-bot-prs]], [[maintainer-close-without-merge-triage-pattern]], [[github-app-cannot-fork-third-party-repos]]
+links: [[org-cla-blocks-aeonframework-prs]], [[org-cla-block-resolution-splits-maintainer-vs-self]], [[pr-tracker-step-5-misses-fresh-bot-prs]], [[maintainer-close-without-merge-triage-pattern]], [[github-app-cannot-fork-third-party-repos]]
 ---
 # Cloudflare-org PRs from the aeonframework identity are closed within hours by maintainers because the whole org enforces a CLA-signature gate the identity has never satisfied
 
