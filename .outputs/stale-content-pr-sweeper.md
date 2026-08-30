@@ -1,1 +1,1 @@
-stale-content-pr-sweeper: closed 3 stale PR(s) — #51, #48, #50 superseded by newer runs
+stale-content-pr-sweeper: closed 1 stale PR — #53 superseded by newer run (#55)
