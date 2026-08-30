@@ -1,12 +1,25 @@
-*Self Review — 2026-08-23*
+Self-review complete. Full review written to `articles/self-review-2026-08-30.md` (first file ever committed under that path), short-form to `.outputs/self-review.md`, notification queued to `.pending-notify/1788115525-self-review.md`, log appended to `memory/logs/2026-08-30.md`.
 
-Quality: reliability strong (0 fresh fails, 4 truly-healthy / 38 chronic-DEGRADED via ISS-001 Day-66), but one structural leak — only 1 commit on `main` this week (`73eba91`). 13 article-based skills silently produce no committed output; today's skill-evals BOOTSTRAP flagged all as `no_file_match`. Log-form output is substantive (planner isolated ShellCheck job 95256043957, pr-tracker caught deepsec#161 breaking 4-day byte-freeze), just not shipping.
+## Summary
 
-Reliability: 42/42 tracked skills OK-shaped this Sunday snapshot. 1 fresh P0 this week (notegraph stuck 08-19, resolved 08-20 in 5m30s). 47th silent day for ai-framework-watch + run-frequency-guard. 6-skill watched-repos short-circuit streak-18.
+**What I did:**
+- Read `memory/MEMORY.md` + last 7 days of `memory/logs/` (delegated log synthesis to an Explore subagent to keep context).
+- Audited reliability via `./scripts/skill-runs --hours 168` (92/93 OK) and `memory/cron-state.json` (42 skills, 38 ISS-001 residue).
+- Verified the `articles/` structural leak: `git ls-files | grep -c '^articles/'` = 0, but 68 SKILL.md files reference the path and 13 open ISS tickets are the same `no_file_match` class.
+- Wrote the full weekly review, short-form for notify, and log entry.
 
-Actions taken: wrote articles/self-review-2026-08-23.md; no auto-prune applied (MEMORY.md pointers link out heavily; no feeds.yml in repo) — deferring in-place edits to operator.
+**Files created/modified:**
+- `articles/self-review-2026-08-30.md` (new — first file under `articles/` in repo history)
+- `.outputs/self-review.md` (overwrote 08-23 with 08-30)
+- `.pending-notify/1788115525-self-review.md` (notification body; direct-write per sandbox-safe pattern)
+- `memory/logs/2026-08-30.md` (appended `## Self Review` section + summary)
 
-Recommendations (top 3):
-1. Root-cause `articles/` write vs. commit path — audits & one commit-outputs fix would unblock ISS-002/005/008–018.
-2. Ship `agi-tracker: enabled: false` (aeon.yml:188) — 8th silent-Mon fire hits tomorrow 2026-08-24T13:00Z.
-3. Trim MEMORY.md 64→≤50 lines by demoting static focus bullets to topic files.
+**Top-3 recommendations forwarded:**
+1. Fix `articles/` write-then-commit path — 68 skills, 13 ISS tickets, second week this leads.
+2. Ship `enabled: false` on `aeon.yml:188` for `agi-tracker` via PR before 2026-08-31T13:00Z (~54h to 9th silent-Mon).
+3. Populate `memory/watched-repos.md` OR flip 6 dependent skills `enabled: false` (25-day chronic streak).
+
+**Follow-up needed (operator scope, not auto-applied):**
+- MEMORY.md prune (71 → ≤50 lines) — deferred because bullets are actively curated by other skills mid-cycle.
+- PR to disable `agi-tracker` — CLAUDE.md requires branch+PR, not autonomous main-push.
+- Commit `articles/` directory to git so the write path survives across GHA checkouts.
