@@ -1,13 +1,13 @@
-Nothing to notify (total_deleted = 0), so per SKILL step 6 I skip the notification entirely.
+Nothing was deleted, so no notification per SKILL step 6.
 
 ## Summary
 
-Executed the janitor skill. Nothing qualified for deletion this run:
+Janitor scan for 2026-08-30 — **0 files deleted** across all three targets:
 
-- **Root `.notify-*.md`/`.notify-*.txt`**: 0 total, 0 deleted. The only `.notify-*` files in the repo root are `.notify-runner.sh` and `.notify-sent-hashes`, neither of which matches the SKILL-specified patterns.
-- **`.pending-notify-temp/`**: 1 total (`compute-pulse-2026-08-22.md`, dated yesterday), 0 deleted — within 7-day window.
-- **`.outputs/`**: 41 total, 0 deleted — all mtimes reset to today's checkout time on the GHA runner, so the 14-day mtime rule silently can't fire for tracked files. Logged as a fix candidate (git-log-based mtime or embedded date suffixes).
+- **Root `.notify-*`:** 0 files present.
+- **`.pending-notify-temp/`:** 1 file (`surplus-pulse-2026-08-29.md`), dated yesterday — under 7d TTL, kept.
+- **`.outputs/`:** 40 files, all with no filename date and mtime reset to today by `actions/checkout` (shallow depth=1 clone also makes `git log` return HEAD date for every file). TTL cannot fire under these conditions — this is the known [[janitor-outputs-mtime-blind-on-gha-runners]] blind spot.
 
-**Files modified:** `memory/logs/2026-08-23.md` (appended `## Janitor` section with `JANITOR_OK`).
+Files modified: `memory/logs/2026-08-30.md` (Janitor section appended with `JANITOR_OK`). No notification sent (per skill, only fires when `total_deleted > 0`).
 
-**Follow-up:** Consider patching the SKILL to use `git log -1 --format=%ct` for `.outputs/` age (or embed date suffixes at write time), since mtime alone is meaningless on ephemeral GHA checkouts.
+Follow-up: The `.outputs/` mtime blind spot is still unresolved — the skill needs a durable timestamp source (e.g., a per-file sidecar `.written-at` written by chain-runner, or persist a JSON manifest) before it can meaningfully cull that directory on GHA.
