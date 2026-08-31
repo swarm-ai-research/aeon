@@ -23,6 +23,7 @@ Open and resolved issues filed by health skills (skill-health, skill-evals, hear
 | [ISS-018](ISS-018.md) | token-alert: no_file_match | high | 2026-07-12 | open |
 | [ISS-019](ISS-019.md) | Batch outage — 4 skills missed morning window 2026-07-14 | medium | 2026-07-14 | open |
 | [ISS-020](ISS-020.md) | Batch outage — 3 skills missed morning window 2026-08-03 | medium | 2026-08-03 | open |
+| [ISS-021](ISS-021.md) | Batch outage — 3 skills missed morning window 2026-08-31 | medium | 2026-08-31 | open |
 
 ## Resolved
 
