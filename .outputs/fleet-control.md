@@ -1,10 +1,10 @@
 ## Summary
 
-Ran `fleet-control` in Health Check Mode (default — `${var}` empty).
+Executed `skills/fleet-control/SKILL.md` in Health Check Mode (empty `var`).
 
-- **Verdict:** `FLEET_EMPTY`
-- **Registry:** `memory/instances.json` = `{"instances": []}` — no managed instances.
-- **Action:** Per skill pre-flight step 1, logged `FLEET_EMPTY` to `memory/logs/2026-08-26.md` and stopped. Skipped gh auth check, rate-limit check, and state file work (empty-registry short-circuit).
-- **Notification:** none sent (silent per spec — "Stop. Do NOT notify.").
-- **Files modified:** `memory/logs/2026-08-26.md` (appended fleet-control entry).
-- **Follow-ups:** none — this is the intended no-op path until the operator registers instances.
+**Outcome:** `FLEET_EMPTY` — `memory/instances.json` contains `{"instances": []}`, so per the skill's pre-flight rule the run stops silently without notifying, running `gh` calls, or updating state.
+
+**Files modified:**
+- `memory/logs/2026-08-31.md` — logged `FLEET_EMPTY` entry
+
+**Follow-up:** None. The registry has no managed instances to monitor; add entries to `memory/instances.json` before the next scheduled run (09/15 UTC) if fleet monitoring is desired.
