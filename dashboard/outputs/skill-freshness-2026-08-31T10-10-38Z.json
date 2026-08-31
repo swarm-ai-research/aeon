@@ -1,0 +1,116 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Freshness — 2026-08-31"
+      },
+      "children": [
+        "alert",
+        "separator1",
+        "worst-heading",
+        "worst-table",
+        "separator2",
+        "action-heading",
+        "action-text",
+        "full-link"
+      ]
+    },
+    "alert": {
+      "type": "Alert",
+      "props": {
+        "title": "🔴 FRESHNESS_STALE",
+        "message": "25 of 43 deps flagged across 25 of 43 enabled consumers",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "worst-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Worst",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "worst-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Source",
+          "Status",
+          "Details"
+        ],
+        "rows": [
+          [
+            "run-frequency-guard",
+            ".outputs/run-frequency-guard.md",
+            "MISSING",
+            "NEVER ran"
+          ],
+          [
+            "ai-framework-watch",
+            ".outputs/ai-framework-watch.md",
+            "MISSING",
+            "NEVER ran"
+          ],
+          [
+            "memory-structural-dedupe",
+            ".outputs/memory-structural-dedupe.md",
+            "STALE",
+            "123.3h old"
+          ],
+          [
+            "batch-health/heartbeat/fleet-control cluster",
+            "—",
+            "STALE",
+            "10 daily skills ~121h, last batch 08-26"
+          ]
+        ]
+      },
+      "children": []
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "action-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Action",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "action-text": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-006 batch-outage root cause: STALE cluster = skills missed 08-27–08-30 batches. Two never-ran skills (run-frequency-guard, ai-framework-watch) = [[enabled-skills-can-never-dispatch]] class.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "full-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/skill-freshness-2026-08-31.md",
+        "source": "skill-freshness"
+      },
+      "children": []
+    }
+  }
+}
