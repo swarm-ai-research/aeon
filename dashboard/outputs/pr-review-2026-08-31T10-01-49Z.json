@@ -1,0 +1,185 @@
+{
+  "root": "main_card",
+  "state": {},
+  "elements": {
+    "main_card": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-08-31",
+        "description": "merge-gate operator on swarm-ai-research/swarm (67th invocation)"
+      },
+      "children": [
+        "summary_section",
+        "separator1",
+        "human_prs_section",
+        "separator2",
+        "verdicts_section"
+      ]
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped",
+        "stat_bots",
+        "stat_dup_sha"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "0"
+      }
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "9"
+      }
+    },
+    "stat_bots": {
+      "type": "Stat",
+      "props": {
+        "label": "Bots",
+        "value": "7"
+      }
+    },
+    "stat_dup_sha": {
+      "type": "Stat",
+      "props": {
+        "label": "Dup-SHA",
+        "value": "2"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "human_prs_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "human_prs_heading",
+        "human_prs_text"
+      ]
+    },
+    "human_prs_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Human PRs",
+        "level": "h3"
+      }
+    },
+    "human_prs_text": {
+      "type": "Text",
+      "props": {
+        "text": "Both dup-SHA (unchanged since 2026-08-07, 21/21 CI SUCCESS refreshed)",
+        "variant": "body"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "verdicts_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "verdicts_heading",
+        "pr_549",
+        "pr_543"
+      ]
+    },
+    "verdicts_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Standing Merge-Gate Verdicts",
+        "level": "h3"
+      }
+    },
+    "pr_549": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr_549_link",
+        "pr_549_sha",
+        "pr_549_verdict"
+      ]
+    },
+    "pr_549_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Prime Agent bridge",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/549",
+        "source": "swarm-ai-research/swarm"
+      }
+    },
+    "pr_549_sha": {
+      "type": "Badge",
+      "props": {
+        "text": "afe51248",
+        "variant": "secondary"
+      }
+    },
+    "pr_549_verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "default"
+      }
+    },
+    "pr_543": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr_543_link",
+        "pr_543_sha",
+        "pr_543_verdict"
+      ]
+    },
+    "pr_543_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "docs de-slop",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/543",
+        "source": "swarm-ai-research/swarm"
+      }
+    },
+    "pr_543_sha": {
+      "type": "Badge",
+      "props": {
+        "text": "bad79e48",
+        "variant": "secondary"
+      }
+    },
+    "pr_543_verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "default"
+      }
+    }
+  }
+}
