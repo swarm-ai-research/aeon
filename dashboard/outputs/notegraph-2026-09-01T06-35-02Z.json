@@ -1,0 +1,67 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph Updated"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stats-row",
+        "note-text",
+        "pr-link"
+      ]
+    },
+    "stats-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-artifact",
+        "stat-actual"
+      ]
+    },
+    "stat-artifact": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes Wired In",
+        "value": "+219"
+      }
+    },
+    "stat-actual": {
+      "type": "Stat",
+      "props": {
+        "label": "Actual (since 08-30)",
+        "value": "+5"
+      }
+    },
+    "note-text": {
+      "type": "Text",
+      "props": {
+        "text": "HEAD-stale artifact",
+        "variant": "muted"
+      }
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #58",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/58",
+        "source": "GitHub"
+      }
+    }
+  }
+}
