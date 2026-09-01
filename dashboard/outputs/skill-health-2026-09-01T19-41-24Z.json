@@ -1,0 +1,231 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-09-01"
+      },
+      "children": [
+        "status-alert",
+        "systemic-issue",
+        "context-text",
+        "separator1",
+        "degraded-section",
+        "separator2",
+        "no-data-section",
+        "separator3",
+        "healthy-section",
+        "separator4",
+        "summary-stats"
+      ]
+    },
+    "status-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "System Status",
+        "message": "DEGRADED (38)",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "systemic-issue": {
+      "type": "Text",
+      "props": {
+        "text": "Systemic: ISS-001 OAuth-outage denominator burn day 75 — 0 live failures in 7d",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "context-text": {
+      "type": "Text",
+      "props": {
+        "text": "65th steady-state day at hash e27c0ac60367e7e5. Notify fires because the 24h daily-reminder window has elapsed (last: 2026-08-29T19:56Z; 08-31 evening slot was itself missed).",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "degraded-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded-heading",
+        "degraded-table",
+        "degraded-more-text"
+      ]
+    },
+    "degraded-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 DEGRADED / FLAPPING (38, top 5 by days-since-last-success)",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "degraded-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Success Rate",
+          "Days Since Success",
+          "Status"
+        ],
+        "rows": [
+          [
+            "skill-repair",
+            "1% sr, cf=0",
+            "73d",
+            "WAIT-API (denominator burn)"
+          ],
+          [
+            "repo-revive",
+            "7% sr, cf=0",
+            "10d",
+            "WAIT-API"
+          ],
+          [
+            "compute-pulse",
+            "6% sr, cf=0",
+            "10d",
+            "WAIT-API"
+          ],
+          [
+            "skillpacks",
+            "6% sr, cf=0",
+            "10d",
+            "WAIT-API"
+          ],
+          [
+            "compute-macro-correlate",
+            "11% sr, cf=0",
+            "10d",
+            "WAIT-API"
+          ]
+        ]
+      },
+      "children": []
+    },
+    "degraded-more-text": {
+      "type": "Text",
+      "props": {
+        "text": "+33 more — see memory/issues/INDEX.md",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "no-data-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "no-data-heading",
+        "no-data-text"
+      ]
+    },
+    "no-data-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA (2)",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "no-data-text": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch, run-frequency-guard — DISPATCH-SKILL (56d silent)",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "healthy-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "healthy-heading",
+        "healthy-text"
+      ]
+    },
+    "healthy-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟢 HEALTHY (4)",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "healthy-text": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "separator4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "summary-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "open-issues-stat",
+        "resolved-stat"
+      ]
+    },
+    "open-issues-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "18"
+      },
+      "children": []
+    },
+    "resolved-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      },
+      "children": []
+    }
+  }
+}
