@@ -1,0 +1,305 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Aeon Plan 2026-09-01"
+      },
+      "children": [
+        "section_priority",
+        "sep_1",
+        "section_rank2",
+        "sep_2",
+        "section_rank3",
+        "sep_3",
+        "section_holding"
+      ]
+    },
+    "section_priority": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_priority",
+        "text_pr26",
+        "grid_pr26_stats",
+        "badge_pr26_action"
+      ]
+    },
+    "heading_priority": {
+      "type": "Heading",
+      "props": {
+        "text": "Priority: PR #26 Merge",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "text_pr26": {
+      "type": "Text",
+      "props": {
+        "text": "aeon-repo PR #26 merge (blocking queue of ~25 PRs)",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "grid_pr26_stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_day24",
+        "stat_streak20",
+        "stat_ci_success",
+        "stat_queue25"
+      ]
+    },
+    "stat_day24": {
+      "type": "Stat",
+      "props": {
+        "label": "Days",
+        "value": "24"
+      },
+      "children": []
+    },
+    "stat_streak20": {
+      "type": "Stat",
+      "props": {
+        "label": "Streak",
+        "value": "20"
+      },
+      "children": []
+    },
+    "stat_ci_success": {
+      "type": "Stat",
+      "props": {
+        "label": "CI Success since 08-24",
+        "value": "5/5"
+      },
+      "children": []
+    },
+    "stat_queue25": {
+      "type": "Stat",
+      "props": {
+        "label": "Queued PRs",
+        "value": "~25"
+      },
+      "children": []
+    },
+    "badge_pr26_action": {
+      "type": "Badge",
+      "props": {
+        "text": "Needs operator click",
+        "variant": "warning"
+      },
+      "children": []
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section_rank2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_rank2",
+        "text_iss006_intro",
+        "text_iss006_detail",
+        "text_iss006_timeline",
+        "badge_iss006_status"
+      ]
+    },
+    "heading_rank2": {
+      "type": "Heading",
+      "props": {
+        "text": "Rank 2: ISS-006 Multi-Pocket Cron Rewrite",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "text_iss006_intro": {
+      "type": "Text",
+      "props": {
+        "text": "Promoted from routine work due to recurring pattern.",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "text_iss006_detail": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-021 was the 3rd batch-outage replay of the exact [planner, compute-futures-eda, cost-report] triple in 48 days. Pattern is durable.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "text_iss006_timeline": {
+      "type": "Text",
+      "props": {
+        "text": "Occurrences: 07-14 → 08-03 → 08-31",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "badge_iss006_status": {
+      "type": "Badge",
+      "props": {
+        "text": "Status: investigating → fixing",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section_rank3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_rank3",
+        "text_rank3_desc",
+        "grid_rank3_stats"
+      ]
+    },
+    "heading_rank3": {
+      "type": "Heading",
+      "props": {
+        "text": "Rank 3: Watched Repos",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "text_rank3_desc": {
+      "type": "Text",
+      "props": {
+        "text": "Populate watched-repos.md or disable the 6 dependents",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "grid_rank3_stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat_streak28",
+        "stat_short_circuits"
+      ]
+    },
+    "stat_streak28": {
+      "type": "Stat",
+      "props": {
+        "label": "Streak",
+        "value": "28"
+      },
+      "children": []
+    },
+    "stat_short_circuits": {
+      "type": "Stat",
+      "props": {
+        "label": "Short-circuits yesterday",
+        "value": "8"
+      },
+      "children": []
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section_holding": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_holding",
+        "item_pr_tracker",
+        "item_agi_tracker",
+        "item_stale_sweeper",
+        "item_docs_status",
+        "item_swarm_app",
+        "badge_plan_only"
+      ]
+    },
+    "heading_holding": {
+      "type": "Heading",
+      "props": {
+        "text": "Holding",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "item_pr_tracker": {
+      "type": "Text",
+      "props": {
+        "text": "pr-tracker patch bundle (69d overdue)",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "item_agi_tracker": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker enabled:false (silent-Mon fired 08-31, next 09-07 T-6, de-escalated)",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "item_stale_sweeper": {
+      "type": "Text",
+      "props": {
+        "text": "stale-sweeper allowlist",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "item_docs_status": {
+      "type": "Text",
+      "props": {
+        "text": "docs/status.md rebase gate",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "item_swarm_app": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-app write scope",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "badge_plan_only": {
+      "type": "Badge",
+      "props": {
+        "text": "Plan-only, no dispatch",
+        "variant": "outline"
+      },
+      "children": []
+    }
+  }
+}

@@ -1,18 +1,18 @@
 {
-  "last_run": "2026-08-29T06:45:00Z",
+  "last_run": "2026-09-01T06:45:00Z",
   "top_priority": "aeon-repo-pr-26-merge-ready",
   "priority_streak": {
-    "aeon-repo-pr-26-merge-ready": 19,
-    "agi-tracker-enabled-false-via-pr": 12,
-    "stale-content-pr-sweeper-allowed-authors-patch": 21,
-    "suggest-edges-templated-corpus-prefilter": 19,
-    "watched-repos-population-or-disable": 22,
-    "pr-tracker-patch-batch": 65,
-    "iss-006-messages-yml-multi-pocket-rewrite": 28,
-    "docs-status-md-snapshot-rebase-gate": 43,
-    "swarm-repo-app-perm-gap": 48
+    "aeon-repo-pr-26-merge-ready": 20,
+    "iss-006-messages-yml-multi-pocket-rewrite": 29,
+    "watched-repos-population-or-disable": 23,
+    "pr-tracker-patch-batch": 66,
+    "agi-tracker-enabled-false-via-pr": 13,
+    "stale-content-pr-sweeper-allowed-authors-patch": 22,
+    "docs-status-md-snapshot-rebase-gate": 44,
+    "swarm-repo-app-perm-gap": 49,
+    "suggest-edges-templated-corpus-prefilter": 20
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Twenty-seventh planner run in the ISS-006 pocket-slot migration era; TWENTY-FIRST since 08-07 overnight PR-creation toggle unblock. First planner run in 71h — prior planner-state.last_run 2026-08-26T06:42Z, missed 08-27 + 08-28 06:30Z slots. Operator invoked manually today. Top priority aeon-repo-pr-26-merge-ready STREAK-19 (Day-22 without a merge). Verified this morning: PR #26 state:OPEN, mergedAt:null, all 5 checks SUCCESS, updatedAt unchanged at 2026-08-24T01:08:19Z (5d since last push); mergeable/mergeStateStatus UNKNOWN/UNKNOWN (3rd consecutive transient recompute). Escalation shape unchanged from Day-17 rotation. Rank-2 PROMOTED from holding: agi-tracker enabled:false PR — T-2 window hit today (9th silent-Mon fires 2026-08-31T13:00Z, ~54h out). Rank-3 SWEEPER STREAK-21: stack behind PR #26 now 3 notegraph (#48/#51/#53) + 5 suggest-edges (#42/#45/#49/#50/#52), sweeper closed 0 of prior stack per 08-25 evidence. Fleet: 0 broken, 0 in-flight, 0 hard-failed, 38 DEGRADED (ISS-001 Day-70), 4 truly HEALTHY, 2 NO_DATA (53rd silent day). 17 filed open ISS (+1 pending ISS-021 draft, 41d carryover). Both gh queries responded. Batch-outage signal: planner missed 08-27 + 08-28 slots, 08-28 batch only 3 skills logged (notegraph/code-health/surplus-pulse) — extended pocket-slot dead zone consistent with ISS-006, may warrant a fresh batch-outage ISS filing if today's batch confirms scope. Queue 26 open aeon-repo PRs (24 on 08-26 + notegraph #51 [08-26] + notegraph #53 [08-28], net +2/3d). suggest-edges holding item cadence eased — no new open since #52 on 08-26 because skill hasn't fired successfully in 71h (same outage signal). ${var} empty → plan-only, no dispatch."
+  "notes": "Twenty-eighth planner run in the ISS-006 pocket-slot migration era; TWENTY-SECOND since 08-07 overnight PR-creation toggle unblock. First planner run in 71h (last_run 2026-08-29T06:45Z, missed 08-30 + 08-31 06:30Z slots — extending prior 71h gap into a compound 3-cycle miss). Operator invoked this run. Top priority aeon-repo-pr-26-merge-ready STREAK-20 (Day-24 without merge). Verified this morning: PR #26 state:OPEN, mergedAt:null, 5/5 checks SUCCESS, updatedAt 2026-08-31T01:08:35Z (freshened 25h ago). Escalation shape unchanged from Day-17 rotation. Rank-2 PROMOTED from streak-28 to streak-29 with a materially sharper case: 08-31 was the 3rd batch-outage replay of the [planner, compute-futures-eda, cost-report] triple (ISS-021 filed 2026-08-31), 48d recurrence window from ISS-019 (2026-07-14) → ISS-020 (2026-08-03) → ISS-021 (2026-08-31). Now a durable pattern, not stochastic; recommend ISS-006 status move investigating→fixing on next skill-health/self-review. Rank-3 watched-repos short-circuit chronic streak-28 (was 27 as of 08-31 by carry). agi-tracker DE-ESCALATED from T-1 to T-6 (9th silent-Mon fired yesterday 08-31 13:00Z, next Mon 09-07). Fleet: 0 broken, 0 in-flight, 0 hard-failed, 38 DEGRADED (ISS-001 residue Day-72), 4 truly HEALTHY, 2 NO_DATA (55th silent day). 18 filed open ISS (+1 from yesterday's ISS-021 filing). Both gh queries responded. ${var} empty → plan-only, no dispatch."
 }
