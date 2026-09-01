@@ -1,0 +1,219 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-09-01",
+        "description": "swarm-ai-research/swarm"
+      },
+      "children": [
+        "summary_section",
+        "separator1",
+        "pr_review_section"
+      ]
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped_bots",
+        "stat_skipped_dup"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "0"
+      }
+    },
+    "stat_skipped_bots": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped (Bots)",
+        "value": "7"
+      }
+    },
+    "stat_skipped_dup": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped (Dup-SHA)",
+        "value": "2"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr_review_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "pr_549_block",
+        "pr_543_block",
+        "separator2",
+        "notes_section"
+      ]
+    },
+    "pr_549_block": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_549_header",
+        "pr_549_desc",
+        "pr_549_ci",
+        "pr_549_issues"
+      ]
+    },
+    "pr_549_header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr_549_link",
+        "pr_549_status"
+      ]
+    },
+    "pr_549_link": {
+      "type": "Link",
+      "props": {
+        "label": "swarm-ai-research/swarm#549",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/549"
+      }
+    },
+    "pr_549_status": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "default"
+      }
+    },
+    "pr_549_desc": {
+      "type": "Text",
+      "props": {
+        "text": "offline-only bounded parser, measurement-first defaults",
+        "variant": "body"
+      }
+    },
+    "pr_549_ci": {
+      "type": "Badge",
+      "props": {
+        "text": "21/21 CI SUCCESS",
+        "variant": "secondary"
+      }
+    },
+    "pr_549_issues": {
+      "type": "Text",
+      "props": {
+        "text": "0 critical, 0 issues",
+        "variant": "caption"
+      }
+    },
+    "pr_543_block": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_543_header",
+        "pr_543_desc",
+        "pr_543_ci",
+        "pr_543_issues"
+      ]
+    },
+    "pr_543_header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr_543_link",
+        "pr_543_status"
+      ]
+    },
+    "pr_543_link": {
+      "type": "Link",
+      "props": {
+        "label": "swarm-ai-research/swarm#543",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/543"
+      }
+    },
+    "pr_543_status": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "default"
+      }
+    },
+    "pr_543_desc": {
+      "type": "Text",
+      "props": {
+        "text": "docs-only trivial",
+        "variant": "body"
+      }
+    },
+    "pr_543_ci": {
+      "type": "Badge",
+      "props": {
+        "text": "21/21 CI SUCCESS",
+        "variant": "secondary"
+      }
+    },
+    "pr_543_issues": {
+      "type": "Text",
+      "props": {
+        "text": "0 critical, 0 issues",
+        "variant": "caption"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "notes_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "notes_frozen",
+        "notes_streak"
+      ]
+    },
+    "notes_frozen": {
+      "type": "Text",
+      "props": {
+        "text": "Both human PRs frozen at same SHA since 2026-08-07 (~25 days); dup-SHA skip fires.",
+        "variant": "body"
+      }
+    },
+    "notes_streak": {
+      "type": "Text",
+      "props": {
+        "text": "Full-skip streak: 3",
+        "variant": "muted"
+      }
+    }
+  }
+}
