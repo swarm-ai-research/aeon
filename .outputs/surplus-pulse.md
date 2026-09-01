@@ -1,10 +1,7 @@
-## Summary
+surplus pulse — 2026-09-01
 
-**surplus-pulse — 2026-08-31**
+spot: catalog · Llama 4 Scout @ $0.0764/M (Surplus Intelligence)
+curve: hyperscaler H100 reserve shock R30 +88.7% (round 6), DeepSeek V3.2 open-weights flood −44.2% (round 13), agent platform demand surge +50.7% (round 20)
+rail: x402 on Base/USDC — surplusintelligence.ai/x402 (eip155:8453, $0.0033/call, 400ms finality, $198.43 total delivered)
 
-- **Mode:** catalog (no `SURPLUS_PRICING_URL` configured; live feed unavailable)
-- **Spot anchor:** $0.0764/M — Llama 4 Scout (Surplus Intelligence catalog)
-- **Top curve move:** hyperscaler H100 reserve at R30 **+88.7%** (R6 supply crunch); followed by DeepSeek V3.2 open-weights drop **−44%** mid-curve (R13), then agent-platform demand surge **+50.7%** on back-end expiries (R20)
-- **x402 rail:** Surplus x402 on Base/USDC — endpoint confirmed, $0.00025/tx ~400ms finality
-- **Files modified:** `memory/topics/surplus-pulse.md` (last-run set to 2026-08-31, run-log appended), `memory/logs/2026-08-31.md` (activity entry appended), `.pending-notify/1756684800-surplus-pulse.md` (notification queued for post-run delivery)
-- **Notification status:** queued to `.pending-notify/` — will be delivered by the post-run scripts when channel secrets are configured
+one-line read: catalog run (no live feed); H100 reserve shock dominates at +88.7%, partially absorbed by supply flood and then re-tightened by agent demand — market closes tighter than open.
