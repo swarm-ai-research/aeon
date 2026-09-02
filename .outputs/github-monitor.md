@@ -1,10 +1,16 @@
 ## Summary
 
-Executed `skills/github-monitor/SKILL.md`. `memory/watched-repos.md` is missing (chronic short-circuit streak-27 by default carry from 08-30 cluster), so per the SKILL's config-check gate I logged `GITHUB_MONITOR_EMPTY_CONFIG` and ended without scanning or notifying.
+Ran `github-monitor` — short-circuited at SKILL step 0.
+
+**Result:** `GITHUB_MONITOR_EMPTY_CONFIG`
+
+- Config file `memory/watched-repos.md` missing (also verified fallback `memory/topics/watched-repos.md` — missing).
+- No `gh` calls issued, no notification sent (correct behavior per SKILL: silent short-circuit on empty config).
+- Chronic streak now **day 30** (was streak-29 as of 09-01).
 
 **Files modified:**
-- `memory/logs/2026-08-31.md` (created) — appended `### github-monitor` entry.
+- `memory/logs/2026-09-02.md` — appended `### github-monitor` section per SKILL step-5.
 
-**Follow-ups (unchanged, already in MEMORY.md):**
-- Populate `memory/watched-repos.md` OR `enabled: false` the six watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive).
-- Reconcile the path mismatch: repo-revive SKILL.md refs `memory/topics/watched-repos.md` while the other five ref `memory/watched-repos.md`.
+**Follow-up (already in MEMORY.md action queue, no new item):**
+- Populate `memory/watched-repos.md` OR disable 6 dependents (`code-health`, `github-monitor`, `issue-triage`, `changelog`, `weekly-shiplog`, `repo-revive`).
+- Reconcile path mismatch: `repo-revive` reads `memory/topics/watched-repos.md`; the other five read `memory/watched-repos.md`.
