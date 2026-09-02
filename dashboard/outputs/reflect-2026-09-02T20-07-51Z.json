@@ -1,0 +1,65 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "memory consolidated"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "date-text",
+        "metrics-stack",
+        "details-text"
+      ]
+    },
+    "date-text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-09-02"
+      }
+    },
+    "metrics-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "metric-notes",
+        "metric-entries"
+      ]
+    },
+    "metric-notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "+7"
+      }
+    },
+    "metric-entries": {
+      "type": "Stat",
+      "props": {
+        "label": "Entries",
+        "value": "+28"
+      }
+    },
+    "details-text": {
+      "type": "Text",
+      "props": {
+        "text": "3 new atomic notes, 1 supersession",
+        "variant": "caption"
+      }
+    }
+  }
+}
