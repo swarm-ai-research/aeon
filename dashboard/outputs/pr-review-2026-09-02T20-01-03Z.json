@@ -1,0 +1,337 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-09-02"
+      },
+      "children": [
+        "metadata",
+        "stats-section",
+        "separator1",
+        "verdicts-section"
+      ]
+    },
+    "metadata": {
+      "type": "Text",
+      "props": {
+        "text": "70th, same-day 2nd",
+        "variant": "caption"
+      }
+    },
+    "stats-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "reviewed-stat",
+        "skipped-stack",
+        "streak-text"
+      ]
+    },
+    "reviewed-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "0"
+      }
+    },
+    "skipped-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skipped-stat",
+        "skipped-breakdown"
+      ]
+    },
+    "skipped-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "9"
+      }
+    },
+    "skipped-breakdown": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-bots",
+        "badge-dup"
+      ]
+    },
+    "badge-bots": {
+      "type": "Badge",
+      "props": {
+        "text": "Bots: 7"
+      }
+    },
+    "badge-dup": {
+      "type": "Badge",
+      "props": {
+        "text": "Dup-SHA: 2"
+      }
+    },
+    "streak-text": {
+      "type": "Text",
+      "props": {
+        "text": "Full-skip streak: 5",
+        "variant": "muted"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "verdicts-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "verdicts-header",
+        "verdicts-note",
+        "pr-549",
+        "pr-543"
+      ]
+    },
+    "verdicts-header": {
+      "type": "Heading",
+      "props": {
+        "text": "Standing Merge-Gate Verdicts",
+        "level": "h2"
+      }
+    },
+    "verdicts-note": {
+      "type": "Text",
+      "props": {
+        "text": "Upstream state re-verified vs 69th earlier today — SHAs identical, 20/20 non-skipped checks SUCCESS on both PRs, no new bot reviews since 08-07",
+        "variant": "caption"
+      }
+    },
+    "pr-549": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr549-link",
+        "pr549-verdict-row",
+        "pr549-sha",
+        "pr549-desc",
+        "pr549-checks"
+      ]
+    },
+    "pr549-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#549",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/549",
+        "source": "Prime Agent bridge"
+      }
+    },
+    "pr549-verdict-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "pr549-verdict",
+        "pr549-score"
+      ]
+    },
+    "pr549-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "secondary"
+      }
+    },
+    "pr549-score": {
+      "type": "Text",
+      "props": {
+        "text": "5/5"
+      }
+    },
+    "pr549-sha": {
+      "type": "Text",
+      "props": {
+        "text": "SHA: afe51248…",
+        "variant": "caption"
+      }
+    },
+    "pr549-desc": {
+      "type": "Text",
+      "props": {
+        "text": "Offline-only bounded parser, measurement-first defaults, all high-signal checks green",
+        "variant": "body"
+      }
+    },
+    "pr549-checks": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "check549-1",
+        "check549-2",
+        "check549-3",
+        "check549-4",
+        "check549-5",
+        "check549-6",
+        "check549-7",
+        "check549-8",
+        "check549-9",
+        "check549-10",
+        "check549-11",
+        "check549-12"
+      ]
+    },
+    "check549-1": {
+      "type": "Badge",
+      "props": {
+        "text": "lint"
+      }
+    },
+    "check549-2": {
+      "type": "Badge",
+      "props": {
+        "text": "type-check"
+      }
+    },
+    "check549-3": {
+      "type": "Badge",
+      "props": {
+        "text": "invariants"
+      }
+    },
+    "check549-4": {
+      "type": "Badge",
+      "props": {
+        "text": "kb-graph-check"
+      }
+    },
+    "check549-5": {
+      "type": "Badge",
+      "props": {
+        "text": "render-verify"
+      }
+    },
+    "check549-6": {
+      "type": "Badge",
+      "props": {
+        "text": "agentgit-gate"
+      }
+    },
+    "check549-7": {
+      "type": "Badge",
+      "props": {
+        "text": "quality-gate"
+      }
+    },
+    "check549-8": {
+      "type": "Badge",
+      "props": {
+        "text": "CodeQL Py+JS-TS"
+      }
+    },
+    "check549-9": {
+      "type": "Badge",
+      "props": {
+        "text": "tests 3.10/3.11/3.12"
+      }
+    },
+    "check549-10": {
+      "type": "Badge",
+      "props": {
+        "text": "Memory Tests Short-Run"
+      }
+    },
+    "check549-11": {
+      "type": "Badge",
+      "props": {
+        "text": "Baseline"
+      }
+    },
+    "check549-12": {
+      "type": "Badge",
+      "props": {
+        "text": "Vercel"
+      }
+    },
+    "pr-543": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr543-link",
+        "pr543-verdict-row",
+        "pr543-sha",
+        "pr543-desc"
+      ]
+    },
+    "pr543-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#543",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/543",
+        "source": "docs de-slop"
+      }
+    },
+    "pr543-verdict-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "pr543-verdict",
+        "pr543-score"
+      ]
+    },
+    "pr543-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "secondary"
+      }
+    },
+    "pr543-score": {
+      "type": "Text",
+      "props": {
+        "text": "5/5"
+      }
+    },
+    "pr543-sha": {
+      "type": "Text",
+      "props": {
+        "text": "SHA: bad79e48…",
+        "variant": "caption"
+      }
+    },
+    "pr543-desc": {
+      "type": "Text",
+      "props": {
+        "text": "Docs-only trivial early-exit; no production code touched.",
+        "variant": "body"
+      }
+    }
+  }
+}
