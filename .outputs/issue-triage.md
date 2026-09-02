@@ -1,11 +1,10 @@
-`ISSUE_TRIAGE_OK no-watched-repos`
+Skill short-circuited at config. No notification is warranted (no actionable items, no advisory verdicts). Terminal log line emitted: `ISSUE_TRIAGE_OK no-watched-repos`.
 
 ## Summary
 
-Executed `skills/issue-triage/SKILL.md`. Short-circuited on the §Config gate: `memory/watched-repos.md` is absent and `${var}` was empty, so per SKILL rule the run logged `ISSUE_TRIAGE_OK no-watched-repos` and exited before any `gh` call, permission probe, classification, label/comment/close write, or notification.
+**issue-triage** short-circuited at step 0 config: `memory/watched-repos.md` is absent and no `${var}` argument was provided, so per the SKILL contract the run logged `ISSUE_TRIAGE_OK no-watched-repos` and exited without touching any repo, label, or comment.
 
-- **Files modified:** `memory/logs/2026-08-31.md` (new log entry).
-- **State writes:** none. `memory/triaged-issues.json` left intact (6 legacy `aaronjmars/aeon` entries; slug not in scope this run).
-- **Notifications:** none (chronic no-op, not actionable per SKILL §9).
-- **Streak:** extends the watched-repos short-circuit cluster to the **27th consecutive day** (was streak-26 as of 08-30).
-- **Follow-up (unchanged):** populate `memory/watched-repos.md` with `- owner/repo` lines **OR** set `enabled: false` on the 6 watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive); reconcile the `memory/topics/watched-repos.md` vs `memory/watched-repos.md` path mismatch in the same patch.
+**Files modified:**
+- `memory/logs/2026-09-02.md` — appended `### issue-triage` block with the terminal log line and pointer to the standing action-queue item.
+
+**Follow-up (unchanged, ~streak-30):** the MEMORY.md action queue already tracks this — populate `memory/watched-repos.md` OR disable the 6 dependents (`code-health`, `github-monitor`, `issue-triage`, `changelog`, `weekly-shiplog`, `repo-revive`). Also reconcile the config-path mismatch: `repo-revive` reads `memory/topics/watched-repos.md` while the other five read `memory/watched-repos.md`.
