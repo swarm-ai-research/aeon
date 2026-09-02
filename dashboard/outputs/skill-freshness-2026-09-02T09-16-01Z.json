@@ -1,0 +1,156 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Freshness — 2026-09-02"
+      },
+      "children": [
+        "status-alert",
+        "separator-1",
+        "worst-section",
+        "separator-2",
+        "action-section",
+        "separator-3",
+        "full-report"
+      ]
+    },
+    "status-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "🔴 FRESHNESS_STALE",
+        "message": "1 of 1 deps flagged across 1 of 44 enabled consumers"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "worst-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "worst-heading",
+        "worst-item-stack"
+      ]
+    },
+    "worst-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Worst",
+        "level": "h3"
+      }
+    },
+    "worst-item-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "worst-item-main",
+        "worst-item-metadata"
+      ]
+    },
+    "worst-item-main": {
+      "type": "Text",
+      "props": {
+        "text": "vuln-scanner ← .outputs/github-trending.md",
+        "variant": "body"
+      }
+    },
+    "worst-item-metadata": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-age",
+        "badge-class",
+        "badge-severity"
+      ]
+    },
+    "badge-age": {
+      "type": "Badge",
+      "props": {
+        "text": "8h 50m old",
+        "variant": "outline"
+      }
+    },
+    "badge-class": {
+      "type": "Badge",
+      "props": {
+        "text": "class: outputs",
+        "variant": "outline"
+      }
+    },
+    "badge-severity": {
+      "type": "Badge",
+      "props": {
+        "text": "sev: STALE",
+        "variant": "destructive"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "action-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "action-heading",
+        "action-text",
+        "action-note"
+      ]
+    },
+    "action-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Action",
+        "level": "h3"
+      }
+    },
+    "action-text": {
+      "type": "Text",
+      "props": {
+        "text": "Verify vuln-scanner fallback path triggers when github-trending output is stale.",
+        "variant": "body"
+      }
+    },
+    "action-note": {
+      "type": "Text",
+      "props": {
+        "text": "Producer github-trending is disabled (enabled: false) — it will never refresh this file.",
+        "variant": "muted"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "full-report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/skill-freshness-2026-09-02.md"
+      }
+    }
+  }
+}

@@ -1,11 +1,9 @@
-*Skill Freshness — 2026-08-31*
-🔴 FRESHNESS_STALE — 25 of 43 deps flagged across 25 of 43 enabled consumers
+*Skill Freshness — 2026-09-02*
+🔴 FRESHNESS_STALE — 1 of 1 deps flagged across 1 of 44 enabled consumers
 
 Worst:
-- run-frequency-guard ← .outputs/run-frequency-guard.md (NEVER, outputs, MISSING)
-- ai-framework-watch ← .outputs/ai-framework-watch.md (NEVER, outputs, MISSING)
-- memory-structural-dedupe ← .outputs/memory-structural-dedupe.md (123.3h, outputs, STALE)
-- batch-health/heartbeat/fleet-control cluster ← 10 daily skills all ~121h (last batch 08-26)
+- vuln-scanner ← .outputs/github-trending.md (8h 50m old, class outputs, sev STALE)
 
-Action: ISS-006 batch-outage root cause; STALE cluster = skills missed 08-27–08-30 batches. Two never-ran skills (run-frequency-guard, ai-framework-watch) = [[enabled-skills-can-never-dispatch]] class.
-Full: articles/skill-freshness-2026-08-31.md
+Action: Verify vuln-scanner fallback path triggers when github-trending output is stale. Producer github-trending is disabled (enabled: false) — it will never refresh this file.
+Full: articles/skill-freshness-2026-09-02.md
+
