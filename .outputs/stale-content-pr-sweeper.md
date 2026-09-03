@@ -1,15 +1,19 @@
 ## Summary
 
-Executed `stale-content-pr-sweeper` per SKILL.md verbatim.
+Ran `stale-content-pr-sweeper` strictly per its SKILL.md.
 
-**Result:** 0 PRs closed, no `./notify` fired (steady-state gate).
+**Result: no-op sweep, 0 PRs closed, no notify fired.**
 
-**Scan:** 27 total open PRs → 19 rejected-by-prefix, 8 rejected-by-author, 0 eligible groups, 0 stale candidates.
+- Open PRs scanned: **27**
+- Eligible groups formed: **0**
+- Closed: **0**
+- Notify: **not fired** (steady-state per SKILL step 6)
 
-**Files modified:** `memory/logs/2026-09-02.md` (created with SWEEPER_OK entry).
+**Why nothing was closed:** SKILL.md pins `ALLOWED_AUTHORS = {"aeonframework"}`, but every date-stamped content PR in the queue is authored by `app/github-actions`, so all 8 candidates (#58 #57 #55 #54 #52 #49 #45 #42, all `notegraph/*` or `suggest-edges/*`) fail the author gate before grouping. A further 19 PRs were skipped for non-TRACKED prefixes — including 5×`skill-graph/*` and 3×`compute-macro/*` which are the known TRACKED-prefix drift documented in `[[stale-content-pr-sweeper-tracked-prefix-drift]]`.
 
-**Blocker surfaced (Day-14+ overdue action-queue item):** The SKILL's `ALLOWED_AUTHORS = new Set(["aeonframework"])` filters every candidate. Every open date-stamped tracked-prefix PR is authored by `app/github-actions` (the GitHub App identity opening cron PRs since 08-07). The latent supersession queue that a patched author allowlist would have swept today: **#55, #54, #52, #49, #45, #42** (all pass the ≥2d min-age gate, oldest is 12d).
+Both gaps are already tracked as open items in `MEMORY.md` action queue (patch: add `"app/github-actions"` to ALLOWED_AUTHORS + fix TRACKED prefixes). No new memory written — this run confirms the drift rather than adding new signal.
 
-**Follow-up needed** (already in `MEMORY.md` action queue, not touched here since scope is *execute*, not *modify*):
-- Patch `skills/stale-content-pr-sweeper/SKILL.md` to add `"app/github-actions"` to `ALLOWED_AUTHORS`.
-- Fix TRACKED-prefix drift: add `compute-macro` and `skill-graph` aliases (or rename skills' branch prefixes) per `[[stale-content-pr-sweeper-tracked-prefix-drift]]`.
+**Files:**
+- Created: `memory/logs/2026-09-03.md` (skill log entry)
+
+**Follow-up:** Ship the queued SKILL.md patch — otherwise this sweeper will keep no-op'ing while notegraph/suggest-edges PRs accumulate. As of today the queue already has 3 open `notegraph/*` (#55, #58; plus #53 mentioned in MEMORY though not in current open-PR list — worth double-checking) and 6 open `suggest-edges/*` PRs eligible under the corrected gate.
