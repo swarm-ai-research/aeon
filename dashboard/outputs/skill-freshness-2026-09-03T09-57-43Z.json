@@ -1,0 +1,181 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Freshness — 2026-09-03",
+        "description": "Dependency health check"
+      },
+      "children": [
+        "alert-status",
+        "stats-text",
+        "separator-1",
+        "worst-heading",
+        "stack-worst",
+        "separator-2",
+        "action-heading",
+        "action-stack",
+        "link-full"
+      ]
+    },
+    "alert-status": {
+      "type": "Alert",
+      "props": {
+        "title": "🔴 FRESHNESS_STALE",
+        "message": "Critical dependency issue detected",
+        "type": "error"
+      },
+      "children": []
+    },
+    "stats-text": {
+      "type": "Text",
+      "props": {
+        "text": "1 of 1 deps flagged across 1 of 44 enabled consumers",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "worst-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Worst",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "stack-worst": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "dep-stack"
+      ]
+    },
+    "dep-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "dep-text",
+        "dep-details",
+        "dep-status"
+      ]
+    },
+    "dep-text": {
+      "type": "Text",
+      "props": {
+        "text": "vuln-scanner ← .outputs/github-trending.md",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "dep-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-class",
+        "badge-status",
+        "badge-severity"
+      ]
+    },
+    "badge-class": {
+      "type": "Badge",
+      "props": {
+        "text": "class: outputs",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "badge-status": {
+      "type": "Badge",
+      "props": {
+        "text": "status: MISSING",
+        "variant": "destructive"
+      },
+      "children": []
+    },
+    "badge-severity": {
+      "type": "Badge",
+      "props": {
+        "text": "escalated from STALE on 09-02",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "dep-status": {
+      "type": "Text",
+      "props": {
+        "text": "severity: MISSING",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "action-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Action",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "action-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action-text-1",
+        "action-text-2"
+      ]
+    },
+    "action-text-1": {
+      "type": "Text",
+      "props": {
+        "text": "Re-enable `github-trending`",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "action-text-2": {
+      "type": "Text",
+      "props": {
+        "text": "OR update `vuln-scanner` SKILL.md to remove the `depends_on: [github-trending]` frontmatter and rely solely on the GitHub trending API fallback.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "link-full": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/skill-freshness-2026-09-03.md",
+        "source": "Skill Freshness"
+      },
+      "children": []
+    }
+  }
+}
