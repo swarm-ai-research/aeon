@@ -1,10 +1,11 @@
-Skill short-circuited at config. No notification is warranted (no actionable items, no advisory verdicts). Terminal log line emitted: `ISSUE_TRIAGE_OK no-watched-repos`.
+`ISSUE_TRIAGE_OK no-watched-repos`
 
 ## Summary
 
-**issue-triage** short-circuited at step 0 config: `memory/watched-repos.md` is absent and no `${var}` argument was provided, so per the SKILL contract the run logged `ISSUE_TRIAGE_OK no-watched-repos` and exited without touching any repo, label, or comment.
+Executed `skills/issue-triage/SKILL.md` with empty `${var}`. Terminal exit path fired per §Config: `memory/watched-repos.md` is missing → logged `ISSUE_TRIAGE_OK no-watched-repos` and exited without probing, classifying, or writing state. This is the 31st consecutive day of the known chronic short-circuit cluster (MEMORY.md:19) shared with code-health, github-monitor, changelog, weekly-shiplog, and repo-revive.
 
-**Files modified:**
-- `memory/logs/2026-09-02.md` — appended `### issue-triage` block with the terminal log line and pointer to the standing action-queue item.
+**Files modified:** `memory/logs/2026-09-03.md` (appended `## Issue Triage` §10 block).
 
-**Follow-up (unchanged, ~streak-30):** the MEMORY.md action queue already tracks this — populate `memory/watched-repos.md` OR disable the 6 dependents (`code-health`, `github-monitor`, `issue-triage`, `changelog`, `weekly-shiplog`, `repo-revive`). Also reconcile the config-path mismatch: `repo-revive` reads `memory/topics/watched-repos.md` while the other five read `memory/watched-repos.md`.
+**No changes to:** `memory/triaged-issues.json` (correctly untouched — §8 forbids recording repos that weren't processed), no notify fired (nothing actionable), no advisory reports written.
+
+**Follow-up (unchanged):** populate `memory/watched-repos.md` per the existing MEMORY.md action-queue item (also reconcile the `memory/watched-repos.md` vs `memory/topics/watched-repos.md` path mismatch across the six dependent skills).
