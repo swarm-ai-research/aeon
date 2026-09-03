@@ -1,0 +1,223 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review",
+        "description": "2026-09-03 (swarm-ai-research/swarm, 71st)"
+      },
+      "children": [
+        "summary_section",
+        "separator_1",
+        "queue_section",
+        "separator_2",
+        "approved_section"
+      ]
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary_heading",
+        "summary_stats"
+      ]
+    },
+    "summary_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Review Summary",
+        "level": "h3"
+      }
+    },
+    "summary_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "0"
+      }
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "9 (bots: 7, dup-SHA: 2)"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "queue_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "queue_heading",
+        "queue_delta",
+        "new_prs"
+      ]
+    },
+    "queue_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Queue Updates",
+        "level": "h3"
+      }
+    },
+    "queue_delta": {
+      "type": "Text",
+      "props": {
+        "text": "Queue delta: 2 new dependabot PRs",
+        "variant": "body"
+      }
+    },
+    "new_prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_563",
+        "pr_562"
+      ]
+    },
+    "pr_563": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#563",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/563",
+        "source": "dependabot"
+      }
+    },
+    "pr_562": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#562",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/562",
+        "source": "dependabot"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "approved_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "approved_heading",
+        "approved_prs"
+      ]
+    },
+    "approved_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Approved PRs",
+        "level": "h3"
+      }
+    },
+    "approved_prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "pr_549",
+        "pr_543"
+      ]
+    },
+    "pr_549": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_549_title",
+        "pr_549_badge",
+        "pr_549_details"
+      ]
+    },
+    "pr_549_title": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#549",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/549"
+      }
+    },
+    "pr_549_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "default"
+      }
+    },
+    "pr_549_details": {
+      "type": "Text",
+      "props": {
+        "text": "19/19 non-skipped checks green, standing verdict (SHA frozen ~27d)",
+        "variant": "body"
+      }
+    },
+    "pr_543": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_543_title",
+        "pr_543_badge",
+        "pr_543_details"
+      ]
+    },
+    "pr_543_title": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#543",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/543"
+      }
+    },
+    "pr_543_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "default"
+      }
+    },
+    "pr_543_details": {
+      "type": "Text",
+      "props": {
+        "text": "docs-only, standing verdict (SHA frozen ~27d)",
+        "variant": "body"
+      }
+    }
+  }
+}
