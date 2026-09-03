@@ -1,0 +1,322 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse",
+        "description": "2026-09-03"
+      },
+      "children": [
+        "spot",
+        "sep1",
+        "curve",
+        "sep2",
+        "rail",
+        "sep3",
+        "summary"
+      ]
+    },
+    "spot": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "spot-mode",
+        "spot-product",
+        "spot-alert"
+      ]
+    },
+    "spot-mode": {
+      "type": "Badge",
+      "props": {
+        "text": "Catalog",
+        "variant": "default"
+      }
+    },
+    "spot-product": {
+      "type": "Text",
+      "props": {
+        "text": "Llama 4 Scout @ $0.0764/M (Surplus Intelligence)"
+      }
+    },
+    "spot-alert": {
+      "type": "Alert",
+      "props": {
+        "message": "Live feed unavailable: SURPLUS_PRICING_URL not set",
+        "type": "warning"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "curve-title",
+        "curve-h100",
+        "curve-stats",
+        "curve-context1",
+        "curve-deepseek",
+        "curve-context2",
+        "curve-demand"
+      ]
+    },
+    "curve-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h2"
+      }
+    },
+    "curve-h100": {
+      "type": "Text",
+      "props": {
+        "text": "Hyperscaler H100 Reserve",
+        "variant": "lead"
+      }
+    },
+    "curve-stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat-r6",
+        "stat-r30"
+      ]
+    },
+    "stat-r6": {
+      "type": "Stat",
+      "props": {
+        "label": "R6",
+        "value": "+87.4%",
+        "trend": "up"
+      }
+    },
+    "stat-r30": {
+      "type": "Stat",
+      "props": {
+        "label": "R30",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "curve-context1": {
+      "type": "Text",
+      "props": {
+        "text": "Supply crunch tightened the entire forward strip"
+      }
+    },
+    "curve-deepseek": {
+      "type": "Text",
+      "props": {
+        "text": "DeepSeek V3.2 open-weights flush reversed the spike mid-run"
+      }
+    },
+    "curve-context2": {
+      "type": "Stat",
+      "props": {
+        "label": "DeepSeek Impact (R30)",
+        "value": "−44.2%",
+        "trend": "down"
+      }
+    },
+    "curve-demand": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "curve-demand-text",
+        "curve-demand-stat"
+      ]
+    },
+    "curve-demand-text": {
+      "type": "Text",
+      "props": {
+        "text": "Agent-platform demand surge at R20 partially recovered"
+      }
+    },
+    "curve-demand-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Demand Recovery (R30)",
+        "value": "+50.7%",
+        "trend": "up"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "rail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "rail-title",
+        "rail-endpoint",
+        "rail-status",
+        "rail-details"
+      ]
+    },
+    "rail-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h2"
+      }
+    },
+    "rail-endpoint": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on Base/USDC",
+        "variant": "lead"
+      }
+    },
+    "rail-status": {
+      "type": "Badge",
+      "props": {
+        "text": "Confirmed Live",
+        "variant": "outline"
+      }
+    },
+    "rail-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rail-chain",
+        "rail-asset",
+        "rail-settled",
+        "rail-cost",
+        "rail-finality"
+      ]
+    },
+    "rail-chain": {
+      "type": "Text",
+      "props": {
+        "text": "Chain: eip155:8453",
+        "variant": "caption"
+      }
+    },
+    "rail-asset": {
+      "type": "Text",
+      "props": {
+        "text": "Asset: USDC",
+        "variant": "caption"
+      }
+    },
+    "rail-settled": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Settled",
+        "value": "$198.43"
+      }
+    },
+    "rail-cost": {
+      "type": "Stat",
+      "props": {
+        "label": "Per Transaction",
+        "value": "$0.00025"
+      }
+    },
+    "rail-finality": {
+      "type": "Text",
+      "props": {
+        "text": "Finality: ~400ms",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-title",
+        "summary-mode",
+        "summary-pattern",
+        "summary-factors"
+      ]
+    },
+    "summary-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h2"
+      }
+    },
+    "summary-mode": {
+      "type": "Text",
+      "props": {
+        "text": "Catalog-mode run (SURPLUS_PRICING_URL unset)",
+        "variant": "muted"
+      }
+    },
+    "summary-pattern": {
+      "type": "Badge",
+      "props": {
+        "text": "Curve pattern holds",
+        "variant": "default"
+      }
+    },
+    "summary-factors": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "factor-h100",
+        "factor-openweights",
+        "factor-rail"
+      ]
+    },
+    "factor-h100": {
+      "type": "Text",
+      "props": {
+        "text": "H100 supply crunches dominate the forward strip"
+      }
+    },
+    "factor-openweights": {
+      "type": "Text",
+      "props": {
+        "text": "Open-weights drops are the primary counterforce"
+      }
+    },
+    "factor-rail": {
+      "type": "Badge",
+      "props": {
+        "text": "x402 Rail Live",
+        "variant": "outline"
+      }
+    }
+  }
+}
