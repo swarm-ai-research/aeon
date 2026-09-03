@@ -1,15 +1,18 @@
-`PR_TRIAGE_OK no-candidates` — no notification per the significance gate.
-
 ## Summary
 
-Ran `pr-triage` on `swarm-ai-research/swarm` (repo mode).
+**pr-triage skill run** — target `swarm-ai-research/swarm` (repo mode).
 
-- **Fetched:** 4 open PRs created in the last 14 days (#561, #560, #559, #555).
-- **All skipped as bot-authored** (`app/dependabot`) — bots route to `auto-merge`/`pr-review`, not this triage layer.
-- **Verdict tallies:** 0 accepted / 0 needs-changes / 0 deferred / 0 out-of-scope.
-- **Terminal:** `PR_TRIAGE_OK no-candidates` — no notification, no comments posted, no labels applied, no state write.
+- **Candidates fetched:** 4 open PRs created in last 14 days
+- **Triaged:** 0
+- **Skipped:** 4 (all `app/dependabot`, trusted-bot precedence-1)
+  - #563 langchain-anthropic 1.4.8→1.7.0
+  - #562 langchain-core 1.4.9→1.6.1
+  - #560 dawidd6/action-download-artifact 21→24
+  - #555 langgraph 1.2.9→1.2.11
+- **No writes to swarm repo** — no comments, labels, closes, or state-file updates needed (nothing was triaged).
+- **No notify** — per §10, routine no-candidate runs are silent.
+- **Terminal:** `PR_TRIAGE_OK no-candidates`
 
-Files modified:
-- `memory/logs/2026-08-31.md` — new log entry with the triage run summary.
+**Files modified:** `memory/logs/2026-09-03.md` (appended pr-triage section).
 
-Note: human PRs #549, #543, #551 were created earlier than the 14-day window and thus were not re-fetched. They already carry `DEFER`/`ACCEPTED` records in `memory/triaged-prs.json`, and prior runs confirmed the aeon app lacks `pull_requests: write` on this repo per [[aeon-app-no-write-on-swarm-repo]] — no write path exists here regardless. No follow-up needed for this run.
+**Follow-up:** Older human PRs #549 / #543 fall outside the 14-day `--search created:>=` window and are not evaluated by this skill — they continue to be tracked by `pr-review` per [[pr-status]] / [[aeon-app-no-write-on-swarm-repo]].
