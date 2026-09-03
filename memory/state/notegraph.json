@@ -1,40 +1,25 @@
 {
-  "input_fingerprint": "e130fc41c2a9bfc6b2ab12dc588e6af1bc83868f",
-  "last_run": "2026-09-01",
+  "input_fingerprint": "1c36254a7758e659b17f997acd4e4e72b92fc493",
+  "last_run": "2026-09-03",
   "stats": {
-    "nodes": 340,
-    "edges": 3523,
-    "hard": 2646,
-    "soft": 877,
+    "nodes": 351,
+    "edges": 3617,
+    "hard": 2715,
+    "soft": 902,
     "orphans": 0,
-    "atomic": 106,
+    "atomic": 111,
     "bundled": 0
   },
-  "last_verdict": "+219 notes wired in",
-  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/58",
-  "last_branch": "notegraph/2026-09-01",
+  "last_verdict": "+4 notes wired in",
+  "last_pr": "https://github.com/swarm-ai-research/aeon/pull/59",
+  "last_branch": "notegraph/2026-09-03",
   "delta_vs_head": {
-    "nodes": 219,
-    "edges": 2667,
-    "hard": 2052,
-    "soft": 615,
+    "nodes": 4,
+    "edges": 66,
+    "hard": 50,
+    "soft": 16,
     "orphans": 0,
     "bundled": 0,
-    "atomic": 52
-  },
-  "delta_vs_previous_run": {
-    "nodes": 5,
-    "edges": 108,
-    "hard": 75,
-    "soft": 33,
-    "orphans": 0,
-    "bundled": 0,
-    "atomic": 4
-  },
-  "new_orphans": [],
-  "resolved_orphans": [],
-  "new_bundled": [],
-  "resolved_bundled": [],
-  "notify_suppressed": false,
-  "note": "2026-09-01: Fingerprint moved (350fc5e8… → e130fc41…). Extractor produced substantive change: 340n/3523e vs HEAD at 121n/856e (HEAD stale — no notegraph PR has ever merged, per [[notegraph-workspace-head-diverges-from-origin]]) = literal +219/+2667 delta. Actual delta since previous run (335n/3415e on 08-30) is +5 nodes, +108 edges. No new/resolved orphans; no new/resolved bundled. Verdict '+219 notes wired in' per SKILL step 3 (compares against HEAD). Sandbox friction on `find | xargs sha1sum | sha1sum` fingerprint pipeline recurred (n=6 across 08-23/24/25/28/30/09-01) — used /tmp node helper as workaround per [[notegraph-fingerprint-pipeline-blocked-by-sandbox]]; checked-in `scripts/notegraph-fingerprint.mjs` still absent as pending durable fix."
+    "atomic": 3
+  }
 }
