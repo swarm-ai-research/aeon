@@ -1,0 +1,141 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-09-04"
+      },
+      "children": [
+        "stats_section",
+        "skip_section",
+        "no_new_shas",
+        "separator1",
+        "verdicts_section",
+        "separator2",
+        "alert_warning"
+      ]
+    },
+    "stats_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "0"
+      }
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "10"
+      }
+    },
+    "skip_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_bot_author",
+        "badge_dup_sha"
+      ]
+    },
+    "badge_bot_author": {
+      "type": "Badge",
+      "props": {
+        "text": "bot-author: 8",
+        "variant": "secondary"
+      }
+    },
+    "badge_dup_sha": {
+      "type": "Badge",
+      "props": {
+        "text": "dup-SHA: 2",
+        "variant": "secondary"
+      }
+    },
+    "no_new_shas": {
+      "type": "Text",
+      "props": {
+        "text": "No new SHAs since 72nd run",
+        "variant": "muted"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "verdicts_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "verdicts_header",
+        "verdicts_status",
+        "pr_549",
+        "pr_543"
+      ]
+    },
+    "verdicts_header": {
+      "type": "Heading",
+      "props": {
+        "text": "Standing merge-gate verdicts",
+        "level": "h3"
+      }
+    },
+    "verdicts_status": {
+      "type": "Text",
+      "props": {
+        "text": "Unchanged, 8th full-skip run",
+        "variant": "caption"
+      }
+    },
+    "pr_549": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#549",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/549",
+        "source": "APPROVE (5/5) — Prime Agent bridge, 19/19 CI green"
+      }
+    },
+    "pr_543": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#543",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/543",
+        "source": "APPROVE (5/5) — docs-only, 19/19 CI green"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_warning": {
+      "type": "Alert",
+      "props": {
+        "title": "Writes Suppressed",
+        "message": "Suppressed by dup-SHA rule + aeon App lacks pull_requests:write on this repo.",
+        "type": "warning"
+      }
+    }
+  }
+}

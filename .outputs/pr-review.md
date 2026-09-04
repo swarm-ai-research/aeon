@@ -1,4 +1,6 @@
 *PR Review — 2026-09-04*
-Reviewed 0, skipped 10 (bots: 8, dup-SHA: 2). 72nd operator run on swarm-ai-research/swarm (full-skip streak-7).
-- swarm-ai-research/swarm#549: APPROVE (5/5) — Prime Agent bridge, 20/20 checks green, SHA unchanged 28d.
-- swarm-ai-research/swarm#543: APPROVE (5/5) — docs-only, no production code touched, SHA unchanged 28d.
+Reviewed 0, skipped 10 (bot-author: 8, dup-SHA: 2). No new SHAs since 72nd run.
+Standing merge-gate verdicts (unchanged, 8th full-skip run):
+- swarm-ai-research/swarm#549: APPROVE (5/5) — Prime Agent bridge, 19/19 CI green
+- swarm-ai-research/swarm#543: APPROVE (5/5) — docs-only, 19/19 CI green
+Writes suppressed by dup-SHA rule + aeon App lacks pull_requests:write on this repo.
