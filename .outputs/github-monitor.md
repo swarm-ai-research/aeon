@@ -1,10 +1,7 @@
+The skill terminated at step 0: `memory/watched-repos.md` doesn't exist, so per SKILL.md I logged `GITHUB_MONITOR_EMPTY_CONFIG` and ended without sending a notification.
+
 ## Summary
-
-Executed `skills/github-monitor/SKILL.md`. Config file `memory/watched-repos.md` does not exist, so per the skill's Config section I ended immediately without scanning or notifying.
-
-**Files modified:**
-- `memory/logs/2026-09-03.md` — appended `### github-monitor` section with `GITHUB_MONITOR_EMPTY_CONFIG`.
-
-**No notification sent** (silence is the correct signal for an empty config).
-
-**Follow-up:** If GitHub monitoring is desired, create `memory/watched-repos.md` with a bulleted list of `owner/repo` entries.
+- Config check: `memory/watched-repos.md` missing → nothing to monitor.
+- Notification: none (silence is correct signal per skill).
+- Files modified: `memory/logs/2026-09-04.md` (appended `### github-monitor` section with `GITHUB_MONITOR_EMPTY_CONFIG`).
+- Follow-up: create `memory/watched-repos.md` listing `owner/repo` entries to activate this skill.
