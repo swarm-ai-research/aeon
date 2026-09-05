@@ -1,0 +1,311 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-09-05"
+      },
+      "children": [
+        "summary-stack",
+        "sep1",
+        "pr566-stack",
+        "sep2",
+        "standing-stack",
+        "sep3",
+        "error-stack"
+      ]
+    },
+    "summary-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-heading",
+        "summary-grid",
+        "skip-breakdown"
+      ]
+    },
+    "summary-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Review Summary",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "summary-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat-reviewed",
+        "stat-skipped"
+      ]
+    },
+    "stat-reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "1"
+      },
+      "children": []
+    },
+    "stat-skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "10"
+      },
+      "children": []
+    },
+    "skip-breakdown": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-dependabot",
+        "badge-dupsha"
+      ]
+    },
+    "badge-dependabot": {
+      "type": "Badge",
+      "props": {
+        "text": "Dependabot bots: 8",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "badge-dupsha": {
+      "type": "Badge",
+      "props": {
+        "text": "Dup-SHA: 2",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "pr566-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr566-header",
+        "pr566-info",
+        "pr566-checks"
+      ]
+    },
+    "pr566-header": {
+      "type": "Heading",
+      "props": {
+        "text": "swarm-ai-research/swarm#566 — APPROVE (5/5)",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "pr566-info": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr566-type",
+        "pr566-issues-grid"
+      ]
+    },
+    "pr566-type": {
+      "type": "Text",
+      "props": {
+        "text": "Docs-only research note",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "pr566-issues-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "pr566-critical",
+        "pr566-issues"
+      ]
+    },
+    "pr566-critical": {
+      "type": "Stat",
+      "props": {
+        "label": "Critical",
+        "value": "0"
+      },
+      "children": []
+    },
+    "pr566-issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Issues",
+        "value": "0"
+      },
+      "children": []
+    },
+    "pr566-checks": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr566-ci",
+        "pr566-verification"
+      ]
+    },
+    "pr566-ci": {
+      "type": "Text",
+      "props": {
+        "text": "Vercel + CodeQL: green",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "pr566-verification": {
+      "type": "Alert",
+      "props": {
+        "message": "Self-marked UNVERIFIED with primary-source checklist",
+        "type": "info"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "standing-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "standing-header",
+        "standing-list"
+      ]
+    },
+    "standing-header": {
+      "type": "Heading",
+      "props": {
+        "text": "Standing (dup-SHA) — ~29d frozen at same head",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "standing-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr549-badge",
+        "pr543-badge"
+      ]
+    },
+    "pr549-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "#549 APPROVE (5/5)",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "pr543-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "#543 APPROVE (5/5)",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "error-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "error-header",
+        "error-content"
+      ]
+    },
+    "error-header": {
+      "type": "Heading",
+      "props": {
+        "text": "Post Attempt Error",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "error-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "error-alert",
+        "error-detail1",
+        "error-detail2"
+      ]
+    },
+    "error-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "#566",
+        "message": "Resource not accessible by integration",
+        "type": "error"
+      },
+      "children": []
+    },
+    "error-detail1": {
+      "type": "Text",
+      "props": {
+        "text": "Root cause: aeon-app write-scope still not installed on swarm repo",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "error-detail2": {
+      "type": "Text",
+      "props": {
+        "text": "74th invocation attempt",
+        "variant": "muted"
+      },
+      "children": []
+    }
+  }
+}
