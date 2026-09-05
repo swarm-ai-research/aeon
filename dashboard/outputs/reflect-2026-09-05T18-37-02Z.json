@@ -1,0 +1,140 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Memory Consolidated"
+      },
+      "children": [
+        "text_date",
+        "sep1",
+        "stack_stats",
+        "sep2",
+        "heading_new",
+        "stack_new",
+        "sep3",
+        "heading_superseded",
+        "stack_superseded"
+      ]
+    },
+    "text_date": {
+      "type": "Text",
+      "props": {
+        "text": "2026-09-05",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stack_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_notes",
+        "badge_entries"
+      ]
+    },
+    "badge_notes": {
+      "type": "Badge",
+      "props": {
+        "text": "+4n",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "badge_entries": {
+      "type": "Badge",
+      "props": {
+        "text": "+46e",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_new": {
+      "type": "Heading",
+      "props": {
+        "text": "New (2)",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "stack_new": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_new_1",
+        "badge_new_2"
+      ]
+    },
+    "badge_new_1": {
+      "type": "Badge",
+      "props": {
+        "text": "cla-block-sub-c-pending-decay-mode",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "badge_new_2": {
+      "type": "Badge",
+      "props": {
+        "text": "compute-futures-2.5x-curve-side-fray-retracts-at-n-10",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_superseded": {
+      "type": "Heading",
+      "props": {
+        "text": "Superseded",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "stack_superseded": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_superseded_1"
+      ]
+    },
+    "badge_superseded_1": {
+      "type": "Badge",
+      "props": {
+        "text": "compute-futures-frays-at-n-9",
+        "variant": "destructive"
+      },
+      "children": []
+    }
+  }
+}

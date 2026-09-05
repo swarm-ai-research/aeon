@@ -1,1 +1,1 @@
-memory consolidated — 2026-09-04 · +1n / +22e (1 new atomic: ISS-006 promoted back to a cadence — 48h with 06:00Z pocket persistently dead, supersedes 09-02 'irregular bursts' framing)
+memory consolidated — 2026-09-05 · +4n / +46e (2 new: cla-block-sub-c-pending-decay-mode, compute-futures-2.5x-curve-side-fray-retracts-at-n-10; compute-futures-frays-at-n-9 superseded)

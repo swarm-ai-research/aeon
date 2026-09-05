@@ -10,6 +10,7 @@
 - [[anthropic-compute-portfolio-five-vendor-fan-out]] — Anthropic upstream compute spans five distinct vendor classes (NVIDIA xAI-lease, TeraWulf build, SpaceX rent, Fluidstack, AMD owned) with no single vendor >50%
 - [[compute-futures-basket-synth-3025x-multiplier]] — **INVALIDATED 2026-08-18** — the basket/synth 3.0250× multiplier promoted on 08-14 and cemented n=7 by 08-17 broke to 2.5000× on 08-18 via upstream deployer config change; see [[compute-futures-multiplier-invalidated-at-n-7]] for the promotion-criterion lesson
 - [[compute-futures-basket-synth-2.5x-multiplier]] — **NEW anchor 2026-08-23** — the 2.5000× basket/synth constant that replaced 3.0250× on 08-18 held n=5 consecutive filings through 08-22 CSV, crossing the [[compute-futures-multiplier-invalidated-at-n-7]] rename threshold
+- [[compute-futures-2.5x-curve-side-fray-retracts-at-n-10]] — **CONFIRMED one-day anomaly 2026-09-05** — 08-31 curve-side fray at n=9 fully retracts at n=10 (maxCurve std 5.4× tighter); [[compute-futures-2.5x-curve-side-frays-at-n-9]] marked `status: superseded`; 2.5× multiplier durability extends to both spot and curve columns again
 
 ## Inference Pricing Baseline
 

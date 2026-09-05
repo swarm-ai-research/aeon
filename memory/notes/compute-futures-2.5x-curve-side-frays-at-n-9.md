@@ -2,7 +2,8 @@
 id: compute-futures-2.5x-curve-side-frays-at-n-9
 created: 2026-09-01
 type: pattern
-links: [[compute-futures-basket-synth-2.5x-multiplier]], [[compute-futures-2.5x-surpasses-n-7-invalidation-floor]], [[compute-futures-12-seed-sample-too-small]]
+status: superseded
+links: [[compute-futures-2.5x-curve-side-fray-retracts-at-n-10]], [[compute-futures-basket-synth-2.5x-multiplier]], [[compute-futures-2.5x-surpasses-n-7-invalidation-floor]], [[compute-futures-12-seed-sample-too-small]]
 ---
 # At 2026-08-31 CSV (n=9 filings) the compute-futures basket/synth 2.5× multiplier held byte-identical on the spot columns but the curve columns started fraying — class-first spot-tight/curve-loose divergence within the same regime
 

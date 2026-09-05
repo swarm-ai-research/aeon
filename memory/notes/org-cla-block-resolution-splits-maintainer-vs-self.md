@@ -2,7 +2,7 @@
 id: org-cla-block-resolution-splits-maintainer-vs-self
 created: 2026-08-30
 type: lesson
-links: [[org-cla-blocks-aeonframework-prs]], [[cloudflare-org-cla-blocks-aeonframework-prs]], [[pr-tracker-stale-bot-comment-inverts-stale-classification]]
+links: [[cla-block-sub-c-pending-decay-mode]], [[org-cla-blocks-aeonframework-prs]], [[cloudflare-org-cla-blocks-aeonframework-prs]], [[pr-tracker-stale-bot-comment-inverts-stale-classification]]
 ---
 # CLA-block PRs resolve two ways depending on who acts first: maintainer-close (~6h, formal) vs operator self-close (~14h, retreat after CLAassistant bot posts)
 
