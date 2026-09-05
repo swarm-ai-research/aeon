@@ -1,0 +1,278 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-09-05 (75th on swarm-ai-research/swarm)"
+      },
+      "children": [
+        "metrics_section",
+        "metrics_breakdown",
+        "separator_1",
+        "verdicts_section",
+        "separator_2",
+        "status_section"
+      ]
+    },
+    "metrics_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "0"
+      }
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "11"
+      }
+    },
+    "metrics_breakdown": {
+      "type": "Text",
+      "props": {
+        "text": "Dependabot bots: 8, Dup-SHA: 3",
+        "variant": "caption"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "verdicts_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "verdicts_header",
+        "verdicts_context",
+        "pr_566",
+        "pr_549",
+        "pr_543"
+      ]
+    },
+    "verdicts_header": {
+      "type": "Heading",
+      "props": {
+        "text": "Standing Merge-Gate Verdicts",
+        "level": "h2"
+      }
+    },
+    "verdicts_context": {
+      "type": "Text",
+      "props": {
+        "text": "Unchanged from 74th earlier today; SHAs byte-identical, CI stable",
+        "variant": "caption"
+      }
+    },
+    "pr_566": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_566_title",
+        "pr_566_meta",
+        "pr_566_verdict"
+      ]
+    },
+    "pr_566_title": {
+      "type": "Heading",
+      "props": {
+        "text": "swarm-ai-research/swarm#566",
+        "level": "h4"
+      }
+    },
+    "pr_566_meta": {
+      "type": "Text",
+      "props": {
+        "text": "rsavitt — docs-only research note",
+        "variant": "body"
+      }
+    },
+    "pr_566_verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "secondary"
+      }
+    },
+    "pr_549": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_549_title",
+        "pr_549_meta",
+        "pr_549_verdict"
+      ]
+    },
+    "pr_549_title": {
+      "type": "Heading",
+      "props": {
+        "text": "swarm-ai-research/swarm#549",
+        "level": "h4"
+      }
+    },
+    "pr_549_meta": {
+      "type": "Text",
+      "props": {
+        "text": "rsavitt — feat(bridges) Prime Agent, full green CI",
+        "variant": "body"
+      }
+    },
+    "pr_549_verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "secondary"
+      }
+    },
+    "pr_543": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_543_title",
+        "pr_543_meta",
+        "pr_543_verdict"
+      ]
+    },
+    "pr_543_title": {
+      "type": "Heading",
+      "props": {
+        "text": "swarm-ai-research/swarm#543",
+        "level": "h4"
+      }
+    },
+    "pr_543_meta": {
+      "type": "Text",
+      "props": {
+        "text": "rsavitt — docs-only AI-slop removal",
+        "variant": "body"
+      }
+    },
+    "pr_543_verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "secondary"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "status_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "skip_streak_item",
+        "human_block_item",
+        "write_path_item"
+      ]
+    },
+    "skip_streak_item": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skip_streak_label",
+        "skip_streak_text"
+      ]
+    },
+    "skip_streak_label": {
+      "type": "Text",
+      "props": {
+        "text": "Full-skip streak",
+        "variant": "lead"
+      }
+    },
+    "skip_streak_text": {
+      "type": "Text",
+      "props": {
+        "text": "Resumes at 1 after 74th broke streak-of-8 by reviewing #566",
+        "variant": "body"
+      }
+    },
+    "human_block_item": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "human_block_label",
+        "human_block_text"
+      ]
+    },
+    "human_block_label": {
+      "type": "Text",
+      "props": {
+        "text": "Human-PR block frozen",
+        "variant": "lead"
+      }
+    },
+    "human_block_text": {
+      "type": "Text",
+      "props": {
+        "text": "#549/#543 ~29 days unchanged, #566 ~18.5 hours unchanged",
+        "variant": "body"
+      }
+    },
+    "write_path_item": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "write_path_label",
+        "write_path_text"
+      ]
+    },
+    "write_path_label": {
+      "type": "Text",
+      "props": {
+        "text": "Write path",
+        "variant": "lead"
+      }
+    },
+    "write_path_text": {
+      "type": "Text",
+      "props": {
+        "text": "Not exercised (dup-SHA + [[aeon-app-no-write-on-swarm-repo]] 403)",
+        "variant": "body"
+      }
+    }
+  }
+}
