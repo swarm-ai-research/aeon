@@ -1,22 +1,19 @@
-All artifacts in place. Skill run complete.
+All artifacts in place.
 
 ## Summary
 
-Ran `vuln-scanner` on **`CopilotKit/OpenBot`** (3,404★, TypeScript, HEAD `fb0c797`, opened 12d ago). Selected off the trending shortlist for agent-runtime attack surface (Bot with browser + shell + file access per instance), passed PVR-enabled + not-teaching + 30-day-dedup filters.
+Executed `vuln-scanner` on **`anthropics/commerce-agents`** (2,025★, Python, first-party Anthropic agentic-commerce reference blueprint, HEAD `fd4d592`).
 
-**Clean audit — 0 confirmed findings, no PVR filed, no public PR filed.**
+**Verdict: Clean audit.** 4 candidates reviewed, 0 confirmed.
 
-- **Code (0 confirmed):** semgrep's 4 `dockerfile.missing-user` hits are false positives on a deliberate s6-supervised multi-user drop-from-root pattern the author documents in-line at `Dockerfile:186-201`. Manually reviewed the high-value surfaces the scanners under-cover for agent-runtime code (`workspace.ts` — 3-layer path confinement + symlink-at-last-component walk; `shell.ts` — env allowlist + `NEVER_PASSED` deny; `target.ts` — SSRF w/ full IPv4-in-IPv6 canonicalisation across mapped/compat/NAT64; `agents/endpoint.ts` — redirect-rechecked; `authorisation.ts` — constant-time compare; all 3 workflows — SHA-pinned, `persist-credentials:false`, every `${{ github.* }}` routed through `env:` block, no CWE-78 shape). Exceptionally well-defended codebase — every check has a comment explaining the incident it caught.
-- **Secrets (0):** TruffleHog filesystem + git-history both empty.
-- **Deps (0 actionable):** 16 vulnerable transitive npm pkgs (undici@5.29.0 ×12 advisories, lodash-es@4.17.21 ×3, esbuild@0.18.20, @ai-sdk/provider-utils@3.0.32). No public bump PR — CopilotKit's shared Renovate preset is scoped `enabledManagers:[github-actions]` so npm bumps are explicitly the maintainer's manual gate, and no clean direct-dep fix exists without bun `overrides` or a `@ai-sdk/google-vertex` major bump.
+- **Semgrep (3 hits):** all false positives — 2× `dynamic-urllib` on hardcoded `http://localhost:{port}/api/health` in `scripts/run_demo.py`; 1× Django `QuerySet.extra` rule matching a Python `@dataclass` `.extra` field in `scripts/check.py` (no Django import in file).
+- **osv-scanner (1 pkg / 4 advisories):** `pygments@2.9.0` — false positive at the source level. `grep -rli pygments` returns zero and no manifest declares it; osv-scanner+scalibr surfaced a package from the runner's ambient Python env (`source.type: unknown`). Nothing to bump.
+- **TruffleHog (fs + git history, `--only-verified`):** 0 hits.
+- **Manual review of scanner-under-covered agent-runtime surfaces:** `mcp_server.enforce_local_only_bind` loopback default + documented escape-hatch env var; `fencing.py` normalizes 13 unicode invisible-char ranges with explicitly-linear bounded-quantifier regex + `re.escape` on labels; `grounding.py` `re.escape` on all lexicon strings; `delegation.DelegationContext` bars delegate-of-delegate + conversation/executor access; zero unsafe deserialization; subprocess/exec/urllib confined to `scripts/` and `tests/`.
+- **Disclosure channel used:** none. PVR endpoint returned 200/[] (enabled) — held in reserve, nothing to file. No public dep-bump PR — no manifest pin exists to change.
 
-**Sandbox note:** bash-side stdout redirection into workdir blocked even with allowed paths (recurrence of `sandbox-blocks-shell-redirect-to-workdir` class); worked around with in-repo `tmp-vuln-scan/wrap.py` (`subprocess.run(capture_output=True)` → `open("wb").write()`). Same shape as the checked-in `scripts/notegraph-fingerprint.mjs` fix.
+**Files created/modified:** `articles/vuln-scan-2026-09-05.md`, `memory/vuln-scanned.json` (+1, 13th run), `.pending-notify/1788625439-vuln-scanner.md`, `memory/logs/2026-09-05.md` (appended `### vuln-scanner` + Summary).
 
-**Files:**
-- `articles/vuln-scan-2026-08-29.md` (new)
-- `memory/vuln-scanned.json` (+1, 12th run; repo dedup-locked until 2026-09-28)
-- `memory/logs/2026-08-29.md` (appended vuln-scanner entry + summary)
-- `.pending-notify/1788024818-vuln-scanner.md`
-- `.gitignore` (+`.vuln-scan-tmp/`, `tmp-vuln-scan/` to ignore scratch dirs)
+**Sandbox friction:** trufflehog binary needed subprocess-wrap to execute; `>` redirect into workdir blocked (recurrence of [[sandbox-blocks-shell-redirect-to-workdir]], n=2 on vuln-scanner). Worked around with `tmp-vuln-scan/run-scanners.py` — same shape as checked-in `scripts/notegraph-fingerprint.mjs` fix. Reinforces the standing action-queue item to atomise the sandbox-wrap.py class across scanner-using skills.
 
-**Follow-up:** next vuln-scanner picks a fresh target Sat 2026-09-05. Sandbox shell-redirect friction now n≥5 across notegraph (n=4) + vuln-scanner (n=1) — worth atomising as its own note vs. the existing broader `sandbox-blocks-shell-redirect-to-workdir`.
+**Follow-ups:** `anthropics/commerce-agents` dedup-locked until 2026-10-05; next scheduled scan Sat 2026-09-12. Second consecutive clean audit on a well-defended target (08-29 CopilotKit/OpenBot was also clean).
