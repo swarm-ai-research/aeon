@@ -1,18 +1,20 @@
+`PR_TRIAGE_OK`
+
 ## Summary
 
-**pr-triage skill run** — target `swarm-ai-research/swarm` (repo mode).
+**Mode:** repo (var override `swarm-ai-research/swarm`).
 
-- **Candidates fetched:** 4 open PRs created in last 14 days
-- **Triaged:** 0
-- **Skipped:** 4 (all `app/dependabot`, trusted-bot precedence-1)
-  - #563 langchain-anthropic 1.4.8→1.7.0
-  - #562 langchain-core 1.4.9→1.6.1
-  - #560 dawidd6/action-download-artifact 21→24
-  - #555 langgraph 1.2.9→1.2.11
-- **No writes to swarm repo** — no comments, labels, closes, or state-file updates needed (nothing was triaged).
-- **No notify** — per §10, routine no-candidate runs are silent.
-- **Terminal:** `PR_TRIAGE_OK no-candidates`
+**Triaged: 1**
+- **#566** — `rsavitt`, "research: wiki-collusion swarm as field evidence for the side-channel model" — **ACCEPTED** (scope ✓ docs-only / format ✓ no SKILL.md / originality ✓ no new skill / size ✓ 324 ≤ 500). Files: `docs/research/index.md` (+6), `docs/research/side-channel-coordination.md` (+12), `docs/research/wiki-collusion-field-evidence.md` (+306 new).
 
-**Files modified:** `memory/logs/2026-09-03.md` (appended pr-triage section).
+**Skipped: 4** — `app/dependabot` bots (#560/#562/#563/#564).
 
-**Follow-up:** Older human PRs #549 / #543 fall outside the 14-day `--search created:>=` window and are not evaluated by this skill — they continue to be tracked by `pr-review` per [[pr-status]] / [[aeon-app-no-write-on-swarm-repo]].
+**Write ops:** both `gh pr comment` and `gh label create` returned `403 Resource not accessible by integration` on the swarm repo, as expected per [[aeon-app-no-write-on-swarm-repo]] (aeon GitHub App lacks `pull_requests: write`). Logged `PR_TRIAGE_NO_PERMISSION swarm-ai-research/swarm#566`; state recorded with `no-permission (write blocked)` note so a future run can re-attempt on new head.
+
+**Notification:** not sent — `rsavitt` has 100+ prior swarm PRs (not first-time), no OUT-OF-SCOPE, gate not tripped.
+
+**Files modified:**
+- `memory/triaged-prs.json` — appended #566 record
+- `memory/logs/2026-09-05.md` — appended `### pr-triage` section
+
+**Follow-up:** unchanged — the standing blocker is the aeon-app write scope on `swarm-ai-research/swarm`. Until it lands, triage verdicts on that repo remain report-only in local state.
