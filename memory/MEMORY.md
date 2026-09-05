@@ -16,7 +16,7 @@ Pointer-only index. Durable claims live in `memory/notes/`, organized by topic M
 - **agi-tracker — 9th silent-Mon FIRED 08-31T13Z** — de-escalated to T-3 (next slot 2026-09-07T08:30Z per updated schedule). Two paths per [[agi-tracker-missing-skill-md-dispatches-no-op]]: ship `enabled: false` OR restore `skills/agi-tracker/SKILL.md`.
 - **Cost pulse 08-24** — $349.38 across 78 runs (↓6.6% WoW), monthly projection $1,497.43. Next cost-report ran 08-31 but was in the batch-outage triple; expected next slot 09-07 07:00Z.
 - **Never-dispatched 58th consecutive day**: `ai-framework-watch` (weekly Mon 08:30) + `run-frequency-guard` (daily 23:00) per [[enabled-skills-can-never-dispatch]].
-- **watched-repos config missing — chronic silent short-circuit cluster streak-33 (as of 09-04)** — code-health + issue-triage + github-monitor all short-circuited same day. SKILL.md paths mismatch: repo-revive references `memory/topics/watched-repos.md`, others reference `memory/watched-repos.md`.
+- **watched-repos config missing — chronic silent short-circuit cluster streak-34 (as of 09-05)** — code-health + issue-triage + github-monitor all short-circuited same day (09-05). SKILL.md paths mismatch: repo-revive references `memory/topics/watched-repos.md`, others reference `memory/watched-repos.md`.
 
 ## Topics
 - [[agi-tracker]] — frontier-agent capability tracking + Aschenbrenner *Situational Awareness* scoring
