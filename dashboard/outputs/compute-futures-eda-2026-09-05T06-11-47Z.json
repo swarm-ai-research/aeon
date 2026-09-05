@@ -1,0 +1,345 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-09-04",
+        "description": "144 rows, 4 modes | Exploratory data analysis of compute futures"
+      },
+      "children": [
+        "section_overview",
+        "sep_1",
+        "section_retail",
+        "sep_2",
+        "section_curve",
+        "sep_3",
+        "section_x402",
+        "sep_4",
+        "section_class",
+        "sep_5",
+        "section_cluster",
+        "sep_6",
+        "section_status",
+        "sep_7",
+        "section_report"
+      ]
+    },
+    "section_overview": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_overview",
+        "text_rows",
+        "text_filing_gap"
+      ]
+    },
+    "heading_overview": {
+      "type": "Heading",
+      "props": {
+        "text": "Dataset Overview",
+        "level": "h2"
+      }
+    },
+    "text_rows": {
+      "type": "Text",
+      "props": {
+        "text": "144 rows, 4 modes"
+      }
+    },
+    "text_filing_gap": {
+      "type": "Text",
+      "props": {
+        "text": "4-day filing gap since 08-31 per ISS-006 06:00Z pocket"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_retail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_retail",
+        "stat_spread_recovery",
+        "stat_deepest_loss",
+        "text_timeline",
+        "text_compression_note"
+      ]
+    },
+    "heading_retail": {
+      "type": "Heading",
+      "props": {
+        "text": "Retail Spread Metrics",
+        "level": "h2"
+      }
+    },
+    "stat_spread_recovery": {
+      "type": "Stat",
+      "props": {
+        "label": "Spread Retail Sum Recovery",
+        "value": "-$59,084",
+        "delta": "60%",
+        "trend": "up"
+      }
+    },
+    "stat_deepest_loss": {
+      "type": "Stat",
+      "props": {
+        "label": "Deepest Retail Loss (Class-Series Shallowest)",
+        "value": "-$9,520"
+      }
+    },
+    "text_timeline": {
+      "type": "Text",
+      "props": {
+        "text": "Timeline: 08-31 -$26k → 09-02 -$10k → today -$9.5k"
+      }
+    },
+    "text_compression_note": {
+      "type": "Text",
+      "props": {
+        "text": "Monotonic compression",
+        "variant": "caption"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_curve",
+        "text_curve_status",
+        "text_curve_detail"
+      ]
+    },
+    "heading_curve": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve Metrics",
+        "level": "h2"
+      }
+    },
+    "text_curve_status": {
+      "type": "Text",
+      "props": {
+        "text": "08-31 curve-fray FULLY RETRACTS at n=10 filings",
+        "variant": "lead"
+      }
+    },
+    "text_curve_detail": {
+      "type": "Text",
+      "props": {
+        "text": "Spot side byte-identical",
+        "variant": "caption"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_x402": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_x402",
+        "stat_x402_return",
+        "badge_rotation",
+        "text_partner_swing"
+      ]
+    },
+    "heading_x402": {
+      "type": "Heading",
+      "props": {
+        "text": "x402Total minSpot Anchor",
+        "level": "h2"
+      }
+    },
+    "stat_x402_return": {
+      "type": "Stat",
+      "props": {
+        "label": "Sign-flip Return",
+        "value": "-0.474"
+      }
+    },
+    "badge_rotation": {
+      "type": "Badge",
+      "props": {
+        "text": "5th consecutive rotation",
+        "variant": "outline"
+      }
+    },
+    "text_partner_swing": {
+      "type": "Text",
+      "props": {
+        "text": "Class-series largest 0.778 partner swing",
+        "variant": "body"
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_class": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_class",
+        "badge_class_conservation"
+      ]
+    },
+    "heading_class": {
+      "type": "Heading",
+      "props": {
+        "text": "Class-first Conservation",
+        "level": "h2"
+      }
+    },
+    "badge_class_conservation": {
+      "type": "Badge",
+      "props": {
+        "text": "All-positive conservation (4+/0-)",
+        "variant": "secondary"
+      }
+    },
+    "sep_5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_cluster": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_cluster",
+        "text_seed",
+        "stat_cluster_memberships",
+        "text_propagation",
+        "text_strong_pairs"
+      ]
+    },
+    "heading_cluster": {
+      "type": "Heading",
+      "props": {
+        "text": "Cluster Information",
+        "level": "h2"
+      }
+    },
+    "text_seed": {
+      "type": "Text",
+      "props": {
+        "text": "Padded seed 2026090412",
+        "variant": "body"
+      }
+    },
+    "stat_cluster_memberships": {
+      "type": "Stat",
+      "props": {
+        "label": "realizedAbs Cluster Memberships",
+        "value": "9"
+      }
+    },
+    "text_propagation": {
+      "type": "Text",
+      "props": {
+        "text": "2.5× propagation (3× prior peak)",
+        "variant": "caption"
+      }
+    },
+    "text_strong_pairs": {
+      "type": "Text",
+      "props": {
+        "text": "Zero within-mode strong pairs (n=20)",
+        "variant": "body"
+      }
+    },
+    "sep_6": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_status": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_status",
+        "alert_conservation_ok"
+      ]
+    },
+    "heading_status": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h2"
+      }
+    },
+    "alert_conservation_ok": {
+      "type": "Alert",
+      "props": {
+        "title": "Status",
+        "message": "All OK",
+        "type": "success"
+      }
+    },
+    "sep_7": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_report": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "link_report"
+      ]
+    },
+    "link_report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report: 2026-09-04",
+        "href": "memory/topics/compute-futures-eda/2026-09-04.md",
+        "source": "compute-futures-eda"
+      }
+    }
+  }
+}
