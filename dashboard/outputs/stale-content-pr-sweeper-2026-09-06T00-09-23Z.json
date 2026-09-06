@@ -1,0 +1,83 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "stale-content-pr-sweeper"
+      },
+      "children": [
+        "summary",
+        "separator",
+        "pr-list",
+        "reason"
+      ]
+    },
+    "summary": {
+      "type": "Stat",
+      "props": {
+        "label": "Stale PRs Closed",
+        "value": "4"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-59",
+        "pr-58",
+        "pr-55",
+        "pr-57"
+      ]
+    },
+    "pr-59": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#59",
+        "href": "https://github.com/aeon/aeon/pull/59",
+        "source": "GitHub"
+      }
+    },
+    "pr-58": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#58",
+        "href": "https://github.com/aeon/aeon/pull/58",
+        "source": "GitHub"
+      }
+    },
+    "pr-55": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#55",
+        "href": "https://github.com/aeon/aeon/pull/55",
+        "source": "GitHub"
+      }
+    },
+    "pr-57": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#57",
+        "href": "https://github.com/aeon/aeon/pull/57",
+        "source": "GitHub"
+      }
+    },
+    "reason": {
+      "type": "Text",
+      "props": {
+        "text": "Superseded by newer runs",
+        "variant": "muted"
+      }
+    }
+  }
+}
