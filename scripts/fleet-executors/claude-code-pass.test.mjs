@@ -487,4 +487,67 @@ printf '%401s\\n' '' | tr ' ' 'x'
   console.log("OK  empty taskId → shortTaskId fallback produces '-x' in branch name");
 }
 
+// 17. claude exits 0 but produces no stdout — invokeClaude guards on
+//     `!proc.stdout` (empty string is falsy), so an empty-output run with
+//     status=0 is still treated as a failure and returns ok:false. This branch
+//     is distinct from the non-zero-exit path already tested in test 8.
+{
+  const CLAUDE_EMPTY_OUT_STUB = `#!/usr/bin/env bash
+if [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi
+cat > /dev/null
+# exits 0, writes nothing to stdout
+`;
+  const env = freshRepoWithRemote({
+    claudeScript: CLAUDE_EMPTY_OUT_STUB,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "gh should not be called" >&2\nexit 99\n`,
+  });
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "docs-pass", repoDir: env.localDir, taskId: "emptyout" })
+    );
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /claude invocation failed/);
+    const worktrees = git(["worktree", "list", "--porcelain"], env.localDir).stdout;
+    assert.equal(worktrees.match(/^worktree /gm).length, 1, "no worktree should remain");
+    const branches = git(["branch", "--list", "aeon/*"], env.localDir).stdout;
+    assert.equal(branches, "", "no aeon/* branch should remain when stdout is empty");
+  } finally {
+    rmSync(env.work, { recursive: true, force: true });
+  }
+  console.log("OK  claude exits 0 with empty stdout → !proc.stdout branch → invocation failure");
+}
+
+// 18. buildPrompt branches: no-target fallback text appears when target is
+//     omitted; empty-focus line is filtered out (filter(Boolean) removes "");
+//     test-pass kind produces the correct prompt text. These three structural
+//     branches in buildPrompt() are not checked by any other test.
+{
+  const capDir = mkdtempSync(join(tmpdir(), "code-pass-prompt-cap-"));
+  const stdinCapturePath = join(capDir, "stdin.txt");
+  const env = freshRepoWithRemote({
+    claudeScript: `#!/usr/bin/env bash\nif [ "$1" = "--version" ]; then echo "stub claude"; exit 0; fi\ncat > "$CLAUDE_STDIN_CAPTURE"\necho "nothing to change"\n`,
+    ghScript: `#!/usr/bin/env bash\nif [ "$1" = "pr" ] && [ "$2" = "list" ]; then echo "[]"; exit 0; fi\necho "https://github.com/stub/repo/pull/1"\n`,
+  });
+  const oldCapture = process.env.CLAUDE_STDIN_CAPTURE;
+  process.env.CLAUDE_STDIN_CAPTURE = stdinCapturePath;
+  try {
+    const result = withStubbedEnv(env.binDir, env.ghLog, () =>
+      runCodePass({ kind: "test-pass", repoDir: env.localDir, taskId: "prompt-check" })
+      // target and focus both omitted → exercises both fallback branches
+    );
+    assert.equal(result.ok, true);
+    assert.equal(result.prUrl, null);
+    const captured = readFileSync(stdinCapturePath, "utf8");
+    assert.match(captured, /No specific files supplied/, "no-target fallback text must appear when target is omitted");
+    assert.doesNotMatch(captured, /Additional focus from task payload/, "focus line must be absent when focus is empty");
+    assert.match(captured, /Add tests for an uncovered branch/, "test-pass kind must include its prompt text");
+  } finally {
+    if (oldCapture === undefined) delete process.env.CLAUDE_STDIN_CAPTURE;
+    else process.env.CLAUDE_STDIN_CAPTURE = oldCapture;
+    rmSync(env.work, { recursive: true, force: true });
+    rmSync(capDir, { recursive: true, force: true });
+  }
+  console.log("OK  buildPrompt: no-target fallback, empty-focus omission, and test-pass kind verified");
+}
+
 console.log("\nAll claude-code-pass tests passed.");
