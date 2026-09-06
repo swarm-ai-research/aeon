@@ -1,0 +1,279 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Workflow audit — 2026-09-06"
+      },
+      "children": [
+        "alert-critical",
+        "sep1",
+        "findings-heading",
+        "stats-grid",
+        "sep2",
+        "remediation-heading",
+        "remediation-stack",
+        "sep3",
+        "root-causes-heading",
+        "root-causes-stack",
+        "sep4",
+        "chain-heading",
+        "chain-stack",
+        "sep5",
+        "pr-link"
+      ]
+    },
+    "alert-critical": {
+      "type": "Alert",
+      "props": {
+        "title": "WORKFLOW_AUDIT_NEW_CRITICAL",
+        "message": "First on-disk delta baseline for swarm-ai-research/aeon",
+        "type": "error"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "findings-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Findings Summary",
+        "level": "h3"
+      }
+    },
+    "stats-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat-critical",
+        "stat-high",
+        "stat-medium",
+        "stat-low"
+      ]
+    },
+    "stat-critical": {
+      "type": "Stat",
+      "props": {
+        "label": "Critical",
+        "value": "3"
+      }
+    },
+    "stat-high": {
+      "type": "Stat",
+      "props": {
+        "label": "High",
+        "value": "55"
+      }
+    },
+    "stat-medium": {
+      "type": "Stat",
+      "props": {
+        "label": "Medium",
+        "value": "31"
+      }
+    },
+    "stat-low": {
+      "type": "Stat",
+      "props": {
+        "label": "Low",
+        "value": "64"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "remediation-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Remediation Status",
+        "level": "h3"
+      }
+    },
+    "remediation-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "badge-autofixed",
+        "badge-manual"
+      ]
+    },
+    "badge-autofixed": {
+      "type": "Badge",
+      "props": {
+        "text": "Auto-fixed: 0",
+        "variant": "secondary"
+      }
+    },
+    "badge-manual": {
+      "type": "Badge",
+      "props": {
+        "text": "Manual: 58 (operator judgment required)",
+        "variant": "outline"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "root-causes-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Root Causes (all top-severity items)",
+        "level": "h3"
+      }
+    },
+    "root-causes-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-unpinned",
+        "badge-secrets",
+        "badge-ref-version"
+      ]
+    },
+    "badge-unpinned": {
+      "type": "Badge",
+      "props": {
+        "text": "unpinned-uses",
+        "variant": "destructive"
+      }
+    },
+    "badge-secrets": {
+      "type": "Badge",
+      "props": {
+        "text": "secrets-outside-env",
+        "variant": "destructive"
+      }
+    },
+    "badge-ref-version": {
+      "type": "Badge",
+      "props": {
+        "text": "ref-version-mismatch",
+        "variant": "destructive"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "chain-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Chain: aeon.yml (lines 85, 121, 133)",
+        "level": "h3"
+      }
+    },
+    "chain-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "actions-heading",
+        "actions-list",
+        "triggers-heading",
+        "triggers-list"
+      ]
+    },
+    "actions-heading": {
+      "type": "Text",
+      "props": {
+        "text": "Unpinned Actions:",
+        "variant": "lead"
+      }
+    },
+    "actions-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action-checkout",
+        "action-node"
+      ]
+    },
+    "action-checkout": {
+      "type": "Text",
+      "props": {
+        "text": "actions/checkout@v4.4.0 (×2)",
+        "variant": "body"
+      }
+    },
+    "action-node": {
+      "type": "Text",
+      "props": {
+        "text": "actions/setup-node@v5",
+        "variant": "body"
+      }
+    },
+    "triggers-heading": {
+      "type": "Text",
+      "props": {
+        "text": "Triggered by:",
+        "variant": "lead"
+      }
+    },
+    "triggers-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "trigger-dispatch",
+        "trigger-issues"
+      ]
+    },
+    "trigger-dispatch": {
+      "type": "Text",
+      "props": {
+        "text": "workflow_dispatch: any collaborator",
+        "variant": "body"
+      }
+    },
+    "trigger-issues": {
+      "type": "Text",
+      "props": {
+        "text": "issues.opened: any authenticated user",
+        "variant": "body"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #63",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/63",
+        "source": "GitHub"
+      }
+    }
+  }
+}
