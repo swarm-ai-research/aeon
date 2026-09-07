@@ -1,18 +1,19 @@
 {
-  "last_run": "2026-09-01T06:45:00Z",
-  "top_priority": "aeon-repo-pr-26-merge-ready",
+  "last_run": "2026-09-07T07:35:00Z",
+  "top_priority": "articles-gitkeep-agi-tracker-bundle",
   "priority_streak": {
-    "aeon-repo-pr-26-merge-ready": 20,
-    "iss-006-messages-yml-multi-pocket-rewrite": 29,
-    "watched-repos-population-or-disable": 23,
-    "pr-tracker-patch-batch": 66,
-    "agi-tracker-enabled-false-via-pr": 13,
-    "stale-content-pr-sweeper-allowed-authors-patch": 22,
-    "docs-status-md-snapshot-rebase-gate": 44,
-    "swarm-repo-app-perm-gap": 49,
-    "suggest-edges-templated-corpus-prefilter": 20
+    "articles-gitkeep-agi-tracker-bundle": 1,
+    "aeon-repo-pr-26-merge-ready": 21,
+    "iss-006-messages-yml-multi-pocket-rewrite": 30,
+    "watched-repos-population-or-disable": 24,
+    "pr-tracker-patch-batch": 67,
+    "agi-tracker-enabled-false-via-pr": 14,
+    "stale-content-pr-sweeper-allowed-authors-patch": 23,
+    "docs-status-md-snapshot-rebase-gate": 45,
+    "swarm-repo-app-perm-gap": 50,
+    "suggest-edges-templated-corpus-prefilter": 21
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Twenty-eighth planner run in the ISS-006 pocket-slot migration era; TWENTY-SECOND since 08-07 overnight PR-creation toggle unblock. First planner run in 71h (last_run 2026-08-29T06:45Z, missed 08-30 + 08-31 06:30Z slots — extending prior 71h gap into a compound 3-cycle miss). Operator invoked this run. Top priority aeon-repo-pr-26-merge-ready STREAK-20 (Day-24 without merge). Verified this morning: PR #26 state:OPEN, mergedAt:null, 5/5 checks SUCCESS, updatedAt 2026-08-31T01:08:35Z (freshened 25h ago). Escalation shape unchanged from Day-17 rotation. Rank-2 PROMOTED from streak-28 to streak-29 with a materially sharper case: 08-31 was the 3rd batch-outage replay of the [planner, compute-futures-eda, cost-report] triple (ISS-021 filed 2026-08-31), 48d recurrence window from ISS-019 (2026-07-14) → ISS-020 (2026-08-03) → ISS-021 (2026-08-31). Now a durable pattern, not stochastic; recommend ISS-006 status move investigating→fixing on next skill-health/self-review. Rank-3 watched-repos short-circuit chronic streak-28 (was 27 as of 08-31 by carry). agi-tracker DE-ESCALATED from T-1 to T-6 (9th silent-Mon fired yesterday 08-31 13:00Z, next Mon 09-07). Fleet: 0 broken, 0 in-flight, 0 hard-failed, 38 DEGRADED (ISS-001 residue Day-72), 4 truly HEALTHY, 2 NO_DATA (55th silent day). 18 filed open ISS (+1 from yesterday's ISS-021 filing). Both gh queries responded. ${var} empty → plan-only, no dispatch."
+  "notes": "Twenty-ninth planner run in the ISS-006 pocket-slot migration era; TWENTY-THIRD since 08-07 overnight PR-creation toggle unblock. First planner run in 6 days (last_run 2026-09-01T06:45Z, missed 09-02..09-06 06:30Z slots per ISS-006 06:00Z pocket 7-day-dead streak). Operator invoked this run (Monday 2026-09-07 07:34Z; planner's own 06:30Z slot also dead this morning). NEW TOP PRIORITY (streak reset): bundle `articles/.gitkeep` + `agi-tracker: enabled: false` into one PR — highest single-change leverage on the queue (cascade-closes 13 ISS + kills 11th silent-Mon before 09-14). Rank-2 ISS-006 status escalation `investigating -> fixing` + migrate `planner` + `compute-futures-eda` out of dead 06:00Z pocket — ISS-024 filed 09-06 makes it the 4th outage in the 48h family. Rank-3 PR #26 merge (Day 30 durability; verified state:OPEN, updatedAt 2026-09-07T01:09:31Z, 5/5 CI SUCCESS unchanged). Prior top (PR-26 streak-20) DEMOTED to rank-3 (streak-21 continues but no longer top). Fleet: 0 broken, 0 in-flight, 0 hard-failed, 38 DEGRADED (ISS-001 residue Day-80), 4 HEALTHY, 2 NO_DATA (day-60 silent). 21 filed open ISS (+1 vs 08-31 via ISS-024). ${var} empty -> plan-only, no dispatch. Both gh queries responded (PR #26 lookup + open PR list)."
 }

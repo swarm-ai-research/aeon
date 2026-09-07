@@ -1,0 +1,280 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Planner"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_planner",
+        "sep_1",
+        "section_action",
+        "sep_2",
+        "section_impact",
+        "sep_3",
+        "section_escalation",
+        "sep_4",
+        "section_pr26",
+        "sep_5",
+        "section_hold"
+      ]
+    },
+    "heading_planner": {
+      "type": "Heading",
+      "props": {
+        "text": "Planner",
+        "level": "h2"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_action": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_action",
+        "text_action",
+        "badge_gitkeep",
+        "badge_agi_tracker"
+      ]
+    },
+    "heading_action": {
+      "type": "Heading",
+      "props": {
+        "text": "Current Action",
+        "level": "h3"
+      }
+    },
+    "text_action": {
+      "type": "Text",
+      "props": {
+        "text": "Bundling into one small PR"
+      }
+    },
+    "badge_gitkeep": {
+      "type": "Badge",
+      "props": {
+        "text": "articles/.gitkeep",
+        "variant": "secondary"
+      }
+    },
+    "badge_agi_tracker": {
+      "type": "Badge",
+      "props": {
+        "text": "agi-tracker enabled:false",
+        "variant": "secondary"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_impact": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_impact",
+        "text_cascade",
+        "text_kill_mon"
+      ]
+    },
+    "heading_impact": {
+      "type": "Heading",
+      "props": {
+        "text": "Impact & Timeline",
+        "level": "h3"
+      }
+    },
+    "text_cascade": {
+      "type": "Text",
+      "props": {
+        "text": "Cascade-closes 13 open no_file_match ISS tickets"
+      }
+    },
+    "text_kill_mon": {
+      "type": "Text",
+      "props": {
+        "text": "Kills the 11th silent-Mon before 09-14"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_escalation": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_escalation",
+        "text_iss006",
+        "badge_iss006_status",
+        "text_migration",
+        "badge_planner_migrate",
+        "badge_compute_migrate",
+        "text_context",
+        "badge_iss024"
+      ]
+    },
+    "heading_escalation": {
+      "type": "Heading",
+      "props": {
+        "text": "Escalations & Migrations",
+        "level": "h3"
+      }
+    },
+    "text_iss006": {
+      "type": "Text",
+      "props": {
+        "text": "Escalating ISS-006:"
+      }
+    },
+    "badge_iss006_status": {
+      "type": "Badge",
+      "props": {
+        "text": "investigating → fixing",
+        "variant": "default"
+      }
+    },
+    "text_migration": {
+      "type": "Text",
+      "props": {
+        "text": "Migrating out of 06:00Z pocket:"
+      }
+    },
+    "badge_planner_migrate": {
+      "type": "Badge",
+      "props": {
+        "text": "planner",
+        "variant": "secondary"
+      }
+    },
+    "badge_compute_migrate": {
+      "type": "Badge",
+      "props": {
+        "text": "compute-futures-eda",
+        "variant": "secondary"
+      }
+    },
+    "text_context": {
+      "type": "Text",
+      "props": {
+        "text": "Reason: 7-day-dead, 4th batch outage in 48h family filed yesterday",
+        "variant": "caption"
+      }
+    },
+    "badge_iss024": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-024",
+        "variant": "secondary"
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_pr26": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_pr26",
+        "text_pr26",
+        "badge_pr26_num",
+        "badge_pr26_day",
+        "badge_pr26_ci"
+      ]
+    },
+    "heading_pr26": {
+      "type": "Heading",
+      "props": {
+        "text": "PR Ready to Merge",
+        "level": "h3"
+      }
+    },
+    "text_pr26": {
+      "type": "Text",
+      "props": {
+        "text": "Clicking merge on"
+      }
+    },
+    "badge_pr26_num": {
+      "type": "Badge",
+      "props": {
+        "text": "PR #26",
+        "variant": "default"
+      }
+    },
+    "badge_pr26_day": {
+      "type": "Badge",
+      "props": {
+        "text": "Day 30 open",
+        "variant": "secondary"
+      }
+    },
+    "badge_pr26_ci": {
+      "type": "Badge",
+      "props": {
+        "text": "5/5 CI SUCCESS",
+        "variant": "secondary"
+      }
+    },
+    "sep_5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_hold": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "alert_hold"
+      ]
+    },
+    "alert_hold": {
+      "type": "Alert",
+      "props": {
+        "title": "On Hold",
+        "message": "watched-repos + pr-tracker patch batch — waiting for ISS-006 status to move",
+        "type": "warning"
+      }
+    }
+  }
+}
