@@ -1,0 +1,42 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker"
+      },
+      "children": [
+        "status_stack"
+      ]
+    },
+    "status_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status_text",
+        "action_text"
+      ]
+    },
+    "status_text": {
+      "type": "Text",
+      "props": {
+        "text": "NO_GOALS",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "action_text": {
+      "type": "Text",
+      "props": {
+        "text": "Add a '## Goals' section to memory/MEMORY.md",
+        "variant": "body"
+      },
+      "children": []
+    }
+  }
+}
