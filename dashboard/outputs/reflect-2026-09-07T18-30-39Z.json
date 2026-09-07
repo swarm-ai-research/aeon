@@ -1,0 +1,74 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "reflect",
+        "description": "Memory consolidated"
+      },
+      "children": [
+        "content_stack"
+      ]
+    },
+    "content_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "date_text",
+        "separator",
+        "metrics_stack",
+        "splits_text"
+      ]
+    },
+    "date_text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-09-07",
+        "variant": "muted"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "notes_stat",
+        "entities_stat"
+      ]
+    },
+    "notes_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes added",
+        "value": "+4"
+      }
+    },
+    "entities_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Entities added",
+        "value": "+90"
+      }
+    },
+    "splits_text": {
+      "type": "Text",
+      "props": {
+        "text": "Splits: 2 total (0 resolved, 2 new)",
+        "variant": "caption"
+      }
+    }
+  }
+}
