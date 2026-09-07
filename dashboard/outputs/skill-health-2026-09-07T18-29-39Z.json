@@ -1,0 +1,303 @@
+{
+  "root": "card_health",
+  "state": {},
+  "elements": {
+    "card_health": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health",
+        "description": "2026-09-07"
+      },
+      "children": [
+        "status_alert",
+        "sep1",
+        "systemic_section",
+        "sep2",
+        "degraded_section",
+        "sep3",
+        "no_data_section",
+        "sep4",
+        "healthy_section",
+        "sep5",
+        "summary_section"
+      ]
+    },
+    "status_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "DEGRADED",
+        "message": "38 skills degraded · 69th steady-state day (hash e27c0ac60367e7e5)"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "systemic_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "systemic_heading",
+        "systemic_text"
+      ]
+    },
+    "systemic_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "SYSTEMIC",
+        "level": "h3"
+      }
+    },
+    "systemic_text": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-001 OAuth denominator burn Day-81 — all 38 share zero-token last_error tails; 7d live window 88/88 success, 0 fails (6th consecutive zero-failure day)."
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "degraded_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded_heading",
+        "degraded_list",
+        "degraded_more"
+      ]
+    },
+    "degraded_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 DEGRADED (top-5 by days-since-success; cf=0 fleet-wide)",
+        "level": "h3"
+      }
+    },
+    "degraded_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "degraded_1",
+        "degraded_2",
+        "degraded_3",
+        "degraded_4",
+        "degraded_5"
+      ]
+    },
+    "degraded_1": {
+      "type": "Text",
+      "props": {
+        "text": "skill-repair — sr 0.01, 79d — WAIT-API (ISS-001; never re-dispatched)"
+      }
+    },
+    "degraded_2": {
+      "type": "Text",
+      "props": {
+        "text": "compute-pulse — sr 0.06, 16d — WAIT-API (ISS-001)"
+      }
+    },
+    "degraded_3": {
+      "type": "Text",
+      "props": {
+        "text": "skillpacks — sr 0.06, 15d — WAIT-API (ISS-001)"
+      }
+    },
+    "degraded_4": {
+      "type": "Text",
+      "props": {
+        "text": "skill-evals — sr 0.07, 15d — WAIT-API (ISS-001)"
+      }
+    },
+    "degraded_5": {
+      "type": "Text",
+      "props": {
+        "text": "compute-macro-correlate — sr 0.11, 15d — WAIT-API (ISS-001)"
+      }
+    },
+    "degraded_more": {
+      "type": "Text",
+      "props": {
+        "text": "+33 more — see memory/issues/INDEX.md (all ISS-001 residue)",
+        "variant": "muted"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "no_data_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "no_data_heading",
+        "no_data_list"
+      ]
+    },
+    "no_data_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA (2)",
+        "level": "h3"
+      }
+    },
+    "no_data_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "no_data_1",
+        "no_data_2"
+      ]
+    },
+    "no_data_1": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch — DISPATCH-SKILL (Day-60 never-dispatched)"
+      }
+    },
+    "no_data_2": {
+      "type": "Text",
+      "props": {
+        "text": "run-frequency-guard — DISPATCH-SKILL (Day-60 never-dispatched)"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "healthy_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "healthy_heading",
+        "healthy_list"
+      ]
+    },
+    "healthy_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟢 HEALTHY (4)",
+        "level": "h3"
+      }
+    },
+    "healthy_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "healthy_1",
+        "healthy_2",
+        "healthy_3",
+        "healthy_4"
+      ]
+    },
+    "healthy_1": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker"
+      }
+    },
+    "healthy_2": {
+      "type": "Text",
+      "props": {
+        "text": "config-validator"
+      }
+    },
+    "healthy_3": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-safety-eval"
+      }
+    },
+    "healthy_4": {
+      "type": "Text",
+      "props": {
+        "text": "weekly-shiplog"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary_heading",
+        "stats_grid",
+        "gate_info"
+      ]
+    },
+    "summary_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h3"
+      }
+    },
+    "stats_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat_open",
+        "stat_resolved",
+        "stat_filed"
+      ]
+    },
+    "stat_open": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "21"
+      }
+    },
+    "stat_resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      }
+    },
+    "stat_filed": {
+      "type": "Stat",
+      "props": {
+        "label": "Filed This Run",
+        "value": "0"
+      }
+    },
+    "gate_info": {
+      "type": "Text",
+      "props": {
+        "text": "Gate: NOTIFY (70.8h since prev notify ≥ 24h daily-reminder threshold)",
+        "variant": "caption"
+      }
+    }
+  }
+}
