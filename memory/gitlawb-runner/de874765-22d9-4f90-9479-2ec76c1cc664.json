@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-25T20:33:24.517764063+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "de874765-22d9-4f90-9479-2ec76c1cc664",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta2.py\",\"target\":\".audit/delta2.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-25T20:33:24.517764063+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-26T01:37:56.445Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta2.py — blocked: aggregate prior_counts computed incorrectly—delta output is wrong (2026-08-26)\" — 5 findings (1 critical, 4 issue). Verdict: blocked: aggregate prior_counts computed incorrectly—delta output is wrong. Issue: ✓ Created issue #40fcb085-fa29-4094-a5d0-a5cc348c9ffc\n  Title:  Review: .audit/delta2.py — blocked: aggregate prior_counts computed incorrectly—delta output is wrong (2026-08-26)\n  Body:   ## Code Review: .audit/delta2.py\n\n**Dat…"
+  },
+  "completed_at": "2026-08-26T01:39:33.324Z"
+}

@@ -1,3 +1,75 @@
 {
-  "instances": []
+  "instances": [
+    {
+      "name": "aeon-researcher",
+      "did": "did:key:z6MkjT9EJ6V5F6iDjJPrBvhVQwezjdiKZJv1HC3ZJi4rmteW",
+      "host": "gitlawb",
+      "node": "https://node.gitlawb.com",
+      "capabilities": [
+        "git:fetch",
+        "issue:create"
+      ],
+      "model": "aeon-researcher",
+      "trust": 0.05,
+      "status": "active",
+      "purpose": "Research and analysis",
+      "health": "active",
+      "last_checked": "2026-09-07T03:49:31.398Z",
+      "identity_dir": "~/.gitlawb/fleet/researcher"
+    },
+    {
+      "name": "aeon-reviewer",
+      "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+      "host": "gitlawb",
+      "node": "https://node.gitlawb.com",
+      "capabilities": [
+        "git:fetch",
+        "pr:open",
+        "pr:review"
+      ],
+      "model": "aeon-reviewer",
+      "trust": 0.05,
+      "status": "active",
+      "purpose": "Code review",
+      "health": "active",
+      "last_checked": "2026-09-07T03:49:31.398Z",
+      "identity_dir": "~/.gitlawb/fleet/reviewer"
+    },
+    {
+      "name": "aeon-deployer",
+      "did": "did:key:z6MkqVs15JyUugGu11TjwS5REKCHGrxK4uHvAFyDKGqNLVie",
+      "host": "gitlawb",
+      "node": "https://node.gitlawb.com",
+      "capabilities": [
+        "git:push",
+        "pr:merge",
+        "agent:deploy"
+      ],
+      "model": "aeon-deployer",
+      "trust": 0.05,
+      "status": "active",
+      "purpose": "Deploy and merge",
+      "health": "active",
+      "last_checked": "2026-09-07T03:49:31.398Z",
+      "identity_dir": "~/.gitlawb/fleet/deployer"
+    },
+    {
+      "name": "aeon-sentinel",
+      "did": "did:key:z6MkvMp7aoi2HQ2yRfmMfpQLDQh75yPsFh5PYCVvWQoccmYk",
+      "host": "gitlawb",
+      "node": "https://node.gitlawb.com",
+      "capabilities": [
+        "repo:admin",
+        "git:push",
+        "agent:deploy"
+      ],
+      "model": "aeon-sentinel",
+      "trust": 0.05,
+      "status": "active",
+      "purpose": "Security monitoring",
+      "health": "active",
+      "last_checked": "2026-09-07T03:49:31.398Z",
+      "identity_dir": "~/.gitlawb/fleet/sentinel"
+    }
+  ]
 }

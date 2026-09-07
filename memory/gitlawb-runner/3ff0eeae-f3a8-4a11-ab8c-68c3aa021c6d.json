@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-17T08:48:48.632944308+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "3ff0eeae-f3a8-4a11-ab8c-68c3aa021c6d",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta2.py\",\"target\":\".audit/delta2.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-17T08:48:48.632944308+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-17T12:51:44.692Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta2.py — blocked: aggregate prior-count is computed but discarded, corrupting NEW/UNCHANGED classification (2026-08-17)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: aggregate prior-count is computed but discarded, corrupting NEW/UNCHANGED classification. Issue: ✓ Created issue #b2ef25ab-f446-4738-a969-a096675336b7\n  Title:  Review: .audit/delta2.py — blocked: aggregate prior-count is computed but discarded, corrupting NEW/UNCHANGED classifi…"
+  },
+  "completed_at": "2026-08-17T12:53:22.746Z"
+}
