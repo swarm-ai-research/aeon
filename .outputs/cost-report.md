@@ -1,17 +1,15 @@
-*Cost Report — 2026-08-24 (last 7 days)*
+*Cost Report — 2026-09-07 (last 7 days)*
 
-Spent $349.38 across 78 runs (↓6.6% WoW); 2 anomalies flagged, projected monthly burn ~$1,497.43 ⚠.
+Spent **$104.95** across **26 runs** (↓50.6% WoW); 0 anomalies flagged, projected monthly burn **~$449.77** ⚠
 
 Top 3 by cost:
-1. reflect — $52.39 (5 runs)
-2. pr-tracker — $47.73 (7 runs)
-3. compute-futures-eda — $44.57 (6 runs)
+1. reflect — $27.97 (3 runs)
+2. compute-futures-eda — $19.32 (2 runs)
+3. vuln-scanner — $12.27 (1 run)
 
-Actions this week:
-• memory-flush → investigate 3× spike ($20.25 vs $6.75 prior) — cap scan window (~$13.50/wk savings)
-• reflect → evaluate Sonnet downgrade for summarization passes (~$26/wk savings)
+No optimization levers found this week — cache utilization is excellent across all skills.
 
-⚠ 2 anomalies flagged — surplus-pulse per-run spike + memory-flush 3× WoW.
+WoW drop explained by ISS-006 batch outages (48h cadence, 06:00Z pocket dead); full-fleet recovery would push burn back toward ~$900/month.
 
-30-day projection: $1,497.43
-Full: articles/cost-report-2026-08-24.md
+30-day projection: $449.77
+Full: articles/cost-report-2026-09-07.md

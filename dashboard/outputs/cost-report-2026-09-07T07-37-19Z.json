@@ -1,0 +1,140 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Cost Report — 2026-09-07 (last 7 days)",
+        "description": "Spent $104.95 across 26 runs (↓50.6% WoW); 0 anomalies flagged, projected monthly burn ~$449.77 ⚠"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_spend",
+        "sep1",
+        "heading_top3",
+        "table_top3",
+        "sep2",
+        "text_cache",
+        "sep3",
+        "alert_issue",
+        "sep4",
+        "stat_projection",
+        "sep5",
+        "link_fullreport"
+      ]
+    },
+    "stat_spend": {
+      "type": "Stat",
+      "props": {
+        "label": "Spent (26 runs)",
+        "value": "$104.95",
+        "delta": "↓50.6%",
+        "trend": "down"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_top3": {
+      "type": "Heading",
+      "props": {
+        "text": "Top 3 by cost",
+        "level": "h3"
+      }
+    },
+    "table_top3": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Cost",
+          "Runs"
+        ],
+        "rows": [
+          [
+            "reflect",
+            "$27.97",
+            "3"
+          ],
+          [
+            "compute-futures-eda",
+            "$19.32",
+            "2"
+          ],
+          [
+            "vuln-scanner",
+            "$12.27",
+            "1"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_cache": {
+      "type": "Text",
+      "props": {
+        "text": "No optimization levers found this week — cache utilization is excellent across all skills.",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_issue": {
+      "type": "Alert",
+      "props": {
+        "title": "ISS-006 Batch Outages",
+        "message": "48h cadence, 06:00Z pocket dead. Full-fleet recovery would push burn back toward ~$900/month.",
+        "type": "warning"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stat_projection": {
+      "type": "Stat",
+      "props": {
+        "label": "30-day projection",
+        "value": "$449.77"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_fullreport": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Cost Report",
+        "href": "articles/cost-report-2026-09-07.md",
+        "source": "cost-report"
+      }
+    }
+  }
+}
