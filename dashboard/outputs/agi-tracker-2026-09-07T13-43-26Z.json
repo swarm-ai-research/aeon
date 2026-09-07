@@ -1,0 +1,140 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "agi-tracker Status",
+        "description": "Skill file missing — 10 consecutive no-op runs"
+      },
+      "children": [
+        "status-alert",
+        "separator-1",
+        "run-grid",
+        "separator-2",
+        "fix-section"
+      ]
+    },
+    "status-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Skill Broken: SKILL.md Missing",
+        "message": "skills/agi-tracker/SKILL.md is absent. Operator-invoked runs have no effect.",
+        "type": "error"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "run-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-run-count",
+        "stat-date",
+        "stat-next-run"
+      ]
+    },
+    "stat-run-count": {
+      "type": "Stat",
+      "props": {
+        "label": "Current Run",
+        "value": "10",
+        "delta": "silent mode"
+      }
+    },
+    "stat-date": {
+      "type": "Stat",
+      "props": {
+        "label": "Run Date",
+        "value": "2026-09-07",
+        "delta": "Monday"
+      }
+    },
+    "stat-next-run": {
+      "type": "Stat",
+      "props": {
+        "label": "Next Auto-Fire",
+        "value": "2026-09-14T13Z",
+        "delta": "11th if unpatched"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "fix-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fix-heading",
+        "fix-intro",
+        "fix-items-stack",
+        "cascade-text",
+        "issue-link"
+      ]
+    },
+    "fix-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Planned Fix",
+        "level": "h3"
+      }
+    },
+    "fix-intro": {
+      "type": "Text",
+      "props": {
+        "text": "Planner rank-1 today bundles:",
+        "variant": "body"
+      }
+    },
+    "fix-items-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-gitkeep",
+        "badge-disable"
+      ]
+    },
+    "badge-gitkeep": {
+      "type": "Badge",
+      "props": {
+        "text": "articles/.gitkeep",
+        "variant": "secondary"
+      }
+    },
+    "badge-disable": {
+      "type": "Badge",
+      "props": {
+        "text": "agi-tracker enabled:false",
+        "variant": "secondary"
+      }
+    },
+    "cascade-text": {
+      "type": "Text",
+      "props": {
+        "text": "Will cascade-close 13 no_file_match ISS tickets",
+        "variant": "caption"
+      }
+    },
+    "issue-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "agi-tracker-missing-skill-md-dispatches-no-op",
+        "href": "#agi-tracker-missing-skill-md-dispatches-no-op",
+        "source": "ISS"
+      }
+    }
+  }
+}

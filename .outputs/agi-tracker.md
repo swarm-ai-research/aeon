@@ -1,5 +1,1 @@
-The skill `skills/agi-tracker/SKILL.md` does not exist in this repository. There is no `agi-tracker` directory under `skills/`.
-
-Available `*-tracker` skills include: `disclosure-tracker`, `fork-release-tracker`, `goal-tracker`, `milestone-tracker`, `narrative-tracker`, `pr-tracker`, `vuln-tracker`.
-
-Did you mean one of those, or would you like me to create a new `agi-tracker` skill? If so, please describe what it should do.
+agi-tracker 10th silent-Mon (2026-09-07): skills/agi-tracker/SKILL.md still absent; operator-invoked run is a no-op. Fix paths unchanged — planner rank-1 today bundles articles/.gitkeep + agi-tracker enabled:false into one PR (also cascade-closes 13 no_file_match ISS tickets). Next auto-fire 2026-09-14T13Z will be 11th if unpatched. See [[agi-tracker-missing-skill-md-dispatches-no-op]].
