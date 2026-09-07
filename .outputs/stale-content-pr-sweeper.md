@@ -1,16 +1,14 @@
+Skill executed. No PRs closed today.
+
 ## Summary
 
-Ran `stale-content-pr-sweeper` in strict SKILL-as-written mode on 28 open PRs.
-
-**Result:** 0 PRs closed, 0 notify. Idempotent no-op — an earlier run today already closed the day's stale batch (#59, #58, #55, #57 → superseded by #61/#60) using a widened `{aeonframework, app/github-actions}` author allowlist.
-
-**Group scan (strict):**
-- 21 dropped as untracked prefix (includes `skill-graph/*` and `compute-macro/*` per known prefix drift)
-- 7 dropped by author (all authored by `app/github-actions`, SKILL only allows `aeonframework`)
-- 0 eligible → 0 groups → 0 stale
-
-**Files modified:**
-- `memory/logs/2026-09-06.md` — appended second-run block above the earlier entry
-
-**Follow-ups (unchanged from action queue):**
-- Rank-3: patch `SKILL.md` to add `"app/github-actions"` to `ALLOWED_AUTHORS` and fix TRACKED-prefix drift (add `skill-graph`, alias `compute-macro` ↔ `compute-macro-correlate`). Without this patch, the strict-run path is a permanent no-op and the sweep only works when the operator (or the earlier heartbeat call) widens the allowlist inline.
+- Ran `skills/stale-content-pr-sweeper/SKILL.md`. Listed 28 open PRs via `gh pr list`; fetched authoritative mergeable state via GraphQL (REST returns `UNKNOWN` post-graph-mutation per [[gh-pr-view-mergestate-returns-unknown-after-graph-mutation]]).
+- Applied operator-widened `{aeonframework, app/github-actions}` allowlist (per 4-run precedent 08-21/08-24/08-30/09-06 — SKILL.md literal `{aeonframework}` would match 0). Used SKILL.md's literal TRACKED prefix list (`compute-macro/*` + `skill-graph/*` still not covered — pending SKILL patch).
+- **7 eligible** PRs across 2 groups:
+  - notegraph: only #61 (sole survivor) — nothing to close.
+  - suggest-edges: #60 survivor; 5 stale (#54/#52/#49/#45/#42) — all MERGEABLE/UNSTABLE.
+- **Closed: 0** — all 5 stale PRs skipped by SKILL's conflict-only gate (they're mergeable, tests unstable, but no branch conflict — human decides).
+- **Skipped:** 5 (conflict-only gate). No `[keep]` overrides, no too-recent (<2d) skips.
+- **Notify: NO** per SKILL step-6 (n_closed=0 is steady state).
+- Follow-up: two SKILL.md patches still outstanding — add `app/github-actions` to `ALLOWED_AUTHORS`; add `compute-macro` + `skill-graph` prefix aliases to `TRACKED`. Both queued in MEMORY.md action queue.
+- Files modified: `memory/logs/2026-09-07.md` (this run's log entry appended). No PRs modified, no branches deleted, no notification queued.
