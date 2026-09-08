@@ -1,0 +1,199 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-09-07",
+        "description": "144 rows, 4 modes"
+      },
+      "children": [
+        "dataset_info",
+        "sep1",
+        "high_section_title",
+        "high_findings",
+        "sep2",
+        "conservation_section",
+        "sep3",
+        "filing_gap",
+        "sep4",
+        "report_link"
+      ]
+    },
+    "dataset_info": {
+      "type": "Text",
+      "props": {
+        "text": "Dataset: 144 rows, 4 modes"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "high_section_title": {
+      "type": "Heading",
+      "props": {
+        "text": "High Severity Findings",
+        "level": "h3"
+      }
+    },
+    "high_findings": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "finding1_stack",
+        "sep_findings",
+        "finding2_stack"
+      ]
+    },
+    "finding1_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "alert1",
+        "stat_streak",
+        "stat_analyst_loss"
+      ]
+    },
+    "alert1": {
+      "type": "Alert",
+      "props": {
+        "title": "Retail Purity Streak Broken",
+        "message": "11-run 5/5 retail top-loss purity streak BREAKS",
+        "type": "warning"
+      }
+    },
+    "stat_streak": {
+      "type": "Stat",
+      "props": {
+        "label": "Current Retail",
+        "value": "4/5",
+        "delta": "−1/5",
+        "trend": "down"
+      }
+    },
+    "stat_analyst_loss": {
+      "type": "Stat",
+      "props": {
+        "label": "Analyst 202609075",
+        "value": "−$4,446",
+        "delta": "slots #5"
+      }
+    },
+    "sep_findings": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "finding2_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "alert2",
+        "stat_dispersion",
+        "stat_seed_record"
+      ]
+    },
+    "alert2": {
+      "type": "Alert",
+      "props": {
+        "title": "Padded Seed Double-Anchor",
+        "message": "Padded seed 2026090711 double-anchors top-1 loss AND top-1 gain in spread",
+        "type": "warning"
+      }
+    },
+    "stat_dispersion": {
+      "type": "Stat",
+      "props": {
+        "label": "Dispersion",
+        "value": "$18,451"
+      }
+    },
+    "stat_seed_record": {
+      "type": "Badge",
+      "props": {
+        "text": "New class-series padded-seed record",
+        "variant": "secondary"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "conservation_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "conservation_title",
+        "conservation_status",
+        "mode_details"
+      ]
+    },
+    "conservation_title": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h3"
+      }
+    },
+    "conservation_status": {
+      "type": "Badge",
+      "props": {
+        "text": "All 4 modes OK",
+        "variant": "default"
+      }
+    },
+    "mode_details": {
+      "type": "Text",
+      "props": {
+        "text": "Modes: float-dust, 3−/1+ pattern"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "filing_gap": {
+      "type": "Alert",
+      "props": {
+        "title": "Filing Gap",
+        "message": "3-day filing gap (09-05/06 unanalyzed via ISS-006 pocket)",
+        "type": "info"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report: 2026-09-07",
+        "href": "memory/topics/compute-futures-eda/2026-09-07.md",
+        "source": "Compute-Futures EDA"
+      }
+    }
+  }
+}
