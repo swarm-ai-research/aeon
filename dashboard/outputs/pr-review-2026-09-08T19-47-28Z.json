@@ -1,0 +1,275 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-09-08",
+        "description": "swarm-ai-research/swarm (77th run)"
+      },
+      "children": [
+        "stats-section",
+        "separator1",
+        "skipped-section",
+        "separator2",
+        "reviewed-section",
+        "separator3",
+        "alert-blocking"
+      ]
+    },
+    "stats-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-reviewed",
+        "stat-skipped"
+      ]
+    },
+    "stat-reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "2"
+      }
+    },
+    "stat-skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "2"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "skipped-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "skipped-heading",
+        "skipped-bot",
+        "skipped-copilot"
+      ]
+    },
+    "skipped-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Skipped",
+        "level": "h3"
+      }
+    },
+    "skipped-bot": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text-bot",
+        "badge-bot"
+      ]
+    },
+    "text-bot": {
+      "type": "Text",
+      "props": {
+        "text": "Bot (dependabot)"
+      }
+    },
+    "badge-bot": {
+      "type": "Badge",
+      "props": {
+        "text": "#585"
+      }
+    },
+    "skipped-copilot": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text-copilot",
+        "badge-copilot"
+      ]
+    },
+    "text-copilot": {
+      "type": "Text",
+      "props": {
+        "text": "Copilot pile-on <30min"
+      }
+    },
+    "badge-copilot": {
+      "type": "Badge",
+      "props": {
+        "text": "#598"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "reviewed-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "reviewed-heading",
+        "pr-596",
+        "pr-597"
+      ]
+    },
+    "reviewed-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Reviewed",
+        "level": "h3"
+      }
+    },
+    "pr-596": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-596-link",
+        "pr-596-verdict",
+        "pr-596-desc",
+        "pr-596-stats"
+      ]
+    },
+    "pr-596-link": {
+      "type": "Link",
+      "props": {
+        "label": "swarm-ai-research/swarm#596",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/596"
+      }
+    },
+    "pr-596-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "default"
+      }
+    },
+    "pr-596-desc": {
+      "type": "Text",
+      "props": {
+        "text": "docs-only §6 verdict list + citation-basis wording",
+        "variant": "body"
+      }
+    },
+    "pr-596-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-596-critical",
+        "pr-596-issues"
+      ]
+    },
+    "pr-596-critical": {
+      "type": "Text",
+      "props": {
+        "text": "0 critical",
+        "variant": "caption"
+      }
+    },
+    "pr-596-issues": {
+      "type": "Text",
+      "props": {
+        "text": "0 issues",
+        "variant": "caption"
+      }
+    },
+    "pr-597": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-597-link",
+        "pr-597-verdict",
+        "pr-597-desc",
+        "pr-597-stats"
+      ]
+    },
+    "pr-597-link": {
+      "type": "Link",
+      "props": {
+        "label": "swarm-ai-research/swarm#597",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/597"
+      }
+    },
+    "pr-597-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (5/5)",
+        "variant": "default"
+      }
+    },
+    "pr-597-desc": {
+      "type": "Text",
+      "props": {
+        "text": "ZZZ evasion lever rescope (docs + comment-only)",
+        "variant": "body"
+      }
+    },
+    "pr-597-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-597-critical",
+        "pr-597-issues"
+      ]
+    },
+    "pr-597-critical": {
+      "type": "Text",
+      "props": {
+        "text": "0 critical",
+        "variant": "caption"
+      }
+    },
+    "pr-597-issues": {
+      "type": "Text",
+      "props": {
+        "text": "0 issues",
+        "variant": "caption"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert-blocking": {
+      "type": "Alert",
+      "props": {
+        "title": "Post blocked",
+        "message": "Resource not accessible by integration on both PRs — Day 9 of aeon-app-no-write-on-swarm-repo; verdicts recorded in log fallback.",
+        "type": "warning"
+      }
+    }
+  }
+}
