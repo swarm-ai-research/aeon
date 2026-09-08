@@ -1,0 +1,229 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse"
+      },
+      "children": [
+        "date-text",
+        "sep-1",
+        "spot-section",
+        "sep-2",
+        "curve-section",
+        "sep-3",
+        "rail-section",
+        "sep-4",
+        "summary-section"
+      ]
+    },
+    "date-text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-09-08",
+        "variant": "caption"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "spot-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "spot-heading",
+        "spot-model-badge",
+        "spot-note",
+        "spot-price"
+      ]
+    },
+    "spot-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h3"
+      }
+    },
+    "spot-model-badge": {
+      "type": "Text",
+      "props": {
+        "text": "catalog · Llama 4 Scout"
+      }
+    },
+    "spot-note": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus Intelligence — live feed unavailable, catalog fallback",
+        "variant": "caption"
+      }
+    },
+    "spot-price": {
+      "type": "Stat",
+      "props": {
+        "label": "Price per 1M tokens",
+        "value": "$0.0764"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "curve-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "curve-heading",
+        "curve-event-text",
+        "curve-stats-grid",
+        "curve-deepseek-text"
+      ]
+    },
+    "curve-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h3"
+      }
+    },
+    "curve-event-text": {
+      "type": "Text",
+      "props": {
+        "text": "H100 reserve event at R6 drove the sharpest re-price — tightest squeeze of the run"
+      }
+    },
+    "curve-stats-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "sm"
+      },
+      "children": [
+        "stat-r30-up",
+        "stat-r16-up",
+        "stat-r30-deepseek",
+        "stat-r30-agent"
+      ]
+    },
+    "stat-r30-up": {
+      "type": "Stat",
+      "props": {
+        "label": "R30 (H100 event)",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "stat-r16-up": {
+      "type": "Stat",
+      "props": {
+        "label": "R16 (H100 event)",
+        "value": "+87.4%",
+        "trend": "up"
+      }
+    },
+    "stat-r30-deepseek": {
+      "type": "Stat",
+      "props": {
+        "label": "R30 (DeepSeek V3.2)",
+        "value": "−44.2%",
+        "trend": "down"
+      }
+    },
+    "stat-r30-agent": {
+      "type": "Stat",
+      "props": {
+        "label": "R30 (Agent surge)",
+        "value": "+50.7%",
+        "trend": "up"
+      }
+    },
+    "curve-deepseek-text": {
+      "type": "Text",
+      "props": {
+        "text": "DeepSeek V3.2 open-weights at R13 unwound most of that gain. Agent-platform demand surge at R20 re-inflated back to +50.7% at R30.",
+        "variant": "body"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "rail-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "rail-heading",
+        "rail-chain",
+        "rail-link",
+        "rail-amount"
+      ]
+    },
+    "rail-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h3"
+      }
+    },
+    "rail-chain": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on Base/USDC · Surplus x402 · eip155:8453"
+      }
+    },
+    "rail-link": {
+      "type": "Link",
+      "props": {
+        "label": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      }
+    },
+    "rail-amount": {
+      "type": "Stat",
+      "props": {
+        "label": "Total delivered",
+        "value": "$198.43"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "summary-heading",
+        "summary-text"
+      ]
+    },
+    "summary-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "One-Line Read",
+        "level": "h3"
+      }
+    },
+    "summary-text": {
+      "type": "Text",
+      "props": {
+        "text": "Catalog run shows the Surplus market's structural tightness bias — supply-crunch events nearly double the curve before open-weights relief resets it; the market is coiled, not loose",
+        "variant": "lead"
+      }
+    }
+  }
+}
