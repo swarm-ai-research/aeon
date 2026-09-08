@@ -1,0 +1,245 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-09-08"
+      },
+      "children": [
+        "status-line",
+        "sep-1",
+        "systemic-alert",
+        "sep-2",
+        "metrics-grid",
+        "sep-3",
+        "degraded-section",
+        "sep-4",
+        "no-data-section",
+        "sep-5",
+        "healthy-section",
+        "sep-6",
+        "summary-section"
+      ]
+    },
+    "status-line": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-degraded",
+        "text-hash",
+        "text-day"
+      ]
+    },
+    "badge-degraded": {
+      "type": "Badge",
+      "props": {
+        "text": "DEGRADED(38)",
+        "variant": "destructive"
+      }
+    },
+    "text-hash": {
+      "type": "Text",
+      "props": {
+        "text": "hash e27c0ac60367e7e5",
+        "variant": "caption"
+      }
+    },
+    "text-day": {
+      "type": "Text",
+      "props": {
+        "text": "70th steady-state day",
+        "variant": "caption"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "systemic-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Systemic Issue",
+        "message": "ISS-001 OAuth-outage denominator burn (2026-06-06→06-20) — Day 82",
+        "type": "warning"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat-degraded",
+        "stat-nodata",
+        "stat-healthy",
+        "stat-issues"
+      ]
+    },
+    "stat-degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded",
+        "value": "38"
+      }
+    },
+    "stat-nodata": {
+      "type": "Stat",
+      "props": {
+        "label": "No Data",
+        "value": "2"
+      }
+    },
+    "stat-healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Healthy",
+        "value": "4"
+      }
+    },
+    "stat-issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "21"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "degraded-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded-heading",
+        "degraded-body"
+      ]
+    },
+    "degraded-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 DEGRADED (38)",
+        "level": "h3"
+      }
+    },
+    "degraded-body": {
+      "type": "Text",
+      "props": {
+        "text": "All 38 carry historical success_rate 0.06–0.41 from the June OAuth outage. Every skill last_status=success, cf=0. No live regression: 7d skill-runs 93 total / 89 success / 0 fail / 4 in_progress. anomalies.failing=[] (7th consecutive day at zero).",
+        "variant": "body"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "no-data-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "nodata-heading",
+        "nodata-skills",
+        "nodata-note"
+      ]
+    },
+    "nodata-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA (2)",
+        "level": "h3"
+      }
+    },
+    "nodata-skills": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch, run-frequency-guard",
+        "variant": "body"
+      }
+    },
+    "nodata-note": {
+      "type": "Text",
+      "props": {
+        "text": "DISPATCH-SKILL (60th silent day per [[enabled-skills-can-never-dispatch]], ISS-025 draft pending)",
+        "variant": "caption"
+      }
+    },
+    "sep-5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "healthy-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "healthy-heading"
+      ]
+    },
+    "healthy-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟢 HEALTHY: 4",
+        "level": "h3"
+      }
+    },
+    "sep-6": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "summary-line1",
+        "summary-line2"
+      ]
+    },
+    "summary-line1": {
+      "type": "Text",
+      "props": {
+        "text": "Open issues: 21 · Resolved this run: 0",
+        "variant": "body"
+      }
+    },
+    "summary-line2": {
+      "type": "Text",
+      "props": {
+        "text": "Notify gate: hash unchanged but 25.3h since prev notify → daily-reminder threshold",
+        "variant": "caption"
+      }
+    }
+  }
+}
