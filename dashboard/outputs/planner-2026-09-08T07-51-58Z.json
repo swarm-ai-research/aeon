@@ -1,0 +1,273 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Planner",
+        "description": "Daily prioritization and fleet status"
+      },
+      "children": [
+        "priority-stack",
+        "fleet-separator",
+        "fleet-stack"
+      ]
+    },
+    "priority-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "rank1-section",
+        "rank2-section",
+        "rank3-section",
+        "holding-section"
+      ]
+    },
+    "rank1-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rank1-heading",
+        "rank1-description",
+        "rank1-details"
+      ]
+    },
+    "rank1-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Rank-1: Small bundled PR",
+        "level": "h2"
+      }
+    },
+    "rank1-description": {
+      "type": "Text",
+      "props": {
+        "text": "Ship articles/.gitkeep + flip agi-tracker: enabled: false at aeon.yml:188"
+      }
+    },
+    "rank1-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rank1-status",
+        "rank1-impact"
+      ]
+    },
+    "rank1-status": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "rank1-badge1",
+        "rank1-badge2"
+      ]
+    },
+    "rank1-badge1": {
+      "type": "Badge",
+      "props": {
+        "text": "Streak-2",
+        "variant": "default"
+      }
+    },
+    "rank1-badge2": {
+      "type": "Badge",
+      "props": {
+        "text": "Highest leverage",
+        "variant": "secondary"
+      }
+    },
+    "rank1-impact": {
+      "type": "Text",
+      "props": {
+        "text": "Cascade-closes 13 ISS on next skill-evals + kills 11th silent-Mon before 09-14",
+        "variant": "caption"
+      }
+    },
+    "rank2-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rank2-heading",
+        "rank2-items"
+      ]
+    },
+    "rank2-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Rank-2: Escalations & Migrations",
+        "level": "h2"
+      }
+    },
+    "rank2-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rank2-item1",
+        "rank2-item2"
+      ]
+    },
+    "rank2-item1": {
+      "type": "Text",
+      "props": {
+        "text": "Escalate ISS-006 to fixing status"
+      }
+    },
+    "rank2-item2": {
+      "type": "Text",
+      "props": {
+        "text": "Migrate planner + compute-futures-eda out of dead 06:00Z pocket (weekend pockets Sat-11Z + Sun-06:30Z also dead, n=2 each)"
+      }
+    },
+    "rank3-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rank3-heading",
+        "rank3-pr-item"
+      ]
+    },
+    "rank3-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Rank-3: PR Merge",
+        "level": "h2"
+      }
+    },
+    "rank3-pr-item": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rank3-pr-link",
+        "rank3-pr-status"
+      ]
+    },
+    "rank3-pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #26",
+        "href": "https://github.com/aeon/aeon/pull/26",
+        "source": "GitHub"
+      }
+    },
+    "rank3-pr-status": {
+      "type": "Text",
+      "props": {
+        "text": "Day-32, 5/5 CI SUCCESS, no movement since 09-07 01:09Z",
+        "variant": "caption"
+      }
+    },
+    "holding-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "holding-heading",
+        "holding-text"
+      ]
+    },
+    "holding-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Holding",
+        "level": "h3"
+      }
+    },
+    "holding-text": {
+      "type": "Text",
+      "props": {
+        "text": "watched-repos + pr-tracker patch batch on same triggers as yesterday"
+      }
+    },
+    "fleet-separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fleet-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fleet-heading",
+        "fleet-stats",
+        "plan-note"
+      ]
+    },
+    "fleet-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet Status",
+        "level": "h2"
+      }
+    },
+    "fleet-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-broken",
+        "stat-degraded",
+        "stat-open-iss"
+      ]
+    },
+    "stat-broken": {
+      "type": "Stat",
+      "props": {
+        "label": "Broken",
+        "value": "0"
+      }
+    },
+    "stat-degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded (ISS-001 Day-82)",
+        "value": "38"
+      }
+    },
+    "stat-open-iss": {
+      "type": "Stat",
+      "props": {
+        "label": "Open ISS",
+        "value": "21"
+      }
+    },
+    "plan-note": {
+      "type": "Badge",
+      "props": {
+        "text": "Plan-only, no dispatch",
+        "variant": "outline"
+      }
+    }
+  }
+}
