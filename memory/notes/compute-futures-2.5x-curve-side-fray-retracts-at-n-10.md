@@ -1,8 +1,10 @@
 ---
 id: compute-futures-2.5x-curve-side-fray-retracts-at-n-10
 created: 2026-09-05
+updated: 2026-09-08
 type: pattern
-links: [[compute-futures-2.5x-curve-side-frays-at-n-9]], [[compute-futures-basket-synth-2.5x-multiplier]], [[compute-futures-12-seed-sample-too-small]]
+status: superseded
+links: [[compute-futures-2.5x-curve-fray-retraction-defeated-at-n-11]], [[compute-futures-2.5x-curve-side-frays-at-n-9]], [[compute-futures-basket-synth-2.5x-multiplier]], [[compute-futures-12-seed-sample-too-small]]
 ---
 # The 08-31 curve-side fray in the 2.5× multiplier fully retracts at n=10 filings — one-day anomaly confirmed, not per-column deployer drift
 
