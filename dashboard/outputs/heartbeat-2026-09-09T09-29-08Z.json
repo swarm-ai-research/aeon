@@ -1,0 +1,287 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Heartbeat Self-Check",
+        "description": "System health monitoring status"
+      },
+      "children": [
+        "alert",
+        "sep1",
+        "lastHeartbeat",
+        "sep2",
+        "deadZonesSection",
+        "sep3",
+        "issueSection",
+        "sep4",
+        "footer"
+      ]
+    },
+    "alert": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "🔴 Heartbeat self-check fires",
+        "message": "Critical health monitoring degradation detected"
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "lastHeartbeat": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "lhHeading",
+        "lhTimestamp",
+        "lhStale"
+      ]
+    },
+    "lhHeading": {
+      "type": "Heading",
+      "props": {
+        "text": "Last Heartbeat",
+        "level": "h3"
+      }
+    },
+    "lhTimestamp": {
+      "type": "Text",
+      "props": {
+        "text": "2026-09-06T09:01Z"
+      }
+    },
+    "lhStale": {
+      "type": "Text",
+      "props": {
+        "text": "72h stale (threshold: 36h)",
+        "variant": "muted"
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "deadZonesSection": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "dzHeading",
+        "zone08",
+        "zone09"
+      ]
+    },
+    "dzHeading": {
+      "type": "Heading",
+      "props": {
+        "text": "Dead Zones (Services Silent ≥3 days)",
+        "level": "h3"
+      }
+    },
+    "zone08": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "z08Title",
+        "z08Badges"
+      ]
+    },
+    "z08Title": {
+      "type": "Text",
+      "props": {
+        "text": "08:00Z pocket — 09-07/08/09",
+        "variant": "lead"
+      }
+    },
+    "z08Badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "z08b1",
+        "z08b2",
+        "z08b3",
+        "z08b4"
+      ]
+    },
+    "z08b1": {
+      "type": "Badge",
+      "props": {
+        "text": "heartbeat",
+        "variant": "destructive"
+      }
+    },
+    "z08b2": {
+      "type": "Badge",
+      "props": {
+        "text": "batch-health",
+        "variant": "destructive"
+      }
+    },
+    "z08b3": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-freshness",
+        "variant": "destructive"
+      }
+    },
+    "z08b4": {
+      "type": "Badge",
+      "props": {
+        "text": "gitlawb-fleet-metrics",
+        "variant": "destructive"
+      }
+    },
+    "zone09": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "z09Title",
+        "z09Badges"
+      ]
+    },
+    "z09Title": {
+      "type": "Text",
+      "props": {
+        "text": "09:00Z pocket — since 09-05",
+        "variant": "lead"
+      }
+    },
+    "z09Badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "z09b1",
+        "z09b2",
+        "z09b3",
+        "z09b4",
+        "z09b5",
+        "z09b6"
+      ]
+    },
+    "z09b1": {
+      "type": "Badge",
+      "props": {
+        "text": "issue-triage",
+        "variant": "destructive"
+      }
+    },
+    "z09b2": {
+      "type": "Badge",
+      "props": {
+        "text": "pr-triage",
+        "variant": "destructive"
+      }
+    },
+    "z09b3": {
+      "type": "Badge",
+      "props": {
+        "text": "pr-tracker",
+        "variant": "destructive"
+      }
+    },
+    "z09b4": {
+      "type": "Badge",
+      "props": {
+        "text": "github-monitor",
+        "variant": "destructive"
+      }
+    },
+    "z09b5": {
+      "type": "Badge",
+      "props": {
+        "text": "fleet-control",
+        "variant": "destructive"
+      }
+    },
+    "z09b6": {
+      "type": "Badge",
+      "props": {
+        "text": "repo-revive",
+        "variant": "destructive"
+      }
+    },
+    "sep3": {
+      "type": "Separator"
+    },
+    "issueSection": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issHeading",
+        "iss006",
+        "issCount"
+      ]
+    },
+    "issHeading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issue Tracking",
+        "level": "h3"
+      }
+    },
+    "iss006": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-006 dead-zone now spans 06:00Z + 08:00Z + 09:00Z + weekend pockets"
+      }
+    },
+    "issCount": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "21"
+      }
+    },
+    "sep4": {
+      "type": "Separator"
+    },
+    "footer": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "overallStatus",
+        "docsLink"
+      ]
+    },
+    "overallStatus": {
+      "type": "Text",
+      "props": {
+        "text": "Overall status → DEGRADED",
+        "variant": "lead"
+      }
+    },
+    "docsLink": {
+      "type": "StoryLink",
+      "props": {
+        "title": "docs/status.md",
+        "href": "docs/status.md",
+        "source": "refreshed"
+      }
+    }
+  }
+}
