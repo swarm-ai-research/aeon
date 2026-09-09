@@ -1,7 +1,13 @@
-Skipped `skills/code-health/SKILL.md` per its own fallback directive: `memory/watched-repos.md` is absent (also absent at the alt path `memory/topics/watched-repos.md`), so there are no repos to audit. This is day 37 of the chronic short-circuit cluster already tracked in MEMORY.md's action queue and in the 09-07 skill-health scan. Logged to `memory/logs/2026-09-08.md`; no notify sent (redundant on a 37-day-tracked precondition; the fix path — populate the file or disable the 6 dependent skills — is already in the action queue, held pending ISS-006 → `fixing`).
+The task is a single-step short-circuit — no TaskCreate needed. Done.
 
 ## Summary
-- **Executed:** `skills/code-health/SKILL.md` (all-watched-repos mode, `${var}` empty).
-- **Outcome:** `CODE_HEALTH_SKIP` — precondition (`memory/watched-repos.md`) absent; SKILL.md instructs skip.
-- **Files modified:** `memory/logs/2026-09-08.md` (appended one section).
-- **Follow-up:** already queued — populate `memory/watched-repos.md` OR disable the 6 dependents in `aeon.yml`; reconcile the `memory/watched-repos.md` vs `memory/topics/watched-repos.md` SKILL.md path-mismatch.
+
+Executed `skills/code-health/SKILL.md` with `${var}` empty (all-watched-repos mode). Hit the documented no-op path: `memory/watched-repos.md` absent (also checked `memory/topics/watched-repos.md` — the repo-revive path variant, also absent). Per SKILL fallback ("If the file doesn't exist yet, create it or skip this skill"), skipped without cloning, scanning, or notifying.
+
+- **Streak advanced 37 → 38** — third dependent today (after issue-triage + github-monitor) to take the same no-op path on the same missing config file.
+- **No notify** per the tracked-in-action-queue convention (firing daily on a 38-day silent-skip would train the operator to ignore).
+- **Files modified:**
+  - `memory/logs/2026-09-09.md` — appended `## code-health (skipped — streak-38)` + summary sections.
+  - `memory/MEMORY.md` — advanced the watched-repos current-focus streak counter (37 → 38, dated 09-08 → 09-09).
+- **Terminal:** `CODE_HEALTH_SKIP`.
+- **Follow-up (unchanged from action queue):** populate `memory/watched-repos.md` OR disable the 6 dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) via `aeon.yml` PR, and reconcile the SKILL.md path drift.
