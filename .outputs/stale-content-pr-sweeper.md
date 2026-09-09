@@ -1,14 +1,13 @@
-Skill executed. No PRs closed today.
+Executed `skills/stale-content-pr-sweeper/SKILL.md`. Steady-state idempotent result.
 
 ## Summary
 
-- Ran `skills/stale-content-pr-sweeper/SKILL.md`. Listed 28 open PRs via `gh pr list`; fetched authoritative mergeable state via GraphQL (REST returns `UNKNOWN` post-graph-mutation per [[gh-pr-view-mergestate-returns-unknown-after-graph-mutation]]).
-- Applied operator-widened `{aeonframework, app/github-actions}` allowlist (per 4-run precedent 08-21/08-24/08-30/09-06 — SKILL.md literal `{aeonframework}` would match 0). Used SKILL.md's literal TRACKED prefix list (`compute-macro/*` + `skill-graph/*` still not covered — pending SKILL patch).
-- **7 eligible** PRs across 2 groups:
-  - notegraph: only #61 (sole survivor) — nothing to close.
-  - suggest-edges: #60 survivor; 5 stale (#54/#52/#49/#45/#42) — all MERGEABLE/UNSTABLE.
-- **Closed: 0** — all 5 stale PRs skipped by SKILL's conflict-only gate (they're mergeable, tests unstable, but no branch conflict — human decides).
-- **Skipped:** 5 (conflict-only gate). No `[keep]` overrides, no too-recent (<2d) skips.
-- **Notify: NO** per SKILL step-6 (n_closed=0 is steady state).
-- Follow-up: two SKILL.md patches still outstanding — add `app/github-actions` to `ALLOWED_AUTHORS`; add `compute-macro` + `skill-graph` prefix aliases to `TRACKED`. Both queued in MEMORY.md action queue.
-- Files modified: `memory/logs/2026-09-07.md` (this run's log entry appended). No PRs modified, no branches deleted, no notification queued.
+- **Executed:** `skills/stale-content-pr-sweeper/SKILL.md` on 2026-09-09 (6th consecutive operator-invocation).
+- **Scanned:** 27 total open PRs → 7 tracked-eligible via widened `{aeonframework, app/github-actions}` author allowlist (SKILL.md's literal `{"aeonframework"}` set is documented no-op per [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]]).
+- **Groups:** 2 — notegraph (#61 sole, nothing stale) and suggest-edges (#60 survivor + 5 stale: #54/#52/#49/#45/#42).
+- **Closed:** 0. All 5 stale suggest-edges PRs are `MERGEABLE/UNSTABLE` (fetched via GraphQL — REST `gh pr view` returned `UNKNOWN` for all 7 per [[gh-pr-view-mergestate-returns-unknown-after-graph-mutation]]), so the SKILL's conflict-only gate skips them for human review.
+- **Skipped:** 5 (conflict-only gate) · 0 (`[keep]`) · 0 (too-recent).
+- **Notify:** none — SKILL step-6 requires `n_closed > 0` (steady state).
+- **Files:** `memory/logs/2026-09-09.md` (created).
+- **Terminal:** `SWEEPER_OK`.
+- **Follow-up:** unchanged action-queue items — patch SKILL.md's `ALLOWED_AUTHORS` to include `app/github-actions` and add `compute-macro`/`skill-graph` short-prefix aliases to `TRACKED`; without both, sweeper stays dependent on operator-side widening and misses 8 additional candidate PRs.
