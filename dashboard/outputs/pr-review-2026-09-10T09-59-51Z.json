@@ -1,0 +1,108 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-09-10"
+      },
+      "children": [
+        "summary-stats",
+        "pr-section"
+      ]
+    },
+    "summary-stats": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed 1, skipped 2 (bots: 2).",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "pr-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-link",
+        "pr-status-row",
+        "pr-blocked-alert",
+        "pr-verdict"
+      ]
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#600",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/600",
+        "source": "GitHub"
+      },
+      "children": []
+    },
+    "pr-status-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "approve-badge",
+        "score-badge",
+        "docs-badge",
+        "ci-badge"
+      ]
+    },
+    "approve-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "score-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "5/5",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "docs-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "docs-only",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "ci-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "22/22 CI green",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "pr-blocked-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Post blocked",
+        "message": "aeon-app permissions",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "pr-verdict": {
+      "type": "Text",
+      "props": {
+        "text": "Verdict logged.",
+        "variant": "caption"
+      },
+      "children": []
+    }
+  }
+}
