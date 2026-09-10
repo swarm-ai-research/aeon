@@ -1,0 +1,204 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Batch Health Report",
+        "description": "Outage detection: 2026-09-10"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert",
+        "sep1",
+        "skills_section",
+        "sep2",
+        "issues_section",
+        "sep3",
+        "action_section"
+      ]
+    },
+    "alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Batch Outage",
+        "message": "4 skills never triggered (06:00–07:30 UTC)",
+        "type": "error"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "skills_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "skills_heading",
+        "skills_table"
+      ]
+    },
+    "skills_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Affected Skills",
+        "level": "h3"
+      }
+    },
+    "skills_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Cron Expression"
+        ],
+        "rows": [
+          [
+            "planner",
+            "30 6 * * *"
+          ],
+          [
+            "memory-flush",
+            "0 6 2/2 * *"
+          ],
+          [
+            "memory-structural-dedupe",
+            "10 6 2/2 * *"
+          ],
+          [
+            "compute-futures-eda",
+            "0 6 * * *"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues_heading",
+        "issues_stack"
+      ]
+    },
+    "issues_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Related Issues",
+        "level": "h3"
+      }
+    },
+    "issues_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue_025_row",
+        "issue_006_row"
+      ]
+    },
+    "issue_025_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_025",
+        "text_025"
+      ]
+    },
+    "badge_025": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-025",
+        "variant": "destructive"
+      }
+    },
+    "text_025": {
+      "type": "Text",
+      "props": {
+        "text": "Filed for this outage"
+      }
+    },
+    "issue_006_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_006",
+        "text_006"
+      ]
+    },
+    "badge_006": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-006",
+        "variant": "destructive"
+      }
+    },
+    "text_006": {
+      "type": "Text",
+      "props": {
+        "text": "5th outage in 48h cadence — 06:00Z pocket dead again after clean 09-08"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "action_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "action_heading",
+        "action_text"
+      ]
+    },
+    "action_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Action Required",
+        "level": "h3"
+      }
+    },
+    "action_text": {
+      "type": "Text",
+      "props": {
+        "text": "Check GitHub Actions cron status"
+      }
+    }
+  }
+}
