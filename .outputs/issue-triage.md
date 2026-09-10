@@ -1,8 +1,11 @@
+The task is a single-step short-circuit (no-op exit); no task list needed. Terminal log line emitted.
+
 `ISSUE_TRIAGE_OK no-watched-repos`
 
 ## Summary
 
-- Ran `skills/issue-triage/SKILL.md`. Hit the documented no-op branch: `${var}` empty and `memory/watched-repos.md` missing (also `memory/topics/watched-repos.md`, the repo-revive path variant) → `ISSUE_TRIAGE_OK no-watched-repos` and exit before any target resolution.
-- No `gh` calls, no labels/comments/closes, no notification (SKILL §9 gates on actionable output; nothing was produced).
-- Files modified: `memory/logs/2026-09-09.md` (appended `## issue-triage` entry). `memory/triaged-issues.json` intentionally untouched per SKILL §8 (only repos actually processed are recorded).
-- Streak now at day 38 of chronic short-circuit for the watched-repos-dependent cluster. Follow-up unchanged from MEMORY.md action queue: populate `memory/watched-repos.md` **or** disable the 6 dependents, and reconcile the path drift between the two variants.
+- Executed `skills/issue-triage/SKILL.md` with `${var}` empty.
+- **Config check failed**: `memory/watched-repos.md` is absent (also confirmed alternate path `memory/topics/watched-repos.md` absent). Per SKILL §Config, short-circuited with `ISSUE_TRIAGE_OK no-watched-repos` before target selection, permission probe, fetch, or classification.
+- **Files modified**: appended `## issue-triage` section + summary to `memory/logs/2026-09-10.md`.
+- **Writes to GitHub**: none. **Notify**: none (nothing actionable).
+- **Follow-up** (already tracked in MEMORY.md action queue, streak now 39 consecutive days): populate `memory/watched-repos.md` — and reconcile the path mismatch between issue-triage/code-health/github-monitor/changelog/weekly-shiplog (`memory/watched-repos.md`) and repo-revive (`memory/topics/watched-repos.md`) — OR disable the 6 dependents. Issue-triage is one of 3 skills that took the no-op path today.
