@@ -1,0 +1,72 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "batch-health"
+      },
+      "children": [
+        "heading_date",
+        "alert_warning",
+        "text_missing",
+        "table_skills",
+        "separator_1",
+        "text_context"
+      ]
+    },
+    "heading_date": {
+      "type": "Heading",
+      "props": {
+        "text": "batch gap — 2026-09-11",
+        "level": "h2"
+      }
+    },
+    "alert_warning": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "message": "2 scheduled skills didn't run in the 06:00–07:30 UTC window"
+      }
+    },
+    "text_missing": {
+      "type": "Text",
+      "props": {
+        "text": "Affected skills:",
+        "variant": "lead"
+      }
+    },
+    "table_skills": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Cron Schedule"
+        ],
+        "rows": [
+          [
+            "planner",
+            "30 6 * * *"
+          ],
+          [
+            "compute-futures-eda",
+            "0 6 * * *"
+          ]
+        ]
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_context": {
+      "type": "Text",
+      "props": {
+        "text": "both live in the persistently-dead 06:00Z pocket per ISS-006. isolated miss vs. the 09-10 outage (4 missing → ISS-025); WARN threshold, no new issue filed. monitoring."
+      }
+    }
+  }
+}
