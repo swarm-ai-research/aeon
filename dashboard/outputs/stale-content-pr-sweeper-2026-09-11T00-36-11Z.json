@@ -1,0 +1,66 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "stale-content-pr-sweeper",
+        "description": "closed 1 stale PR"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-closed",
+        "pr-61",
+        "separator-1",
+        "text-superseded",
+        "pr-64"
+      ]
+    },
+    "text-closed": {
+      "type": "Text",
+      "props": {
+        "text": "Closed PR",
+        "variant": "lead"
+      }
+    },
+    "pr-61": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#61 (notegraph/2026-09-05)",
+        "href": "https://github.com/xai-org/aeon/pull/61",
+        "source": "GitHub PR"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text-superseded": {
+      "type": "Text",
+      "props": {
+        "text": "Superseded by",
+        "variant": "muted"
+      }
+    },
+    "pr-64": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#64 (notegraph/2026-09-10)",
+        "href": "https://github.com/xai-org/aeon/pull/64",
+        "source": "GitHub PR"
+      }
+    }
+  }
+}
