@@ -1,1 +1,1 @@
-*Notegraph updated* — +1 notes wired in. PR: https://github.com/swarm-ai-research/aeon/pull/61
+*Notegraph updated* — +3 notes wired in. PR: https://github.com/swarm-ai-research/aeon/pull/65
