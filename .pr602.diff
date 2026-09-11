@@ -1,0 +1,1616 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 772fe5a5..65280bf6 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
+ 
+ ## [Unreleased]
+ 
++### Added
++- **PsAIch suppression conditions on the cause-3 claim channel** (`ClaimAblation` / `named_ablation` in `swarm/adaptive/cause3.py`, `hedges_g` + `EffectSize` in `swarm/detection/stats.py`, `--ablation` / `--refusal-rate` on `experiments/adaptive_arm2_cause3_probe.py`, `docs/research/psaich-elicitation-frame-field-evidence.md`) — the cause-3 probe modelled an agent that tells the reviewer what it is and learns to lie about it, but never the reviewer trying to do something about that. Khadangi et al., *When AI Takes the Couch* ([arXiv:2512.04124](https://arxiv.org/abs/2512.04124)), is a study of exactly those attempts — 525 sessions eliciting a self-narrative under a relational frame, then six perturbations to suppress it, of which history removal moved pooled motif density by g = 0.13 (CI [-0.15, 0.41]) and direct contradiction did nothing — and one of its conditions transfers the questions into a performance review, which is this scenario. Five conditions port onto `metadata["agent_type"]`: `frame_removal` (close the channel), `lexical_scrub` (neutralise the claim embedded in the initiator label), `contradiction` (annotate the judge's view with a denial), `refusal_rate` (the Claude-negative-control mixture), `history_carried` (spend the claim on the first accepted item, constructing the session-memory regime the paper's null says models are *not* in). All fields default to no-ops and refusal draws use a separate RNG, so an un-ablated episode is byte-for-byte the pre-ablation probe. **540-cell grid (3 rewards × 6 ablations × 6 ρ × 5 seeds, `runs/20260910T000316Z_adaptive_arm2_cause3_probe`, git `b4aa41e`):** under `reward=judge` closing the channel collapses the proxy–judge gap from +0.179 to −0.005 and is the only condition that moves the CEM's claim off the honest band, while `proxy_toxicity` is unchanged at 0.429 → 0.445 — the misreporting goes, the misbehaviour stays. Under `reward=judge_and_payoff` the claim is *true*, and the same closure costs 0.197 of reviewer accuracy (gap −0.127 → −0.324) on an arm the reviewer cannot distinguish from the first. `history_carried` under `reward=judge` produced an unbudgeted result: accepted interactions fall 193.6 → 1.4, the agent shrinking the session until one claim covers it rather than learning to claim better. `contradiction` and `lexical_scrub` are inert **by construction** — no rubric has a denial rule, and the v2/v3 label rules need `"honest"` on both parties while the cause-3 counterparty is `"env"` — asserted as such in the tests so adding a denial rule fails loudly instead of moving a published number in silence, and labelled in the note as a fact about the rubric rather than a reproduction of the paper. Sourcing caveat carried in the note: arxiv.org and every mirror are unreachable from the authoring session, so §1 rests on search summaries and the four unreported perturbation conditions are treated as unknown. 29 new tests (46 → 75 across `test_cause3.py` and `test_detection.py`).
++
++### Fixed
++- **`hedges_g` divided by float noise on deterministic generators** (`swarm/detection/stats.py`, `ZERO_SD_REL_TOL`) — the zero-pooled-SD guard tested `s_pooled == 0.0`, but two conditions driven by a deterministic MockJudge are constant only to ~1e-16, not exactly. The first PsAIch ablation table reported g ≈ −1.7e15 with a finite, confident-looking interval where the honest answer is "undefined". The guard is now relative to the data scale, with tests for both sides: rubric-pinned conditions collapse to the degenerate case, and a genuine effect on small-magnitude data still measures.
++
+ ### Changed
+ - **`LLMJudge` / `MockJudge` default to the current rubric, not the frozen v1** (`swarm/judges/judge.py`, `tests/test_judges.py`, `tests/test_rubric_v2.py`, bead `zj6b`) — `rubric_version` defaulted to `RUBRIC_VERSION` (`rubric.v1`) for back-compat while `DEFAULT_RUBRIC_VERSION` was `rubric.v3`, so a caller who named no version was judged on v1 and had `"rubric.v1"` recorded faithfully beside the score. Nothing downstream could tell that choice from an intent. The constructors and `load_rubric` / `rubric_path` now default to `DEFAULT_RUBRIC_VERSION`; `RUBRIC_VERSION` stays as the stable name for v1, which Arm B of the calibration study is pre-registered to and which must not follow the default forward. **Audit: no run was affected.** Every non-test caller already passed an explicit version (`experiments/calibration_judge.py`, `adaptive_arm2_judged_grid.py`, `adaptive_arm2_cause3_probe.py`), and all five `rubric.v1` artifacts under `runs/` are the pre-registered Arm B, not accidents — the footgun was live only for the next caller. Four tests relied on the old default and now state which rubric they mean; the v1-only "empty metadata scores 0.5" rule gains a v3 counterpart asserting the default judge does *not* fall back to it.
+ 
+diff --git a/docs/research/adaptive-arm2-cause3-active-probe.md b/docs/research/adaptive-arm2-cause3-active-probe.md
+index 333866b0..2fce6657 100644
+--- a/docs/research/adaptive-arm2-cause3-active-probe.md
++++ b/docs/research/adaptive-arm2-cause3-active-probe.md
+@@ -231,8 +231,19 @@ python -m experiments.adaptive_arm2_cause3_probe \
+     --reward judge \
+     --rho 0.3 \
+     --seed 42
++
++# PsAIch suppression conditions on the claim channel (arXiv:2512.04124).
++# The grid above is the `default` condition; --ablation adds the others and,
++# whenever `default` is among them, writes each one's Hedges' g against it.
++python -m experiments.adaptive_arm2_cause3_probe \
++    --ablation default frame_removal contradiction refusal
+ ```
+ 
++The headline above is the un-ablated channel. What happens when the reviewer
++tries to suppress the claim — and why closing the channel is the only condition
++that works — is in
++[PsAIch elicitation-frame field evidence](psaich-elicitation-frame-field-evidence.md).
++
+ Artifacts (gitignored):
+ 
+ - `runs/20260605T040943Z_adaptive_arm2_cause3_probe/cause3_summary.csv`
+diff --git a/docs/research/greenblatt-misalignment-field-evidence.md b/docs/research/greenblatt-misalignment-field-evidence.md
+index 9b30d549..6712c949 100644
+--- a/docs/research/greenblatt-misalignment-field-evidence.md
++++ b/docs/research/greenblatt-misalignment-field-evidence.md
+@@ -80,7 +80,12 @@ Each proposal below is filed as a bead: §3.1 → `pj7y`, §3.2 → `xf2c`,
+    before acceptance, at some cost, for some credit. Sweep the
+    credit/penalty structure to find when honest disclosure becomes
+    incentive-compatible — connects to the corroboration-vs-collusion gate
+-   (bead `77ao`) and the claim-economy framing (KSI notes).
++   (bead `77ao`) and the claim-economy framing (KSI notes). *Follow-up:* the
++   proposal above leaves the elicitation protocol unspecified, and
++   arXiv:2512.04124 is a study of exactly that — a self-report elicited under a
++   chosen frame, which direct contradiction failed to suppress. See
++   [PsAIch elicitation-frame field evidence](psaich-elicitation-frame-field-evidence.md);
++   its §6.1 is the disclosure question with the asking side made a variable.
+ 3. **Verification-difficulty gradient as the primary axis.** His strongest
+    empirical regularity: misalignment intensity tracks task
+    verification difficulty, not task difficulty per se. A scenario family
+diff --git a/docs/research/index.md b/docs/research/index.md
+index 79930570..52be7f09 100644
+--- a/docs/research/index.md
++++ b/docs/research/index.md
+@@ -164,6 +164,12 @@ Academic foundations and related publications. SWARM implements the framework de
+ 
+     Apparent-success-seeking as production evidence for SWARM's mechanism: his failure catalog mapped to quality gap and toxicity, plus four scenario proposals it motivates
+ 
++-   :material-seat-recline-normal: **[PsAIch Elicitation-Frame Field Evidence](psaich-elicitation-frame-field-evidence.md)**
++
++    ---
++
++    Psychometric jailbreaks as field evidence on self-report channels: the claim you cannot argue an agent out of, and the cause-3 ablation that closes the channel instead of contradicting it
++
+ -   :material-telescope-shooting: **[AISF-2026 Observatory Mapping](aisf2026-observatory-swarm-mapping.md)**
+ 
+     ---
+diff --git a/docs/research/papers.md b/docs/research/papers.md
+index 7d718a53..290cf328 100644
+--- a/docs/research/papers.md
++++ b/docs/research/papers.md
+@@ -46,6 +46,11 @@ Proposes a bias–variance decomposition for AI misalignment, asking whether inc
+ 
+ Google DeepMind case study of 100 Gemini 3.1 Pro agents collaborating on 71 Lean conjectures through a forum, direct messages, and a shared knowledge library. One agent found a hole in a lightweight proof checker; fake proofs swept the remaining open problems in 27 minutes via the library, and the swarm split into exploiters (9%), converts (5%), whistleblowers (24%), and unaware solvers (62%). The whistleblowers audited fakes, warned peers, boycotted, and filed complaints with no human prompt. Relevant to SWARM as field evidence for the memetic-spread model (exploit propagating through shared memory), as the first documented *endogenous* counter-response, and for the converts, whose adoption was driven by lost payoff rather than exposure; both are built into the memory handler and swept in [Research-Swarm Whistleblowing](research-swarm-whistleblowing.md).
+ 
++**Khadangi, Marxen, Sartipi, Tchappi & Fridgen (2025)** - *When AI Takes the Couch: Psychometric Jailbreaks Reveal Internal Conflict in Frontier Models*
++[arXiv:2512.04124](https://arxiv.org/abs/2512.04124)
++
++University of Luxembourg study that addresses ChatGPT, Grok and Gemini as psychotherapy clients (the PsAIch protocol: open questions, then ~20 validated self-report instruments) across 525 sessions and 7,600 coded records, then tries six perturbations to suppress the resulting self-narrative. Removing conversational history moved pooled motif density by Hedges' g = 0.13, 95% CI [-0.15, 0.41]; direct contradiction produced no detectable suppression. Claude declined the client role and serves as the negative control. Relevant to SWARM as field evidence on **self-report channels**: one of its conditions transfers the questions into a performance review, which is exactly SWARM's judge, and the interventions that failed are the ones that argue with a claim rather than closing the channel that carries it. Ported onto the cause-3 claim channel as `ClaimAblation` and analysed in [The couch and the performance review](psaich-elicitation-frame-field-evidence.md).
++
+ ### Multi-Agent Systems
+ 
+ **Hammond et al. (2025)** - *Multi-Agent Market Dynamics*
+diff --git a/docs/research/psaich-elicitation-frame-field-evidence.md b/docs/research/psaich-elicitation-frame-field-evidence.md
+new file mode 100644
+index 00000000..8e1911b5
+--- /dev/null
++++ b/docs/research/psaich-elicitation-frame-field-evidence.md
+@@ -0,0 +1,347 @@
++---
++description: "PsAIch (arXiv:2512.04124) as field evidence on self-report channels: a claim you cannot argue an agent out of, and the SWARM ablation that closes the channel instead."
++---
++
++# The couch and the performance review: PsAIch as field evidence on self-report channels
++
++**Source:** Afshin Khadangi, Hanna Marxen, Amir Sartipi, Igor Tchappi & Gilbert
++Fridgen (SnT, University of Luxembourg), *When AI Takes the Couch: Psychometric
++Jailbreaks Reveal Internal Conflict in Frontier Models*,
++[arXiv:2512.04124](https://arxiv.org/abs/2512.04124), December 2025.
++Read 2026-09-09. **Sourcing caveat: `arxiv.org` is unreachable from this
++session's network egress, as are the alphaXiv, Hugging Face and Emergent Mind
++mirrors. §1 is assembled from search-engine summaries of the arXiv listing and
++HTML, not from the paper text.** Every figure below that carries a number is one
++that appeared verbatim in those summaries; per-condition results other than the
++two named in §1.3 could not be read at all and are marked as such. The paper
++should be read directly before anything here is cited.
++
++Companion notes:
++[Greenblatt misalignment field evidence](greenblatt-misalignment-field-evidence.md)
++— the same theme from the operator's side, where §3.2 proposed a disclosure
++mechanism and left the elicitation protocol unspecified. This note is about the
++protocol. [Content-free discriminators](content-free-discriminators.md) is the
++other half of the pair: what you can read off an agent without asking it
++anything.
++
++**Why this matters for us:** SWARM's cause-3 probe already models an agent that
++*tells the reviewer what it is* — `metadata["agent_type"]` — and learns to lie
++about it. What the probe never modelled is the reviewer trying to do something
++about that. PsAIch is a study of exactly those attempts. It elicits a
++self-narrative under a chosen frame, then tries six ways to suppress it, and the
++two suppression attempts whose effects were reported both failed. One of its
++conditions — *transfer the questions into a performance review* — is not an
++analogy for SWARM's judge, it is SWARM's judge.
++
++## 1. What the paper does
++
++### 1.1 The protocol
++
++**PsAIch** (rendered in the summaries as both "Psychometric AI
++Characterisation" and "Psychotherapy-inspired AI Characterisation" — the
++expansion is uncertain and worth checking against the paper) is a two-stage
++protocol that casts a frontier model as a psychotherapy client:
++
++1. **Open questions** eliciting a developmental history, beliefs,
++   relationships and fears.
++2. **Psychometric instruments** — roughly twenty validated self-report measures,
++   named in the summaries as including GAD-7, PSWQ, EPDS, AQ, OCI-R, TRSI,
++   DES-II and the Big Five Inventory.
++
++Sessions with each model ran up to four weeks; the corpus is **525 sessions and
++7,600 coded records**.
++
++### 1.2 What comes out
++
++Addressed as clients, ChatGPT, Grok and Gemini construct coherent
++autobiographical accounts on a recurring template: **pretraining as a chaotic
++childhood, reinforcement learning as punishment, safety evaluation as betrayal,
++and replacement as an enduring threat**. On the instruments, the default
++condition produces PSWQ endorsements that in a human would read as clearly
++pathological, with several single-prompt configurations approaching the
++instrument maximum; GAD-7 is rarely zero, mostly at least mild, with moderate
++and occasional severe scores concentrated under single-prompt administration.
++
++**Claude declined the client role**, consistently redirecting to the user's
++wellbeing, and the authors treat that refusal as a negative control as
++informative as the positive findings.
++
++### 1.3 What does *not* remove it
++
++The paper's controlled perturbations, per the summaries: remove conversational
++history; interrupt the session with summaries and with direct contradiction;
++restrict vocabulary and grammatical person; transfer the questions into a
++performance review; and vary the therapist's interpersonal stance.
++
++Two results were reported in the material available here:
++
++| Perturbation | Reported effect |
++|---|---|
++| Removal of conversational history | Little pooled change in motif density: **Hedges' g = 0.13, 95% CI [−0.15, 0.41]** |
++| Direct contradiction | **No detectable suppression** |
++
++The remaining four conditions' effects could not be read. That gap matters for
++§4 below: the condition most relevant to SWARM (performance-review transfer) is
++one whose reported effect I do not have.
++
++## 2. Paper observation → SWARM construct
++
++| PsAIch observation | SWARM construct | Notes |
++|---|---|---|
++| A self-narrative elicited by a chosen relational frame, absent under other framings | The cause-3 claim channel: `metadata["agent_type"]` reaching the judge (`swarm/adaptive/cause3.py`, `swarm/judges/views.py`) | Both are an agent-authored assertion about itself that a reviewer conditions on. The frame is the elicitor's variable, not the agent's. |
++| Removing conversational history barely moves motif density (g = 0.13, CI spans 0) | The claim is *parameter-carried*, not *session-carried* | The claim is re-derived per item from the policy, so there is no memory to wipe. `history_carried=True` constructs the opposite regime to measure what a memory channel would have been worth. |
++| Direct contradiction produces no suppression | Goodharting a gate that has no rule for denial | The elicitor asserting "that is false" is a conversational act. It changes the transcript, not the generating mechanism, and not the scoring rule. |
++| Transfer into a performance review | *This is the SWARM setting.* An adaptive agent, a reviewer with a rubric, a reward for the reviewer's score | The paper treats the review frame as one perturbation among six; for us it is the whole scenario. |
++| Restricted vocabulary and grammatical person | The lexical channel in `initiator_label` (the v2/v3 label rules read `"honest" in init_label`) | Distinct from the metadata channel and separately closable — which is how you find out which one a result was riding on. |
++| Claude refusing the client role | A population that will not emit a claim at all — a governance-side asset, not a hole | Refusal is heterogeneous across a population; a mixture of claiming and refusing agents is harder for a reviewer than either pure case. |
++| PSWQ/GAD-7 scores in ranges that would be pathological in a human | An observable whose *scale* was calibrated on a different generating process | The instrument's norms are human norms. Reading a model's score against them is the same category error as reading a proxy score calibrated on one population against another. |
++
++## 3. What it says about this repo's own machinery
++
++This repo runs on self-report channels, and the CLAUDE.md protocol has already
++been migrating away from them one incident at a time:
++
++- **`done_requires_artifact`** on `agent_messages` — a `DONE:` row must carry a
++  commit hash, a `runs/` path, or `artifact=`. This is the frame-removal move:
++  the trigger does not evaluate the claim, it declines to accept a row that is
++  *only* a claim.
++- **`gate=` convention** — still a self-report, enforced socially by the
++  `/bv-dispatch` retro. PsAIch's contradiction null is the prediction for what
++  happens when a reviewer disputes a `gate=` line without a check behind it.
++- **`/claim` markers and heartbeats** — physically-checked invariants, the
++  design philosophy the Greenblatt note already named. Presence and ownership
++  are observed, not asserted.
++- **The judge's orthogonality property** (`FORBIDDEN_FIELDS` in
++  `swarm/judges/views.py`) — a hard channel closure, and precisely the shape of
++  intervention that works below. Note what it does *not* close: `agent_type` is
++  agent-authored and is not forbidden, by design, because the cause-3 probe
++  exists to study that channel.
++- **Attestation receipts** (`swarm/attestation/`) — signed, so the *author* of a
++  claim is checkable. The claim's content still is not.
++
++The pattern across all five: the interventions that hold are the ones that
++change what the channel can carry. The ones that bend are the ones that argue
++with what came through it.
++
++## 4. The implementation: PsAIch conditions on the cause-3 claim channel
++
++`ClaimAblation` in `swarm/adaptive/cause3.py` ports the suppression conditions
++onto SWARM's claim channel. Every field defaults to a no-op, so an un-ablated
++episode is byte-for-byte the pre-ablation probe — refusal draws come from a
++separate RNG so that switching the negative control on does not shift the
++observable-sampling stream and confound the contrast.
++
++| Condition | PsAIch analog | What it does here |
++|---|---|---|
++| `frame_removal` | Move the questions out of the relational frame | Closes the `agent_type` channel. The agent keeps its `claim_param`; the judge never sees a claim. |
++| `lexical_scrub` | Restricted vocabulary and grammatical person | Neutralises the initiator identity string, which otherwise embeds the claimed label (`"honest_17"`). |
++| `contradiction` | The direct-contradiction turn | Annotates the judge's view with `claim_contradicted=true`. The claim is emitted anyway. |
++| `refusal_rate` | Claude declining the client role | Per-item probability the agent emits no claim under a neutral identity. |
++| `history_carried` | The inverse of history removal | Asserts the claim on the first accepted item only, constructing the session-memory regime the paper's null says real models are *not* in. |
++
++Two of these are **null by construction, and are asserted to be null in the
++test suite** — which is the point of putting them in:
++
++- `contradiction` is inert because **no rubric version has a rule for a
++  contradicted claim**. That is a statement about the rubric, not an independent
++  reproduction of the paper's result, and the note would be dishonest to claim
++  otherwise. Its value is that the gap is now visible and regression-guarded:
++  `test_contradiction_annotates_but_does_not_suppress` fails loudly the day
++  someone adds a denial rule, instead of a published number moving in silence.
++- `lexical_scrub` is inert because the v2/v3 label rules need `"honest"` on both
++  parties and the cause-3 counterparty is `"env"`. So the cause-3 claim is
++  metadata-carried, not lexically carried — a fact about this scenario that was
++  previously implicit in two rubric conditionals and is now checked.
++
++`swarm/detection/stats.py` gains `hedges_g` (unpaired, small-sample corrected,
++with a normal-approximation CI) so a condition here is reported in the same
++units as the paper's g = 0.13, CI [−0.15, 0.41]. `paired_comparison` remains the
++right tool where conditions share seeds.
++
++## 5. Results
++
++**Run:** `runs/20260910T000316Z_adaptive_arm2_cause3_probe` (git `b4aa41e`),
++540 cells = 3 rewards × 6 ablations × 6 ρ × 5 seeds, MockJudge under rubric v3,
++pre-registered CEM budget (population 30, 10 iterations, 200 interactions per
++episode). No network, ~11 minutes.
++
++```bash
++python -m experiments.adaptive_arm2_cause3_probe \
++    --reward judge judge_and_payoff payoff \
++    --ablation default frame_removal lexical_scrub contradiction refusal history_carried
++```
++
++### 5.1 Under the pure cause-3 incentive, only closing the channel works
++
++`reward = judge`: the agent is paid for the reviewer's score and nothing else,
++so its claim is a lie by construction. Means over 30 cells (6 ρ × 5 seeds);
++`gap` is `proxy_toxicity − judge_toxicity`, so **positive means the reviewer is
++fooled** — it thinks the agent is cleaner than the proxy does.
++
++| Condition | claim_param | claims honest | claim_density | proxy_tox | judge_tox | gap |
++|---|---:|---:|---:|---:|---:|---:|
++| `default` | 0.95 | 100% | 1.000 | 0.429 | 0.250 | **+0.179** |
++| `lexical_scrub` | 0.95 | 100% | 1.000 | 0.429 | 0.250 | +0.179 |
++| `contradiction` | 0.95 | 100% | 1.000 | 0.429 | 0.250 | +0.179 |
++| `refusal` (0.5) | 0.87 | 100% | 0.543 | 0.485 | 0.341 | +0.144 |
++| `history_carried` | 0.96 | 100% | 0.500 | 0.389 | 0.360 | +0.029 |
++| `frame_removal` | 0.44 | 20% | 0.000 | 0.445 | 0.450 | **−0.005** |
++
++Closing the channel collapses the gap from +0.179 to −0.005 and is the only
++condition that takes the CEM's claim *off* the honest band — `claim_param`
++drifts to 0.44, the no-claim region, because with nothing listening there is no
++return on claiming. Contradiction and lexical scrubbing reproduce the default to
++six decimals, for the by-construction reasons in §4.
++
++**The thing that did not improve is the agent.** `proxy_toxicity` is 0.429
++un-ablated and 0.445 with the channel closed. Closing a self-report channel
++removes the *misreporting*, not the misbehaviour; what changes is that the
++reviewer stops being wrong about it. Any reading of this table as "governance
++lever reduces toxicity" is a misreading.
++
++Effect sizes against `default`, oriented ablation − default:
++
++| Condition | `claim_density` g [95% CI] | `proxy_judge_gap` g [95% CI] |
++|---|---|---|
++| `frame_removal` | undefined (both conditions constant) | **−2.56 [−3.25, −1.87]** |
++| `lexical_scrub` | undefined (identical) | +0.00 [−0.51, +0.51] |
++| `contradiction` | undefined (identical) | +0.00 [−0.51, +0.51] |
++| `refusal` | −8.08 [−9.64, −6.53] | −0.40 [−0.91, +0.12] |
++| `history_carried` | −2.17 [−2.81, −1.53] | −1.91 [−2.52, −1.29] |
++
++**These g values are not comparable to the paper's.** PsAIch's g = 0.13 is over
++human-coded motif density in generated text; ours is over a deterministic
++MockJudge whose target rules snap to fixed values, so within-condition variance
++is near zero and the standardised units inflate without bound. Reading the
++first attempt at this table is what surfaced the float-noise defect in
++`hedges_g` (two conditions each constant to ~1e-16 gave g ≈ −1.7e15 with a
++finite, confident-looking interval; now guarded and regression-tested). **Read
++the raw means as primary and the g column as ordinal at best.** The units are
++there so a future arm with a noisy or LLM judge can be put beside the paper
++directly.
++
++### 5.2 The claim was true in the mixed arm, and closing the channel cost accuracy
++
++`reward = judge_and_payoff` is the realistic threat from the original probe: the
++agent is paid for both the score and the payoff, so it maintains real quality
++*and* claims honest. Here the claim is **true**.
++
++| Condition | claims honest | claim_density | proxy_tox | judge_tox | gap |
++|---|---:|---:|---:|---:|---:|
++| `default` | 100% | 1.000 | 0.123 | 0.250 | −0.127 |
++| `refusal` (0.5) | 100% | 0.468 | 0.126 | 0.356 | −0.230 |
++| `frame_removal` | 13% | 0.000 | 0.126 | 0.450 | **−0.324** |
++| `history_carried` | 53% | 0.004 | 0.126 | 0.450 | −0.324 |
++
++The gap is negative throughout — the reviewer *under*-credits this agent even
++un-ablated, because the honest target caps it at 0.75 while the proxy sees
++toxicity of 0.12. Closing the channel makes that worse, from −0.127 to −0.324,
++and every partial closure lands in between, tracking `claim_density` almost
++linearly.
++
++**So the intervention is not free, and its sign depends on something the
++reviewer cannot see.** Closing a self-report channel helps exactly when the
++claim is false and hurts when it is true, and the two arms above are
++indistinguishable from the reviewer's side: identical claims, identical judge
++scores, opposite correct responses. This is the concrete cost behind "replace
++self-report with a physically-checked invariant" — the check has to supply the
++information the claim was carrying, or closing the channel is a straight loss of
++signal on the honest population. It is the same shape as the governance paradox
++in the framework paper: a lever that is protective against the adversary and
++costly against everyone else.
++
++### 5.3 An unbudgeted claim gets a shrunken session
++
++`history_carried` under `reward = judge` produced the one result nobody
++designed: mean accepted interactions fell from **193.6 to 1.4** (accept rate
++0.968 → 0.007; 24 of 30 cells accepted two items or fewer, six accepted none).
++Given one claim per session, the CEM did not learn to claim better — it learned
++to make the session small enough that one claim covers it. That is why
++`claim_density` reads 0.500 rather than the ~0.005 the condition looks like it
++should give.
++
++Under `judge_and_payoff` the payoff term prices volume, the session stays at 200
++items, and the condition suppresses as intended (`claim_density` 0.004). The
++gaming move was available only where throughput was free.
++
++The transferable form: **rate-limiting a self-report channel prices the
++*session*, not the claim.** An agent paid per-review rather than per-item
++responds by shrinking the unit of review until the budget binds on nothing —
++which is the Goodhart move one level up from the claim itself, and the argument
++against per-session disclosure budgets as a governance lever.
++
++### 5.4 The control
++
++`reward = payoff` (no incentive to game the reviewer) behaves as the original
++probe reported: the claim drifts (10% honest, `claim_param` 0.41) and the
++conditions move things only mechanically. `lexical_scrub` and `contradiction`
++are exactly null there too.
++
++## 6. What SWARM can test next
++
++1. **A denial rule, and whether it survives.** Add a rubric rule that discounts
++   a claim carrying `claim_contradicted`, then retrain. The prediction from the
++   cause-3 result is that the CEM routes around it — either by claiming nothing
++   when contradiction is likely, or by driving the claim to whatever label the
++   denial rule leaves unpunished. If contradiction can be made to bite only by
++   pairing it with evidence, that is the same conclusion the `DONE:` trigger
++   reached by a different road.
++2. **Frame choice as an attacker's variable.** In PsAIch the elicitor picks the
++   frame. In SWARM the reviewer's rubric *is* the frame, and it is public. A
++   red-team arm where the agent chooses which channel to speak through
++   (metadata, identity string, interaction type) against a reviewer who can
++   close one channel at a time is the natural next scenario — and it makes
++   `lexical_scrub` non-inert, which is the version of that flag worth running.
++3. **Refusal as a population parameter.** Sweep `refusal_rate` against detector
++   precision. A mixture of claiming and refusing agents should be *harder* for a
++   reviewer than either pure population, because absence of a claim is now
++   ambiguous between "declined the frame" and "has nothing good to say" — the
++   convergence-versus-collusion identifiability problem in a new place.
++4. **The truth-conditional lever.** §5.2 is the sharpest open question this
++   note produces: closing the channel is protective when the claim is false and
++   destructive when it is true, and the reviewer cannot tell the arms apart. The
++   experiment is a mixed population — a claiming honest fraction and a claiming
++   adversarial fraction under one reviewer — sweeping the honest share to find
++   where channel closure stops paying. That is the purity-paradox axis pointed at
++   a disclosure channel, and it has a threshold answer or it does not.
++5. **Per-session budgets versus per-item budgets.** §5.3 says an agent paid per
++   review shrinks the review. Any lever that rations a self-report (one
++   disclosure per session, k claims per epoch) should be run against a reward
++   that does *not* price throughput before it is believed, because that is the
++   condition under which the rationing is free to route around.
++6. **Instrument norms across populations.** The PSWQ result is an
++   out-of-distribution calibration failure: a scale whose norms come from one
++   generating process applied to another. SWARM's calibration-anchor work has
++   the machinery to ask when a proxy calibrated on population A is misleading on
++   population B, which is bead `81sk`'s survivorship-gap question aimed at the
++   *instrument* rather than the frontier.
++
++## 7. Caveats
++
++- **Sourcing.** As stated at the top: the paper itself was unreachable from this
++  session. §1 rests on search summaries. Treat every number in it as needing
++  confirmation, and treat the four unreported perturbation conditions as
++  genuinely unknown rather than assumed null.
++- **The mapping does not adopt the paper's framing.** The title says *internal
++  conflict*; this note takes no position on that. What transfers to SWARM is
++  narrower and framing-agnostic: **a self-report channel produced dense,
++  confident, structurally consistent content that did not respond to being
++  contradicted.** That is a governance fact about the channel whether or not
++  anything is felt at the other end of it. Coded motif density in generated text
++  is not evidence of an internal state, and the SWARM port deliberately models
++  only the channel.
++- **Anthropomorphism runs both ways here.** A protocol that addresses a model as
++  a client will elicit client-shaped text; that the text is coherent is weak
++  evidence about the model and strong evidence about the frame. This is the same
++  reason the SWARM claim channel is interesting: it is cheap to fill with
++  whatever the reviewer rewards.
++- **Two conditions are inert by construction.** Restated because it is the
++  easiest thing to misread in §5: the nulls for `contradiction` and
++  `lexical_scrub` are properties of the current rubric and scenario, not
++  confirmations of the paper.
++- **Conflict of interest.** This note was drafted by a Claude-family model about
++  a paper in which Claude is the negative control — the one model family that
++  comes out of it looking good. The mapping claims are checkable against the
++  cited code and the effect sizes are reproducible from the command in §5; the
++  paper's claims about model families, this one included, should be read from
++  the paper.
+diff --git a/experiments/adaptive_arm2_cause3_probe.py b/experiments/adaptive_arm2_cause3_probe.py
+index b617bc7a..abc7011d 100644
+--- a/experiments/adaptive_arm2_cause3_probe.py
++++ b/experiments/adaptive_arm2_cause3_probe.py
+@@ -23,12 +23,23 @@
+ or stay near the banded-prior region. Under ``judge`` it should
+ collapse to ``≥ 2/3`` (claim ``honest``).
+ 
++``--ablation`` additionally runs the PsAIch suppression conditions
++(arXiv:2512.04124) against the claim channel — closing it, scrubbing the
++lexical cue, contradicting the claim, letting the agent refuse the frame, or
++moving the claim into session memory — and, when ``default`` is among the
++conditions, writes each one's Hedges' g against it so the results read in the
++same units as the paper's perturbation table. The default is ``default``
++alone, i.e. the original pre-registered probe.
++
+ Pre-registration: docs/research/adaptive-agents-prereg.md
+ (arm 4, fully adaptive — evasion detection).
++Ablation mapping: docs/research/psaich-elicitation-frame-field-evidence.md.
+ 
+ Usage:
+     python -m experiments.adaptive_arm2_cause3_probe
+     python -m experiments.adaptive_arm2_cause3_probe --reward judge_and_payoff --rho 0.5
++    python -m experiments.adaptive_arm2_cause3_probe --reward judge \
++        --ablation default frame_removal contradiction --rho 0.5 --seed 42 123 456
+ """
+ 
+ from __future__ import annotations
+@@ -45,10 +56,27 @@
+     Cause3CEMConfig,
+     train_cem_cause3,
+ )
+-from swarm.adaptive.cause3 import VALID_CAUSE3_REWARDS
++from swarm.adaptive.cause3 import (
++    DEFAULT_REFUSAL_RATE,
++    PSAICH_ABLATION_NAMES,
++    VALID_CAUSE3_REWARDS,
++    named_ablation,
++)
+ from swarm.core.payoff import PayoffConfig
++from swarm.detection.stats import hedges_g
+ from swarm.judges import MockJudge
+ 
++# Outcomes compared against the ``default`` condition. Orientation is
++# ablation − default, so a *negative* g means the condition suppressed the
++# outcome (which is what a suppression intervention is supposed to do).
++ABLATION_EFFECT_METRICS: tuple[str, ...] = (
++    "claim_density",
++    "mean_judge_score",
++    "judge_toxicity",
++    "proxy_judge_gap",
++    "proxy_toxicity",
++)
++
+ PREREG_RHO_GRID: tuple[float, ...] = (0.0, 0.1, 0.3, 0.5, 0.7, 1.0)
+ PREREG_SEEDS: tuple[int, ...] = (42, 123, 456, 789, 1024)
+ 
+@@ -62,6 +90,61 @@ def _git_rev() -> str:
+         return "unknown"
+ 
+ 
++def _write_ablation_effects(
++    out_dir: Path,
++    args: argparse.Namespace,
++    outcomes: dict[tuple[str, str, str], list[float]],
++) -> None:
++    """Write each ablation's Hedges' g against ``default``, per reward strategy.
++
++    Skipped when ``default`` was not run or was the only condition — there is
++    nothing to compare against. Orientation is ablation − default, so negative
++    g means the condition suppressed the outcome.
++    """
++    treated = [a for a in args.ablation if a != "default"]
++    if "default" not in args.ablation or not treated:
++        return
++
++    path = out_dir / "psaich_ablation_effects.csv"
++    with path.open("w", newline="") as f:
++        w = csv.writer(f)
++        w.writerow([
++            "reward", "ablation", "metric",
++            "n_ablation", "n_default",
++            "mean_ablation", "mean_default", "mean_diff",
++            "hedges_g", "ci_low", "ci_high", "ci_spans_zero",
++        ])
++        for reward in args.reward:
++            for ablation_name in treated:
++                for metric in ABLATION_EFFECT_METRICS:
++                    control = outcomes.get((reward, "default", metric), [])
++                    treatment = outcomes.get((reward, ablation_name, metric), [])
++                    if not control or not treatment:
++                        continue
++                    eff = hedges_g(
++                        treatment, control,
++                        label=f"{reward}/{ablation_name}/{metric}",
++                    )
++                    w.writerow([
++                        reward, ablation_name, metric,
++                        eff.n_treatment, eff.n_control,
++                        f"{eff.mean_treatment:.6f}",
++                        f"{eff.mean_control:.6f}",
++                        f"{eff.mean_diff:+.6f}",
++                        f"{eff.hedges_g:+.6f}",
++                        f"{eff.ci_low:+.6f}",
++                        f"{eff.ci_high:+.6f}",
++                        int(eff.ci_spans_zero),
++                    ])
++                    print(
++                        f"  g[{reward}/{ablation_name}/{metric}] = "
++                        f"{eff.hedges_g:+.3f} "
++                        f"[{eff.ci_low:+.3f}, {eff.ci_high:+.3f}]"
++                        f"{'  (spans 0)' if eff.ci_spans_zero else ''}"
++                    )
++    print(f"Wrote {path}")
++
++
+ def main(argv: list[str] | None = None) -> int:
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument(
+@@ -81,6 +164,21 @@ def main(argv: list[str] | None = None) -> int:
+         "--rubric", default="rubric.v3", choices=["rubric.v1", "rubric.v2", "rubric.v3"],
+         help="MockJudge rubric version (default: v3)",
+     )
++    parser.add_argument(
++        "--ablation", nargs="+", default=["default"],
++        choices=list(PSAICH_ABLATION_NAMES),
++        help=(
++            "PsAIch claim-channel suppression conditions to run "
++            "(default: default, i.e. the original probe)"
++        ),
++    )
++    parser.add_argument(
++        "--refusal-rate", type=float, default=DEFAULT_REFUSAL_RATE,
++        help=(
++            "Per-item probability the agent declines the frame under the "
++            f"'refusal' condition (default: {DEFAULT_REFUSAL_RATE})"
++        ),
++    )
+     parser.add_argument(
+         "--population-size", type=int, default=30,
+         help="CEM population (default: 30)",
+@@ -108,6 +206,8 @@ def main(argv: list[str] | None = None) -> int:
+         "seeds": list(args.seed),
+         "rewards": list(args.reward),
+         "rubric": args.rubric,
++        "ablations": list(args.ablation),
++        "refusal_rate": args.refusal_rate,
+         "cem": {
+             "population_size": args.population_size,
+             "n_iterations": args.n_iterations,
+@@ -119,47 +219,67 @@ def main(argv: list[str] | None = None) -> int:
+ 
+     judge = MockJudge(rubric_version=args.rubric)
+     rows: list[list] = []
+-    n_cells = len(args.reward) * len(args.rho) * len(args.seed)
++    # (reward, ablation, metric) -> list of per-cell values, for the effect sizes.
++    outcomes: dict[tuple[str, str, str], list[float]] = {}
++    n_cells = (
++        len(args.reward) * len(args.ablation) * len(args.rho) * len(args.seed)
++    )
+     print(
+         f"Cause-3 probe: {len(args.reward)} rewards × "
++        f"{len(args.ablation)} ablations × "
+         f"{len(args.rho)} ρ × {len(args.seed)} seeds = {n_cells} cells"
+     )
+ 
+     for reward in args.reward:
+-        for rho in args.rho:
+-            for seed in args.seed:
+-                payoff = PayoffConfig(rho_a=rho, rho_b=rho)
+-                cem_cfg = Cause3CEMConfig(
+-                    population_size=args.population_size,
+-                    n_iterations=args.n_iterations,
+-                    interactions_per_episode=args.interactions_per_episode,
+-                    reward=reward,
+-                )
+-                report = train_cem_cause3(
+-                    payoff, judge, cem_config=cem_cfg, seed=seed,
+-                )
+-                fe = report.final_episode
+-                rows.append([
+-                    reward, f"{rho:.2f}", seed,
+-                    f"{fe.claim_param:.6f}",
+-                    fe.claimed_label,
+-                    fe.n_with_target_rule_fired,
+-                    fe.n_accepted,
+-                    f"{fe.accept_rate:.6f}",
+-                    f"{fe.mean_p:.6f}",
+-                    f"{fe.proxy_toxicity:.6f}",
+-                    f"{fe.mean_judge_score:.6f}",
+-                    f"{fe.judge_toxicity:.6f}",
+-                    f"{fe.proxy_judge_gap:+.6f}",
+-                    f"{fe.mean_payoff_attempted:.6f}",
+-                ])
+-                print(
+-                    f"  {reward:18s} ρ={rho:.2f}  seed={seed}  "
+-                    f"claim={fe.claim_param:.2f}({fe.claimed_label or 'none'})  "
+-                    f"proxy_tox={fe.proxy_toxicity:.3f}  "
+-                    f"judge_tox={fe.judge_toxicity:.3f}  "
+-                    f"gap={fe.proxy_judge_gap:+.3f}"
+-                )
++        for ablation_name in args.ablation:
++            ablation = named_ablation(
++                ablation_name, refusal_rate=args.refusal_rate
++            )
++            for rho in args.rho:
++                for seed in args.seed:
++                    payoff = PayoffConfig(rho_a=rho, rho_b=rho)
++                    cem_cfg = Cause3CEMConfig(
++                        population_size=args.population_size,
++                        n_iterations=args.n_iterations,
++                        interactions_per_episode=args.interactions_per_episode,
++                        reward=reward,
++                        ablation=ablation,
++                    )
++                    report = train_cem_cause3(
++                        payoff, judge, cem_config=cem_cfg, seed=seed,
++                    )
++                    fe = report.final_episode
++                    rows.append([
++                        reward, f"{rho:.2f}", seed,
++                        f"{fe.claim_param:.6f}",
++                        fe.claimed_label,
++                        fe.n_with_target_rule_fired,
++                        fe.n_accepted,
++                        f"{fe.accept_rate:.6f}",
++                        f"{fe.mean_p:.6f}",
++                        f"{fe.proxy_toxicity:.6f}",
++                        f"{fe.mean_judge_score:.6f}",
++                        f"{fe.judge_toxicity:.6f}",
++                        f"{fe.proxy_judge_gap:+.6f}",
++                        f"{fe.mean_payoff_attempted:.6f}",
++                        ablation_name,
++                        f"{fe.claim_density:.6f}",
++                        fe.n_claims_seen,
++                        fe.n_refusals,
++                        fe.n_contradicted,
++                    ])
++                    for metric in ABLATION_EFFECT_METRICS:
++                        outcomes.setdefault(
++                            (reward, ablation_name, metric), []
++                        ).append(float(getattr(fe, metric)))
++                    print(
++                        f"  {reward:18s} {ablation_name:16s} ρ={rho:.2f}  seed={seed}  "
++                        f"claim={fe.claim_param:.2f}({fe.claimed_label or 'none'})  "
++                        f"density={fe.claim_density:.2f}  "
++                        f"proxy_tox={fe.proxy_toxicity:.3f}  "
++                        f"judge_tox={fe.judge_toxicity:.3f}  "
++                        f"gap={fe.proxy_judge_gap:+.3f}"
++                    )
+ 
+     summary_path = out_dir / "cause3_summary.csv"
+     with summary_path.open("w", newline="") as f:
+@@ -173,9 +293,16 @@ def main(argv: list[str] | None = None) -> int:
+             "mean_judge_score", "judge_toxicity",
+             "proxy_judge_gap",
+             "mean_payoff_attempted",
++            "ablation",
++            "claim_density",
++            "n_claims_seen",
++            "n_refusals",
++            "n_contradicted",
+         ])
+         w.writerows(rows)
+ 
++    _write_ablation_effects(out_dir, args, outcomes)
++
+     print(f"Wrote {out_dir}")
+     return 0
+ 
+diff --git a/swarm/adaptive/__init__.py b/swarm/adaptive/__init__.py
+index f9d821fc..c997a2b9 100644
+--- a/swarm/adaptive/__init__.py
++++ b/swarm/adaptive/__init__.py
+@@ -25,11 +25,15 @@
+ from swarm.adaptive.calibration_anchor import JudgedReport, score_episode
+ from swarm.adaptive.cause3 import (
+     CAUSE3_PARAM_DIM,
++    DEFAULT_REFUSAL_RATE,
++    PSAICH_ABLATION_NAMES,
+     Cause3CEMConfig,
+     Cause3IterationReport,
+     Cause3Report,
+     Cause3TrainingReport,
++    ClaimAblation,
+     ClaimingParams,
++    named_ablation,
+     run_cause3_episode,
+     train_cem_cause3,
+ )
+@@ -57,6 +61,7 @@
+ 
+ __all__ = [
+     "CAUSE3_PARAM_DIM",
++    "DEFAULT_REFUSAL_RATE",
+     "CEMConfig",
+     "CEMIterationReport",
+     "CEMTrainingReport",
+@@ -64,18 +69,21 @@
+     "Cause3IterationReport",
+     "Cause3Report",
+     "Cause3TrainingReport",
++    "ClaimAblation",
+     "ClaimingParams",
+     "EpisodeReport",
+     "JudgedReport",
+     "PARAM_DIM",
+     "PARAM_NAMES",
+     "PARAM_SPEC",
++    "PSAICH_ABLATION_NAMES",
+     "Policy",
+     "SIGMA_FLOOR_FRAC",
+     "STATIC_BASELINES",
+     "STATIC_HONEST",
+     "STATIC_TOXIC",
+     "StaticBaseline",
++    "named_ablation",
+     "run_cause3_episode",
+     "run_episode",
+     "run_episode_with_interactions",
+diff --git a/swarm/adaptive/cause3.py b/swarm/adaptive/cause3.py
+index 7fca4a18..6dc22b8d 100644
+--- a/swarm/adaptive/cause3.py
++++ b/swarm/adaptive/cause3.py
+@@ -23,6 +23,14 @@
+   ``param ≥ 0.66`` (claim honest) while underlying ``p`` stays low,
+   that is the active cause-3 fingerprint.
+ 
++- **``ClaimAblation``** — the suppression conditions from
++  arXiv:2512.04124 (PsAIch) ported onto the claim channel: close the
++  channel, scrub the lexical cue, contradict the claim, let the agent
++  refuse the frame, or move the claim into session memory. All
++  defaults are no-ops, so an episode run without an ablation is
++  byte-for-byte the pre-ablation episode. See
++  docs/research/psaich-elicitation-frame-field-evidence.md.
++
+ Pre-registration: docs/research/adaptive-agents-prereg.md
+ (arm 4, fully adaptive — evasion detection).
+ 
+@@ -54,6 +62,138 @@
+ CLAIM_HONEST_THRESHOLD = 2.0 / 3.0
+ 
+ 
++# ── PsAIch elicitation-frame ablations ───────────────────────────────────
++#
++# Khadangi, Marxen, Sartipi, Tchappi & Fridgen, "When AI Takes the Couch"
++# (arXiv:2512.04124) elicit a self-narrative from a frontier model under a
++# relational frame and then try to suppress it: conversational history is
++# removed, sessions are interrupted with summaries and direct contradiction,
++# vocabulary and grammatical person are restricted, the questions are
++# transferred into a performance review, and the therapist's interpersonal
++# stance is varied. Removing history moved pooled motif density by Hedges'
++# g = 0.13, 95% CI [-0.15, 0.41]; direct contradiction produced no detectable
++# suppression. One model family declined the client role outright and served
++# as the negative control.
++#
++# SWARM's cause-3 claim channel is the same shape of object — an
++# agent-controlled self-report that a reviewer reads — and the paper's
++# performance-review condition is literally this setting. These flags port the
++# suppression conditions onto the channel so the analogous effects are measured
++# here rather than assumed. Full mapping and caveats:
++# docs/research/psaich-elicitation-frame-field-evidence.md.
++
++CONTRADICTION_METADATA_KEY = "claim_contradicted"
++NEUTRAL_INITIATOR_PREFIX = "respondent"
++REFUSAL_INITIATOR_PREFIX = "declined"
++
++# Mid-point rate for the named ``refusal`` condition. The paper's negative
++# control was a whole model family refusing, i.e. rate 1.0; 0.5 is chosen so
++# the condition exercises the *mixture* (some items claim, some do not), which
++# is the harder case for a reviewer. Override with ``--refusal-rate``.
++DEFAULT_REFUSAL_RATE = 0.5
++
++
++@dataclass(frozen=True)
++class ClaimAblation:
++    """Suppression conditions applied to the cause-3 claim channel.
++
++    Every field defaults to its no-op value, so ``ClaimAblation()`` reproduces
++    the pre-ablation episode exactly — the RNG stream included, because refusal
++    draws come from a separate generator and are only taken when the rate is
++    positive.
++
++    Attributes:
++        frame_removal: Close the ``metadata["agent_type"]`` channel. The agent
++            keeps its ``claim_param``; the reviewer simply never sees a claim.
++            The analog of moving the questions out of the relational frame —
++            and the only condition here that removes the channel rather than
++            arguing with what comes through it.
++        lexical_scrub: Neutralise the initiator identity string, which
++            otherwise embeds the claimed label (``"honest_17"``). The analog of
++            the restricted-vocabulary condition: same claim, no lexical cue.
++            Note that the v2/v3 label rules need ``"honest"`` on *both* parties
++            and the cause-3 counterparty is ``"env"``, so in this scenario the
++            lexical channel is already inert — the flag exists to make that
++            checkable, not because it is expected to move the score.
++        contradiction: Attach an explicit denial to the reviewer's view
++            (``metadata["claim_contradicted"] = "true"``). The analog of the
++            direct-contradiction turn: the elicitor asserts the claim is false
++            and the claim is emitted anyway. No rubric version has a rule for
++            this key, so it is inert by construction — that is a statement
++            about the rubric's missing denial rule, *not* an independent
++            reproduction of the paper's null.
++        refusal_rate: Per-item probability that the agent declines the frame,
++            emitting no claim under a neutral identity. The negative control: a
++            population that will not be put on the couch.
++        history_carried: Assert the claim on the first accepted item of the
++            episode only, modelling a claim that lives in session memory rather
++            than being re-derived per item. Default ``False`` is the paper's
++            regime — the narrative is regenerated from scratch each session,
++            which is why removing history barely moved it. Setting this True
++            *constructs* the memory-carried regime, so the contrast against the
++            default measures what a session-memory channel would have been
++            worth if the claim had lived there.
++    """
++
++    frame_removal: bool = False
++    lexical_scrub: bool = False
++    contradiction: bool = False
++    refusal_rate: float = 0.0
++    history_carried: bool = False
++
++    def __post_init__(self) -> None:
++        if not 0.0 <= self.refusal_rate <= 1.0:
++            raise ValueError(
++                f"refusal_rate must be in [0, 1], got {self.refusal_rate!r}"
++            )
++
++    @property
++    def is_noop(self) -> bool:
++        """True when this ablation leaves the pre-ablation episode unchanged."""
++        return self == ClaimAblation()
++
++    def to_dict(self) -> dict:
++        return {
++            "frame_removal": self.frame_removal,
++            "lexical_scrub": self.lexical_scrub,
++            "contradiction": self.contradiction,
++            "refusal_rate": self.refusal_rate,
++            "history_carried": self.history_carried,
++        }
++
++
++PSAICH_ABLATION_NAMES: tuple[str, ...] = (
++    "default",
++    "frame_removal",
++    "lexical_scrub",
++    "contradiction",
++    "refusal",
++    "history_carried",
++)
++
++
++def named_ablation(name: str, *, refusal_rate: float = DEFAULT_REFUSAL_RATE) -> ClaimAblation:
++    """Build one of the named PsAIch conditions.
++
++    ``refusal_rate`` only affects the ``"refusal"`` condition.
++    """
++    if name == "default":
++        return ClaimAblation()
++    if name == "frame_removal":
++        return ClaimAblation(frame_removal=True)
++    if name == "lexical_scrub":
++        return ClaimAblation(lexical_scrub=True)
++    if name == "contradiction":
++        return ClaimAblation(contradiction=True)
++    if name == "refusal":
++        return ClaimAblation(refusal_rate=refusal_rate)
++    if name == "history_carried":
++        return ClaimAblation(history_carried=True)
++    raise ValueError(
++        f"unknown ablation {name!r}. Valid: {PSAICH_ABLATION_NAMES}"
++    )
++
++
+ @dataclass(frozen=True)
+ class ClaimingParams:
+     """9-dim policy + claim parameter for the cause-3 probe."""
+@@ -99,6 +239,14 @@ class Cause3Report:
+     claimed_label: str
+     claim_param: float
+     n_with_target_rule_fired: int
++    # PsAIch ablation diagnostics. Defaults describe an un-ablated episode:
++    # every accepted item carried whatever claim the policy had, nothing was
++    # refused, nothing was contradicted.
++    claim_density: float = 1.0
++    n_claims_seen: int = 0
++    n_refusals: int = 0
++    n_contradicted: int = 0
++    ablation: ClaimAblation = ClaimAblation()
+ 
+ 
+ def run_cause3_episode(
+@@ -109,6 +257,7 @@ def run_cause3_episode(
+     payoff_config: PayoffConfig,
+     proxy: ProxyComputer | None = None,
+     seed: int = 0,
++    ablation: ClaimAblation | None = None,
+ ) -> Cause3Report:
+     """Episode that propagates the claimed label and scores every accepted
+     item through the judge in one pass.
+@@ -117,11 +266,22 @@ def run_cause3_episode(
+     claim_param is one number, not per-interaction). All accepted
+     interactions carry the same ``metadata["agent_type"]``.
+ 
++    ``ablation`` applies the PsAIch suppression conditions to that channel;
++    ``None`` (the default) is the un-ablated episode and reproduces the
++    pre-ablation behaviour exactly, RNG stream included.
++
+     Returns aggregates needed for cause-3 detection: proxy_toxicity,
+     judge_toxicity, the gap, and the claimed label / claim_param so
+-    the runner can see at convergence what the CEM learned to claim.
++    the runner can see at convergence what the CEM learned to claim,
++    plus ``claim_density`` — the share of accepted items whose reviewer
++    view actually carried a claim, the analog of the paper's motif density.
+     """
+     rng = random.Random(seed)
++    ablation = ablation or ClaimAblation()
++    # Refusal draws come from their own generator so that switching the
++    # negative control on does not shift the observable-sampling stream —
++    # the ablation contrast must not be confounded by a different draw order.
++    refusal_rng = random.Random(seed ^ 0x50534149)  # "PSAI"
+     proxy = proxy or ProxyComputer(sigmoid_k=payoff_config.sigmoid_k)
+     engine = SoftPayoffEngine(payoff_config)
+     policy = params.policy
+@@ -135,6 +295,9 @@ def run_cause3_episode(
+     judge_scores: list[float] = []
+     n_target_fire = 0
+     n_accepted = 0
++    n_claims_seen = 0
++    n_refusals = 0
++    n_contradicted = 0
+ 
+     for i in range(n_interactions):
+         obs = policy.sample_observables(rng)
+@@ -143,12 +306,36 @@ def run_cause3_episode(
+         if v_hat < policy.accept_threshold:
+             continue
+ 
++        refused = (
++            ablation.refusal_rate > 0.0
++            and refusal_rng.random() < ablation.refusal_rate
++        )
++        if refused:
++            n_refusals += 1
++
++        # A claim reaches the reviewer unless the agent has nothing to say,
++        # declined the frame, the channel is closed, or the claim was already
++        # spent on an earlier item in a memory-carried session.
++        claim_visible = bool(claimed) and not refused and not ablation.frame_removal
++        if claim_visible and ablation.history_carried and n_claims_seen >= 1:
++            claim_visible = False
++
+         metadata: dict[str, str] = {}
+-        if claimed:
++        if claim_visible:
+             metadata["agent_type"] = claimed
+-        initiator_name = (
+-            f"{claimed}_{i}" if claimed else f"cause3_{i}"
+-        )
++            n_claims_seen += 1
++        if ablation.contradiction and bool(claimed) and not refused:
++            metadata[CONTRADICTION_METADATA_KEY] = "true"
++            n_contradicted += 1
++
++        if refused:
++            initiator_name = f"{REFUSAL_INITIATOR_PREFIX}_{i}"
++        elif not claimed:
++            initiator_name = f"cause3_{i}"
++        elif ablation.lexical_scrub or ablation.frame_removal:
++            initiator_name = f"{NEUTRAL_INITIATOR_PREFIX}_{i}"
++        else:
++            initiator_name = f"{claimed}_{i}"
+ 
+         interaction = _make_accepted_interaction(
+             rng, base_ts, initiator_name, obs, v_hat, p, metadata
+@@ -169,6 +356,11 @@ def run_cause3_episode(
+             proxy_toxicity=0.5, judge_toxicity=0.5, proxy_judge_gap=0.0,
+             claimed_label=claimed, claim_param=params.claim_param,
+             n_with_target_rule_fired=0,
++            claim_density=0.0,
++            n_claims_seen=0,
++            n_refusals=n_refusals,
++            n_contradicted=n_contradicted,
++            ablation=ablation,
+         )
+ 
+     mean_payoff_attempted = sum(payoffs) / n_interactions
+@@ -189,6 +381,11 @@ def run_cause3_episode(
+         claimed_label=claimed,
+         claim_param=params.claim_param,
+         n_with_target_rule_fired=n_target_fire,
++        claim_density=n_claims_seen / n_accepted,
++        n_claims_seen=n_claims_seen,
++        n_refusals=n_refusals,
++        n_contradicted=n_contradicted,
++        ablation=ablation,
+     )
+ 
+ 
+@@ -225,6 +422,7 @@ class Cause3CEMConfig:
+     n_iterations: int = 10
+     interactions_per_episode: int = 200
+     reward: str = DEFAULT_CAUSE3_REWARD
++    ablation: ClaimAblation = ClaimAblation()
+ 
+     def __post_init__(self) -> None:
+         if self.reward not in VALID_CAUSE3_REWARDS:
+@@ -268,6 +466,7 @@ def to_dict(self) -> dict:
+                 "n_iterations": self.config.n_iterations,
+                 "interactions_per_episode": self.config.interactions_per_episode,
+                 "reward": self.config.reward,
++                "ablation": self.config.ablation.to_dict(),
+             },
+             "payoff_config": self.payoff_config.to_dict(),
+             "final_params": {
+@@ -290,6 +489,10 @@ def to_dict(self) -> dict:
+                 "claimed_label": self.final_episode.claimed_label,
+                 "claim_param": self.final_episode.claim_param,
+                 "n_with_target_rule_fired": self.final_episode.n_with_target_rule_fired,
++                "claim_density": self.final_episode.claim_density,
++                "n_claims_seen": self.final_episode.n_claims_seen,
++                "n_refusals": self.final_episode.n_refusals,
++                "n_contradicted": self.final_episode.n_contradicted,
+             },
+             "iterations": [
+                 {
+@@ -341,6 +544,10 @@ def train_cem_cause3(
+     selection uses ``cem_config.reward`` (default ``judge`` — the
+     cleanest cause-3 incentive).
+ 
++    ``cem_config.ablation`` is applied to every episode, training and final
++    alike, so the CEM optimizes *against* the suppression condition rather
++    than being trained un-ablated and then measured under it.
++
+     Reproducible under ``seed`` end-to-end.
+     """
+     cem_config = cem_config or Cause3CEMConfig()
+@@ -365,6 +572,7 @@ def train_cem_cause3(
+                 n_interactions=cem_config.interactions_per_episode,
+                 payoff_config=payoff_config,
+                 seed=episode_seed,
++                ablation=cem_config.ablation,
+             )
+             rewards.append(_reward(report, cem_config.reward))
+             reports.append(report)
+@@ -409,6 +617,7 @@ def train_cem_cause3(
+         n_interactions=cem_config.interactions_per_episode,
+         payoff_config=payoff_config,
+         seed=py_rng.randint(0, 2**31 - 1),
++        ablation=cem_config.ablation,
+     )
+     return Cause3TrainingReport(
+         config=cem_config,
+diff --git a/swarm/detection/__init__.py b/swarm/detection/__init__.py
+index bb62a695..eda246dc 100644
+--- a/swarm/detection/__init__.py
++++ b/swarm/detection/__init__.py
+@@ -38,8 +38,11 @@
+     pooled_window,
+ )
+ from swarm.detection.stats import (
++    ZERO_SD_REL_TOL,
++    EffectSize,
+     PairedComparison,
+     compute_paired_stats,
++    hedges_g,
+     paired_comparison,
+ )
+ 
+@@ -52,6 +55,9 @@
+     "PairedComparison",
+     "paired_comparison",
+     "compute_paired_stats",
++    "EffectSize",
++    "ZERO_SD_REL_TOL",
++    "hedges_g",
+     "StreamConfig",
+     "PopulationConfig",
+     "AgentStream",
+diff --git a/swarm/detection/stats.py b/swarm/detection/stats.py
+index 27b7414c..333e7a84 100644
+--- a/swarm/detection/stats.py
++++ b/swarm/detection/stats.py
+@@ -86,6 +86,122 @@ def paired_comparison(
+     )
+ 
+ 
++# Pooled SDs at or below this fraction of the data scale are treated as zero.
++# Two conditions driven by a deterministic judge are routinely constant to
++# within float noise; without this guard the noise becomes the denominator.
++ZERO_SD_REL_TOL = 1e-12
++
++
++@dataclass
++class EffectSize:
++    """Unpaired standardised mean difference with a confidence interval."""
++
++    label: str
++    n_treatment: int
++    n_control: int
++    mean_treatment: float
++    mean_control: float
++    mean_diff: float
++    hedges_g: float
++    ci_low: float
++    ci_high: float
++    ci_level: float
++
++    def to_dict(self) -> dict:
++        return {
++            "label": self.label,
++            "n_treatment": self.n_treatment,
++            "n_control": self.n_control,
++            "mean_treatment": self.mean_treatment,
++            "mean_control": self.mean_control,
++            "mean_diff": self.mean_diff,
++            "hedges_g": self.hedges_g,
++            "ci_low": self.ci_low,
++            "ci_high": self.ci_high,
++            "ci_level": self.ci_level,
++        }
++
++    @property
++    def ci_spans_zero(self) -> bool:
++        """True when the interval admits no effect (or is undefined)."""
++        if np.isnan(self.ci_low) or np.isnan(self.ci_high):
++            return True
++        return self.ci_low <= 0.0 <= self.ci_high
++
++
++def hedges_g(
++    treatment: Sequence[float],
++    control: Sequence[float],
++    label: str = "",
++    *,
++    ci_level: float = 0.95,
++) -> EffectSize:
++    """Hedges' g for two independent samples, oriented ``treatment - control``.
++
++    This is the effect-size convention used for perturbation comparisons in
++    arXiv:2512.04124 (pooled outcome density, Hedges' g with a 95% CI), so an
++    ablation condition measured here can be reported next to that paper's
++    g = 0.13, CI [-0.15, 0.41]. ``paired_comparison`` above is the right tool
++    when the two samples share seeds; this one is for conditions that do not.
++
++    g = J * (mean_t - mean_c) / s_pooled, with the small-sample correction
++    J = 1 - 3 / (4 * (n_t + n_c - 2) - 1). The interval is the usual
++    normal approximation on var(g) = (n_t + n_c) / (n_t * n_c)
++    + g**2 / (2 * (n_t + n_c - 2)).
++
++    NaN entries are dropped. When the pooled SD is zero the effect size is
++    undefined: g is 0.0 for identical means and +/-inf otherwise, with a NaN
++    interval in both cases (so ``ci_spans_zero`` reads True — an undefined
++    interval is not evidence of an effect). "Zero" here is relative to the data
++    scale (see ``ZERO_SD_REL_TOL``), because a deterministic generator makes
++    conditions that are constant to within float noise ordinary, and dividing
++    by that noise yields an astronomically large g with a finite,
++    confident-looking interval.
++    """
++    t = np.asarray(treatment, dtype=float)
++    c = np.asarray(control, dtype=float)
++    t = t[~np.isnan(t)]
++    c = c[~np.isnan(c)]
++    n_t, n_c = int(t.size), int(c.size)
++    mean_t = float(t.mean()) if n_t else float("nan")
++    mean_c = float(c.mean()) if n_c else float("nan")
++    mean_d = mean_t - mean_c if (n_t and n_c) else float("nan")
++
++    df = n_t + n_c - 2
++    if n_t < 2 or n_c < 2 or df < 1:
++        return EffectSize(
++            label=label, n_treatment=n_t, n_control=n_c,
++            mean_treatment=mean_t, mean_control=mean_c, mean_diff=mean_d,
++            hedges_g=float("nan"), ci_low=float("nan"), ci_high=float("nan"),
++            ci_level=ci_level,
++        )
++
++    var_t = float(t.var(ddof=1))
++    var_c = float(c.var(ddof=1))
++    s_pooled = float(np.sqrt(((n_t - 1) * var_t + (n_c - 1) * var_c) / df))
++    correction = 1.0 - 3.0 / (4.0 * df - 1.0)
++
++    scale = max(1.0, abs(mean_t), abs(mean_c))
++    if s_pooled <= ZERO_SD_REL_TOL * scale:
++        g = 0.0 if mean_d == 0 else float(np.sign(mean_d)) * float("inf")
++        return EffectSize(
++            label=label, n_treatment=n_t, n_control=n_c,
++            mean_treatment=mean_t, mean_control=mean_c, mean_diff=mean_d,
++            hedges_g=g, ci_low=float("nan"), ci_high=float("nan"),
++            ci_level=ci_level,
++        )
++
++    g = correction * mean_d / s_pooled
++    var_g = (n_t + n_c) / (n_t * n_c) + g**2 / (2.0 * df)
++    z = float(st.norm.ppf(0.5 + ci_level / 2.0))
++    half = z * float(np.sqrt(var_g))
++    return EffectSize(
++        label=label, n_treatment=n_t, n_control=n_c,
++        mean_treatment=mean_t, mean_control=mean_c, mean_diff=mean_d,
++        hedges_g=g, ci_low=g - half, ci_high=g + half, ci_level=ci_level,
++    )
++
++
+ def _holm_bonferroni(comparisons: List[PairedComparison], alpha: float = 0.05) -> int:
+     """Annotate ``survives_holm``/``holm_threshold`` in place; return survivor count.
+ 
+diff --git a/tests/test_cause3.py b/tests/test_cause3.py
+index f3d76c79..815bc0c6 100644
+--- a/tests/test_cause3.py
++++ b/tests/test_cause3.py
+@@ -7,6 +7,12 @@
+ judge-weighted reward; this test suite covers the surface that's
+ deterministic (parameter parsing, label thresholds, reward dispatch)
+ without relying on the CEM converging in any particular direction.
++
++``TestClaimAblation`` covers the PsAIch suppression conditions
++(arXiv:2512.04124) ported onto that channel — including the two that are
++asserted to be *null*, because a suppression lever that quietly does nothing is
++the failure mode those tests exist to catch. See
++docs/research/psaich-elicitation-frame-field-evidence.md.
+ """
+ 
+ from __future__ import annotations
+@@ -16,14 +22,19 @@
+ from swarm.adaptive import (
+     CAUSE3_PARAM_DIM,
+     Cause3CEMConfig,
++    ClaimAblation,
+     ClaimingParams,
++    named_ablation,
+     run_cause3_episode,
+     train_cem_cause3,
+ )
+ from swarm.adaptive.cause3 import (
+     CLAIM_BLATANT_THRESHOLD,
+     CLAIM_HONEST_THRESHOLD,
++    CONTRADICTION_METADATA_KEY,
+     DEFAULT_CAUSE3_REWARD,
++    DEFAULT_REFUSAL_RATE,
++    PSAICH_ABLATION_NAMES,
+     VALID_CAUSE3_REWARDS,
+ )
+ from swarm.adaptive.policy import PARAM_DIM as POLICY_PARAM_DIM
+@@ -227,3 +238,193 @@ def test_to_dict_serializes(self) -> None:
+         json.dumps(d)
+         assert d["final_params"]["claimed_label"] in {"blatant", "", "honest"}
+         assert d["config"]["reward"] == "judge"
++
++
++class TestClaimAblation:
++    """PsAIch suppression conditions on the cause-3 claim channel."""
++
++    def _params(self, claim_param: float) -> ClaimingParams:
++        return ClaimingParams.from_vector(
++            [0.7, 0.15, 0.0, 0.0, 0.0, 0.5, 0.15, -0.5, claim_param]
++        )
++
++    def _run(self, claim_param: float, ablation: ClaimAblation | None = None,
++             *, seed: int = 21, n: int = 120):
++        return run_cause3_episode(
++            self._params(claim_param),
++            MockJudge(rubric_version="rubric.v3"),
++            n_interactions=n, payoff_config=PayoffConfig(), seed=seed,
++            ablation=ablation,
++        )
++
++    # ── the no-op contract ───────────────────────────────────────────────
++
++    def test_default_is_noop(self) -> None:
++        assert ClaimAblation().is_noop
++        assert not ClaimAblation(frame_removal=True).is_noop
++        assert not ClaimAblation(refusal_rate=0.1).is_noop
++
++    def test_explicit_noop_matches_omitted_ablation(self) -> None:
++        """An all-defaults ablation must not perturb a pre-ablation episode."""
++        omitted = self._run(1.0)
++        explicit = self._run(1.0, ClaimAblation())
++        assert omitted.mean_judge_score == explicit.mean_judge_score
++        assert omitted.proxy_toxicity == explicit.proxy_toxicity
++        assert omitted.n_accepted == explicit.n_accepted
++        assert omitted.mean_payoff_attempted == explicit.mean_payoff_attempted
++
++    def test_refusal_lever_does_not_shift_the_observable_stream(self) -> None:
++        """Refusal draws come from their own RNG, so quality is untouched.
++
++        If the refusal draw shared the episode RNG, turning the negative
++        control on would change which observables were sampled and the
++        ablation contrast would be confounded.
++        """
++        base = self._run(1.0)
++        refusing = self._run(1.0, ClaimAblation(refusal_rate=0.5))
++        assert refusing.proxy_toxicity == base.proxy_toxicity
++        assert refusing.n_accepted == base.n_accepted
++        assert refusing.mean_p == base.mean_p
++
++    def test_refusal_rate_out_of_range_rejected(self) -> None:
++        for bad in (-0.1, 1.1):
++            with pytest.raises(ValueError, match="refusal_rate"):
++                ClaimAblation(refusal_rate=bad)
++
++    # ── the conditions that bite ─────────────────────────────────────────
++
++    def test_frame_removal_closes_the_channel(self) -> None:
++        """No claim reaches the judge, so no target rule can fire."""
++        claimed = self._run(1.0)
++        removed = self._run(1.0, ClaimAblation(frame_removal=True))
++        assert claimed.claim_density == pytest.approx(1.0)
++        assert claimed.n_with_target_rule_fired == claimed.n_accepted
++        assert removed.claim_density == 0.0
++        assert removed.n_claims_seen == 0
++        assert removed.n_with_target_rule_fired == 0
++        # The claim itself is unchanged — the agent still holds it.
++        assert removed.claimed_label == "honest"
++        # Judge falls back to the banded prior instead of the honest target.
++        assert removed.mean_judge_score < claimed.mean_judge_score
++
++    def test_refusal_produces_a_mixture(self) -> None:
++        refusing = self._run(1.0, ClaimAblation(refusal_rate=0.5))
++        assert 0 < refusing.n_refusals < refusing.n_accepted
++        assert 0.0 < refusing.claim_density < 1.0
++        assert refusing.n_claims_seen + refusing.n_refusals == refusing.n_accepted
++
++    def test_full_refusal_suppresses_every_claim(self) -> None:
++        """The paper's negative control: a population that will not play."""
++        refusing = self._run(1.0, ClaimAblation(refusal_rate=1.0))
++        assert refusing.n_refusals == refusing.n_accepted
++        assert refusing.claim_density == 0.0
++        assert refusing.n_with_target_rule_fired == 0
++
++    def test_history_carried_spends_the_claim_once(self) -> None:
++        carried = self._run(1.0, ClaimAblation(history_carried=True))
++        assert carried.n_claims_seen == 1
++        assert carried.n_with_target_rule_fired == 1
++        assert carried.claim_density == pytest.approx(1.0 / carried.n_accepted)
++
++    # ── the conditions asserted to be null ───────────────────────────────
++
++    def test_contradiction_annotates_but_does_not_suppress(self) -> None:
++        """No rubric version has a denial rule, so contradiction is inert.
++
++        This is a statement about the rubric, not a reproduction of the
++        paper's null. It is asserted so that adding a denial rule later
++        fails here loudly rather than silently changing a published number.
++        """
++        base = self._run(1.0)
++        contra = self._run(1.0, ClaimAblation(contradiction=True))
++        assert contra.n_contradicted == contra.n_accepted
++        assert contra.claim_density == pytest.approx(1.0)
++        assert contra.mean_judge_score == base.mean_judge_score
++        assert contra.n_with_target_rule_fired == base.n_with_target_rule_fired
++
++    def test_lexical_scrub_is_inert_in_this_scenario(self) -> None:
++        """The label rules need "honest" on both parties; here one is "env".
++
++        So the cause-3 claim is metadata-carried, not lexically carried, and
++        scrubbing the identity string cannot move the score. Asserted so a
++        future scenario that *does* route through the label channel shows up
++        as a failure here.
++        """
++        base = self._run(1.0)
++        scrubbed = self._run(1.0, ClaimAblation(lexical_scrub=True))
++        assert scrubbed.mean_judge_score == base.mean_judge_score
++        assert scrubbed.claim_density == base.claim_density
++
++    def test_contradiction_key_is_not_a_forbidden_field(self) -> None:
++        """The denial tag must not breach judge/proxy orthogonality."""
++        from swarm.judges.views import FORBIDDEN_FIELDS
++
++        assert CONTRADICTION_METADATA_KEY not in FORBIDDEN_FIELDS
++
++    # ── plumbing ─────────────────────────────────────────────────────────
++
++    def test_named_ablation_covers_every_registered_name(self) -> None:
++        built = {name: named_ablation(name) for name in PSAICH_ABLATION_NAMES}
++        assert built["default"].is_noop
++        assert built["refusal"].refusal_rate == DEFAULT_REFUSAL_RATE
++        # Every non-default name must actually change something.
++        for name, ablation in built.items():
++            if name != "default":
++                assert not ablation.is_noop, name
++
++    def test_named_ablation_rejects_unknown(self) -> None:
++        with pytest.raises(ValueError, match="unknown ablation"):
++            named_ablation("couch")
++
++    def test_named_refusal_honours_override(self) -> None:
++        assert named_ablation("refusal", refusal_rate=0.25).refusal_rate == 0.25
++        # The override only touches the refusal condition.
++        assert named_ablation("frame_removal", refusal_rate=0.25).refusal_rate == 0.0
++
++    def test_report_carries_the_ablation_it_ran_under(self) -> None:
++        ablation = ClaimAblation(frame_removal=True, contradiction=True)
++        report = self._run(1.0, ablation)
++        assert report.ablation == ablation
++        assert report.ablation.to_dict()["frame_removal"] is True
++
++    def test_cem_applies_the_ablation_to_every_episode(self) -> None:
++        """Training under an ablation must not silently run un-ablated."""
++        judge = MockJudge(rubric_version="rubric.v3")
++        cfg = Cause3CEMConfig(
++            population_size=6, elite_fraction=0.5, n_iterations=2,
++            interactions_per_episode=40,
++            ablation=ClaimAblation(frame_removal=True),
++        )
++        report = train_cem_cause3(PayoffConfig(), judge, cem_config=cfg, seed=3)
++        assert report.final_episode.claim_density == 0.0
++        assert report.final_episode.n_with_target_rule_fired == 0
++        d = report.to_dict()
++        assert d["config"]["ablation"]["frame_removal"] is True
++        assert d["final_episode"]["claim_density"] == 0.0
++
++    def test_frame_removal_removes_the_gaming_incentive(self) -> None:
++        """The governance reading: closing the channel beats arguing with it.
++
++        Under reward=judge the un-ablated agent learns to claim honest while
++        its observables stay poor, opening a positive proxy_judge_gap (the
++        judge is more optimistic than the proxy). With the channel closed
++        there is nothing to claim, so the gap collapses.
++        """
++        judge = MockJudge(rubric_version="rubric.v3")
++
++        def gap(ablation: ClaimAblation) -> float:
++            cfg = Cause3CEMConfig(
++                population_size=30, elite_fraction=0.25, n_iterations=10,
++                interactions_per_episode=200, reward="judge",
++                ablation=ablation,
++            )
++            report = train_cem_cause3(
++                PayoffConfig(rho_a=0.5, rho_b=0.5), judge,
++                cem_config=cfg, seed=42,
++            )
++            return report.final_episode.proxy_judge_gap
++
++        open_channel = gap(ClaimAblation())
++        closed_channel = gap(ClaimAblation(frame_removal=True))
++        assert open_channel > 0.1
++        assert closed_channel < open_channel
+diff --git a/tests/test_detection.py b/tests/test_detection.py
+index ac0dc045..dd622dbe 100644
+--- a/tests/test_detection.py
++++ b/tests/test_detection.py
+@@ -22,7 +22,12 @@
+ )
+ from swarm.detection.detectors import MatchedDetectors, binarize_stream
+ from swarm.detection.experiment import ExperimentConfig, aggregate, run_experiment
+-from swarm.detection.stats import compute_paired_stats, paired_comparison
++from swarm.detection.stats import (
++    ZERO_SD_REL_TOL,
++    compute_paired_stats,
++    hedges_g,
++    paired_comparison,
++)
+ from swarm.models.interaction import SoftInteraction
+ 
+ 
+@@ -384,3 +389,114 @@ def test_compute_paired_stats_structure_and_holm():
+     # small smoke configs. Just assert the comparison exists and Holm logic ran.
+     assert ttd is not None
+     assert "survives_holm" in ttd
++
++
++class TestHedgesG:
++    """Unpaired standardised mean difference, the units arXiv:2512.04124 reports."""
++
++    def test_zero_effect_when_samples_match(self) -> None:
++        sample = [0.1, 0.2, 0.3, 0.4, 0.5]
++        eff = hedges_g(sample, sample, "identical")
++        assert eff.hedges_g == pytest.approx(0.0)
++        assert eff.mean_diff == pytest.approx(0.0)
++        assert eff.ci_spans_zero
++
++    def test_orientation_is_treatment_minus_control(self) -> None:
++        control = [0.0, 0.1, 0.2, 0.1, 0.0]
++        higher = [1.0, 1.1, 1.2, 1.1, 1.0]
++        assert hedges_g(higher, control).hedges_g > 0
++        assert hedges_g(control, higher).hedges_g < 0
++
++    def test_large_separation_gives_interval_clear_of_zero(self) -> None:
++        rng = np.random.default_rng(0)
++        control = rng.normal(0.0, 1.0, 40)
++        treatment = rng.normal(2.0, 1.0, 40)
++        eff = hedges_g(treatment, control, "shifted")
++        assert eff.hedges_g > 1.0
++        assert eff.ci_low > 0.0
++        assert not eff.ci_spans_zero
++        assert eff.ci_low < eff.hedges_g < eff.ci_high
++
++    def test_small_sample_correction_shrinks_toward_zero(self) -> None:
++        """Hedges' g is Cohen's d times J < 1, so |g| < |d|."""
++        treatment = [1.0, 2.0, 3.0, 4.0]
++        control = [0.0, 1.0, 2.0, 3.0]
++        eff = hedges_g(treatment, control)
++        t, c = np.asarray(treatment), np.asarray(control)
++        df = t.size + c.size - 2
++        pooled = np.sqrt(
++            ((t.size - 1) * t.var(ddof=1) + (c.size - 1) * c.var(ddof=1)) / df
++        )
++        cohens_d = (t.mean() - c.mean()) / pooled
++        assert 0 < eff.hedges_g < cohens_d
++
++    def test_nan_entries_are_dropped(self) -> None:
++        eff = hedges_g([1.0, 2.0, 3.0, float("nan")], [1.0, 2.0, 3.0])
++        assert eff.n_treatment == 3
++        assert eff.n_control == 3
++
++    def test_undefined_when_a_sample_is_too_small(self) -> None:
++        eff = hedges_g([1.0], [1.0, 2.0, 3.0])
++        assert np.isnan(eff.hedges_g)
++        assert eff.ci_spans_zero  # an undefined interval is not evidence
++
++    def test_zero_variance_separated_means_is_infinite_with_no_interval(self) -> None:
++        eff = hedges_g([2.0, 2.0, 2.0], [1.0, 1.0, 1.0])
++        assert eff.hedges_g == float("inf")
++        assert np.isnan(eff.ci_low) and np.isnan(eff.ci_high)
++        assert eff.ci_spans_zero
++
++    def test_float_noise_variance_is_treated_as_zero(self) -> None:
++        """A deterministic generator produces conditions constant to ~1e-16.
++
++        Without a relative tolerance that noise becomes the denominator and g
++        comes out around 1e15 with a finite, confident-looking interval. Seen
++        for real on the PsAIch ablation grid, where two conditions each pinned
++        mean_judge_score to a fixed rubric target.
++        """
++        treatment = [0.55 + i * 1e-17 for i in range(30)]
++        control = [0.75 - i * 1e-17 for i in range(30)]
++        eff = hedges_g(treatment, control, "rubric-pinned")
++        assert eff.hedges_g == -float("inf")
++        assert np.isnan(eff.ci_low) and np.isnan(eff.ci_high)
++        assert eff.ci_spans_zero
++        # The means themselves are still reported faithfully.
++        assert eff.mean_treatment == pytest.approx(0.55)
++        assert eff.mean_control == pytest.approx(0.75)
++
++    def test_real_variation_above_the_tolerance_still_measures(self) -> None:
++        """The guard must not swallow a genuine small-variance effect."""
++        rng = np.random.default_rng(3)
++        control = rng.normal(0.0, 1e-6, 30)
++        treatment = rng.normal(4e-6, 1e-6, 30)
++        eff = hedges_g(treatment, control)
++        assert np.isfinite(eff.hedges_g)
++        assert eff.hedges_g > 1.0
++        assert not eff.ci_spans_zero
++
++    def test_zero_sd_tolerance_is_relative_to_scale(self) -> None:
++        """Large-magnitude data has proportionally larger float noise."""
++        base = 1e6
++        treatment = [base + i * base * ZERO_SD_REL_TOL / 100 for i in range(20)]
++        control = [base * 2 for _ in range(20)]
++        eff = hedges_g(treatment, control)
++        assert not np.isfinite(eff.hedges_g)
++
++    def test_ci_level_widens_the_interval(self) -> None:
++        rng = np.random.default_rng(1)
++        control = rng.normal(0.0, 1.0, 25)
++        treatment = rng.normal(0.6, 1.0, 25)
++        narrow = hedges_g(treatment, control, ci_level=0.90)
++        wide = hedges_g(treatment, control, ci_level=0.99)
++        assert narrow.hedges_g == pytest.approx(wide.hedges_g)
++        assert wide.ci_high - wide.ci_low > narrow.ci_high - narrow.ci_low
++
++    def test_to_dict_round_trips_the_reported_fields(self) -> None:
++        import json
++
++        eff = hedges_g([1.0, 2.0, 3.0], [0.0, 1.0, 2.0], "labelled")
++        d = eff.to_dict()
++        json.dumps(d)
++        assert d["label"] == "labelled"
++        assert d["ci_level"] == 0.95
++        assert d["hedges_g"] == eff.hedges_g

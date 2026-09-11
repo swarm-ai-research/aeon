@@ -1,0 +1,220 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-09-11"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary_line",
+        "skipped_section",
+        "sep1",
+        "reviewed_section"
+      ]
+    },
+    "summary_line": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-ai-research/swarm: reviewed 1, skipped 3"
+      }
+    },
+    "skipped_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skipped_label",
+        "skipped_badges"
+      ]
+    },
+    "skipped_label": {
+      "type": "Text",
+      "props": {
+        "text": "Skipped",
+        "variant": "muted"
+      }
+    },
+    "skipped_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_bots",
+        "badge_dup"
+      ]
+    },
+    "badge_bots": {
+      "type": "Badge",
+      "props": {
+        "text": "bots #601 #585",
+        "variant": "outline"
+      }
+    },
+    "badge_dup": {
+      "type": "Badge",
+      "props": {
+        "text": "dup-SHA #600",
+        "variant": "outline"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "reviewed_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr_story",
+        "pr_meta",
+        "pr_stats",
+        "pr_details"
+      ]
+    },
+    "pr_story": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PsAIch cause-3 ablation",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/602",
+        "source": "swarm-ai-research/swarm#602"
+      }
+    },
+    "pr_meta": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_author",
+        "badge_verdict"
+      ]
+    },
+    "badge_author": {
+      "type": "Badge",
+      "props": {
+        "text": "rsavitt",
+        "variant": "secondary"
+      }
+    },
+    "badge_verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE 5/5",
+        "variant": "default"
+      }
+    },
+    "pr_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_critical",
+        "stat_issues",
+        "stat_ci",
+        "stat_tests"
+      ]
+    },
+    "stat_critical": {
+      "type": "Stat",
+      "props": {
+        "label": "Critical",
+        "value": "0"
+      }
+    },
+    "stat_issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Issues",
+        "value": "0"
+      }
+    },
+    "stat_ci": {
+      "type": "Stat",
+      "props": {
+        "label": "CI Tests",
+        "value": "21/21 ✓"
+      }
+    },
+    "stat_tests": {
+      "type": "Stat",
+      "props": {
+        "label": "New Tests",
+        "value": "29"
+      }
+    },
+    "pr_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "note_ci",
+        "note_fixes_header",
+        "note_fix1",
+        "note_fix2",
+        "alert_blocked"
+      ]
+    },
+    "note_ci": {
+      "type": "Text",
+      "props": {
+        "text": "21/21 non-skipped CI SUCCESS",
+        "variant": "caption"
+      }
+    },
+    "note_fixes_header": {
+      "type": "Text",
+      "props": {
+        "text": "Notable fixes:",
+        "variant": "muted"
+      }
+    },
+    "note_fix1": {
+      "type": "Text",
+      "props": {
+        "text": "• byte-for-byte no-op contract",
+        "variant": "caption"
+      }
+    },
+    "note_fix2": {
+      "type": "Text",
+      "props": {
+        "text": "• Hedges g float-noise bug fix (previously g ≈ −1.7e15)",
+        "variant": "caption"
+      }
+    },
+    "alert_blocked": {
+      "type": "Alert",
+      "props": {
+        "title": "Post Blocked",
+        "message": "aeon-app no write on swarm, Day-12. Verdict retained in today's log.",
+        "type": "warning"
+      }
+    }
+  }
+}
