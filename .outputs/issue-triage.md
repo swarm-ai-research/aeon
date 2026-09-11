@@ -1,11 +1,13 @@
-The task is a single-step short-circuit (no-op exit); no task list needed. Terminal log line emitted.
-
-`ISSUE_TRIAGE_OK no-watched-repos`
-
 ## Summary
 
-- Executed `skills/issue-triage/SKILL.md` with `${var}` empty.
-- **Config check failed**: `memory/watched-repos.md` is absent (also confirmed alternate path `memory/topics/watched-repos.md` absent). Per SKILL §Config, short-circuited with `ISSUE_TRIAGE_OK no-watched-repos` before target selection, permission probe, fetch, or classification.
-- **Files modified**: appended `## issue-triage` section + summary to `memory/logs/2026-09-10.md`.
-- **Writes to GitHub**: none. **Notify**: none (nothing actionable).
-- **Follow-up** (already tracked in MEMORY.md action queue, streak now 39 consecutive days): populate `memory/watched-repos.md` — and reconcile the path mismatch between issue-triage/code-health/github-monitor/changelog/weekly-shiplog (`memory/watched-repos.md`) and repo-revive (`memory/topics/watched-repos.md`) — OR disable the 6 dependents. Issue-triage is one of 3 skills that took the no-op path today.
+Executed `skills/issue-triage/SKILL.md`. Terminal state: **`ISSUE_TRIAGE_OK no-watched-repos`**.
+
+- `${var}` was empty and `memory/watched-repos.md` is absent → per §Config the skill short-circuits with no triage work.
+- This is the **40th consecutive day** of this short-circuit per [[watched-repos-config-missing-silent-short-circuits-6-skills]] (MEMORY.md tracked streak-39 through 09-10; today's run advances it to 40).
+- No labels applied, no comments posted, no notifications fired (nothing actionable per §9).
+
+**Files modified**
+- `memory/logs/2026-09-11.md` — appended `## Issue Triage` section with §10 log shape.
+
+**Follow-up (unchanged — long-standing action-queue item)**
+- Populate `memory/watched-repos.md` OR disable the 6 dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Also reconcile the path mismatch — repo-revive references `memory/topics/watched-repos.md`; the other five reference `memory/watched-repos.md`.
