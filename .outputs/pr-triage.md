@@ -1,19 +1,23 @@
 ## Summary
 
-Executed `skills/pr-triage/SKILL.md` with `var=swarm-ai-research/swarm` (repo mode). 3 open PRs in the 14-day window:
+Executed `skills/pr-triage/SKILL.md` with `var=swarm-ai-research/swarm` (repo mode).
 
-- **#601** (dependabot, langchain-core) — skipped (bot → routes to auto-merge)
-- **#585** (dependabot, browserslist) — skipped (bot → routes to auto-merge)
-- **#600** (rsavitt, `docs: membership null under run identity (52tl)`, +53/-0 across CHANGELOG.md + docs/research/collusion-wiki-replay.md, head `54a7d52`) — verdict **ACCEPTED**. Rubric: scope ✓ (docs-only, no protected paths) / format ✓ (no SKILL.md touched) / originality ✓ (no new skill) / size ✓ (53 ≤ 500).
+**Queue:** 4 open PRs in 14d window.
 
-**Write blocked** on both comment (`gh pr comment` → 403 `Resource not accessible by integration`) and label ops (`gh label create` → 403; `gh pr edit --add-label` → label not found), reconfirming [[aeon-app-no-write-on-swarm-repo]] Day 11. Logged as `PR_TRIAGE_NO_PERMISSION swarm-ai-research/swarm#600` + two `PR_TRIAGE_LABEL_SKIPPED` entries per SKILL step 6/7 error handling — did not abort.
+**Triaged: 1 · Skipped: 3**
+- **#602** (rsavitt, `feat(adaptive): PsAIch suppression conditions on the cause-3 claim channel`, +1206/-43 across 13 files, head `eb55473`) → **DEFER** on size (1249 lines >500, no `large-ok`). Scope check does not trip OUT-OF-SCOPE — none of `experiments/`, `swarm/`, `tests/` are on the protected-path list.
+- **#601** dependabot langchain-core — bot skip
+- **#600** rsavitt docs — already-triaged skip (head `54a7d52` unchanged since 09-10)
+- **#585** dependabot browserslist — bot skip
 
-**No notification** — rsavitt is a repeat external contributor (prior PRs #549/#586 per MOC), so the "first-PR welcome" gate doesn't trigger; no OUT-OF-SCOPE either.
+**Writes blocked** — both `gh pr comment` (`addComment`) and `gh label create` / `gh pr edit --add-label` returned `Resource not accessible by integration`; the swarm-repo aeon-app write-permission gap continues (Day 12 for [[aeon-app-no-write-on-swarm-repo]]). Verdict + evidence retained in `memory/logs/2026-09-11.md` per SKILL fallback.
 
-Files modified:
-- `memory/triaged-prs.json` — appended `{"n": 600, "sha": "54a7d52", "at": "2026-09-10", "verdict": "ACCEPTED", "note": "no-permission (write blocked); rsavitt docs+CHANGELOG only, +53/-0"}` (8th record in swarm array)
-- `memory/logs/2026-09-10.md` — appended pr-triage log entry
+**Files modified:**
+- `memory/triaged-prs.json` — appended `{"n": 602, "sha": "eb55473", "at": "2026-09-11", "verdict": "DEFER"}` (9th record in swarm array)
+- `memory/logs/2026-09-11.md` — `## pr-triage` block + `## Summary (pr-triage)` block
 
-Terminal: `PR_TRIAGE_OK swarm-ai-research/swarm — triaged=1 accepted=1 skipped=2 (bots); WRITE_BLOCKED all ops`.
+**Notification:** none — no OUT-OF-SCOPE, no first-PR welcome (rsavitt has prior records #549/#566/#586/#600). Routine DEFER outcome; per SKILL step 10 the PR comment is the signal, and its write-blocked state doesn't upgrade the notify gate.
 
-Follow-up: same standing item as prior runs — install aeon GitHub App on swarm-ai-research/swarm with `pull_requests: write` scope, OR route swarm triage via a PAT-backed path, OR document swarm as report-only in the SKILL.md preamble.
+**Terminal:** `PR_TRIAGE_OK swarm-ai-research/swarm — triaged=1 deferred=1 skipped=3 (bots=2, already-triaged=1); WRITE_BLOCKED all ops`.
+
+**Follow-up:** none required by this run. The standing item — install aeon app with `pull_requests: write` on the swarm repo OR route via PAT — is unchanged.
