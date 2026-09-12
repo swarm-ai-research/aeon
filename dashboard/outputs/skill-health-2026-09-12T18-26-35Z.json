@@ -1,0 +1,351 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-09-12",
+        "description": "Health monitoring report with systemic issue tracking"
+      },
+      "children": [
+        "status-section",
+        "separator-1",
+        "systemic-section",
+        "separator-2",
+        "runs-summary-section",
+        "separator-3",
+        "degraded-section",
+        "separator-4",
+        "no-data-section",
+        "separator-5",
+        "healthy-section",
+        "separator-6",
+        "delta-section",
+        "separator-7",
+        "gate-section"
+      ]
+    },
+    "status-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "health-stat",
+        "day-info",
+        "hash-badge"
+      ]
+    },
+    "health-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Status",
+        "value": "DEGRADED",
+        "delta": "38 skills"
+      }
+    },
+    "day-info": {
+      "type": "Text",
+      "props": {
+        "text": "70th steady-state day"
+      }
+    },
+    "hash-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "hash e27c0ac60367e7e5",
+        "variant": "outline"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "systemic-section": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "⚫ SYSTEMIC: ISS-001 OAuth-outage denominator burn (Day-86)",
+        "message": "All 38 DEGRADED skills share zero-token last_error tails from the 2026-06-06→06-20 outage. Every skill last_status=success, cf=0, success_rate 0.06–0.42 driven by historical failure denominator still in count. Anomalies.failing == [] (11th consecutive day at zero)."
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "runs-summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "runs-title",
+        "runs-grid"
+      ]
+    },
+    "runs-title": {
+      "type": "Heading",
+      "props": {
+        "text": "7-Day Runs Summary",
+        "level": "h3"
+      }
+    },
+    "runs-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "runs-total",
+        "runs-success",
+        "runs-fail",
+        "runs-progress"
+      ]
+    },
+    "runs-total": {
+      "type": "Stat",
+      "props": {
+        "label": "Total",
+        "value": "91"
+      }
+    },
+    "runs-success": {
+      "type": "Stat",
+      "props": {
+        "label": "Success",
+        "value": "87"
+      }
+    },
+    "runs-fail": {
+      "type": "Stat",
+      "props": {
+        "label": "Fail",
+        "value": "0"
+      }
+    },
+    "runs-progress": {
+      "type": "Stat",
+      "props": {
+        "label": "In Progress",
+        "value": "4"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "degraded-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded-heading",
+        "degraded-status",
+        "degraded-skills"
+      ]
+    },
+    "degraded-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 DEGRADED (38)",
+        "level": "h3"
+      }
+    },
+    "degraded-status": {
+      "type": "Text",
+      "props": {
+        "text": "Status: INVESTIGATE (ISS-001 denominator, no live regression)",
+        "variant": "muted"
+      }
+    },
+    "degraded-skills": {
+      "type": "Text",
+      "props": {
+        "text": "batch-health, changelog, code-health, compute-futures-eda, compute-macro-correlate, compute-pulse, cost-report, fleet-control, github-monitor, gitlawb-fleet-metrics, goal-tracker, heartbeat, issue-triage, janitor, memory-flush, memory-structural-dedupe, milestone-tracker, notegraph, planner, pr-review, pr-tracker, pr-triage, reflect, repo-revive, self-review, skill-analytics, skill-evals, skill-freshness, skill-graph, skill-health, skill-repair, skill-update-check, skillpacks, stale-content-pr-sweeper, suggest-edges, surplus-pulse, vuln-scanner, workflow-security-audit"
+      }
+    },
+    "separator-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "no-data-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "no-data-heading",
+        "no-data-status",
+        "no-data-skills"
+      ]
+    },
+    "no-data-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA (2)",
+        "level": "h3"
+      }
+    },
+    "no-data-status": {
+      "type": "Text",
+      "props": {
+        "text": "Status: DISPATCH-SKILL (66th silent day per [[enabled-skills-can-never-dispatch]])",
+        "variant": "muted"
+      }
+    },
+    "no-data-skills": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch, run-frequency-guard"
+      }
+    },
+    "separator-5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "healthy-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "healthy-heading",
+        "healthy-count",
+        "healthy-skills"
+      ]
+    },
+    "healthy-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟢 HEALTHY",
+        "level": "h3"
+      }
+    },
+    "healthy-count": {
+      "type": "Badge",
+      "props": {
+        "text": "4 skills",
+        "variant": "secondary"
+      }
+    },
+    "healthy-skills": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog"
+      }
+    },
+    "separator-6": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "delta-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "delta-heading",
+        "delta-pocket-alert",
+        "delta-issues-text",
+        "delta-issue-counts"
+      ]
+    },
+    "delta-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Delta vs 2026-09-08 run",
+        "level": "h3"
+      }
+    },
+    "delta-pocket-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Pocket infrastructure: 4-consecutive-days DEAD (09-09/10/11/12)",
+        "message": "batch-health filed ISS-026 on 2026-09-12 (6th in 48h-cadence series ISS-019→026), same 4-skill tuple as ISS-025/023. Not a skill-health signal (batch-health owns delivery)."
+      }
+    },
+    "delta-issues-text": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-025 filed 2026-09-10 (batch outage, same 4-skill tuple). Previous open: 21 → Current open: 23 (+2 from batch-health). No skill-health-owned issues to file/resolve this run."
+      }
+    },
+    "delta-issue-counts": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "issues-open-stat",
+        "issues-resolved-stat"
+      ]
+    },
+    "issues-open-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "23"
+      }
+    },
+    "issues-resolved-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      }
+    },
+    "separator-7": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "gate-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "gate-heading",
+        "gate-status-text"
+      ]
+    },
+    "gate-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Notification Gate",
+        "level": "h3"
+      }
+    },
+    "gate-status-text": {
+      "type": "Text",
+      "props": {
+        "text": "Status: NOTIFY. Hash unchanged. Elapsed: 94.5h (≥ 24h daily-reminder threshold). Previous notify: 2026-09-08T19:45:00Z"
+      }
+    }
+  }
+}
