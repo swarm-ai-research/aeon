@@ -1,0 +1,247 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Vuln Scanner — NVlabs/SoL-Pi"
+      },
+      "children": [
+        "repo-meta",
+        "sep-1",
+        "finding-section",
+        "sep-2",
+        "counts-section",
+        "sep-3",
+        "defenses-section",
+        "sep-4",
+        "disclosure-section",
+        "sep-5",
+        "scanner-section"
+      ]
+    },
+    "repo-meta": {
+      "type": "Text",
+      "props": {
+        "text": "1,404★ • TypeScript • NVIDIA pi-coding-agent extension",
+        "variant": "body"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "finding-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "finding-label",
+        "cve-alert"
+      ]
+    },
+    "finding-label": {
+      "type": "Text",
+      "props": {
+        "text": "1 confirmed finding",
+        "variant": "lead"
+      }
+    },
+    "cve-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "CVE: GHSA-82fw-gwwq-j7x9 / CVE-2026-84373",
+        "message": "Medium severity (CWE-22 path traversal) in vitest 4.1.9 + @vitest/mocker 4.1.9. Dev-only devDependency. Fixed in 4.1.11.",
+        "type": "warning"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "counts-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-code-vulns",
+        "stat-secrets"
+      ]
+    },
+    "stat-code-vulns": {
+      "type": "Stat",
+      "props": {
+        "label": "Code vulnerabilities",
+        "value": "0"
+      }
+    },
+    "stat-secrets": {
+      "type": "Stat",
+      "props": {
+        "label": "Verified secrets",
+        "value": "0"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "defenses-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "defense-label",
+        "defense-list"
+      ]
+    },
+    "defense-label": {
+      "type": "Text",
+      "props": {
+        "text": "Well-defended:",
+        "variant": "lead"
+      }
+    },
+    "defense-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "def-1",
+        "def-2",
+        "def-3"
+      ]
+    },
+    "def-1": {
+      "type": "Text",
+      "props": {
+        "text": "Semgrep silent",
+        "variant": "body"
+      }
+    },
+    "def-2": {
+      "type": "Text",
+      "props": {
+        "text": "SECURITY.md discloses attack surface",
+        "variant": "body"
+      }
+    },
+    "def-3": {
+      "type": "Text",
+      "props": {
+        "text": "safePiBashTempPath in evidence-preserving-reducer defensively narrowed",
+        "variant": "body"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "disclosure-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "disclosure-label",
+        "disclosure-pr",
+        "disclosure-note"
+      ]
+    },
+    "disclosure-label": {
+      "type": "Text",
+      "props": {
+        "text": "Disclosure Status",
+        "variant": "lead"
+      }
+    },
+    "disclosure-pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Public PR drafted",
+        "href": ".pending-disclosure/NVlabs-SoL-Pi-2026-09-12T161500Z-deps.md",
+        "source": "Pending Disclosure"
+      }
+    },
+    "disclosure-note": {
+      "type": "Text",
+      "props": {
+        "text": "Not auto-pushed. Operator submits per github-app-cannot-fork-third-party-repos.",
+        "variant": "caption"
+      }
+    },
+    "sep-5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "scanner-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "scanner-label",
+        "scanner-badges"
+      ]
+    },
+    "scanner-label": {
+      "type": "Text",
+      "props": {
+        "text": "Scanner Results",
+        "variant": "lead"
+      }
+    },
+    "scanner-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "scanner-semgrep",
+        "scanner-trufflehog",
+        "scanner-osv",
+        "scanner-slither"
+      ]
+    },
+    "scanner-semgrep": {
+      "type": "Badge",
+      "props": {
+        "text": "semgrep=ok",
+        "variant": "default"
+      }
+    },
+    "scanner-trufflehog": {
+      "type": "Badge",
+      "props": {
+        "text": "trufflehog=ok",
+        "variant": "default"
+      }
+    },
+    "scanner-osv": {
+      "type": "Badge",
+      "props": {
+        "text": "osv=ok",
+        "variant": "default"
+      }
+    },
+    "scanner-slither": {
+      "type": "Badge",
+      "props": {
+        "text": "slither=n/a (no .sol)",
+        "variant": "outline"
+      }
+    }
+  }
+}
