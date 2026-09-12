@@ -1,0 +1,91 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "stale-content-pr-sweeper"
+      },
+      "children": [
+        "content-stack"
+      ]
+    },
+    "content-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary",
+        "separator",
+        "closed-section",
+        "superseded-section"
+      ]
+    },
+    "summary": {
+      "type": "Stat",
+      "props": {
+        "label": "Stale PRs Closed",
+        "value": "1"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "closed-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "closed-label",
+        "pr64-link"
+      ]
+    },
+    "closed-label": {
+      "type": "Text",
+      "props": {
+        "text": "Closed:",
+        "variant": "lead"
+      }
+    },
+    "pr64-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#64 (notegraph/2026-09-10)",
+        "href": "https://github.com/aeon/aeon/pull/64"
+      }
+    },
+    "superseded-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "superseded-label",
+        "pr65-link"
+      ]
+    },
+    "superseded-label": {
+      "type": "Text",
+      "props": {
+        "text": "Superseded by:",
+        "variant": "lead"
+      }
+    },
+    "pr65-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#65 (notegraph/2026-09-11)",
+        "href": "https://github.com/aeon/aeon/pull/65"
+      }
+    }
+  }
+}
