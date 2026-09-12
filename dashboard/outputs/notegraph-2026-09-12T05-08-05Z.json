@@ -1,0 +1,32 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "text-status",
+        "pr-link"
+      ]
+    },
+    "text-status": {
+      "type": "Text",
+      "props": {
+        "text": "+3 notes wired in (371n/3906e)"
+      },
+      "children": []
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #66",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/66",
+        "source": "GitHub"
+      },
+      "children": []
+    }
+  }
+}
