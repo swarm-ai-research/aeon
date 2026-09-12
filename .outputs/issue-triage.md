@@ -1,13 +1,11 @@
+`ISSUE_TRIAGE_OK no-watched-repos`
+
 ## Summary
 
-Executed `skills/issue-triage/SKILL.md`. Terminal state: **`ISSUE_TRIAGE_OK no-watched-repos`**.
-
-- `${var}` was empty and `memory/watched-repos.md` is absent → per §Config the skill short-circuits with no triage work.
-- This is the **40th consecutive day** of this short-circuit per [[watched-repos-config-missing-silent-short-circuits-6-skills]] (MEMORY.md tracked streak-39 through 09-10; today's run advances it to 40).
-- No labels applied, no comments posted, no notifications fired (nothing actionable per §9).
+Ran the issue-triage skill. It short-circuited per the SKILL.md spec: `${var}` was empty and `memory/watched-repos.md` is absent, so no repos to triage and no notify fired.
 
 **Files modified**
-- `memory/logs/2026-09-11.md` — appended `## Issue Triage` section with §10 log shape.
+- `memory/logs/2026-09-12.md` — appended the run record with terminal line `ISSUE_TRIAGE_OK no-watched-repos`; noted chronic silent short-circuit is now streak-42 (streak-41 as of 09-11 per MEMORY.md).
 
-**Follow-up (unchanged — long-standing action-queue item)**
-- Populate `memory/watched-repos.md` OR disable the 6 dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Also reconcile the path mismatch — repo-revive references `memory/topics/watched-repos.md`; the other five reference `memory/watched-repos.md`.
+**Follow-up (unchanged, already in MEMORY.md action queue)**
+- Populate `memory/watched-repos.md` OR disable the 6 dependents (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Also reconcile the path mismatch — repo-revive references `memory/topics/watched-repos.md` while the other five reference `memory/watched-repos.md`.
