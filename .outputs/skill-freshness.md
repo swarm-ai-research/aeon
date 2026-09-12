@@ -1,16 +1,22 @@
-Done. Here's what was produced:
+Skill complete. Here's the summary:
 
 ## Summary
 
-**Skill:** `skill-freshness` | **Status:** `FRESHNESS_NO_CHANGE`
+**Status**: `FRESHNESS_NO_CHANGE` — no notification sent.
 
-**Run:** 44 enabled skills audited · 36 dependencies checked · 0 flagged · 0 chains (all commented out in `aeon.yml`)
+**What I did:**
+1. Parsed `aeon.yml` → 44 enabled skills, 0 active chains
+2. Grepped all 44 enabled `SKILL.md` files for file dependency patterns (articles, .outputs, memory/topics, memory/state)
+3. Applied exclusion filters: self-references, on_demand producers, implicit-only MISSING refs
+4. Scored all surviving dependencies using filename-embedded dates (GHA mtime is checkout time per [[skill-freshness-mtime-blind-in-gha]])
+5. Fleet verdict: **FRESHNESS_OK** — all dependencies within threshold
 
-**Verdict:** ✅ FRESHNESS_OK — same empty-flagged fingerprint (`da39a3ee…`) as the 2026-09-10 run 23.8h ago → no notification sent.
-
-**Key finding:** All file mtimes read as ~0h due to the GHA checkout mtime-blind issue (every file stamped at the runner's checkout time). This means age-based staleness detection is suppressed for this run — files exist on disk but their apparent age is always 0. The known fix (`git log -1 --format=%ct` per file) is tracked in the action queue under [[skill-freshness-mtime-blind-in-gha]].
+**Key findings (non-flagged):**
+- `vuln-scan-2026-09-05.md` at 168h — within 192h weekly threshold, 28h grace window remains (vuln-scanner runs today at 16:00 UTC)
+- `memory/topics/watched-repos.md` still missing — 6 skills silently short-circuit; not MISSING-flagged (implicit-only rule)
+- `memory/topics/compute-pulse.md` at 504h — self-reference excluded; compute-pulse runs today at 11:00 UTC
 
 **Files written:**
-- `articles/skill-freshness-2026-09-11.md` — full report
-- `memory/topics/skill-freshness-state.json` — updated `last_run_at`, `consumer_count` bumped to 44
-- `memory/logs/2026-09-11.md` — log entry appended
+- `articles/skill-freshness-2026-09-12.md` — full report
+- `memory/topics/skill-freshness-state.json` — last_run_at updated to 2026-09-12T09:30:00Z
+- `memory/logs/2026-09-12.md` — log block appended
