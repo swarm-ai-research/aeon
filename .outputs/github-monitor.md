@@ -1,14 +1,12 @@
 ## Summary
 
-Executed `skills/github-monitor/SKILL.md`. The required config file `memory/watched-repos.md` is missing, so the skill short-circuits per its own rules (empty config → log-and-end, no notification).
-
-**Result:** `GITHUB_MONITOR_EMPTY_CONFIG` — chronic streak now day 40 (was 39 per MEMORY.md line 19 as of 09-10).
+Executed `skills/github-monitor/SKILL.md`. The config file `memory/watched-repos.md` is absent (verified both canonical path and the `memory/topics/watched-repos.md` variant referenced by repo-revive), so the skill took its documented short-circuit: log `GITHUB_MONITOR_EMPTY_CONFIG` and end without notifying.
 
 **Files modified:**
-- `memory/logs/2026-09-11.md` — appended `### github-monitor` section with tier counts (all 0), empty-config sentinel, and streak carryover note.
+- `memory/logs/2026-09-12.md` — appended `### github-monitor` section with the empty-config log line, extending the chronic silent short-circuit streak to 42 days.
 
-**Follow-up (already in MEMORY.md action queue):**
-- Populate `memory/watched-repos.md` OR disable the 6 dependents (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive).
-- Reconcile SKILL.md path mismatch: `repo-revive` references `memory/topics/watched-repos.md`; the other five reference `memory/watched-repos.md`.
+**No notification sent** (silence is the correct signal per the skill).
 
-No notification fired (correct behavior — SKILL.md step 4 mandates silence on all-empty; step 5 also mandates silence on empty-config).
+**Follow-up (already in MEMORY.md action queue, unchanged):**
+- Populate `memory/watched-repos.md` OR disable the 6 dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive)
+- Reconcile the path mismatch between repo-revive (`memory/topics/watched-repos.md`) and the other five (`memory/watched-repos.md`)
