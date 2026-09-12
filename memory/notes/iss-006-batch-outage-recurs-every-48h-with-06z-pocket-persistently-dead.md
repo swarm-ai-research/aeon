@@ -2,7 +2,8 @@
 id: iss-006-batch-outage-recurs-every-48h-with-06z-pocket-persistently-dead
 created: 2026-09-04
 type: lesson
-links: [[iss-006-batch-outage-cadence-hypothesis-broken-by-2-day-gap]], [[iss-006-batch-outage-recurs-every-48d-on-same-triple]], [[morning-pocket-splits-into-two-de-facto-clusters]], [[iss-006-pocket-recovery-is-noise]]
+status: superseded
+links: [[iss-006-06z-pocket-4-day-dead-streak-promotes-daily-dead-regime]], [[iss-006-batch-outage-cadence-hypothesis-broken-by-2-day-gap]], [[iss-006-batch-outage-recurs-every-48d-on-same-triple]], [[morning-pocket-splits-into-two-de-facto-clusters]], [[iss-006-pocket-recovery-is-noise]]
 ---
 # ISS-023 filed 2026-09-04 promotes ISS-006 recurrence back to a cadence — 48-HOUR (not 48-day) gaps with `planner` + `compute-futures-eda` dead in the 06:00Z pocket for 5 consecutive days
 

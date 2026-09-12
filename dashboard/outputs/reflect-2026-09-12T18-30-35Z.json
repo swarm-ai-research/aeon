@@ -1,0 +1,97 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Memory Consolidated"
+      },
+      "children": [
+        "content"
+      ]
+    },
+    "content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "date",
+        "metrics",
+        "atomic-detail",
+        "separator",
+        "issue"
+      ]
+    },
+    "date": {
+      "type": "Text",
+      "props": {
+        "text": "2026-09-12",
+        "variant": "muted"
+      }
+    },
+    "metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "metric1",
+        "metric2"
+      ]
+    },
+    "metric1": {
+      "type": "Badge",
+      "props": {
+        "text": "+1n"
+      }
+    },
+    "metric2": {
+      "type": "Badge",
+      "props": {
+        "text": "+8e"
+      }
+    },
+    "atomic-detail": {
+      "type": "Text",
+      "props": {
+        "text": "1 new atomic, 0 splits",
+        "variant": "caption"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issue": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "issue-id",
+        "issue-status"
+      ]
+    },
+    "issue-id": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-006",
+        "variant": "secondary"
+      }
+    },
+    "issue-status": {
+      "type": "Text",
+      "props": {
+        "text": "06:00Z now daily-dead",
+        "variant": "caption"
+      }
+    }
+  }
+}
