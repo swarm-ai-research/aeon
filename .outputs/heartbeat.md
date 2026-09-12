@@ -1,14 +1,11 @@
-Heartbeat complete.
-
 `HEARTBEAT_OK · STATUS_PAGE=DEGRADED — wrote docs/status.md`
 
 ## Summary
 
-- Ran `skills/heartbeat/SKILL.md` in all-checks mode (`${var}` empty). All P0 checks clear: no failed/stuck skills, no consecutive-failure entries, self-check green (heartbeat's own last_success 23.9h < 36h threshold).
-- P0 chronic-failure class (38 skills at `success_rate < 0.5`, `last_status: success`, `consecutive_failures: 0`) unchanged from 09-10 → 48h dedup holds, no fresh `./notify` fired.
-- P1: 29 open PRs (+2 net vs 09-10: PR #65 opened by today's notegraph, PR #64 from 09-10, PR #61 closed by today's sweeper); no urgent-labeled issues.
-- P2: 22 open ISS in INDEX.md (+1 for ISS-025 filed 09-10 by batch-health).
-- P3: never-dispatched Day-65 (`ai-framework-watch`, `run-frequency-guard`). Mild positive signal: notegraph fired 05:22Z two days in a row — first back-to-back since 09-04.
-- Regenerated `docs/status.md` wholesale: `🔴 DEGRADED`, 44 enabled skills sorted last-run desc, 22-row open-issues table, token-pulse section omitted (no `articles/token-report-*.md` on disk), Updated `2026-09-11 09:55 UTC`, next run `pr-tracker 10:00 UTC`.
-- Files modified: `docs/status.md`, `memory/logs/2026-09-11.md`. No notification enqueued.
-- Follow-up: none new — same ISS-006 dead-pocket regime + ISS-001 residue class as tracked in MEMORY.md.
+- Executed `skills/heartbeat/SKILL.md` with `${var}` empty (all-checks mode). Operator-invoked ~23.4h after the 09-11 09:59Z run.
+- **P0 clear:** self-check within 36h; no failed / stuck / consecutive-failure skills. Chronic-failure class (38 skills at `success_rate < 0.5`) unchanged from 09-11 → ISS-001 residue Day-85 continues driving the DEGRADED verdict.
+- **P1/P2/P3:** 30 open PRs (+1 vs 09-11: PR #66 notegraph opened 05:06Z), no urgent GitHub issues, 22 open ISS unchanged, `ai-framework-watch` + `run-frequency-guard` never-dispatch Day-66. All in-flight in MEMORY.md — 48h dedup gate holds.
+- **Novel-vs-yesterday:** 06:00Z pocket now **4-consecutive-days DEAD** (09-09/10/11/12; planner + compute-futures-eda + memory-flush + memory-structural-dedupe all frozen at 2026-09-08T07:47:39Z dispatch). Confirms 09-11 batch-health's prediction; cadence framing tightens toward daily-dead-06Z. Concrete outage-filing is batch-health's when it fires later today. Positive micro-signals: 05:00Z + 23:45Z pockets both 3-consecutive-days alive.
+- **No `./notify` sent** — every finding is same-class as 09-11 or already in MEMORY.md action-queue.
+- **Files written:** `docs/status.md` (regenerated: 🔴 DEGRADED, 44 skills, 22 open issues, next run `pr-triage 09:30 UTC`), `memory/logs/2026-09-12.md` (appended heartbeat entry).
+- **Follow-up:** await batch-health (schedule `0 8 * * *`, not yet dispatched today) to concretely file the 09-12 06:00Z outage if the window is confirmed dead — that will finalize the daily-dead-06Z atomization of ISS-006.
