@@ -1,10 +1,15 @@
 ## Summary
 
-Fleet Control ran in Health Check mode (default; `var` empty). Pre-flight step 1 short-circuited: `memory/instances.json` exists but `.instances = []`, so there is no managed fleet to monitor.
+Executed `skills/fleet-control/SKILL.md` in Health Check Mode (default; var was empty).
 
-Per skill spec, that path is a **silent stop** — log-only, no notification.
+**Pre-flight outcome:** `memory/instances.json` contains `{"instances": []}` — no managed instances registered. Per SKILL.md pre-flight step 1, the correct action is to log `FLEET_EMPTY` and stop without notifying.
+
+**Actions taken:**
+- Appended a `## fleet-control (health check)` block with `FLEET_EMPTY: no managed instances` to `memory/logs/2026-09-12.md`.
+- Skipped `gh auth status` / rate-limit / state-file reads (registry has no GitHub or GitLawb entries to check).
+- Skipped `./notify` per the silent-stop rule.
 
 **Files modified:**
-- `memory/logs/2026-09-11.md` — appended `## fleet-control (health check)` entry with `FLEET_EMPTY: no managed instances`.
+- `memory/logs/2026-09-12.md` (appended fleet-control entry)
 
-**No follow-up actions.** The registry stays empty until an operator registers instances. If/when GitHub-hosted children get added (each with a `repo`) or GitLawb-hosted children (with `host: "gitlawb"`), the next run will exercise the full classification path.
+**Follow-up:** none required. To activate this skill, add instance entries to `memory/instances.json` (with `repo` for GitHub-hosted or `host: "gitlawb"` for GitLawb-hosted).
