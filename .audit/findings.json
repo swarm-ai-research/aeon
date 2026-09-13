@@ -5,12 +5,10 @@
     "rule_id": "zizmor/artipacked",
     "file": ".github/workflows/aeon.yml",
     "line": 83,
-    "step": "",
-    "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
-    "snippet": "name: Early checkout\n        if: github.event_name == 'issues'\n        uses: actions/checkout@v4.4.0\n        with:\n     ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "warning"
+    "end_line": 87,
+    "step": "L83",
+    "msg": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
+    "source": "zizmor"
   },
   {
     "fingerprint": "de10e11d5c658c77",
@@ -18,12 +16,10 @@
     "rule_id": "zizmor/artipacked",
     "file": ".github/workflows/aeon.yml",
     "line": 119,
-    "step": "",
-    "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
-    "snippet": "name: Checkout repo\n        if: steps.work.outputs.mode != ''\n        uses: actions/checkout@v4.4.0\n        with:\n      ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "warning"
+    "end_line": 123,
+    "step": "L119",
+    "msg": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
+    "source": "zizmor"
   },
   {
     "fingerprint": "49cd506718cb2c77",
@@ -31,12 +27,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 98,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          if [ \"${{ github.event_name }}\" = \"workflow_dispatch\" ] || [ \"${{ github.event_name }}\" = \"workflow_call\" ];",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 98,
+    "step": "L98",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "49cd506718cb2c77",
@@ -44,12 +38,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 98,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          if [ \"${{ github.event_name }}\" = \"workflow_dispatch\" ] || [ \"${{ github.event_name }}\" = \"workflow_call\" ];",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 98,
+    "step": "L98",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "ff3820cb06244e95",
@@ -57,12 +49,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 105,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          if [ \"${{ github.event_name }}\" = \"workflow_dispatch\" ] || [ \"${{ github.event_name }}\" = \"workflow_call\" ];",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 105,
+    "step": "L105",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "a0cbe8644e107f24",
@@ -70,12 +60,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 112,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          if [ -n \"${{ steps.skill.outputs.name }}\" ]; then\n            echo \"mode=skill\" >> \"$GITHUB_OUTPUT\"\n        ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 112,
+    "step": "L112",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "72cecf04698564fd",
@@ -83,12 +71,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 114,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          if [ -n \"${{ steps.skill.outputs.name }}\" ]; then\n            echo \"mode=skill\" >> \"$GITHUB_OUTPUT\"\n        ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 114,
+    "step": "L114",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "ad8e5ebd3048d388",
@@ -96,12 +82,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 150,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          SKILL_FILE=\"skills/${{ steps.skill.outputs.name }}/SKILL.md\"\n          [ ! -f \"$SKILL_FILE\" ] && exit 0\n\n   ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 150,
+    "step": "L150",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "04134515f3149ad9",
@@ -109,12 +93,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 194,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          # Run all scripts/prefetch-*.sh before Claude starts (outside sandbox).\n          # Each script receives the",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 194,
+    "step": "L194",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "7c9396bef374ff79",
@@ -122,12 +104,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 288,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          TODAY=$(date -u +%Y-%m-%d)\n          SKILL_NAME=\"${{ steps.skill.outputs.name }}\"\n          export SKILL_NAM",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 288,
+    "step": "L288",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "dd5ad66fef2a1e2e",
@@ -135,12 +115,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 480,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          TODAY=$(date -u +%Y-%m-%d)\n          SKILL_NAME=\"${{ steps.skill.outputs.name }}\"\n          export SKILL_NAM",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 480,
+    "step": "L480",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "a8cbc8878b60d3f0",
@@ -148,12 +126,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 602,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          SKILL=\"${{ steps.skill.outputs.name }}\"\n          INPUT=\"${{ steps.run.outputs.SKILL_INPUT_TOKENS }}\"\n      ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 602,
+    "step": "L602",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "2d4c3842283807df",
@@ -161,12 +137,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 603,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          SKILL=\"${{ steps.skill.outputs.name }}\"\n          INPUT=\"${{ steps.run.outputs.SKILL_INPUT_TOKENS }}\"\n      ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 603,
+    "step": "L603",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "ab017ef51dc4742f",
@@ -174,12 +148,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 604,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          SKILL=\"${{ steps.skill.outputs.name }}\"\n          INPUT=\"${{ steps.run.outputs.SKILL_INPUT_TOKENS }}\"\n      ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 604,
+    "step": "L604",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "7387218356a38d3a",
@@ -187,12 +159,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 605,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          SKILL=\"${{ steps.skill.outputs.name }}\"\n          INPUT=\"${{ steps.run.outputs.SKILL_INPUT_TOKENS }}\"\n      ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 605,
+    "step": "L605",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "9895dfe83e97e90a",
@@ -200,12 +170,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 606,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          SKILL=\"${{ steps.skill.outputs.name }}\"\n          INPUT=\"${{ steps.run.outputs.SKILL_INPUT_TOKENS }}\"\n      ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 606,
+    "step": "L606",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "3e36f31550ec039b",
@@ -213,12 +181,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 607,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          SKILL=\"${{ steps.skill.outputs.name }}\"\n          INPUT=\"${{ steps.run.outputs.SKILL_INPUT_TOKENS }}\"\n      ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 607,
+    "step": "L607",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "191109080b2eb3e9",
@@ -226,12 +192,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 625,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          CSV=\"memory/token-usage.csv\"\n          mkdir -p memory\n          if [ ! -f \"$CSV\" ]; then\n            echo \"",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 625,
+    "step": "L625",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "191109080b2eb3e9",
@@ -239,12 +203,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 625,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          CSV=\"memory/token-usage.csv\"\n          mkdir -p memory\n          if [ ! -f \"$CSV\" ]; then\n            echo \"",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 625,
+    "step": "L625",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "191109080b2eb3e9",
@@ -252,12 +214,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 625,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          CSV=\"memory/token-usage.csv\"\n          mkdir -p memory\n          if [ ! -f \"$CSV\" ]; then\n            echo \"",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 625,
+    "step": "L625",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "191109080b2eb3e9",
@@ -265,12 +225,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 625,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          CSV=\"memory/token-usage.csv\"\n          mkdir -p memory\n          if [ ! -f \"$CSV\" ]; then\n            echo \"",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 625,
+    "step": "L625",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "191109080b2eb3e9",
@@ -278,12 +236,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 625,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          CSV=\"memory/token-usage.csv\"\n          mkdir -p memory\n          if [ ! -f \"$CSV\" ]; then\n            echo \"",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 625,
+    "step": "L625",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "191109080b2eb3e9",
@@ -291,12 +247,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 625,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          CSV=\"memory/token-usage.csv\"\n          mkdir -p memory\n          if [ ! -f \"$CSV\" ]; then\n            echo \"",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 625,
+    "step": "L625",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "cc8b34181a4faee1",
@@ -304,12 +258,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 630,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          SKILL=\"${{ steps.skill.outputs.name }}\"\n          mkdir -p .outputs\n          # Save the notification messag",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 630,
+    "step": "L630",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "55d07e5a0cf7cdb4",
@@ -317,12 +269,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 651,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          SKILL=\"${{ steps.skill.outputs.name }}\"\n\n          # Skip analysis for meta skills (they don't produce scora",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 651,
+    "step": "L651",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "e94a8e5a58c56cf5",
@@ -330,12 +280,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 657,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          SKILL=\"${{ steps.skill.outputs.name }}\"\n\n          # Skip analysis for meta skills (they don't produce scora",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 657,
+    "step": "L657",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "998dcd599351aa3e",
@@ -343,12 +291,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 752,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          if [ \"${{ steps.run.outputs.GATEWAY }}\" = \"bankr\" ] && [ -n \"${BANKR_LLM_KEY:-}\" ]; then\n            export ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 752,
+    "step": "L752",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "e70096e37a988392",
@@ -356,12 +302,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 863,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          git config user.name \"aeonframework\"\n          git config user.email \"aeonframework@proton.me\"\n          rm ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 863,
+    "step": "L863",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "bd295bf350b20950",
@@ -369,12 +313,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 927,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          SKILL=\"${{ steps.skill.outputs.name }}\"\n          RUN_OUTCOME=\"${{ steps.run.outcome }}\"\n          NOW_ISO=$",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 927,
+    "step": "L927",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "f27be52ba3421427",
@@ -382,12 +324,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 928,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          SKILL=\"${{ steps.skill.outputs.name }}\"\n          RUN_OUTCOME=\"${{ steps.run.outcome }}\"\n          NOW_ISO=$",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 928,
+    "step": "L928",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "e19e4c68fe8bf6cf",
@@ -395,12 +335,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/aeon.yml",
     "line": 931,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          SKILL=\"${{ steps.skill.outputs.name }}\"\n          RUN_OUTCOME=\"${{ steps.run.outcome }}\"\n          NOW_ISO=$",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 931,
+    "step": "L931",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "a705f2ba32116b29",
@@ -408,12 +346,10 @@
     "rule_id": "zizmor/unpinned-uses",
     "file": ".github/workflows/aeon.yml",
     "line": 85,
-    "step": "",
-    "message": "unpinned action reference: action is not pinned to a hash (required by blanket policy)",
-    "snippet": "actions/checkout@v4.4.0",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "error"
+    "end_line": 85,
+    "step": "L85",
+    "msg": "unpinned action reference: action is not pinned to a hash (required by blanket policy)",
+    "source": "zizmor"
   },
   {
     "fingerprint": "207fb144374c8df9",
@@ -421,12 +357,10 @@
     "rule_id": "zizmor/unpinned-uses",
     "file": ".github/workflows/aeon.yml",
     "line": 121,
-    "step": "",
-    "message": "unpinned action reference: action is not pinned to a hash (required by blanket policy)",
-    "snippet": "actions/checkout@v4.4.0",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "error"
+    "end_line": 121,
+    "step": "L121",
+    "msg": "unpinned action reference: action is not pinned to a hash (required by blanket policy)",
+    "source": "zizmor"
   },
   {
     "fingerprint": "8a8cd7bbfa79f988",
@@ -434,12 +368,10 @@
     "rule_id": "zizmor/unpinned-uses",
     "file": ".github/workflows/aeon.yml",
     "line": 133,
-    "step": "",
-    "message": "unpinned action reference: action is not pinned to a hash (required by blanket policy)",
-    "snippet": "actions/setup-node@v5",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "error"
+    "end_line": 133,
+    "step": "L133",
+    "msg": "unpinned action reference: action is not pinned to a hash (required by blanket policy)",
+    "source": "zizmor"
   },
   {
     "fingerprint": "afa8e08b7c90e8a2",
@@ -447,12 +379,10 @@
     "rule_id": "zizmor/undocumented-permissions",
     "file": ".github/workflows/aeon.yml",
     "line": 77,
-    "step": "",
-    "message": "permissions without explanatory comments: needs an explanatory comment",
-    "snippet": "      contents: write",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 77,
+    "step": "L77",
+    "msg": "permissions without explanatory comments: needs an explanatory comment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "ac7c8e53b643ff7f",
@@ -460,12 +390,10 @@
     "rule_id": "zizmor/anonymous-definition",
     "file": ".github/workflows/aeon.yml",
     "line": 72,
-    "step": "",
-    "message": "workflow or action definition without a name: this job",
-    "snippet": "run",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 72,
+    "step": "L72",
+    "msg": "workflow or action definition without a name: this job",
+    "source": "zizmor"
   },
   {
     "fingerprint": "f95f6b2f634c1a13",
@@ -473,12 +401,10 @@
     "rule_id": "zizmor/artipacked",
     "file": ".github/workflows/chain-runner.yml",
     "line": 28,
-    "step": "",
-    "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
-    "snippet": "name: Checkout repo\n        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5\n        with:\n         ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "warning"
+    "end_line": 31,
+    "step": "L28",
+    "msg": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
+    "source": "zizmor"
   },
   {
     "fingerprint": "09b0d6449d9fedfa",
@@ -486,12 +412,10 @@
     "rule_id": "zizmor/undocumented-permissions",
     "file": ".github/workflows/chain-runner.yml",
     "line": 24,
-    "step": "",
-    "message": "permissions without explanatory comments: needs an explanatory comment",
-    "snippet": "      contents: write",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 24,
+    "step": "L24",
+    "msg": "permissions without explanatory comments: needs an explanatory comment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "224fd3fdf42f906c",
@@ -499,12 +423,10 @@
     "rule_id": "zizmor/anonymous-definition",
     "file": ".github/workflows/chain-runner.yml",
     "line": 20,
-    "step": "",
-    "message": "workflow or action definition without a name: this job",
-    "snippet": "run",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 20,
+    "step": "L20",
+    "msg": "workflow or action definition without a name: this job",
+    "source": "zizmor"
   },
   {
     "fingerprint": "24ce1314d3ccd821",
@@ -512,12 +434,10 @@
     "rule_id": "zizmor/ref-version-mismatch",
     "file": ".github/workflows/chain-runner.yml",
     "line": 29,
-    "step": "",
-    "message": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24",
-    "snippet": "v5",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 29,
+    "step": "L29",
+    "msg": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24",
+    "source": "zizmor"
   },
   {
     "fingerprint": "40bdb58d37c88eae",
@@ -525,12 +445,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/chain-runner.yml",
     "line": 31,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GH_GLOBAL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 31,
+    "step": "L31",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "de5a56c1610342e3",
@@ -538,12 +456,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/chain-runner.yml",
     "line": 40,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GH_GLOBAL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 40,
+    "step": "L40",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "4c23f13edd9f035f",
@@ -551,12 +467,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/chain-runner.yml",
     "line": 288,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GH_GLOBAL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 288,
+    "step": "L288",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "5fb8018264503d02",
@@ -564,12 +478,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/chain-runner.yml",
     "line": 347,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.AEON_PRIVATE_PAT",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 347,
+    "step": "L347",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "dacae7f884bad757",
@@ -577,12 +489,10 @@
     "rule_id": "zizmor/artipacked",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 63,
-    "step": "",
-    "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
-    "snippet": "name: Checkout\n        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5\n        with:\n          toke",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "warning"
+    "end_line": 70,
+    "step": "L63",
+    "msg": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
+    "source": "zizmor"
   },
   {
     "fingerprint": "4213c12e5455c402",
@@ -590,12 +500,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 157,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          mkdir -p ~/.gitlawb/fleet/{researcher,reviewer,deployer,sentinel}\n\n          echo '${{ secrets.GITLAWB_OPERA",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 157,
+    "step": "L157",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "5ccae3c857a2c85b",
@@ -603,12 +511,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 158,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          mkdir -p ~/.gitlawb/fleet/{researcher,reviewer,deployer,sentinel}\n\n          echo '${{ secrets.GITLAWB_OPERA",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 158,
+    "step": "L158",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "89f8b46162713068",
@@ -616,12 +522,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 160,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          mkdir -p ~/.gitlawb/fleet/{researcher,reviewer,deployer,sentinel}\n\n          echo '${{ secrets.GITLAWB_OPERA",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 160,
+    "step": "L160",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "e42ff9a15cb5671d",
@@ -629,12 +533,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 161,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          mkdir -p ~/.gitlawb/fleet/{researcher,reviewer,deployer,sentinel}\n\n          echo '${{ secrets.GITLAWB_OPERA",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 161,
+    "step": "L161",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "643c46fc9c02d0c8",
@@ -642,12 +544,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 162,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          mkdir -p ~/.gitlawb/fleet/{researcher,reviewer,deployer,sentinel}\n\n          echo '${{ secrets.GITLAWB_OPERA",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 162,
+    "step": "L162",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "ada3e0f433913ff1",
@@ -655,12 +555,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 163,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          mkdir -p ~/.gitlawb/fleet/{researcher,reviewer,deployer,sentinel}\n\n          echo '${{ secrets.GITLAWB_OPERA",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 163,
+    "step": "L163",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "22c64992b9467792",
@@ -668,12 +566,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 322,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          git config user.name \"aeonframework\"\n          git config user.email \"aeonframework@proton.me\"\n          git",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 322,
+    "step": "L322",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "22c64992b9467792",
@@ -681,12 +577,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 322,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          git config user.name \"aeonframework\"\n          git config user.email \"aeonframework@proton.me\"\n          git",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 322,
+    "step": "L322",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "d14562741c103324",
@@ -694,12 +588,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 342,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          git config user.name \"aeonframework\"\n          git config user.email \"aeonframework@proton.me\"\n          git",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 342,
+    "step": "L342",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "d14562741c103324",
@@ -707,12 +599,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 342,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          git config user.name \"aeonframework\"\n          git config user.email \"aeonframework@proton.me\"\n          git",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 342,
+    "step": "L342",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "d0b486aef73dcdaf",
@@ -720,12 +610,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 354,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          PROCESSED=\"${{ steps.runner.outputs.processed }}\"\n          GENERATED=\"${{ steps.generator.outputs.created }",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 354,
+    "step": "L354",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "a6484b02473cb89b",
@@ -733,12 +621,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 355,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          PROCESSED=\"${{ steps.runner.outputs.processed }}\"\n          GENERATED=\"${{ steps.generator.outputs.created }",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 355,
+    "step": "L355",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "1e36addeed372299",
@@ -746,12 +632,10 @@
     "rule_id": "zizmor/undocumented-permissions",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 55,
-    "step": "",
-    "message": "permissions without explanatory comments: needs an explanatory comment",
-    "snippet": "      contents: write",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 55,
+    "step": "L55",
+    "msg": "permissions without explanatory comments: needs an explanatory comment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "7617f99e3fc60eae",
@@ -759,12 +643,10 @@
     "rule_id": "zizmor/anonymous-definition",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 51,
-    "step": "",
-    "message": "workflow or action definition without a name: this job",
-    "snippet": "run",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 51,
+    "step": "L51",
+    "msg": "workflow or action definition without a name: this job",
+    "source": "zizmor"
   },
   {
     "fingerprint": "65dfb0d6a99b96ff",
@@ -772,12 +654,10 @@
     "rule_id": "zizmor/ref-version-mismatch",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 64,
-    "step": "",
-    "message": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24",
-    "snippet": "v5",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 64,
+    "step": "L64",
+    "msg": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24",
+    "source": "zizmor"
   },
   {
     "fingerprint": "be7be4aca4586329",
@@ -785,12 +665,10 @@
     "rule_id": "zizmor/concurrency-limits",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 4,
-    "step": "",
-    "message": "insufficient job-level concurrency limits: workflow is missing concurrency setting",
-    "snippet": "on:\n  workflow_dispatch:\n    inputs:\n      mode:\n        description: \"Run mode\"\n        required: false\n        type: c",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 37,
+    "step": "L4",
+    "msg": "insufficient job-level concurrency limits: workflow is missing concurrency setting",
+    "source": "zizmor"
   },
   {
     "fingerprint": "fe9737530e3a4feb",
@@ -798,12 +676,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 157,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GITLAWB_OPERATOR_PEM",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 157,
+    "step": "L157",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "63196b1b714be88c",
@@ -811,12 +687,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 158,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GITLAWB_OPERATOR_UCAN",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 158,
+    "step": "L158",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "e69863eb51b539d4",
@@ -824,12 +698,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 160,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GITLAWB_RESEARCHER_PEM",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 160,
+    "step": "L160",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "8fdec61e03d443dc",
@@ -837,12 +709,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 161,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GITLAWB_REVIEWER_PEM",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 161,
+    "step": "L161",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "dbd42ef0b43759f4",
@@ -850,12 +720,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 162,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GITLAWB_DEPLOYER_PEM",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 162,
+    "step": "L162",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "2920b86590e37f1f",
@@ -863,12 +731,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 163,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GITLAWB_SENTINEL_PEM",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 163,
+    "step": "L163",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "e2f9a75bd9489283",
@@ -876,12 +742,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 278,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.SURPLUS_PRICING_URL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 278,
+    "step": "L278",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "9aa709f676e52e66",
@@ -889,12 +753,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 279,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.SURPLUS_API_KEY",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 279,
+    "step": "L279",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "c1d5bbd6eb3b2329",
@@ -902,12 +764,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 294,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.CLAUDE_CODE_OAUTH_TOKEN",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 294,
+    "step": "L294",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "ef0b0fbb72713d4d",
@@ -915,12 +775,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 361,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.AEON_PRIVATE_PAT",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 361,
+    "step": "L361",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "e72ec7b01ceba83b",
@@ -928,12 +786,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
     "line": 80,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          set -euo pipefail\n          if [ -z '${{ secrets.GITLAWB_OPERATOR_PEM }}' ]; then\n            echo \"::error:",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 80,
+    "step": "L80",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "d50c9d761b162941",
@@ -941,12 +797,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
     "line": 85,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          set -euo pipefail\n          if [ -z '${{ secrets.GITLAWB_OPERATOR_PEM }}' ]; then\n            echo \"::error:",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 85,
+    "step": "L85",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "c70499a46248bb93",
@@ -954,12 +808,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
     "line": 86,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          set -euo pipefail\n          if [ -z '${{ secrets.GITLAWB_OPERATOR_PEM }}' ]; then\n            echo \"::error:",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 86,
+    "step": "L86",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "8d84965d7ff68368",
@@ -967,12 +819,10 @@
     "rule_id": "zizmor/anonymous-definition",
     "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
     "line": 39,
-    "step": "",
-    "message": "workflow or action definition without a name: this job",
-    "snippet": "bootstrap",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 39,
+    "step": "L39",
+    "msg": "workflow or action definition without a name: this job",
+    "source": "zizmor"
   },
   {
     "fingerprint": "8b053d7dace5c931",
@@ -980,12 +830,10 @@
     "rule_id": "zizmor/concurrency-limits",
     "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
     "line": 20,
-    "step": "",
-    "message": "insufficient job-level concurrency limits: workflow is missing concurrency setting",
-    "snippet": "on:\n  workflow_dispatch:\n    inputs:\n      name:\n        description: \"Repo name to create on the GitLawb node\"\n        ",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 32,
+    "step": "L20",
+    "msg": "insufficient job-level concurrency limits: workflow is missing concurrency setting",
+    "source": "zizmor"
   },
   {
     "fingerprint": "8e9c1249c7180da2",
@@ -993,12 +841,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
     "line": 80,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GITLAWB_OPERATOR_PEM",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 80,
+    "step": "L80",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "3c0dd7a7ae04b5bb",
@@ -1006,12 +852,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
     "line": 85,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GITLAWB_OPERATOR_PEM",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 85,
+    "step": "L85",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "5b43eb03e403bb19",
@@ -1019,12 +863,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/gitlawb-repo-bootstrap.yml",
     "line": 86,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GITLAWB_OPERATOR_UCAN",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 86,
+    "step": "L86",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "7b0e1d57429f4572",
@@ -1032,12 +874,10 @@
     "rule_id": "zizmor/artipacked",
     "file": ".github/workflows/lint.yml",
     "line": 32,
-    "step": "",
-    "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
-    "snippet": "name: Checkout\n        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "warning"
+    "end_line": 33,
+    "step": "L32",
+    "msg": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
+    "source": "zizmor"
   },
   {
     "fingerprint": "356f497ab1a9cb97",
@@ -1045,12 +885,10 @@
     "rule_id": "zizmor/artipacked",
     "file": ".github/workflows/lint.yml",
     "line": 70,
-    "step": "",
-    "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
-    "snippet": "name: Checkout\n        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "warning"
+    "end_line": 71,
+    "step": "L70",
+    "msg": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
+    "source": "zizmor"
   },
   {
     "fingerprint": "cac78a0aa26ac553",
@@ -1058,12 +896,10 @@
     "rule_id": "zizmor/artipacked",
     "file": ".github/workflows/lint.yml",
     "line": 91,
-    "step": "",
-    "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
-    "snippet": "name: Checkout\n        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "warning"
+    "end_line": 92,
+    "step": "L91",
+    "msg": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
+    "source": "zizmor"
   },
   {
     "fingerprint": "f0fcf23242a3a207",
@@ -1071,12 +907,10 @@
     "rule_id": "zizmor/ref-version-mismatch",
     "file": ".github/workflows/lint.yml",
     "line": 33,
-    "step": "",
-    "message": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267",
-    "snippet": "v4",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 33,
+    "step": "L33",
+    "msg": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267",
+    "source": "zizmor"
   },
   {
     "fingerprint": "0ae39681ddd27d1c",
@@ -1084,12 +918,10 @@
     "rule_id": "zizmor/ref-version-mismatch",
     "file": ".github/workflows/lint.yml",
     "line": 71,
-    "step": "",
-    "message": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267",
-    "snippet": "v4",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 71,
+    "step": "L71",
+    "msg": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267",
+    "source": "zizmor"
   },
   {
     "fingerprint": "dedd2a9e77e73426",
@@ -1097,12 +929,10 @@
     "rule_id": "zizmor/ref-version-mismatch",
     "file": ".github/workflows/lint.yml",
     "line": 92,
-    "step": "",
-    "message": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267",
-    "snippet": "v4",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 92,
+    "step": "L92",
+    "msg": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267",
+    "source": "zizmor"
   },
   {
     "fingerprint": "ddaed9435dc93c4e",
@@ -1110,12 +940,10 @@
     "rule_id": "zizmor/artipacked",
     "file": ".github/workflows/messages.yml",
     "line": 56,
-    "step": "",
-    "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
-    "snippet": "name: Checkout repo\n        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5\n        with:\n         ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "warning"
+    "end_line": 59,
+    "step": "L56",
+    "msg": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
+    "source": "zizmor"
   },
   {
     "fingerprint": "97fef8b3e4805e9d",
@@ -1123,12 +951,10 @@
     "rule_id": "zizmor/artipacked",
     "file": ".github/workflows/messages.yml",
     "line": 691,
-    "step": "",
-    "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
-    "snippet": "name: Checkout repo\n        if: steps.msg.outputs.source != ''\n        uses: actions/checkout@93cb6efe18208431cddfb8368f",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "warning"
+    "end_line": 695,
+    "step": "L691",
+    "msg": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
+    "source": "zizmor"
   },
   {
     "fingerprint": "916a852b69b68eff",
@@ -1136,12 +962,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/messages.yml",
     "line": 670,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          if [ \"${{ github.event_name }}\" = \"repository_dispatch\" ]; then\n            MESSAGE=$(printf '%s' \"$_CLIENT_",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 670,
+    "step": "L670",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "7d792ea5b9bb05bd",
@@ -1149,12 +973,10 @@
     "rule_id": "zizmor/undocumented-permissions",
     "file": ".github/workflows/messages.yml",
     "line": 658,
-    "step": "",
-    "message": "permissions without explanatory comments: needs an explanatory comment",
-    "snippet": "      issues: read",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 658,
+    "step": "L658",
+    "msg": "permissions without explanatory comments: needs an explanatory comment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "d60446c58ca5a7ca",
@@ -1162,12 +984,10 @@
     "rule_id": "zizmor/anonymous-definition",
     "file": ".github/workflows/messages.yml",
     "line": 47,
-    "step": "",
-    "message": "workflow or action definition without a name: this job",
-    "snippet": "tick",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 47,
+    "step": "L47",
+    "msg": "workflow or action definition without a name: this job",
+    "source": "zizmor"
   },
   {
     "fingerprint": "c810f3b261360e9b",
@@ -1175,12 +995,10 @@
     "rule_id": "zizmor/anonymous-definition",
     "file": ".github/workflows/messages.yml",
     "line": 651,
-    "step": "",
-    "message": "workflow or action definition without a name: this job",
-    "snippet": "run",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 651,
+    "step": "L651",
+    "msg": "workflow or action definition without a name: this job",
+    "source": "zizmor"
   },
   {
     "fingerprint": "102d6ef1db150d03",
@@ -1188,12 +1006,10 @@
     "rule_id": "zizmor/ref-version-mismatch",
     "file": ".github/workflows/messages.yml",
     "line": 57,
-    "step": "",
-    "message": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24",
-    "snippet": "v5",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 57,
+    "step": "L57",
+    "msg": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24",
+    "source": "zizmor"
   },
   {
     "fingerprint": "533fe184ac8960a6",
@@ -1201,12 +1017,10 @@
     "rule_id": "zizmor/ref-version-mismatch",
     "file": ".github/workflows/messages.yml",
     "line": 693,
-    "step": "",
-    "message": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24",
-    "snippet": "v5",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 693,
+    "step": "L693",
+    "msg": "action's hash pin has mismatched or missing version comment: points to commit fbc6f3992d24",
+    "source": "zizmor"
   },
   {
     "fingerprint": "8821880642ea614c",
@@ -1214,12 +1028,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 59,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GH_GLOBAL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 59,
+    "step": "L59",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "0c68b51ff2130b0f",
@@ -1227,12 +1039,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 68,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GH_GLOBAL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 68,
+    "step": "L68",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "d9b73f80c1b0f155",
@@ -1240,12 +1050,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 551,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GH_GLOBAL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 551,
+    "step": "L551",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "d0e430ce698651f8",
@@ -1253,12 +1061,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 552,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.TELEGRAM_BOT_TOKEN",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 552,
+    "step": "L552",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "7e00233dda43e063",
@@ -1266,12 +1072,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 553,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.TELEGRAM_CHAT_ID",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 553,
+    "step": "L553",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "47422077eea44b16",
@@ -1279,12 +1083,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 554,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.DISCORD_BOT_TOKEN",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 554,
+    "step": "L554",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "4011c326e6da9041",
@@ -1292,12 +1094,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 555,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.DISCORD_CHANNEL_ID",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 555,
+    "step": "L555",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "44bea1cfd8a85fbc",
@@ -1305,12 +1105,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 556,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.SLACK_BOT_TOKEN",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 556,
+    "step": "L556",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "d7f1fe42ecd2e7b0",
@@ -1318,12 +1116,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 557,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.SLACK_CHANNEL_ID",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 557,
+    "step": "L557",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "580dfcb58185ccfb",
@@ -1331,12 +1127,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 648,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.AEON_PRIVATE_PAT",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 648,
+    "step": "L648",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "f5b3958ae0ed441a",
@@ -1344,12 +1138,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 695,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GH_GLOBAL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 695,
+    "step": "L695",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "5209ff37d3f94a64",
@@ -1357,12 +1149,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 717,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.ANTHROPIC_API_KEY",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 717,
+    "step": "L717",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "1b27353e999de469",
@@ -1370,12 +1160,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 718,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.CLAUDE_CODE_OAUTH_TOKEN",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 718,
+    "step": "L718",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "5287ba32c4818241",
@@ -1383,12 +1171,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 719,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GH_GLOBAL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 719,
+    "step": "L719",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "16f6600b26be497f",
@@ -1396,12 +1182,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 720,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GH_GLOBAL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 720,
+    "step": "L720",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "85ff69765dd971f5",
@@ -1409,12 +1193,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 721,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.TELEGRAM_BOT_TOKEN",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 721,
+    "step": "L721",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "46d891fe352e6418",
@@ -1422,12 +1204,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 722,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.TELEGRAM_CHAT_ID",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 722,
+    "step": "L722",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "6f0fe6a0ef94db0c",
@@ -1435,12 +1215,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 723,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.DISCORD_BOT_TOKEN",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 723,
+    "step": "L723",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "c45a2a9a5139f8ad",
@@ -1448,12 +1226,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 724,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.DISCORD_CHANNEL_ID",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 724,
+    "step": "L724",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "09fecd3d5aa6d9f0",
@@ -1461,12 +1237,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 725,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.DISCORD_WEBHOOK_URL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 725,
+    "step": "L725",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "05baf9ead1587334",
@@ -1474,12 +1248,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 726,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.SLACK_BOT_TOKEN",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 726,
+    "step": "L726",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "976f8f6b4fe0bc33",
@@ -1487,12 +1259,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 727,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.SLACK_CHANNEL_ID",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 727,
+    "step": "L727",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "4452423e13db159f",
@@ -1500,12 +1270,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 728,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.SLACK_WEBHOOK_URL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 728,
+    "step": "L728",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "ef187900f1981cad",
@@ -1513,12 +1281,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 729,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.XAI_API_KEY",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 729,
+    "step": "L729",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "abb4bbcdcdb0bbde",
@@ -1526,12 +1292,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 730,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.COINGECKO_API_KEY",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 730,
+    "step": "L730",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "5aa4e333ce9ada90",
@@ -1539,12 +1303,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 731,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.ALCHEMY_API_KEY",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 731,
+    "step": "L731",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "e65b70d49c09b348",
@@ -1552,12 +1314,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/messages.yml",
     "line": 889,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.AEON_PRIVATE_PAT",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 889,
+    "step": "L889",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "8ecbf49c3e458ef4",
@@ -1565,12 +1325,10 @@
     "rule_id": "zizmor/artipacked",
     "file": ".github/workflows/sync-aeon-public-results.yml",
     "line": 28,
-    "step": "",
-    "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
-    "snippet": "name: Checkout aeon\n        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4\n        with:\n         ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "warning"
+    "end_line": 32,
+    "step": "L28",
+    "msg": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
+    "source": "zizmor"
   },
   {
     "fingerprint": "666c5b5e20d987b9",
@@ -1578,12 +1336,10 @@
     "rule_id": "zizmor/anonymous-definition",
     "file": ".github/workflows/sync-aeon-public-results.yml",
     "line": 23,
-    "step": "",
-    "message": "workflow or action definition without a name: this job",
-    "snippet": "sync",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 23,
+    "step": "L23",
+    "msg": "workflow or action definition without a name: this job",
+    "source": "zizmor"
   },
   {
     "fingerprint": "d6b5b7c03579933a",
@@ -1591,12 +1347,10 @@
     "rule_id": "zizmor/ref-version-mismatch",
     "file": ".github/workflows/sync-aeon-public-results.yml",
     "line": 29,
-    "step": "",
-    "message": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267",
-    "snippet": "v4",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 29,
+    "step": "L29",
+    "msg": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267",
+    "source": "zizmor"
   },
   {
     "fingerprint": "f44fdc60a378313d",
@@ -1604,12 +1358,10 @@
     "rule_id": "zizmor/artipacked",
     "file": ".github/workflows/sync-upstream.yml",
     "line": 22,
-    "step": "",
-    "message": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
-    "snippet": "name: Checkout fork\n        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4\n        with:\n         ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "warning"
+    "end_line": 29,
+    "step": "L22",
+    "msg": "credential persistence through GitHub Actions artifacts: does not set persist-credentials: false",
+    "source": "zizmor"
   },
   {
     "fingerprint": "4365a1927be42d6e",
@@ -1617,12 +1369,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/sync-upstream.yml",
     "line": 71,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "git push origin \"${{ steps.merge.outputs.branch }}\"",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 71,
+    "step": "L71",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "e01fa430d6dec75f",
@@ -1630,12 +1380,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/sync-upstream.yml",
     "line": 78,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          BRANCH=\"${{ steps.merge.outputs.branch }}\"\n          CONFLICT=\"${{ steps.merge.outputs.conflict }}\"\n        ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 78,
+    "step": "L78",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "6392ea21c8b0e5c6",
@@ -1643,12 +1391,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/sync-upstream.yml",
     "line": 79,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          BRANCH=\"${{ steps.merge.outputs.branch }}\"\n          CONFLICT=\"${{ steps.merge.outputs.conflict }}\"\n        ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 79,
+    "step": "L79",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "9f0b3baa328a350b",
@@ -1656,12 +1402,10 @@
     "rule_id": "zizmor/template-injection",
     "file": ".github/workflows/sync-upstream.yml",
     "line": 80,
-    "step": "",
-    "message": "code injection via template expansion: may expand into attacker-controllable code",
-    "snippet": "|\n          BRANCH=\"${{ steps.merge.outputs.branch }}\"\n          CONFLICT=\"${{ steps.merge.outputs.conflict }}\"\n        ",
-    "source": "zizmor",
-    "confidence": "Low",
-    "level": "note"
+    "end_line": 80,
+    "step": "L80",
+    "msg": "code injection via template expansion: may expand into attacker-controllable code",
+    "source": "zizmor"
   },
   {
     "fingerprint": "4476d5a7e13134b5",
@@ -1669,12 +1413,10 @@
     "rule_id": "zizmor/undocumented-permissions",
     "file": ".github/workflows/sync-upstream.yml",
     "line": 19,
-    "step": "",
-    "message": "permissions without explanatory comments: needs an explanatory comment",
-    "snippet": "      contents: write",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 19,
+    "step": "L19",
+    "msg": "permissions without explanatory comments: needs an explanatory comment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "3f6d242d803a9761",
@@ -1682,12 +1424,10 @@
     "rule_id": "zizmor/anonymous-definition",
     "file": ".github/workflows/sync-upstream.yml",
     "line": 16,
-    "step": "",
-    "message": "workflow or action definition without a name: this job",
-    "snippet": "sync",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "note"
+    "end_line": 16,
+    "step": "L16",
+    "msg": "workflow or action definition without a name: this job",
+    "source": "zizmor"
   },
   {
     "fingerprint": "1520234f8fcc172f",
@@ -1695,12 +1435,10 @@
     "rule_id": "zizmor/ref-version-mismatch",
     "file": ".github/workflows/sync-upstream.yml",
     "line": 23,
-    "step": "",
-    "message": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267",
-    "snippet": "v4",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 23,
+    "step": "L23",
+    "msg": "action's hash pin has mismatched or missing version comment: points to commit 11d5960a3267",
+    "source": "zizmor"
   },
   {
     "fingerprint": "70d61ff8cb15636d",
@@ -1708,12 +1446,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/sync-upstream.yml",
     "line": 29,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GH_GLOBAL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 29,
+    "step": "L29",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "02849b4b22263ffc",
@@ -1721,12 +1457,10 @@
     "rule_id": "zizmor/secrets-outside-env",
     "file": ".github/workflows/sync-upstream.yml",
     "line": 76,
-    "step": "",
-    "message": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
-    "snippet": "secrets.GH_GLOBAL",
-    "source": "zizmor",
-    "confidence": "High",
-    "level": "warning"
+    "end_line": 76,
+    "step": "L76",
+    "msg": "secrets referenced without a dedicated environment: secret is accessed outside of a dedicated environment",
+    "source": "zizmor"
   },
   {
     "fingerprint": "7036da7e0e0ce1a3",
@@ -1734,12 +1468,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/aeon.yml",
     "line": 286,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2129:style:259:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 286,
+    "step": "L286",
+    "msg": "shellcheck reported issue in this script: SC2129:style:259:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
+    "source": "actionlint"
   },
   {
     "fingerprint": "39ddc5b63b2e04c4",
@@ -1747,12 +1479,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/aeon.yml",
     "line": 601,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2129:style:7:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 601,
+    "step": "L601",
+    "msg": "shellcheck reported issue in this script: SC2129:style:7:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
+    "source": "actionlint"
   },
   {
     "fingerprint": "8454c6eea6d27a9c",
@@ -1760,12 +1490,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/chain-runner.yml",
     "line": 42,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2034:warning:3:1: NOW_ISO appears unused. Verify use (or export if used externally)",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 42,
+    "step": "L42",
+    "msg": "shellcheck reported issue in this script: SC2034:warning:3:1: NOW_ISO appears unused. Verify use (or export if used externally)",
+    "source": "actionlint"
   },
   {
     "fingerprint": "8454c6eea6d27a9c",
@@ -1773,12 +1501,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/chain-runner.yml",
     "line": 42,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2129:style:100:7: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 42,
+    "step": "L42",
+    "msg": "shellcheck reported issue in this script: SC2129:style:100:7: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
+    "source": "actionlint"
   },
   {
     "fingerprint": "8454c6eea6d27a9c",
@@ -1786,12 +1512,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/chain-runner.yml",
     "line": 42,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2129:style:93:7: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 42,
+    "step": "L42",
+    "msg": "shellcheck reported issue in this script: SC2129:style:93:7: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
+    "source": "actionlint"
   },
   {
     "fingerprint": "8454c6eea6d27a9c",
@@ -1799,12 +1523,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/chain-runner.yml",
     "line": 42,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2155:warning:41:9: Declare and assign separately to avoid masking return values",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 42,
+    "step": "L42",
+    "msg": "shellcheck reported issue in this script: SC2155:warning:41:9: Declare and assign separately to avoid masking return values",
+    "source": "actionlint"
   },
   {
     "fingerprint": "8454c6eea6d27a9c",
@@ -1812,12 +1534,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/chain-runner.yml",
     "line": 42,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2155:warning:48:13: Declare and assign separately to avoid masking return values",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 42,
+    "step": "L42",
+    "msg": "shellcheck reported issue in this script: SC2155:warning:48:13: Declare and assign separately to avoid masking return values",
+    "source": "actionlint"
   },
   {
     "fingerprint": "8454c6eea6d27a9c",
@@ -1825,12 +1545,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/chain-runner.yml",
     "line": 42,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2155:warning:67:11: Declare and assign separately to avoid masking return values",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 42,
+    "step": "L42",
+    "msg": "shellcheck reported issue in this script: SC2155:warning:67:11: Declare and assign separately to avoid masking return values",
+    "source": "actionlint"
   },
   {
     "fingerprint": "8454c6eea6d27a9c",
@@ -1838,12 +1556,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/chain-runner.yml",
     "line": 42,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2155:warning:69:13: Declare and assign separately to avoid masking return values",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 42,
+    "step": "L42",
+    "msg": "shellcheck reported issue in this script: SC2155:warning:69:13: Declare and assign separately to avoid masking return values",
+    "source": "actionlint"
   },
   {
     "fingerprint": "8454c6eea6d27a9c",
@@ -1851,12 +1567,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/chain-runner.yml",
     "line": 42,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2155:warning:9:9: Declare and assign separately to avoid masking return values",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 42,
+    "step": "L42",
+    "msg": "shellcheck reported issue in this script: SC2155:warning:9:9: Declare and assign separately to avoid masking return values",
+    "source": "actionlint"
   },
   {
     "fingerprint": "4f24be993b6f1b0a",
@@ -1864,12 +1578,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 186,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2155:warning:2:8: Declare and assign separately to avoid masking return values",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 186,
+    "step": "L186",
+    "msg": "shellcheck reported issue in this script: SC2155:warning:2:8: Declare and assign separately to avoid masking return values",
+    "source": "actionlint"
   },
   {
     "fingerprint": "4f24be993b6f1b0a",
@@ -1877,12 +1589,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 186,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2155:warning:3:8: Declare and assign separately to avoid masking return values",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 186,
+    "step": "L186",
+    "msg": "shellcheck reported issue in this script: SC2155:warning:3:8: Declare and assign separately to avoid masking return values",
+    "source": "actionlint"
   },
   {
     "fingerprint": "4f24be993b6f1b0a",
@@ -1890,12 +1600,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 186,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2155:warning:4:8: Declare and assign separately to avoid masking return values",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 186,
+    "step": "L186",
+    "msg": "shellcheck reported issue in this script: SC2155:warning:4:8: Declare and assign separately to avoid masking return values",
+    "source": "actionlint"
   },
   {
     "fingerprint": "4f24be993b6f1b0a",
@@ -1903,12 +1611,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 186,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2155:warning:5:8: Declare and assign separately to avoid masking return values",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 186,
+    "step": "L186",
+    "msg": "shellcheck reported issue in this script: SC2155:warning:5:8: Declare and assign separately to avoid masking return values",
+    "source": "actionlint"
   },
   {
     "fingerprint": "8aa827ba95135fa0",
@@ -1916,12 +1622,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 301,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2086:info:6:82: Double quote to prevent globbing and word splitting",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 301,
+    "step": "L301",
+    "msg": "shellcheck reported issue in this script: SC2086:info:6:82: Double quote to prevent globbing and word splitting",
+    "source": "actionlint"
   },
   {
     "fingerprint": "8aa827ba95135fa0",
@@ -1929,12 +1633,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/fleet-runner.yml",
     "line": 301,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2086:info:9:55: Double quote to prevent globbing and word splitting",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 301,
+    "step": "L301",
+    "msg": "shellcheck reported issue in this script: SC2086:info:9:55: Double quote to prevent globbing and word splitting",
+    "source": "actionlint"
   },
   {
     "fingerprint": "50cfb7a3c2abf6a4",
@@ -1942,12 +1644,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/messages.yml",
     "line": 69,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2034:warning:247:5: IN_STEPS appears unused. Verify use (or export if used externally)",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 69,
+    "step": "L69",
+    "msg": "shellcheck reported issue in this script: SC2034:warning:247:5: IN_STEPS appears unused. Verify use (or export if used externally)",
+    "source": "actionlint"
   },
   {
     "fingerprint": "5da959de1764aff2",
@@ -1955,12 +1655,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/messages.yml",
     "line": 669,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2129:style:16:3: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 669,
+    "step": "L669",
+    "msg": "shellcheck reported issue in this script: SC2129:style:16:3: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
+    "source": "actionlint"
   },
   {
     "fingerprint": "9e3870612933ef0d",
@@ -1968,12 +1666,10 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/messages.yml",
     "line": 734,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2129:style:64:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 734,
+    "step": "L734",
+    "msg": "shellcheck reported issue in this script: SC2129:style:64:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
+    "source": "actionlint"
   },
   {
     "fingerprint": "77c319f7f3c017e1",
@@ -1981,11 +1677,9 @@
     "rule_id": "actionlint/shellcheck",
     "file": ".github/workflows/messages.yml",
     "line": 815,
-    "step": "",
-    "message": "shellcheck reported issue in this script: SC2129:style:7:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
-    "snippet": "        run: |\n        ^~~~",
-    "source": "actionlint",
-    "confidence": "",
-    "level": ""
+    "end_line": 815,
+    "step": "L815",
+    "msg": "shellcheck reported issue in this script: SC2129:style:7:1: Consider using { cmd1; cmd2; } >> file instead of individual redirects",
+    "source": "actionlint"
   }
 ]

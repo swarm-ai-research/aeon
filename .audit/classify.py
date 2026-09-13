@@ -1,45 +1,81 @@
-import json
-import hashlib
-import os
-import re
+#!/usr/bin/env python3
+import json, re, os
 from collections import Counter, defaultdict
 
-findings = json.load(open('.audit/parsed.json'))
+findings = json.load(open('.audit/findings.json'))
 
-def our_severity(f):
-    level = f['level']
-    conf = f.get('confidence', '').lower()
-    if level == 'error' and conf == 'high':
-        return 'Critical'
-    if level == 'error':
-        return 'High'
-    if level == 'warning' and conf == 'high':
-        return 'High'
-    if level == 'warning':
-        return 'Medium'
-    return 'Low'
+prior_path = '.audit-prior/articles/workflow-security-audit-2026-09-06.md'
+prior_date = '2026-09-06'
+prior_fps = {}
+if os.path.exists(prior_path):
+    with open(prior_path) as fh:
+        text = fh.read()
+    m = re.search(r'workflow-security-audit-fingerprints\n(.*?)-->', text, re.DOTALL)
+    if m:
+        for line in m.group(1).strip().split('\n'):
+            parts = line.strip().split()
+            if not parts:
+                continue
+            fp = parts[0]
+            attrs = {}
+            for p in parts[1:]:
+                if '=' in p:
+                    k, v = p.split('=', 1)
+                    attrs[k] = v
+            prior_fps[fp] = attrs
+print('prior fingerprints loaded:', len(prior_fps))
 
-for f in findings:
-    f['severity'] = our_severity(f)
-    short_rule = f['rule_id'].split('/')[-1]
-    f['short_rule'] = short_rule
-    # Build fingerprint: rule_id|file|step_or_snippet-key
-    snip_key = re.sub(r'\s+', ' ', f['snippet'])[:60]
-    file_short = os.path.basename(f['file'])
-    fp_src = f"{short_rule}|{file_short}|{snip_key}"
-    f['fingerprint'] = hashlib.sha256(fp_src.encode()).hexdigest()[:16]
+current_fps = {f['fingerprint']: f for f in findings}
+print('current fingerprints:', len(current_fps))
 
-print(f'Severity distribution:')
-for s, n in Counter(f['severity'] for f in findings).most_common():
-    print(f'  {n:4d}  {s}')
+# Classify
+new = []
+reintroduced = []
+unchanged = []
+resolved = []
 
-print(f'\nCritical findings:')
-for f in [x for x in findings if x['severity'] == 'Critical']:
-    print(f"  [{f['rule_id']}] {os.path.basename(f['file'])}:{f['line']} — {f['message'][:80]}")
+for fp, f in current_fps.items():
+    if fp not in prior_fps:
+        f['delta'] = 'NEW'
+        new.append(f)
+    else:
+        prior_status = prior_fps[fp].get('status', '')
+        if prior_status in ('auto-fixed', 'resolved'):
+            f['delta'] = 'REINTRODUCED'
+            reintroduced.append(f)
+        else:
+            f['delta'] = 'UNCHANGED'
+            unchanged.append(f)
 
-print(f'\nHigh findings (first 20):')
-for f in [x for x in findings if x['severity'] == 'High'][:20]:
-    print(f"  [{f['short_rule']}] {os.path.basename(f['file'])}:{f['line']} — conf={f['confidence']} level={f['level']}")
+for fp, attrs in prior_fps.items():
+    if fp not in current_fps:
+        resolved.append({'fingerprint': fp, **attrs})
 
-# Save with severity + fingerprint
-json.dump(findings, open('.audit/classified.json', 'w'), indent=2)
+print(f'NEW={len(new)} REINTRODUCED={len(reintroduced)} UNCHANGED={len(unchanged)} RESOLVED={len(resolved)}')
+print('NEW by severity:', Counter(f['severity'] for f in new))
+print('REINTRODUCED by severity:', Counter(f['severity'] for f in reintroduced))
+print('UNCHANGED by severity:', Counter(f['severity'] for f in unchanged))
+print('RESOLVED by prior severity:', Counter(a.get('severity','?') for a in resolved))
+
+result = {
+    'new': new,
+    'reintroduced': reintroduced,
+    'unchanged': unchanged,
+    'resolved': resolved,
+    'prior_date': prior_date,
+    'prior_count': len(prior_fps),
+    'total': len(findings),
+}
+with open('.audit/delta.json', 'w') as fh:
+    json.dump(result, fh, indent=2)
+print('wrote .audit/delta.json')
+
+# Show any NEW findings (if any)
+if new:
+    print('--- NEW findings ---')
+    for f in new[:20]:
+        print(f['severity'], f['rule_id'], f['file'], f['step'])
+if reintroduced:
+    print('--- REINTRODUCED findings ---')
+    for f in reintroduced[:20]:
+        print(f['severity'], f['rule_id'], f['file'], f['step'])
