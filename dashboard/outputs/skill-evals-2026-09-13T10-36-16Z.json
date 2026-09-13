@@ -1,0 +1,138 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Evals",
+        "description": "SKILL_EVALS_REGRESSED"
+      },
+      "children": [
+        "metrics-stack",
+        "separator-1",
+        "action-section",
+        "separator-2",
+        "issue-section"
+      ]
+    },
+    "metrics-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-new-fails",
+        "stat-fixed",
+        "stat-coverage"
+      ]
+    },
+    "stat-new-fails": {
+      "type": "Stat",
+      "props": {
+        "label": "New Fails",
+        "value": "13"
+      }
+    },
+    "stat-fixed": {
+      "type": "Stat",
+      "props": {
+        "label": "Fixed",
+        "value": "0"
+      }
+    },
+    "stat-coverage": {
+      "type": "Stat",
+      "props": {
+        "label": "Coverage",
+        "value": "28%"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "action-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "action-heading",
+        "action-content",
+        "article-link"
+      ]
+    },
+    "action-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Action",
+        "level": "h3"
+      }
+    },
+    "action-content": {
+      "type": "Text",
+      "props": {
+        "text": "Investigate heartbeat — missing_pattern:heartbeat|Heartbeat|HEARTBEAT (ISS-027)"
+      }
+    },
+    "article-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "articles/skill-evals-2026-09-13.md",
+        "href": "articles/skill-evals-2026-09-13.md"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issue-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issue-heading",
+        "issue-content"
+      ]
+    },
+    "issue-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues",
+        "level": "h3"
+      }
+    },
+    "issue-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue-heartbeat",
+        "issue-preexisting"
+      ]
+    },
+    "issue-heartbeat": {
+      "type": "Text",
+      "props": {
+        "text": "heartbeat: missing_pattern:heartbeat|Heartbeat|HEARTBEAT"
+      }
+    },
+    "issue-preexisting": {
+      "type": "Text",
+      "props": {
+        "text": "+ 12 pre-existing no_file_match tracked by ISS-002/005/009–018"
+      }
+    }
+  }
+}
