@@ -1,0 +1,222 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Self Review — 2026-09-13"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "section_reliability",
+        "separator_1",
+        "section_quality",
+        "separator_2",
+        "section_actions",
+        "separator_3",
+        "section_recs",
+        "separator_4",
+        "link_fullreview"
+      ]
+    },
+    "section_reliability": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_reliability",
+        "stat_completed",
+        "alert_deadpocket",
+        "alert_overdue"
+      ]
+    },
+    "heading_reliability": {
+      "type": "Heading",
+      "props": {
+        "text": "Reliability",
+        "level": "h3"
+      }
+    },
+    "stat_completed": {
+      "type": "Stat",
+      "props": {
+        "label": "completed",
+        "value": "89/89"
+      }
+    },
+    "alert_deadpocket": {
+      "type": "Alert",
+      "props": {
+        "title": "06:00Z pocket",
+        "message": "4-days-dead (ISS-026)",
+        "type": "warning"
+      }
+    },
+    "alert_overdue": {
+      "type": "Alert",
+      "props": {
+        "title": "Overdue weekly skills",
+        "message": "9 weekly skills 9-86d overdue (skill-repair 85d silent)",
+        "type": "warning"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_quality": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_quality",
+        "stat_articles",
+        "text_commit",
+        "badge_iss008"
+      ]
+    },
+    "heading_quality": {
+      "type": "Heading",
+      "props": {
+        "text": "Quality",
+        "level": "h3"
+      }
+    },
+    "stat_articles": {
+      "type": "Stat",
+      "props": {
+        "label": "articles first-landed in git today",
+        "value": "9"
+      }
+    },
+    "text_commit": {
+      "type": "Text",
+      "props": {
+        "text": "Commit: 48a7486",
+        "variant": "caption"
+      }
+    },
+    "badge_iss008": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-008 closed",
+        "variant": "default"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_actions": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_actions",
+        "text_action1",
+        "text_action2"
+      ]
+    },
+    "heading_actions": {
+      "type": "Heading",
+      "props": {
+        "text": "Actions",
+        "level": "h3"
+      }
+    },
+    "text_action1": {
+      "type": "Text",
+      "props": {
+        "text": "MEMORY.md line 10 rewritten",
+        "variant": "body"
+      }
+    },
+    "text_action2": {
+      "type": "Text",
+      "props": {
+        "text": "1 stale action-queue item removed",
+        "variant": "body"
+      }
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_recs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_recs",
+        "text_rec1",
+        "text_rec2",
+        "text_rec3"
+      ]
+    },
+    "heading_recs": {
+      "type": "Heading",
+      "props": {
+        "text": "Recommendations",
+        "level": "h3"
+      }
+    },
+    "text_rec1": {
+      "type": "Text",
+      "props": {
+        "text": "(1) migrate planner+compute-futures-eda out of 06:00Z",
+        "variant": "body"
+      }
+    },
+    "text_rec2": {
+      "type": "Text",
+      "props": {
+        "text": "(2) restore/disable 9 overdue weeklies (skill-repair first)",
+        "variant": "body"
+      }
+    },
+    "text_rec3": {
+      "type": "Text",
+      "props": {
+        "text": "(3) ship agi-tracker enabled:false before 09-14T13Z",
+        "variant": "body"
+      }
+    },
+    "separator_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_fullreview": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full review",
+        "href": "articles/self-review-2026-09-13.md"
+      }
+    }
+  }
+}
