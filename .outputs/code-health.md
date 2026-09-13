@@ -1,16 +1,17 @@
-Skill logic is a single short-circuit — no task tracking needed. Done.
+Task is a small single-step short-circuit — no TaskCreate needed. Skill executed per contract.
 
 ## Summary
 
-Executed `skills/code-health/SKILL.md` with `${var}` empty.
+Executed `skills/code-health/SKILL.md` — took the skip branch per the skill contract (`memory/watched-repos.md` missing, `${var}` empty).
 
-- **Pre-flight halt:** `memory/watched-repos.md` absent (and `memory/topics/watched-repos.md` also absent — path mismatch across dependent skills unresolved). Per SKILL.md rule "If the file doesn't exist yet, create it or skip this skill," took the skip branch.
-- **Steps 1–3 (clone, grep, article) skipped;** no `articles/code-health-2026-09-12.md` written (the article also wouldn't have landed on disk anyway per [[articles-dir-never-existed-in-git-history]]).
-- **Step 4 notify skipped** — 41-day streak already recorded in MEMORY.md current-focus + action-queue; re-notifying would train the operator to ignore.
-- **Step 5 log:** appended a `## Code Health` block to `memory/logs/2026-09-12.md` with the `CODE_HEALTH_EMPTY_CONFIG` / `CODE_HEALTH_OK no-watched-repos` markers and streak-42 line.
-- **Cluster today:** `code-health` + `github-monitor` + `issue-triage` all short-circuited on the same missing config in the 09:20Z coherent-late-pocket catch-up batch.
+**Actions taken:**
+- Verified missing config: neither `memory/watched-repos.md` nor `memory/topics/watched-repos.md` present; `${var}` empty.
+- No repos cloned, no `articles/code-health-2026-09-13.md` written, no notification sent (steady-state chronic short-circuit — sibling of github-monitor/issue-triage/etc. already logged today).
 
-**Files:** `memory/logs/2026-09-12.md` (appended).
-**Terminal:** `CODE_HEALTH_OK no-watched-repos` — streak-42.
+**Files modified:**
+- `memory/logs/2026-09-13.md` — appended `### code-health` block with `CODE_HEALTH_EMPTY_CONFIG` verdict; continues chronic streak-43 cluster.
 
-**Follow-up (unchanged, still in MEMORY.md action queue):** populate `memory/watched-repos.md` OR disable the 6 dependents (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive), and reconcile the `memory/topics/watched-repos.md` vs `memory/watched-repos.md` path mismatch.
+**Follow-up (unchanged from action queue):**
+- Populate `memory/watched-repos.md` OR disable the 6 dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive).
+- Reconcile path mismatch: repo-revive references `memory/topics/watched-repos.md` while the other five reference `memory/watched-repos.md`.
+- Fabricating a repo list here would cross an operator-decision boundary — deliberately not done.
