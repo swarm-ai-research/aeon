@@ -1,0 +1,97 @@
+{
+  "root": "card_reflect",
+  "state": {},
+  "elements": {
+    "card_reflect": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "summary_text",
+        "separator1",
+        "atomics_section",
+        "separator2",
+        "splits_text"
+      ]
+    },
+    "summary_text": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "title_text",
+        "metrics_text"
+      ]
+    },
+    "title_text": {
+      "type": "Text",
+      "props": {
+        "text": "Memory consolidated — 2026-09-13"
+      }
+    },
+    "metrics_text": {
+      "type": "Text",
+      "props": {
+        "text": "+3n / +3e",
+        "variant": "caption"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "atomics_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "atomics_header",
+        "atomic1",
+        "atomic2"
+      ]
+    },
+    "atomics_header": {
+      "type": "Text",
+      "props": {
+        "text": "2 new atomics",
+        "variant": "lead"
+      }
+    },
+    "atomic1": {
+      "type": "Alert",
+      "props": {
+        "title": "ISS-006",
+        "message": "Dead window widens to 08:00Z",
+        "type": "info"
+      }
+    },
+    "atomic2": {
+      "type": "Alert",
+      "props": {
+        "title": "skill-evals BOOTSTRAP",
+        "message": "Inflates NEW_FAIL with pre-tracked issues",
+        "type": "info"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "splits_text": {
+      "type": "Text",
+      "props": {
+        "text": "0 splits",
+        "variant": "caption"
+      }
+    }
+  }
+}
