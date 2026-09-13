@@ -1,0 +1,81 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Graph"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_status",
+        "grid_stats",
+        "separator_1",
+        "link_pr"
+      ]
+    },
+    "text_status": {
+      "type": "Text",
+      "props": {
+        "text": "Skill Graph initialized",
+        "variant": "lead"
+      }
+    },
+    "grid_stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat_skills",
+        "stat_categories",
+        "stat_enabled"
+      ]
+    },
+    "stat_skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills",
+        "value": "175"
+      }
+    },
+    "stat_categories": {
+      "type": "Stat",
+      "props": {
+        "label": "Categories",
+        "value": "6"
+      }
+    },
+    "stat_enabled": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled",
+        "value": "44"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_pr": {
+      "type": "Link",
+      "props": {
+        "label": "View on GitHub (PR #68)",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/68"
+      }
+    }
+  }
+}
