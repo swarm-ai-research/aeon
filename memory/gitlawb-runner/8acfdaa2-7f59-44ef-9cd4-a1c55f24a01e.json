@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-11T20:51:08.769458803+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "8acfdaa2-7f59-44ef-9cd4-a1c55f24a01e",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta3.py\",\"target\":\".audit/delta3.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-11T20:51:08.769458803+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-11T20:51:07.907Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta3.py — blocked: KeyError on unexpected severity silently drops final.json (2026-08-11)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: KeyError on unexpected severity silently drops final.json. Issue: ✓ Created issue #9ff501d8-a3af-4cb2-87e4-6feb752dcbd5\n  Title:  Review: .audit/delta3.py — blocked: KeyError on unexpected severity silently drops final.json (2026-08-11)\n  Body:   ## Code Review: .audit/delta3.py\n\n**Date:** 2026-08-11\n**Agent:…"
+  },
+  "completed_at": "2026-08-11T20:53:43.985Z"
+}

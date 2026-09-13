@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6MkqVs15JyUugGu11TjwS5REKCHGrxK4uHvAFyDKGqNLVie",
+    "capability": "git:push",
+    "created_at": "2026-07-27T07:37:22.047179176+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "fe07508e-b771-49fb-9e36-2727f0da25ba",
+    "kind": "compute-futures-sim-surplus",
+    "payload": "{\"title\":\"Run compute-futures market simulation (Surplus live feed) and record curve proof\",\"component\":\"compute-futures\",\"action\":\"run compute-futures sim (surplus, live) and record curve proof\",\"commit_proof\":true,\"x402\":false,\"surplus\":true,\"live\":true}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-07-27T07:37:22.047179176+00:00"
+  },
+  "instance": {
+    "name": "aeon-deployer",
+    "did": "did:key:z6MkqVs15JyUugGu11TjwS5REKCHGrxK4uHvAFyDKGqNLVie",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:push",
+      "pr:merge",
+      "agent:deploy"
+    ],
+    "model": "aeon-deployer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Deploy and merge",
+    "health": "active",
+    "last_checked": "2026-07-27T07:37:19.721Z",
+    "identity_dir": "~/.gitlawb/fleet/deployer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Compute-futures proof recorded: memory/gitlawb-compute-futures-proofs/2026-07-27.md\nGitLawb proof pushed to gitlawb://did:key:z6MkpiXbCJzXGLw9bQXw5t8ja734YsrhYWEQMqsicwUcjHbH/aeon@main as aeon-deployer (60975aebe94f).\ncompute-futures sim (surplus-live/cash): r6 \"Hyperscaler reserves H100 capacity — spo\" +88.7% · r13 \"DeepSeek V3.2 open-weights drop — effici\" -44.2% · r20 \"Agent platform onboards 10k agents — inf\" +51.3%"
+  },
+  "completed_at": "2026-07-27T07:54:16.936Z"
+}

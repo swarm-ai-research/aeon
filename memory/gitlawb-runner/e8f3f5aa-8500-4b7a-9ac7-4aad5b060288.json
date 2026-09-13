@@ -1,0 +1,39 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6MksUuVYyp93QA6pc2qAnXFQZdaoHq46dugXVweeehX4S2M",
+    "capability": "repo:admin",
+    "created_at": "2026-06-06T22:16:12.341071139+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "e8f3f5aa-8500-4b7a-9ac7-4aad5b060288",
+    "kind": "audit",
+    "payload": "{\"title\":\"Security audit: workflow security\",\"target\":\"repo\",\"focus\":\"workflow security, secret handling, env var exposure\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-06-06T22:16:12.341071139+00:00"
+  },
+  "instance": {
+    "name": "aeon-sentinel",
+    "did": "did:key:z6MksUuVYyp93QA6pc2qAnXFQZdaoHq46dugXVweeehX4S2M",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "repo:admin",
+      "git:push",
+      "agent:deploy"
+    ],
+    "model": "aeon-sentinel",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Security monitoring",
+    "health": "active",
+    "last_checked": "2026-06-06T22:16:11.330Z"
+  },
+  "result": {
+    "executor": "prototype",
+    "summary": "Security audit [LOW]: Attenuation enforcement: PASS; Renewal escalation check: PASS; Fail-closed on missing activity: PASS; Self-modification block: PASS; Blocklist mechanism: PASS."
+  },
+  "completed_at": "2026-06-06T22:16:13.877Z"
+}

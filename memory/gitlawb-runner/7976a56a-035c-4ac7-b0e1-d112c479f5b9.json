@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:open",
+    "created_at": "2026-08-07T05:43:22.369254460+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "7976a56a-035c-4ac7-b0e1-d112c479f5b9",
+    "kind": "refactor-pass",
+    "payload": "{\"title\":\"refactor-pass on recent code changes\",\"target\":\".audit-bin/actionlint, .audit-bin/actionlint.tar.gz, .audit-bin/zizmor\",\"focus\":\"duplication, dead code, simplification opportunities — open a small targeted PR\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-07T05:43:22.369254460+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-07T05:43:20.969Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Code-pass refactor-pass opened PR: https://github.com/swarm-ai-research/aeon/pull/12 — Removed the duplicated `export PATH=\"$PWD/.audit-bin:$PATH\"` in `skills/workflow-security-audit/SKILL.md` by hoisting it to a single prepend above both tool blocks, letting `command -v` alone gate the fallback network installs."
+  },
+  "completed_at": "2026-08-07T05:48:15.311Z"
+}

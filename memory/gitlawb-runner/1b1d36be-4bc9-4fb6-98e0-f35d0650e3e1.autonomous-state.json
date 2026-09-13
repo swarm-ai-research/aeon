@@ -1,0 +1,14 @@
+{
+  "actions": [
+    {
+      "name": "read_file",
+      "params": {
+        "path": ".audit-tools/zizmor-1.25.2.dist-info/INSTALLER"
+      },
+      "description": "Read the zizmor dist-info INSTALLER file to understand how the package was installed. It contains 'pip', confirming zizmor 1.25.2 was installed via pip into .audit-tools/. This is part of a security audit toolchain update: actionlint (GitHub Actions linter, ELF binary in .audit-bin/) and zizmor 1.25.2 (GitHub Actions security scanner, installed via pip to .audit-tools/) were added or updated in the repo. The 1710-file change count likely reflects the binary blobs and pip-installed package tree being committed.",
+      "at": "2026-06-25T17:18:26.443Z"
+    }
+  ],
+  "stepCount": 2,
+  "startedAt": "2026-06-25T17:18:04.986Z"
+}

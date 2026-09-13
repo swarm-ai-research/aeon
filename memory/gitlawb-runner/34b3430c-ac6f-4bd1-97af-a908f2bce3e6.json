@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-21T20:29:58.681121700+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "34b3430c-ac6f-4bd1-97af-a908f2bce3e6",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta.py\",\"target\":\".audit/delta.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-21T20:29:58.681121700+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-22T01:26:05.050Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta.py — blocked: trailer-detection-bug-silently-drops-all-prior-fingerprints (2026-08-22)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: trailer-detection-bug-silently-drops-all-prior-fingerprints. Issue: ✓ Created issue #ba6a1143-b7a4-401c-9a65-77d2c081894d\n  Title:  Review: .audit/delta.py — blocked: trailer-detection-bug-silently-drops-all-prior-fingerprints (2026-08-22)\n  Body:   ## Code Review: .audit/delta.py\n\n**Date:** 2026-08-22\n**Age…"
+  },
+  "completed_at": "2026-08-22T01:29:44.037Z"
+}

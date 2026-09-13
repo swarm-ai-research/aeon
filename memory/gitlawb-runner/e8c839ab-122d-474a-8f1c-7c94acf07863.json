@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-16T20:27:31.363668794+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "e8c839ab-122d-474a-8f1c-7c94acf07863",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/debug_resolve.py\",\"target\":\".audit/debug_resolve.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-16T20:27:31.363668794+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-16T20:27:30.541Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/debug_resolve.py — blocked: SARIF-supplied URI passed to open() without path sanitization (2026-08-16)\" — 3 findings (1 critical, 2 issue). Verdict: blocked: SARIF-supplied URI passed to open() without path sanitization. Issue: ✓ Created issue #455ae825-fa23-4319-afb6-34ff7c5a30a3\n  Title:  Review: .audit/debug_resolve.py — blocked: SARIF-supplied URI passed to open() without path sanitization (2026-08-16)\n  Body:   ## Code Review: .audit/debug_resolve.…"
+  },
+  "completed_at": "2026-08-16T20:29:41.768Z"
+}
