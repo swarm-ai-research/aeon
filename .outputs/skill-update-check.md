@@ -1,8 +1,8 @@
-`skills.lock` was not found at the repo root. Per the skill's preflight rule, I logged `SKILL_UPDATE_CHECK_NO_LOCK: skills.lock not found — no imported skills tracked` to `memory/logs/2026-09-06.md` and stopped. No notification was sent.
+`skills.lock` is not present in the repository. Per Step 1 of the skill, execution has stopped — no drift detection, no report, no notification.
 
 ## Summary
 
-- **Outcome:** Preflight step 1 short-circuit — `skills.lock` does not exist, so no imported skills are tracked.
-- **Action taken:** Appended log entry to `memory/logs/2026-09-06.md`.
-- **No notification sent** (required by the skill's constraint when the lock is missing/empty).
-- **Follow-up:** If you want to start tracking imported skills, create `skills.lock` with the JSON array format described in the SKILL.md and re-run this skill.
+- **Condition:** `skills.lock` not found at repo root — no imported skills are tracked.
+- **Action taken:** Logged `SKILL_UPDATE_CHECK_NO_LOCK: skills.lock not found — no imported skills tracked` to `memory/logs/2026-09-13.md`.
+- **Notification:** suppressed (skill contract: no lock → silent stop).
+- **Follow-up:** If external skills are imported in the future, `./add-skill` should create `skills.lock` with entries that this skill can then audit.
