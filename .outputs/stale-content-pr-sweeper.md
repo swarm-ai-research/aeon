@@ -1,18 +1,8 @@
-## Summary
+Skill complete. Ran the sweeper per `skills/stale-content-pr-sweeper/SKILL.md`.
 
-**Skill**: `stale-content-pr-sweeper` executed per SKILL.md.
+**Result: 0 PRs closed, no notify (steady state).**
 
-**Scan**:
-- 29 open PRs total; 8 matched TRACKED prefix + `YYYY-MM-DD` branch suffix.
-- 2 groups formed pre-author-filter: `notegraph` (#66, #65) and `suggest-edges` (#60, #54, #52, #49, #45, #42).
-- All 8 authored by `app/github-actions` — filtered out by `ALLOWED_AUTHORS = {aeonframework}`.
-
-**Result**: **0 groups eligible, 0 PRs closed, no notify sent.** Idempotent no-op, consistent with steady state.
-
-**Files modified**:
-- `memory/logs/2026-09-13.md` (created with sweeper log entry).
-
-**Follow-up (unchanged from prior action queue)**:
-- Patch `skills/stale-content-pr-sweeper/SKILL.md`: add `"app/github-actions"` to `ALLOWED_AUTHORS` per `[[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]]` — now Day-7 confirmation.
-- Fix TRACKED-prefix drift per `[[stale-content-pr-sweeper-tracked-prefix-drift]]`: `compute-macro/*` (three PRs) and `skill-graph/*` (five PRs) are silently ignored because the TRACKED entry is `compute-macro-correlate`, and `skill-graph` isn't listed at all.
-- Once the author-filter fix lands, next run would sweep #65 (superseded by #66) and #42/#45/#49/#52/#54 (all superseded by #60), gated on the `mergeable != CLEAN` conflict check per step 3.
+- 31 open PRs scanned; 9 matched TRACKED prefix + `YYYY-MM-DD` suffix in 2 groups (`notegraph` ×3, `suggest-edges` ×6).
+- All 9 authored by `app/github-actions`, which is not in `ALLOWED_AUTHORS = {aeonframework}` — the same drift documented in `[[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]]` (now Day-8) and the "Patch stale-content-pr-sweeper SKILL.md" action-queue item.
+- Non-TRACKED date-stamped branches (`skill-graph/*`, `compute-macro/*`, `fix/workflow-security-audit-*`, `aeon/*-pass-*`, `freebuff/*`, `dependabot/*`) correctly ignored.
+- Wrote sweeper section + `## Summary` to `memory/logs/2026-09-14.md`. Idempotent by construction — re-run is a no-op.
