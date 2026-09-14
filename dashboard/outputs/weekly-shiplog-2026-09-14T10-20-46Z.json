@@ -1,0 +1,23 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Weekly Shiplog — 2026-09-14"
+      },
+      "children": [
+        "alert-no-repos"
+      ]
+    },
+    "alert-no-repos": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "SHIPLOG_NO_REPOS",
+        "message": "memory/watched-repos.md is empty or missing. Add a repo to enable this skill."
+      }
+    }
+  }
+}
