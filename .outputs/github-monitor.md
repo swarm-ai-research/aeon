@@ -1,14 +1,6 @@
 ## Summary
 
-Executed `skills/github-monitor/SKILL.md`. The skill short-circuits at step 0 (config check) because both `memory/watched-repos.md` and `memory/topics/watched-repos.md` are absent.
+Executed `skills/github-monitor/SKILL.md`. Config file `memory/watched-repos.md` is absent (alt path `memory/topics/watched-repos.md` also absent), so per SKILL.md the skill logged `GITHUB_MONITOR_EMPTY_CONFIG` and ended silently — no `gh` calls, no tiers computed, no notification sent.
 
-**Actions taken:**
-- Read `skills/github-monitor/SKILL.md`, `memory/MEMORY.md`, and today's log for context.
-- Confirmed `watched-repos.md` config file is missing (checked both paths that SKILL.md variants reference).
-- No `gh` calls issued, no notification sent (skill spec: silent when empty).
-
-**Files modified:**
-- `memory/logs/2026-09-13.md` — appended `### github-monitor` section with `GITHUB_MONITOR_EMPTY_CONFIG` sentinel and streak-43 continuity note.
-
-**Follow-up (already in MEMORY.md action queue):**
-- Populate `memory/watched-repos.md` or disable the 6 skill dependents (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Reconcile the SKILL.md path mismatch — repo-revive references `memory/topics/watched-repos.md`; the other five reference `memory/watched-repos.md`.
+- Files modified: `memory/logs/2026-09-14.md` — appended `### github-monitor` section with the empty-config log line and streak-44 cross-reference.
+- Follow-up (already in MEMORY.md action queue, not this run): populate `memory/watched-repos.md` or disable the 6 dependent skills; reconcile path mismatch with `repo-revive` (`memory/topics/watched-repos.md`).
