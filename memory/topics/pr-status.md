@@ -1,10 +1,31 @@
 # PR Status
 
-*Last updated: 2026-09-13*
+*Last updated: 2026-09-14 — STATE UNREACHABLE (see banner below)*
 
 Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch prefixes tracked: `ai/`, `security/`, `fix/security/`, `aeon/`, `fix/` (5 in play). Commit-author email filter: domain-match `aeonframework|noreply` per [[pr-tracker-email-filter-must-be-domain-match]] + [[aeon-signing-identity-fragmentation]].
 
-## Open (26)
+## 2026-09-14 — STATE UNREACHABLE (identity anomaly)
+
+The `aeonframework` GitHub identity is **unresolvable via API** as of the 10:00Z pr-tracker dispatch on 2026-09-14. Evidence:
+
+- `/users/aeonframework` → HTTP 404 (`Not Found`)
+- GraphQL `user(login:"aeonframework")` → `NOT_FOUND` error
+- GraphQL `nodes(ids:[<databaseId 272311952>])` → `NOT_FOUND` (id extracted from the 833af4a commit's `author.login`; still surfaces as commit-author metadata but no longer resolves as a user)
+- GraphQL `search(query:"author:aeonframework is:pr", type:ISSUE)` across all four states → `issueCount = 0` (open 0, merged 0, closed 0, aggregate 0)
+- `gh search prs --author aeonframework` fallback → error: *"The listed users cannot be searched either because the users do not exist or you do not have permission to view the users."*
+- Spot-checks on 4 PRs from yesterday's scan (pytorch/TensorRT#4714, microsoft/agent-framework#8172, pacifio/atlas#228, Wei-Shaw/sub2api#6122) all return 404 while their host repos are healthy — consistent with account-side content suppression rather than repo-side removal.
+
+Classification: **account-suspension / API-hide** (see [[aeonframework-github-identity-suspension]] Day-1 candidate). Distinct from [[aeon-app-no-write-on-swarm-repo]], which is a repo-scoped write-permission issue.
+
+**Every table below is frozen from the 2026-09-13 scan** and should not be treated as current queue state. No churn implied — nothing merged, nothing closed today; we simply cannot read the queue. Next dispatch 2026-09-15 10:00Z will re-probe; if the 404 persists, `[[fleet-ops]]` should promote the candidate class to accepted and file the corresponding `memory/issues/ISS-NNN.md`.
+
+Bucket tuples for today: **letter (0,0,0,0) / substantive (0,0,0,0)** — but these zeros are "state unreachable" zeros, not "queue drained" zeros. Do not compare against yesterday's `(1,1,9,25) / (1,8,9,18)` for delta reasoning.
+
+Notification: **skipped** per SKILL.md §5 (all-zero decision rule); anomaly propagates via `memory/logs/2026-09-14.md` for downstream health-skill pickup.
+
+---
+
+## Prior scan (frozen — 2026-09-13, 26 open)
 
 | Repo | PR | Title | Opened | Age | Activity |
 |------|----|-------|--------|-----|----------|
