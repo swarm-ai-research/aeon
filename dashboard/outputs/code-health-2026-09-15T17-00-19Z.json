@@ -1,0 +1,184 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "code-health",
+        "description": "Skill execution status"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert-skip",
+        "section-related",
+        "sep-1",
+        "section-action",
+        "sep-2",
+        "section-issue"
+      ]
+    },
+    "alert-skip": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "SKIP",
+        "message": "memory/watched-repos.md missing (streak-45)"
+      }
+    },
+    "section-related": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-related-label",
+        "badges-related"
+      ]
+    },
+    "text-related-label": {
+      "type": "Text",
+      "props": {
+        "text": "Same short-circuit class as:",
+        "variant": "lead"
+      }
+    },
+    "badges-related": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-1",
+        "badge-2",
+        "badge-3",
+        "badge-4",
+        "badge-5"
+      ]
+    },
+    "badge-1": {
+      "type": "Badge",
+      "props": {
+        "text": "github-monitor",
+        "variant": "outline"
+      }
+    },
+    "badge-2": {
+      "type": "Badge",
+      "props": {
+        "text": "issue-triage",
+        "variant": "outline"
+      }
+    },
+    "badge-3": {
+      "type": "Badge",
+      "props": {
+        "text": "changelog",
+        "variant": "outline"
+      }
+    },
+    "badge-4": {
+      "type": "Badge",
+      "props": {
+        "text": "weekly-shiplog",
+        "variant": "outline"
+      }
+    },
+    "badge-5": {
+      "type": "Badge",
+      "props": {
+        "text": "repo-revive",
+        "variant": "outline"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-action": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-action",
+        "text-action"
+      ]
+    },
+    "heading-action": {
+      "type": "Heading",
+      "props": {
+        "text": "Action Required",
+        "level": "h4"
+      }
+    },
+    "text-action": {
+      "type": "Text",
+      "props": {
+        "text": "Populate memory/watched-repos.md or disable the 6 dependents.",
+        "variant": "body"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-issue": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-issue",
+        "text-issue-label",
+        "text-issue-expected",
+        "text-issue-actual"
+      ]
+    },
+    "heading-issue": {
+      "type": "Heading",
+      "props": {
+        "text": "Open Issue: repo-revive path mismatch",
+        "level": "h4"
+      }
+    },
+    "text-issue-label": {
+      "type": "Text",
+      "props": {
+        "text": "Path mismatch still open:",
+        "variant": "body"
+      }
+    },
+    "text-issue-expected": {
+      "type": "Text",
+      "props": {
+        "text": "Expected: memory/topics/watched-repos.md",
+        "variant": "caption"
+      }
+    },
+    "text-issue-actual": {
+      "type": "Text",
+      "props": {
+        "text": "Actual: memory/watched-repos.md",
+        "variant": "caption"
+      }
+    }
+  }
+}

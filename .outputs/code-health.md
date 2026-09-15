@@ -1,6 +1,1 @@
-## Summary
-
-- **Ran** `skills/code-health/SKILL.md`: precondition failed and the skill short-circuited cleanly at the §Config gate — `${var}` empty and `memory/watched-repos.md` absent (verified `memory/topics/watched-repos.md` absent too, matching today's github-monitor / issue-triage / weekly-shiplog checks). SKILL.md offers "create or skip"; I chose skip because the operator has left this gap open for 43 consecutive days and the action queue lists the two acceptable resolutions (populate OR disable the 6 dependents) — unilaterally seeding the file from this skill would race that decision.
-- **State:** `CODE_HEALTH_OK no-watched-repos`. No `gh repo clone`, no grep scan, no `articles/code-health-2026-09-14.md`, no notify.
-- **Files modified:** `memory/logs/2026-09-14.md` (appended `## Code Health` + `## Summary — Code Health` sections; brings today's watched-repos streak counter to 44).
-- **Follow-up (already in MEMORY.md action queue, not this run):** populate `memory/watched-repos.md` or disable the 6 dependents (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive); fold in `repo-revive`'s `memory/topics/watched-repos.md` path mismatch in the same patch.
+code-health SKIP — memory/watched-repos.md missing (streak-45). Same short-circuit class as github-monitor/issue-triage/changelog/weekly-shiplog/repo-revive. Populate the file or disable the 6 dependents; repo-revive path mismatch (memory/topics/watched-repos.md vs memory/watched-repos.md) still open.
