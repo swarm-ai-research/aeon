@@ -3,8 +3,22 @@
 
 import { spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { tmpdir } from "node:os";
+
+const TEST_DIR = dirname(fileURLToPath(import.meta.url));
+const PROJECT_ROOT = resolve(TEST_DIR, "../..");
+const RUNNER_PATH = join(TEST_DIR, "task-runner.mjs");
+
+function runRunner(args, options = {}) {
+  return spawnSync("node", [RUNNER_PATH, ...args], {
+    cwd: PROJECT_ROOT,
+    encoding: "utf8",
+    timeout: 30000,
+    ...options,
+  });
+}
 
 let passed = 0;
 let failed = 0;
@@ -19,7 +33,7 @@ function assert(condition, label) {
   }
 }
 
-const REPO = process.cwd();
+const REPO = PROJECT_ROOT;
 const tmp = mkdtempSync(join(tmpdir(), "gitlawb-task-runner-test-"));
 const artifactsDir = join(tmp, "artifacts");
 mkdirSync(artifactsDir, { recursive: true });
@@ -98,8 +112,7 @@ writeFileSync(configPath, JSON.stringify({
 
 console.log("Autonomous task-runner loop:");
 {
-  const proc = spawnSync("node", [
-    "prototypes/gitlawb-safety/task-runner.mjs",
+  const proc = runRunner([
     "once",
     "--instances", instancesPath,
     "--config", configPath,
@@ -107,11 +120,7 @@ console.log("Autonomous task-runner loop:");
     "--artifacts-dir", artifactsDir,
     "--dry-run",
     "--agent", "researcher",
-  ], {
-    cwd: REPO,
-    encoding: "utf8",
-    timeout: 30000,
-  });
+  ]);
 
   assert(proc.status === 0, `runner exits 0 (${proc.stderr || proc.stdout})`);
   assert(proc.stdout.includes("AUTONOMOUS_STEP aeon-researcher task-autonomous step=1"), "logs first autonomous step");
