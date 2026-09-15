@@ -1,0 +1,161 @@
+{
+  "root": "main_card",
+  "state": {},
+  "elements": {
+    "main_card": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-09-14"
+      },
+      "children": [
+        "content_stack"
+      ]
+    },
+    "content_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "header_section",
+        "critical_section",
+        "technical_section",
+        "status_section",
+        "report_section"
+      ]
+    },
+    "header_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Rows",
+        "value": "144"
+      }
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "critical_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "critical_alert",
+        "cycle_detail",
+        "blackout_detail"
+      ]
+    },
+    "critical_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "CRITICAL: Spot Multiplier Lock Broken",
+        "message": "basket:synth spot multiplier breaks the 22-day 2.500000 lock"
+      }
+    },
+    "cycle_detail": {
+      "type": "Text",
+      "props": {
+        "text": "Cycles: 2.50 → 1.99 (09-11/12) → 2.55 (09-13/14)"
+      }
+    },
+    "blackout_detail": {
+      "type": "Text",
+      "props": {
+        "text": "Through 7-day ISS-006 filing blackout window"
+      }
+    },
+    "technical_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "deployer_heading",
+        "deployer_text"
+      ]
+    },
+    "deployer_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Deployer Configuration",
+        "level": "h4"
+      }
+    },
+    "deployer_text": {
+      "type": "Text",
+      "props": {
+        "text": "Scenario-sweep size-multiplier is a live tunable, not a fixed constant"
+      }
+    },
+    "status_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "status_heading",
+        "conservation_badge",
+        "detail_text"
+      ]
+    },
+    "status_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h4"
+      }
+    },
+    "conservation_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "All 4 modes OK",
+        "variant": "default"
+      }
+    },
+    "detail_text": {
+      "type": "Text",
+      "props": {
+        "text": "Float dust, sign pattern 4−/0+ class-first",
+        "variant": "caption"
+      }
+    },
+    "report_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "report_link"
+      ]
+    },
+    "report_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-09-14.md",
+        "source": "compute-futures-eda"
+      }
+    }
+  }
+}
