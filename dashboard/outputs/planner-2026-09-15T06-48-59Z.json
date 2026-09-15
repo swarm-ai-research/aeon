@@ -1,0 +1,122 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Planner Status",
+        "description": "Critical and ongoing issues requiring attention"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert_github_404",
+        "sep_1",
+        "stack_github_details",
+        "sep_2",
+        "alert_iss006",
+        "sep_3",
+        "alert_pr26",
+        "sep_4",
+        "text_skill_repair"
+      ]
+    },
+    "alert_github_404": {
+      "type": "Alert",
+      "props": {
+        "title": "aeonframework GitHub Identity 404 — Day-2 Confirmed",
+        "message": "Fleet-existential if it holds. Operator needs to check account status.",
+        "type": "error"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "stack_github_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_probe_header",
+        "text_probe_users",
+        "text_probe_graphql",
+        "text_probe_prsearch"
+      ]
+    },
+    "text_probe_header": {
+      "type": "Text",
+      "props": {
+        "text": "Confirmed via three probes:",
+        "variant": "lead"
+      }
+    },
+    "text_probe_users": {
+      "type": "Text",
+      "props": {
+        "text": "• Users endpoint: 404",
+        "variant": "body"
+      }
+    },
+    "text_probe_graphql": {
+      "type": "Text",
+      "props": {
+        "text": "• GraphQL query: NOT_FOUND",
+        "variant": "body"
+      }
+    },
+    "text_probe_prsearch": {
+      "type": "Text",
+      "props": {
+        "text": "• PR search: 0 results",
+        "variant": "body"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "alert_iss006": {
+      "type": "Alert",
+      "props": {
+        "title": "ISS-006 Pocket Migration",
+        "message": "Planner's own cron 7d silent. Streak: 32.",
+        "type": "warning"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "alert_pr26": {
+      "type": "Alert",
+      "props": {
+        "title": "PR #26 ShellCheck Regression",
+        "message": "Post-dependabot rebase: 5/5 → 4/5. Fresh regression detected.",
+        "type": "warning"
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "text_skill_repair": {
+      "type": "Text",
+      "props": {
+        "text": "skill-repair: 86 days silent",
+        "variant": "muted"
+      }
+    }
+  }
+}
