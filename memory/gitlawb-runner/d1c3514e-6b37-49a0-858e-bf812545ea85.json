@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-16T20:27:31.460150738+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "d1c3514e-6b37-49a0-858e-bf812545ea85",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/debug_resolve2.py\",\"target\":\".audit/debug_resolve2.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-16T20:27:31.460150738+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-16T20:27:30.541Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/debug_resolve2.py — blocked: path traversal in _resolve_path allows arbitrary file reads (2026-08-16)\" — 3 findings (1 critical, 2 issue). Verdict: blocked: path traversal in _resolve_path allows arbitrary file reads. Issue: ✓ Created issue #7a7beb60-682e-4433-98b1-770284dbefe0\n  Title:  Review: .audit/debug_resolve2.py — blocked: path traversal in _resolve_path allows arbitrary file reads (2026-08-16)\n  Body:   ## Code Review: .audit/debug_resolve2.py\n…"
+  },
+  "completed_at": "2026-08-16T20:28:55.442Z"
+}

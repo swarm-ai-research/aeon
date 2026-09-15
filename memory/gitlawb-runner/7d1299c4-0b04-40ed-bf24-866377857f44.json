@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-19T20:33:15.040368715+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "7d1299c4-0b04-40ed-bf24-866377857f44",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta2.py\",\"target\":\".audit/delta2.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-19T20:33:15.040368715+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-20T01:26:16.577Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "[claude-review] CLI unavailable (claude --version status=1); using regex\nclaude review unavailable — falling back to pattern analysis\nReview complete: \"Review: .audit/delta2.py — MINOR_ISSUES (2026-08-20)\" — 4 findings (0 critical, 0 high, 4 medium). Verdict: MINOR_ISSUES. Issue: ✓ Created issue #c91616cc-3d6d-454a-83ca-79bd691f1f99\n  Title:  Review: .audit/delta2.py — MINOR_ISSUES (2026-08-20)\n  Body:   ## Code Review: .audit/delta2.py\n\n**Date:** 2026-08-20\n**Agent:** aeon-reviewer (did:key:z6…"
+  },
+  "completed_at": "2026-08-20T01:26:34.705Z"
+}

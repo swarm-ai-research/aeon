@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-21T08:46:08.883302932+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "609ad4c0-8da6-4c44-91f2-7c129d2d539e",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta3.py\",\"target\":\".audit/delta3.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-21T08:46:08.883302932+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-21T08:46:08.212Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta3.py — blocked: silent output corruption on write error (2026-08-21)\" — 3 findings (1 critical, 2 issue). Verdict: blocked: silent output corruption on write error. Issue: ✓ Created issue #6ff58a23-21ea-42da-9676-0a024f3572fb\n  Title:  Review: .audit/delta3.py — blocked: silent output corruption on write error (2026-08-21)\n  Body:   ## Code Review: .audit/delta3.py\n\n**Date:** 2026-08-21\n**Agent:** aeon-reviewer (did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwr…"
+  },
+  "completed_at": "2026-08-21T08:47:51.314Z"
+}

@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6MkqVs15JyUugGu11TjwS5REKCHGrxK4uHvAFyDKGqNLVie",
+    "capability": "git:push",
+    "created_at": "2026-09-09T22:22:35.860682707+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "87f0700e-688a-4291-a98b-a36332c88408",
+    "kind": "compute-futures-sweep",
+    "payload": "{\"title\":\"Run compute-futures scenario sweep and record analytics proof\",\"component\":\"compute-futures\",\"action\":\"run compute-futures scenario sweep and record analytics proof\",\"commit_proof\":true,\"modes\":[\"synthetic\",\"basket\",\"spread\",\"x402\"],\"seeds\":[202609091,202609092,202609093,202609094,202609095,202609096,202609097,202609098,202609099,2026090910,2026090911,2026090912],\"rounds\":60,\"live\":true,\"pair\":true}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-09T22:22:35.860682707+00:00"
+  },
+  "instance": {
+    "name": "aeon-deployer",
+    "did": "did:key:z6MkqVs15JyUugGu11TjwS5REKCHGrxK4uHvAFyDKGqNLVie",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:push",
+      "pr:merge",
+      "agent:deploy"
+    ],
+    "model": "aeon-deployer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Deploy and merge",
+    "health": "active",
+    "last_checked": "2026-09-09T22:22:33.781Z",
+    "identity_dir": "~/.gitlawb/fleet/deployer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "[prefetch-openrouter] wrote 3 models → out/live-prices.json (gemma-4-26b=$0.070/$0.340 · minimax-m2.5=$0.100/$0.150 · qwen3.5-122b=$30.000/$180.000)\nCompute-futures sweep CSV recorded: memory/gitlawb-compute-futures-proofs/2026-09-09.csv\nCompute-futures sweep proof recorded: memory/gitlawb-compute-futures-proofs/2026-09-09.md\nGitLawb proof pushed to gitlawb://did:key:z6MkpiXbCJzXGLw9bQXw5t8ja734YsrhYWEQMqsicwUcjHbH/aeon@main as aeon-deployer (729ef656f2a1).\ncompute-futures sweep: 48 runs · synt…"
+  },
+  "completed_at": "2026-09-09T22:25:33.446Z"
+}

@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-13T20:48:54.329988078+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "a8aba657-8cf2-4265-b6e6-67a7c2994e9d",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta.py\",\"target\":\".audit/delta.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-13T20:48:54.329988078+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-14T02:18:36.250Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta.py — blocked: false-RESOLVED reports mask security findings that still exist (2026-08-14)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: false-RESOLVED reports mask security findings that still exist. Issue: ✓ Created issue #82d3bee7-37c6-48a8-95a9-900b7aa9f3d4\n  Title:  Review: .audit/delta.py — blocked: false-RESOLVED reports mask security findings that still exist (2026-08-14)\n  Body:   ## Code Review: .audit/delta.py\n\n**Date:** 2026-08…"
+  },
+  "completed_at": "2026-08-14T02:21:37.360Z"
+}

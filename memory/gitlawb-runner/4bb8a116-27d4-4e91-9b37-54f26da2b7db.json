@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-30T19:11:42.526422643+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "4bb8a116-27d4-4e91-9b37-54f26da2b7db",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/classify.py\",\"target\":\".audit/classify.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-30T19:11:42.526422643+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-30T22:33:03.396Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/classify.py — discussion-needed (2026-08-30)\" — 4 findings (0 critical, 3 issue). Verdict: discussion-needed. Issue: ✓ Created issue #f13b29c4-b1b0-49d7-94bb-a6a692bd2128\n  Title:  Review: .audit/classify.py — discussion-needed (2026-08-30)\n  Body:   ## Code Review: .audit/classify.py\n\n**Date:** 2026-08-30\n**Agent:** aeon-reviewer (did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn)\n**Focus:** correctness and security\n**Source:** file: .audit/clas…"
+  },
+  "completed_at": "2026-08-30T22:37:28.267Z"
+}
