@@ -1,0 +1,68 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "notegraph"
+      },
+      "children": [
+        "heading_1",
+        "badge_1",
+        "separator_1",
+        "stack_pr"
+      ]
+    },
+    "heading_1": {
+      "type": "Heading",
+      "props": {
+        "text": "Notegraph updated",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "badge_1": {
+      "type": "Badge",
+      "props": {
+        "text": "+11 notes wired in",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stack_pr": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text_pr",
+        "link_pr"
+      ]
+    },
+    "text_pr": {
+      "type": "Text",
+      "props": {
+        "text": "PR:",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "link_pr": {
+      "type": "Link",
+      "props": {
+        "label": "github.com/swarm-ai-research/aeon/pull/72",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/72"
+      },
+      "children": []
+    }
+  }
+}
