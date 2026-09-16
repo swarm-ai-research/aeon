@@ -1,0 +1,389 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-09-16",
+        "description": "System health monitoring and status report"
+      },
+      "children": [
+        "healthStatus",
+        "sep1",
+        "systemic",
+        "sep2",
+        "skillRuns",
+        "sep3",
+        "skillsStatus",
+        "sep4",
+        "novelSignals",
+        "sep5",
+        "issueSummary"
+      ]
+    },
+    "healthStatus": {
+      "type": "Alert",
+      "props": {
+        "title": "System Status",
+        "message": "DEGRADED(38) — 78 days at steady-state (hash e27c0ac60367e7e5)",
+        "type": "warning"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "systemic": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "systemicHeading",
+        "systemicContent"
+      ]
+    },
+    "systemicHeading": {
+      "type": "Heading",
+      "props": {
+        "text": "Systemic Issue",
+        "level": "h2"
+      }
+    },
+    "systemicContent": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-001 OAuth-outage denominator burn Day-88 — every DEGRADED skill has last_status=success, cf=0",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "skillRuns": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "skillRunsHeading",
+        "skillRunsStats",
+        "anomaliesNote"
+      ]
+    },
+    "skillRunsHeading": {
+      "type": "Heading",
+      "props": {
+        "text": "7-Day Skill Runs",
+        "level": "h2"
+      }
+    },
+    "skillRunsStats": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "runsStat",
+        "successStat",
+        "failStat",
+        "inProgressStat"
+      ]
+    },
+    "runsStat": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Runs",
+        "value": "86"
+      }
+    },
+    "successStat": {
+      "type": "Stat",
+      "props": {
+        "label": "Success",
+        "value": "81"
+      }
+    },
+    "failStat": {
+      "type": "Stat",
+      "props": {
+        "label": "Failed",
+        "value": "0"
+      }
+    },
+    "inProgressStat": {
+      "type": "Stat",
+      "props": {
+        "label": "In Progress",
+        "value": "5"
+      }
+    },
+    "anomaliesNote": {
+      "type": "Text",
+      "props": {
+        "text": "No failing anomalies detected (15-day streak)",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "skillsStatus": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "skillsHeading",
+        "noDataSection",
+        "healthySection",
+        "degradedSection"
+      ]
+    },
+    "skillsHeading": {
+      "type": "Heading",
+      "props": {
+        "text": "Skill Status",
+        "level": "h2"
+      }
+    },
+    "noDataSection": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "noDataLabel",
+        "noDataBadges"
+      ]
+    },
+    "noDataLabel": {
+      "type": "Text",
+      "props": {
+        "text": "⚪ NO DATA (2) — DISPATCH-SKILL (never-dispatched Day-70):",
+        "variant": "body"
+      }
+    },
+    "noDataBadges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "noDataBadge1",
+        "noDataBadge2"
+      ]
+    },
+    "noDataBadge1": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "outline"
+      }
+    },
+    "noDataBadge2": {
+      "type": "Badge",
+      "props": {
+        "text": "run-frequency-guard",
+        "variant": "outline"
+      }
+    },
+    "healthySection": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "healthyLabel",
+        "healthyBadges"
+      ]
+    },
+    "healthyLabel": {
+      "type": "Text",
+      "props": {
+        "text": "🟢 HEALTHY (4):",
+        "variant": "body"
+      }
+    },
+    "healthyBadges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "healthyBadge1",
+        "healthyBadge2",
+        "healthyBadge3",
+        "healthyBadge4"
+      ]
+    },
+    "healthyBadge1": {
+      "type": "Badge",
+      "props": {
+        "text": "agi-tracker",
+        "variant": "secondary"
+      }
+    },
+    "healthyBadge2": {
+      "type": "Badge",
+      "props": {
+        "text": "config-validator",
+        "variant": "secondary"
+      }
+    },
+    "healthyBadge3": {
+      "type": "Badge",
+      "props": {
+        "text": "swarm-safety-eval",
+        "variant": "secondary"
+      }
+    },
+    "healthyBadge4": {
+      "type": "Badge",
+      "props": {
+        "text": "weekly-shiplog",
+        "variant": "secondary"
+      }
+    },
+    "degradedSection": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "degradedLabel",
+        "degradedNote"
+      ]
+    },
+    "degradedLabel": {
+      "type": "Text",
+      "props": {
+        "text": "🟡 DEGRADED (38) — all ISS-001 denominator; see memory/issues/ISS-001.md",
+        "variant": "body"
+      }
+    },
+    "degradedNote": {
+      "type": "Text",
+      "props": {
+        "text": "(All 38 degraded skills have last_status=success, cf=0)",
+        "variant": "caption"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "novelSignals": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "novelHeading",
+        "novelContent"
+      ]
+    },
+    "novelHeading": {
+      "type": "Heading",
+      "props": {
+        "text": "Novel Signals (Other Detectors)",
+        "level": "h2"
+      }
+    },
+    "novelContent": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-trackerSignal",
+        "plannerSignal"
+      ]
+    },
+    "pr-trackerSignal": {
+      "type": "Alert",
+      "props": {
+        "title": "pr-tracker Day-3 Anomaly",
+        "message": "aeonframework identity 404 (self-review path → ISS-028 candidate)",
+        "type": "info"
+      }
+    },
+    "plannerSignal": {
+      "type": "Alert",
+      "props": {
+        "title": "Planner & Compute-Futures-EDA Recovery Signal",
+        "message": "Both fired 09-15T06:43-46Z — first 06:00Z-pocket success since 09-08. ISS-006 recovery unconfirmed (09-16 06:00Z slot did not fire).",
+        "type": "info"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "issueSummary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issueSummaryHeading",
+        "issueStats"
+      ]
+    },
+    "issueSummaryHeading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issue Tracking",
+        "level": "h2"
+      }
+    },
+    "issueStats": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "openIssuesStat",
+        "resolvedThisRunStat",
+        "filedThisRunStat"
+      ]
+    },
+    "openIssuesStat": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "23"
+      }
+    },
+    "resolvedThisRunStat": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      }
+    },
+    "filedThisRunStat": {
+      "type": "Stat",
+      "props": {
+        "label": "Filed This Run",
+        "value": "0"
+      }
+    }
+  }
+}
