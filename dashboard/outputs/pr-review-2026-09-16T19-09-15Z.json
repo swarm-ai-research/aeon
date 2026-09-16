@@ -1,0 +1,139 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-09-16",
+        "description": "swarm-ai-research/swarm"
+      },
+      "children": [
+        "stats-section",
+        "context-text",
+        "sep1",
+        "table-prs",
+        "sep2",
+        "alert-error"
+      ]
+    },
+    "stats-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-reviewed",
+        "stat-skipped"
+      ]
+    },
+    "stat-reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "8"
+      }
+    },
+    "stat-skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "1"
+      }
+    },
+    "context-text": {
+      "type": "Text",
+      "props": {
+        "text": "queue turnover breaks 5-cycle full-skip streak. Bots: 1 [#585]",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "table-prs": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "PR",
+          "Title",
+          "Verdict",
+          "Score",
+          "Notes"
+        ],
+        "rows": [
+          [
+            "#615",
+            "ci pin",
+            "APPROVE",
+            "5/5",
+            "priority-merge, unblocks render-verify/quality-gate on siblings"
+          ],
+          [
+            "#611",
+            "docs",
+            "APPROVE",
+            "5/5",
+            "docs-only trivial early-exit"
+          ],
+          [
+            "#616",
+            "router experiment",
+            "APPROVE",
+            "4/5",
+            "falsifier fires, 14 tests, engine untouched"
+          ],
+          [
+            "#614",
+            "certainty-band metric",
+            "APPROVE",
+            "4/5",
+            "7 tests, both proxy boundaries pinned"
+          ],
+          [
+            "#613",
+            "adversary governance-feedback fix",
+            "APPROVE",
+            "4/5",
+            "8 integration tests, CHANGELOG flags behavior change"
+          ],
+          [
+            "#612",
+            "k_of_n verify rule",
+            "APPROVE",
+            "5/5",
+            "backward-compat, MC-validated"
+          ],
+          [
+            "#518",
+            "scenario schema",
+            "BLOCK",
+            "0/5",
+            "extra=\"forbid\" breaks kernel_oracle/work_regime/v2/v3, 3.10/3.11/3.12 tests all fail"
+          ],
+          [
+            "#517",
+            "run-diff CLI",
+            "REQUEST_CHANGES",
+            "2/5",
+            "ruff I001 lint fail, 89d stale"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "alert-error": {
+      "type": "Alert",
+      "props": {
+        "title": "Write Path Error",
+        "message": "Write path 403 on all attempts ([[aeon-app-no-write-on-swarm-repo]] Day-18); verdicts log-only.",
+        "type": "warning"
+      }
+    }
+  }
+}
