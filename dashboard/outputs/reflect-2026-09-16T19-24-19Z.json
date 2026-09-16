@@ -1,0 +1,63 @@
+{
+  "root": "card-reflect",
+  "state": {},
+  "elements": {
+    "card-reflect": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "heading-consolidated",
+        "text-date",
+        "stats-stack",
+        "text-splits"
+      ]
+    },
+    "heading-consolidated": {
+      "type": "Heading",
+      "props": {
+        "text": "memory consolidated",
+        "level": "h3"
+      }
+    },
+    "text-date": {
+      "type": "Text",
+      "props": {
+        "text": "2026-09-16",
+        "variant": "muted"
+      }
+    },
+    "stats-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-notes",
+        "stat-entries"
+      ]
+    },
+    "stat-notes": {
+      "type": "Stat",
+      "props": {
+        "label": "notes",
+        "value": "+11"
+      }
+    },
+    "stat-entries": {
+      "type": "Stat",
+      "props": {
+        "label": "entries",
+        "value": "+62"
+      }
+    },
+    "text-splits": {
+      "type": "Text",
+      "props": {
+        "text": "2 splits: 0 deletions, 2 new"
+      }
+    }
+  }
+}

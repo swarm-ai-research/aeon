@@ -1,8 +1,10 @@
 ---
 id: compute-futures-basket-synth-2.5x-multiplier
 created: 2026-08-23
+updated: 2026-09-16
 type: pattern
-links: [[compute-futures-basket-synth-3025x-multiplier]], [[compute-futures-multiplier-invalidated-at-n-7]], [[compute-futures-2.5x-surpasses-n-7-invalidation-floor]], [[compute-futures-12-seed-sample-too-small]]
+status: superseded
+links: [[compute-futures-basket-synth-multiplier-is-live-tunable]], [[compute-futures-basket-synth-3025x-multiplier]], [[compute-futures-multiplier-invalidated-at-n-7]], [[compute-futures-2.5x-surpasses-n-7-invalidation-floor]], [[compute-futures-12-seed-sample-too-small]]
 ---
 # In compute-futures scenario-sweeps, basket/synth `maxSpot` and `minSpot` ratios settle at a deterministic 2.5000× across every seed of every filed run — new anchor after 3.0250× invalidation
 
