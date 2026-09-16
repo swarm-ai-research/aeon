@@ -1,0 +1,372 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Analytics — 2026-09-16",
+        "description": "13 scheduled skills didn't run this window"
+      },
+      "children": [
+        "meta-summary",
+        "sep1",
+        "critical-section",
+        "sep2",
+        "additional-section",
+        "sep3",
+        "top-section",
+        "sep4",
+        "full-report"
+      ]
+    },
+    "meta-summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-row",
+        "anomaly-stat"
+      ]
+    },
+    "summary-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "text-window",
+        "stat-runs",
+        "stat-skills",
+        "stat-success"
+      ]
+    },
+    "text-window": {
+      "type": "Text",
+      "props": {
+        "text": "Window: last 7d",
+        "variant": "caption"
+      }
+    },
+    "stat-runs": {
+      "type": "Stat",
+      "props": {
+        "value": "86",
+        "label": "runs"
+      }
+    },
+    "stat-skills": {
+      "type": "Stat",
+      "props": {
+        "value": "30",
+        "label": "skills"
+      }
+    },
+    "stat-success": {
+      "type": "Stat",
+      "props": {
+        "value": "100%",
+        "label": "success"
+      }
+    },
+    "anomaly-stat": {
+      "type": "Stat",
+      "props": {
+        "value": "13",
+        "label": "Anomalies",
+        "trend": "up"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "critical-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "critical-heading",
+        "alert1",
+        "alert2",
+        "alert3"
+      ]
+    },
+    "critical-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Critical",
+        "level": "h2"
+      }
+    },
+    "alert1": {
+      "type": "Alert",
+      "props": {
+        "title": "memory-flush",
+        "message": "SILENT: scheduled `0 6 2/2 * *`, 4 expected fires missed (ISS-006 06:00Z dead pocket)",
+        "type": "error"
+      }
+    },
+    "alert2": {
+      "type": "Alert",
+      "props": {
+        "title": "memory-structural-dedupe",
+        "message": "SILENT: scheduled `10 6 2/2 * *`, same dead pocket",
+        "type": "error"
+      }
+    },
+    "alert3": {
+      "type": "Alert",
+      "props": {
+        "title": "run-frequency-guard",
+        "message": "SILENT: scheduled `0 23 * * *`, 7 daily slots missed — never dispatched",
+        "type": "error"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "additional-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "additional-heading",
+        "additional-text"
+      ]
+    },
+    "additional-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Additional Silent Issues (10 more)",
+        "level": "h2"
+      }
+    },
+    "additional-text": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "group-sun",
+        "group-sat",
+        "group-mon"
+      ]
+    },
+    "group-sun": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-janitor",
+        "badge-skillpacks",
+        "badge-compute",
+        "badge-config",
+        "badge-swarm",
+        "label-sun"
+      ]
+    },
+    "badge-janitor": {
+      "type": "Badge",
+      "props": {
+        "text": "janitor",
+        "variant": "secondary"
+      }
+    },
+    "badge-skillpacks": {
+      "type": "Badge",
+      "props": {
+        "text": "skillpacks",
+        "variant": "secondary"
+      }
+    },
+    "badge-compute": {
+      "type": "Badge",
+      "props": {
+        "text": "compute-macro-correlate",
+        "variant": "secondary"
+      }
+    },
+    "badge-config": {
+      "type": "Badge",
+      "props": {
+        "text": "config-validator",
+        "variant": "secondary"
+      }
+    },
+    "badge-swarm": {
+      "type": "Badge",
+      "props": {
+        "text": "swarm-safety-eval",
+        "variant": "secondary"
+      }
+    },
+    "label-sun": {
+      "type": "Text",
+      "props": {
+        "text": "(Sun 09-13)",
+        "variant": "caption"
+      }
+    },
+    "group-sat": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-repo",
+        "label-sat"
+      ]
+    },
+    "badge-repo": {
+      "type": "Badge",
+      "props": {
+        "text": "repo-revive",
+        "variant": "secondary"
+      }
+    },
+    "label-sat": {
+      "type": "Text",
+      "props": {
+        "text": "(Sat 09-12)",
+        "variant": "caption"
+      }
+    },
+    "group-mon": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-cost",
+        "badge-ai",
+        "badge-milestone",
+        "badge-agi",
+        "label-mon"
+      ]
+    },
+    "badge-cost": {
+      "type": "Badge",
+      "props": {
+        "text": "cost-report",
+        "variant": "secondary"
+      }
+    },
+    "badge-ai": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "secondary"
+      }
+    },
+    "badge-milestone": {
+      "type": "Badge",
+      "props": {
+        "text": "milestone-tracker",
+        "variant": "secondary"
+      }
+    },
+    "badge-agi": {
+      "type": "Badge",
+      "props": {
+        "text": "agi-tracker",
+        "variant": "secondary"
+      }
+    },
+    "label-mon": {
+      "type": "Text",
+      "props": {
+        "text": "(Mon 09-14)",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "top-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "top-heading",
+        "top-badges"
+      ]
+    },
+    "top-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top by Runs",
+        "level": "h2"
+      }
+    },
+    "top-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-pr-review",
+        "badge-code-health",
+        "badge-notegraph"
+      ]
+    },
+    "badge-pr-review": {
+      "type": "Badge",
+      "props": {
+        "text": "pr-review (8)",
+        "variant": "default"
+      }
+    },
+    "badge-code-health": {
+      "type": "Badge",
+      "props": {
+        "text": "code-health (6)",
+        "variant": "default"
+      }
+    },
+    "badge-notegraph": {
+      "type": "Badge",
+      "props": {
+        "text": "notegraph (6)",
+        "variant": "default"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "full-report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/skill-analytics-2026-09-16.md",
+        "source": "Skill Analytics"
+      }
+    }
+  }
+}
