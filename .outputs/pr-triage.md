@@ -1,14 +1,18 @@
 ## Summary
 
-Ran **pr-triage** skill against `swarm-ai-research/swarm` (repo mode).
+Ran the pr-triage skill against `swarm-ai-research/swarm` (repo mode).
 
-**Result**: `PR_TRIAGE_OK no-candidates` — nothing to triage.
+**Results — 7 external PRs triaged, 3 bot PRs skipped:**
+- **ACCEPTED (4):** #611, #612, #614, #619 — all within 500-line size budget, non-protected paths
+- **DEFER (3):** #616 (size 528), #618 (size 1649), #620 (size 85907, build-artifact cleanup) — all >500 lines without `large-ok`
+- **Skipped bots:** #622, #621, #585 (all `app/dependabot`)
 
-- Fetched 1 open PR within the 14-day window: **#585** (dependabot browserslist bump in `/viz`).
-- Skipped as bot-authored (`app/dependabot`, `is_bot: true`) — routes to `auto-merge` / `pr-review`, not first-touch triage.
-- Queue collapsed from 4 → 1 open since the 09-12 memory snapshot; #600/#601/#602 are all closed. No external contributor PRs remain.
-- No comment, label, close, notify, or state-file mutation required.
+**Write path blocked** — `gh pr comment` on #611 returned `Resource not accessible by integration (addComment)` and `gh label create` returned HTTP 403; per §6 logged `PR_TRIAGE_NO_PERMISSION swarm-ai-research/swarm` once and did not retry. This continues the [[aeon-app-no-write-on-swarm-repo]] posture — swarm remains report-only.
 
-**Files modified**: `memory/logs/2026-09-14.md` (appended `## PR Triage` section).
+**No notify** — SKILL.md §10 gate closed: 0 OUT-OF-SCOPE, and rsavitt already has 3 prior records in `triaged-prs.json` (#566/#600/#602), so no first-PR welcome.
 
-**Follow-up**: none from this run. Structural blocker persists — [[aeon-app-no-write-on-swarm-repo]] would still short-circuit any actual triage write; already tracked in MEMORY.md action queue.
+**Files modified:**
+- `memory/triaged-prs.json` — appended 7 new triage records for swarm-ai-research/swarm (2026-09-17)
+- `memory/logs/2026-09-17.md` — appended `## PR Triage` section with mode/repos/verdict table/skip reasons and terminal `PR_TRIAGE_OK`
+
+**Follow-up:** MEMORY.md action queue already tracks the write-permission remediation (install aeon app with `pull_requests: write` OR PAT-backed path OR document report-only). Three of seven were DEFER-on-size — worth noting as a trend to @aaronjmars if the size rubric should accommodate research-shaped drops (docs+experiments+tests+scenarios in one PR).
