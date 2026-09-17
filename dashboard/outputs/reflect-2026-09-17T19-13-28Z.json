@@ -1,0 +1,82 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "reflect",
+        "description": "Memory consolidation completed"
+      },
+      "children": [
+        "stack"
+      ]
+    },
+    "stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "date_text",
+        "separator",
+        "stats_grid"
+      ]
+    },
+    "date_text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-09-17",
+        "variant": "muted"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stats_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_notes",
+        "stat_entries",
+        "stat_splits",
+        "stat_atomics"
+      ]
+    },
+    "stat_notes": {
+      "type": "Stat",
+      "props": {
+        "label": "New notes",
+        "value": "+4"
+      }
+    },
+    "stat_entries": {
+      "type": "Stat",
+      "props": {
+        "label": "New entries",
+        "value": "+27"
+      }
+    },
+    "stat_splits": {
+      "type": "Stat",
+      "props": {
+        "label": "File splits",
+        "value": "1"
+      }
+    },
+    "stat_atomics": {
+      "type": "Stat",
+      "props": {
+        "label": "New atomics",
+        "value": "4"
+      }
+    }
+  }
+}
