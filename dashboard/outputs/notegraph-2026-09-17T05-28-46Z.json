@@ -1,0 +1,122 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph Updated"
+      },
+      "children": [
+        "content_stack"
+      ]
+    },
+    "content_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "new_note_section",
+        "separator_1",
+        "stats_section",
+        "separator_2",
+        "pr_section"
+      ]
+    },
+    "new_note_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "new_note_text",
+        "note_name_badge",
+        "status_badge"
+      ]
+    },
+    "new_note_text": {
+      "type": "Text",
+      "props": {
+        "text": "1 new bundled note:",
+        "variant": "body"
+      }
+    },
+    "note_name_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "aeonframework-github-identity-suspension.md",
+        "variant": "outline"
+      }
+    },
+    "status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "candidate for reflect split",
+        "variant": "secondary"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stats_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_nodes",
+        "stat_edges",
+        "stat_orphans",
+        "stat_bundled"
+      ]
+    },
+    "stat_nodes": {
+      "type": "Stat",
+      "props": {
+        "label": "Nodes",
+        "value": "389"
+      }
+    },
+    "stat_edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "4051"
+      }
+    },
+    "stat_orphans": {
+      "type": "Stat",
+      "props": {
+        "label": "Orphans",
+        "value": "0"
+      }
+    },
+    "stat_bundled": {
+      "type": "Stat",
+      "props": {
+        "label": "Bundled",
+        "value": "1"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr_section": {
+      "type": "Link",
+      "props": {
+        "label": "Pull Request #73",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/73"
+      }
+    }
+  }
+}

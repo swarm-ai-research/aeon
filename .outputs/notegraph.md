@@ -1,1 +1,1 @@
-*Notegraph updated* — +3 notes wired in (371n/3906e). PR: https://github.com/swarm-ai-research/aeon/pull/66
+*Notegraph updated* — 1 new bundled note: `aeonframework-github-identity-suspension.md` (candidate for reflect split). 389n / 4051e / 0 orphans / 1 bundled. PR: https://github.com/swarm-ai-research/aeon/pull/73
