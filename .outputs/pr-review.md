@@ -1,6 +1,5 @@
-*PR Review — 2026-09-17*
-Reviewed 3, skipped 9 (bots: 3, dup-SHA: 6).
-- swarm-ai-research/swarm#618: APPROVE — 0 critical, 0 issues
-- swarm-ai-research/swarm#619: APPROVE — 0 critical, 0 issues
-- swarm-ai-research/swarm#620: APPROVE — 0 critical, 0 issues
-Write blocked by aeon-app 403 on addPullRequestReview (Day-19); verdicts logged only.
+*PR Review — 2026-09-17 (88th, evening)*
+Reviewed 2, skipped 11 (bots: 3, dup-SHA: 8) on swarm-ai-research/swarm.
+- #624 rsavitt: APPROVE 5/5 — .beads/issues.jsonl append (2 tracker entries, no code); 22/22 checks green
+- #623 rsavitt: APPROVE 5/5 — docs-only mkdocs research addendum on Enigma/ADFGVX cipher breaks; render-verify green
+Posts 403'd (aeon-app-no-write Day-20); log-only signal.

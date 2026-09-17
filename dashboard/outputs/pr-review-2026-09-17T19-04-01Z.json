@@ -1,0 +1,184 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review",
+        "description": "2026-09-17 (88th, evening)"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary_section",
+        "sep1",
+        "pr_624",
+        "pr_623",
+        "sep2",
+        "error_section"
+      ]
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "repo_line",
+        "stats_stack",
+        "breakdown_line"
+      ]
+    },
+    "repo_line": {
+      "type": "Text",
+      "props": {
+        "text": "Repository: swarm-ai-research/swarm",
+        "variant": "lead"
+      }
+    },
+    "stats_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "2"
+      }
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "11"
+      }
+    },
+    "breakdown_line": {
+      "type": "Text",
+      "props": {
+        "text": "Skipped breakdown: 3 bots, 8 dup-SHA",
+        "variant": "caption"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr_624": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr624_link",
+        "pr624_author",
+        "pr624_status",
+        "pr624_details"
+      ]
+    },
+    "pr624_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#624: .beads/issues.jsonl append",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/624",
+        "source": "swarm-ai-research/swarm"
+      }
+    },
+    "pr624_author": {
+      "type": "Badge",
+      "props": {
+        "text": "rsavitt"
+      }
+    },
+    "pr624_status": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE 5/5",
+        "variant": "default"
+      }
+    },
+    "pr624_details": {
+      "type": "Text",
+      "props": {
+        "text": "2 tracker entries, no code • 22/22 checks green",
+        "variant": "body"
+      }
+    },
+    "pr_623": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr623_link",
+        "pr623_author",
+        "pr623_status",
+        "pr623_details"
+      ]
+    },
+    "pr623_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#623: docs-only mkdocs research addendum on Enigma/ADFGVX cipher breaks",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/623",
+        "source": "swarm-ai-research/swarm"
+      }
+    },
+    "pr623_author": {
+      "type": "Badge",
+      "props": {
+        "text": "rsavitt"
+      }
+    },
+    "pr623_status": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE 5/5",
+        "variant": "default"
+      }
+    },
+    "pr623_details": {
+      "type": "Text",
+      "props": {
+        "text": "render-verify green",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "error_section": {
+      "type": "Alert",
+      "props": {
+        "title": "Posts Failed",
+        "message": "Posts 403'd (aeon-app-no-write Day-20); log-only signal",
+        "type": "warning"
+      }
+    }
+  }
+}
