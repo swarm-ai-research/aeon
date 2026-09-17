@@ -1,0 +1,118 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-09-17",
+        "description": "Reviewed 3, skipped 9 (bots: 3, dup-SHA: 6)"
+      },
+      "children": [
+        "section_summary",
+        "separator_1",
+        "section_prs",
+        "separator_2",
+        "alert_blocked"
+      ]
+    },
+    "section_summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_reviewed",
+        "text_skipped"
+      ]
+    },
+    "text_reviewed": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed: 3",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "text_skipped": {
+      "type": "Text",
+      "props": {
+        "text": "Skipped: 9 (bots: 3, dup-SHA: 6)",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section_prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_prs",
+        "pr_618",
+        "pr_619",
+        "pr_620"
+      ]
+    },
+    "heading_prs": {
+      "type": "Heading",
+      "props": {
+        "text": "Approved Pull Requests",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "pr_618": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#618",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/618",
+        "source": "APPROVE — 0 critical, 0 issues"
+      },
+      "children": []
+    },
+    "pr_619": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#619",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/619",
+        "source": "APPROVE — 0 critical, 0 issues"
+      },
+      "children": []
+    },
+    "pr_620": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#620",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/620",
+        "source": "APPROVE — 0 critical, 0 issues"
+      },
+      "children": []
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "alert_blocked": {
+      "type": "Alert",
+      "props": {
+        "title": "Write Blocked",
+        "message": "aeon-app 403 on addPullRequestReview (Day-19); verdicts logged only.",
+        "type": "warning"
+      },
+      "children": []
+    }
+  }
+}
