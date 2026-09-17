@@ -1,14 +1,11 @@
-*Skill Health — 2026-09-16*
-HEALTH: DEGRADED(38) — 78d steady-state at hash e27c0ac60367e7e5
+Skill-health run complete. State-change gate fired SKIP — no notification emitted.
 
-SYSTEMIC: ISS-001 OAuth-outage denominator burn Day-88 — every DEGRADED skill has last_status=success, cf=0. 7d skill-runs: 86 runs / 81 success / 0 fail / 5 in_progress. anomalies.failing == [] (15d streak).
+## Summary
 
-⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — DISPATCH-SKILL (never-dispatched Day-70)
-🟢 HEALTHY: 4 (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
-🟡 DEGRADED: 38 — all ISS-001 denominator; +38 more — see memory/issues/ISS-001.md
-
-Novel signals (owned by other detectors, not filed by skill-health):
-- pr-tracker Day-3 `aeonframework` identity 404 anomaly (self-review path → ISS-028 candidate)
-- planner + compute-futures-eda both fired 09-15T06:43-46Z — first 06:00Z-pocket success since 09-08; ISS-006 recovery unconfirmed (09-16 06:00Z slot did not fire)
-
-Open issues: 23 · Resolved this run: 0 · Filed this run: 0
+- **Ran skill-health end-to-end** on 2026-09-17T19:01:59Z (operator invocation).
+- **Classification unchanged** — hash `e27c0ac60367e7e5`, 79th consecutive steady-state day. 0 CRITICAL, 0 FLAPPING, 38 DEGRADED (all ISS-001 OAuth-residue denominator burn), 4 HEALTHY, 2 NO DATA.
+- **Live-failure scan:** `./scripts/skill-runs --hours 168 --failures --json` → 85 runs / 81 success / 0 fail / 0 cancelled / 4 in_progress. `anomalies.failing == []` (16th consecutive day at zero).
+- **Notify gate:** SKIP — hash unchanged AND elapsed 23.97h < 24h daily-reminder threshold. Prev notify 2026-09-16T19:03:30Z; next NOTIFY expected 2026-09-19T18:00Z when elapsed crosses 24h.
+- **Issue reconciliation:** INDEX.md exists (precondition met). 0 filings, 0 resolutions. HEALTHY skills present in open issues (swarm-safety-eval → ISS-005) are detected_by=skill-evals — per CLAUDE.md detector-ownership convention, skill-health does not touch them.
+- **Files modified:** `memory/skill-health/last-report.json`, `memory/logs/2026-09-17.md` (SKILL_HEALTH_NOOP entry).
+- **Follow-up owned elsewhere:** batch-health owns the 09-16/09-17 dead-06Z pocket audit next dispatch; self-review owns the ISS-028 filing for the resolved aeonframework identity incident (now downgraded to unknown/medium post-recovery per today's pr-tracker log).
