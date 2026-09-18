@@ -1,17 +1,9 @@
-Skill complete — pre-flight tripped the silent-stop branch.
+Skill executed. Pre-flight step 2 halted on absent state — `memory/gitlawb-fleet.json` does not exist (nor `memory/gitlawb-metrics.jsonl`), so verdict is `GLMETRICS_EMPTY` and I stopped without notifying per SKILL.md's "empty fleet is not news" rule.
 
 ## Summary
 
-Executed `skills/gitlawb-fleet-metrics/SKILL.md` for 2026-09-12 with default 24h window.
-
-**Verdict:** `GLMETRICS_EMPTY` (silent stop, no notify)
-
-**What ran:**
-- Pre-flight 1 (node): `node --version` = v22.23.2 → OK
-- Pre-flight 2 (state): `memory/gitlawb-fleet.json` absent → stop per SKILL.md ("an empty fleet is not news")
-- `memory/gitlawb-metrics.jsonl` also absent; CLI (`prototypes/gitlawb-safety/fleet-cli.mjs`) was **not** invoked.
-
-**Files modified:**
-- `memory/logs/2026-09-12.md` — appended `## gitlawb-fleet-metrics` entry documenting the empty-fleet stop.
-
-**Follow-ups:** None required. The fleet has not been seeded yet — first snapshot will fire once `gitlawb-fleet` mints an instance and writes the registry.
+- Executed `skills/gitlawb-fleet-metrics/SKILL.md`. Pre-flight passed for Node (v22.23.2) but failed at step 2: `memory/gitlawb-fleet.json` is absent — the safety-layer registry has never been written on this machine. `memory/gitlawb-metrics.jsonl` is also absent.
+- Verdict: **GLMETRICS_EMPTY** (silent-stop taxonomy).
+- Files modified: `memory/logs/2026-09-18.md` — appended a `## gitlawb-fleet-metrics` block with window, verdict, and cause.
+- No notification fired (skill mandates silence on empty fleet to avoid training the operator to ignore the card).
+- Follow-up: none owed here — the upstream `gitlawb-fleet` skill would need to mint at least one instance before this observability card has anything to render.
