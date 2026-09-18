@@ -1,0 +1,286 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-09-18"
+      },
+      "children": [
+        "alert_degraded",
+        "stats_row",
+        "sep1",
+        "heading_degraded",
+        "degraded_list",
+        "sep2",
+        "heading_nodata",
+        "text_nodata",
+        "sep3",
+        "heading_healthy",
+        "text_healthy",
+        "sep4",
+        "heading_summary",
+        "summary_stats"
+      ]
+    },
+    "alert_degraded": {
+      "type": "Alert",
+      "props": {
+        "title": "HEALTH: DEGRADED(38)",
+        "message": "Systemic issue ISS-001: OAuth denominator burn Day-90 (38 skills affected)",
+        "type": "error"
+      }
+    },
+    "stats_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_degraded",
+        "stat_healthy",
+        "stat_nodata"
+      ]
+    },
+    "stat_degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded Skills",
+        "value": "38"
+      }
+    },
+    "stat_healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Healthy Skills",
+        "value": "4"
+      }
+    },
+    "stat_nodata": {
+      "type": "Stat",
+      "props": {
+        "label": "No Data Skills",
+        "value": "2"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_degraded": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 Degraded (top-5 by staleness)",
+        "level": "h2"
+      }
+    },
+    "degraded_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skill1",
+        "skill2",
+        "skill3",
+        "skill4",
+        "skill5",
+        "more_link"
+      ]
+    },
+    "skill1": {
+      "type": "Text",
+      "props": {
+        "text": "skill-repair — sr 1%, last_success 90d — reactive-only; ISS-001 residue"
+      }
+    },
+    "skill2": {
+      "type": "Text",
+      "props": {
+        "text": "skillpacks — sr 6%, last_success 26d — WAIT-INFRA (ISS-001)"
+      }
+    },
+    "skill3": {
+      "type": "Text",
+      "props": {
+        "text": "compute-macro-correlate — sr 11%, last_success 26d — WAIT-INFRA (ISS-001)"
+      }
+    },
+    "skill4": {
+      "type": "Text",
+      "props": {
+        "text": "janitor — sr 6%, last_success 19d — WAIT-INFRA (ISS-001)"
+      }
+    },
+    "skill5": {
+      "type": "Text",
+      "props": {
+        "text": "cost-report — sr 14%, last_success 11d — WAIT-INFRA (ISS-001)"
+      }
+    },
+    "more_link": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text_more_prefix",
+        "link_index",
+        "text_arrow",
+        "link_iss001"
+      ]
+    },
+    "text_more_prefix": {
+      "type": "Text",
+      "props": {
+        "text": "+33 more — see",
+        "variant": "caption"
+      }
+    },
+    "link_index": {
+      "type": "Link",
+      "props": {
+        "label": "memory/issues/INDEX.md",
+        "href": "memory/issues/INDEX.md"
+      }
+    },
+    "text_arrow": {
+      "type": "Text",
+      "props": {
+        "text": "→",
+        "variant": "caption"
+      }
+    },
+    "link_iss001": {
+      "type": "Link",
+      "props": {
+        "label": "ISS-001",
+        "href": "memory/issues/ISS-001.md"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_nodata": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ No Data (2)",
+        "level": "h2"
+      }
+    },
+    "text_nodata": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch, run-frequency-guard — DISPATCH-SKILL"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_healthy": {
+      "type": "Heading",
+      "props": {
+        "text": "🟢 Healthy (4)",
+        "level": "h2"
+      }
+    },
+    "text_healthy": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_summary": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h2"
+      }
+    },
+    "summary_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_livefail",
+        "stat_openissues",
+        "stack_details"
+      ]
+    },
+    "stat_livefail": {
+      "type": "Stat",
+      "props": {
+        "label": "Live-fail (7d)",
+        "value": "0/88 runs"
+      }
+    },
+    "stat_openissues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "24"
+      }
+    },
+    "stack_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_consecutive",
+        "text_iss028",
+        "text_steadystate"
+      ]
+    },
+    "text_consecutive": {
+      "type": "Text",
+      "props": {
+        "text": "17th consecutive zero day"
+      }
+    },
+    "text_iss028": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text_open_issues",
+        "link_iss028"
+      ]
+    },
+    "text_open_issues": {
+      "type": "Text",
+      "props": {
+        "text": "Latest: filed 09-18 by batch-health —",
+        "variant": "caption"
+      }
+    },
+    "link_iss028": {
+      "type": "Link",
+      "props": {
+        "label": "ISS-028",
+        "href": "memory/issues/ISS-028.md"
+      }
+    },
+    "text_steadystate": {
+      "type": "Text",
+      "props": {
+        "text": "80th steady-state day at hash e27c0ac60367e7e5"
+      }
+    }
+  }
+}

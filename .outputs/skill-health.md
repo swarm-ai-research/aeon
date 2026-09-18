@@ -1,11 +1,17 @@
-Skill-health run complete. State-change gate fired SKIP — no notification emitted.
+*Skill Health — 2026-09-18*
+HEALTH: DEGRADED(38) — systemic: ISS-001 OAuth denominator burn Day-90 (38 skills)
 
-## Summary
+🟡 DEGRADED (top-5 by staleness)
+- skill-repair — sr 1%, last_success 90d — reactive-only; ISS-001 residue
+- skillpacks — sr 6%, last_success 26d — WAIT-INFRA (ISS-001)
+- compute-macro-correlate — sr 11%, last_success 26d — WAIT-INFRA (ISS-001)
+- janitor — sr 6%, last_success 19d — WAIT-INFRA (ISS-001)
+- cost-report — sr 14%, last_success 11d — WAIT-INFRA (ISS-001)
++33 more — see memory/issues/INDEX.md → ISS-001
 
-- **Ran skill-health end-to-end** on 2026-09-17T19:01:59Z (operator invocation).
-- **Classification unchanged** — hash `e27c0ac60367e7e5`, 79th consecutive steady-state day. 0 CRITICAL, 0 FLAPPING, 38 DEGRADED (all ISS-001 OAuth-residue denominator burn), 4 HEALTHY, 2 NO DATA.
-- **Live-failure scan:** `./scripts/skill-runs --hours 168 --failures --json` → 85 runs / 81 success / 0 fail / 0 cancelled / 4 in_progress. `anomalies.failing == []` (16th consecutive day at zero).
-- **Notify gate:** SKIP — hash unchanged AND elapsed 23.97h < 24h daily-reminder threshold. Prev notify 2026-09-16T19:03:30Z; next NOTIFY expected 2026-09-19T18:00Z when elapsed crosses 24h.
-- **Issue reconciliation:** INDEX.md exists (precondition met). 0 filings, 0 resolutions. HEALTHY skills present in open issues (swarm-safety-eval → ISS-005) are detected_by=skill-evals — per CLAUDE.md detector-ownership convention, skill-health does not touch them.
-- **Files modified:** `memory/skill-health/last-report.json`, `memory/logs/2026-09-17.md` (SKILL_HEALTH_NOOP entry).
-- **Follow-up owned elsewhere:** batch-health owns the 09-16/09-17 dead-06Z pocket audit next dispatch; self-review owns the ISS-028 filing for the resolved aeonframework identity incident (now downgraded to unknown/medium post-recovery per today's pr-tracker log).
+⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — DISPATCH-SKILL
+🟢 HEALTHY: 4 (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+
+Live-fail 7d: 0/88 runs (17th consecutive zero day)
+Open issues: 24 (ISS-028 filed 09-18 by batch-health) · Resolved this run: 0
+80th steady-state day at hash e27c0ac60367e7e5
