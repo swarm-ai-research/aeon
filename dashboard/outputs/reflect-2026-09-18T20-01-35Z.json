@@ -1,0 +1,149 @@
+{
+  "root": "card-reflect",
+  "state": {},
+  "elements": {
+    "card-reflect": {
+      "type": "Card",
+      "props": {
+        "title": "Memory Consolidated",
+        "description": "Reflection task completed"
+      },
+      "children": [
+        "summary-section",
+        "separator1",
+        "stats-section",
+        "separator2",
+        "counters-section"
+      ]
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "date-text"
+      ]
+    },
+    "date-text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-09-18",
+        "variant": "lead"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stats-section": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat-new",
+        "stat-edits",
+        "stat-splits",
+        "stat-atomics"
+      ]
+    },
+    "stat-new": {
+      "type": "Stat",
+      "props": {
+        "label": "New Entries",
+        "value": "1"
+      }
+    },
+    "stat-edits": {
+      "type": "Stat",
+      "props": {
+        "label": "Edits",
+        "value": "20"
+      }
+    },
+    "stat-splits": {
+      "type": "Stat",
+      "props": {
+        "label": "Splits",
+        "value": "0"
+      }
+    },
+    "stat-atomics": {
+      "type": "Stat",
+      "props": {
+        "label": "New Atomics",
+        "value": "0"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "counters-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "counters-heading",
+        "counter-list"
+      ]
+    },
+    "counters-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Counters Bumped",
+        "level": "h3"
+      }
+    },
+    "counter-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "counter1",
+        "counter2",
+        "counter3",
+        "counter4"
+      ]
+    },
+    "counter1": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-006 Day-47",
+        "variant": "outline"
+      }
+    },
+    "counter2": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-001 Day-90",
+        "variant": "outline"
+      }
+    },
+    "counter3": {
+      "type": "Badge",
+      "props": {
+        "text": "watched-repos streak-48",
+        "variant": "secondary"
+      }
+    },
+    "counter4": {
+      "type": "Badge",
+      "props": {
+        "text": "identity 48h-post hold",
+        "variant": "secondary"
+      }
+    }
+  }
+}
