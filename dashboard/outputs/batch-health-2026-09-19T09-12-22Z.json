@@ -1,0 +1,158 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "batch gap — 2026-09-19"
+      },
+      "children": [
+        "alert_warning",
+        "stack_missed_skills",
+        "separator1",
+        "stack_details"
+      ]
+    },
+    "alert_warning": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "2 scheduled skills didn't run",
+        "message": "Persistently dead 06:00Z pocket"
+      }
+    },
+    "stack_missed_skills": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skill_planner",
+        "skill_compute_futures"
+      ]
+    },
+    "skill_planner": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "text_planner",
+        "badge_planner"
+      ]
+    },
+    "text_planner": {
+      "type": "Text",
+      "props": {
+        "text": "planner"
+      }
+    },
+    "badge_planner": {
+      "type": "Badge",
+      "props": {
+        "text": "30 6 * * *",
+        "variant": "secondary"
+      }
+    },
+    "skill_compute_futures": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "text_compute_futures",
+        "badge_compute_futures"
+      ]
+    },
+    "text_compute_futures": {
+      "type": "Text",
+      "props": {
+        "text": "compute-futures-eda"
+      }
+    },
+    "badge_compute_futures": {
+      "type": "Badge",
+      "props": {
+        "text": "0 6 * * *",
+        "variant": "secondary"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stack_issue",
+        "text_history",
+        "text_tuple",
+        "text_severity_note",
+        "text_monitoring"
+      ]
+    },
+    "stack_issue": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text_issue_label",
+        "link_issue"
+      ]
+    },
+    "text_issue_label": {
+      "type": "Text",
+      "props": {
+        "text": "Issue:",
+        "variant": "body"
+      }
+    },
+    "link_issue": {
+      "type": "Link",
+      "props": {
+        "label": "ISS-006",
+        "href": "#ISS-006"
+      }
+    },
+    "text_history": {
+      "type": "Text",
+      "props": {
+        "text": "Same skills that missed 2026-09-18",
+        "variant": "body"
+      }
+    },
+    "text_tuple": {
+      "type": "Text",
+      "props": {
+        "text": "Two daily members of the 4-skill dead-pocket tuple",
+        "variant": "body"
+      }
+    },
+    "text_severity_note": {
+      "type": "Text",
+      "props": {
+        "text": "WARN not OUTAGE — memory-flush + memory-structural-dedupe aren't expected on odd DOM",
+        "variant": "caption"
+      }
+    },
+    "text_monitoring": {
+      "type": "Text",
+      "props": {
+        "text": "Status: monitoring",
+        "variant": "muted"
+      }
+    }
+  }
+}
