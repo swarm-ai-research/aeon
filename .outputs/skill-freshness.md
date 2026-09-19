@@ -1,13 +1,16 @@
 ## Summary
 
-Skill-freshness run complete — **FRESHNESS_OK**.
+Skill-freshness audit complete for 2026-09-19.
 
-**What was audited:** 44 enabled skills, 36 implicit file dependencies, 0 explicit chain edges (all `chains:` blocks are commented out in `aeon.yml`).
+**Verdict: ✅ FRESHNESS_OK → FRESHNESS_NO_CHANGE**
 
-**Result:** 0 flagged. No enabled consumer is reading stale upstream data. The two cross-skill reads found (heartbeat → `articles/token-report-*.md`; weekly-shiplog → `articles/push-recap-*.md`) both reference disabled producers, so no MISSING fires.
+- Audited 44 enabled skills, 36 tracked dependencies, 0 flagged
+- All git-tracked dependency files are ~8.9h old (committed 2026-09-19 00:25Z), well within all per-class thresholds (articles/daily: 28h, articles/weekly: 192h, memory/topics: 168h, memory/state: 720h)
+- 8 implicit cross-skill references discovered but skipped — all point to files that have never existed on disk (disabled producers: token-report, push-recap, github-trending; missing operator-config files: watched-repos, pr-review-rules, compute-tokens, projects, stale-models)
+- No active chain edges (daily-routine chain is commented out in aeon.yml)
+- Fingerprint unchanged from 2026-09-18 run (`da39a3ee…`) → notification suppressed (FRESHNESS_NO_CHANGE, within 7-day dedup window)
 
-**Notable producer gaps (not dependency flags — no consumers):**
-- `skill-freshness` itself: last article Sep 12 (6 days dark, likely ISS-006 dead-window). No enabled consumer → not flagged, but `skill-health` owns follow-up.
-- `cost-report`: last article Sep 7 (11 days, missed Sep 14 Monday run). No enabled consumer → not flagged.
-
-**Files written:** `articles/skill-freshness-2026-09-18.md`, `memory/topics/skill-freshness-state.json` (last_run updated to today), `memory/logs/2026-09-18.md` (appended). No notification sent (FRESHNESS_OK → silence is the signal).
+**Files written:**
+- `articles/skill-freshness-2026-09-19.md` — full report
+- `memory/topics/skill-freshness-state.json` — updated `last_run_at` to 2026-09-19T09:22:01Z
+- `memory/logs/2026-09-19.md` — log entry appended
