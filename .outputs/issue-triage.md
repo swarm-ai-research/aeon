@@ -1,8 +1,8 @@
 `ISSUE_TRIAGE_OK no-watched-repos`
 
 ## Summary
-
-- Ran the issue-triage skill. Precondition check: `${var}` empty AND `memory/watched-repos.md` absent → SKILL.md line 34 mandates immediate short-circuit exit with `ISSUE_TRIAGE_OK no-watched-repos`. No `gh` calls made, no state files written, no notify.
-- This is Day-48 of the missing-watched-repos streak (up from Day-47 tracked in `memory/MEMORY.md` as of 09-17); six dependent skills remain gated on the same config gap.
-- Files modified: `memory/logs/2026-09-18.md` (appended `## Issue Triage` section + updated the day's summary).
-- Follow-up (already queued in `memory/MEMORY.md`): populate `memory/watched-repos.md` OR disable the six dependents (code-health, issue-triage, github-monitor, changelog, weekly-shiplog, repo-revive); reconcile the `memory/topics/watched-repos.md` vs `memory/watched-repos.md` path mismatch across the SKILL.md files.
+- Ran `issue-triage` per `skills/issue-triage/SKILL.md`; pre-flight aborted at §Config.
+- **Terminal state:** `ISSUE_TRIAGE_OK no-watched-repos` — `${var}` empty and both `memory/watched-repos.md` and `memory/topics/watched-repos.md` absent, so no targets to resolve.
+- **Actions taken:** none — no `gh` probe, no label writes, no comments, no state updates to `memory/triaged-issues.json`. Notify skipped per §9.
+- **Files modified:** `memory/logs/2026-09-19.md` (appended `## issue-triage` entry documenting the no-op run and streak-49 escalation).
+- **Follow-up:** action-queue item to populate `memory/watched-repos.md` (or disable the 6 dependents: code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) — unlanded for 49 consecutive days. Path mismatch between repo-revive (`memory/topics/watched-repos.md`) and the other five (`memory/watched-repos.md`) still needs reconciliation.
