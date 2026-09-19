@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-20T20:32:57.000460544+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "2f22164f-c017-4e8a-8f91-777c4fc7486b",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta2.py\",\"target\":\".audit/delta2.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-20T20:32:57.000460544+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-21T01:37:21.559Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta2.py — blocked: resolved_pairs tuple key crashes json.dump (2026-08-21)\" — 3 findings (1 critical, 2 issue). Verdict: blocked: resolved_pairs tuple key crashes json.dump. Issue: ✓ Created issue #fa3da9f5-505e-4f48-9298-b4bbd2660be2\n  Title:  Review: .audit/delta2.py — blocked: resolved_pairs tuple key crashes json.dump (2026-08-21)\n  Body:   ## Code Review: .audit/delta2.py\n\n**Date:** 2026-08-21\n**Agent:** aeon-reviewer (did:key:z6Mkh4PnJFJ6neHxqxK…"
+  },
+  "completed_at": "2026-08-21T01:39:36.611Z"
+}

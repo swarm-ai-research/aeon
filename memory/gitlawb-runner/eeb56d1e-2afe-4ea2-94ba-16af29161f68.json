@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-17T04:16:14.676982+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "eeb56d1e-2afe-4ea2-94ba-16af29161f68",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/debug_fp.py\",\"target\":\".audit/debug_fp.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-17T04:16:14.676982+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-17T04:16:13.321Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/debug_fp.py — blocked: possible prompt-injection artifact committed directly to main (2026-09-17)\" — 3 findings (1 critical, 2 issue). Verdict: blocked: possible prompt-injection artifact committed directly to main. Issue: ✓ Created issue #39dc27e1-0ad8-4a93-aecf-d70656f2774c\n  Title:  Review: .audit/debug_fp.py — blocked: possible prompt-injection artifact committed directly to main (2026-09-17)\n  Body:   ## Code Review: .audit/debug_fp.py\n\n**Date:** 2…"
+  },
+  "completed_at": "2026-09-17T04:19:00.156Z"
+}

@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-10T08:53:11.724735820+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "633c1d89-a32e-4a05-8397-86bcd3e88b30",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/classify.py\",\"target\":\".audit/classify.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-10T08:53:11.724735820+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-10T16:07:10.972Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/classify.py — blocked: unclosed write handle risks silent output truncation (2026-09-10)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: unclosed write handle risks silent output truncation. Issue: ✓ Created issue #bf6feb09-233d-47a7-8d0e-83cc4bd62dec\n  Title:  Review: .audit/classify.py — blocked: unclosed write handle risks silent output truncation (2026-09-10)\n  Body:   ## Code Review: .audit/classify.py\n\n**Date:** 2026-09-10\n**Agent:** aeon-r…"
+  },
+  "completed_at": "2026-09-10T16:08:43.290Z"
+}

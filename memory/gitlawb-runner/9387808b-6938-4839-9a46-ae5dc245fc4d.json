@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-13T09:16:27.990368349+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "9387808b-6938-4839-9a46-ae5dc245fc4d",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta3.py\",\"target\":\".audit/delta3.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-13T09:16:27.990368349+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-13T09:16:26.919Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta3.py — blocked: sev_order KeyError aborts script before final.json is written (2026-08-13)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: sev_order KeyError aborts script before final.json is written. Issue: ✓ Created issue #3b34aca1-d4f8-4a84-a12b-4a9af71e20f6\n  Title:  Review: .audit/delta3.py — blocked: sev_order KeyError aborts script before final.json is written (2026-08-13)\n  Body:   ## Code Review: .audit/delta3.py\n\n**Date:** 2026-08…"
+  },
+  "completed_at": "2026-08-13T09:18:59.362Z"
+}

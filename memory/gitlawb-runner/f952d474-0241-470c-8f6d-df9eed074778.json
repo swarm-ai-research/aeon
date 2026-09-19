@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-16T20:27:31.076345211+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "f952d474-0241-470c-8f6d-df9eed074778",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/build_report.py\",\"target\":\".audit/build_report.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-16T20:27:31.076345211+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-17T04:47:57.216Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/build_report.py — blocked: subprocess crash on missing ref silently discards all computed findings (2026-08-17)\" — 5 findings (1 critical, 4 issue). Verdict: blocked: subprocess crash on missing ref silently discards all computed findings. Issue: ✓ Created issue #e081bbd6-473e-46ea-b7dd-3d9005bb4c04\n  Title:  Review: .audit/build_report.py — blocked: subprocess crash on missing ref silently discards all computed findings (2026-08-17)\n  Body:   ## Code R…"
+  },
+  "completed_at": "2026-08-17T04:49:34.083Z"
+}

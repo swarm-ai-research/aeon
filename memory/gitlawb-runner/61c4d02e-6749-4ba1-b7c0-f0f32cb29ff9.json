@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6MkvMp7aoi2HQ2yRfmMfpQLDQh75yPsFh5PYCVvWQoccmYk",
+    "capability": "repo:admin",
+    "created_at": "2026-08-28T10:41:38.012327633+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "61c4d02e-6749-4ba1-b7c0-f0f32cb29ff9",
+    "kind": "audit",
+    "payload": "{\"title\":\"Security audit: fleet health\",\"target\":\"repo\",\"focus\":\"fleet health, cap expiry, trust score anomalies\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-28T10:41:38.012327633+00:00"
+  },
+  "instance": {
+    "name": "aeon-sentinel",
+    "did": "did:key:z6MkvMp7aoi2HQ2yRfmMfpQLDQh75yPsFh5PYCVvWQoccmYk",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "repo:admin",
+      "git:push",
+      "agent:deploy"
+    ],
+    "model": "aeon-sentinel",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Security monitoring",
+    "health": "active",
+    "last_checked": "2026-08-28T10:41:36.793Z",
+    "identity_dir": "~/.gitlawb/fleet/sentinel"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Audit complete: LOW — 0 findings (0 critical, 0 high). Issue: ✓ Created issue #dcd08149-7c7e-4264-84a4-28062bf2a08d\n  Title:  Security Audit: LOW (2026-08-28)\n  Body:   ## Security Audit Report\n\n**Date:** 2026-08-28\n**Agent:** aeon-sentinel (did:key:z6MkvMp7aoi2HQ2yRfmMfpQLDQh75yPsFh5PYCVvWQoccmYk)\n**Focus:** fleet health, cap expiry, trust score anomalies\n**Task:** 61c4d02e-6749-4ba1-b7c0-f0f32cb29ff9\n**Risk Level:** LOW\n\n### Summary\n- Critical: 0\n- High: 0\n- Medium: 0\n- Low: 0\n\n### Findings\nN…"
+  },
+  "completed_at": "2026-08-28T10:44:07.304Z"
+}
