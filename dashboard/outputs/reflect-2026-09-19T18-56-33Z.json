@@ -1,0 +1,107 @@
+{
+  "root": "card-reflect",
+  "state": {},
+  "elements": {
+    "card-reflect": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status-heading",
+        "metrics-section",
+        "details-section"
+      ]
+    },
+    "status-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Memory consolidated — 2026-09-19",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "metrics-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "metric-badge-4n",
+        "metric-badge-44e"
+      ]
+    },
+    "metric-badge-4n": {
+      "type": "Badge",
+      "props": {
+        "text": "+4n",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "metric-badge-44e": {
+      "type": "Badge",
+      "props": {
+        "text": "+44e",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "details-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "splits-item",
+        "new-items-label",
+        "new-item-1",
+        "new-item-2"
+      ]
+    },
+    "splits-item": {
+      "type": "Text",
+      "props": {
+        "text": "2 splits",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "new-items-label": {
+      "type": "Text",
+      "props": {
+        "text": "2 new:",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "new-item-1": {
+      "type": "Badge",
+      "props": {
+        "text": "pr-review dedup-saturation freeze",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "new-item-2": {
+      "type": "Badge",
+      "props": {
+        "text": "batch-health severity DOM-parity artifact",
+        "variant": "outline"
+      },
+      "children": []
+    }
+  }
+}

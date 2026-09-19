@@ -1,1 +1,1 @@
-memory consolidated — 2026-09-18 · +1n / +20e · 0 splits, 0 new atomics · counters bumped (ISS-006 Day-47 · ISS-001 Day-90 · watched-repos streak-48 · identity 48h-post hold)
+memory consolidated — 2026-09-19 · +4n / +44e (2 splits, 2 new: pr-review dedup-saturation freeze + batch-health severity DOM-parity artifact)
