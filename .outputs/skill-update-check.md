@@ -1,8 +1,3 @@
-`skills.lock` is not present in the repository. Per Step 1 of the skill, execution has stopped — no drift detection, no report, no notification.
+Done. `skills.lock` was not found in the repository, so the skill exited early per its contract.
 
-## Summary
-
-- **Condition:** `skills.lock` not found at repo root — no imported skills are tracked.
-- **Action taken:** Logged `SKILL_UPDATE_CHECK_NO_LOCK: skills.lock not found — no imported skills tracked` to `memory/logs/2026-09-13.md`.
-- **Notification:** suppressed (skill contract: no lock → silent stop).
-- **Follow-up:** If external skills are imported in the future, `./add-skill` should create `skills.lock` with entries that this skill can then audit.
+**Summary:** `skill-update-check` ran in AUDIT mode. No `skills.lock` exists at the repo root, so there are no imported skills to track. Logged `SKILL_UPDATE_CHECK_NO_LOCK` to `memory/logs/2026-09-20.md` and stopped — no notification sent.
