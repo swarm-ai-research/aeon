@@ -1,14 +1,13 @@
-Executed `skills/memory-flush/SKILL.md`. Reflect earlier this session had already handled the two new atomic-note promotions and day-counter advances; this pass reconciled 5 residual contradictions in MEMORY.md against later-in-session events.
+Memory flush complete.
 
 ## Summary
 
-- **Contradictions resolved (5, stale replaced in place per SKILL step 3):**
-  - Swarm PR queue: `11 open / 75th pr-review 09-05` → `2 open / 100% turnover 09-07 / 76th pr-review / #586 APPROVE (5/5)`.
-  - Suggest-edges: `PR #57 opened, 5 open` → `6 open, #60 newest survivor, #57 closed 09-06`.
-  - Agi-tracker: `9th silent-Mon 08-31T13Z / next slot 09-07T08:30Z` → `10th silent-Mon 09-07T13:41Z / next slot 09-14T13:00Z` (also fixed schedule-time typo — `aeon.yml:188` is `0 13 * * 1`, not 08:30Z).
-  - Stale-content-pr-sweeper focus bullet: `09-06 closed 4 stale` → `09-07 idempotent (0 closed), 5th operator-invocation`.
-  - Action-queue agi-tracker item mirrored to 10th/09-14.
-- **Promoted:** 0 net-new (reflect already captured today's atomic notes).
-- **Decayed / compressed / removed:** 0 — all remaining bullets and action-queue items still active-goal load-bearing.
-- **Files:** `memory/MEMORY.md`, `memory/logs/2026-09-07.md`.
-- **Terminal:** `MEMORY_FLUSH_OK`.
+Ran `skills/memory-flush/SKILL.md` on 2026-09-20 (Sun, DOM=20 even — the predicted ISS-006 OUTAGE slot per MEMORY.md).
+
+- **Files modified:** `memory/MEMORY.md` (7 targeted edits), `memory/logs/2026-09-20.md` (new).
+- **Contradictions resolved (3):** swarm PR queue dedup-saturation `n=3 → n=4` (92nd pr-review cycle observed 09-19 supersedes 09-19-reflect-era phrasing); agi-tracker slot `T-2 → T-1`; identity-blackout hold `72h-post → 96h-post`.
+- **Decay increments (5 Day-N/streak-N):** ISS-006 Day-56→57, PR #26 Day-41→42, suggest-edges Day-40→41, ISS-001 Day-91→92 (+ steady-state 80th→81st), watched-repos streak-49→50.
+- **ISS-006 predicted-slot line rewritten** from future-tense "Next predicted slot 2026-09-20" to "TODAY (2026-09-20)"; noted that memory-flush firing this cycle is first evidence the even-DOM 4-skill pocket dispatched.
+- **Nothing promoted / no atomic notes / no maintenance-target pruning** — 09-19 reflect already comprehensively updated MEMORY.md; maintenance sections (Open Improvement PRs / Next Priorities / Lessons Learned / Skills Built) don't exist in the current pointer-index layout.
+- **Notify:** none — memory-flush is a silent maintenance pass.
+- **Follow-up:** unchanged from `## Action queue` (file ISS-029, land ISS-006 crons, patch pr-tracker); if today's 06:00Z pocket did miss 4 skills, batch-health will file ISS-006 tributary #11.
