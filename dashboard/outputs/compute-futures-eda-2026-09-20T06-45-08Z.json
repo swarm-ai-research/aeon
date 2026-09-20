@@ -1,0 +1,217 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-09-20"
+      },
+      "children": [
+        "summary-text",
+        "sep-1",
+        "section-metrics",
+        "sep-2",
+        "section-performance",
+        "sep-3",
+        "section-conservation",
+        "sep-4",
+        "section-dataqa",
+        "sep-5",
+        "report-link"
+      ]
+    },
+    "summary-text": {
+      "type": "Text",
+      "props": {
+        "text": "144 rows, 4 modes",
+        "variant": "lead"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metric-header",
+        "stat-multiplier",
+        "stat-duration",
+        "stat-regime"
+      ]
+    },
+    "metric-header": {
+      "type": "Heading",
+      "props": {
+        "text": "Key Metrics",
+        "level": "h3"
+      }
+    },
+    "stat-multiplier": {
+      "type": "Stat",
+      "props": {
+        "label": "Basket:Synth Multiplier Lock",
+        "value": "2.55×",
+        "delta": "Durable at n=8 filings"
+      }
+    },
+    "stat-duration": {
+      "type": "Text",
+      "props": {
+        "text": "Period: 09-13 → 09-20"
+      }
+    },
+    "stat-regime": {
+      "type": "Stat",
+      "props": {
+        "label": "22-day Regime Supersession",
+        "value": "2.5000×"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section-performance": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "perf-header",
+        "perf-retail-returns",
+        "perf-retail-depth",
+        "perf-hypothesis"
+      ]
+    },
+    "perf-header": {
+      "type": "Heading",
+      "props": {
+        "text": "Performance",
+        "level": "h3"
+      }
+    },
+    "perf-retail-returns": {
+      "type": "Stat",
+      "props": {
+        "label": "Spread Retail Top-Loss Purity Returns",
+        "value": "6/6",
+        "delta": "After 09-14 operator break"
+      }
+    },
+    "perf-retail-depth": {
+      "type": "Stat",
+      "props": {
+        "label": "Retail Depth New Class-Series Low",
+        "value": "−$4,709"
+      }
+    },
+    "perf-hypothesis": {
+      "type": "Text",
+      "props": {
+        "text": "Validates the noise-cluster hypothesis",
+        "variant": "muted"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section-conservation": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "cons-header",
+        "cons-status",
+        "cons-modes",
+        "cons-pattern"
+      ]
+    },
+    "cons-header": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h3"
+      }
+    },
+    "cons-status": {
+      "type": "Alert",
+      "props": {
+        "type": "success",
+        "message": "Conservation OK across all modes"
+      }
+    },
+    "cons-modes": {
+      "type": "Text",
+      "props": {
+        "text": "Modes: basket / spread / synth / x402 (all float-dust)"
+      }
+    },
+    "cons-pattern": {
+      "type": "Text",
+      "props": {
+        "text": "Sign pattern 4−/0+ held 2nd consecutive filing"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section-dataqa": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "qa-header",
+        "qa-filing-gap",
+        "qa-missing-csv"
+      ]
+    },
+    "qa-header": {
+      "type": "Heading",
+      "props": {
+        "text": "Data Quality Issues",
+        "level": "h3"
+      }
+    },
+    "qa-filing-gap": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "6-day Filing Gap",
+        "message": "CSVs for 09-15, 09-16, 09-17, 09-18 unfiled per ISS-006 06:00Z dead pocket"
+      }
+    },
+    "qa-missing-csv": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "message": "09-19 CSV absent"
+      }
+    },
+    "sep-5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "report-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Analysis Report",
+        "href": "memory/topics/compute-futures-eda/2026-09-20.md",
+        "source": "Aeon Memory"
+      }
+    }
+  }
+}
