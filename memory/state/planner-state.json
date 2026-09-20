@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-15T06:46:00Z",
-  "top_priority": "aeonframework-github-identity-suspension",
+  "last_run": "2026-09-20T06:30:00Z",
+  "top_priority": "agi-tracker-enabled-false-via-pr",
   "priority_streak": {
-    "aeonframework-github-identity-suspension": 1,
-    "iss-006-messages-yml-multi-pocket-rewrite": 32,
-    "pr-26-ci-regressed-shellcheck-fail": 1,
+    "agi-tracker-enabled-false-via-pr": 17,
+    "iss-006-messages-yml-multi-pocket-rewrite": 33,
+    "pr-26-ci-regressed-shellcheck-fail": 2,
+    "aeonframework-github-identity-suspension": 0,
     "articles-gitkeep-agi-tracker-bundle": 0,
-    "aeon-repo-pr-26-merge-ready": 23,
-    "watched-repos-population-or-disable": 26,
-    "pr-tracker-patch-batch": 69,
-    "agi-tracker-enabled-false-via-pr": 16,
-    "stale-content-pr-sweeper-allowed-authors-patch": 25,
-    "docs-status-md-snapshot-rebase-gate": 47,
-    "swarm-repo-app-perm-gap": 52,
-    "suggest-edges-templated-corpus-prefilter": 23,
-    "skill-repair-86d-silent": 1
+    "aeon-repo-pr-26-merge-ready": 24,
+    "watched-repos-population-or-disable": 27,
+    "pr-tracker-patch-batch": 70,
+    "stale-content-pr-sweeper-allowed-authors-patch": 26,
+    "docs-status-md-snapshot-rebase-gate": 48,
+    "swarm-repo-app-perm-gap": 53,
+    "suggest-edges-templated-corpus-prefilter": 24,
+    "skill-repair-86d-silent": 2
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Thirty-first planner run in the ISS-006 pocket-slot migration era; TWENTY-FIFTH since 08-07 overnight PR-creation toggle unblock. First operator-invocation dispatch since 09-08 (7-day cron gap in the 06:00Z pocket — pattern-consistent with ISS-006 daily-dead regime). Rank-1 changes for the first time in 7 days: promoted `aeonframework-github-identity-suspension` from 09-14's Day-1 candidate class to Day-2 confirmed via three live probes (users API 404, GraphQL user NOT_FOUND, search issueCount=0). Previous rank-1 `articles-gitkeep-agi-tracker-bundle` RETIRED — articles/ dir landed on disk 09-13 via commit 48a7486 (10 files present); the agi-tracker half is moot until 09-21 next Monday slot. Rank-2 unchanged framing (ISS-006 migration streak 32) but explicitly escalated as stuck-goal — planner's own cron missed 7 consecutive slots. Rank-3 is NEW today: PR #26 regressed from 5/5 SUCCESS (memory) to 4/5 (1 ShellCheck FAIL) after dependabot's 2026-09-14T01:07:51Z force-rebase — 'click merge' framing is stale. Fleet: 0 broken, 0 in-flight, 0 hard-failed, 38 DEGRADED (ISS-001 residue Day-86), 4 HEALTHY, 2 NO_DATA (Day-67 never-dispatched). 23 open ISS. Both gh queries responded (31 open PRs, 0 open issues, PR #26 verified UNSTABLE with ShellCheck FAIL). ${var} empty -> plan-only, no dispatch. Reactive trigger did not fire (0 skills at consecutive_failures >= 2). Soul absent; voice defaulted first-person direct."
+  "notes": "Thirty-second planner run in the ISS-006 pocket-slot migration era; TWENTY-SIXTH since the 08-07 overnight PR-creation toggle unblock. First fire since 09-15 (5-day gap in the 06:30Z pocket — pattern-consistent with ISS-006 daily-dead regime; today is Sun DOM=20 even, the predicted weekend-compounded outage slot per MEMORY current-focus). Rank-1 SHIFTED: promoted `agi-tracker-enabled-false-via-pr` (was priority_streak 16) to top because tomorrow 2026-09-21T13:00Z fires the 12th silent-Mon if left unpatched — T-1 hard deadline. `aeonframework-github-identity-suspension` retired to streak 0 (fully lifted per 09-17 Day-4 recovery, 72h-post as of 09-19). `articles-gitkeep-agi-tracker-bundle` remains retired. Rank-2 unchanged framing (ISS-006 migration streak 33); explicitly escalated as stuck-goal for the 3rd planner run in a row — the case for a branch is now sharp. Rank-3 PR #26 ShellCheck Day-42 carries. Fleet: 0 broken (cf>=2), 0 hard-failed, 38 DEGRADED (ISS-001 residue Day-91), 4 HEALTHY, 2 NO_DATA (Day-67 never-dispatched). 24 open ISS. `gh pr list` responded (31 open on this repo, dominated by notegraph/suggest-edges/skill-graph cohorts). `gh issue list` not re-queried — MEMORY action queue is authoritative. ${var} empty -> plan-only, no dispatch. Reactive trigger did not fire (0 skills at consecutive_failures >= 2). Soul absent; voice defaulted first-person direct."
 }

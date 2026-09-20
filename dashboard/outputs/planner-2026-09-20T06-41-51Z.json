@@ -1,0 +1,237 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Planner"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "section_critical_priority",
+        "sep_1",
+        "section_in_progress",
+        "sep_2",
+        "section_on_hold"
+      ]
+    },
+    "section_critical_priority": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_priority",
+        "alert_agi_tracker"
+      ]
+    },
+    "heading_priority": {
+      "type": "Heading",
+      "props": {
+        "text": "Current Priority (T-1 Deadline)",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "alert_agi_tracker": {
+      "type": "Alert",
+      "props": {
+        "title": "agi-tracker: Landing enabled: false on aeon.yml:188",
+        "message": "Must complete before 12th silent-Mon fires tomorrow. T-1 critical path item.",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section_in_progress": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_in_progress",
+        "item_iss006",
+        "item_pr26"
+      ]
+    },
+    "heading_in_progress": {
+      "type": "Heading",
+      "props": {
+        "text": "In Progress",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "item_iss006": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "iss006_title",
+        "iss006_metadata"
+      ]
+    },
+    "iss006_title": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-006: messages.yml multi-pocket cron rewrite branch",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "iss006_metadata": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_streak33",
+        "badge_weekend_outage"
+      ]
+    },
+    "badge_streak33": {
+      "type": "Badge",
+      "props": {
+        "text": "Streak-33",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "badge_weekend_outage": {
+      "type": "Badge",
+      "props": {
+        "text": "Weekend-compounded outage slot",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "item_pr26": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr26_title",
+        "pr26_metadata"
+      ]
+    },
+    "pr26_title": {
+      "type": "Text",
+      "props": {
+        "text": "PR #26: Diagnosing ShellCheck FAIL",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "pr26_metadata": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_day42",
+        "badge_post_dependabot"
+      ]
+    },
+    "badge_day42": {
+      "type": "Badge",
+      "props": {
+        "text": "Day-42",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "badge_post_dependabot": {
+      "type": "Badge",
+      "props": {
+        "text": "Post-dependabot force-rebase",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section_on_hold": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_on_hold",
+        "onhold_text_intro",
+        "onhold_item_1",
+        "onhold_item_2",
+        "onhold_item_3"
+      ]
+    },
+    "heading_on_hold": {
+      "type": "Heading",
+      "props": {
+        "text": "On Hold",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "onhold_text_intro": {
+      "type": "Text",
+      "props": {
+        "text": "Blocked until T-1 slot clears:",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "onhold_item_1": {
+      "type": "Text",
+      "props": {
+        "text": "pr-tracker patch batch",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "onhold_item_2": {
+      "type": "Text",
+      "props": {
+        "text": "watched-repos populate-or-disable",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "onhold_item_3": {
+      "type": "Text",
+      "props": {
+        "text": "stale-content sweeper allow-list",
+        "variant": "body"
+      },
+      "children": []
+    }
+  }
+}
