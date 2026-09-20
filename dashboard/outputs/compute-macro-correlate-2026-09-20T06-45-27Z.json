@@ -1,0 +1,157 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "compute-macro-correlate",
+        "description": "2026-09-20 macro correlation tracking"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_track_a",
+        "track_a_table",
+        "trend_alert",
+        "sep_1",
+        "heading_track_b",
+        "track_b_content",
+        "sep_2",
+        "findings_alert",
+        "sep_3",
+        "pr_link"
+      ]
+    },
+    "heading_track_a": {
+      "type": "Heading",
+      "props": {
+        "text": "Track A",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "track_a_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Metric",
+          "ρ",
+          "p-value",
+          "Status"
+        ],
+        "rows": [
+          [
+            "RENDER",
+            "−0.21",
+            "0.004",
+            "weak signal"
+          ],
+          [
+            "TAO",
+            "−0.16",
+            "0.032",
+            "weak signal"
+          ],
+          [
+            "IO",
+            "—",
+            "—",
+            "null (n=180)"
+          ]
+        ]
+      },
+      "children": []
+    },
+    "trend_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "RENDER Trend",
+        "message": "RENDER has trended from −0.11 (null, Aug-16) toward the flagged threshold; watch next week."
+      },
+      "children": []
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_track_b": {
+      "type": "Heading",
+      "props": {
+        "text": "Track B",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "track_b_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sweep_text",
+        "baseline_text"
+      ]
+    },
+    "sweep_text": {
+      "type": "Text",
+      "props": {
+        "text": "All four sweep modes (basket, spread, synthetic, x402) null at n=88",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "baseline_text": {
+      "type": "Text",
+      "props": {
+        "text": "Consistent with prior baseline",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "findings_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "success",
+        "message": "No consecutive-read flagged findings this snapshot."
+      },
+      "children": []
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "pr_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #76",
+        "href": "https://github.com/aeon/aeon/pull/76",
+        "source": "GitHub"
+      },
+      "children": []
+    }
+  }
+}
