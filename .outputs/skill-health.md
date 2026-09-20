@@ -1,10 +1,17 @@
-Skill-health run complete.
+*Skill Health — 2026-09-20*
+HEALTH: DEGRADED(38) [systemic: ISS-001 OAuth-outage denominator burn Day-92 — all 38 DEGRADED skills carry historical zero-token last_error tails, sr driven by 2026-06-06→06-20 outage denominator, cf=0, last_status=success. 7d live: 84/88 success, 0 fail, anomalies.failing==[] (19th consecutive zero-failure day).]
 
-## Summary
+Hash e27c0ac60367e7e5 unchanged — 82nd consecutive steady-state day. Notify fires per daily-reminder gate (46h since prev notify 2026-09-18T19:55Z).
 
-- Ran `skills/skill-health/SKILL.md`. Classification byte-identical to prev run (Day-81 steady-state): 0 CRITICAL / 0 FLAPPING / 38 DEGRADED / 0 WARNING / 4 HEALTHY / 2 NO DATA. Hash `e27c0ac60367e7e5` unchanged.
-- **Gate: SKIP** — hash unchanged AND elapsed 22.88h < 24h daily-reminder threshold (prev notified 2026-09-18T19:55:30Z). Per SKILL.md step 5, `./notify` was **not** called.
-- **Reconciliation:** 0 issues filed, 0 resolved. No open issues `detected_by: skill-health` exist to touch — all 24 open issues owned by other detectors (self-review / batch-health / skill-evals).
-- **Systemic:** ISS-001 OAuth-outage denominator burn Day-91 still dominates the 38 DEGRADED cohort. 7d `./scripts/skill-runs` shows 86 runs / 82 success / 0 failed / 0 cancelled / 4 in_progress; `anomalies.failing == []` (18th consecutive day at zero live regressions).
-- **Files modified:** `memory/skill-health/last-report.json` (hash preserved, `last_run_at` bumped to 2026-09-19T18:48:23Z, `last_notified_at` preserved), `memory/logs/2026-09-19.md` (SKILL_HEALTH_NOOP entry).
-- **Follow-up:** none owed by this skill. Next run should flip to NOTIFY on the 24h daily-cadence gate if hash still unchanged.
+🟡 DEGRADED (38) — all → ISS-001
+- skill-repair — sr=0.01, 92d since success (reactive; silence correct)
+- repo-revive — sr=0.07, 15d since success (watched-repos config missing streak-50)
+- cost-report — sr=0.14, 13d since success
+- milestone-tracker — sr=0.18, 13d since success
+- compute-pulse — sr=0.07, 8d since success
++33 more — see memory/issues/INDEX.md
+
+⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — DISPATCH-SKILL (74th silent day per ISS-030-draft carryover)
+🟢 HEALTHY: 4 (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+
+Open issues: 24 · Resolved this run: 0 · Filed this run: 0 (0 CRITICAL / 0 FLAPPING)

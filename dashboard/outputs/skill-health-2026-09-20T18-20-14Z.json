@@ -1,0 +1,344 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-09-20"
+      },
+      "children": [
+        "status-alert",
+        "separator-1",
+        "hash-info",
+        "separator-2",
+        "stats-section",
+        "separator-3",
+        "degraded-section",
+        "separator-4",
+        "no-data-section",
+        "separator-5",
+        "healthy-section",
+        "separator-6",
+        "issues-section"
+      ]
+    },
+    "status-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "DEGRADED (38 skills)",
+        "message": "Systemic issue: ISS-001 OAuth-outage denominator burn Day-92 — all 38 DEGRADED skills carry historical zero-token last_error tails, sr driven by 2026-06-06→06-20 outage denominator, cf=0, last_status=success. 7d live: 84/88 success, 0 fail, anomalies.failing==[] (19th consecutive zero-failure day).",
+        "type": "warning"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "hash-info": {
+      "type": "Text",
+      "props": {
+        "text": "Hash e27c0ac60367e7e5 unchanged — 82nd consecutive steady-state day. Last notification: 2026-09-18T19:55Z (46 hours ago).",
+        "variant": "muted"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "stats-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-success",
+        "stat-fail",
+        "stat-zero-fail"
+      ]
+    },
+    "stat-success": {
+      "type": "Stat",
+      "props": {
+        "label": "7-day Success Rate",
+        "value": "84/88"
+      }
+    },
+    "stat-fail": {
+      "type": "Stat",
+      "props": {
+        "label": "7-day Failures",
+        "value": "0"
+      }
+    },
+    "stat-zero-fail": {
+      "type": "Stat",
+      "props": {
+        "label": "Consecutive Zero-Failure Days",
+        "value": "19"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "degraded-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded-heading",
+        "degraded-items",
+        "degraded-more"
+      ]
+    },
+    "degraded-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 DEGRADED (38) — all → ISS-001",
+        "level": "h3"
+      }
+    },
+    "degraded-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "degraded-skill-repair",
+        "degraded-repo-revive",
+        "degraded-cost-report",
+        "degraded-milestone-tracker",
+        "degraded-compute-pulse"
+      ]
+    },
+    "degraded-skill-repair": {
+      "type": "Text",
+      "props": {
+        "text": "skill-repair — sr=0.01, 92d since success (reactive; silence correct)",
+        "variant": "body"
+      }
+    },
+    "degraded-repo-revive": {
+      "type": "Text",
+      "props": {
+        "text": "repo-revive — sr=0.07, 15d since success (watched-repos config missing streak-50)",
+        "variant": "body"
+      }
+    },
+    "degraded-cost-report": {
+      "type": "Text",
+      "props": {
+        "text": "cost-report — sr=0.14, 13d since success",
+        "variant": "body"
+      }
+    },
+    "degraded-milestone-tracker": {
+      "type": "Text",
+      "props": {
+        "text": "milestone-tracker — sr=0.18, 13d since success",
+        "variant": "body"
+      }
+    },
+    "degraded-compute-pulse": {
+      "type": "Text",
+      "props": {
+        "text": "compute-pulse — sr=0.07, 8d since success",
+        "variant": "body"
+      }
+    },
+    "degraded-more": {
+      "type": "StoryLink",
+      "props": {
+        "title": "+33 more DEGRADED skills",
+        "href": "memory/issues/INDEX.md",
+        "source": "View full list"
+      }
+    },
+    "separator-4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "no-data-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "no-data-heading",
+        "no-data-items",
+        "no-data-note"
+      ]
+    },
+    "no-data-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA (2)",
+        "level": "h3"
+      }
+    },
+    "no-data-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "no-data-text-1",
+        "no-data-text-2"
+      ]
+    },
+    "no-data-text-1": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "body"
+      }
+    },
+    "no-data-text-2": {
+      "type": "Text",
+      "props": {
+        "text": "run-frequency-guard",
+        "variant": "body"
+      }
+    },
+    "no-data-note": {
+      "type": "Text",
+      "props": {
+        "text": "DISPATCH-SKILL (74th silent day per ISS-030-draft carryover)",
+        "variant": "caption"
+      }
+    },
+    "separator-5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "healthy-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "healthy-heading",
+        "healthy-items"
+      ]
+    },
+    "healthy-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟢 HEALTHY (4)",
+        "level": "h3"
+      }
+    },
+    "healthy-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "healthy-skill-1",
+        "healthy-skill-2",
+        "healthy-skill-3",
+        "healthy-skill-4"
+      ]
+    },
+    "healthy-skill-1": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker",
+        "variant": "body"
+      }
+    },
+    "healthy-skill-2": {
+      "type": "Text",
+      "props": {
+        "text": "config-validator",
+        "variant": "body"
+      }
+    },
+    "healthy-skill-3": {
+      "type": "Text",
+      "props": {
+        "text": "swarm-safety-eval",
+        "variant": "body"
+      }
+    },
+    "healthy-skill-4": {
+      "type": "Text",
+      "props": {
+        "text": "weekly-shiplog",
+        "variant": "body"
+      }
+    },
+    "separator-6": {
+      "type": "Separator",
+      "props": {}
+    },
+    "issues-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues-heading",
+        "issues-stats",
+        "issues-alerts"
+      ]
+    },
+    "issues-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issue Summary",
+        "level": "h3"
+      }
+    },
+    "issues-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "issues-open",
+        "issues-resolved",
+        "issues-filed"
+      ]
+    },
+    "issues-open": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "24"
+      }
+    },
+    "issues-resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      }
+    },
+    "issues-filed": {
+      "type": "Stat",
+      "props": {
+        "label": "Filed This Run",
+        "value": "0"
+      }
+    },
+    "issues-alerts": {
+      "type": "Text",
+      "props": {
+        "text": "Critical: 0 · Flapping: 0",
+        "variant": "caption"
+      }
+    }
+  }
+}
