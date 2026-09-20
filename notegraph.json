@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T18:54:32.749Z",
+  "generatedAt": "2026-09-20T06:40:50.701Z",
   "stats": {
     "nodes": 398,
     "edges": 4171,
@@ -1635,7 +1635,7 @@
       "title": "Batch outage — 4 skills missed morning window 2026-07-14",
       "dir": "memory",
       "tags": [],
-      "inDegree": 21,
+      "inDegree": 22,
       "outDegree": 17,
       "atomic": false,
       "bundleRawScore": null,
@@ -2595,7 +2595,7 @@
       "title": "2026-09-19",
       "dir": "memory",
       "tags": [],
-      "inDegree": 8,
+      "inDegree": 7,
       "outDegree": 17,
       "atomic": false,
       "bundleRawScore": null,
@@ -12218,8 +12218,8 @@
     {
       "source": "memory/notes/daily/2026-09-19.md",
       "target": "memory/issues/ISS-028.md",
-      "type": "name-mention",
-      "weight": 0.5,
+      "type": "path-mention",
+      "weight": 0.8,
       "hardness": "hard"
     },
     {
@@ -27535,7 +27535,7 @@
       "source": "docs/_posts/2026-05-24-aeon-on-gitlawb.md",
       "target": "docs/_posts/2026-06-02-earn-or-die-vs-lent-authority.md",
       "type": "similar",
-      "weight": 0.435,
+      "weight": 0.436,
       "shared": [
         "rsavitt",
         "https",
@@ -27619,7 +27619,7 @@
       "source": "docs/_posts/2026-06-02-earn-or-die-vs-lent-authority.md",
       "target": "docs/_posts/2026-05-24-aeon-on-gitlawb.md",
       "type": "similar",
-      "weight": 0.435,
+      "weight": 0.436,
       "shared": [
         "rsavitt",
         "https",
@@ -27675,7 +27675,7 @@
       "source": "docs/gitlawb-demo-recap.md",
       "target": "docs/gitlawb-demo-script.md",
       "type": "similar",
-      "weight": 0.629,
+      "weight": 0.63,
       "shared": [
         "takeaway",
         "authority",
@@ -27689,7 +27689,7 @@
       "source": "docs/gitlawb-demo-recap.md",
       "target": "docs/gitlawb-pr-body.md",
       "type": "similar",
-      "weight": 0.513,
+      "weight": 0.514,
       "shared": [
         "prototype",
         "renewal",
@@ -27717,7 +27717,7 @@
       "source": "docs/gitlawb-demo-script.md",
       "target": "docs/gitlawb-demo-recap.md",
       "type": "similar",
-      "weight": 0.629,
+      "weight": 0.63,
       "shared": [
         "takeaway",
         "authority",
@@ -27759,7 +27759,7 @@
       "source": "docs/gitlawb-pr-body.md",
       "target": "docs/gitlawb-demo-recap.md",
       "type": "similar",
-      "weight": 0.513,
+      "weight": 0.514,
       "shared": [
         "prototype",
         "renewal",
@@ -27773,7 +27773,7 @@
       "source": "docs/gitlawb-pr-body.md",
       "target": "docs/_posts/2026-05-24-aeon-on-gitlawb.md",
       "type": "similar",
-      "weight": 0.384,
+      "weight": 0.385,
       "shared": [
         "prototype",
         "observability",
@@ -27871,7 +27871,7 @@
       "source": "docs/skillpacks.md",
       "target": "docs/smithery-submission.md",
       "type": "similar",
-      "weight": 0.656,
+      "weight": 0.657,
       "shared": [
         "tweets",
         "crypto",
@@ -27955,7 +27955,7 @@
       "source": "docs/smithery-submission.md",
       "target": "docs/skillpacks.md",
       "type": "similar",
-      "weight": 0.656,
+      "weight": 0.657,
       "shared": [
         "tweets",
         "crypto",
@@ -32141,7 +32141,7 @@
       "source": "memory/issues/ISS-009.md",
       "target": "memory/issues/ISS-011.md",
       "type": "similar",
-      "weight": 0.679,
+      "weight": 0.68,
       "shared": [
         "fork",
         "article",
@@ -32155,7 +32155,7 @@
       "source": "memory/issues/ISS-009.md",
       "target": "memory/issues/ISS-012.md",
       "type": "similar",
-      "weight": 0.672,
+      "weight": 0.673,
       "shared": [
         "article",
         "indicating",
@@ -32169,7 +32169,7 @@
       "source": "memory/issues/ISS-009.md",
       "target": "memory/issues/ISS-016.md",
       "type": "similar",
-      "weight": 0.617,
+      "weight": 0.618,
       "shared": [
         "article",
         "indicating",
@@ -32407,7 +32407,7 @@
       "source": "memory/issues/ISS-015.md",
       "target": "memory/issues/ISS-012.md",
       "type": "similar",
-      "weight": 0.436,
+      "weight": 0.437,
       "shared": [
         "article",
         "evals",
@@ -32701,7 +32701,7 @@
       "source": "memory/issues/ISS-022.md",
       "target": "memory/issues/ISS-024.md",
       "type": "similar",
-      "weight": 0.492,
+      "weight": 0.491,
       "shared": [
         "utc",
         "dom",
@@ -32783,29 +32783,29 @@
     },
     {
       "source": "memory/issues/ISS-024.md",
-      "target": "memory/issues/ISS-022.md",
-      "type": "similar",
-      "weight": 0.492,
-      "shared": [
-        "utc",
-        "dom",
-        "schedule",
-        "even",
-        "invariant"
-      ],
-      "hardness": "soft"
-    },
-    {
-      "source": "memory/issues/ISS-024.md",
       "target": "memory/issues/ISS-026.md",
       "type": "similar",
-      "weight": 0.492,
+      "weight": 0.493,
       "shared": [
         "sunday",
         "utc",
         "dom",
         "schedule",
         "even"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/issues/ISS-024.md",
+      "target": "memory/issues/ISS-022.md",
+      "type": "similar",
+      "weight": 0.491,
+      "shared": [
+        "utc",
+        "dom",
+        "schedule",
+        "even",
+        "invariant"
       ],
       "hardness": "soft"
     },
@@ -32883,7 +32883,7 @@
       "source": "memory/issues/ISS-026.md",
       "target": "memory/issues/ISS-024.md",
       "type": "similar",
-      "weight": 0.492,
+      "weight": 0.493,
       "shared": [
         "sunday",
         "utc",
@@ -32981,7 +32981,7 @@
       "source": "memory/notes/aeon-bot-uses-multiple-signing-identities.md",
       "target": "memory/notes/pr-tracker-branch-prefix-misses-bot-identity.md",
       "type": "similar",
-      "weight": 0.424,
+      "weight": 0.425,
       "shared": [
         "email",
         "bot",
@@ -32995,7 +32995,7 @@
       "source": "memory/notes/aeon-bot-uses-multiple-signing-identities.md",
       "target": "memory/topics/aeon-signing-identity-fragmentation.md",
       "type": "similar",
-      "weight": 0.4,
+      "weight": 0.401,
       "shared": [
         "signing",
         "email",
@@ -33023,13 +33023,13 @@
       "source": "memory/notes/aeon-fifth-signing-identity-security-aeonframework-github.md",
       "target": "memory/notes/aeon-fourth-signing-identity-security-aeonframework-dev.md",
       "type": "similar",
-      "weight": 0.395,
+      "weight": 0.394,
       "shared": [
         "signing",
         "appeared",
         "identity",
-        "fourth",
-        "bot"
+        "bot",
+        "fourth"
       ],
       "hardness": "soft"
     },
@@ -33079,13 +33079,13 @@
       "source": "memory/notes/aeon-fourth-signing-identity-security-aeonframework-dev.md",
       "target": "memory/notes/aeon-fifth-signing-identity-security-aeonframework-github.md",
       "type": "similar",
-      "weight": 0.395,
+      "weight": 0.394,
       "shared": [
         "signing",
         "appeared",
         "identity",
-        "fourth",
-        "bot"
+        "bot",
+        "fourth"
       ],
       "hardness": "soft"
     },
@@ -33093,7 +33093,7 @@
       "source": "memory/notes/aeon-fourth-signing-identity-security-aeonframework-dev.md",
       "target": "memory/notes/pr-tracker-branch-prefix-aeon-slash.md",
       "type": "similar",
-      "weight": 0.378,
+      "weight": 0.377,
       "shared": [
         "arm",
         "inclusion",
@@ -33177,7 +33177,7 @@
       "source": "memory/notes/aeon-third-signing-identity-proton-me.md",
       "target": "memory/notes/pr-tracker-branch-prefix-misses-bot-identity.md",
       "type": "similar",
-      "weight": 0.268,
+      "weight": 0.269,
       "shared": [
         "author",
         "bot",
@@ -33539,20 +33539,6 @@
     },
     {
       "source": "memory/notes/batch-health-severity-is-dom-parity-artifact-under-iss-006.md",
-      "target": "memory/notes/daily/2026-09-19.md",
-      "type": "similar",
-      "weight": 0.296,
-      "shared": [
-        "parity",
-        "warn",
-        "fault",
-        "dom",
-        "encodes"
-      ],
-      "hardness": "soft"
-    },
-    {
-      "source": "memory/notes/batch-health-severity-is-dom-parity-artifact-under-iss-006.md",
       "target": "memory/notes/iss-006-batch-outage-recurs-every-48h-with-06z-pocket-persistently-dead.md",
       "type": "similar",
       "weight": 0.284,
@@ -33562,6 +33548,20 @@
         "even",
         "outage",
         "odd"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/batch-health-severity-is-dom-parity-artifact-under-iss-006.md",
+      "target": "memory/issues/ISS-019.md",
+      "type": "similar",
+      "weight": 0.282,
+      "shared": [
+        "warn",
+        "dom",
+        "odd",
+        "even",
+        "outage"
       ],
       "hardness": "soft"
     },
@@ -34423,7 +34423,7 @@
       "source": "memory/notes/daily/2026-07-03.md",
       "target": "memory/notes/daily/2026-07-04.md",
       "type": "similar",
-      "weight": 0.405,
+      "weight": 0.406,
       "shared": [
         "atomized",
         "snapshots",
@@ -34465,7 +34465,7 @@
       "source": "memory/notes/daily/2026-07-04.md",
       "target": "memory/notes/daily/2026-07-03.md",
       "type": "similar",
-      "weight": 0.405,
+      "weight": 0.406,
       "shared": [
         "atomized",
         "snapshots",
@@ -34983,7 +34983,7 @@
       "source": "memory/notes/daily/2026-09-17.md",
       "target": "memory/notes/daily/2026-09-18.md",
       "type": "similar",
-      "weight": 0.298,
+      "weight": 0.299,
       "shared": [
         "atomics",
         "blackout",
@@ -35011,13 +35011,13 @@
       "source": "memory/notes/daily/2026-09-18.md",
       "target": "memory/notes/daily/2026-09-19.md",
       "type": "similar",
-      "weight": 0.527,
+      "weight": 0.601,
       "shared": [
+        "orphans",
         "atomics",
         "saturation",
-        "pointer",
-        "orphans",
-        "dedup"
+        "bundled",
+        "soft"
       ],
       "hardness": "soft"
     },
@@ -35025,7 +35025,7 @@
       "source": "memory/notes/daily/2026-09-18.md",
       "target": "memory/notes/daily/2026-09-17.md",
       "type": "similar",
-      "weight": 0.298,
+      "weight": 0.299,
       "shared": [
         "atomics",
         "blackout",
@@ -35039,7 +35039,7 @@
       "source": "memory/notes/daily/2026-09-18.md",
       "target": "memory/MEMORY.md",
       "type": "similar",
-      "weight": 0.265,
+      "weight": 0.266,
       "shared": [
         "blackout",
         "saturation",
@@ -35053,12 +35053,26 @@
       "source": "memory/notes/daily/2026-09-19.md",
       "target": "memory/notes/daily/2026-09-18.md",
       "type": "similar",
-      "weight": 0.527,
+      "weight": 0.601,
       "shared": [
+        "orphans",
         "atomics",
         "saturation",
-        "pointer",
-        "orphans",
+        "bundled",
+        "soft"
+      ],
+      "hardness": "soft"
+    },
+    {
+      "source": "memory/notes/daily/2026-09-19.md",
+      "target": "memory/MEMORY.md",
+      "type": "similar",
+      "weight": 0.272,
+      "shared": [
+        "saturation",
+        "parity",
+        "freeze",
+        "warn",
         "dedup"
       ],
       "hardness": "soft"
@@ -35067,27 +35081,13 @@
       "source": "memory/notes/daily/2026-09-19.md",
       "target": "memory/notes/batch-health-severity-is-dom-parity-artifact-under-iss-006.md",
       "type": "similar",
-      "weight": 0.296,
+      "weight": 0.264,
       "shared": [
         "parity",
         "warn",
         "fault",
         "dom",
         "encodes"
-      ],
-      "hardness": "soft"
-    },
-    {
-      "source": "memory/notes/daily/2026-09-19.md",
-      "target": "memory/MEMORY.md",
-      "type": "similar",
-      "weight": 0.293,
-      "shared": [
-        "saturation",
-        "parity",
-        "freeze",
-        "warn",
-        "dedup"
       ],
       "hardness": "soft"
     },
@@ -35179,7 +35179,7 @@
       "source": "memory/notes/gha-messages-yml-cron-underdelivery.md",
       "target": "memory/issues/ISS-021.md",
       "type": "similar",
-      "weight": 0.257,
+      "weight": 0.258,
       "shared": [
         "timeslot",
         "pockets",
@@ -35711,7 +35711,7 @@
       "source": "memory/notes/notegraph-fingerprint-helper-enobufs-at-1mb.md",
       "target": "memory/notes/notegraph-fingerprint-pipeline-blocked-by-sandbox.md",
       "type": "similar",
-      "weight": 0.38,
+      "weight": 0.379,
       "shared": [
         "helper",
         "pipeline",
@@ -35725,7 +35725,7 @@
       "source": "memory/notes/notegraph-fingerprint-pipeline-blocked-by-sandbox.md",
       "target": "memory/notes/notegraph-fingerprint-helper-enobufs-at-1mb.md",
       "type": "similar",
-      "weight": 0.38,
+      "weight": 0.379,
       "shared": [
         "helper",
         "pipeline",
@@ -35739,7 +35739,7 @@
       "source": "memory/notes/notegraph-fingerprint-pipeline-blocked-by-sandbox.md",
       "target": "memory/notes/sandbox-blocks-shell-redirect-to-workdir.md",
       "type": "similar",
-      "weight": 0.28,
+      "weight": 0.281,
       "shared": [
         "shell",
         "redirect",
@@ -35977,7 +35977,7 @@
       "source": "memory/notes/pr-review-dedup-saturation-freezes-write-blocked-repo-queues.md",
       "target": "memory/notes/daily/2026-09-19.md",
       "type": "similar",
-      "weight": 0.283,
+      "weight": 0.252,
       "shared": [
         "dedup",
         "freeze",
@@ -36005,7 +36005,7 @@
       "source": "memory/notes/pr-tracker-branch-prefix-aeon-slash.md",
       "target": "memory/notes/aeon-fourth-signing-identity-security-aeonframework-dev.md",
       "type": "similar",
-      "weight": 0.378,
+      "weight": 0.377,
       "shared": [
         "arm",
         "inclusion",
@@ -36033,7 +36033,7 @@
       "source": "memory/notes/pr-tracker-branch-prefix-aeon-slash.md",
       "target": "memory/notes/aeon-fifth-signing-identity-security-aeonframework-github.md",
       "type": "similar",
-      "weight": 0.266,
+      "weight": 0.265,
       "shared": [
         "signing",
         "cves",
@@ -36047,7 +36047,7 @@
       "source": "memory/notes/pr-tracker-branch-prefix-misses-bot-identity.md",
       "target": "memory/notes/aeon-bot-uses-multiple-signing-identities.md",
       "type": "similar",
-      "weight": 0.424,
+      "weight": 0.425,
       "shared": [
         "email",
         "bot",
@@ -36066,8 +36066,8 @@
         "author",
         "email",
         "signing",
-        "prefix",
-        "bot"
+        "bot",
+        "prefix"
       ],
       "hardness": "soft"
     },
@@ -36257,7 +36257,7 @@
       "source": "memory/notes/pr-tracker-stale-bot-comment-inverts-stale-classification.md",
       "target": "memory/notes/silent-maintainer-close-after-extended-decay.md",
       "type": "similar",
-      "weight": 0.277,
+      "weight": 0.278,
       "shared": [
         "comment",
         "inverts",
@@ -36369,7 +36369,7 @@
       "source": "memory/notes/sandbox-blocks-shell-redirect-to-workdir.md",
       "target": "memory/notes/notegraph-fingerprint-pipeline-blocked-by-sandbox.md",
       "type": "similar",
-      "weight": 0.28,
+      "weight": 0.281,
       "shared": [
         "shell",
         "redirect",
@@ -36481,7 +36481,7 @@
       "source": "memory/notes/skills-json-count-drift.md",
       "target": "memory/notes/daily/2026-06-20.md",
       "type": "similar",
-      "weight": 0.252,
+      "weight": 0.253,
       "shared": [
         "committed",
         "lags",
@@ -37293,7 +37293,7 @@
       "source": "memory/state/daily-plan-2026-08-06.md",
       "target": "memory/state/daily-plan-2026-08-07.md",
       "type": "similar",
-      "weight": 0.363,
+      "weight": 0.362,
       "shared": [
         "meta",
         "risk",
@@ -37321,7 +37321,7 @@
       "source": "memory/state/daily-plan-2026-08-07.md",
       "target": "memory/state/daily-plan-2026-08-06.md",
       "type": "similar",
-      "weight": 0.363,
+      "weight": 0.362,
       "shared": [
         "meta",
         "risk",
@@ -38245,7 +38245,7 @@
       "source": "memory/state/daily-plan-2026-09-07.md",
       "target": "memory/state/daily-plan-2026-09-08.md",
       "type": "similar",
-      "weight": 0.501,
+      "weight": 0.502,
       "shared": [
         "unhold",
         "updatedat",
@@ -38287,7 +38287,7 @@
       "source": "memory/state/daily-plan-2026-09-08.md",
       "target": "memory/state/daily-plan-2026-09-07.md",
       "type": "similar",
-      "weight": 0.501,
+      "weight": 0.502,
       "shared": [
         "unhold",
         "updatedat",
@@ -38343,7 +38343,7 @@
       "source": "memory/state/daily-plan-2026-09-15.md",
       "target": "memory/state/daily-plan-2026-09-01.md",
       "type": "similar",
-      "weight": 0.275,
+      "weight": 0.274,
       "shared": [
         "click",
         "shellcheck",
@@ -38385,7 +38385,7 @@
       "source": "memory/topics/aeon-signing-identity-fragmentation.md",
       "target": "memory/notes/aeon-bot-uses-multiple-signing-identities.md",
       "type": "similar",
-      "weight": 0.4,
+      "weight": 0.401,
       "shared": [
         "signing",
         "email",
@@ -39141,7 +39141,7 @@
       "source": "memory/topics/compute-futures-eda/2026-07-25.md",
       "target": "memory/topics/compute-futures-eda/2026-07-28.md",
       "type": "similar",
-      "weight": 0.618,
+      "weight": 0.619,
       "shared": [
         "17e",
         "near",
@@ -39183,7 +39183,7 @@
       "source": "memory/topics/compute-futures-eda/2026-07-28.md",
       "target": "memory/topics/compute-futures-eda/2026-07-25.md",
       "type": "similar",
-      "weight": 0.618,
+      "weight": 0.619,
       "shared": [
         "17e",
         "near",
@@ -39309,7 +39309,7 @@
       "source": "memory/topics/compute-futures-eda/2026-08-01.md",
       "target": "memory/topics/compute-futures-eda/2026-08-03.md",
       "type": "similar",
-      "weight": 0.592,
+      "weight": 0.591,
       "shared": [
         "dominates",
         "tails",
@@ -39323,7 +39323,7 @@
       "source": "memory/topics/compute-futures-eda/2026-08-01.md",
       "target": "memory/topics/compute-futures-eda/2026-07-30.md",
       "type": "similar",
-      "weight": 0.516,
+      "weight": 0.515,
       "shared": [
         "widest",
         "reclassifies",
@@ -39337,7 +39337,7 @@
       "source": "memory/topics/compute-futures-eda/2026-08-03.md",
       "target": "memory/topics/compute-futures-eda/2026-08-01.md",
       "type": "similar",
-      "weight": 0.592,
+      "weight": 0.591,
       "shared": [
         "dominates",
         "tails",
@@ -40401,7 +40401,7 @@
       "source": "memory/topics/pr-status.md",
       "target": "memory/topics/fleet-ops.md",
       "type": "similar",
-      "weight": 0.275,
+      "weight": 0.274,
       "shared": [
         "browser",
         "hooks",
