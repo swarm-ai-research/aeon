@@ -1,1 +1,1 @@
-memory consolidated — 2026-09-19 · +4n / +44e (2 splits, 2 new: pr-review dedup-saturation freeze + batch-health severity DOM-parity artifact)
+memory consolidated — 2026-09-20 · +7n / +31e (1 splits, 1 new: [[operator-bulk-close-post-identity-recovery]])

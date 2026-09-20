@@ -101,7 +101,7 @@ Class candidate: `[[operator-bulk-close-post-identity-recovery]]` — timing (Da
 
 ## Follow-ups
 
-- **File `[[operator-bulk-close-post-identity-recovery]]` atomic note** with the 23-PR close cluster as n=1 evidence. Include the 13:58Z–14:33Z window + close-time histogram.
+- **`[[operator-bulk-close-post-identity-recovery]]` atomic note filed 2026-09-20** (this reflect) with the 23-PR close cluster as n=1 evidence — 13:58Z–14:33Z window + close-time histogram + cross-repo actor set. Class provisional pending actor spot-checks.
 - **Fetch `.timeline.closedEvent.actor.login`** for 3-4 samples of the 09-17 14:30Z batch on next scan to confirm operator vs distributed-maintainer close pattern.
 - **Verify next `external-feature` dispatch produces PRs** — 7-day drought is either identity-related lingering effect or a scheduling gap in the operator pipeline.
 - **SKILL patches (a)–(p) still 80d overdue** — item (h) bulk-stale-clear framing gets new data from the 09-17 bulk-close: the "stale" bucket is not durable — a single operator/maintainer action can zero it in 35 minutes.

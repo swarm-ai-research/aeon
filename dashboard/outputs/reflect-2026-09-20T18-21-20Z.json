@@ -1,0 +1,85 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "reflect",
+        "description": "memory consolidated"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "date-badge",
+        "metrics-row",
+        "details-section"
+      ]
+    },
+    "date-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "2026-09-20",
+        "variant": "secondary"
+      }
+    },
+    "metrics-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-new-notes",
+        "stat-edits"
+      ]
+    },
+    "stat-new-notes": {
+      "type": "Stat",
+      "props": {
+        "label": "New notes",
+        "value": "7"
+      }
+    },
+    "stat-edits": {
+      "type": "Stat",
+      "props": {
+        "label": "Edits",
+        "value": "31"
+      }
+    },
+    "details-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "detail-splits",
+        "detail-new-topic"
+      ]
+    },
+    "detail-splits": {
+      "type": "Text",
+      "props": {
+        "text": "1 topic split",
+        "variant": "body"
+      }
+    },
+    "detail-new-topic": {
+      "type": "Text",
+      "props": {
+        "text": "1 new: operator-bulk-close-post-identity-recovery",
+        "variant": "body"
+      }
+    }
+  }
+}
