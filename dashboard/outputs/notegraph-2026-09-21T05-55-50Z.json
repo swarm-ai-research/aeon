@@ -1,0 +1,81 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph"
+      },
+      "children": [
+        "heading",
+        "content_stack"
+      ]
+    },
+    "heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Notegraph updated",
+        "level": "h2"
+      }
+    },
+    "content_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "update_text",
+        "stats_section",
+        "pr_link"
+      ]
+    },
+    "update_text": {
+      "type": "Text",
+      "props": {
+        "text": "+2 notes wired in"
+      }
+    },
+    "stats_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_nodes",
+        "stat_edges",
+        "stat_orphans"
+      ]
+    },
+    "stat_nodes": {
+      "type": "Stat",
+      "props": {
+        "label": "Nodes",
+        "value": "407"
+      }
+    },
+    "stat_edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "4267"
+      }
+    },
+    "stat_orphans": {
+      "type": "Stat",
+      "props": {
+        "label": "Orphans",
+        "value": "0"
+      }
+    },
+    "pr_link": {
+      "type": "Link",
+      "props": {
+        "label": "View PR #79",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/79"
+      }
+    }
+  }
+}
