@@ -1,0 +1,196 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "surplus pulse — 2026-09-21"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "section_spot",
+        "section_curve",
+        "section_rail",
+        "section_summary"
+      ]
+    },
+    "section_spot": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_spot",
+        "stack_spot_content"
+      ]
+    },
+    "heading_spot": {
+      "type": "Heading",
+      "props": {
+        "text": "spot",
+        "level": "h3"
+      }
+    },
+    "stack_spot_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_catalog",
+        "text_model",
+        "stat_price",
+        "badge_source"
+      ]
+    },
+    "badge_catalog": {
+      "type": "Badge",
+      "props": {
+        "text": "catalog",
+        "variant": "secondary"
+      }
+    },
+    "text_model": {
+      "type": "Text",
+      "props": {
+        "text": "Llama 4 Scout",
+        "variant": "body"
+      }
+    },
+    "stat_price": {
+      "type": "Stat",
+      "props": {
+        "value": "$0.0764/M"
+      }
+    },
+    "badge_source": {
+      "type": "Badge",
+      "props": {
+        "text": "Surplus Intelligence",
+        "variant": "outline"
+      }
+    },
+    "section_curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_curve",
+        "stat_h100",
+        "stat_deepseek",
+        "stat_agent"
+      ]
+    },
+    "heading_curve": {
+      "type": "Heading",
+      "props": {
+        "text": "curve",
+        "level": "h3"
+      }
+    },
+    "stat_h100": {
+      "type": "Stat",
+      "props": {
+        "label": "Hyperscaler H100 reserve crunch (R30, round 6)",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "stat_deepseek": {
+      "type": "Stat",
+      "props": {
+        "label": "DeepSeek V3.2 drop (round 13)",
+        "value": "−44.2%",
+        "trend": "down"
+      }
+    },
+    "stat_agent": {
+      "type": "Stat",
+      "props": {
+        "label": "Agent-platform surge rebounds (R38, round 20)",
+        "value": "+51.3%",
+        "trend": "up"
+      }
+    },
+    "section_rail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_rail",
+        "text_x402",
+        "link_endpoint"
+      ]
+    },
+    "heading_rail": {
+      "type": "Heading",
+      "props": {
+        "text": "rail",
+        "level": "h3"
+      }
+    },
+    "text_x402": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on Base/USDC",
+        "variant": "body"
+      }
+    },
+    "link_endpoint": {
+      "type": "Link",
+      "props": {
+        "label": "surplusintelligence.ai/x402 endpoint",
+        "href": "https://surplusintelligence.ai/x402"
+      }
+    },
+    "section_summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_summary",
+        "text_mode",
+        "text_tightening"
+      ]
+    },
+    "heading_summary": {
+      "type": "Heading",
+      "props": {
+        "text": "one-line read",
+        "level": "h3"
+      }
+    },
+    "text_mode": {
+      "type": "Text",
+      "props": {
+        "text": "catalog mode (SURPLUS_PRICING_URL unset)",
+        "variant": "caption"
+      }
+    },
+    "text_tightening": {
+      "type": "Text",
+      "props": {
+        "text": "net tightening — market settled at $0.1149 vs $0.0764 anchor.",
+        "variant": "body"
+      }
+    }
+  }
+}
