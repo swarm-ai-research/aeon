@@ -1,0 +1,64 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Suggest-edges",
+        "description": "3 missing links proposed"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_links",
+        "text_date",
+        "text_context",
+        "separator_1",
+        "link_pr"
+      ]
+    },
+    "stat_links": {
+      "type": "Stat",
+      "props": {
+        "value": "3",
+        "label": "Missing links proposed"
+      }
+    },
+    "text_date": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-06-27",
+        "variant": "caption"
+      }
+    },
+    "text_context": {
+      "type": "Text",
+      "props": {
+        "text": "Templated-corpus recurrence — all pairs inside gitlawb-compute-futures-proofs/"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Review PR #78",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/78",
+        "source": "GitHub"
+      }
+    }
+  }
+}
