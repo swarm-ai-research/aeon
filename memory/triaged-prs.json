@@ -16,6 +16,8 @@
     {"n": 618, "sha": "d33d8e9", "at": "2026-09-17", "verdict": "DEFER", "note": "no-permission (write blocked); rsavitt slashing/detections wiring, size 1649 (touches scripts/sweep_stake_basis.py — not prefetch/postprocess so not protected), no large-ok"},
     {"n": 619, "sha": "4ef6578", "at": "2026-09-17", "verdict": "ACCEPTED", "note": "no-permission (write blocked); rsavitt swarm/council + tests, +38/-8"},
     {"n": 620, "sha": "b00e90c", "at": "2026-09-17", "verdict": "DEFER", "note": "no-permission (write blocked); rsavitt docs/game-app build artifact untracking, size 85907 (mostly deletions) no large-ok"},
-    {"n": 628, "sha": "8e2f6a7", "at": "2026-09-22", "verdict": "ACCEPTED", "note": "no-permission (write blocked); rsavitt docs-only blog post + mkdocs nav, +139/-0"}
+    {"n": 628, "sha": "8e2f6a7", "at": "2026-09-22", "verdict": "ACCEPTED", "note": "no-permission (write blocked); rsavitt docs-only blog post + mkdocs nav, +139/-0"},
+    {"n": 518, "sha": "a4773a2", "at": "2026-09-22", "verdict": "APPROVE", "note": "no-permission (write blocked); go165 scenario YAML schema validation, +298/-0 across swarm/models/{__init__,scenario}.py + swarm/scenarios/loader.py + tests/test_scenario_schema.py; all 20+ CI checks green (test 3.10/3.11/3.12, type-check, lint, quality-gate); confidence 5/5"},
+    {"n": 517, "sha": "1807fec", "at": "2026-09-22", "verdict": "REQUEST_CHANGES", "note": "no-permission (write blocked); go165 run-diff utility, +709/-1 across swarm/analysis/run_diff.py + swarm/__main__.py (new `swarm diff` subcommand) + swarm/replay/{__init__,diff,run_diff}.py + scripts/run_diff.py + tests/test_replay_diff.py; CI/CodeQL/Memory Management Tests all action_required on 1807fec — no test/type-check evidence; needs maintainer workflow approval; confidence 3/5"}
   ]
 }

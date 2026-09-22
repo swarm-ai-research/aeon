@@ -1,0 +1,254 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-09-22",
+        "description": "95th cycle"
+      },
+      "children": [
+        "summary-section",
+        "sep-1",
+        "pr-518-section",
+        "sep-2",
+        "pr-517-section",
+        "sep-3",
+        "post-attempts-alert"
+      ]
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "summary-stats",
+        "skipped-breakdown"
+      ]
+    },
+    "summary-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-reviewed",
+        "stat-skipped"
+      ]
+    },
+    "stat-reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "2"
+      }
+    },
+    "stat-skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "10"
+      }
+    },
+    "skipped-breakdown": {
+      "type": "Text",
+      "props": {
+        "text": "3 bots, 7 dup-SHA",
+        "variant": "caption"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-518-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-518-header",
+        "pr-518-body"
+      ]
+    },
+    "pr-518-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-518-link",
+        "badge-approve-518",
+        "score-518"
+      ]
+    },
+    "pr-518-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#518",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518",
+        "source": "GitHub"
+      }
+    },
+    "badge-approve-518": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "score-518": {
+      "type": "Stat",
+      "props": {
+        "label": "Score",
+        "value": "5/5"
+      }
+    },
+    "pr-518-body": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "desc-518",
+        "changes-518",
+        "ci-status-518",
+        "action-518"
+      ]
+    },
+    "desc-518": {
+      "type": "Text",
+      "props": {
+        "text": "scenario YAML schema validation"
+      }
+    },
+    "changes-518": {
+      "type": "Text",
+      "props": {
+        "text": "go165, +298/-0",
+        "variant": "caption"
+      }
+    },
+    "ci-status-518": {
+      "type": "Badge",
+      "props": {
+        "text": "20+ CI checks green",
+        "variant": "secondary"
+      }
+    },
+    "action-518": {
+      "type": "Text",
+      "props": {
+        "text": "Operator can click-merge.",
+        "variant": "lead"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-517-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-517-header",
+        "pr-517-body"
+      ]
+    },
+    "pr-517-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "pr-517-link",
+        "badge-changes-517",
+        "score-517"
+      ]
+    },
+    "pr-517-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#517",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517",
+        "source": "GitHub"
+      }
+    },
+    "badge-changes-517": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      }
+    },
+    "score-517": {
+      "type": "Stat",
+      "props": {
+        "label": "Score",
+        "value": "3/5"
+      }
+    },
+    "pr-517-body": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "desc-517",
+        "changes-517",
+        "blocker-517"
+      ]
+    },
+    "desc-517": {
+      "type": "Text",
+      "props": {
+        "text": "run-diff utility"
+      }
+    },
+    "changes-517": {
+      "type": "Text",
+      "props": {
+        "text": "go165, +709/-1",
+        "variant": "caption"
+      }
+    },
+    "blocker-517": {
+      "type": "Alert",
+      "props": {
+        "title": "Merge blocker",
+        "message": "Every CI workflow at head SHA sits in action_required — needs a maintainer to click 'Approve and run workflows' before merge-gate can confirm tests pass.",
+        "type": "warning"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "post-attempts-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Post Attempts Failed",
+        "message": "2 × 403 [[aeon-app-no-write-on-swarm-repo]] Day-24. Verdicts recorded in log + memory/triaged-prs.json.",
+        "type": "error"
+      }
+    }
+  }
+}
