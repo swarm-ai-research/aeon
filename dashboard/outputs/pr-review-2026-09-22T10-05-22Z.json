@@ -1,0 +1,137 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-09-22",
+        "description": "Reviewed 1, skipped 11 (bots: 3, dup-SHA: 8)"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "grid-stats",
+        "separator-1",
+        "stack-pr"
+      ]
+    },
+    "grid-stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat-reviewed",
+        "stat-skipped"
+      ]
+    },
+    "stat-reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "1"
+      }
+    },
+    "stat-skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped",
+        "value": "11"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-pr": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stack-pr-header",
+        "text-description",
+        "stack-tags",
+        "alert-post"
+      ]
+    },
+    "stack-pr-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "link-pr",
+        "badge-approve"
+      ]
+    },
+    "link-pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#628",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/628",
+        "source": "GitHub"
+      }
+    },
+    "badge-approve": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE 5/5",
+        "variant": "default"
+      }
+    },
+    "text-description": {
+      "type": "Text",
+      "props": {
+        "text": "docs-only blog post + mkdocs nav; all 20+ CI green",
+        "variant": "body"
+      }
+    },
+    "stack-tags": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-docs",
+        "badge-ci"
+      ]
+    },
+    "badge-docs": {
+      "type": "Badge",
+      "props": {
+        "text": "docs-only",
+        "variant": "secondary"
+      }
+    },
+    "badge-ci": {
+      "type": "Badge",
+      "props": {
+        "text": "20+ CI green",
+        "variant": "secondary"
+      }
+    },
+    "alert-post": {
+      "type": "Alert",
+      "props": {
+        "message": "post 403 (write-block Day-24)",
+        "type": "warning"
+      }
+    }
+  }
+}
