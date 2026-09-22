@@ -15,6 +15,7 @@
     {"n": 616, "sha": "0d527e3", "at": "2026-09-17", "verdict": "DEFER", "note": "no-permission (write blocked); rsavitt docs+experiments+scenarios+tests, size 528 no large-ok"},
     {"n": 618, "sha": "d33d8e9", "at": "2026-09-17", "verdict": "DEFER", "note": "no-permission (write blocked); rsavitt slashing/detections wiring, size 1649 (touches scripts/sweep_stake_basis.py — not prefetch/postprocess so not protected), no large-ok"},
     {"n": 619, "sha": "4ef6578", "at": "2026-09-17", "verdict": "ACCEPTED", "note": "no-permission (write blocked); rsavitt swarm/council + tests, +38/-8"},
-    {"n": 620, "sha": "b00e90c", "at": "2026-09-17", "verdict": "DEFER", "note": "no-permission (write blocked); rsavitt docs/game-app build artifact untracking, size 85907 (mostly deletions) no large-ok"}
+    {"n": 620, "sha": "b00e90c", "at": "2026-09-17", "verdict": "DEFER", "note": "no-permission (write blocked); rsavitt docs/game-app build artifact untracking, size 85907 (mostly deletions) no large-ok"},
+    {"n": 628, "sha": "8e2f6a7", "at": "2026-09-22", "verdict": "ACCEPTED", "note": "no-permission (write blocked); rsavitt docs blog + mkdocs.yml nav, +139/-0 across 3 files (docs/blog/index.md, docs/blog/our-detectors-work-on-simulations.md, mkdocs.yml)"}
   ]
 }
