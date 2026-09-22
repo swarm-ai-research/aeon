@@ -1,0 +1,169 @@
+{
+  "root": "card-reflect",
+  "state": {},
+  "elements": {
+    "card-reflect": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "status-section",
+        "separator1",
+        "metrics-section",
+        "separator2",
+        "state-section",
+        "separator3",
+        "decay-section"
+      ]
+    },
+    "status-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "status-heading",
+        "date-text"
+      ]
+    },
+    "status-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "memory consolidated",
+        "level": "h2"
+      }
+    },
+    "date-text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-09-22",
+        "variant": "muted"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "metrics-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "metrics-label",
+        "metrics-row"
+      ]
+    },
+    "metrics-label": {
+      "type": "Text",
+      "props": {
+        "text": "Changes",
+        "variant": "caption"
+      }
+    },
+    "metrics-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-notes",
+        "stat-summaries"
+      ]
+    },
+    "stat-notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "+0",
+        "trend": "neutral"
+      }
+    },
+    "stat-summaries": {
+      "type": "Stat",
+      "props": {
+        "label": "Summaries",
+        "value": "+1",
+        "trend": "up"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "state-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "notes-stat",
+        "status-badge"
+      ]
+    },
+    "notes-stat": {
+      "type": "Stat",
+      "props": {
+        "value": "129",
+        "label": "notes"
+      }
+    },
+    "status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "atomic-pass clean",
+        "variant": "default"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "decay-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "decay-label",
+        "decay-table"
+      ]
+    },
+    "decay-label": {
+      "type": "Text",
+      "props": {
+        "text": "Day-N decay only",
+        "variant": "lead"
+      }
+    },
+    "decay-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Topic/Issue",
+          "Last Activity"
+        ],
+        "rows": [
+          [
+            "identity",
+            "Day-9"
+          ],
+          [
+            "ISS-006",
+            "Day-52"
+          ],
+          [
+            "ISS-001",
+            "Day-94"
+          ]
+        ]
+      }
+    }
+  }
+}

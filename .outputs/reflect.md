@@ -1,1 +1,1 @@
-memory consolidated — 2026-09-20 · +7n / +31e (1 splits, 1 new: [[operator-bulk-close-post-identity-recovery]])
+memory consolidated — 2026-09-22 · +0n / +1s · 129-note atomic-pass clean · Day-N decay only (identity Day-9, ISS-006 Day-52, ISS-001 Day-94)
