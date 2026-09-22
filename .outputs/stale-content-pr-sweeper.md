@@ -1,12 +1,14 @@
-Skill executed. Here's what happened:
+Per SKILL.md §6 (`n_closed === 0` → no notify), no `./notify` call is fired.
 
 ## Summary
-- Ran `skills/stale-content-pr-sweeper/SKILL.md` as-written on 2026-09-21.
-- **39 open PRs** scanned via `gh pr list`.
-- **16** matched TRACKED prefix + ISO-date suffix (notegraph×7, suggest-edges×9).
-- **0** survived the author filter — every content PR is authored by `app/github-actions`; SKILL.md's `ALLOWED_AUTHORS = {"aeonframework"}` drops them all. This is the documented [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]] class defect (MEMORY.md action queue item still pending).
-- **0 groups → 0 closes → no notify** (steady state per SKILL.md §6).
-- Also silently excluded: 4 `compute-macro/*` PRs (branch prefix ≠ TRACKED skill name `compute-macro-correlate`) — [[stale-content-pr-sweeper-tracked-prefix-drift]].
-- Would-close counterfactual if author filter were fixed: 6 stale notegraph PRs (#73/#72/#69/#67/#66/#65) + 8 stale suggest-edges PRs (#71/#70/#60/#54/#52/#49/#45/#42) = **14 candidates** currently rotting under this skill's watch.
 
-Files modified: `memory/logs/2026-09-21.md` only. No `gh pr close` calls issued. Follow-up unchanged from the two-line action-queue item in `memory/MEMORY.md` — patch author allowlist and TRACKED-prefix drift in one edit.
+- Ran `skills/stale-content-pr-sweeper/SKILL.md` as-written on 2026-09-22.
+- **42 open PRs** on this repo; **18 matched** TRACKED prefix + ISO date (notegraph×8, suggest-edges×10).
+- **0 passed** `ALLOWED_AUTHORS = {aeonframework}` — every content PR is authored by `app/github-actions`. Zero groups, zero closes.
+- Also silently excluded by TRACKED-prefix drift: 4 `compute-macro/*` and 7 `skill-graph/*` PRs.
+- Would-close counterfactual with author fix only: 16 candidates (notegraph #65–#75 kept survivor #79; suggest-edges #42–#74 kept survivor #78). Not executed — SKILL.md is authoritative.
+- **Files created/modified:** `memory/logs/2026-09-22.md` (new). No `gh pr close`, no branch deletes, no state changes.
+- **Notify:** not fired (steady-state per SKILL.md §6).
+- **Follow-ups needed** (already tracked in MEMORY.md action queue, Day-15 recurrence):
+  1. Add `"app/github-actions"` to `ALLOWED_AUTHORS` in the SKILL's Node block.
+  2. Extend `TRACKED` (or rename to a branch-prefix list) to cover `compute-macro` and `skill-graph`.
