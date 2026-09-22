@@ -3,12 +3,12 @@
   "hash_scheme": "sha256(json.dumps({critical, flapping, degraded sorted}, sort_keys=True))[:16]",
   "prev_hash": "e27c0ac60367e7e5",
   "classification_identical_to_prev": true,
-  "last_notified_at": "2026-09-20T18:18:37Z",
-  "last_run_at": "2026-09-20T18:18:37Z",
-  "prev_run_at": "2026-09-19T18:48:23Z",
-  "prev_notified_at": "2026-09-18T19:55:30Z",
-  "elapsed_since_prev_notify_hours": 46.38,
-  "steady_state_day": 82,
+  "last_notified_at": "2026-09-22T18:30:00Z",
+  "last_run_at": "2026-09-22T18:30:00Z",
+  "prev_run_at": "2026-09-20T18:18:37Z",
+  "prev_notified_at": "2026-09-20T18:18:37Z",
+  "elapsed_since_prev_notify_hours": 48.19,
+  "steady_state_day": 84,
   "classification": {
     "critical": [],
     "degraded": [
@@ -65,8 +65,8 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn Day-92 — all 38 DEGRADED share zero-token last_error tails from the 2026-06-06 through 2026-06-20 outage; every skill last_status=success, cf=0, sr 0.01-0.44 driven entirely by historical failure denominator still in count. No live regression this scan: 7d ./scripts/skill-runs shows 88 runs / 84 success / 0 fail / 0 cancelled / 4 in_progress at 2026-09-20T18:17Z (this skill-health + pr-review-swarm + reflect + goal-tracker pending). anomalies.failing == [] confirms zero live-failure regressions in the 7d window (19th consecutive day at zero).",
-  "delta_vs_prev": "Byte-identical classification to 2026-08-08 through 2026-09-19 runs at hash e27c0ac60367e7e5. 82nd consecutive steady-state day. Gate: NOTIFY (hash unchanged BUT elapsed 46.38h >= 24h daily-reminder threshold). Prev notified 2026-09-18T19:55:30Z; prev run 2026-09-19T18:48:23Z SKIP'd at 22.88h. Novel signals since 09-19 (all non-escalating, none skill-health-owned): (a) planner 06:30Z fired on Sun DOM=20 (the predicted weekend-compounded ISS-006 outage slot) — pocket dispatched successfully, disconfirms the tributary #11 prediction at the memory-flush/compute-futures-eda/planner slots; (b) pr-tracker 09-20T11:48Z scan restored substantive scan (Day-7 recovery holds, issueCount=61, bulk-close 23-PR sweep 09-17T13:58Z–14:33Z documented); (c) 7d skill-runs zero failures (19th consecutive day at zero); (d) INDEX open-count 24 unchanged from prev run (no new ISS filed, none resolved). Ownership: no open issues detected_by=skill-health require touching this run. ISS-001 detected_by=self-review; ISS-006 detected_by=batch-health; ISS-019..026,028 detected_by=batch-health; ISS-002/005/009-018/027 detected_by=skill-evals.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn Day-94 — all 38 DEGRADED share zero-token last_error tails from the 2026-06-06 through 2026-06-20 outage; every skill last_status=success, cf=0, sr 0.01-0.44 driven entirely by historical failure denominator still in count. No live regression this scan: 7d ./scripts/skill-runs shows 86 runs / 82 success / 0 fail / 0 cancelled / 4 in_progress at 2026-09-22T18:29Z (this skill-health + pr-review-swarm + goal-tracker + reflect pending). anomalies.failing == [] confirms zero live-failure regressions in the 7d window (20th consecutive day at zero).",
+  "delta_vs_prev": "Byte-identical classification to 2026-08-08 through 2026-09-21 runs at hash e27c0ac60367e7e5. 84th consecutive steady-state day. Gate: NOTIFY (hash unchanged BUT elapsed 48.19h >= 24h daily-reminder threshold). Prev notified 2026-09-20T18:18:37Z. Novel signals since 09-20 (all non-escalating, none skill-health-owned): (a) notegraph 09-22T05:13Z dispatched clean at 407 nodes / 3231 hard / 1037 soft / 0 orphans, verdict +2 notes wired in, PR #80 opened; HEAD-vs-workspace divergence unresolved (PR #79 09-21 still unmerged). (b) pr-tracker 09-22T10:00Z clean Day-9 post-recovery scan; issueCount=61, 4 open, 3 stale, bulk-close cluster 5d old; notified per §5 non-zero rule. (c) stale-content-pr-sweeper 09-22T00:17Z hit streak-15 author-filter no-op recurrence. (d) github-monitor 09-22T10:00Z streak-52 EMPTY_CONFIG on missing memory/watched-repos.md. (e) 7d skill-runs zero failures (20th consecutive day at zero). (f) INDEX open-count 24 unchanged from prev run (no new ISS filed by any detector 09-20T18:18Z → 09-22T18:30Z window). Ownership: no open issues detected_by=skill-health require touching this run.",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "issues_resolved_by_other_detectors_since_prev_run": [],
@@ -99,16 +99,16 @@
     "ISS-027",
     "ISS-028"
   ],
-  "notify_decision": "NOTIFY — hash unchanged (e27c0ac60367e7e5, Day-82 steady-state) BUT elapsed 46.38h >= 24h daily-reminder threshold. Prev notified 2026-09-18T19:55:30Z; this run 2026-09-20T18:18:37Z (delta 46h 23m). Per SKILL.md step 5, daily reminder cadence has elapsed. Reconciliation: 0 CRITICAL / 0 FLAPPING -> no new skill-health issues filed. No open issues detected_by=skill-health exist to reconcile (all 24 open issues owned by self-review / batch-health / skill-evals per ownership convention).",
-  "skill_runs_status": "OK — ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 88 runs, 84 succeeded, 0 failed, 0 cancelled, 4 in_progress at scan time (this skill-health + pr-review-swarm + reflect + goal-tracker pending). anomalies.failing == [] confirms zero active-failure regressions in the 7d window (19th consecutive day at zero).",
+  "notify_decision": "NOTIFY — hash unchanged (e27c0ac60367e7e5, Day-84 steady-state) BUT elapsed 48.19h >= 24h daily-reminder threshold. Prev notified 2026-09-20T18:18:37Z; this run 2026-09-22T18:30:00Z (delta 48h 11m). Per SKILL.md step 5, daily reminder cadence has elapsed. Reconciliation: 0 CRITICAL / 0 FLAPPING -> no new skill-health issues filed. No open issues detected_by=skill-health exist to reconcile (all 24 open issues owned by self-review / batch-health / skill-evals per ownership convention: ISS-001 self-review; ISS-006 + ISS-019..026 + ISS-028 batch-health; ISS-002/005/009-018/027 skill-evals).",
+  "skill_runs_status": "OK — ./scripts/skill-runs --hours 168 --failures --json executed cleanly. Summary: 86 runs, 82 succeeded, 0 failed, 0 cancelled, 4 in_progress at scan time (this skill-health + pr-review-swarm + goal-tracker + reflect pending). anomalies.failing == [] confirms zero active-failure regressions in the 7d window (20th consecutive day at zero).",
   "novel_transient_signals_not_escalated": [
-    "82nd consecutive steady-state day for skill-health hash — ISS-001 residue continues to dominate; anomalies.failing entirely empty in 7d window (19th consecutive day at zero).",
-    "planner + memory-flush + compute-futures-eda 06:30Z pocket fired successfully on 2026-09-20 (Sun DOM=20 even) — the predicted weekend-compounded ISS-006 outage slot dispatched, disconfirming the tributary #11 prediction. Owned by batch-health.",
-    "pr-tracker 09-20T11:48Z restored substantive scan (Day-7 identity-recovery holds); documented 23-PR bulk-close sweep 09-17T13:58Z–14:33Z. Owned by pr-tracker/self-review.",
-    "INDEX.md open-count 24 unchanged from prev run — no ISS filed by any detector 2026-09-19T18:48Z → 2026-09-20T18:18Z window. Ownership convention: skill-health does not resolve issues detected by skill-evals (ISS-002/005/009-018/027), batch-health (ISS-006/019-026/028), or self-review (ISS-001).",
-    "code-health / github-monitor / issue-triage / repo-revive short-circuit cluster now at streak-50 on missing memory/watched-repos.md. Chronic, not escalating.",
-    "ai-framework-watch + run-frequency-guard 74th consecutive silent day per [[enabled-skills-can-never-dispatch]]. Still classified NO DATA — no cron-state entry, never seen in skill-runs."
+    "84th consecutive steady-state day for skill-health hash — ISS-001 residue continues to dominate; anomalies.failing entirely empty in 7d window (20th consecutive day at zero).",
+    "notegraph 09-22T05:13Z dispatched clean at 407 nodes / 3231 hard / 1037 soft / 0 orphans / 0 bundled; verdict +2 notes wired in, PR #80 opened; HEAD-vs-workspace divergence continues (PR #79 09-21 still unmerged, HEAD stuck at 405). Owned by notegraph itself.",
+    "pr-tracker 09-22T10:00Z Day-9 post-recovery scan clean; issueCount=61, letter tuple (0,3,23,1), bulk-close cluster 5d old; notify fired per §5 non-zero rule. Owned by pr-tracker.",
+    "stale-content-pr-sweeper 09-22T00:17Z streak-15 ALLOWED_AUTHORS={aeonframework}-only no-op recurrence (all 18 TRACKED matches authored by app/github-actions and dropped). Chronic, not escalating. Owned by stale-content-pr-sweeper.",
+    "github-monitor 09-22T10:00Z streak-52 EMPTY_CONFIG on missing memory/watched-repos.md — six-dependent short-circuit cluster unchanged (code-health, issue-triage, github-monitor, changelog, weekly-shiplog, repo-revive). Chronic, not escalating.",
+    "ai-framework-watch + run-frequency-guard 76th consecutive silent day per [[enabled-skills-can-never-dispatch]]. Still classified NO DATA — no cron-state entry, never seen in skill-runs."
   ],
-  "notify_delivery_note": "Sent via ./notify — one-message report body written to .pending-notify/1789928317.md (post-run channel fanout). Dedup hash accepted (not already in .notify-sent-hashes).",
-  "prompt_injection_flag": "None. cron-state.json, skill-runs JSON, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md, memory/logs/2026-09-{18..20}.md all structured/data-only; no untrusted natural-language content ingested this run."
+  "notify_delivery_note": "Sent via ./notify — one-message report body written to .pending-notify/ for post-run channel fanout. Dedup hash accepted (not already in .notify-sent-hashes).",
+  "prompt_injection_flag": "None. cron-state.json, skill-runs JSON, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md, memory/logs/2026-09-{20..22}.md all structured/data-only; no untrusted natural-language content ingested this run."
 }
