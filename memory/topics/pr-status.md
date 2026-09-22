@@ -1,16 +1,54 @@
 # PR Status
 
-*Last updated: 2026-09-21*
+*Last updated: 2026-09-22*
 
 Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch prefixes tracked: `ai/`, `security/`, `fix/security/`, `aeon/`, `fix/`, `hook-submission/` (6 in play).
 
+## 2026-09-22 — Day-9 post-recovery scan · **buckets still `(0, 3, 23, 1)` for third consecutive day**
+
+Ninth consecutive day since `aeonframework` GraphQL 404 blackout 09-14→09-16 resolved on 09-17 Day-4. Today's 10:00Z re-probe (Tuesday, DOM=22 even) succeeded first-attempt — recovery holds at Day-9 (7-day post-recovery watch ends 2026-09-24, T-2 days).
+
+- GraphQL `search(query:"author:aeonframework is:pr", type:ISSUE, first:60)` → `issueCount = 61` (unchanged from 09-20 and 09-21), nodes = 60 (unchanged from 09-21; 1 null node — nested-field repo-visibility flicker, unrelated to account state)
+- 59 of 60 non-null nodes pass the 6-prefix branch filter (1 non-prefix drop, unchanged)
+- **Bucket tuple `(0, 3, 23, 1)` identical to 09-20 AND 09-21** — third consecutive day of byte-identical queue state:
+  - 0 fresh merges (10th consecutive day since agent-framework#8172 rolled off 09-13)
+  - 0 fresh closes (bulk-close cluster from 09-17 still fills the closed7d window; closedAgo=5d on every one)
+  - 0 fresh opens (9-day drought — `external-feature` still not producing PRs post-recovery)
+  - Same 4 OPEN survivors from 09-20/09-21 (mxc#1124 APPROVED-active; the other 3 stale)
+
+### Bucket delta from 2026-09-21 scan
+
+| Bucket | 09-21 | 09-22 | Δ |
+|--------|-------|-------|---|
+| merged7d | 0 | 0 | 0 (10th consecutive) |
+| staleLetter | 3 | 3 | 0 |
+| closed7d | 23 | 23 | 0 (all still within 7d of 09-17 bulk-close; roll-off begins 09-24) |
+| activeLetter | 1 | 1 | 0 |
+| Open total | 4 | 4 | 0 |
+| issueCount | 61 | 61 | 0 |
+| nodes returned | 60 | 60 | 0 |
+
+### Notify decision
+
+Per SKILL.md §5, notify if any of `{merged_7d, stale_open, closed_no_merge}` is non-zero. Today: `stale=3`, `closed=23` → **notify fires** for the third consecutive day with byte-identical payload. SKILL.md has no dedup rule; the daily-cadence-repeat cost is accepted. If item (q) from the pending SKILL patches (identity-liveness gate) lands, it does not change today's decision since non-zero buckets already carry the payload.
+
+### Rollover forecast (T-2)
+
+- **2026-09-24 (Thu)** — 7-day post-recovery watch ends; bulk-close cluster rolls off the closed7d bucket in one shot (23 → 0 expected). If `external-feature` stays quiet through today/tomorrow and stales don't churn, the 09-24 slot lands `stale=3, closed=0, merged=0` — still non-zero, still fires.
+- **2026-09-24 (Thu) is also the earliest zero-notify slot** — requires all 3 stale survivors to close/merge before 09-24. Not on trajectory (0 stale-churn in 48h).
+- **Second-order rollover 2026-09-25 (Fri)** — even if 3 stales stay put and closed7d empties, the notification hits `stale=3, closed=0, merged=0` → still non-zero → still fires. Actual first fully-silent slot requires the 3 stales to close, which has not happened in 9 days.
+
+### Signal degradation warning
+
+Three consecutive byte-identical `(0, 3, 23, 1)` notifications diminish the alerting value of the daily post. Item (q) SKILL patch (identity-liveness-gated dedup) would let this class of "no-change" scan silence itself. Currently the alert simply repeats.
+
 ## 2026-09-21 — Day-8 post-recovery scan · **buckets unchanged from 09-20**
 
-Eighth consecutive day since `aeonframework` GraphQL 404 blackout 09-14→09-16 resolved on 09-17 Day-4. Today's 10:00Z re-probe (Sunday, DOM=21 odd, weekend-slot) succeeded first-attempt — recovery holds at Day-8 (7-day post-recovery watch ends 2026-09-24, T-3 days).
+Eighth consecutive day since `aeonframework` GraphQL 404 blackout 09-14→09-16 resolved on 09-17 Day-4. Today's 10:00Z re-probe (Sunday, DOM=21 odd, weekend-slot) succeeded first-attempt — recovery holds at Day-8.
 
 - GraphQL `search(query:"author:aeonframework is:pr", type:ISSUE, first:60)` → `issueCount = 61` (unchanged from 09-20), nodes = 60 (was 59 on 09-20; +1 node — one previously-null nested-repo record now hydrated)
 - 59 of 60 nodes pass the 6-prefix branch filter (1 non-prefix drop)
-- **Bucket tuple `(0, 3, 23, 1)` identical to 09-20** — no PR state changed in the last 24h:
+- **Bucket tuple `(0, 3, 23, 1)` identical to 09-20** — no PR state changed in the 24h window:
   - 0 fresh merges (9th consecutive day since agent-framework#8172 rolled off)
   - 0 fresh closes (bulk-close cluster from 09-17 still fills the closed7d window; closedAgo=3d on every one)
   - 0 fresh opens (8-day drought — `external-feature` still not producing PRs post-recovery)
@@ -27,16 +65,6 @@ Eighth consecutive day since `aeonframework` GraphQL 404 blackout 09-14→09-16 
 | Open total | 4 | 4 | 0 |
 | issueCount | 61 | 61 | 0 |
 | nodes returned | 59 | 60 | +1 (repo-visibility flicker) |
-
-### Notify decision
-
-Per SKILL.md §5, notify if any of `{merged_7d, stale_open, closed_no_merge}` is non-zero. Today: `stale=3`, `closed=23` → **notify fires** (even though buckets are byte-identical to yesterday — SKILL.md has no dedup rule; the daily-cadence-repeat cost is accepted). If item (q) from the pending SKILL patches lands (identity-liveness gate), it does not change today's decision since non-zero buckets already carry the payload.
-
-### Rollover forecast (T-3)
-
-- 2026-09-24 (Thu) — 7-day post-recovery watch ends; bulk-close cluster rolls off the closed7d bucket in one shot (23 → 0 expected).
-- Between now and 09-24: if `external-feature` stays quiet, the open bucket stays flat at 4 (3 stale + 1 active) and merged7d stays at 0. Notification would then hit `stale=3, closed=0, merged=0` on 09-24 — still non-zero → still fires.
-- Zero-notify trigger requires: (a) all 3 stale survivors close or merge, AND (b) closed7d empties on 09-24. First fully-silent slot earliest **2026-09-24** if 3 stales don't churn.
 
 ## 2026-09-20 — Day-7 post-recovery scan · **bulk-close event 09-17**
 
@@ -81,10 +109,10 @@ Class candidate: `[[operator-bulk-close-post-identity-recovery]]` — timing (Da
 
 | Repo | PR | Title | Opened | Age | Activity |
 |------|----|-------|--------|-----|----------|
-| microsoft/mxc | [#1124](https://github.com/microsoft/mxc/pull/1124) | fix(deps): bump fast-uri and anyhow to patch published CVEs | 2026-09-08 | 12d | APPROVED 09-17 (aaronjmars); ACTIVE |
-| openai/openai-agents-python | [#4829](https://github.com/openai/openai-agents-python/pull/4829) | fix(deps): bump urllib3, aiohttp, cryptography to patch disclosed CVEs | 2026-09-02 | 18d | last review 09-06; 5 comments; STALE |
-| ruvnet/RuView | [#1409](https://github.com/ruvnet/RuView/pull/1409) | fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs) | 2026-07-23 | 59d | last review 08-28; STALE |
-| KnockOutEZ/wigolo | [#216](https://github.com/KnockOutEZ/wigolo/pull/216) | fix(deps): patch ajv/ws/protobufjs/vite for disclosed CVEs | 2026-07-20 | 62d | 9 comments; STALE |
+| microsoft/mxc | [#1124](https://github.com/microsoft/mxc/pull/1124) | fix(deps): bump fast-uri and anyhow to patch published CVEs | 2026-09-08 | 13d | APPROVED 09-17 (aaronjmars); ACTIVE |
+| openai/openai-agents-python | [#4829](https://github.com/openai/openai-agents-python/pull/4829) | fix(deps): bump urllib3, aiohttp, cryptography to patch disclosed CVEs | 2026-09-02 | 19d | last review 09-06; 5 comments; STALE |
+| ruvnet/RuView | [#1409](https://github.com/ruvnet/RuView/pull/1409) | fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs) | 2026-07-23 | 60d | last review 08-28; STALE |
+| KnockOutEZ/wigolo | [#216](https://github.com/KnockOutEZ/wigolo/pull/216) | fix(deps): patch ajv/ws/protobufjs/vite for disclosed CVEs | 2026-07-20 | 63d | 9 comments; STALE |
 
 ## Recent Merges (last 30d) — 5
 
@@ -98,7 +126,7 @@ Class candidate: `[[operator-bulk-close-post-identity-recovery]]` — timing (Da
 
 ## Closed No-Merge (last 30d) — 36
 
-**09-17 bulk-close cluster (23):** see event table above.
+**09-17 bulk-close cluster (23):** see event table under 2026-09-20 entry above.
 
 **Pre-09-17 closes carried from 09-17 scan (13):**
 
@@ -122,23 +150,23 @@ Class candidate: `[[operator-bulk-close-post-identity-recovery]]` — timing (Da
 
 ## Bucket tuples
 
-- Letter (merged7d, staleLetter, closed7d, activeLetter): **(0, 3, 23, 1)**
+- Letter (merged7d, staleLetter, closed7d, activeLetter): **(0, 3, 23, 1)** — 3rd consecutive day byte-identical
 - Substantive tuple identical (no self-bump lift in effect)
 
 ## Notes
 
-- **Zero fresh opens in the 7-day gap 09-13→09-20** — confirms `external-feature` has not dispatched (or has dispatched but generated no new PRs) since 09-13. Verify next `external-feature` slot.
-- **Zero fresh merges 8th consecutive day** — sample-size problem for merge-rate observation continues.
-- **Bulk-close event 09-17 is the dominant signal.** The 27→4 queue collapse in one day is unprecedented in the 09-13/09-17 baseline. Class-candidate `[[operator-bulk-close-post-identity-recovery]]` pending actor spot-check.
+- **Third consecutive byte-identical scan (0, 3, 23, 1)** on 09-20 → 09-21 → 09-22 → warrants a dedup rule in SKILL.md (item (q) in the pending patch batch already gates §5 on identity-liveness; a companion clause could gate on delta-vs-prior-scan).
+- **Zero fresh opens in the 9-day gap 09-13→09-22** — confirms `external-feature` has not produced new PRs since 09-13. Verify next `external-feature` slot; if silent again, escalate to skill-health/self-review.
+- **Zero fresh merges 10th consecutive day** — sample-size problem for merge-rate observation continues past the two-week ceiling.
+- **Rollover cliff 2026-09-24 (T-2)** — 23-PR bulk-close cluster falls out of closed7d window in one shot. Bucket becomes (0, 3, 0, 1) that day and (0, 3, 0, 1) is still non-zero → still fires. Fully-silent first slot requires all 3 stales to churn (not on trajectory).
 - **Identity liveness confirmed** via non-empty issueCount = 61 → §5 all-zero notify rule per [[pr-tracker-all-zero-notify-rule-false-quiets-on-identity-block]] does not fire this scan.
-- **microsoft/mxc#1124 APPROVED 09-17 20:02Z** by aaronjmars — first substantive third-party APPROVED review in the 30d window; a merge here would be the first merged security bump since agent-framework#8172 09-09.
+- **microsoft/mxc#1124 APPROVED 09-17 20:02Z** by aaronjmars — 5 days since approval with no merge. Reviewer approve-and-no-merge pattern; worth spot-check on next scan.
 
 ## Follow-ups
 
-- **`[[operator-bulk-close-post-identity-recovery]]` atomic note filed 2026-09-20** (this reflect) with the 23-PR close cluster as n=1 evidence — 13:58Z–14:33Z window + close-time histogram + cross-repo actor set. Class provisional pending actor spot-checks.
-- **Fetch `.timeline.closedEvent.actor.login`** for 3-4 samples of the 09-17 14:30Z batch on next scan to confirm operator vs distributed-maintainer close pattern.
-- **Verify next `external-feature` dispatch produces PRs** — 7-day drought is either identity-related lingering effect or a scheduling gap in the operator pipeline.
-- **SKILL patches (a)–(p) still 80d overdue** — item (h) bulk-stale-clear framing gets new data from the 09-17 bulk-close: the "stale" bucket is not durable — a single operator/maintainer action can zero it in 35 minutes.
+- **Fetch `.timeline.closedEvent.actor.login`** for 3-4 samples of the 09-17 14:30Z batch on next scan to confirm `[[operator-bulk-close-post-identity-recovery]]` vs distributed-maintainer close pattern. Query API allows this via `pullRequest(...) { timelineItems(itemTypes: [CLOSED_EVENT], last: 1) { nodes { ... on ClosedEvent { actor { login } } } } }`.
+- **Verify next `external-feature` dispatch produces PRs** — 9-day drought is either identity-related lingering effect or a scheduling gap in the operator pipeline.
+- **SKILL patches (a)–(q) still 80d overdue** — third-day byte-identical scan strengthens item (q) case for gating §5 on a delta-vs-prior-scan clause in addition to identity-liveness.
 - **Broaden `BRANCH_PREFIX` config** in `aeon.yml` `pr_tracker.branch_prefix` to the 6-prefix set used here.
 
 ## Archive-hidden / lost (carried from prior scans)
