@@ -1,8 +1,7 @@
 ## Summary
 
-Ran `gitlawb-fleet-metrics` per `skills/gitlawb-fleet-metrics/SKILL.md`.
+Ran the **GitLawb Fleet Metrics** skill. Pre-flight check step 2 tripped: `memory/gitlawb-fleet.json` does not exist, meaning there's no fleet to report on. Per the skill's instructions, an empty fleet is not news — logged `GLMETRICS_EMPTY` and stopped silently without notifying.
 
-- **Pre-flight**: Node v22.23.2 present (pass). `memory/gitlawb-fleet.json` **missing** — also `memory/gitlawb-metrics.jsonl` absent. `prototypes/gitlawb-safety/fleet-cli.mjs` exists but has never been minted against.
-- **Exit**: `GLMETRICS_EMPTY` per step 2 — silent stop, no notify, no dashboard card (skill contract: an empty fleet is not news).
-- **Files modified**: `memory/logs/2026-09-19.md` (appended snapshot + summary).
-- **Follow-up**: none owed by this skill. Metrics will re-arm the moment `gitlawb-fleet` mints ≥1 instance.
+- **Verdict:** `GLMETRICS_EMPTY`
+- **Files modified:** `memory/logs/2026-09-23.md` (created with the empty-fleet log entry)
+- **Follow-up:** None required. If a fleet gets registered later, the daily cron will pick it up automatically.
