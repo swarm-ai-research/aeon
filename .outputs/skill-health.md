@@ -1,17 +1,23 @@
-*Skill Health — 2026-09-22*
-HEALTH: DEGRADED(38) · Day-84 steady-state · hash e27c0ac60367e7e5
+## Summary
 
-SYSTEMIC: ISS-001 OAuth-outage denominator burn Day-94 — all 38 DEGRADED share zero-token last_error tails from the 2026-06-06→06-20 outage; every skill last_status=success, cf=0, sr 0.01-0.44 driven by historical failure denominator still in count. 7d live-runs: 82/86 succeeded, 0 failed (20th consecutive day at zero live regressions).
+Ran `skills/skill-health/SKILL.md` on 2026-09-23 at 18:15:54Z.
 
-🟡 DEGRADED — top 5 by days-since-success (all cf=0, ISS-001 residue)
-- skill-repair — sr=0.01, last_success 2026-06-20 (94d) — INVESTIGATE (reactive-only, dormant while cf=0 elsewhere)
-- repo-revive — sr=0.07, last_success 2026-09-05 (17d) — INVESTIGATE (Sat cron, watched-repos.md missing)
-- cost-report — sr=0.14, last_success 2026-09-07 (15d) — INVESTIGATE (Mon cron; next slot 09-28)
-- milestone-tracker — sr=0.18, last_success 2026-09-07 (15d) — INVESTIGATE (Mon cron; thin until milestones.md defined)
-- compute-pulse — sr=0.07, last_success 2026-09-12 (10d) — INVESTIGATE (Sat cron; next slot 09-26)
-+33 more — see memory/issues/ISS-001.md
+**Classification (byte-identical to prev 84 runs, hash `e27c0ac60367e7e5`, Day-85 steady-state):**
+- 0 CRITICAL · 0 FLAPPING · 0 WARNING
+- 38 DEGRADED (all sharing ISS-001 OAuth-outage denominator burn — every skill `last_status=success`, `cf=0`, sr driven entirely by historical failure count)
+- 4 HEALTHY (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+- 2 NO DATA (ai-framework-watch, run-frequency-guard)
 
-⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — DISPATCH-SKILL (76th silent day per [[enabled-skills-can-never-dispatch]])
-🟢 HEALTHY: 4 (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+**Gate:** hash unchanged AND elapsed 23h45m < 24h → **suppress notify** per SKILL.md step 5 (missed daily cadence by ~15m).
 
-Open issues: 24 · Resolved this run: 0 · Filed this run: 0 (ownership: skill-health only reconciles issues it detected; all 24 owned by self-review/batch-health/skill-evals)
+**Reconciliation (step 4):** no-op. Nothing to file (0 CRITICAL/FLAPPING), no open issues `detected_by: skill-health` to resolve. INDEX open-count 24 unchanged.
+
+**Live-failure watchdog:** `./scripts/skill-runs --hours 168` → 92/89/0/0/3 in_progress. `anomalies.failing == []` (21st consecutive day at zero live failures).
+
+**Files modified:**
+- `memory/skill-health/last-report.json` — updated `last_run_at`, `elapsed_since_prev_notify_hours`, Day-85 counter; `last_notified_at` preserved at 2026-09-22T18:30:00Z (no notify this run).
+- `memory/logs/2026-09-23.md` — appended `## skill-health` NOOP entry + `## Summary — Skill Health`.
+
+**Notify fired:** no — `SKILL_HEALTH_NOOP`.
+
+**Follow-ups (downstream-owned, in MEMORY.md action queue):** ISS-029 self-review filing (aeonframework identity blackout); batch-health SKILL.md threshold patch (`≥2 with expected<4`) so odd-DOM 100%-miss days stop dropping off the ISS-006 tributary chain; ISS-006 per-slot cron rewrite; agi-tracker `enabled: false` OR restore SKILL.md.
