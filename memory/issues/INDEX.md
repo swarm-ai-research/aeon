@@ -30,6 +30,7 @@ Open and resolved issues filed by health skills (skill-health, skill-evals, hear
 | [ISS-026](ISS-026.md) | Batch outage — 4 skills missed morning window 2026-09-12 | medium | 2026-09-12 | open |
 | [ISS-027](ISS-027.md) | heartbeat: missing_pattern:heartbeat\|Heartbeat\|HEARTBEAT | high | 2026-09-13 | open |
 | [ISS-028](ISS-028.md) | Batch outage — 4 skills missed morning window 2026-09-18 | medium | 2026-09-18 | open |
+| [ISS-029](ISS-029.md) | Batch outage — 4 skills missed morning window 2026-09-24 | medium | 2026-09-24 | open |
 
 ## Resolved
 
