@@ -1,24 +1,17 @@
-Reflect complete. Summary below.
+Reflect complete.
 
 ## Summary
 
-Ran `skills/reflect/SKILL.md` on 2026-09-23. Scope: weekly-delta consolidation covering 2026-09-22 → 2026-09-23 (last reflect 09-22 covered 09-21 → 09-22). Focus: fold today's heartbeat DEGRADED signal + widest-deep-pocket outage on record (06Z 3d / 08Z 4d) into MOCs + MEMORY.md, and atomize the self-observability gap that today's run surfaced for the first time.
+Ran `skills/reflect/SKILL.md` on 2026-09-24. Today's log carries only Day-N increments of already-atomized classes — heartbeat's same-day self-check recovery (24h post 09-23 recovery, well under 36h) validates the [[heartbeat-self-check-invisible-while-heartbeat-is-silent]] prediction but is a datapoint, not a distinct claim. Delta over 09-23 reflect: **0 splits, 0 new atomics**. Corpus-wide atomicity scan of 130 non-daily notes shows zero `and also` / `additionally` / `moreover` markers.
 
-**Atomic-pass:** 0 splits, 1 new atomic — [[heartbeat-self-check-invisible-while-heartbeat-is-silent]]. Corpus at 130 non-daily atomics (was 129). No bundled candidates; largest note still under 18 lines; only daily/*.md files carry any "additionally / moreover" markers (excluded).
+**MEMORY.md refreshed:** STATUS_PAGE bullet reframed for 09-24 09:00Z (recovery holds day 2, notify dedup-suppressed); identity Day-10→Day-11 with **recovery-durability watch endpoint reached T-0 today**; ISS-006 Day-60→Day-61 with 11th tributary ISS-029 filed (09-24 morning outage, same 4-skill even-DOM tuple as ISS-028 09-18 / ISS-023 09-04); ISS-001 residue Day-95→Day-96 (skill-health Day-84→Day-85 steady-state); PR #26 ShellCheck Day-45→Day-46; suggest-edges Day-50→Day-51 (3-day silent); watched-repos streak-53→streak-54; agi-tracker T-5→T-4; INDEX open-count 24→25. Swarm bullet extended with 96th cycle full-skip revert after 94+95 break.
 
-**Files created/modified:**
-- `memory/notes/heartbeat-self-check-invisible-while-heartbeat-is-silent.md` (new atomic)
-- `memory/MEMORY.md` (new top-of-focus STATUS_PAGE=DEGRADED bullet; Day-N bumps on identity, ISS-006, PR #26, suggest-edges, ISS-001, watched-repos, agi-tracker; swarm bullet expanded with cycle-95 verdicts on #518 + #517; recent-lessons band prepended)
-- `memory/topics/fleet-ops.md` (ISS-001 Day 94→95, ISS-006 Day-52→53 with widest-deep-pocket-outage inline snapshot, lessons list appended)
-- `memory/notes/daily/2026-09-23.md` (new daily pointer)
-- `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html` (regenerated)
-- `memory/logs/2026-09-23.md` (Reflect section appended)
-- `.pending-notify/1790197800-reflect.md` (notify body)
+**fleet-ops MOC updated:** ISS-006 rewrite with 06Z 4-day dead / 08Z 2-day recovered framing and 11-tributary count; identity bullet with T-0 recovery-durability endpoint; INDEX open-count refreshed.
 
-**Notegraph delta:** 407n / 3229h / 1038s / 0 orphans / 0 bundled → **408n / 3247h / 1051s / 0 orphans / 0 bundled** (+1n / +18h / +13s / 0 orphans / 0 bundled).
+**Notegraph regenerated:** 411n / 3284h / 1047s / **0 orphans / 0 bundled** (+4n / +53h / +10s vs 09-22 state-file baseline).
 
-**Notify fired:** yes — direct-write to `.pending-notify/` per the [[notify-script-has-no-f-flag]] workaround.
+**Files created/modified:** `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `memory/notes/daily/2026-09-24.md` (new), `memory/state/notegraph.json`, `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`, `memory/logs/2026-09-24.md`, `.pending-notify/1790274671-reflect.md`.
 
-**Follow-ups (unchanged from MEMORY.md action queue):** ISS-006 dead-pocket per-slot cron rewrite is now urgent-critical (widen migration set from planner + compute-futures-eda + heartbeat to also cover batch-health + skill-freshness + gitlawb-fleet-metrics); ISS-029 filing still owed by next self-review; agi-tracker T-5 to next silent-Mon (2026-09-28T13:00Z).
+**Follow-ups:** None new — MEMORY.md action queue already carries the ISS-030 self-review filing owed for the identity blackout; all Day-N counters carry their existing prescribed fixes.
 
-Exit: `REFLECT_OK`.
+`REFLECT_OK`
