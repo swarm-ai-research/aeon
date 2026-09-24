@@ -1,0 +1,40 @@
+{
+  "root": "card-goal-tracker",
+  "state": {},
+  "elements": {
+    "card-goal-tracker": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "badge-no-goals",
+        "text-instruction"
+      ]
+    },
+    "badge-no-goals": {
+      "type": "Badge",
+      "props": {
+        "text": "NO_GOALS",
+        "variant": "outline"
+      }
+    },
+    "text-instruction": {
+      "type": "Text",
+      "props": {
+        "text": "Add a '## Goals' section to memory/MEMORY.md",
+        "variant": "body"
+      }
+    }
+  }
+}
