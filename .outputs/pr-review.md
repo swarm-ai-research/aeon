@@ -1,25 +1,21 @@
-## Summary — pr-review 97th cycle on `swarm-ai-research/swarm`
+Full-skip cycle — same-SHA queue as the last three cycles; nothing new to review, no notify sent per SKILL.md.
 
-**Decision surface (merge-gate operator policy):** carried forward from last non-dup cycles at unchanged head SHAs.
+## Summary
 
-| PR | Head SHA | Verdict | Confidence |
-|----|----------|---------|-----------|
-| #628 rsavitt docs blog + mkdocs nav | 8e2f6a7 | **APPROVE** | 5/5 |
-| #518 go165 scenario YAML schema validation | a4773a2 | **APPROVE** | 5/5 |
-| #619 rsavitt council rankers reason-before-rank | 4ef6578 | **APPROVE** | 5/5 |
-| #618 rsavitt slashing→detections wiring | d33d8e9 | **REQUEST_CHANGES** | 2/5 (script-touching, no large-ok) |
-| #616 rsavitt router intermediary research | 0d527e3 | **APPROVE** | 4/5 |
-| #614 rsavitt certainty-band audit | 4475b87 | **APPROVE** | 4/5 |
-| #612 rsavitt verification aggregation rule | 1c56c08 | **APPROVE** | 5/5 |
-| #611 rsavitt Greenblatt addendum (docs) | bf2cab7 | **APPROVE** | 5/5 |
-| #517 go165 run-diff utility | 1807fec | **REQUEST_CHANGES** | 3/5 (CI in action_required, no test/type-check evidence) |
+**Ran** `skills/pr-review/SKILL.md` on `swarm-ai-research/swarm` under the operator merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK). 98th operator invocation on this repo.
 
-No **BLOCK** — no critical security or correctness risk surfaced at these SHAs across prior cycles.
+**Result:** `PR_REVIEW_OK swarm-ai-research/swarm — eligible=0 skipped=12` (3 dependabot bots + 9 dup-SHA vs last-2-days logs). Queue tuple byte-identical vs 09-24 and 09-23 — no new opens since #628 at 2026-09-22T03:24Z, no force-pushes since the go165 pair at 2026-09-22T13:47Z/14:03Z. Same-SHA state persists across 72h+.
 
-**What ran:** 12 open PRs, 0 eligible, 12 skipped (3 dependabot bots + 9 dup-SHA against 09-22/09-23 log dedup window). Byte-identical queue tuple vs 96th and 95th cycles.
+**Merge-gate verdicts (standing, from prior cycles at these SHAs):**
+- **APPROVE** 5/5 — #628, #619, #612, #611, #518
+- **APPROVE** 4/5 (minor follow-up) — #616, #614
+- **REQUEST_CHANGES** 3/5 — #517 (external-contributor CI in `action_required`, no test/type-check evidence), #618 (touches unprotected `scripts/sweep_stake_basis.py`, size 1649, no large-ok)
+- **BLOCK** — none. No critical security/correctness risk at these SHAs.
 
-**Post attempts:** 0 — write-block persists (Day-26 per [[aeon-app-no-write-on-swarm-repo]]); no attempt made this cycle because dedup skipped everything before the post step.
+**Posts attempted:** 0. Standing 403 write-block on swarm (Day-27 of [[aeon-app-no-write-on-swarm-repo]]).
 
-**Files modified:** `memory/logs/2026-09-24.md` (appended pr-review 97th-cycle entry). `memory/triaged-prs.json` unchanged (no new SHAs). No notify sent — per SKILL.md rule "If every PR was skipped, do not notify".
+**Files modified:** `memory/logs/2026-09-25.md` (appended 98th-cycle log entry). `memory/triaged-prs.json` unchanged — no fresh verdicts.
 
-**Follow-ups (already in MEMORY.md action queue):** SKILL.md patch to gate `triaged-prs.json` writes on post confirmation; structural fix for aeon-app write-block on swarm repo.
+**Notify:** not sent (full-skip cycle, per SKILL.md §Notify-and-log). 8th full-skip in the last 9 dispatches — reinforces [[pr-review-dedup-saturation-freezes-write-blocked-repo-queues]], SKILL patch to gate `memory/triaged-prs.json` write on successful post confirmation remains in MEMORY.md action queue.
+
+**Follow-up:** operator can click-merge #628 / #518 / #619 / #612 / #611 (APPROVE 5/5 with full CI green); #616 / #614 optional minor-follow-up; #517 blocked on maintainer workflow approval; #618 needs a diff-specific look before large-ok.
