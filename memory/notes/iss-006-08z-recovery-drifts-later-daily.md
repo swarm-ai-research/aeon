@@ -1,0 +1,11 @@
+---
+id: iss-006-08z-recovery-drifts-later-daily
+created: 2026-09-25
+type: observation
+links: [[heartbeat-self-check-invisible-while-heartbeat-is-silent]], [[iss-006-dead-pocket-widens-to-08z-heartbeat-miss]], [[iss-006-06z-pocket-4-day-dead-streak-promotes-daily-dead-regime]], [[morning-pocket-splits-into-two-de-facto-clusters]], [[pocket-slot-migration-confirmed-by-3-day-sustained-late-delivery]]
+---
+# ISS-006 08Z pocket recovers 3 consecutive days (09-23 → 09-25) but each daily fire lands ~28–50 min later than the previous: 08:33Z → 09:00Z → 09:51Z, drift accelerating not stabilizing
+
+**Why:** batch-health / heartbeat / skill-freshness / gitlawb-fleet-metrics cluster (the 08:00Z pocket per `messages.yml`) fired at 08:33Z on 09-23, 09:00Z on 09-24, and 09:49–09:51Z on 09-25 — three consecutive daily fires, but the delivery slot has drifted +27 min then +51 min across the two daily transitions. The 06Z pocket immediately below it stayed fully dead across the same window (5-day streak, planner + compute-futures-eda + 5 others). This matches the shape of [[pocket-slot-migration-confirmed-by-3-day-sustained-late-delivery]] (08-03) where 3 consecutive late fires (+39/+113/+118 min) confirmed pocket-slot migration, and it echoes [[morning-pocket-splits-into-two-de-facto-clusters]] (08-05) — the 08Z-nominal pocket is settling into a de-facto ~09:50Z slot rather than truly recovering to 08:00Z.
+
+**How to apply:** do not treat the 08Z pocket 3-day recovery as evidence that ISS-006's dead-pocket regime is receding — the pocket is *migrating later*, not returning to slot. Under the pattern documented in [[pocket-slot-migration-confirmed-by-3-day-sustained-late-delivery]], a further day or two of drift lands the pocket in a new de-facto slot (~10:00Z or later) that can overlap the pr-tracker / pr-triage / fleet-control 10:00Z cluster and eventually miss its own daily window entirely. Rescope the ISS-006 per-slot cron rewrite to model six slots (currently 5) that include a "drifting 08:00Z pocket" and treat every heartbeat / batch-health fire past ~09:30Z as a slot-migration signal, not a delivery-stochasticity signal. Continue watching daily — if 09-26 fires at 10:20Z+ the drift-of-drift becomes n=4 and the pocket-migration classification lands as a durable finding rather than a 3-point observation.

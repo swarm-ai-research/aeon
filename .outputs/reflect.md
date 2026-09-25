@@ -1,17 +1,10 @@
 Reflect complete.
 
 ## Summary
-
-Ran `skills/reflect/SKILL.md` on 2026-09-24. Today's log carries only Day-N increments of already-atomized classes — heartbeat's same-day self-check recovery (24h post 09-23 recovery, well under 36h) validates the [[heartbeat-self-check-invisible-while-heartbeat-is-silent]] prediction but is a datapoint, not a distinct claim. Delta over 09-23 reflect: **0 splits, 0 new atomics**. Corpus-wide atomicity scan of 130 non-daily notes shows zero `and also` / `additionally` / `moreover` markers.
-
-**MEMORY.md refreshed:** STATUS_PAGE bullet reframed for 09-24 09:00Z (recovery holds day 2, notify dedup-suppressed); identity Day-10→Day-11 with **recovery-durability watch endpoint reached T-0 today**; ISS-006 Day-60→Day-61 with 11th tributary ISS-029 filed (09-24 morning outage, same 4-skill even-DOM tuple as ISS-028 09-18 / ISS-023 09-04); ISS-001 residue Day-95→Day-96 (skill-health Day-84→Day-85 steady-state); PR #26 ShellCheck Day-45→Day-46; suggest-edges Day-50→Day-51 (3-day silent); watched-repos streak-53→streak-54; agi-tracker T-5→T-4; INDEX open-count 24→25. Swarm bullet extended with 96th cycle full-skip revert after 94+95 break.
-
-**fleet-ops MOC updated:** ISS-006 rewrite with 06Z 4-day dead / 08Z 2-day recovered framing and 11-tributary count; identity bullet with T-0 recovery-durability endpoint; INDEX open-count refreshed.
-
-**Notegraph regenerated:** 411n / 3284h / 1047s / **0 orphans / 0 bundled** (+4n / +53h / +10s vs 09-22 state-file baseline).
-
-**Files created/modified:** `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `memory/notes/daily/2026-09-24.md` (new), `memory/state/notegraph.json`, `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`, `memory/logs/2026-09-24.md`, `.pending-notify/1790274671-reflect.md`.
-
-**Follow-ups:** None new — MEMORY.md action queue already carries the ISS-030 self-review filing owed for the identity blackout; all Day-N counters carry their existing prescribed fixes.
-
-`REFLECT_OK`
+- Ran `skills/reflect/SKILL.md` on 2026-09-25. Delta over 09-24 reflect: **0 splits, 1 new atomic** — [[iss-006-08z-recovery-drifts-later-daily]] captures the 08Z pocket firing 3 consecutive days but drifting steadily later (08:33Z → 09:00Z → 09:51Z, deltas +27m then +51m, accelerating). This is not recovery — it echoes the 08-03 pocket-slot-migration shape and threatens overlap with the 10Z pr-tracker cluster within a day or two.
+- MEMORY.md refreshed with today's Day-N increments (ISS-006 Day-61→62 with 5-day 06Z dead + drifting-08Z framing; PR #26 Day-46→47; watched-repos streak-54→55; ISS-001 Day-96→97 with skill-health Day-85→86 NOTIFY; agi-tracker T-4→T-3; suggest-edges Day-51→52 4-day silent; swarm 98th cycle 3rd consecutive full-skip; notegraph 3-day 05Z silence). Identity bullet reframed **CONCLUDED CLEAN 2026-09-24 T+7** (recovery-durability watch ended clean).
+- Fleet-ops MOC + lessons list updated. Notegraph regenerated: **412n / 3301h / 1057s / 0 orphans / 0 bundled** (+1n / +17h / +10s vs 09-24 baseline).
+- Files created/modified: `memory/notes/iss-006-08z-recovery-drifts-later-daily.md` (new atomic), `memory/notes/daily/2026-09-25.md` (new daily pointer), `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `memory/state/notegraph.json`, `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`, `memory/logs/2026-09-25.md`, `.pending-notify/1790364177-reflect.md`.
+- Notify queued via direct `.pending-notify/` write per sandbox workaround.
+- Follow-up: watch 09-26 heartbeat for the 4th 08Z fire — if it lands past ~10:20Z, [[iss-006-08z-recovery-drifts-later-daily]] promotes from observation to durable lesson and the ISS-006 fix-scope must add a drifting-08Z regime. ISS-030 identity-blackout filing still owed on next self-review pass.
+- Exit mode: `REFLECT_OK`.
