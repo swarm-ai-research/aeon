@@ -1,24 +1,11 @@
-Skipping notify per §10 (no OUT-OF-SCOPE, no first-time contributor). Done.
+Per §10, no notification is warranted (no OUT-OF-SCOPE, no new ACCEPTED from a first-time contributor). Per §11, terminal state is `PR_TRIAGE_OK no-candidates`. No state file update needed since no new records.
 
 ## Summary
 
-Ran `skills/pr-triage/SKILL.md` in repo mode against `swarm-ai-research/swarm`.
+Ran `pr-triage` in repo mode on `swarm-ai-research/swarm`. All 9 open PRs (14-day window) were skipped upstream of the rubric:
+- **2 bots**: #621, #622 (`app/dependabot`) — trusted set.
+- **7 already-triaged at current head**: #611 (bf2cab7), #612 (1c56c08), #614 (4475b87), #616 (0d527e3), #618 (d33d8e9), #619 (4ef6578), #628 (8e2f6a7) — all `rsavitt`, all matching `memory/triaged-prs.json` prefixes.
 
-**Fetched:** 9 open PRs (last 14d) on swarm-ai-research/swarm.
+Zero verdicts issued; zero comments/labels/closures posted. Terminal log: `PR_TRIAGE_OK no-candidates`. No notification (§10 gate not met). Byte-identical queue vs the pr-review 96th-cycle snapshot in MEMORY.md — no new opens or force-pushes since 09-22.
 
-**Skipped 8:**
-- Bots: #621, #622 (dependabot)
-- Already-triaged at unchanged head SHA (per `memory/triaged-prs.json`): #611, #612, #614, #616, #618, #619
-
-**Triaged 1:**
-- **PR #628** by @rsavitt — `docs(blog): what the AI Village broke in our toolkit`, sha `8e2f6a7`, +139/-0 across `docs/blog/index.md`, `docs/blog/our-detectors-work-on-simulations.md`, `mkdocs.yml` → **ACCEPTED**. `mkdocs.yml` is not in the strict allowlist but not protected either; it is the docs nav config required to publish the blog post. Size, body, format/originality all clear.
-
-**Write blocked:** `gh pr comment` returned `Resource not accessible by integration (addComment)` and label creation returned HTTP 403 — logged `PR_TRIAGE_NO_PERMISSION swarm-ai-research/swarm#628`. This continues the `no-permission (write blocked)` pattern across all 16 prior swarm triages (dedup-saturation freeze class in [[pr-review-dedup-saturation-freezes-write-blocked-repo-queues]]).
-
-**Notify:** skipped — no OUT-OF-SCOPE, rsavitt has 9 prior triage records (not first-time).
-
-**Files modified:**
-- `memory/triaged-prs.json` — appended #628 ACCEPTED entry (17 total entries, all within 90-day window)
-- `memory/logs/2026-09-22.md` — appended `### pr-triage` block
-
-**Follow-ups (already in MEMORY.md action queue):** install aeon app on swarm-ai-research/swarm with `pull_requests: write` OR document swarm as report-only. Exit mode: `PR_TRIAGE_OK`.
+Files modified: `memory/logs/2026-09-25.md` (appended `## pr-triage` section).
