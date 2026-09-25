@@ -1,12 +1,20 @@
-Executed fleet-control in Health Check Mode (default, empty var).
-
 ## Summary
 
-- **Skill executed**: `skills/fleet-control/SKILL.md` in Health Check Mode.
-- **Pre-flight step 1** loaded `memory/instances.json` and found `.instances` is `[]`.
-- **Result**: `FLEET_EMPTY` — logged and stopped silently per SKILL.md ("Stop. Do NOT notify.").
-- **No `gh` calls made**: pre-flight steps 2 (gh auth) and 3 (rate limit) are gated on `≥1 GitHub-hosted entry` and were skipped.
-- **No state writes**: `memory/state/fleet-control-state.json` remains uncreated (creation is required only when the run proceeds past pre-flight).
-- **Files modified**: `memory/logs/2026-09-22.md` (appended fleet-control section + `## Summary — Fleet Control`).
-- **Notification**: none fired — empty registry is a silent stop condition, not an alert signal.
-- **Exit**: `FLEET_EMPTY`. Follow-up: none. Registry is empty because no child Aeons are currently spawned/managed here; the `spawn` / `gitlawb-fleet` skills (or the operator) populate `memory/instances.json`.
+**Skill:** `fleet-control` (Health Check Mode — default, `var` empty)
+
+**Outcome:** `FLEET_EMPTY` — silent stop per SKILL.md pre-flight step 1.
+
+**What ran:**
+1. Loaded registry at `memory/instances.json` → `{"instances": []}` (empty).
+2. Per SKILL.md, on `.instances == []`: log `FLEET_EMPTY: no managed instances` and stop **without notifying**.
+3. Skipped gh-auth check, rate-limit probe, per-instance parallel `gh api` calls, delta computation, state writeback, and notification — all correctly gated behind a non-empty registry.
+
+**Files modified:**
+- `memory/logs/2026-09-25.md` — appended `## fleet-control (health check)` entry with `FLEET_EMPTY` verdict.
+
+**Files NOT modified (intentional):**
+- `memory/instances.json` — no changes needed; skill never writes to an empty registry.
+- `memory/state/fleet-control-state.json` — not created because the run short-circuited before the state-load step (step 4 comes after step 1).
+- No notification dispatched (per SKILL.md: "Stop. Do NOT notify.").
+
+**Follow-up:** None from this skill. The empty registry is a config state, not a defect — Fleet Control has no managed children to monitor. If the operator wants Fleet Control to do work, they must add entries to `memory/instances.json` (with `repo` for GitHub-hosted or `host: "gitlawb"` for GitLawb-hosted instances).
