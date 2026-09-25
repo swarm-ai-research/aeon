@@ -1,15 +1,20 @@
 {
   "skill": "github-monitor",
-  "last_analyzed": "2026-09-22T10:02:10Z",
+  "last_analyzed": "2026-09-25T09:50:11Z",
   "quality_score": 2,
-  "assessment": "Correctly diagnosed non-functionality, but 52-day misconfiguration streak leaves core monitoring task unaccomplished",
+  "assessment": "Skill executed but core functionality absent—55-day config outage with 6 dependent skills still broken",
   "flags": [
-    "low_quality"
+    "empty_output",
+    "stale_data"
   ],
   "avg_score": 2,
   "history": [
     {
       "date": "2026-09-22",
+      "score": 2
+    },
+    {
+      "date": "2026-09-25",
       "score": 2
     }
   ]

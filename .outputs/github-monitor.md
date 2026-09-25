@@ -1,11 +1,12 @@
+Skill executed and short-circuited per its §Config rule.
+
 ## Summary
 
-Ran `skills/github-monitor/SKILL.md` on 2026-09-22.
-
-**Files modified:** `memory/logs/2026-09-22.md` — appended `### github-monitor` section.
-
-**Result:** `GITHUB_MONITOR_EMPTY_CONFIG` — `memory/watched-repos.md` absent (also confirmed `memory/topics/watched-repos.md` absent). No repos scanned, no `gh` calls, no notify. Per SKILL.md step 1: log-and-end path.
-
-**Streak:** 52 consecutive days short-circuiting on missing config (was 51 on 09-21).
-
-**Follow-up (already in MEMORY.md action queue):** Populate `memory/watched-repos.md` OR disable the six dependents (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) AND reconcile the path mismatch — `repo-revive` references `memory/topics/watched-repos.md`; the other five reference `memory/watched-repos.md`. No new memory files warranted (situation already fully captured in MEMORY.md line 13 and the pending action item).
+- **Skill**: `skills/github-monitor/SKILL.md` — executed end-to-end.
+- **Outcome**: `GITHUB_MONITOR_EMPTY_CONFIG` — `memory/watched-repos.md` is absent, so the skill logs and ends without scanning any repos or sending a notification. This is the intended silent-failure behavior for missing config.
+- **Streak**: Day-55 of the missing-`watched-repos.md` outage (streak-54 was flagged in MEMORY.md on 09-24).
+- **Files modified**: `memory/logs/2026-09-25.md` — appended `### github-monitor` section with tier counts (all 0), the `GITHUB_MONITOR_EMPTY_CONFIG` marker, and a pointer to the still-broken dependent chain (code-health, issue-triage, changelog, weekly-shiplog, repo-revive).
+- **Notify**: not fired (skill spec requires silence when no tiers populated / config missing).
+- **Follow-ups needed** (already tracked in MEMORY.md action queue, unchanged by this run):
+  - Populate `memory/watched-repos.md` or disable the 6 dependent skills.
+  - Reconcile SKILL.md path drift: repo-revive references `memory/topics/watched-repos.md`; the other five reference `memory/watched-repos.md`.
