@@ -174,6 +174,25 @@ LOW_PATTERNS=(
 
 # ---------- Scanner ----------
 
+# Global buffer populated by collect_matches; avoids subshell for array return.
+_scan_buf=()
+collect_matches() {
+  local file="$1"
+  shift
+  _scan_buf=()
+  local pattern matches match line_num line_content
+  for pattern in "$@"; do
+    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
+    [[ -z "$matches" ]] && continue
+    while IFS= read -r match; do
+      line_num="${match%%:*}"
+      line_content="${match#*:}"
+      line_content="${line_content:0:120}"
+      _scan_buf+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
+    done <<< "$matches"
+  done
+}
+
 TOTAL_PASS=0
 TOTAL_WARN=0
 TOTAL_FAIL=0
@@ -189,54 +208,18 @@ scan_file() {
     return 1
   fi
 
-  local content
-  content=$(cat "$file")
-
   local highs=()
   local mediums=()
   local lows=()
 
-  # Check HIGH patterns
-  for pattern in "${HIGH_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"  # truncate
-        highs+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  collect_matches "$file" "${HIGH_PATTERNS[@]}"
+  [[ ${#_scan_buf[@]} -gt 0 ]] && highs=("${_scan_buf[@]}")
 
-  # Check MEDIUM patterns
-  for pattern in "${MEDIUM_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        mediums+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  collect_matches "$file" "${MEDIUM_PATTERNS[@]}"
+  [[ ${#_scan_buf[@]} -gt 0 ]] && mediums=("${_scan_buf[@]}")
 
-  # Check LOW patterns
-  for pattern in "${LOW_PATTERNS[@]}"; do
-    local matches
-    matches=$(grep -nE "$pattern" "$file" 2>/dev/null || true)
-    if [[ -n "$matches" ]]; then
-      while IFS= read -r match; do
-        local line_num="${match%%:*}"
-        local line_content="${match#*:}"
-        line_content="${line_content:0:120}"
-        lows+=("L${line_num}: ${line_content} [pattern: ${pattern}]")
-      done <<< "$matches"
-    fi
-  done
+  collect_matches "$file" "${LOW_PATTERNS[@]}"
+  [[ ${#_scan_buf[@]} -gt 0 ]] && lows=("${_scan_buf[@]}")
 
   # Determine result
   local status="PASS"
