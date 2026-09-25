@@ -1,16 +1,11 @@
 ## Summary
 
-Ran the `skill-freshness` skill for 2026-09-24. Here's what happened:
+**Verdict: ✅ FRESHNESS_OK** — 44 enabled consumers, 35 dependencies checked, 0 flagged.
 
-**Verdict: FRESHNESS_OK → FRESHNESS_NO_CHANGE (no notification sent)**
+Key findings from today's audit:
+- **No cross-skill staleness detected.** The enabled fleet's dependency graph is shallow: nearly all implicit file references in enabled SKILL.md files are self-references (a skill reading its own prior state/article) or references to disabled/on-demand producers (token-report, push-recap) which are skipped per cadence rules.
+- **Zero explicit `chains: consume:` edges** — all chain definitions in `aeon.yml` are currently commented out.
+- **Notable out-of-scope stale items** (self-references, so not flagged, but logged): `skillpacks` state is 61 days stale (ISS-006 Sunday-06Z casualty); `memory/topics/compute-pulse.md` last updated 13 days ago; `planner-state.json` last updated 5 days ago.
+- **Mtime workaround applied**: GHA shallow-clone makes all file mtimes identical (checkout time), so ages were computed from content-embedded `last_run` timestamps.
 
-- Audited **44 enabled skills** across `aeon.yml`, found **36 dependencies** across all path classes, **0 flagged**.
-- All tracked dependencies (memory/topics/, memory/state/, .outputs/) resolve to the same git commit timestamp (~9h old), which falls within every threshold class (topics: 168h; state: 720h; daily articles: 28h; weekly articles: 192h).
-- Fingerprint is identical to the prior run (2026-09-23), so dedup suppresses the notification per the 7-day re-emit rule.
-- **Key limitation noted in article:** This repo has a single-commit history, so `git log -1 --format=%ct` returns the same timestamp for all files. Filename-date inspection flags `cost-report-2026-09-07.md` as 17 days stale by name, but no enabled consumer reads that article, so no downstream gap exists.
-- No chains are active (all commented out), so zero explicit `consume:` edges.
-
-**Files written:**
-- `articles/skill-freshness-2026-09-24.md`
-- `memory/topics/skill-freshness-state.json` (updated `last_run_at`)
-- `memory/logs/2026-09-24.md` (created with today's log entry)
+No notification sent (FRESHNESS_OK → silent). Article written to `articles/skill-freshness-2026-09-25.md`, state updated, log appended.
