@@ -1,9 +1,12 @@
+Silent stop per SKILL.md — no notify sent.
+
 ## Summary
 
-Executed `gitlawb-fleet-metrics` skill. Pre-flight found `memory/gitlawb-fleet.json` missing (no fleet exists yet), so per skill spec I logged `GLMETRICS_EMPTY` and stopped silently — an empty fleet is not news.
+Ran the `gitlawb-fleet-metrics` skill (2026-09-25 window 24h). Pre-flight step 2 tripped: `memory/gitlawb-fleet.json` is absent (only the `.example` template exists), and `memory/gitlawb-metrics.jsonl` is also absent — the fleet has never been provisioned. Per SKILL.md, an empty fleet is a **silent stop**: no notify, log-only.
 
-- Files created: `memory/logs/2026-09-24.md`
-- Files modified: none
-- Notifications sent: none (correct per skill rules)
-- Exit code: `GLMETRICS_EMPTY`
-- Follow-up: none required — once `prototypes/gitlawb-safety/fleet-cli.mjs` mints its first instance and writes `memory/gitlawb-fleet.json` + `memory/gitlawb-metrics.jsonl`, this skill will start emitting real snapshots on its next 08:00 UTC cron.
+**Verdict:** `GLMETRICS_EMPTY`
+
+**Files modified:**
+- `memory/logs/2026-09-25.md` — appended `## gitlawb-fleet-metrics` block recording the empty-fleet stop, both missing state files, and node v22.23.2 pass.
+
+**Follow-up:** None from this skill. The empty-fleet condition is by design — the operator hasn't provisioned any GitLawb instances yet, so there's nothing to observe. If/when `gitlawb-fleet` mints its first instance, this skill will start emitting a real snapshot at the next 08:00Z slot without further intervention.
