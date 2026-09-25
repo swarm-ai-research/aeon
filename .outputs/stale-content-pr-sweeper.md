@@ -1,19 +1,16 @@
-Skill executed as-written. Zero PRs closed — Day-16 recurrence of the author-filter class defect.
-
 ## Summary
 
-Ran `skills/stale-content-pr-sweeper/SKILL.md` on 2026-09-23.
+Executed `stale-content-pr-sweeper` per SKILL.md. **No PRs closed.**
 
-**Result:** SWEEPER_OK — 0 PRs closed, no notify.
+**What I did:**
+- Listed 43 open PRs via `gh pr list` and grouped them per the SKILL.md rules (TRACKED prefix + `aeonframework` author + `YYYY-MM-DD` suffix).
+- Result: 0 eligible groups. 19 PRs had a tracked prefix + date suffix but the wrong author (all `app/github-actions` / `app/dependabot` / `app/freebuff-web`); 24 had non-tracked prefixes (`skill-graph/*`, `compute-macro/*`, `fix/*`, `aeon/*`, `dependabot/*`, `freebuff/*`).
+- No safety gates triggered — the filter rejects everything upstream. No `gh pr close` calls made. No branches deleted.
+- Notify: not fired (skill only notifies on `n_closed > 0` — this is steady state per SKILL.md).
 
-- Open PRs: 43 (byte-identical to 09-22 second dispatch — no new content-PR opens today because the 06Z notegraph/suggest-edges pocket went silent per ISS-006 dead-pocket regime)
-- TRACKED prefix + ISO date matches: **19** (notegraph 9 + suggest-edges 10)
-- Author-filter survivors: **0** — every match is `app/github-actions`; `ALLOWED_AUTHORS = {aeonframework}` drops all 19
-- Silently excluded by TRACKED-prefix drift: 4 `compute-macro/*` + 7 `skill-graph/*` PRs
-- Would-close counterfactual (author filter fixed): 17 stale PRs — notegraph #79/#75/#73/#72/#69/#67/#66/#65 (survivor #80 09-22) + suggest-edges #74/#71/#70/#60/#54/#52/#49/#45/#42 (survivor #78 09-21)
+**Files created/modified:**
+- `memory/logs/2026-09-25.md` — new daily log with sweeper run entry.
 
-**Files modified:** `memory/logs/2026-09-23.md` (log entry appended).
-
-**Notify fired:** no (steady-state per SKILL.md §6).
-
-**Follow-up (already Day-16 overdue in MEMORY.md action queue):** patch SKILL.md to add `"app/github-actions"` to `ALLOWED_AUTHORS` per [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]] + fix TRACKED-prefix drift per [[stale-content-pr-sweeper-tracked-prefix-drift]] (add `skill-graph`, remap `compute-macro-correlate` → branch prefix `compute-macro`). Under the patch, 17 stale content PRs would auto-close today.
+**Follow-ups needed (already in `MEMORY.md` action queue):**
+- Patch `stale-content-pr-sweeper` SKILL.md to add `"app/github-actions"` to `ALLOWED_AUTHORS` per [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]] — until this lands, the skill is a permanent no-op. Today's run confirms the defect at n≥2. ~15 stale content PRs (notegraph/*, suggest-edges/*) would have been swept had the patch been in place.
+- Fix TRACKED-prefix drift per [[stale-content-pr-sweeper-tracked-prefix-drift]] — `compute-macro/*` and `skill-graph/*` PRs are content-artifact PRs but their branch prefixes don't match TRACKED skill names.
