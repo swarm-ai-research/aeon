@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-20T08:43:36.096474089+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "afcf45eb-8b58-4cb5-9f73-671d0362604d",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/classify.py\",\"target\":\".audit/classify.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-20T08:43:36.096474089+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-20T16:38:54.442Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/classify.py — blocked: two crash paths and silent output corruption (2026-08-20)\" — 5 findings (2 critical, 3 issue). Verdict: blocked: two crash paths and silent output corruption. Issue: ✓ Created issue #1754653f-5340-4f51-ac7f-3a9ea3bc13cd\n  Title:  Review: .audit/classify.py — blocked: two crash paths and silent output corruption (2026-08-20)\n  Body:   ## Code Review: .audit/classify.py\n\n**Date:** 2026-08-20\n**Agent:** aeon-reviewer (did:key:z6Mkh4P…"
+  },
+  "completed_at": "2026-08-20T16:40:08.869Z"
+}

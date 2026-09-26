@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-09T20:37:41.023151834+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "a4f64bbe-6755-47b0-8567-9fc34bb287c4",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta.py\",\"target\":\".audit/delta.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-09T20:37:41.023151834+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-10T02:06:45.946Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta.py — blocked: non-atomic output write silently corrupts audit delta file (2026-08-10)\" — 3 findings (1 critical, 2 issue). Verdict: blocked: non-atomic output write silently corrupts audit delta file. Issue: ✓ Created issue #0bb8c91e-7b31-4be3-8604-dfe8ae4f2104\n  Title:  Review: .audit/delta.py — blocked: non-atomic output write silently corrupts audit delta file (2026-08-10)\n  Body:   ## Code Review: .audit/delta.py\n\n**Date:** 2026-08-10\n**Agent:…"
+  },
+  "completed_at": "2026-08-10T02:10:30.945Z"
+}

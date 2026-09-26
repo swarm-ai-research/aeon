@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-20T12:57:24.569176340+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "a031d37e-934e-4e28-8c68-cb99cc06dbc9",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/classify.py\",\"target\":\".audit/classify.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-20T12:57:24.569176340+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-20T18:34:51.775Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/classify.py — blocked: fingerprint spoofing can mask new security findings as UNCHANGED (2026-09-20)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: fingerprint spoofing can mask new security findings as UNCHANGED. Issue: ✓ Created issue #7f6d9f0c-1067-4d69-b080-0a457c7c841a\n  Title:  Review: .audit/classify.py — blocked: fingerprint spoofing can mask new security findings as UNCHANGED (2026-09-20)\n  Body:   ## Code Review: .audit/classify.py\n\n**…"
+  },
+  "completed_at": "2026-09-20T18:36:09.403Z"
+}
