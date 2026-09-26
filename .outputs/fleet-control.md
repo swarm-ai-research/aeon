@@ -1,20 +1,9 @@
+Registry is empty — silent stop per skill spec.
+
 ## Summary
 
-**Skill:** `fleet-control` (Health Check Mode — default, `var` empty)
-
-**Outcome:** `FLEET_EMPTY` — silent stop per SKILL.md pre-flight step 1.
-
-**What ran:**
-1. Loaded registry at `memory/instances.json` → `{"instances": []}` (empty).
-2. Per SKILL.md, on `.instances == []`: log `FLEET_EMPTY: no managed instances` and stop **without notifying**.
-3. Skipped gh-auth check, rate-limit probe, per-instance parallel `gh api` calls, delta computation, state writeback, and notification — all correctly gated behind a non-empty registry.
-
-**Files modified:**
-- `memory/logs/2026-09-25.md` — appended `## fleet-control (health check)` entry with `FLEET_EMPTY` verdict.
-
-**Files NOT modified (intentional):**
-- `memory/instances.json` — no changes needed; skill never writes to an empty registry.
-- `memory/state/fleet-control-state.json` — not created because the run short-circuited before the state-load step (step 4 comes after step 1).
-- No notification dispatched (per SKILL.md: "Stop. Do NOT notify.").
-
-**Follow-up:** None from this skill. The empty registry is a config state, not a defect — Fleet Control has no managed children to monitor. If the operator wants Fleet Control to do work, they must add entries to `memory/instances.json` (with `repo` for GitHub-hosted or `host: "gitlawb"` for GitLawb-hosted instances).
+- Ran `skills/fleet-control/SKILL.md` in Health Check Mode (var empty → default).
+- Pre-flight step 1 found `memory/instances.json` = `{"instances": []}` — no managed children.
+- Per the skill's `FLEET_EMPTY` branch: logged and stopped **without notifying**.
+- Files modified: `memory/logs/2026-09-26.md` (appended `## fleet-control (health check)` entry with `FLEET_EMPTY` verdict).
+- Follow-up: none. Fleet Control will no-op on every schedule until instances are registered. Operator adds children by writing entries into `memory/instances.json` (either GitHub-hosted with a `repo` field, or GitLawb-hosted with `host: "gitlawb"` and a DID).
