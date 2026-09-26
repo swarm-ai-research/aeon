@@ -4,11 +4,11 @@
   "prev_hash": "e27c0ac60367e7e5",
   "classification_identical_to_prev": true,
   "last_notified_at": "2026-09-25T19:12:28Z",
-  "last_run_at": "2026-09-25T19:12:28Z",
-  "prev_run_at": "2026-09-24T18:27:09Z",
-  "prev_notified_at": "2026-09-24T18:27:09Z",
-  "elapsed_since_prev_notify_hours": 24.75,
-  "steady_state_day": 87,
+  "last_run_at": "2026-09-26T18:04:00Z",
+  "prev_run_at": "2026-09-25T19:12:28Z",
+  "prev_notified_at": "2026-09-25T19:12:28Z",
+  "elapsed_since_prev_notify_hours": 22.86,
+  "steady_state_day": 88,
   "classification": {
     "critical": [],
     "degraded": [
@@ -65,8 +65,8 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn Day-97 — all 38 DEGRADED share zero-token last_error tails from 2026-06-06 → 06-20 outage; every skill last_status=success, cf=0, sr 0.01-0.45 driven entirely by historical failure denominator. No live regression: 7d skill-runs shows 82/82 succeeded (23rd consecutive day at zero failures).",
-  "delta_vs_prev": "Byte-identical classification to Day-86 (09-24) run at hash e27c0ac60367e7e5. 87th consecutive steady-state day. Gate: NOTIFY (hash unchanged but elapsed 24.75h >= 24h daily-reminder cadence). Prev notified 2026-09-24T18:27:09Z; this run 2026-09-25T19:12:28Z. Novel signals since 09-24 run (all owned by other detectors, none skill-health-owned): (a) 06Z pocket 5-day dead streak — planner + 6 others still last_success 2026-09-20 06:xxZ (~123h). Owned by ISS-006/batch-health. (b) batch-health 09-25 09:49Z fired WARN (2 missing = compute-futures-eda + planner) — below OUTAGE threshold, no new tributary filed. Same 06Z pocket as ISS-029/ISS-006. (c) heartbeat 09-25 09:51Z fired HEARTBEAT_OK + STATUS_PAGE=DEGRADED, day-3 self-check recovery (heartbeat last_success 2026-09-24T09:04Z, 24.8h). All P0 findings dedup-suppressed against 09-24 log. (d) 09-25 morning batch delivered ~1h50 late (all 08-09Z crons clustered at 09:49-09:59Z; 06Z crons dropped rather than delayed). (e) INDEX open-count unchanged at 25.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn Day-98 — all 38 DEGRADED share zero-token last_error tails from 2026-06-06 → 06-20 outage; every skill last_status=success, cf=0, sr 0.01-0.45 driven entirely by historical failure denominator. No live regression: 7d skill-runs shows 81/81 succeeded (24th consecutive day at zero failures; 4 in-progress this run).",
+  "delta_vs_prev": "Byte-identical classification to Day-87 (09-25) run at hash e27c0ac60367e7e5. 88th consecutive steady-state day. Gate: NOOP (hash unchanged AND elapsed 22.86h < 24h daily-reminder cadence). Prev notified 2026-09-25T19:12:28Z; next cadence-permitted notify at 2026-09-26T19:12:28Z (~1h07 from now). Novel signals since 09-25 run (all owned by other detectors, none skill-health-owned): (a) 06Z pocket still dead — planner + 6 others last_success 2026-09-20 06:xxZ (~144h; +24h from 09-25). Owned by ISS-006/batch-health. (b) morning 08Z pocket 09-26: no batch-health run visible in log surface yet (only fleet-control + github-monitor 10:16Z; ISS-006 tributary decision pending batch-health dispatch). (c) heartbeat status not yet in log surface — 09-26 08Z slot outcome unknown at this run time (18:03Z). (d) skill-runs 168h: 85 total (was 82 on 09-25), succeeded 81, in_progress 4 (goal-tracker + pr-review + reflect + skill-health — this run). Zero failures. (e) INDEX open-count unchanged at 25.",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "issues_resolved_by_other_detectors_since_prev_run": [],
@@ -100,19 +100,21 @@
     "ISS-028",
     "ISS-029"
   ],
-  "notify_decision": "NOTIFY — hash unchanged (e27c0ac60367e7e5, Day-87 steady-state) BUT elapsed 24.75h >= 24h daily-reminder cadence. Per SKILL.md step 5, hash-match suppression requires BOTH hash-match AND elapsed<24h; cadence elapsed at 24.75h so notify fires. Reconciliation: 0 CRITICAL / 0 FLAPPING → no new skill-health issues filed. No open issues detected_by=skill-health exist to reconcile (all 25 open issues owned by other detectors: ISS-001 self-review; ISS-006 + ISS-019..026 + ISS-028 + ISS-029 batch-health; ISS-002/005/009-018 skill-evals; ISS-027 heartbeat).",
-  "skill_runs_status": "OK — cron-state.json + skill-runs 168h agree. 82/82 succeeded, 0 failed, 4 in-progress. No new failures anywhere; every skill last_status=success. Novel dispatches since prev-run: heartbeat/skill-freshness/batch-health/gitlawb-fleet-metrics/fleet-control/github-monitor/issue-triage/pr-triage/pr-review all fired 09-25 09:49-09:59Z (morning batch delivered ~1h50 late — 08Z pocket cron-drift, not outage). Stale-content-pr-sweeper 09-25 00:02Z fired on-schedule. 06Z pocket still dead 5d (ISS-006 tributary chain).",
+  "notify_decision": "NOOP — hash unchanged (e27c0ac60367e7e5, Day-88 steady-state) AND elapsed 22.86h < 24h daily-reminder cadence. Per SKILL.md step 5, hash-match suppression requires BOTH hash-match AND elapsed<24h; both conditions met so notify is skipped this run. Reconciliation: 0 CRITICAL / 0 FLAPPING → no new skill-health issues filed. No open issues detected_by=skill-health exist to reconcile (all 25 open issues owned by other detectors: ISS-001 self-review; ISS-006 + ISS-019..026 + ISS-028 + ISS-029 batch-health; ISS-002/005/009-018 skill-evals; ISS-027 heartbeat). Next notify-eligible run: any dispatch at or after 2026-09-26T19:12:28Z with matching hash (daily cadence) OR earlier if classification hash changes.",
+  "skill_runs_status": "OK — cron-state.json + skill-runs 168h agree. 81/81 completed runs succeeded, 0 failed, 4 in-progress (goal-tracker + pr-review + reflect + skill-health — all this run's 18Z batch). No new failures anywhere; every skill last_status=success. Novel dispatches since prev-run: fleet-control + github-monitor 09-26 10:16Z, suggest-edges 05:34Z, notegraph 05:xxZ, repo-revive 10Z (Sat), pr-review Day-100 cycle in-progress, reflect in-progress, skill-health in-progress. Stale-content-pr-sweeper 09-25 23:45Z fired on-schedule. 06Z pocket still dead (planner + memory-flush + memory-structural-dedupe + compute-futures-eda + janitor + skillpacks + compute-macro-correlate all last_success 2026-09-20 06:xxZ, ~144h — +24h from 09-25).",
   "novel_transient_signals_not_escalated": [
-    "87th consecutive steady-state day for skill-health hash. ISS-001 residue continues; anomalies.failing empty for 23rd consecutive day.",
-    "batch-health 09-25 09:49Z WARN — 2 missing (compute-futures-eda + planner), below OUTAGE threshold of 3. No new tributary filed. Confirms MEMORY.md action-queue item to lower OUTAGE threshold to `>=2 with expected<4`.",
-    "heartbeat self-check RECOVERED day 3 — heartbeat last_success 2026-09-25T09:53Z + prior 2026-09-24T09:04Z + 2026-09-23T08:35Z. 3 consecutive daily fires at 08-09Z pocket. Validates [[heartbeat-self-check-invisible-while-heartbeat-is-silent]] recovery-holds hypothesis.",
-    "06Z pocket 5-day dead streak (planner + memory-flush + memory-structural-dedupe + compute-futures-eda + janitor + skillpacks + compute-macro-correlate, last_success 2026-09-20 06:xxZ, ~123h). Owned by ISS-006/batch-health chain.",
-    "05Z pocket degraded: notegraph last 09-22 05:19Z (~76.5h), suggest-edges last 09-21 05:54Z (~100h). Adjacent to 06Z pocket damage.",
-    "Morning batch 09-25 delivered ~1h50 late (all 08Z scheduled skills fired 09:49-09:59Z clustered together — cron-drift, not outage; contrast 06Z crons which appear fully dropped).",
-    "ai-framework-watch + run-frequency-guard 79th consecutive silent day per [[enabled-skills-can-never-dispatch]]. Still classified NO DATA.",
+    "88th consecutive steady-state day for skill-health hash. ISS-001 residue continues; anomalies.failing empty for 24th consecutive day.",
+    "06Z pocket 6-day dead streak (planner + memory-flush + memory-structural-dedupe + compute-futures-eda + janitor + skillpacks + compute-macro-correlate, last_success 2026-09-20 06:xxZ, ~144h — +24h vs 09-25). Owned by ISS-006/batch-health chain; new tributary filing pending next batch-health OUTAGE-threshold run.",
+    "batch-health 09-26 08Z outcome not yet in log surface at this run's time (18:03Z). If it dispatches WARN(0/2 odd-DOM) at 09:xxZ per 09-25 pattern, no new tributary filed per current OUTAGE-only threshold.",
+    "heartbeat 09-26 08Z outcome not yet in log surface at this run's time (18:03Z). Day-4 potential recovery slot; if silent, self-check invisibility per [[heartbeat-self-check-invisible-while-heartbeat-is-silent]] applies.",
+    "05Z pocket clean 09-26: notegraph 05:xxZ + suggest-edges 05:34Z both dispatched. Adjacent to 06Z pocket dead-streak but not affected.",
+    "Repo-revive 09-26 Sat 10Z: config-empty short-circuit, streak-56 (was streak-55 on 09-25). Owned by memory watched-repos action queue.",
+    "GitHub-monitor 09-26 10:16Z: empty-config short-circuit, streak-56. Same watched-repos dependency chain.",
+    "pr-review Day-100 cycle in-progress at this run's time — outcome unknown; write-block on swarm-ai-research/swarm per [[aeon-app-no-write-on-swarm-repo]] still expected to apply.",
+    "ai-framework-watch + run-frequency-guard 80th consecutive silent day per [[enabled-skills-can-never-dispatch]]. Still classified NO DATA.",
     "ISS-030 draft (aeonframework 3-day identity blackout, resolved Day-4 on 09-17) still pending self-review filing per MEMORY.md action queue.",
     "ISS-031 draft (ai-framework-watch + run-frequency-guard never-dispatch) still pending self-review filing per MEMORY.md action queue."
   ],
-  "notify_delivery_note": "Sent via .pending-notify/1790363623-skill-health.md (direct-write pattern per [[notify-inline-cat-substitution-blocked-in-sandbox]] + MEMORY.md action queue). Postprocess-notify.sh fans out to configured channels.",
-  "prompt_injection_flag": "None. cron-state.json, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md, memory/logs/2026-09-25.md, ./scripts/skill-runs JSON output all structured/data-only; no untrusted natural-language content ingested this run."
+  "notify_delivery_note": "Not sent this run — NOOP gate per SKILL.md step 5 (hash-match + elapsed<24h). Suppression is intended; operator sees no message. Next daily reminder fires at 2026-09-26T19:12:28Z or on the next dispatch after that timestamp if classification hash still matches; earlier if hash flips.",
+  "prompt_injection_flag": "None. cron-state.json, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md, memory/logs/2026-09-26.md, ./scripts/skill-runs JSON output all structured/data-only; no untrusted natural-language content ingested this run."
 }
