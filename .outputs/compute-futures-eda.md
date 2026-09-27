@@ -1,2 +1,2 @@
-*Compute-Futures EDA — 2026-09-20*
-144 rows, 4 modes. Top: 2.55× basket:synth multiplier lock durable at n=8 filings (09-13 → 09-20), 22-day 2.5000× regime supersession stands. Spread retail top-loss purity returns 6/6 after 09-14's operator break, retail depth new class-series low −$4,709 (validates the noise-cluster hypothesis). Conservation OK across all modes (basket/spread/synth/x402 all float-dust, 4−/0+ sign pattern held 2nd consecutive filing). 6-day filing gap (09-15/16/17/18 CSVs unfiled per ISS-006 06:00Z dead pocket; 09-19 CSV absent). Report: memory/topics/compute-futures-eda/2026-09-20.md
+*Compute-Futures EDA — 2026-09-27*
+144 rows, 4 modes. CRITICAL: 2.55× n=11 multiplier regime broke on 09-25 → new 2.193750× at n=2 (class-first sub-2.2× in 87-CSV series). Spread retail top-loss purity holds 6/6, retail depth -$7,440 new class low (58% deeper vs 09-20). Conservation: 4/4 OK. Report: memory/topics/compute-futures-eda/2026-09-27.md

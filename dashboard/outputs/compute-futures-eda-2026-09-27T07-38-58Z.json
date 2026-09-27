@@ -1,0 +1,161 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-09-27"
+      },
+      "children": [
+        "overview",
+        "alert-critical",
+        "metrics",
+        "conservation",
+        "report"
+      ]
+    },
+    "overview": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-rows",
+        "stat-modes"
+      ]
+    },
+    "stat-rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Data rows",
+        "value": "144"
+      }
+    },
+    "stat-modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "alert-critical": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "Critical: Multiplier Regime Change",
+        "message": "2.55× n=11 multiplier regime broke on 09-25 → new 2.193750× at n=2 (class-first sub-2.2× in 87-CSV series)"
+      }
+    },
+    "metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "sep1",
+        "metric-purity",
+        "metric-depth",
+        "sep2"
+      ]
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metric-purity": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "purity-label",
+        "purity-badge"
+      ]
+    },
+    "purity-label": {
+      "type": "Text",
+      "props": {
+        "text": "Spread retail top-loss purity holds",
+        "variant": "body"
+      }
+    },
+    "purity-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "6/6",
+        "variant": "secondary"
+      }
+    },
+    "metric-depth": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "depth-label",
+        "depth-value"
+      ]
+    },
+    "depth-label": {
+      "type": "Text",
+      "props": {
+        "text": "Retail depth new class low",
+        "variant": "body"
+      }
+    },
+    "depth-value": {
+      "type": "Stat",
+      "props": {
+        "value": "-$7,440",
+        "delta": "58% deeper vs 09-20",
+        "trend": "down"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "conservation": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "cons-label",
+        "cons-badge"
+      ]
+    },
+    "cons-label": {
+      "type": "Text",
+      "props": {
+        "text": "Conservation",
+        "variant": "body"
+      }
+    },
+    "cons-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "4/4 OK",
+        "variant": "secondary"
+      }
+    },
+    "report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-09-27.md",
+        "source": "Aeon Memory"
+      }
+    }
+  }
+}
