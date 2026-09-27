@@ -1,0 +1,232 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Workflow Security Audit"
+      },
+      "children": [
+        "date",
+        "sep1",
+        "summary",
+        "sep2",
+        "findings",
+        "sep3",
+        "remediation",
+        "sep4",
+        "vulnerability",
+        "sep5",
+        "links"
+      ]
+    },
+    "date": {
+      "type": "Heading",
+      "props": {
+        "text": "Workflow audit — 2026-09-27",
+        "level": "h2"
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "summary": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "WORKFLOW_AUDIT_NEW_CRITICAL",
+        "message": "3 new critical, 55 new high, 31 med, 64 low. First on-disk delta baseline."
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "findings": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "findings-title",
+        "findings-grid"
+      ]
+    },
+    "findings-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues by Severity",
+        "level": "h3"
+      }
+    },
+    "findings-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat-crit",
+        "stat-high",
+        "stat-med",
+        "stat-low"
+      ]
+    },
+    "stat-crit": {
+      "type": "Stat",
+      "props": {
+        "label": "Critical",
+        "value": "3"
+      }
+    },
+    "stat-high": {
+      "type": "Stat",
+      "props": {
+        "label": "High",
+        "value": "55"
+      }
+    },
+    "stat-med": {
+      "type": "Stat",
+      "props": {
+        "label": "Medium",
+        "value": "31"
+      }
+    },
+    "stat-low": {
+      "type": "Stat",
+      "props": {
+        "label": "Low",
+        "value": "64"
+      }
+    },
+    "sep3": {
+      "type": "Separator"
+    },
+    "remediation": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "rem-title",
+        "rem-stats"
+      ]
+    },
+    "rem-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Remediation Status",
+        "level": "h3"
+      }
+    },
+    "rem-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-auto",
+        "stat-manual"
+      ]
+    },
+    "stat-auto": {
+      "type": "Stat",
+      "props": {
+        "label": "Auto-fixed",
+        "value": "0"
+      }
+    },
+    "stat-manual": {
+      "type": "Stat",
+      "props": {
+        "label": "Manual",
+        "value": "58"
+      }
+    },
+    "sep4": {
+      "type": "Separator"
+    },
+    "vulnerability": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "vuln-title",
+        "vuln-label",
+        "vuln-action",
+        "vuln-location",
+        "vuln-risk"
+      ]
+    },
+    "vuln-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Critical Issue",
+        "level": "h3"
+      }
+    },
+    "vuln-label": {
+      "type": "Text",
+      "props": {
+        "text": "Top chain:",
+        "variant": "muted"
+      }
+    },
+    "vuln-action": {
+      "type": "Text",
+      "props": {
+        "text": "actions/checkout@v4.4.0 unpinned",
+        "variant": "lead"
+      }
+    },
+    "vuln-location": {
+      "type": "Text",
+      "props": {
+        "text": "Location: .github/workflows/aeon.yml:85 (Early checkout)",
+        "variant": "body"
+      }
+    },
+    "vuln-risk": {
+      "type": "Text",
+      "props": {
+        "text": "aeon.yml is externally reachable via issues + workflow_dispatch, so a repointed tag ⇒ RCE with fleet-wide secret scope (GITHUB_TOKEN + ANTHROPIC_API_KEY + GH_GLOBAL + notify creds).",
+        "variant": "body"
+      }
+    },
+    "sep5": {
+      "type": "Separator"
+    },
+    "links": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-link",
+        "report-link"
+      ]
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Fix PR",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/85",
+        "source": "GitHub"
+      }
+    },
+    "report-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Audit Report",
+        "href": "articles/workflow-security-audit-2026-09-27.md"
+      }
+    }
+  }
+}

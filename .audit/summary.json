@@ -1,0 +1,39 @@
+{
+  "today": "2026-09-27",
+  "verdict": "WORKFLOW_AUDIT_NEW_CRITICAL \u2014 3 new critical, 55 new high, 31 new medium, 64 new low; first on-disk delta baseline",
+  "exit_mode": "NEW_CRITICAL",
+  "total": 153,
+  "crit": 3,
+  "high": 55,
+  "med": 31,
+  "low": 64,
+  "new": 153,
+  "reintroduced": 0,
+  "unchanged": 0,
+  "resolved": 0,
+  "fixed": 0,
+  "manual": 58,
+  "z_count": 133,
+  "a_count": 20,
+  "h_count": 0,
+  "wf_count": 8,
+  "act_count": 0,
+  "report_path": "articles/workflow-security-audit-2026-09-27.md",
+  "top_chains": [
+    {
+      "rule": "zizmor/unpinned-uses",
+      "file": ".github/workflows/aeon.yml",
+      "line": 85
+    },
+    {
+      "rule": "zizmor/unpinned-uses",
+      "file": ".github/workflows/aeon.yml",
+      "line": 121
+    },
+    {
+      "rule": "zizmor/unpinned-uses",
+      "file": ".github/workflows/aeon.yml",
+      "line": 133
+    }
+  ]
+}
