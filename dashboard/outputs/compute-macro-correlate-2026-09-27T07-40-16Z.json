@@ -1,0 +1,218 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "compute-macro-correlate",
+        "description": "2026-09-27"
+      },
+      "children": [
+        "track-a",
+        "sep-1",
+        "track-b",
+        "sep-2",
+        "natgas",
+        "sep-3",
+        "pr-ref"
+      ]
+    },
+    "track-a": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "track-a-heading",
+        "track-a-stats",
+        "track-a-note"
+      ]
+    },
+    "track-a-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Track A: DePIN proxy (n=180)",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "track-a-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat-render",
+        "stat-tao",
+        "stat-io"
+      ]
+    },
+    "stat-render": {
+      "type": "Stat",
+      "props": {
+        "label": "RENDER (weak)",
+        "value": "ρ = −0.205",
+        "delta": "p = 0.006"
+      },
+      "children": []
+    },
+    "stat-tao": {
+      "type": "Stat",
+      "props": {
+        "label": "TAO (weak)",
+        "value": "ρ = −0.157",
+        "delta": "p = 0.035"
+      },
+      "children": []
+    },
+    "stat-io": {
+      "type": "Stat",
+      "props": {
+        "label": "IO",
+        "value": "null"
+      },
+      "children": []
+    },
+    "track-a-note": {
+      "type": "Text",
+      "props": {
+        "text": "Both signals below |ρ|≥0.25 flag threshold; first snapshot, no consecutive-reads elevation.",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "track-b": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "track-b-heading",
+        "track-b-modes",
+        "track-b-note"
+      ]
+    },
+    "track-b-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Track B: Sweep PnL (n=94 joined days)",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "track-b-modes": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-basket",
+        "badge-spread",
+        "badge-synthetic",
+        "badge-x402"
+      ]
+    },
+    "badge-basket": {
+      "type": "Badge",
+      "props": {
+        "text": "basket: null",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "badge-spread": {
+      "type": "Badge",
+      "props": {
+        "text": "spread: null",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "badge-synthetic": {
+      "type": "Badge",
+      "props": {
+        "text": "synthetic: null",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "badge-x402": {
+      "type": "Badge",
+      "props": {
+        "text": "x402: null",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "track-b-note": {
+      "type": "Text",
+      "props": {
+        "text": "No mode clears the noise floor.",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "natgas": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "natgas-heading",
+        "natgas-text"
+      ]
+    },
+    "natgas-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Pre-registered NATGAS Test",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "natgas-text": {
+      "type": "Text",
+      "props": {
+        "text": "Test holds: no compute-vs-energy signal at the marketplace level.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "pr-ref": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #83",
+        "href": "https://github.com/aeon/aeon/pull/83",
+        "source": "GitHub"
+      },
+      "children": []
+    }
+  }
+}
