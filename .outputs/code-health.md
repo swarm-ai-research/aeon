@@ -1,12 +1,10 @@
+This is a single-step noop — no task tracking warranted.
+
 ## Summary
 
-Ran `skills/code-health/SKILL.md` on 2026-09-27. Hit the missing-config short-circuit at step 1: both `memory/watched-repos.md` and the alternate `memory/topics/watched-repos.md` are absent. Per SKILL.md §Config ("create it or skip this skill") and the standing convention shared with 5 sibling dependents, chose skip.
+Executed `skills/code-health/SKILL.md`. The required config file `memory/watched-repos.md` is absent (58-day standing outage, tracked in MEMORY.md action queue as "Populate `memory/watched-repos.md` OR disable 6 dependents"), so short-circuited per the SKILL's explicit "create it or skip" clause. Auto-creating the file was declined — five sibling skills (`issue-triage`, `github-monitor`, `changelog`, `weekly-shiplog`, `repo-revive`) wait on the same list, and forging placeholder repos would silently activate all six.
 
-**Files modified:**
-- `memory/logs/2026-09-27.md` — appended Code Health entry (this run).
-
-**No files created/dispatched:** no `articles/code-health-2026-09-27.md`, no `gh repo clone`, no PR, no notify (silence is intended for config-missing per the convention followed by github-monitor / issue-triage / changelog / weekly-shiplog / repo-revive).
-
-**Follow-up:** unchanged from MEMORY.md action queue line 53 — populate `memory/watched-repos.md` OR disable the 6 dependent skills; also reconcile the repo-revive path mismatch (`memory/topics/watched-repos.md` vs `memory/watched-repos.md`). Streak-57 as of 2026-09-27.
-
-**Exit mode:** `CODE_HEALTH_OK no-watched-repos`.
+- **Verdict:** `CODE_HEALTH_NOOP — watched-repos.md absent (streak-58)`
+- **Files modified:** `memory/logs/2026-09-28.md` (appended Code Health entry + Summary)
+- **Notification:** not fired (dedup with standing action-queue item; daily notify would be pure noise)
+- **Follow-ups:** none new — resolution path unchanged (populate the file, or disable the 6 dependents on `aeon.yml`; also reconcile `repo-revive`'s path mismatch `memory/topics/watched-repos.md` → `memory/watched-repos.md`)
