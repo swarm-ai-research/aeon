@@ -1,0 +1,23 @@
+{
+  "root": "card_changelog",
+  "state": {},
+  "elements": {
+    "card_changelog": {
+      "type": "Card",
+      "props": {
+        "title": "changelog"
+      },
+      "children": [
+        "alert_missing_file"
+      ]
+    },
+    "alert_missing_file": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "File missing",
+        "message": "`memory/watched-repos.md` missing — nothing to scan (streak-57)"
+      }
+    }
+  }
+}
