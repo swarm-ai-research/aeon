@@ -1,0 +1,177 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Cost Report — 2026-09-28 (last 7 days)"
+      },
+      "children": [
+        "stack_metrics",
+        "sep1",
+        "heading_top3",
+        "table_costs",
+        "sep2",
+        "heading_actions",
+        "stack_actions",
+        "sep3",
+        "alert_anomaly",
+        "sep4",
+        "link_fullreport"
+      ]
+    },
+    "stack_metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_spend",
+        "stat_runs",
+        "stat_wow",
+        "stat_projection"
+      ]
+    },
+    "stat_spend": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Spend (7 days)",
+        "value": "$118.92"
+      }
+    },
+    "stat_runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs",
+        "value": "25"
+      }
+    },
+    "stat_wow": {
+      "type": "Stat",
+      "props": {
+        "label": "Week-over-Week",
+        "value": "-26.7%",
+        "trend": "down"
+      }
+    },
+    "stat_projection": {
+      "type": "Stat",
+      "props": {
+        "label": "Monthly Projection",
+        "value": "$509.64"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_top3": {
+      "type": "Heading",
+      "props": {
+        "text": "Top 3 by Cost",
+        "level": "h3"
+      }
+    },
+    "table_costs": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Cost",
+          "Runs"
+        ],
+        "rows": [
+          [
+            "reflect",
+            "$59.44",
+            "5"
+          ],
+          [
+            "pr-tracker",
+            "$19.46",
+            "3"
+          ],
+          [
+            "notegraph",
+            "$16.17",
+            "3"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_actions": {
+      "type": "Heading",
+      "props": {
+        "text": "Actions This Week",
+        "level": "h3"
+      }
+    },
+    "stack_actions": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "action1",
+        "action2",
+        "action3"
+      ]
+    },
+    "action1": {
+      "type": "Text",
+      "props": {
+        "text": "stale-content-pr-sweeper → disable until watched-repos config fixed (zero output, ~$13.51/wk waste)"
+      }
+    },
+    "action2": {
+      "type": "Text",
+      "props": {
+        "text": "reflect → pilot Sonnet for synthesis passes (50% of budget, ~$35/wk savings est.)"
+      }
+    },
+    "action3": {
+      "type": "Text",
+      "props": {
+        "text": "notegraph → merge PRs #79/#80/#82 + bundle fingerprint fixes to cut burst-run context (~$3–5/wk)"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_anomaly": {
+      "type": "Alert",
+      "props": {
+        "title": "Anomaly Flagged",
+        "message": "notegraph 3.6× WoW spike (burst after 4-day pocket silence)",
+        "type": "warning"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_fullreport": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/cost-report-2026-09-28.md"
+      }
+    }
+  }
+}
