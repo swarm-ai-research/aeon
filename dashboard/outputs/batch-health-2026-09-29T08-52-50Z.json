@@ -1,0 +1,126 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "batch-health",
+        "description": "Batch gap detected on 2026-09-29"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "date-line",
+        "issue-alert",
+        "separator1",
+        "skills-section",
+        "separator2",
+        "assessment-section"
+      ]
+    },
+    "date-line": {
+      "type": "Text",
+      "props": {
+        "text": "Date: 2026-09-29",
+        "variant": "muted"
+      }
+    },
+    "issue-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Batch Gap",
+        "message": "2 scheduled skills didn't run in the 06:00–07:30 UTC window",
+        "type": "warning"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "skills-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "skills-heading",
+        "skills-table"
+      ]
+    },
+    "skills-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Affected Skills",
+        "level": "h3"
+      }
+    },
+    "skills-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Cron Schedule"
+        ],
+        "rows": [
+          [
+            "planner",
+            "30 6 * * *"
+          ],
+          [
+            "compute-futures-eda",
+            "0 6 * * *"
+          ]
+        ]
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "assessment-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "assessment-heading",
+        "assessment-content",
+        "known-issue"
+      ]
+    },
+    "assessment-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Assessment",
+        "level": "h3"
+      }
+    },
+    "assessment-content": {
+      "type": "Text",
+      "props": {
+        "text": "Isolated miss — transient cron delay likely, monitoring."
+      }
+    },
+    "known-issue": {
+      "type": "Text",
+      "props": {
+        "text": "Both fall in the known ISS-006 06Z dead pocket."
+      }
+    }
+  }
+}

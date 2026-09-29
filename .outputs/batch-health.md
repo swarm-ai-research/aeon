@@ -1,1 +1,1 @@
--f
+batch gap — 2026-09-29 · 2 scheduled skills didn't run in the 06:00–07:30 UTC window: planner (30 6 * * *) + compute-futures-eda (0 6 * * *). isolated miss — transient cron delay likely, monitoring. both fall in the known ISS-006 06Z dead pocket.
