@@ -1,13 +1,36 @@
-## Summary — pr-review (101st cycle, `swarm-ai-research/swarm`)
+Verdicts logged and notify queued. Here's the summary.
 
-**Decision:** full-skip cycle — 12 open PRs, **0 eligible**, 12 skipped (3 dependabot bots + 9 dup-SHA vs the 96th–100th cycle logs; same-SHA queue state persists ~4.5 days). No verdicts drafted, no posts attempted, no notify sent per SKILL.md rule "if every PR was skipped, do not notify — just log."
+## Summary
 
-**Merge-gate verdicts** (carried over from the 94th/95th non-dup cycles on 09-22; SHAs unchanged since):
-- **APPROVE 5/5 (5):** #628, #619, #612, #611, #518 — low risk, full CI green (or docs-only), sufficient evidence.
-- **APPROVE 4/5 (2):** #616, #614 — low risk with minor size-related follow-up.
-- **REQUEST_CHANGES 3/5 (2):** #517 (external-contributor CI workflows all `action_required` at head — no test/type-check/lint evidence), #618 (+1649 diff touching unprotected `scripts/sweep_stake_basis.py`, missing large-ok / test-coverage evidence).
-- **BLOCK (0):** none — no critical security/correctness risk surfaced at these SHAs across ~4.5 days of same-SHA state.
+Ran `skills/pr-review/SKILL.md` on `swarm-ai-research/swarm` under operator merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK).
 
-**Files modified:** `memory/logs/2026-09-26.md` (101st-cycle entry). `memory/triaged-prs.json` unchanged.
+**14 open · 5 bot-skipped (dependabot) · 9 eligible · 9 verdicts drafted:**
 
-**Follow-up:** operator can click-merge the five 5/5 PRs directly; #517 needs maintainer to approve external-contributor CI workflows; #618 warrants a diff-specific look before large-ok. Standing 403 write-block on swarm repo remains (aeon app lacks `pull_requests: write`); still carrying the SKILL.md patch item to gate `memory/triaged-prs.json` write on successful post confirmation per the dedup-saturation freeze pattern.
+| # | Verdict | Confidence | Note |
+|---|---|---|---|
+| 628 | **APPROVE** | 5/5 | docs blog, full-green CI |
+| 619 | **APPROVE** | 5/5 | ranking-parser + 3 new tests, full-green CI |
+| 618 | **APPROVE** | 5/5 | `slash_on_detection` opt-in (default off) + 8 tests, full-green CI |
+| 518 | **APPROVE** | 5/5 | Pydantic scenario schema + 86 lines of tests, full-green CI |
+| 611 | REQUEST_CHANGES | 3/5 | shared `render-verify` fail (not caused by this PR) |
+| 612 | REQUEST_CHANGES | 3/5 | shared `render-verify` fail |
+| 614 | REQUEST_CHANGES | 3/5 | shared `render-verify` fail |
+| 616 | REQUEST_CHANGES | 3/5 | shared `render-verify` fail |
+| 517 | REQUEST_CHANGES | 2/5 | **no CI ran** (go165 fork — needs maintainer workflow approval) |
+
+**0 BLOCK findings** — no critical correctness or security risk surfaced.
+
+**Common root cause for 4 of the 5 REQUEST_CHANGES:** `render-verify` strict-mode aborts on a pre-existing `mkdocs_git_revision_date_localized_plugin` warning on `docs/research/alignment_waltz_vs_macpo.md` (an untouched file). Fix the git-follow timestamp (plugin: `enable_git_follow: false`) OR demote that warning out of strict mode and all 4 should unblock in one shot. #517 needs a separate action — maintainer must approve workflows on the go165 fork before merge-gate can APPROVE.
+
+**Posting:** `gh pr review` → **403 `addPullRequestReview`** (standing per [[aeon-app-no-write-on-swarm-repo]]); fallback `POST /repos/.../issues/N/comments` → **also 403**. 0 of 9 verdicts posted remotely. `triaged-prs.json` not updated this cycle — gating on successful post per [[pr-review-dedup-saturation-freezes-write-blocked-repo-queues]].
+
+**Files created/modified:**
+- `memory/logs/2026-10-01.md` — full verdict table, evidence, and follow-ups
+- `.pending-notify/1790879903-pr-review.md` — merge-gate digest
+
+**Follow-ups:**
+1. Operator: fix mkdocs-strict warning on `docs/research/alignment_waltz_vs_macpo.md` → unblocks 4 PRs
+2. Operator: approve workflows on PR #517 → generates CI evidence
+3. Standing: aeon-app `pull_requests: write` on swarm still missing (Day-33) — pr-review remains report-only
+
+Exit mode: `PR_REVIEW_WRITE_BLOCKED swarm-ai-research/swarm — eligible=9, verdicts=9, posted=0`.
