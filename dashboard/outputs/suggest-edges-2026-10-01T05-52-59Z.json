@@ -1,0 +1,64 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "suggest-edges"
+      },
+      "children": [
+        "stack_content"
+      ]
+    },
+    "stack_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_main",
+        "text_date",
+        "text_context",
+        "separator_1",
+        "link_pr"
+      ]
+    },
+    "text_main": {
+      "type": "Text",
+      "props": {
+        "text": "3 missing links proposed",
+        "variant": "lead"
+      }
+    },
+    "text_date": {
+      "type": "Text",
+      "props": {
+        "text": "Top: 2026-06-27",
+        "variant": "body"
+      }
+    },
+    "text_context": {
+      "type": "Text",
+      "props": {
+        "text": "Day-53 templated-corpus recurrence (6th within-cohort dispatch, all inside gitlawb-compute-futures-proofs/)",
+        "variant": "caption"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Review PR #86",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/86",
+        "source": "GitHub"
+      }
+    }
+  }
+}

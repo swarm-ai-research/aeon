@@ -1,1 +1,1 @@
-*Suggest-edges* — 3 missing links proposed (top: 2026-06-27). Review PR: https://github.com/swarm-ai-research/aeon/pull/81
+*Suggest-edges* — 3 missing links proposed (top: 2026-06-27). Day-53 templated-corpus recurrence (6th within-cohort dispatch, all inside gitlawb-compute-futures-proofs/). Review PR: https://github.com/swarm-ai-research/aeon/pull/86
