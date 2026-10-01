@@ -1,0 +1,97 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph updated"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "notes-stat",
+        "separator1",
+        "metrics-grid",
+        "separator2",
+        "pr-link"
+      ]
+    },
+    "notes-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes wired in",
+        "value": "12",
+        "trend": "up"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat-nodes",
+        "stat-edges",
+        "stat-orphans",
+        "stat-bundled"
+      ]
+    },
+    "stat-nodes": {
+      "type": "Stat",
+      "props": {
+        "label": "Nodes",
+        "value": "426"
+      }
+    },
+    "stat-edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "4494"
+      }
+    },
+    "stat-orphans": {
+      "type": "Stat",
+      "props": {
+        "label": "Orphans",
+        "value": "0"
+      }
+    },
+    "stat-bundled": {
+      "type": "Stat",
+      "props": {
+        "label": "Bundled",
+        "value": "0"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-link": {
+      "type": "Link",
+      "props": {
+        "label": "PR #87",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/87"
+      }
+    }
+  }
+}
