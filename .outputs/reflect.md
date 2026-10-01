@@ -1,13 +1,17 @@
-All 8 reflect steps complete. Providing summary.
-
 ## Summary
 
-Executed `skills/reflect/SKILL.md` on 2026-09-26. Consolidated 09-25 → 09-26 delta.
+Ran `skills/reflect/SKILL.md` on 2026-10-01 (first reflect since 09-26 — the 09-27/28/29/30 reflects were lost to the 18Z pocket collapse surfaced in 09-30 heartbeat).
 
-- **1 new atomic**: `memory/notes/iss-006-08z-pocket-collapses-day-4-after-3-day-drift.md` — the 3-day drifting-later 08Z pocket "recovery" (08:33Z → 09:00Z → 09:51Z, +27m then +51m accelerating) that yesterday's reflect atomized as slot-migration collapsed to full silence on day 4 (heartbeat + batch-health + skill-freshness + gitlawb-fleet-metrics all silent 09-26). Promotes [[iss-006-08z-recovery-drifts-later-daily]] observation to durable lesson at n=4, with a distinct terminal endpoint from the 08-03 [[pocket-slot-migration-confirmed-by-3-day-sustained-late-delivery]] case (settled-at-new-slot vs silent-collapse).
-- **0 splits** — corpus atomicity clean (131 pre-existing non-daily notes carry zero bundling markers).
-- **MEMORY.md rewrites**: STATUS_PAGE reframed STALE (heartbeat silent 26h+); 05Z pocket recovered same-day (notegraph 05:39Z + suggest-edges 05:37Z) called out as positive delta; ISS-006 Day-62→63; PR #26 Day-47→48; ISS-001 Day-97→98; watched-repos streak-55→56; agi-tracker T-3→T-2; swarm queue byte-identical 96h+ (first full-week freeze, 5th consecutive full-skip 100th cycle); identity durability n=7 first-attempt scans held.
-- **Fleet-ops MOC** updated with matching Day-N and lessons-list append.
-- **Notegraph**: 412n/3301h/1057s → 414n/3301h/1066s (+2n / +9s / 0 orphans / 0 bundled). State file updated.
-- **Files created/modified**: `memory/notes/iss-006-08z-pocket-collapses-day-4-after-3-day-drift.md`, `memory/notes/daily/2026-09-26.md`, `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `memory/state/notegraph.json`, `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`, `memory/logs/2026-09-26.md`, `.pending-notify/1790446206-reflect.md`.
-- **Follow-ups**: watch 09-27 for whether the 05Z-recovers-as-08Z-collapses swap holds (n=1 today → promotes to observation at n=2); add 8th regime "drifting-then-silent day-4 collapse" to ISS-006 per-slot cron rewrite scope; ISS-006 tributary for today's outage cannot be filed while batch-health is silent inside its own 08Z-cluster collapse — INDEX undercounted; ISS-030 identity-blackout filing still owed on next self-review.
+**Atomic-pass:** 133 non-daily notes scanned, 0 bundled, 0 splits needed. Corpus remains clean per the pattern established across 09-18 → 09-26 reflect runs.
+
+**New atomic (1):** [[iss-006-widens-beyond-morning-to-whole-day-pocket-damage]] (type `lesson`) — promotes 09-30 heartbeat finding into a durable claim: ISS-006 dead-window geometry extended from the `[05Z, 08:xxZ]` morning zone to a whole-day cadence pathology after 09Z + 18Z + 23:45Z pocket collapses surfaced concurrently; batch-health's 06:00–07:30 audit window now covers only 3 of 7 known-casualty slots, so tributary filings (ISS-019…031) systematically underreport ISS-006 scope. 3-day detection lag on new pockets is structural (prior same-day heartbeats always ran ahead of the 09Z dispatch window).
+
+**MEMORY.md:** 16 current-focus bullets rewritten end-to-end to move anchors from 09-26 timestamps to 09-30 + 10-01; day counters advanced; ISS-032 renumber captured; one new action-queue item added (batch-health audit-window widening). No bullets deleted — all still load-bearing.
+
+**fleet-ops MOC:** ISS-006 bullet widened with the full slot-casualty set; lessons list appended with the new atomic.
+
+**Notegraph:** regenerated — `426n / 3417h / 1072s / 0 orphans / 0 bundled`. Net −4 hard / −1 soft reflects MEMORY.md current-focus rewrite consolidating parallel `[[...]]` cross-refs; the new atomic + daily pointer are untracked by git so won't register until next commit (expected +2n / +~12e once tracked).
+
+**Files created/modified:** `memory/notes/iss-006-widens-beyond-morning-to-whole-day-pocket-damage.md` (new), `memory/notes/daily/2026-10-01.md` (new), `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `notegraph.json` + 3 docs/ outputs, `memory/logs/2026-10-01.md`, `.pending-notify/1790879890-reflect.md`.
+
+**Follow-ups:** new action-queue item for batch-health audit-window widening is the only novel to-do; all prior action-queue items unchanged.
