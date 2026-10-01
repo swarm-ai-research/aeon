@@ -1,0 +1,520 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-10-01"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status-row",
+        "sep1",
+        "systemic-alert",
+        "sep2",
+        "degraded-section",
+        "sep3",
+        "nodata-section",
+        "sep4",
+        "healthy-section",
+        "sep5",
+        "summary-stats",
+        "sep6",
+        "recent-events",
+        "sep7",
+        "notify-gate"
+      ]
+    },
+    "status-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-health",
+        "stat-day",
+        "stat-hash"
+      ]
+    },
+    "stat-health": {
+      "type": "Stat",
+      "props": {
+        "label": "Health Status",
+        "value": "DEGRADED",
+        "delta": "38 skills",
+        "trend": "down"
+      }
+    },
+    "stat-day": {
+      "type": "Stat",
+      "props": {
+        "label": "Steady State",
+        "value": "Day 94"
+      }
+    },
+    "stat-hash": {
+      "type": "Stat",
+      "props": {
+        "label": "Hash",
+        "value": "e27c0ac60367e7e5",
+        "delta": "unchanged"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "systemic-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Systemic Issue: ISS-001 OAuth-outage",
+        "message": "Denominator burn Day-103. All 38 DEGRADED skills share zero-token last_error from 2026-06 outage. Live 7d: 58/58 success, 0 fail, 4 in-progress — 30th consecutive zero-fail day."
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "degraded-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded-heading",
+        "deg-skill1",
+        "deg-skill2",
+        "deg-skill3",
+        "deg-skill4",
+        "deg-skill5",
+        "deg-more"
+      ]
+    },
+    "degraded-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 DEGRADED (38)",
+        "level": "h3"
+      }
+    },
+    "deg-skill1": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "deg-name1",
+        "deg-meta1",
+        "deg-badge1"
+      ]
+    },
+    "deg-name1": {
+      "type": "Text",
+      "props": {
+        "text": "skill-repair",
+        "variant": "lead"
+      }
+    },
+    "deg-meta1": {
+      "type": "Text",
+      "props": {
+        "text": "0 cf, 103d since last success",
+        "variant": "caption"
+      }
+    },
+    "deg-badge1": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-001",
+        "variant": "destructive"
+      }
+    },
+    "deg-skill2": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "deg-name2",
+        "deg-meta2",
+        "deg-badge2"
+      ]
+    },
+    "deg-name2": {
+      "type": "Text",
+      "props": {
+        "text": "milestone-tracker",
+        "variant": "lead"
+      }
+    },
+    "deg-meta2": {
+      "type": "Text",
+      "props": {
+        "text": "0 cf, 24d since last success",
+        "variant": "caption"
+      }
+    },
+    "deg-badge2": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-001",
+        "variant": "destructive"
+      }
+    },
+    "deg-skill3": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "deg-name3",
+        "deg-meta3",
+        "deg-badge3"
+      ]
+    },
+    "deg-name3": {
+      "type": "Text",
+      "props": {
+        "text": "compute-pulse",
+        "variant": "lead"
+      }
+    },
+    "deg-meta3": {
+      "type": "Text",
+      "props": {
+        "text": "0 cf, 19d since last success",
+        "variant": "caption"
+      }
+    },
+    "deg-badge3": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-001",
+        "variant": "destructive"
+      }
+    },
+    "deg-skill4": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "deg-name4",
+        "deg-meta4",
+        "deg-badge4"
+      ]
+    },
+    "deg-name4": {
+      "type": "Text",
+      "props": {
+        "text": "skill-evals",
+        "variant": "lead"
+      }
+    },
+    "deg-meta4": {
+      "type": "Text",
+      "props": {
+        "text": "0 cf, 18d since last success",
+        "variant": "caption"
+      }
+    },
+    "deg-badge4": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-001",
+        "variant": "destructive"
+      }
+    },
+    "deg-skill5": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "deg-name5",
+        "deg-meta5",
+        "deg-badge5"
+      ]
+    },
+    "deg-name5": {
+      "type": "Text",
+      "props": {
+        "text": "self-review",
+        "variant": "lead"
+      }
+    },
+    "deg-meta5": {
+      "type": "Text",
+      "props": {
+        "text": "0 cf, 18d since last success",
+        "variant": "caption"
+      }
+    },
+    "deg-badge5": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-001",
+        "variant": "destructive"
+      }
+    },
+    "deg-more": {
+      "type": "Text",
+      "props": {
+        "text": "+33 more — see memory/issues/INDEX.md",
+        "variant": "muted"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "nodata-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "nodata-heading",
+        "nodata-content"
+      ]
+    },
+    "nodata-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA (2)",
+        "level": "h3"
+      }
+    },
+    "nodata-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "nodata-item1",
+        "nodata-item2",
+        "nodata-action"
+      ]
+    },
+    "nodata-item1": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "outline"
+      }
+    },
+    "nodata-item2": {
+      "type": "Badge",
+      "props": {
+        "text": "run-frequency-guard",
+        "variant": "outline"
+      }
+    },
+    "nodata-action": {
+      "type": "Badge",
+      "props": {
+        "text": "DISPATCH-SKILL",
+        "variant": "secondary"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "healthy-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "healthy-heading",
+        "healthy-content"
+      ]
+    },
+    "healthy-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟢 HEALTHY (4)",
+        "level": "h3"
+      }
+    },
+    "healthy-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "health-item1",
+        "health-item2",
+        "health-item3",
+        "health-item4"
+      ]
+    },
+    "health-item1": {
+      "type": "Badge",
+      "props": {
+        "text": "agi-tracker",
+        "variant": "default"
+      }
+    },
+    "health-item2": {
+      "type": "Badge",
+      "props": {
+        "text": "config-validator",
+        "variant": "default"
+      }
+    },
+    "health-item3": {
+      "type": "Badge",
+      "props": {
+        "text": "swarm-safety-eval",
+        "variant": "default"
+      }
+    },
+    "health-item4": {
+      "type": "Badge",
+      "props": {
+        "text": "weekly-shiplog",
+        "variant": "default"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "summary-heading",
+        "stats-row"
+      ]
+    },
+    "summary-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h3"
+      }
+    },
+    "stats-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-open-issues",
+        "stat-resolved-run",
+        "stat-filed-run"
+      ]
+    },
+    "stat-open-issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "27"
+      }
+    },
+    "stat-resolved-run": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      }
+    },
+    "stat-filed-run": {
+      "type": "Stat",
+      "props": {
+        "label": "Filed This Run",
+        "value": "0"
+      }
+    },
+    "sep6": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "recent-events": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "recent-heading",
+        "event-text1",
+        "event-text2"
+      ]
+    },
+    "recent-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Recent Events (since 09-26)",
+        "level": "h3"
+      }
+    },
+    "event-text1": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-030 (09-28 batch outage) — batch-health-owned, ISS-006 tributaries"
+      }
+    },
+    "event-text2": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-031 (09-30 batch outage) — batch-health-owned, ISS-006 tributaries"
+      }
+    },
+    "sep7": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "notify-gate": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "title": "Notification Gate Fired",
+        "message": "Hash unchanged BUT elapsed 143h ≥ 24h daily cadence → triggered. This is the first skill-health dispatch since 09-26."
+      }
+    }
+  }
+}

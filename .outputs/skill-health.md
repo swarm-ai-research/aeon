@@ -1,8 +1,18 @@
-Skill-health run complete. State unchanged for the 88th consecutive day — no notify sent.
+*Skill Health — 2026-10-01*
+HEALTH: DEGRADED(38) · Day-94 steady-state · hash e27c0ac60367e7e5 unchanged
+[systemic: ISS-001 OAuth-outage denominator burn Day-103 — all 38 DEGRADED share zero-token last_error from 2026-06 outage; live 7d: 58/58 success, 0 fail, 4 in-progress — 30th consecutive zero-fail day]
 
-## Summary
-- Executed `skills/skill-health/SKILL.md`. Classification hash `e27c0ac60367e7e5` matches Day-87 (Day-88 steady-state); elapsed 22.86h < 24h daily-reminder cadence → **NOOP gate**, notify suppressed per SKILL.md §5.
-- Classification: 0 CRITICAL / 0 FLAPPING / 38 DEGRADED (ISS-001 OAuth-outage denominator burn, all skills `last_status=success cf=0`, sr 0.01–0.45) / 0 WARNING / 4 HEALTHY / 2 NO_DATA. `./scripts/skill-runs --hours 168` agrees: 81/81 succeeded, 0 failed, 4 in-progress (this run's 18Z batch).
-- Reconciliation: 0 issues filed, 0 resolved. INDEX open-count unchanged at 25 (no skill-health-owned issues to touch; all 25 owned by other detectors).
-- Files modified: `memory/skill-health/last-report.json` (last_run_at bumped, last_notified_at preserved), `memory/logs/2026-09-26.md` (NOOP + summary entry appended).
-- Follow-up: none owned by skill-health. 06Z pocket dead-streak (+24h vs 09-25, now 6d) awaits batch-health OUTAGE-threshold tributary; ISS-030/ISS-031 drafts still pending self-review. Next skill-health notify eligible at or after 2026-09-26T19:12:28Z.
+🟡 DEGRADED (38)
+- skill-repair — 0 cf, 103d since last success — INVESTIGATE → ISS-001
+- milestone-tracker — 0 cf, 24d since last success — INVESTIGATE → ISS-001
+- compute-pulse — 0 cf, 19d since last success — INVESTIGATE → ISS-001
+- skill-evals — 0 cf, 18d since last success — INVESTIGATE → ISS-001
+- self-review — 0 cf, 18d since last success — INVESTIGATE → ISS-001
++33 more — see memory/issues/INDEX.md
+
+⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — DISPATCH-SKILL
+🟢 HEALTHY (4): agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog
+
+Open issues: 27 · Resolved this run: 0 · Filed this run: 0
+Interim since 09-26: ISS-030 (09-28 batch outage) + ISS-031 (09-30 batch outage) — batch-health-owned, ISS-006 tributaries.
+Notify gate: hash unchanged BUT elapsed 143h ≥ 24h daily cadence → fired (first skill-health dispatch since 09-26).
