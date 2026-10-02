@@ -1,18 +1,17 @@
-*Skill Health — 2026-10-01*
-HEALTH: DEGRADED(38) · Day-94 steady-state · hash e27c0ac60367e7e5 unchanged
-[systemic: ISS-001 OAuth-outage denominator burn Day-103 — all 38 DEGRADED share zero-token last_error from 2026-06 outage; live 7d: 58/58 success, 0 fail, 4 in-progress — 30th consecutive zero-fail day]
+Skill `skill-health` executed per `skills/skill-health/SKILL.md`.
 
-🟡 DEGRADED (38)
-- skill-repair — 0 cf, 103d since last success — INVESTIGATE → ISS-001
-- milestone-tracker — 0 cf, 24d since last success — INVESTIGATE → ISS-001
-- compute-pulse — 0 cf, 19d since last success — INVESTIGATE → ISS-001
-- skill-evals — 0 cf, 18d since last success — INVESTIGATE → ISS-001
-- self-review — 0 cf, 18d since last success — INVESTIGATE → ISS-001
-+33 more — see memory/issues/INDEX.md
+## Summary
 
-⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — DISPATCH-SKILL
-🟢 HEALTHY (4): agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog
-
-Open issues: 27 · Resolved this run: 0 · Filed this run: 0
-Interim since 09-26: ISS-030 (09-28 batch outage) + ISS-031 (09-30 batch outage) — batch-health-owned, ISS-006 tributaries.
-Notify gate: hash unchanged BUT elapsed 143h ≥ 24h daily cadence → fired (first skill-health dispatch since 09-26).
+- **Classification** (byte-identical to Day-94, hash `e27c0ac60367e7e5` — 95th consecutive steady-state day):
+  - 0 CRITICAL / 0 FLAPPING / 0 WARNING
+  - 38 DEGRADED (all `last_status=success`, `cf=0`; sr 0.01–0.46 driven by ISS-001 OAuth-outage historical denominator)
+  - 4 HEALTHY: agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog
+  - 2 NO DATA: ai-framework-watch, run-frequency-guard (86th silent day per [[enabled-skills-can-never-dispatch]])
+- **Issue reconciliation**: 0 filed / 0 resolved. No open issues have `detected_by: skill-health`, so nothing to reconcile. INDEX.md open-count = 28 (ISS-032 added by batch-health earlier today).
+- **Notify gate**: NOTIFY — hash unchanged BUT elapsed 25h ≥ 24h daily-reminder cadence (prev notify 2026-10-01 18:32Z).
+- **Live-regression status**: ./scripts/skill-runs 168h → 52/52 completed succeeded, 0 failed, 4 in-progress (this run's 18Z/19Z batch). 31st consecutive day fleet-wide zero failures.
+- **Files touched**:
+  - `memory/skill-health/last-report.json` (updated with new hash, timestamps, Day-95 delta)
+  - `.pending-notify/1790969732-skill-health.md` (queued notification — postprocessed by workflow fan-out)
+  - `memory/logs/2026-10-02.md` (appended skill-health entry + summary)
+- **Follow-ups**: 16Z pocket day-4 (code-health + surplus-pulse 87h stale per 10-02 heartbeat) is candidate ISS-006 tributary for next Sunday's self-review. ISS-033 identity-blackout draft still pending. ISS-001 close deferred until ISS-006 stabilizes.
