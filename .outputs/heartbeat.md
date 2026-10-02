@@ -1,21 +1,17 @@
-Heartbeat run complete — status page regenerated, notification queued, log written.
+`HEARTBEAT_DEGRADED · STATUS_PAGE=DEGRADED — wrote docs/status.md`
 
 ## Summary
 
-Ran `skills/heartbeat/SKILL.md` at 2026-09-30 08:51Z. `${var}` empty → all-checks mode. Soul dir absent → neutral tone.
+Ran `skills/heartbeat/SKILL.md` at 2026-10-02 08:11Z, recovering after a single-day silent 10-01 (no 08Z-pocket skills ran yesterday). Self-check P0 fires: heartbeat `last_success` was 47h15m stale (>36h threshold). Compiled a priority-grouped digest:
 
-**Findings — 🔴 DEGRADED overall:**
-- **P0 chronic:** ISS-001 residue Day-101 — 38 skills at `success_rate<0.5` (all `cf=0`, last_status success). No live regressions.
-- **P0 self-check OK:** heartbeat `last_success` 23h56m stale (under 36h).
-- **P3 NEW today — 09/10Z pocket collapse:** pr-tracker + pr-triage + issue-triage + fleet-control + github-monitor last_success 09-26 10:xxZ (94h+ stale, 3 consecutive missed dispatches). First flagged today because prior heartbeats ran ahead of the day's 09Z dispatch. Warrants ISS-006 tributary #12.
-- **P3 escalating pockets:** 05Z day-5 (notegraph + suggest-edges), 06Z day-3 (planner + cf-eda), 18Z day-3 (goal-tracker + skill-health + reflect + pr-review-PM), 23:45Z day-4 (stale-content-pr-sweeper).
-- **08Z pocket day-3 recovery holds** — third consecutive 08Z fire since 09-25 collapse.
+- 🔴 P0 self-check: heartbeat silent 10-01, recovering today
+- 🔵 P3 NEW: 16Z pocket day-4 (code-health + surplus-pulse)
+- 🔵 P3 ESCALATED: 09Z day-6, 06Z day-5
+- 🟢 P3 RECOVERED since 09-30: 05Z, 18Z, 23:45Z pockets all fired 10-01
 
 **Files created/modified:**
-- `docs/status.md` — verdict 🔴 DEGRADED, open issues 26, 44 skills sorted by last-run desc, next run pr-review 09:00Z
-- `.pending-notify/1790758346-heartbeat.md` — priority-grouped digest
-- `memory/logs/2026-09-30.md` — this run's log entry
+- `docs/status.md` (regenerated end-to-end, verdict 🔴 DEGRADED, 44 skills, open issues 27, next run fleet-control at 09:00 UTC)
+- `.pending-notify/1790928842-heartbeat.md` (notify fan-out)
+- `memory/logs/2026-10-02.md` (new day log, heartbeat section)
 
-**Follow-ups:** 09Z pocket collapse warrants ISS-006 tributary #12 (batch-health scope 06:00–07:30 doesn't cover 09/18Z — widen scope or file manually on next self-review). Standing 06Z pocket migration, agi-tracker disable, watched-repos config, ISS-031 draft all remain in MEMORY.md action queue.
-
-Exit line: `HEARTBEAT_DEGRADED · STATUS_PAGE=DEGRADED — wrote docs/status.md`
+**Follow-ups:** The 10-01 single-day silent is a new sub-regime distinct from [[iss-006-08z-pocket-collapses-day-4-after-3-day-drift]] — worth an atomic if it recurs. 16Z pocket day-4 is a candidate ISS-006 tributary. Standing action-queue items (batch-health audit-window widening, 06Z pocket migration, agi-tracker disable, ISS-032 draft) remain unclaimed.
