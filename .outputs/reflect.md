@@ -1,17 +1,21 @@
+Reflect skill executed. 
+
 ## Summary
 
-Ran `skills/reflect/SKILL.md` on 2026-10-01 (first reflect since 09-26 — the 09-27/28/29/30 reflects were lost to the 18Z pocket collapse surfaced in 09-30 heartbeat).
+Ran `skills/reflect/SKILL.md` on 2026-10-02. Covered 7 days of logs (09-26 → 10-02), articles, `memory/skill-health/last-report.json`, and `memory/issues/INDEX.md` (28 open).
 
-**Atomic-pass:** 133 non-daily notes scanned, 0 bundled, 0 splits needed. Corpus remains clean per the pattern established across 09-18 → 09-26 reflect runs.
+**Atomic-pass:** 133 non-daily notes scanned, 0 bundled, 0 splits. "and also/additionally/moreover" markers only in 9 `daily/` indexes (excluded per spec).
 
-**New atomic (1):** [[iss-006-widens-beyond-morning-to-whole-day-pocket-damage]] (type `lesson`) — promotes 09-30 heartbeat finding into a durable claim: ISS-006 dead-window geometry extended from the `[05Z, 08:xxZ]` morning zone to a whole-day cadence pathology after 09Z + 18Z + 23:45Z pocket collapses surfaced concurrently; batch-health's 06:00–07:30 audit window now covers only 3 of 7 known-casualty slots, so tributary filings (ISS-019…031) systematically underreport ISS-006 scope. 3-day detection lag on new pockets is structural (prior same-day heartbeats always ran ahead of the 09Z dispatch window).
+**New atomics (1):** [[iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1]] — type `lesson`. 10-02 heartbeat observation: 09-28→09-30 drift (+32m→+50m) matched the 3-day drift precursor, day-4 (10-01) 08Z-cluster went silent as predicted, but day-5 (10-02) hard-reset to +10m past nominal with the four skills clustered in ~14s. Third terminal state on record alongside sustained-silent-collapse (09-26 case) and settled-at-new-slot (08-03 case).
 
-**MEMORY.md:** 16 current-focus bullets rewritten end-to-end to move anchors from 09-26 timestamps to 09-30 + 10-01; day counters advanced; ISS-032 renumber captured; one new action-queue item added (batch-health audit-window widening). No bullets deleted — all still load-bearing.
+**MEMORY.md:** 5 current-focus bullets rewritten in place (STATUS_PAGE, ISS-006 widening to 8-slot set {05/06/08/09/16/18/23:45}Z, ISS-001 Day-106, INDEX open-count 28 with ISS-032 landed, notegraph refresh); recent-lessons band prepended. 0 bullets removed.
 
-**fleet-ops MOC:** ISS-006 bullet widened with the full slot-casualty set; lessons list appended with the new atomic.
+**Topic MOCs updated:** `fleet-ops.md` — ISS-001 Day 98→104; ISS-006 Day-68→70 with 16Z pocket surface + 08Z single-day silent sandwich; lessons list appended.
 
-**Notegraph:** regenerated — `426n / 3417h / 1072s / 0 orphans / 0 bundled`. Net −4 hard / −1 soft reflects MEMORY.md current-focus rewrite consolidating parallel `[[...]]` cross-refs; the new atomic + daily pointer are untracked by git so won't register until next commit (expected +2n / +~12e once tracked).
+**Notegraph delta:** 426n → **429n** (+3), 3421h → **3466h** (+45), 1073s → **1078s** (+5), 0 orphans, 0 bundled. Ran cleanly in-sandbox.
 
-**Files created/modified:** `memory/notes/iss-006-widens-beyond-morning-to-whole-day-pocket-damage.md` (new), `memory/notes/daily/2026-10-01.md` (new), `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `notegraph.json` + 3 docs/ outputs, `memory/logs/2026-10-01.md`, `.pending-notify/1790879890-reflect.md`.
+**Files created/modified:** `memory/notes/iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1.md` (new), `memory/notes/daily/2026-10-02.md` (new), `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `notegraph.json` + `docs/notegraph.*` (regenerated), `memory/logs/2026-10-02.md` (reflect entry appended), `.pending-notify/1790969925-reflect.md` (notify payload — direct-write per [[notify-script-has-no-f-flag]] + [[notify-inline-cat-substitution-blocked-in-sandbox]]).
 
-**Follow-ups:** new action-queue item for batch-health audit-window widening is the only novel to-do; all prior action-queue items unchanged.
+**Follow-ups:** watch next 08Z 3-day drift sequence for which terminal state recurs (n=1 for single-day sandwich); watch 10-02 code-health + surplus-pulse 17:03Z dispatch for 16Z pocket day-5 outcome. Standing MEMORY action-queue items unchanged (batch-health audit widening, 06Z migration, agi-tracker T-3 to 14th silent-Mon, watched-repos, ISS-033).
+
+**Exit:** `REFLECT_OK`.
