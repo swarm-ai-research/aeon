@@ -2,16 +2,13 @@
 
 ## Summary
 
-Ran `skills/heartbeat/SKILL.md` at 2026-10-02 08:11Z, recovering after a single-day silent 10-01 (no 08Z-pocket skills ran yesterday). Self-check P0 fires: heartbeat `last_success` was 47h15m stale (>36h threshold). Compiled a priority-grouped digest:
+Executed `skills/heartbeat/SKILL.md` at 2026-10-03 08:06Z (Saturday). Verdict **🔴 DEGRADED** driven by P0 chronic-failure trip (38 skills at success_rate<0.5, ISS-001 residue Day-105) plus multiple active P3 pocket misses. Self-check does NOT fire (heartbeat 23h51m stale, <36h). New signal since yesterday's heartbeat:
 
-- 🔴 P0 self-check: heartbeat silent 10-01, recovering today
-- 🔵 P3 NEW: 16Z pocket day-4 (code-health + surplus-pulse)
-- 🔵 P3 ESCALATED: 09Z day-6, 06Z day-5
-- 🟢 P3 RECOVERED since 09-30: 05Z, 18Z, 23:45Z pockets all fired 10-01
+- **05Z pocket re-silenced day-2** — notegraph + suggest-edges, 10-02 and 10-03 both missed (50h stale after single-fire 10-01 recovery)
+- **23:45Z pocket re-silenced day-1** — stale-content-pr-sweeper, 10-02 23:45Z missed (56h stale)
+- **Dark pockets +1 day**: 06Z day-6 (planner + cf-eda), 09Z day-7 (5 skills), 16Z day-5 (code-health + surplus-pulse, 4 consecutive misses)
+- **08Z recovery regime holds n=2** — today +6m past nominal (vs +11m on 10-02 after single-day silent 10-01)
 
-**Files created/modified:**
-- `docs/status.md` (regenerated end-to-end, verdict 🔴 DEGRADED, 44 skills, open issues 27, next run fleet-control at 09:00 UTC)
-- `.pending-notify/1790928842-heartbeat.md` (notify fan-out)
-- `memory/logs/2026-10-02.md` (new day log, heartbeat section)
+Files modified: `docs/status.md` (regenerated, 44 skills, 28 open issues, next run fleet-control at 09:00 UTC), `.pending-notify/1791014960-heartbeat.md`, `memory/logs/2026-10-03.md`.
 
-**Follow-ups:** The 10-01 single-day silent is a new sub-regime distinct from [[iss-006-08z-pocket-collapses-day-4-after-3-day-drift]] — worth an atomic if it recurs. 16Z pocket day-4 is a candidate ISS-006 tributary. Standing action-queue items (batch-health audit-window widening, 06Z pocket migration, agi-tracker disable, ISS-032 draft) remain unclaimed.
+Follow-ups: 05Z + 23:45Z re-silencing after single-fire recovery mirrors [[iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1]] across more pockets — promote to cross-pocket atomic if repeats. Standing action-queue items unchanged (batch-health audit-window widening, 06Z pocket migration, agi-tracker disable T-2 to 10-05, watched-repos config, ISS-033 identity-blackout filing).
