@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-25T20:33:24.359588222+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "e7a5e598-4fa9-4d7d-94ea-7c02d59df73d",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta.py\",\"target\":\".audit/delta.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-25T20:33:24.359588222+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-26T01:37:56.445Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta.py — blocked: substring match silently suppresses new security findings (2026-08-26)\" — 5 findings (1 critical, 4 issue). Verdict: blocked: substring match silently suppresses new security findings. Issue: ✓ Created issue #f970a09c-c1a1-4450-9869-a6644c040291\n  Title:  Review: .audit/delta.py — blocked: substring match silently suppresses new security findings (2026-08-26)\n  Body:   ## Code Review: .audit/delta.py\n\n**Date:** 2026-08-26\n**Agent:** …"
+  },
+  "completed_at": "2026-08-26T01:42:10.197Z"
+}

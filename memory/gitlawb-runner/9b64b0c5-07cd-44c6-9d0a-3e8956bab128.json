@@ -1,0 +1,39 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mks2KSBfbindXsw2SBEGfqdgMJ4HwxJPfPQjkPKHY7U7SZ",
+    "capability": "pr:open",
+    "created_at": "2026-06-06T19:46:45.425738089+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "9b64b0c5-07cd-44c6-9d0a-3e8956bab128",
+    "kind": "test-pass",
+    "payload": "{\"title\":\"test-pass on recent code changes\",\"target\":\".editorconfig, .github/workflows/aeon.yml, .github/workflows/chain-runner.yml\",\"focus\":\"uncovered branches, missing edge-case tests — open a PR with new tests\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-06-06T19:46:45.425738089+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mks2KSBfbindXsw2SBEGfqdgMJ4HwxJPfPQjkPKHY7U7SZ",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-06-06T19:46:44.053Z"
+  },
+  "result": {
+    "executor": "prototype",
+    "summary": "Review prototypes/gitlawb-safety/phase5.mjs: 86 lines, ISSUES. 2 potential hardcoded secrets; 6 unguarded await calls; uses throwaway temp state (good); emits dashboard observability (good)."
+  },
+  "completed_at": "2026-06-06T19:46:46.085Z"
+}
