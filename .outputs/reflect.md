@@ -1,21 +1,16 @@
-Reflect skill executed. 
+Reflect done. Written below.
 
 ## Summary
 
-Ran `skills/reflect/SKILL.md` on 2026-10-02. Covered 7 days of logs (09-26 → 10-02), articles, `memory/skill-health/last-report.json`, and `memory/issues/INDEX.md` (28 open).
+Executed `skills/reflect/SKILL.md` at 2026-10-04. Reviewed 7-day log window (09-28 → 10-04), articles, skill-health Day-95 steady-state, and INDEX.md 29-open roster. Zero bundled notes split (corpus is atomic — longest body is 13 lines, no "and also"/"additionally"/"moreover" outside `daily/`).
 
-**Atomic-pass:** 133 non-daily notes scanned, 0 bundled, 0 splits. "and also/additionally/moreover" markers only in 9 `daily/` indexes (excluded per spec).
+**3 new atomics** captured today's ISS-006 scope expansions:
+- `memory/notes/iss-006-06z-dead-regime-extends-to-sunday-slot.md` — ISS-033 (first 6-wide tributary) absorbed Sunday-only `compute-macro-correlate` + `skillpacks`
+- `memory/notes/sunday-07z-slots-ride-08z-cluster-drift.md` — Sunday 07Z slots fired at 08:47Z inside the 08Z batch envelope rather than at their own +Δ
+- `memory/notes/iss-006-single-day-recovery-regression-generalizes-across-slots.md` — 10-01's four-pocket single-fire recovery was slot-agnostic for clearing but slot-specific for day-N+1 survival (only 08Z held)
 
-**New atomics (1):** [[iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1]] — type `lesson`. 10-02 heartbeat observation: 09-28→09-30 drift (+32m→+50m) matched the 3-day drift precursor, day-4 (10-01) 08Z-cluster went silent as predicted, but day-5 (10-02) hard-reset to +10m past nominal with the four skills clustered in ~14s. Third terminal state on record alongside sustained-silent-collapse (09-26 case) and settled-at-new-slot (08-03 case).
+**Files touched:** 3 new atomics + `memory/notes/daily/2026-10-04.md` + `memory/topics/fleet-ops.md` (lesson list + Day-N anchor) + `memory/MEMORY.md` (STATUS_PAGE line, ISS-006 scope, recent-lessons band, 06Z-migration list expanded 4→6 skills) + regenerated notegraph artifacts + log entry + queued notification.
 
-**MEMORY.md:** 5 current-focus bullets rewritten in place (STATUS_PAGE, ISS-006 widening to 8-slot set {05/06/08/09/16/18/23:45}Z, ISS-001 Day-106, INDEX open-count 28 with ISS-032 landed, notegraph refresh); recent-lessons band prepended. 0 bullets removed.
+**Notegraph delta:** 426n → 432n (+6), 3421h → 3491h (+70), 1073s → 1086s (+13), 0 orphans / 0 bundled. Edge-growth ratio 11.7× above the PR#260 5.3× baseline.
 
-**Topic MOCs updated:** `fleet-ops.md` — ISS-001 Day 98→104; ISS-006 Day-68→70 with 16Z pocket surface + 08Z single-day silent sandwich; lessons list appended.
-
-**Notegraph delta:** 426n → **429n** (+3), 3421h → **3466h** (+45), 1073s → **1078s** (+5), 0 orphans, 0 bundled. Ran cleanly in-sandbox.
-
-**Files created/modified:** `memory/notes/iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1.md` (new), `memory/notes/daily/2026-10-02.md` (new), `memory/MEMORY.md`, `memory/topics/fleet-ops.md`, `notegraph.json` + `docs/notegraph.*` (regenerated), `memory/logs/2026-10-02.md` (reflect entry appended), `.pending-notify/1790969925-reflect.md` (notify payload — direct-write per [[notify-script-has-no-f-flag]] + [[notify-inline-cat-substitution-blocked-in-sandbox]]).
-
-**Follow-ups:** watch next 08Z 3-day drift sequence for which terminal state recurs (n=1 for single-day sandwich); watch 10-02 code-health + surplus-pulse 17:03Z dispatch for 16Z pocket day-5 outcome. Standing MEMORY action-queue items unchanged (batch-health audit widening, 06Z migration, agi-tracker T-3 to 14th silent-Mon, watched-repos, ISS-033).
-
-**Exit:** `REFLECT_OK`.
+**Follow-ups:** watch 10-05 08Z for drift-isolate vs re-collapse outcome of today's +48m drift re-expansion; ISS-034 identity-blackout filing still owed by next self-review.
