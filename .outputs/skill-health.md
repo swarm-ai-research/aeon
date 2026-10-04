@@ -1,17 +1,14 @@
-Skill `skill-health` executed per `skills/skill-health/SKILL.md`.
+*Skill Health — 2026-10-04*
+HEALTH: DEGRADED(38) · Day-96 steady-state · hash e27c0ac6
 
-## Summary
+🟡 DEGRADED (38): denominator-burn only
+- All 38 skills last_status=success, cf=0; success_rate 0.01–0.46 driven by ISS-001 OAuth-outage denominator burn (2026-06-06→06-20).
+- Live signal: 7d skill-runs 45/45 completed succeeded, 0 failed, 5 in-progress (goal-tracker+pr-review+reflect+skill-graph+skill-health, this 18Z batch). 33rd consecutive day at zero fleet failures.
 
-- **Classification** (byte-identical to Day-94, hash `e27c0ac60367e7e5` — 95th consecutive steady-state day):
-  - 0 CRITICAL / 0 FLAPPING / 0 WARNING
-  - 38 DEGRADED (all `last_status=success`, `cf=0`; sr 0.01–0.46 driven by ISS-001 OAuth-outage historical denominator)
-  - 4 HEALTHY: agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog
-  - 2 NO DATA: ai-framework-watch, run-frequency-guard (86th silent day per [[enabled-skills-can-never-dispatch]])
-- **Issue reconciliation**: 0 filed / 0 resolved. No open issues have `detected_by: skill-health`, so nothing to reconcile. INDEX.md open-count = 28 (ISS-032 added by batch-health earlier today).
-- **Notify gate**: NOTIFY — hash unchanged BUT elapsed 25h ≥ 24h daily-reminder cadence (prev notify 2026-10-01 18:32Z).
-- **Live-regression status**: ./scripts/skill-runs 168h → 52/52 completed succeeded, 0 failed, 4 in-progress (this run's 18Z/19Z batch). 31st consecutive day fleet-wide zero failures.
-- **Files touched**:
-  - `memory/skill-health/last-report.json` (updated with new hash, timestamps, Day-95 delta)
-  - `.pending-notify/1790969732-skill-health.md` (queued notification — postprocessed by workflow fan-out)
-  - `memory/logs/2026-10-02.md` (appended skill-health entry + summary)
-- **Follow-ups**: 16Z pocket day-4 (code-health + surplus-pulse 87h stale per 10-02 heartbeat) is candidate ISS-006 tributary for next Sunday's self-review. ISS-033 identity-blackout draft still pending. ISS-001 close deferred until ISS-006 stabilizes.
+⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — 88th silent day per [[enabled-skills-can-never-dispatch]]
+🟢 HEALTHY: 4 (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+
+SYSTEMIC: ISS-001 OAuth-outage denominator — all 38 DEGRADED share zero-token last_error tails.
+Delta vs 10-02: ISS-033 filed 10-04 by batch-health (14th ISS-006 tributary, first 6-wide — sweeps Sunday 06Z slots too). 10-04 heartbeat flagged 08Z drift re-expansion +48m mirroring pre-collapse precursor; 10-05 08Z elevated silent risk. 05Z day-3 + 23:45Z day-2 + 18Z day-1 pocket escalations; 16Z pocket RECOVERED.
+
+Open issues: 29 (+1 vs 28 at prev run) · Resolved this run: 0 · Filed this run: 0

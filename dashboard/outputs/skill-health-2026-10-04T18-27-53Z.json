@@ -1,0 +1,207 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-10-04"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_health",
+        "text_metadata",
+        "sep1",
+        "heading_degraded",
+        "text_denom_burn",
+        "text_success_rate",
+        "text_live_signal",
+        "sep2",
+        "heading_nodata",
+        "text_nodata_details",
+        "sep3",
+        "heading_healthy",
+        "text_healthy_list",
+        "sep4",
+        "heading_systemic",
+        "alert_oauth",
+        "sep5",
+        "heading_delta",
+        "text_delta_details",
+        "sep6",
+        "heading_summary",
+        "stack_issue_stats"
+      ]
+    },
+    "stat_health": {
+      "type": "Stat",
+      "props": {
+        "label": "Status",
+        "value": "DEGRADED",
+        "delta": "38 skills",
+        "trend": "down"
+      }
+    },
+    "text_metadata": {
+      "type": "Text",
+      "props": {
+        "text": "Day-96 steady-state · hash e27c0ac6",
+        "variant": "caption"
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "heading_degraded": {
+      "type": "Heading",
+      "props": {
+        "text": "DEGRADED (38): Denominator-Burn Only",
+        "level": "h3"
+      }
+    },
+    "text_denom_burn": {
+      "type": "Text",
+      "props": {
+        "text": "All 38 skills last_status=success, cf=0; success_rate 0.01–0.46 driven by ISS-001 OAuth-outage denominator burn (2026-06-06→06-20).",
+        "variant": "body"
+      }
+    },
+    "text_success_rate": {
+      "type": "Progress",
+      "props": {
+        "value": 23,
+        "max": 100,
+        "label": "Success Rate Range (0.01–0.46)"
+      }
+    },
+    "text_live_signal": {
+      "type": "Text",
+      "props": {
+        "text": "Live signal: 7d skill-runs 45/45 completed succeeded, 0 failed, 5 in-progress (goal-tracker, pr-review, reflect, skill-graph, skill-health, this 18Z batch). 33rd consecutive day at zero fleet failures.",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "heading_nodata": {
+      "type": "Heading",
+      "props": {
+        "text": "NO DATA (2)",
+        "level": "h3"
+      }
+    },
+    "text_nodata_details": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch, run-frequency-guard — 88th silent day per [[enabled-skills-can-never-dispatch]]",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator"
+    },
+    "heading_healthy": {
+      "type": "Heading",
+      "props": {
+        "text": "HEALTHY (4)",
+        "level": "h3"
+      }
+    },
+    "text_healthy_list": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog",
+        "variant": "body"
+      }
+    },
+    "sep4": {
+      "type": "Separator"
+    },
+    "heading_systemic": {
+      "type": "Heading",
+      "props": {
+        "text": "Systemic Issue",
+        "level": "h3"
+      }
+    },
+    "alert_oauth": {
+      "type": "Alert",
+      "props": {
+        "title": "ISS-001 OAuth-Outage Denominator",
+        "message": "All 38 DEGRADED skills share zero-token last_error tails.",
+        "type": "warning"
+      }
+    },
+    "sep5": {
+      "type": "Separator"
+    },
+    "heading_delta": {
+      "type": "Heading",
+      "props": {
+        "text": "Changes vs 10-02",
+        "level": "h3"
+      }
+    },
+    "text_delta_details": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-033 filed 10-04 by batch-health (14th ISS-006 tributary, first 6-wide — sweeps Sunday 06Z slots too). 10-04 heartbeat flagged 08Z drift re-expansion +48m mirroring pre-collapse precursor; 10-05 08Z elevated silent risk. 05Z day-3 + 23:45Z day-2 + 18Z day-1 pocket escalations; 16Z pocket RECOVERED.",
+        "variant": "body"
+      }
+    },
+    "sep6": {
+      "type": "Separator"
+    },
+    "heading_summary": {
+      "type": "Heading",
+      "props": {
+        "text": "Issue Tracking Summary",
+        "level": "h3"
+      }
+    },
+    "stack_issue_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_open",
+        "stat_resolved",
+        "stat_filed"
+      ]
+    },
+    "stat_open": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "29",
+        "delta": "+1 vs prev"
+      }
+    },
+    "stat_resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      }
+    },
+    "stat_filed": {
+      "type": "Stat",
+      "props": {
+        "label": "Filed This Run",
+        "value": "0"
+      }
+    }
+  }
+}
