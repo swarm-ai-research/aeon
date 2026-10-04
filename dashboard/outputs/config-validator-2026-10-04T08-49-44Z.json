@@ -1,0 +1,168 @@
+{
+  "root": "root_card",
+  "state": {},
+  "elements": {
+    "root_card": {
+      "type": "Card",
+      "props": {
+        "title": "Config Validator — 2026-10-04"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status_badge",
+        "sep1",
+        "warning_section",
+        "sep2",
+        "checks_section",
+        "sep3",
+        "action_section",
+        "sep4",
+        "log_section"
+      ]
+    },
+    "status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Issues Found",
+        "variant": "destructive"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "warning_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "warning_heading",
+        "warning_alert"
+      ]
+    },
+    "warning_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues",
+        "level": "h3"
+      }
+    },
+    "warning_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "message": "Enabled skill \"agi-tracker\" has no SKILL.md at skills/agi-tracker/SKILL.md (aeon.yml:188 — schedule \"0 13 * * 1\" dispatches no-op; known issue, 13th silent Mon fired 09-28T13:00Z, 14th scheduled 2026-10-05T13:00Z T+1 day)"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "checks_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "checks_heading",
+        "checks_table"
+      ]
+    },
+    "checks_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Validation Checks",
+        "level": "h3"
+      }
+    },
+    "checks_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Check",
+          "Status",
+          "Details"
+        ],
+        "rows": [
+          [
+            "Checkout ordering",
+            "PASS",
+            "Early checkout unconditional at .github/workflows/aeon.yml:83"
+          ],
+          [
+            "Duplicate keys",
+            "PASS",
+            "153 skills, no dupes"
+          ],
+          [
+            "Skill files",
+            "FAIL",
+            "40 of 41 enabled skills have SKILL.md"
+          ]
+        ]
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "action_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action_alert"
+      ]
+    },
+    "action_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "message": "These invariants have caused full outages before. Check aeon.yml and .github/workflows/aeon.yml immediately."
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "log_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "log_link"
+      ]
+    },
+    "log_link": {
+      "type": "Link",
+      "props": {
+        "label": "memory/logs/2026-10-04.md",
+        "href": "memory/logs/2026-10-04.md"
+      }
+    }
+  }
+}
