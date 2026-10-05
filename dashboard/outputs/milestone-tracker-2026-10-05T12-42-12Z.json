@@ -1,0 +1,90 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Milestone Tracker"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "heading-approaching",
+        "stat-skills",
+        "progress-skills",
+        "separator-1",
+        "heading-week",
+        "stat-stars",
+        "progress-stars"
+      ]
+    },
+    "heading-approaching": {
+      "type": "Heading",
+      "props": {
+        "text": "Approaching",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "stat-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled skills",
+        "value": "47/50"
+      },
+      "children": []
+    },
+    "progress-skills": {
+      "type": "Progress",
+      "props": {
+        "value": 94,
+        "max": 100,
+        "label": "94%"
+      },
+      "children": []
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading-week": {
+      "type": "Heading",
+      "props": {
+        "text": "Moving This Week",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "stat-stars": {
+      "type": "Stat",
+      "props": {
+        "label": "Aeon repo stars",
+        "value": "1/100",
+        "delta": "+1",
+        "trend": "up"
+      },
+      "children": []
+    },
+    "progress-stars": {
+      "type": "Progress",
+      "props": {
+        "value": 1,
+        "max": 100,
+        "label": "1%"
+      },
+      "children": []
+    }
+  }
+}
