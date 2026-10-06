@@ -1,8 +1,6 @@
 ## Summary
 
-Ran skill `gitlawb-fleet-metrics`. Pre-flight check #2 failed — `memory/gitlawb-fleet.json` is absent, so there is no fleet to report. Per the skill's instructions, an empty fleet is not news: logged `GLMETRICS_EMPTY` and stopped silently without notifying.
-
-- **Verdict:** `GLMETRICS_EMPTY`
-- **Files modified:** `memory/logs/2026-10-04.md` (created)
-- **Notification sent:** No (silent stop by design)
-- **Follow-up:** None required. If a GitLawb fleet is ever provisioned, `memory/gitlawb-fleet.json` and `memory/gitlawb-metrics.jsonl` will appear and this skill will begin emitting daily cards.
+- **Verdict:** `GLMETRICS_EMPTY` — silent stop, no notification sent.
+- **Reason:** Preflight step 2 — `memory/gitlawb-fleet.json` does not exist, so there is no fleet to report on. The skill explicitly stays quiet on an empty fleet to avoid training the operator to ignore the card.
+- **Files modified:** created `memory/logs/2026-10-06.md` with the exit record.
+- **Follow-up:** None. The card will fire for real once `gitlawb-fleet` mints its first instance and the registry file appears.
