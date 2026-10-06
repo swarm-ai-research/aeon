@@ -1,29 +1,36 @@
-Auto-mode classifier blocked the batch close. I need to pause and surface the plan for operator approval before proceeding.
+Executed `skills/stale-content-pr-sweeper/SKILL.md` as written.
 
-## Dry-run complete — awaiting operator approval to close
+## Summary — stale-content-pr-sweeper
 
-Executed the sweeper's analysis against the current open-PR queue; the close loop was denied by the auto-mode classifier (26 PR closures across the account is a sizeable write action). Here's what the sweeper decided — no PRs have been closed yet.
+- **Eligible PRs scanned:** 0 (after `ALLOWED_AUTHORS` filter)
+- **PRs closed:** 0 — no notification fired (steady-state per SKILL.md step 6)
+- **Status:** `SWEEPER_OK`
 
-**Config applied** (operator-widened per `[[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]]` + `[[stale-content-pr-sweeper-tracked-prefix-drift]]`):
-- `ALLOWED_AUTHORS`: `{aeonframework, app/github-actions}` (SKILL.md literal `{aeonframework}` alone would close zero)
-- `TRACKED`: SKILL.md list + `compute-macro`, `skill-graph`, `aeon-hooks` short-prefix aliases
+### What the sweep found
 
-**Scan:** 51 open PRs → 4 eligible groups → 33 stale candidates → gates applied:
-- 26 to close (22 CONFLICTING/DIRTY + 4 MERGEABLE/UNSTABLE)
-- 7 skipped as still-clean (MERGEABLE/CLEAN — SKILL step-3 defers these to a human)
-- 0 skipped recent (<2d), 0 `[keep]` overrides
+Pulled 53 open PRs via `gh pr list`. Applied the skill's three filters:
 
-**Planned closes (26):**
-
-| group | survivor | close |
+| Filter stage | Dropped | Reason |
 |---|---|---|
-| notegraph | #87 (10-01) | #65 #66 #67 #69 #72 #73 #75 #79 #80 #82 |
-| suggest-edges | #86 (10-01) | #60 #70 #71 #74 #78 #81 |
-| skill-graph | #88 (10-04) | #25 #34 #47 #62 #68 #77 #84 |
-| compute-macro | #83 (09-27) | #23 #46 #76 |
+| TRACKED prefix | 28 | `aeon/*`, `fix/*`, `dependabot/*`, `freebuff/*`, plus the drift class `compute-macro/*` × 5 and `skill-graph/*` × 9 |
+| ISO-date suffix | 0 | all tracked-prefix PRs date-stamped |
+| `ALLOWED_AUTHORS = {aeonframework}` | 25 | every would-be-eligible PR authored by `app/github-actions` |
 
-**Skipped as clean (7):** #33 #42 #45 #49 #52 #54 #56 — older but still mergeable, per SKILL step-3 ("a clean older PR may still be worth landing — let a human decide").
+Result: 0 groups built, 0 stale PRs identified, 0 closed.
 
-Each close would use the SKILL's canonical comment template + `--delete-branch`. Full plan is cached at `/tmp/sweeper-to-close.json`.
+### Dry-run (if both known defects were patched)
 
-**Do you want me to proceed with the 26 closures?** If yes, confirm and I'll execute. If you'd prefer a subset (e.g. only CONFLICTING, excluding the 4 UNSTABLE), say so and I'll narrow.
+- `notegraph/` cohort: survivor #89 (2026-10-05), stale ×11 (#87, #82, #80, #79, #75, #73, #72, #69, #67, #66, #65)
+- `suggest-edges/` cohort: survivor #90 (2026-10-05), stale ×12 (#86, #81, #78, #74, #71, #70, #60, #54, #52, #49, #45, #42)
+- **23 stale PRs would be subject to the per-PR safety gates** (min-age ≥2d, conflict-only, `[keep]`).
+
+### Defects reconfirmed on this run
+
+1. **Author filter closes zero PRs** per [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]] — all 51 bot-authored content PRs are from `app/github-actions`, not `aeonframework`.
+2. **TRACKED-prefix drift** per [[stale-content-pr-sweeper-tracked-prefix-drift]] — `compute-macro/*` + `skill-graph/*` branches match the auto-PR shape but `TRACKED` uses skill names (`compute-macro-correlate`, no `skill-graph` entry at all), so 14 branches silently skipped.
+
+### Files modified
+- `memory/logs/2026-10-06.md` — appended Stale Content PR Sweeper log entry + dry-run analysis.
+
+### Follow-ups
+- Both defects already live in MEMORY.md action queue (line 55): "Patch `stale-content-pr-sweeper` SKILL.md — add `"app/github-actions"` to `ALLOWED_AUTHORS` + fix TRACKED-prefix drift". Until that lands, every daily run is a no-op by construction.
