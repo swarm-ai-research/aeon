@@ -1,0 +1,114 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "batch-health",
+        "description": "Batch outage — 2026-10-06"
+      },
+      "children": [
+        "alert_outage",
+        "separator_1",
+        "heading_triggered",
+        "stack_skills",
+        "separator_2",
+        "heading_status",
+        "text_issue_filed",
+        "text_gha_check",
+        "text_metadata"
+      ]
+    },
+    "alert_outage": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "Batch Outage",
+        "message": "4 skills never triggered during 06:00–07:30 UTC window on 2026-10-06"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_triggered": {
+      "type": "Heading",
+      "props": {
+        "text": "Skills Never Triggered (06:00–07:30 UTC)",
+        "level": "h3"
+      }
+    },
+    "stack_skills": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "skill_planner",
+        "skill_memory_flush",
+        "skill_memory_dedupe",
+        "skill_compute_eda"
+      ]
+    },
+    "skill_planner": {
+      "type": "Text",
+      "props": {
+        "text": "planner (30 6 * * *)"
+      }
+    },
+    "skill_memory_flush": {
+      "type": "Text",
+      "props": {
+        "text": "memory-flush (0 6 2/2 * *)"
+      }
+    },
+    "skill_memory_dedupe": {
+      "type": "Text",
+      "props": {
+        "text": "memory-structural-dedupe (10 6 2/2 * *)"
+      }
+    },
+    "skill_compute_eda": {
+      "type": "Text",
+      "props": {
+        "text": "compute-futures-eda (0 6 * * *)"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_status": {
+      "type": "Heading",
+      "props": {
+        "text": "Investigation & Issue Tracking",
+        "level": "h3"
+      }
+    },
+    "text_issue_filed": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-034 filed"
+      }
+    },
+    "text_gha_check": {
+      "type": "Text",
+      "props": {
+        "text": "Check GitHub Actions cron status"
+      }
+    },
+    "text_metadata": {
+      "type": "Text",
+      "props": {
+        "text": "15th ISS-006 tributary; standard weekday even-DOM 4-tuple",
+        "variant": "caption"
+      }
+    }
+  }
+}
