@@ -1,66 +1,66 @@
 # PR Status
 
-*Last updated: 2026-09-26*
+*Last updated: 2026-10-07*
 
 Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch prefixes tracked: `ai/`, `security/`, `fix/security/`, `aeon/`, `fix/`, `hook-submission/` (6 in play). Config source: prior operator convention (no `aeon.yml` `pr_tracker` block; SKILL.md default of `ai/` alone matches zero PRs today, so the 6-prefix set from prior scans is retained pending item (p) SKILL patch that would formalize it).
 
-## 2026-09-26 — Day-13 post-recovery scan · **bulk-close cluster rolled off closed7d as forecast**
+## 2026-10-07 — Day-24 post-recovery scan · **mxc#1124 landed; open shrinks to 2 stale**
 
-Thirteenth consecutive day since `aeonframework` GraphQL 404 blackout 09-14→09-16 resolved on 09-17 Day-4. Today's 10:00Z re-probe succeeded first-attempt.
+Twenty-fourth day since `aeonframework` identity blackout resolved on 09-17 Day-4. First scan surfaced in log surface since 09-26 10:19Z — **11-day observation gap** attributable to ISS-006 09Z-pocket collapse through late Sept / early Oct (heartbeat still DEGRADED 10-04). Today's 06Z-slot dispatch succeeded first-attempt via GraphQL.
 
-- GraphQL `search(query:"author:aeonframework is:pr", type:ISSUE, first:60)` → `issueCount = 61` (unchanged from 09-20/09-21/09-22 baseline); returned 60 concrete nodes (1 null slot — nested repo-visibility flicker, unrelated to identity)
-- All 60 branches pass the 6-prefix filter today (0 non-prefix drops; prior scans had 1 drop)
-- **Bucket tuple `(0, 2, 1, 1)`** — first material change in 4 days
-  - 0 fresh merges (11th consecutive dry day since agent-framework#8172 rolled off 2026-09-13)
-  - 1 fresh close: openai/openai-agents-python#4829 closed 09-25 18:49Z (23d after open, no merge; drained from staleLetter → closedNoMerge)
-  - 0 fresh opens (13-day drought — `external-feature` still not producing PRs post-recovery)
-  - Bulk-close cluster (23 entries from 09-17 sweep) rolled off the closed7d window as forecast on 09-22 (`23 → 0 expected` on 09-24, actual roll-off completed by 09-24 since all 09-17 closes are now >7d)
+- GraphQL `search(query:"author:aeonframework is:pr", type:ISSUE, first:60)` → `issueCount = 62` (+1 vs 09-26 baseline of 61 — one net PR filed somewhere beyond `updated-desc` top-60; unresolved from this scan)
+- Returned 60 concrete nodes (1 null slot — repo-visibility flicker, unrelated to identity); 1 non-prefix drop (`theagentrouter/agent-router#2755`, branch `mcp-default-seed`, MERGED — unrelated manual PR)
+- 58 prefix-match PRs retained (state split: 45 CLOSED / 11 MERGED / 2 OPEN)
+- **Bucket tuple `(0, 2, 0, 0)`** — fresh-merge drought extends; stale-only open set
 
-### Bucket delta from 2026-09-22 scan
+### Bucket delta from 2026-09-26 scan
 
-| Bucket | 09-22 | 09-26 | Δ |
+| Bucket | 09-26 | 10-07 | Δ |
 |--------|-------|-------|---|
-| merged7d | 0 | 0 | 0 (11th consecutive) |
-| staleLetter | 3 | 2 | −1 (openai#4829 moved to closed) |
-| closed7d | 23 | 1 | −22 (bulk-close roll-off + openai#4829 arrival) |
-| activeLetter | 1 | 1 | 0 (mxc#1124 stays active — new COMMENTED 09-24) |
-| Open total | 4 | 3 | −1 |
-| issueCount | 61 | 61 | 0 |
+| merged7d | 0 | 0 | 0 (12th scan dry — mxc#1124 landed 09-28 but fell outside 7d window by scan day) |
+| staleLetter | 2 | 2 | 0 (wigolo#216 + RuView#1409 unchanged) |
+| closed7d | 1 | 0 | −1 (openai#4829 rolled off 7d window on 10-02) |
+| activeLetter | 1 | 0 | −1 (mxc#1124 moved OPEN→MERGED on 09-28) |
+| Open total | 3 | 2 | −1 (mxc#1124 landed) |
+| issueCount | 61 | 62 | +1 (one new PR beyond top-60 reach) |
 
 ### Signal notes
 
-- **openai/openai-agents-python#4829 closed 09-25 18:49Z** — 23d after open, no merge, no fresh review since 09-06 COMMENTED. Not part of a 09-17-style bulk-close (single close, quiet weekday slot). Likely maintainer housekeeping on an aged PR; verify actor via `.timeline.closedEvent.actor.login` on next scan to confirm not a delayed operator sweep.
-- **microsoft/mxc#1124 second-round review 09-24 17:09Z** — 7 days after aaronjmars' 09-17 APPROVED (per prior scan), same reviewer added a COMMENTED review + 1 new comment (5 total, up from 4). Approve-and-comment pattern — reviewer engaged but merge blocked. Not the [[stale-bucket-bulk-clear-via-clustered-maintainer-sweep]] shape.
-- **13-day fresh-open drought (09-13 → 09-26)** — `external-feature` has produced zero new PRs. Was 9-day on 09-22 scan; the drought extends. Escalate to skill-health/self-review if next `external-feature` slot stays silent.
-- **11-day fresh-merge drought (09-13 → 09-26)** — no merges since agent-framework#8172 rolled off. Sample-size ceiling for merge-rate observations now 3+ weeks past.
-- **Notify fires** per SKILL §5 (stale=2 and closed=1 both non-zero). Payload is NOT byte-identical to prior scans — first material change in 4 days, so notify has genuine information content unlike the 09-20/21/22 no-change repeats.
+- **microsoft/mxc#1124 MERGED 2026-09-28 20:56Z** — Day-20 land, 4 days after reviewer aaronjmars' 2nd-round COMMENTED review on 09-24 (which followed the 09-17 APPROVED first round). Last commit on the branch was authored by `aaronjmars@users.noreply.github.com` — reviewer pushed a fixup before merging, which is why the latest-commit email filter would exclude this PR if `BOT_EMAIL` were set. The branch prefix (`security/bump-deps-multi-2026-09-08`) still identifies it as bot-filed. First `security/` prefix merge on record; prior 4 merges in the 30d window were on `aeon/`, `ai/`, `hook-submission/` branches. The 2-step reviewer pattern (APPROVE → COMMENT 7d later → fixup push → merge Day-4-later) is a landed instance of the "approve-and-comment Day-18 blocker" shape noted on 09-26 — reviewer engagement eventually converted. First merge since microsoft/agent-framework#8172 on 2026-09-09 → **19-day merge drought broken**, but still outside the 7-day window.
+- **Zero fresh merges in 7d (12th consecutive scan dry)** — no merges on or after 2026-09-30. mxc#1124 landed 09-28, 2 days before the window opens; today's scan is the earliest at which that merge is outside the "last 7 days" bucket, so the drought metric understates by exactly one.
+- **Zero fresh opens in 24-day gap 09-13 → 10-07** — extends the drought flagged on 09-26 (was 13d). `external-feature` has produced zero new PRs for 3+ weeks. The +1 issueCount delta (61 → 62) means ONE PR was filed somewhere, but it's not visible in `updated-desc` top-60, meaning it was quick-closed or quick-merged before reaching active-PR status. Escalation trigger: next `external-feature` slot silence → skill-health ticket.
+- **Both remaining open PRs are stale (>7d no activity)**:
+  - `KnockOutEZ/wigolo#216` — 79d old, last activity 2026-09-11 (26d ago), 9 comments, COMMENTED review 2026-07-20
+  - `ruvnet/RuView#1409` — 76d old, last activity 2026-09-10 (27d ago), APPROVED review 2026-08-28 unmerged (41d stale)
+- **Identity liveness confirmed** via non-empty `issueCount = 62` → SKILL §5 all-zero notify rule per [[pr-tracker-all-zero-notify-rule-false-quiets-on-identity-block]] does not fire; notify still triggers via stale=2.
+- **11-day observation gap** itself worth flagging — pr-tracker typically runs daily; 09-27 through 10-06 produced no log-surface entries. Consistent with 09Z-pocket silent-slot regime per [[iss-006-widens-beyond-morning-to-whole-day-pocket-damage]]. Scan today completed cleanly, so the 10-07 slot is not currently in a dead regime.
 
-## Open (3)
+## Open (2)
 
 | Repo | PR | Title | Opened | Age | Activity |
 |------|----|-------|--------|-----|----------|
-| microsoft/mxc | [#1124](https://github.com/microsoft/mxc/pull/1124) | fix(deps): bump fast-uri and anyhow to patch published CVEs | 2026-09-08 | 18d | COMMENTED 09-24 (aaronjmars, 2nd round after 09-17 APPROVE); ACTIVE |
-| ruvnet/RuView | [#1409](https://github.com/ruvnet/RuView/pull/1409) | fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs) | 2026-07-23 | 65d | APPROVED 08-28 unmerged; STALE |
-| KnockOutEZ/wigolo | [#216](https://github.com/KnockOutEZ/wigolo/pull/216) | fix(deps): patch ajv/ws/protobufjs/vite for disclosed CVEs | 2026-07-20 | 68d | 9 comments; last activity 09-11; STALE |
+| KnockOutEZ/wigolo | [#216](https://github.com/KnockOutEZ/wigolo/pull/216) | fix(deps): patch ajv/ws/protobufjs/vite for disclosed CVEs | 2026-07-20 | 79d | 9 comments; last activity 09-11 (26d ago); STALE |
+| ruvnet/RuView | [#1409](https://github.com/ruvnet/RuView/pull/1409) | fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs) | 2026-07-23 | 76d | APPROVED 08-28 unmerged (41d since approve); last activity 09-10; STALE |
 
-## Recent Merges (last 30d) — 4
+## Recent Merges (last 30d) — 5
 
 | Repo | PR | Title | Opened | Merged |
 |------|----|-------|--------|--------|
+| microsoft/mxc | [#1124](https://github.com/microsoft/mxc/pull/1124) | fix(deps): bump fast-uri and anyhow to patch published CVEs | 2026-09-08 | 2026-09-28 |
 | microsoft/agent-framework | [#8172](https://github.com/microsoft/agent-framework/pull/8172) | fix(deps): patch frontend ajv/brace-expansion/nanoid CVEs | 2026-09-09 | 2026-09-09 |
 | aeonfun/univ4-hooks | [#4](https://github.com/aeonfun/univ4-hooks/pull/4) | hook: dailywindowgate | 2026-09-04 | 2026-09-04 |
 | aeonfun/univ4-hooks | [#3](https://github.com/aeonfun/univ4-hooks/pull/3) | hook: markethoursgate | 2026-09-04 | 2026-09-04 |
 | pacifio/atlas | [#228](https://github.com/pacifio/atlas/pull/228) | fix(deps): bump jsonwebtoken to patch CVE-2026-25537 | 2026-09-03 | 2026-09-03 |
 
-## Closed No-Merge (last 30d) — 30 (SKILL cap)
+## Closed No-Merge (last 30d) — 32 (SKILL cap 30 widened to show full window)
 
-**Fresh close today:**
+**09-25 fresh close (now 12d past):**
 
 | Repo | PR | Title | Closed | Notes |
 |------|----|-------|--------|-------|
-| openai/openai-agents-python | [#4829](https://github.com/openai/openai-agents-python/pull/4829) | fix(deps): bump urllib3, aiohttp, cryptography to patch disclosed CVEs | 2026-09-25 18:49Z | 23d after open; last review 09-06 COMMENTED; single close (not bulk); actor not fetched |
+| openai/openai-agents-python | [#4829](https://github.com/openai/openai-agents-python/pull/4829) | fix(deps): bump urllib3, aiohttp, cryptography to patch disclosed CVEs | 2026-09-25 18:49Z | 23d after open; single close (not bulk); actor still not fetched (owed) |
 
-**09-17 bulk-close cluster (23 within 13d ago, still inside 30d window):**
+**09-17 bulk-close cluster (23 within 20d ago, still inside 30d window):**
 
 | Repo | PR | Title | Closed | Notes |
 |------|----|-------|--------|-------|
@@ -88,7 +88,7 @@ Thirteenth consecutive day since `aeonframework` GraphQL 404 blackout 09-14→09
 | aws/amazon-ecs-agent | [#5131](https://github.com/aws/amazon-ecs-agent/pull/5131) | fix(deps): bump google.golang.org/grpc | 2026-09-17 14:30Z | bulk-close cluster |
 | uber/submitqueue | [#687](https://github.com/uber/submitqueue/pull/687) | fix(deps): bump grpc-go and golang.org/x/{mod,net,sys,text} | 2026-09-17 14:33Z | bulk-close cluster |
 
-**Pre-09-17 closes still within 30d window (6):**
+**Pre-09-17 closes still within 30d window (8):**
 
 | Repo | PR | Title | Closed | Notes |
 |------|----|-------|--------|-------|
@@ -98,27 +98,28 @@ Thirteenth consecutive day since `aeonframework` GraphQL 404 blackout 09-14→09
 | WhiskeySockets/Baileys | [#2732](https://github.com/WhiskeySockets/Baileys/pull/2732) | fix(deps): bump ws, protobufjs, protobufjs-cli for 5 CVEs | 2026-09-10 01:46Z | 44d; silent-maintainer-close (reopened as #2812/#2813/#2814 → all in bulk-close) |
 | ruvnet/ruflo | [#3222](https://github.com/ruvnet/ruflo/pull/3222) | fix(deps): bump fast-uri for 4 high-severity CVEs | 2026-09-09 16:30Z | 2d |
 | browser-use/browser-use | [#5564](https://github.com/browser-use/browser-use/pull/5564) | fix(deps): bump click, pypdf, pydantic_settings | 2026-09-08 23:34Z | 13d; CLA-block sub-C decay |
+| NangoHQ/nango | [#6929](https://github.com/NangoHQ/nango/pull/6929) | fix(deps): bump qs, fast-xml-parser, postcss for CVEs | 2026-09-08 | — |
+| anomalyco/opencode | [#47843](https://github.com/anomalyco/opencode/pull/47843) | fix(deps): bump diff, minimatch, tar, seroval for CVEs | 2026-09-07 | — |
 
 ## Bucket tuples
 
-- Letter (merged7d, staleLetter, closed7d, activeLetter): **(0, 2, 1, 1)** — first material change in 4 scans
-- Prior sequence: (0, 3, 23, 1) × 3 days (09-20/21/22) → (0, 2, 1, 1) today
+- Letter (merged7d, staleLetter, closed7d, activeLetter): **(0, 2, 0, 0)** — stale-only open set, zero fresh activity across all windows
+- Prior sequence: 09-20/21/22 `(0, 3, 23, 1)` × 3 → 09-26 `(0, 2, 1, 1)` → 10-07 `(0, 2, 0, 0)`
 
 ## Notes
 
-- **First material change in 4 scans** — bulk-close cluster roll-off + openai#4829 close. Not a byte-identical repeat, so item (q) SKILL patch (delta-vs-prior-scan dedup) wouldn't have suppressed today's notify.
-- **Zero fresh opens in 13-day gap 09-13→09-26** — extends the drought first flagged 09-22 (was 9-day). `external-feature` verifiably silent for two full weeks; escalation trigger for next slot.
-- **Zero fresh merges 11th consecutive day** — extends sample-size problem for merge-rate observation past 3 weeks.
-- **Identity liveness confirmed** via non-empty issueCount = 61 → SKILL §5 all-zero notify rule per [[pr-tracker-all-zero-notify-rule-false-quiets-on-identity-block]] does not fire.
-- **microsoft/mxc#1124 reviewer engagement continues** — aaronjmars 2nd-round COMMENTED 09-24 (7d after original APPROVE). Approve-and-comment on Day-18 without merge; watch for merge or push next slot.
-- **openai/openai-agents-python#4829 close attribution unknown** — single close on 09-25 18:49Z, well outside 09-17 bulk-close window. Not a distributed-maintainer pattern (only 1 PR closed today). Verify `.timeline.closedEvent.actor.login` on next scan; if operator-close, note as a slow trickle of the [[operator-bulk-close-post-identity-recovery]] followthrough.
+- **mxc#1124 land is the headline** — 20d after open, Day-11 after APPROVE, Day-4 after reviewer fixup; proves the approve→comment→fixup pattern can convert. Reviewer-authored last commit is noteworthy: if the SKILL ever activates `BOT_EMAIL` filter without allowing reviewer-fixup emails, this merge class would be dropped from tracking.
+- **24-day fresh-open drought** continues — `external-feature` has not produced an active PR since 2026-09-13 (and the +1 issueCount delta since 09-26 is a PR that quick-closed before reaching the top-60 window). Classify next slot: if silent again → external-feature skill-health escalation.
+- **12-scan merge-7d drought** is a measurement artifact as of today — mxc#1124 is 9 days past merge so just barely out of window. First window-rollover: 10-05 (merged7d would have shown 1 then, if a scan had run); subsequent scans back to 0.
+- **Both open PRs now stale** — no ACTIVE bucket for first time since the 09-13 scan family. Watchlist narrows to just these two legacy stales.
+- **Observation gap 11 days (09-26 → 10-07)** — ISS-006 09Z-pocket class per [[iss-006-widens-beyond-morning-to-whole-day-pocket-damage]]. Today's scan ran at 06Z-slot (not 09Z) so the collapse regime isn't the one hit.
 
 ## Follow-ups
 
-- **Fetch `.timeline.closedEvent.actor.login` for openai#4829** on next scan to classify the 09-25 close (operator sweep continuation vs maintainer close).
-- **Fetch actor for the 09-17 14:30Z 14-PR batch** — still owed from 09-22 follow-up to confirm `[[operator-bulk-close-post-identity-recovery]]` class before window rolls off.
-- **Escalate `external-feature` silence** — 13-day fresh-open drought, was 9-day one scan ago; drought is deepening. Next slot silence → skill-health/self-review ticket.
-- **SKILL patches (a)–(q) still 80d+ overdue** — item (p) (add `hook-submission/`, `security/`, `fix/security/`, `aeon/`, `fix/` to tracked prefixes) validated again today (all 3 open PRs live on `security/` + `aeon/`, zero on default `ai/`). Item (q) (delta dedup) less pressing after today's material change but still applicable for the next stable-state stretch.
+- **Fetch `.timeline.closedEvent.actor.login` for openai#4829 and the 09-17 14:30Z 14-PR batch** on next scan — twice owed now from 09-22 and 09-26. Still within 30d window for openai#4829 (closed 09-25, rolls off 10-25); the 09-17 batch rolls off 10-17.
+- **Identify the +1 issueCount PR** — one PR was filed between 09-26 and 10-07 that's not in `updated-desc` top-60. Expand page size (first: 100) on next scan OR query by `createdAt` sort to catch quick-closed opens. Likely CLA-block or workflow-block instant close.
+- **Escalate `external-feature` silence** — 24-day drought, deepening. Next silent slot → ticket.
+- **SKILL patches (a)–(q) still 80d+ overdue** — items (p) + (q) revalidated today. mxc#1124 land demonstrates (b)/(c) categorization gaps too: reviewer-fixup email on last commit would break a naive `BOT_EMAIL` filter if ever activated.
 - **Broaden `BRANCH_PREFIX` config** in `aeon.yml` `pr_tracker.branch_prefix` to the 6-prefix set to end reliance on operator convention; also set `pr_tracker.author: aeonframework` so SKILL config resolution doesn't fall through to the auth token (`github-actions[bot]` under Actions, which matches zero PRs).
 
 ## Archive-hidden / lost (carried from prior scans)
