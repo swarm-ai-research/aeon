@@ -1,0 +1,117 @@
+{
+  "root": "main_card",
+  "state": {},
+  "elements": {
+    "main_card": {
+      "type": "Card",
+      "props": {
+        "title": "surplus pulse",
+        "description": "2026-10-07"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_spot",
+        "stack_curve",
+        "alert_rail",
+        "sep_main",
+        "stack_summary"
+      ]
+    },
+    "stat_spot": {
+      "type": "Stat",
+      "props": {
+        "label": "Llama 4 Scout (Surplus Intelligence, catalog mode)",
+        "value": "$0.0764/M"
+      },
+      "children": []
+    },
+    "stack_curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_curve",
+        "text_curve_full"
+      ]
+    },
+    "heading_curve": {
+      "type": "Heading",
+      "props": {
+        "text": "curve",
+        "level": "h4"
+      },
+      "children": []
+    },
+    "text_curve_full": {
+      "type": "Text",
+      "props": {
+        "text": "hyperscaler H100 reserve tightens supply at R30 +88.7%; partially reversed at R13 by DeepSeek V3.2 open-weights flood (−44.2%); agent-demand surge at R20 re-lifts back to +50.7%",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "alert_rail": {
+      "type": "Alert",
+      "props": {
+        "title": "rail: x402 on Base/USDC",
+        "message": "endpoint proof not captured this run (sandbox classifier blocked --x402 flag; no real transaction was attempted)",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "sep_main": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stack_summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_summary",
+        "text_summary_main",
+        "text_summary_note"
+      ]
+    },
+    "heading_summary": {
+      "type": "Heading",
+      "props": {
+        "text": "one-line read",
+        "level": "h4"
+      },
+      "children": []
+    },
+    "text_summary_main": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus inference market cycling through a full supply-squeeze/relief/re-surge arc — anchor steady at $0.0764/M",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "text_summary_note": {
+      "type": "Text",
+      "props": {
+        "text": "SURPLUS_PRICING_URL unset so this was catalog mode, not live.",
+        "variant": "caption"
+      },
+      "children": []
+    }
+  }
+}
