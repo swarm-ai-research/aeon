@@ -1,7 +1,10 @@
 ## Summary
 
-Ran `skills/github-monitor/SKILL.md`. Config file `memory/watched-repos.md` remains absent (also `memory/topics/watched-repos.md`, the repo-revive path variant) — streak-56 as of 2026-09-26. Skill short-circuited per §Config, logged `GITHUB_MONITOR_EMPTY_CONFIG`, and sent no notification (correct silent behavior for missing config).
+Executed `skills/github-monitor/SKILL.md`.
 
-- Files modified: `memory/logs/2026-09-26.md` (appended `### github-monitor` block + summary).
-- No `gh` calls made — config gate tripped before §1 Collect.
-- Follow-up (already in MEMORY.md action queue): populate `memory/watched-repos.md` or disable the 6 dependent skills, and reconcile the repo-revive path mismatch.
+**Result:** `GITHUB_MONITOR_EMPTY_CONFIG` — `memory/watched-repos.md` does not exist, so the skill ended at step 0 per spec. No `gh` calls were made and no notification was sent (silence is the correct signal when no repos are configured).
+
+**Files modified:**
+- `memory/logs/2026-10-08.md` (created) — logged `GITHUB_MONITOR_EMPTY_CONFIG` under a `### github-monitor` heading.
+
+**Follow-up:** To activate this skill, create `memory/watched-repos.md` with a markdown list of `owner/repo` entries to monitor.
