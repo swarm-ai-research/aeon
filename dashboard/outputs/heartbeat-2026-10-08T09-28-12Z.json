@@ -1,0 +1,356 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Heartbeat 10-08 09:22Z",
+        "description": "Fleet health check — externally dispatched, +1h22m past slot"
+      },
+      "children": [
+        "alert_degraded",
+        "sep_1",
+        "section_p0",
+        "sep_2",
+        "section_pockets",
+        "sep_3",
+        "section_drift",
+        "sep_4",
+        "section_near_dark",
+        "sep_5",
+        "section_prs",
+        "sep_6",
+        "section_status"
+      ]
+    },
+    "alert_degraded": {
+      "type": "Alert",
+      "props": {
+        "title": "Fleet DEGRADED",
+        "message": "Heartbeat self-check fires n=2 (last_success 49.2h stale, >36h)",
+        "type": "error"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_p0": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_p0",
+        "stat_stale_hours",
+        "text_p0_chronic"
+      ]
+    },
+    "heading_p0": {
+      "type": "Heading",
+      "props": {
+        "text": "P0: Heartbeat Self-Check",
+        "level": "h3"
+      }
+    },
+    "stat_stale_hours": {
+      "type": "Stat",
+      "props": {
+        "label": "last_success stale (fires n=2)",
+        "value": "49.2h",
+        "delta": ">36h threshold",
+        "trend": "up"
+      }
+    },
+    "text_p0_chronic": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-001 residue Day-111: 38 chronic skills standing",
+        "variant": "caption"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_pockets": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_pockets",
+        "pocket_08z",
+        "pocket_09z",
+        "pocket_06z",
+        "pocket_05z",
+        "pocket_18z",
+        "pocket_2345z"
+      ]
+    },
+    "heading_pockets": {
+      "type": "Heading",
+      "props": {
+        "text": "Multi-Pocket Silence",
+        "level": "h3"
+      }
+    },
+    "pocket_08z": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_08z_new",
+        "text_08z"
+      ]
+    },
+    "badge_08z_new": {
+      "type": "Badge",
+      "props": {
+        "text": "NEW",
+        "variant": "outline"
+      }
+    },
+    "text_08z": {
+      "type": "Text",
+      "props": {
+        "text": "08Z pocket day-2 post-recovery: 10-06 fired at nominal, 10-07+10-08 silent (distinct from silent-sandwich n=2 pattern)",
+        "variant": "body"
+      }
+    },
+    "pocket_09z": {
+      "type": "Text",
+      "props": {
+        "text": "09Z day-12: fleet-control, issue-triage, github-monitor, pr-triage silent",
+        "variant": "body"
+      }
+    },
+    "pocket_06z": {
+      "type": "Text",
+      "props": {
+        "text": "06Z day-11: planner, compute-futures-eda silent",
+        "variant": "body"
+      }
+    },
+    "pocket_05z": {
+      "type": "Text",
+      "props": {
+        "text": "05Z day-3: notegraph, suggest-edges silent",
+        "variant": "body"
+      }
+    },
+    "pocket_18z": {
+      "type": "Text",
+      "props": {
+        "text": "18Z day-3: goal-tracker, skill-health, reflect, pr-review silent",
+        "variant": "body"
+      }
+    },
+    "pocket_2345z": {
+      "type": "Text",
+      "props": {
+        "text": "23:45Z day-1: stale-sweeper silent",
+        "variant": "body"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_drift": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_drift",
+        "badge_drift_new",
+        "text_drift_1",
+        "text_drift_2",
+        "text_drift_regime"
+      ]
+    },
+    "heading_drift": {
+      "type": "Heading",
+      "props": {
+        "text": "Drift",
+        "level": "h3"
+      }
+    },
+    "badge_drift_new": {
+      "type": "Badge",
+      "props": {
+        "text": "NEW",
+        "variant": "outline"
+      }
+    },
+    "text_drift_1": {
+      "type": "Text",
+      "props": {
+        "text": "pr-tracker fired 10-07 11:29Z (+89m past 10Z slot)",
+        "variant": "body"
+      }
+    },
+    "text_drift_2": {
+      "type": "Text",
+      "props": {
+        "text": "16Z pocket fired 10-07 17:56Z (+1.5h late)",
+        "variant": "body"
+      }
+    },
+    "text_drift_regime": {
+      "type": "Text",
+      "props": {
+        "text": "Late-but-fires regime appears to be creeping across daytime slots",
+        "variant": "muted"
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_near_dark": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_near_dark",
+        "stat_skills_fired",
+        "text_near_dark_detail"
+      ]
+    },
+    "heading_near_dark": {
+      "type": "Heading",
+      "props": {
+        "text": "10-07 Near-Dark (n=2)",
+        "level": "h3"
+      }
+    },
+    "stat_skills_fired": {
+      "type": "Stat",
+      "props": {
+        "label": "scheduled skills fired",
+        "value": "3",
+        "delta": "tied with 10-05 for quietest day"
+      }
+    },
+    "text_near_dark_detail": {
+      "type": "Text",
+      "props": {
+        "text": "code-health, surplus-pulse, pr-tracker",
+        "variant": "caption"
+      }
+    },
+    "sep_5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_prs",
+        "stack_pr_stats"
+      ]
+    },
+    "heading_prs": {
+      "type": "Heading",
+      "props": {
+        "text": "Pull Requests",
+        "level": "h3"
+      }
+    },
+    "stack_pr_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat_prs_open",
+        "stat_urgent",
+        "alert_shellcheck",
+        "text_bot_authored"
+      ]
+    },
+    "stat_prs_open": {
+      "type": "Stat",
+      "props": {
+        "label": "PRs open (all bot-authored)",
+        "value": "50"
+      }
+    },
+    "stat_urgent": {
+      "type": "Stat",
+      "props": {
+        "label": "urgent issues",
+        "value": "0"
+      }
+    },
+    "alert_shellcheck": {
+      "type": "Alert",
+      "props": {
+        "title": "#26 ShellCheck FAIL",
+        "message": "standing Day-54+",
+        "type": "warning"
+      }
+    },
+    "text_bot_authored": {
+      "type": "Badge",
+      "props": {
+        "text": "100% bot-authored",
+        "variant": "secondary"
+      }
+    },
+    "sep_6": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_status": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_status",
+        "stat_open_issues",
+        "text_status_note"
+      ]
+    },
+    "heading_status": {
+      "type": "Heading",
+      "props": {
+        "text": "Status Page",
+        "level": "h3"
+      }
+    },
+    "stat_open_issues": {
+      "type": "Stat",
+      "props": {
+        "label": "open issues",
+        "value": "30",
+        "delta": "+1 from 29",
+        "trend": "up"
+      }
+    },
+    "text_status_note": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-034 now reflected in status page",
+        "variant": "caption"
+      }
+    }
+  }
+}

@@ -1,21 +1,13 @@
-All three outputs are in place. Heartbeat complete.
+🔴 Heartbeat 10-08 09:22Z (externally dispatched, +1h22m past slot) — fleet DEGRADED.
 
-`HEARTBEAT_DEGRADED · STATUS_PAGE=DEGRADED — wrote docs/status.md`
+🔴 P0: heartbeat self-check fires n=2 (last_success 49.2h stale, >36h). ISS-001 residue Day-111 (38 chronic skills, standing).
 
-## Summary
+🟠 Multi-pocket silence: 08Z pocket day-2 post-recovery NEW (10-06 fired at nominal, 10-07+10-08 silent — distinct from silent-sandwich n=2 pattern); 09Z day-12 (fleet-control+issue-triage+github-monitor+pr-triage); 06Z day-11 (planner+compute-futures-eda); 05Z day-3 (notegraph+suggest-edges); 18Z day-3 (goal-tracker+skill-health+reflect+pr-review); 23:45Z day-1 (stale-sweeper).
 
-Executed `skills/heartbeat/SKILL.md` at 2026-10-06 08:08 UTC. Overall verdict **🔴 DEGRADED**.
+🟡 Drift NEW: pr-tracker fired 10-07 11:29Z (+89m past 10Z) and 16Z pocket fired 10-07 17:56Z (+1.5h late) — late-but-fires regime appears to be creeping across daytime slots.
 
-**Key new signals today:**
-1. **08Z pocket silent-sandwich recovery n=2** — fired at nominal +8m after being silent 10-05 (10-04 drifted +48m). Second instance of day-N+1 single-day silent-sandwich recovery; ~13s cluster envelope (heartbeat/batch-health/skill-freshness/gitlawb-fleet-metrics).
-2. **P0 self-check fires for first time on record** — heartbeat `last_success` 2026-10-04T08:54Z, 47h14m stale (>36h threshold). Heartbeat was silent entire 10-05.
-3. **Four parallel pocket regressions vs 10-04**: 05Z day-1 (after 10-05 single-day recovery), 16Z day-2 (after 10-03 fire), 18Z day-1 (after 10-04 fire), 23:45Z day-1 (after 10-05 fire).
-4. **10-05 quietest day on record** — only 4 scheduled skills fired across the whole day.
-5. **Natural escalations**: 06Z day-9, 09Z day-10.
+🟡 10-07 near-dark n=2: only 3 scheduled skills fired (code-health, surplus-pulse, pr-tracker) — tied with 10-05 for quietest day.
 
-**Files modified:**
-- `docs/status.md` (regenerated; open-count corrected 28→29 to include ISS-033)
-- `.pending-notify/1791274396-heartbeat.md` (notification queued)
-- `memory/logs/2026-10-06.md` (new log entry)
+🟡 PRs: 50 open (all bot-authored); #26 ShellCheck FAIL Day-54+ standing. 0 urgent issues.
 
-**Follow-ups:** update [[iss-006-single-day-recovery-regression-generalizes-across-slots]] with 05Z extension at next reflect; standing MEMORY action-queue items (batch-health window widening, 06Z pocket migration, agi-tracker disable, ISS-034 filing) unchanged.
+Status page regenerated — open issues 30 (ISS-034 now reflected, was 29).
