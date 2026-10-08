@@ -1,0 +1,222 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Batch Health: Outage Report",
+        "description": "2026-10-08 — Scheduled job failures and timing drift detected"
+      },
+      "children": [
+        "alert",
+        "separator1",
+        "stack"
+      ]
+    },
+    "alert": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "Batch Outage",
+        "message": "4 skills never triggered during 06:00–07:30 UTC window"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "failed-skills-section",
+        "separator2",
+        "issue-section",
+        "separator3",
+        "pattern-section",
+        "separator4",
+        "drift-section",
+        "separator5",
+        "recommendation-section"
+      ]
+    },
+    "failed-skills-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "failed-heading",
+        "skill1",
+        "skill2",
+        "skill3",
+        "skill4"
+      ]
+    },
+    "failed-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Skills That Never Triggered",
+        "level": "h3"
+      }
+    },
+    "skill1": {
+      "type": "Text",
+      "props": {
+        "text": "planner (30 6 * * *)",
+        "variant": "body"
+      }
+    },
+    "skill2": {
+      "type": "Text",
+      "props": {
+        "text": "memory-flush (0 6 2/2 * *)",
+        "variant": "body"
+      }
+    },
+    "skill3": {
+      "type": "Text",
+      "props": {
+        "text": "memory-structural-dedupe (10 6 2/2 * *)",
+        "variant": "body"
+      }
+    },
+    "skill4": {
+      "type": "Text",
+      "props": {
+        "text": "compute-futures-eda (0 6 * * *)",
+        "variant": "body"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "issue-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issue-heading",
+        "issue-badge",
+        "issue-text"
+      ]
+    },
+    "issue-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issue Filed",
+        "level": "h3"
+      }
+    },
+    "issue-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-035",
+        "variant": "destructive"
+      }
+    },
+    "issue-text": {
+      "type": "Text",
+      "props": {
+        "text": "16th tributary in ISS-019…034 chain",
+        "variant": "body"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "pattern-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pattern-heading",
+        "pattern-text1",
+        "pattern-text2"
+      ]
+    },
+    "pattern-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Pattern Analysis",
+        "level": "h3"
+      }
+    },
+    "pattern-text1": {
+      "type": "Text",
+      "props": {
+        "text": "Standard weekday even-DOM 4-tuple",
+        "variant": "body"
+      }
+    },
+    "pattern-text2": {
+      "type": "Text",
+      "props": {
+        "text": "Byte-identical to ISS-034/032/031/030/029/028/023/022",
+        "variant": "muted"
+      }
+    },
+    "separator4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "drift-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "drift-heading",
+        "drift-stat",
+        "drift-note"
+      ]
+    },
+    "drift-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Cron Timing Drift",
+        "level": "h3"
+      }
+    },
+    "drift-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Today's 08Z cluster drift",
+        "value": "09:21Z",
+        "delta": "+81 minutes",
+        "trend": "down"
+      }
+    },
+    "drift-note": {
+      "type": "Text",
+      "props": {
+        "text": "Widest 08Z slip since 10-01 recovery",
+        "variant": "caption"
+      }
+    },
+    "separator5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "recommendation-section": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Action Required",
+        "message": "Check GHA cron status"
+      }
+    }
+  }
+}
