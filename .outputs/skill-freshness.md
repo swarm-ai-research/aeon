@@ -1,20 +1,19 @@
-Skill run complete. No notification sent (FRESHNESS_NO_CHANGE — fingerprint matches prior 2026-10-06 run, within 7-day re-emit window).
+All three files written. No notification needed — fingerprint unchanged from yesterday's run (0 flagged deps, same as 2026-10-08).
 
 ## Summary
 
-**Status: FRESHNESS_NO_CHANGE / FRESHNESS_OK**
+**Verdict:** ✅ `FRESHNESS_OK` → **`FRESHNESS_NO_CHANGE`** (no notification)
 
-- Audited 44 enabled skills, discovered 17 non-self cross-skill dependencies
-- 0 flagged (all checkable edges within threshold)
-- 9 implicit MISSING references skipped per rules (watched-repos.md, compute-futures-macro-correlations.md, github-trending .outputs, etc.)
-- No active `chains: consume:` edges (all chains are commented out)
+- Audited **44 enabled skills**, **17 non-self implicit dependency edges**, **0 flagged**
+- 10 deps skipped as implicit MISSING (files never written to disk)
+- All 7 on-disk-scored deps are within threshold (mtime = checkout time ≈ 0h, well under any threshold)
 
-**Notable observations in the article** (informational, don't affect verdict):
-- Article-based staleness using filename dates: `skill-analytics`, `self-review`, `skill-evals` are STALE (22–25 days since last run), `cost-report` is WARN (10 days) — but none have downstream consumers reading those articles
-- `skill-freshness` itself missed 2026-10-07 (likely ISS-006 08Z slot casualty)
-- Known bug [[skill-freshness-mtime-blind-in-gha]] still affects this run — depth=1 checkout makes stat/git-log timestamps unreliable for non-article files; filename-date parsing is the only reliable signal
+**Informational producer staleness** (by filename-date, not affecting fleet verdict):
+- `skill-freshness` recovered to ✅ OK today (10-08 article at 24h, was WARN at 48h yesterday)
+- `cost-report` ⚠ WARN — 264h old, approaching 2× threshold (384h) if Mon 07Z slot stays dead
+- `skill-analytics`, `self-review`, `skill-evals` 🔴 STALE — 552–624h, all confirmed ISS-006 dead-pocket casualties
 
 **Files written:**
-- `articles/skill-freshness-2026-10-08.md`
-- `memory/topics/skill-freshness-state.json` (updated)
-- `memory/logs/2026-10-08.md` (created)
+- `articles/skill-freshness-2026-10-09.md` — today's report
+- `memory/topics/skill-freshness-state.json` — updated `last_run_at` to 2026-10-09T08:02:11Z
+- `memory/logs/2026-10-09.md` — new daily log
