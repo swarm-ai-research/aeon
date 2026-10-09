@@ -1,9 +1,7 @@
-batch outage — 2026-10-08
+batch gap — 2026-10-09
 
-4 skills never triggered (06:00–07:30 UTC):
+2 scheduled skills didnt run (06:00–07:30Z window, Fri DOM=9 odd):
 - planner (30 6 * * *)
-- memory-flush (0 6 2/2 * *)
-- memory-structural-dedupe (10 6 2/2 * *)
 - compute-futures-eda (0 6 * * *)
 
-ISS-035 filed. 16th tributary in ISS-019…034 chain — standard weekday even-DOM 4-tuple, byte-identical to ISS-034/032/031/030/029/028/023/022. Also: today's 08Z cluster drifted to 09:21Z (+81m) — widest 08Z slip since 10-01 recovery. Check GHA cron status.
+100% miss on todays odd-DOM expected list (n=2) — the dom-parity artifact per [[batch-health-severity-is-dom-parity-artifact-under-iss-006]]. threshold is ≥3 so no ISS filed, but this is the 06Z-pocket dead-regime continuing (day-12 since 09-27 last fire). 08Z cluster recovered to nominal (+1m) after yesterdays +81m drift — single-day sandwich shape per [[iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1]]. monitoring.

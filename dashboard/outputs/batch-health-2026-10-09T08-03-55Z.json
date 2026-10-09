@@ -1,0 +1,124 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "batch gap — 2026-10-09"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "section_failure",
+        "separator_1",
+        "section_analysis"
+      ]
+    },
+    "section_failure": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_failure_header",
+        "table_skills"
+      ]
+    },
+    "text_failure_header": {
+      "type": "Text",
+      "props": {
+        "text": "2 scheduled skills didn't run (06:00–07:30Z window, Fri DOM=9 odd):",
+        "variant": "lead"
+      }
+    },
+    "table_skills": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Schedule"
+        ],
+        "rows": [
+          [
+            "planner",
+            "30 6 * * *"
+          ],
+          [
+            "compute-futures-eda",
+            "0 6 * * *"
+          ]
+        ]
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section_analysis": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "badge_impact",
+        "text_artifact",
+        "text_threshold",
+        "text_duration",
+        "text_recovery",
+        "alert_status"
+      ]
+    },
+    "badge_impact": {
+      "type": "Badge",
+      "props": {
+        "text": "100% miss on today's odd-DOM expected list (n=2)",
+        "variant": "destructive"
+      }
+    },
+    "text_artifact": {
+      "type": "Text",
+      "props": {
+        "text": "dom-parity artifact per [[batch-health-severity-is-dom-parity-artifact-under-iss-006]]"
+      }
+    },
+    "text_threshold": {
+      "type": "Text",
+      "props": {
+        "text": "Threshold is ≥3 so no ISS filed"
+      }
+    },
+    "text_duration": {
+      "type": "Text",
+      "props": {
+        "text": "06Z-pocket dead-regime continuing (day-12 since 09-27 last fire)",
+        "variant": "muted"
+      }
+    },
+    "text_recovery": {
+      "type": "Text",
+      "props": {
+        "text": "08Z cluster recovered to nominal (+1m) after yesterday's +81m drift — single-day sandwich shape per [[iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1]]"
+      }
+    },
+    "alert_status": {
+      "type": "Alert",
+      "props": {
+        "message": "Monitoring.",
+        "type": "info"
+      }
+    }
+  }
+}
