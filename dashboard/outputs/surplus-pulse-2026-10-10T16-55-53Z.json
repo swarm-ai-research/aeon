@@ -1,0 +1,206 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse",
+        "description": "Market Intelligence — 2026-10-10"
+      },
+      "children": [
+        "heading_spot",
+        "section_spot",
+        "separator_1",
+        "heading_curve",
+        "section_curve",
+        "separator_2",
+        "heading_rail",
+        "section_rail",
+        "separator_3",
+        "heading_summary",
+        "alert_summary"
+      ]
+    },
+    "heading_spot": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot Pricing",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "section_spot": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "badge_model",
+        "stat_price",
+        "text_source"
+      ]
+    },
+    "badge_model": {
+      "type": "Badge",
+      "props": {
+        "text": "Llama 4 Scout",
+        "variant": "default"
+      },
+      "children": []
+    },
+    "stat_price": {
+      "type": "Stat",
+      "props": {
+        "label": "Price per Million tokens",
+        "value": "$0.0764"
+      },
+      "children": []
+    },
+    "text_source": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus Intelligence",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_curve": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve Analysis",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "section_curve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_h100",
+        "text_curve_detail"
+      ]
+    },
+    "stat_h100": {
+      "type": "Stat",
+      "props": {
+        "label": "Hyperscaler H100 Reserve at R30",
+        "value": "+88.7%",
+        "trend": "up"
+      },
+      "children": []
+    },
+    "text_curve_detail": {
+      "type": "Text",
+      "props": {
+        "text": "Supply crunch drives front/mid-curve spike; DeepSeek open-weights drop unwound the move at R13, then agent-platform demand surge re-bid R24–R38 +47–51%",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_rail": {
+      "type": "Heading",
+      "props": {
+        "text": "Infrastructure Rail",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "section_rail": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_chain",
+        "stat_delivered",
+        "stat_tx_cost",
+        "stat_finality",
+        "link_endpoint"
+      ]
+    },
+    "text_chain": {
+      "type": "Text",
+      "props": {
+        "text": "Surplus x402 on Base/USDC",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "stat_delivered": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Delivered",
+        "value": "$198.43"
+      },
+      "children": []
+    },
+    "stat_tx_cost": {
+      "type": "Stat",
+      "props": {
+        "label": "Cost per Transaction",
+        "value": "$0.00025"
+      },
+      "children": []
+    },
+    "stat_finality": {
+      "type": "Stat",
+      "props": {
+        "label": "Finality",
+        "value": "~400ms"
+      },
+      "children": []
+    },
+    "link_endpoint": {
+      "type": "Link",
+      "props": {
+        "label": "API Endpoint: surplusintelligence.ai/x402/api/inference/v1/chat/completions",
+        "href": "https://www.surplusintelligence.ai/x402/api/inference/v1/chat/completions"
+      },
+      "children": []
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "heading_summary": {
+      "type": "Heading",
+      "props": {
+        "text": "Market Assessment",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "alert_summary": {
+      "type": "Alert",
+      "props": {
+        "title": "Catalog Mode (SURPLUS_PRICING_URL unset)",
+        "message": "Market shows a tightening/loosening/tightening three-act sequence; supply-crunch risk dominates the near curve but open-weights efficiency remains a sharp structural counterweight.",
+        "type": "info"
+      },
+      "children": []
+    }
+  }
+}
