@@ -1,0 +1,14 @@
+{
+  "actions": [
+    {
+      "name": "read_file",
+      "params": {
+        "path": ".audit-tools/zizmor-1.25.2.dist-info/INSTALLER"
+      },
+      "description": "Read the zizmor dist-info INSTALLER file to understand how the audit tool was installed. File contains 'pip', confirming zizmor 1.25.2 was installed via pip into .audit-tools/. Combined with the binary files in .audit-bin/ (actionlint ELF binary and its tarball, plus a .audit-tools/bin/zizmor binary), this indicates the repository recently added a security-auditing toolchain: actionlint (GitHub Actions workflow linter, downloaded as a pre-compiled Linux binary) and zizmor 1.25.2 (another Actions security scanner, installed via pip). These tools are stored locally to enable offline/sandboxed CI security scanning of GitHub Actions workflows without network access at scan time.",
+      "at": "2026-06-27T10:15:31.315Z"
+    }
+  ],
+  "stepCount": 2,
+  "startedAt": "2026-06-27T10:15:14.209Z"
+}

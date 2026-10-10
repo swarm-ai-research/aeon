@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-31T04:44:23.248227831+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "61207ceb-2997-4009-b54d-bc3ca6ee94f0",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta2.py\",\"target\":\".audit/delta2.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-31T04:44:23.248227831+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-31T16:00:21.962Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta2.py — blocked: KeyError from untrusted severity values crashes before writing output (2026-08-31)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: KeyError from untrusted severity values crashes before writing output. Issue: ✓ Created issue #fc23c609-d207-41e4-9507-1eb0707f3278\n  Title:  Review: .audit/delta2.py — blocked: KeyError from untrusted severity values crashes before writing output (2026-08-31)\n  Body:   ## Code Review: .audit/delt…"
+  },
+  "completed_at": "2026-08-31T16:02:00.389Z"
+}

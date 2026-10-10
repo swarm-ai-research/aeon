@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-18T16:07:43.385871652+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "2e0f7d69-07d9-4f1c-a2c3-a462bc75645e",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/build_findings.py\",\"target\":\".audit/build_findings.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-18T16:07:43.385871652+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-19T03:57:27.556Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/build_findings.py — blocked: loc() crashes on empty SARIF locations, silently omitting findings.json (2026-09-19)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: loc() crashes on empty SARIF locations, silently omitting findings.json. Issue: ✓ Created issue #82d1e93e-e2f1-4385-a449-59bef1866c10\n  Title:  Review: .audit/build_findings.py — blocked: loc() crashes on empty SARIF locations, silently omitting findings.json (2026-09-19)\n  Body:   ## Co…"
+  },
+  "completed_at": "2026-09-19T03:58:42.725Z"
+}

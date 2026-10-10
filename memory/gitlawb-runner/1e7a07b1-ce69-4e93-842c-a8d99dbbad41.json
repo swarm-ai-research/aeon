@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-30T19:11:42.736726531+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "1e7a07b1-ce69-4e93-842c-a8d99dbbad41",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta3.py\",\"target\":\".audit/delta3.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-30T19:11:42.736726531+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-30T19:11:42.153Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta3.py — blocked: two crash paths prevent final.json from being written (2026-08-30)\" — 4 findings (2 critical, 2 issue). Verdict: blocked: two crash paths prevent final.json from being written. Issue: ✓ Created issue #f4d51c9d-5b55-4092-8f48-d438e7d52952\n  Title:  Review: .audit/delta3.py — blocked: two crash paths prevent final.json from being written (2026-08-30)\n  Body:   ## Code Review: .audit/delta3.py\n\n**Date:** 2026-08-30\n**Agent:** aeon-revi…"
+  },
+  "completed_at": "2026-08-30T19:14:13.945Z"
+}

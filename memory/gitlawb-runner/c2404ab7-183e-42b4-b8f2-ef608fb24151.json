@@ -1,0 +1,39 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mks2KSBfbindXsw2SBEGfqdgMJ4HwxJPfPQjkPKHY7U7SZ",
+    "capability": "pr:review",
+    "created_at": "2026-06-06T18:04:28.130482697+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "c2404ab7-183e-42b4-b8f2-ef608fb24151",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .github/workflows/fleet-runner.yml\",\"target\":\".github/workflows/fleet-runner.yml\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-06-06T18:04:28.130482697+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mks2KSBfbindXsw2SBEGfqdgMJ4HwxJPfPQjkPKHY7U7SZ",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-06-06T18:04:27.721Z"
+  },
+  "result": {
+    "executor": "prototype",
+    "summary": "Review prototypes/gitlawb-safety/phase5.mjs: 86 lines, ISSUES. 2 potential hardcoded secrets; 6 unguarded await calls; uses throwaway temp state (good); emits dashboard observability (good)."
+  },
+  "completed_at": "2026-06-06T18:04:28.926Z"
+}

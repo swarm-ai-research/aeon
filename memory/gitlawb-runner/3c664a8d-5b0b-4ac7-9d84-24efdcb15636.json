@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-13T18:39:33.511537076+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "3c664a8d-5b0b-4ac7-9d84-24efdcb15636",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta.py\",\"target\":\".audit/delta.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-13T18:39:33.511537076+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-13T18:39:32.546Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta.py — blocked: in_trailer detection fires at wrong position when earlier HTML comments exist (2026-09-13)\" — 3 findings (1 critical, 2 issue). Verdict: blocked: in_trailer detection fires at wrong position when earlier HTML comments exist. Issue: ✓ Created issue #1257b3f5-feba-47d0-a674-b5a3d7ac6f9e\n  Title:  Review: .audit/delta.py — blocked: in_trailer detection fires at wrong position when earlier HTML comments exist (2026-09-13)\n  Body:   ## Co…"
+  },
+  "completed_at": "2026-09-13T18:40:53.596Z"
+}

@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:open",
+    "created_at": "2026-08-07T09:03:59.620927286+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "71b79ba6-a86c-47dc-85d2-78e1e8df173e",
+    "kind": "test-pass",
+    "payload": "{\"title\":\"test-pass on recent code changes\",\"target\":\".audit-bin/actionlint, .audit-bin/actionlint.tar.gz, .audit-bin/zizmor\",\"focus\":\"uncovered branches, missing edge-case tests — open a PR with new tests\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-07T09:03:59.620927286+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-07T09:03:58.851Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Code-pass test-pass opened PR: https://github.com/swarm-ai-research/aeon/pull/15 — All 18 tests pass. Added 2 tests to `scripts/fleet-executors/claude-code-pass.test.mjs` covering two previously untested branches in `openPRsForKind`/`buildPrompt`: (17) the `catch` block triggered by unparseable JSON from `gh pr list`, and (18) the `target`-absent else-branch in `buildPrompt` that emits \"No specific files supplied\" and omits the focus line."
+  },
+  "completed_at": "2026-08-07T09:07:42.218Z"
+}

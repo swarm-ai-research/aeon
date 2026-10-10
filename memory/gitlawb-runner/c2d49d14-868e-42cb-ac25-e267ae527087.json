@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-10-08T15:24:19.920725085+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "c2d49d14-868e-42cb-ac25-e267ae527087",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/classify.py\",\"target\":\".audit/classify.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-08T15:24:19.920725085+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-08T21:10:36.558Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/classify.py — blocked: untrusted prior file parsed as trusted classification baseline (2026-10-08)\" — 5 findings (1 critical, 4 issue). Verdict: blocked: untrusted prior file parsed as trusted classification baseline. Issue: ✓ Created issue #9279c2d4-63c1-43c9-97ad-84aaf6f747f8\n  Title:  Review: .audit/classify.py — blocked: untrusted prior file parsed as trusted classification baseline (2026-10-08)\n  Body:   ## Code Review: .audit/classify.py\n\n**Date:*…"
+  },
+  "completed_at": "2026-10-08T21:11:58.414Z"
+}

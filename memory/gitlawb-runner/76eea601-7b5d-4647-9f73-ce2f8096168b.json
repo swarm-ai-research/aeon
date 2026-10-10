@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-11T03:54:01.590990859+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "76eea601-7b5d-4647-9f73-ce2f8096168b",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/classify.py\",\"target\":\".audit/classify.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-11T03:54:01.590990859+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-11T08:46:51.422Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/classify.py — blocked: unvalidated key access on externally-sourced data crashes entire output (2026-09-11)\" — 4 findings (1 critical, 2 issue). Verdict: blocked: unvalidated key access on externally-sourced data crashes entire output. Issue: ✓ Created issue #e1b1ebd8-5553-4ef2-83c0-402f7f10b043\n  Title:  Review: .audit/classify.py — blocked: unvalidated key access on externally-sourced data crashes entire output (2026-09-11)\n  Body:   ## Code Review: .…"
+  },
+  "completed_at": "2026-09-11T08:47:58.535Z"
+}
