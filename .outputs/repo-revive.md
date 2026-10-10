@@ -1,7 +1,7 @@
 ## Summary
 
-Executed `skills/repo-revive/SKILL.md` for the 2026-09-26 Sat 10:00Z cron slot. Short-circuited at step 1 per SKILL.md §Config rule — both candidate-pool config paths (`memory/topics/watched-repos.md` per SKILL.md, and the sibling-referenced `memory/watched-repos.md`) are absent, so there is no candidate pool to score. No `gh api` calls, no clone, no PR, no tweet, no notification (empty config is not an error).
+Executed `skills/repo-revive/SKILL.md` on 2026-10-10. Short-circuited at step 1: both candidate-pool paths are absent (`memory/topics/watched-repos.md` canonical for this skill, and `memory/watched-repos.md` used by five sibling skills). Per SKILL.md this is the documented no-op case — log and exit, no notification.
 
-**Files modified:** `memory/logs/2026-09-26.md` — appended `## Repo Revive` entry with `REPO_REVIVE_NO_CONFIG` sentinel plus `## Summary — Repo Revive`.
-
-**Follow-up (unchanged from prior runs):** MEMORY.md action queue line 53 — populate `memory/watched-repos.md` (reconciling path mismatch with SKILL.md's `memory/topics/watched-repos.md`) or disable the six watched-repos-dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Streak now at 56 consecutive skip-days.
+- **Files touched:** `memory/logs/2026-10-10.md` (appended `## Repo Revive` entry with `REPO_REVIVE_NO_CONFIG` sentinel).
+- **No external actions:** no gh API, no clone, no PR, no tweet draft, no notify.
+- **Follow-ups** (already in action queue): populate `memory/watched-repos.md` and reconcile the `memory/topics/watched-repos.md` vs `memory/watched-repos.md` path mismatch across the six dependent skills.
