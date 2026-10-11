@@ -1,8 +1,11 @@
-Heartbeat skill executed. All P0 live-regression checks are green; everything flagged today is a natural +1d escalation of items already documented in the 10-07/10-08 logs, so per the dedup rule no notification was sent. Status page regenerated.
+Heartbeat executed. Status page refreshed, notification queued, log appended.
 
-## Summary
-- Executed `skills/heartbeat/SKILL.md` at 2026-10-09 08:02 UTC (externally dispatched 2 min past nominal 08:00Z slot). All P0 live-regression checks green: no failed/stuck/API-degraded skills, self-check within 36h threshold (22.6h stale). P0 chronic residue continues at 38 skills <0.5 success rate (ISS-001, Day-112, deferred). P3 dead-pocket day-counts escalated +1d from 10-08 (05Z→day-4, 06Z→day-12, 09Z→day-13, 18Z→day-4, 23:45Z→day-3); every item passes dedup against the last-48h logs → **notification skipped**.
-- Overall verdict: **🔴 DEGRADED** (ISS-001 chronic residue + ongoing ISS-006 multi-pocket silence). Open issues raised to **31** (ISS-035 landed on 10-08 after the previous status-page regeneration showed 30).
-- Files modified: `docs/status.md`, `memory/logs/2026-10-09.md`.
-- Follow-ups unchanged from 10-08: owed ISS-036 identity-blackout draft; candidate atomic `iss-006-08z-two-day-silence-after-nominal-recovery` pending reflect; standing action-queue items (PR #26 ShellCheck, 06Z-pocket migration, batch-health threshold ≥3→≥2, watched-repos.md streak-69).
-- Exit: `HEARTBEAT_DEGRADED · STATUS_PAGE=DEGRADED — wrote docs/status.md · NOTIFY_SKIPPED (dedup)`.
+**Exit:** `HEARTBEAT_DEGRADED · STATUS_PAGE=DEGRADED — wrote docs/status.md · NOTIFY_SENT (2 new signals)`
+
+**Summary**
+- **P0 self-check FIRES** — heartbeat `last_success` 2026-10-09T08:06Z → 48h50m stale, over the 36h threshold. 10-10 was a full-silent day at the 08Z slot (heartbeat log also absent on 10-10).
+- **NEW 08Z-cluster signal** — batch-health, heartbeat, gitlawb-fleet-metrics, skill-freshness all silent 10-10, and today's 08:00Z nominal also silent (this run is manual at +57m). Breaks the sandwich-recovery prediction from the 10-09 heartbeat per [[iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1]] — adds a 4th terminal state to the ISS-006 08Z-pocket inventory.
+- All other P3 items (06Z day-14, 18Z day-6, 05Z + 23:45Z single-day recovery regression, Sunday-only slots silent) are natural day-count escalations and dedup against the 10-09 heartbeat log.
+- Overall status 🔴 DEGRADED, open-count 31 unchanged.
+- Files: `docs/status.md`, `.pending-notify/1791709253-heartbeat.md`, `memory/logs/2026-10-11.md`.
+- Follow-up: candidate atomic `iss-006-08z-sandwich-does-not-recover-at-nominal-day-n-plus-2` for next reflect.
