@@ -1,0 +1,78 @@
+{
+  "root": "card-config-validator",
+  "state": {},
+  "elements": {
+    "card-config-validator": {
+      "type": "Card",
+      "props": {
+        "title": "Config Validator — 2026-10-11"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status-badge",
+        "warning-alert",
+        "separator-1",
+        "context-text",
+        "action-text",
+        "separator-2",
+        "log-link"
+      ]
+    },
+    "status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISSUES FOUND",
+        "variant": "destructive"
+      }
+    },
+    "warning-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Missing SKILL.md",
+        "message": "enabled skill \"agi-tracker\" has no SKILL.md at skills/agi-tracker/SKILL.md"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "context-text": {
+      "type": "Text",
+      "props": {
+        "text": "These invariants have caused full outages before.",
+        "variant": "lead"
+      }
+    },
+    "action-text": {
+      "type": "Text",
+      "props": {
+        "text": "Check aeon.yml and .github/workflows/aeon.yml immediately."
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "log-link": {
+      "type": "Link",
+      "props": {
+        "label": "View full log",
+        "href": "memory/logs/2026-10-11.md"
+      }
+    }
+  }
+}
