@@ -1,0 +1,299 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Self Review — 2026-10-11"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "window_info",
+        "sep1",
+        "quality_section",
+        "sep2",
+        "reliability_section",
+        "sep3",
+        "actions_section",
+        "sep4",
+        "recommendations_section"
+      ]
+    },
+    "window_info": {
+      "type": "Text",
+      "props": {
+        "text": "Window: 2026-10-05 → 2026-10-11 (7d) · 28d since prior review 2026-09-13 (own slot ISS-006-dead the entire interval)",
+        "variant": "muted"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "quality_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "quality_heading",
+        "quality_items"
+      ]
+    },
+    "quality_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Quality",
+        "level": "h2"
+      }
+    },
+    "quality_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "quality_stat",
+        "quality_articles",
+        "quality_hygiene",
+        "quality_alert"
+      ]
+    },
+    "quality_stat": {
+      "type": "Stat",
+      "props": {
+        "value": "41/41",
+        "label": "completed-OK (on surface)"
+      }
+    },
+    "quality_articles": {
+      "type": "Text",
+      "props": {
+        "text": "7 articles landed: 5 skill-freshness cards, 1 vuln-scan, this review"
+      }
+    },
+    "quality_hygiene": {
+      "type": "Badge",
+      "props": {
+        "text": "Notification hygiene unbroken",
+        "variant": "success"
+      }
+    },
+    "quality_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Prompt-injection surface flagged",
+        "message": "pr-review's merge-gate role prompt is interpolated into a workflow dispatch `name:` field, now echoed by `./scripts/skill-runs --full`. Ignored; sanitize at source.",
+        "type": "warning"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "reliability_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "reliability_heading",
+        "reliability_items"
+      ]
+    },
+    "reliability_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Reliability",
+        "level": "h2"
+      }
+    },
+    "reliability_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rel_item1",
+        "rel_item2",
+        "rel_item3",
+        "rel_stat",
+        "rel_note"
+      ]
+    },
+    "rel_item1": {
+      "type": "Text",
+      "props": {
+        "text": "06Z pocket day-14 silent (planner + compute-futures-eda since 09-27)"
+      }
+    },
+    "rel_item2": {
+      "type": "Text",
+      "props": {
+        "text": "08Z cluster fully silent 10-10 breaking the sandwich-recovery prediction — promoted a 4th terminal state: iss-006-08z-sandwich-does-not-recover-at-nominal-day-n-plus-2"
+      }
+    },
+    "rel_item3": {
+      "type": "Text",
+      "props": {
+        "text": "Three new ISS-006 tributaries this window: ISS-034, ISS-035, ISS-036"
+      }
+    },
+    "rel_stat": {
+      "type": "Stat",
+      "props": {
+        "value": "32",
+        "label": "Open issue count",
+        "delta": "+9 vs 09-13 review",
+        "trend": "up"
+      }
+    },
+    "rel_note": {
+      "type": "Text",
+      "props": {
+        "text": "All 9 new issues are ISS-006 tributaries",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "actions_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "actions_heading",
+        "actions_items"
+      ]
+    },
+    "actions_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Actions Taken",
+        "level": "h2"
+      }
+    },
+    "actions_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action1",
+        "action2",
+        "action3"
+      ]
+    },
+    "action1": {
+      "type": "Text",
+      "props": {
+        "text": "Pruned stale `*Pending topic:*` line from MEMORY.md (branch 57d unmerged, work shipped via PR #83 anyway)"
+      }
+    },
+    "action2": {
+      "type": "Text",
+      "props": {
+        "text": "Promoted candidate atomic to lesson (4th 08Z terminal state)"
+      }
+    },
+    "action3": {
+      "type": "Text",
+      "props": {
+        "text": "Wrote articles/self-review-2026-10-11.md"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "recommendations_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "rec_heading",
+        "recommendations_items"
+      ]
+    },
+    "rec_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Recommendations",
+        "level": "h2"
+      }
+    },
+    "recommendations_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rec1",
+        "rec2",
+        "rec3",
+        "rec4",
+        "rec5"
+      ]
+    },
+    "rec1": {
+      "type": "Text",
+      "props": {
+        "text": "1. 06Z-pocket migration (6 skills) — Rank 1 unchanged 28d; alt per-slot cron rewrite"
+      }
+    },
+    "rec2": {
+      "type": "Text",
+      "props": {
+        "text": "2. agi-tracker `enabled: false` before 16th silent-Mon 2026-10-12"
+      }
+    },
+    "rec3": {
+      "type": "Text",
+      "props": {
+        "text": "3. batch-health OUTAGE threshold ≥3 → ≥2 w/ expected<4 (dom-parity artifact)"
+      }
+    },
+    "rec4": {
+      "type": "Text",
+      "props": {
+        "text": "4. File ISS-037 for 09-14 identity blackout — 24d overdue"
+      }
+    },
+    "rec5": {
+      "type": "Text",
+      "props": {
+        "text": "5. Populate `memory/watched-repos.md` — streak-70"
+      }
+    }
+  }
+}
