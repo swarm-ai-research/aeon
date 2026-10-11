@@ -1,0 +1,191 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-10-11",
+        "description": "swarm-ai-research/swarm operator run, merge-gate policy"
+      },
+      "children": [
+        "summary_stats",
+        "separator_1",
+        "approve_heading",
+        "approve_628",
+        "approve_619",
+        "approve_518",
+        "separator_2",
+        "request_heading",
+        "request_618",
+        "request_616",
+        "request_614",
+        "request_612",
+        "request_611",
+        "request_517",
+        "separator_3",
+        "block_heading",
+        "block_note",
+        "separator_4",
+        "footer_alert"
+      ]
+    },
+    "summary_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "9"
+      }
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped (bots: dependabot)",
+        "value": "5"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "approve_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "APPROVE (3)",
+        "level": "h2"
+      }
+    },
+    "approve_628": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm#628 (5/5) — docs blog, all checks green",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/628",
+        "source": "APPROVE"
+      }
+    },
+    "approve_619": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm#619 (5/5) — council rankers reasoning + RANKING: marker; 20/20 green",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/619",
+        "source": "APPROVE"
+      }
+    },
+    "approve_518": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm#518 (4/5) — scenario YAML schema; fork but 18/18 real checks green",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518",
+        "source": "APPROVE"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "request_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "REQUEST_CHANGES (6)",
+        "level": "h2"
+      }
+    },
+    "request_618": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm#618 (3/5) — slashing wire-up: code+tests clean, but merge DIRTY — rebase",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/618",
+        "source": "REQUEST_CHANGES"
+      }
+    },
+    "request_616": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm#616 (2/5) — router intermediary: render-verify FAIL + merge DIRTY (4w stale)",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/616",
+        "source": "REQUEST_CHANGES"
+      }
+    },
+    "request_614": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm#614 (2/5) — certainty-band audit: render-verify FAIL + BLOCKED (4w stale)",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/614",
+        "source": "REQUEST_CHANGES"
+      }
+    },
+    "request_612": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm#612 (2/5) — verification agg rule: render-verify FAIL + BLOCKED (4w stale)",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/612",
+        "source": "REQUEST_CHANGES"
+      }
+    },
+    "request_611": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm#611 (2/5) — Greenblatt docs addendum: render-verify FAIL + BLOCKED (4w stale)",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/611",
+        "source": "REQUEST_CHANGES"
+      }
+    },
+    "request_517": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm#517 (2/5) — run-diff utility: fork PR with NO lint/type/test CI run — only Vercel; merge-gate requires evidence",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517",
+        "source": "REQUEST_CHANGES"
+      }
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "block_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "BLOCK (0)",
+        "level": "h2"
+      }
+    },
+    "block_note": {
+      "type": "Text",
+      "props": {
+        "text": "No critical correctness/security breaks.",
+        "variant": "muted"
+      }
+    },
+    "separator_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "footer_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Access Notice",
+        "message": "Writes all 403'd (standing `aeon-app-no-write-on-swarm-repo`); verdicts in `memory/logs/2026-10-11.md`.",
+        "type": "info"
+      }
+    }
+  }
+}
