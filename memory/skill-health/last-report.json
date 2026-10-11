@@ -3,12 +3,12 @@
   "hash_scheme": "sha256(json.dumps({critical, flapping, degraded sorted}, sort_keys=True))[:16]",
   "prev_hash": "e27c0ac60367e7e5",
   "classification_identical_to_prev": true,
-  "last_notified_at": "2026-10-04T18:25:00Z",
-  "last_run_at": "2026-10-04T18:25:00Z",
-  "prev_run_at": "2026-10-02T19:35:00Z",
-  "prev_notified_at": "2026-10-02T19:35:00Z",
-  "elapsed_since_prev_notify_hours": 46.83,
-  "steady_state_day": 96,
+  "last_notified_at": "2026-10-11T19:40:00Z",
+  "last_run_at": "2026-10-11T19:40:00Z",
+  "prev_run_at": "2026-10-04T18:25:00Z",
+  "prev_notified_at": "2026-10-04T18:25:00Z",
+  "elapsed_since_prev_notify_hours": 169.25,
+  "steady_state_day": 103,
   "classification": {
     "critical": [],
     "degraded": [
@@ -65,14 +65,14 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn Day-106 — all 38 DEGRADED share zero-token last_error tails from 2026-06-06 → 06-20 outage; every skill last_status=success, cf=0, sr 0.01-0.46 driven entirely by historical failure denominator. No live regression: 7d skill-runs shows 45/45 completed succeeded, 0 failed, 5 in-progress (goal-tracker, pr-review, reflect, skill-graph, skill-health — this run's 18Z batch).",
-  "delta_vs_prev": "Byte-identical classification to Day-95 (10-02) run at hash e27c0ac60367e7e5. 96th consecutive steady-state day. Gate: NOTIFY (hash unchanged BUT elapsed 46.83h ≥ 24h daily-reminder cadence — missed the 10-03 18Z slot during 18Z pocket day-1 outage per 10-04 heartbeat log; today is first eligible skill-health dispatch since 10-02 19:35Z). Novel signals since 10-02 run (all owned by other detectors): (a) ISS-033 filed 2026-10-04 by batch-health (14th ISS-006 tributary, first 6-wide — sweeps standard even-DOM {planner, memory-flush, memory-structural-dedupe, compute-futures-eda} 4-tuple PLUS Sunday-only {skillpacks, compute-macro-correlate}; first evidence 06Z-pocket damages Sunday 06:30Z too). (b) 10-04 heartbeat: 08Z drift re-expansion from +6m (10-03) → +48m (10-04) mirrors 09-28→09-30 pre-collapse precursor shape; 10-05 08Z elevated silent risk. (c) 05Z pocket day-3 (notegraph+suggest-edges beyond single-day recovery regime), 23:45Z pocket day-2 (stale-content-pr-sweeper), 18Z pocket day-1 (first miss after 10-02 fire — skill-health 10-03 slot casualty). (d) 06Z pocket day-7, 09Z pocket day-8 natural escalations. (e) 16Z pocket RECOVERED (code-health + surplus-pulse 10-03 17:31Z after 4-day silence). (f) INDEX open-count 28 → 29 (ISS-033 added by batch-health). (g) skill-runs 168h: 50 total, 45 succeeded, 0 failed, 5 in-progress (this run's 18Z batch) — 33rd consecutive day at zero fleet failures.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn Day-113 — all 38 DEGRADED share zero-token last_error tails from 2026-06-06 → 06-20 outage; every skill last_status=success, cf=0, sr 0.01-0.46 driven entirely by historical failure denominator. No live regression: 7d skill-runs shows 41/41 completed succeeded, 0 failed, 6 in-progress (goal-tracker, pr-review, reflect, skill-graph, skill-health, skill-update-check — this run's 18Z batch).",
+  "delta_vs_prev": "Byte-identical classification to Day-96 (10-04) run at hash e27c0ac60367e7e5. 103rd consecutive steady-state day. Gate: NOTIFY (hash unchanged BUT elapsed 169.25h >> 24h daily-reminder cadence — 10-05/10-06/10-07/10-08/10-09/10-10 18Z slots all pocket casualties per 10-11 heartbeat log; today is first eligible skill-health dispatch since 10-04 18:25Z, re-driven as manual at 19:40Z after 18Z 18:00 nominal silent). Novel signals since Day-96 run (all owned by other detectors): (a) ISS-034 filed 2026-10-06 by batch-health (15th ISS-006 tributary — weekday even-DOM 4-tuple). (b) ISS-035 filed 2026-10-08 by batch-health (16th tributary — weekday even-DOM 4-tuple). (c) ISS-036 filed 2026-10-11 by batch-health today (17th tributary, Sunday-specific 4-tuple with 07Z pair riding 08Z cluster drift — n=2 for [[sunday-07z-slots-ride-08z-cluster-drift]]). (d) 10-11 heartbeat P0 self-check FIRES at 48h50m stale (heartbeat silent 10-10, 10-11 nominal silent, manual dispatch at +57m); new terminal state #4 for 08Z pocket: no-fire-at-nominal day-N+2 after sandwich-silent day-N+1, falsifying 10-09 sandwich-recovery prediction. (e) 06Z pocket day-14, 18Z pocket day-6, 05Z/23:45Z single-day recovery regressions ongoing; 16Z pocket fired 10-10 at +54m. (f) INDEX open-count 29 → 32 (ISS-034 + ISS-035 + ISS-036 added). (g) skill-runs 168h: 47 total, 41 succeeded, 0 failed, 6 in-progress (this run's 18Z batch) — 40th consecutive day at zero fleet failures.",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "issues_resolved_by_other_detectors_since_prev_run": [],
-  "issues_filed_by_other_detectors_since_prev_run": ["ISS-033"],
-  "open_issues_per_index": 29,
-  "open_issues_per_filesystem": 29,
+  "issues_filed_by_other_detectors_since_prev_run": ["ISS-034", "ISS-035", "ISS-036"],
+  "open_issues_per_index": 32,
+  "open_issues_per_filesystem": 32,
   "open_issues_ids": [
     "ISS-001",
     "ISS-002",
@@ -102,19 +102,22 @@
     "ISS-030",
     "ISS-031",
     "ISS-032",
-    "ISS-033"
+    "ISS-033",
+    "ISS-034",
+    "ISS-035",
+    "ISS-036"
   ],
-  "notify_decision": "NOTIFY — hash unchanged (e27c0ac60367e7e5, Day-96 steady-state) and elapsed 46.83h ≥ 24h daily-reminder cadence (10-03 18Z slot was skill-health pocket casualty; this 10-04 18Z dispatch is the first eligible slot since 10-02 19:35Z). Per SKILL.md step 5, hash-match suppression requires BOTH hash-match AND elapsed<24h; only the first condition holds, so notify fires. Reconciliation: 0 CRITICAL / 0 FLAPPING → no new skill-health issues filed. No open issues detected_by=skill-health exist to reconcile (all 29 open issues owned by other detectors: ISS-001 self-review; ISS-006 + ISS-019..026 + ISS-028..033 batch-health; ISS-002/005/009-018 + ISS-027 skill-evals). Next notify-eligible run: any dispatch at or after 2026-10-05T18:25:00Z with matching hash (daily cadence) OR earlier if classification hash changes.",
-  "skill_runs_status": "OK — cron-state.json + skill-runs 168h agree. 45/45 completed runs succeeded, 0 failed, 5 in-progress (goal-tracker + pr-review + reflect + skill-graph + skill-health — all this run's 18Z batch). No new failures anywhere; every skill last_status=success. 33rd consecutive day at zero failures.",
+  "notify_decision": "NOTIFY — hash unchanged (e27c0ac60367e7e5, Day-103 steady-state) and elapsed 169.25h >> 24h daily-reminder cadence (10-05 through 10-10 18Z slots all pocket casualties; this 10-11 19:40Z dispatch is the first eligible slot since 10-04 18:25Z). Per SKILL.md step 5, hash-match suppression requires BOTH hash-match AND elapsed<24h; only the first condition holds, so notify fires. Reconciliation: 0 CRITICAL / 0 FLAPPING → no new skill-health issues filed. No open issues detected_by=skill-health exist to reconcile (all 32 open issues owned by other detectors: ISS-001 self-review; ISS-006 + ISS-019..026 + ISS-028..036 batch-health; ISS-002/005/009-018 + ISS-027 skill-evals). Next notify-eligible run: any dispatch at or after 2026-10-12T19:40:00Z with matching hash (daily cadence) OR earlier if classification hash changes.",
+  "skill_runs_status": "OK — cron-state.json + skill-runs 168h agree. 41/41 completed runs succeeded, 0 failed, 6 in-progress (goal-tracker + pr-review + reflect + skill-graph + skill-health + skill-update-check — all this run's 18Z batch). No new failures anywhere; every skill last_status=success. 40th consecutive day at zero failures.",
   "novel_transient_signals_not_escalated": [
-    "96th consecutive steady-state day for skill-health hash. ISS-001 residue continues; skill-runs anomalies.failing empty for 33rd consecutive day.",
-    "10-04 08Z drift re-expansion (+6m 10-03 → +48m 10-04) mirrors 09-28→09-30 pre-collapse precursor — heartbeat predicted elevated silent risk for 10-05 08Z pocket.",
-    "05Z pocket day-3 (notegraph+suggest-edges), 23:45Z pocket day-2 (stale-content-pr-sweeper), 18Z pocket day-1 (goal-tracker+skill-health+reflect+pr-review — this skill-health run is the 18Z recovery after single-day silent 10-03).",
-    "06Z pocket day-7, 09Z pocket day-8 natural escalations per 10-04 heartbeat; 16Z pocket RECOVERED after 4-day silence.",
-    "ISS-033 (10-04) filed by batch-health since prev skill-health run — 14th ISS-006 tributary, first 6-wide, extends 06Z-pocket damage to Sunday 06:30Z slots (compute-macro-correlate, skillpacks).",
-    "ai-framework-watch + run-frequency-guard 88th consecutive silent day per [[enabled-skills-can-never-dispatch]]. Still classified NO DATA.",
-    "ISS-034 draft (aeonframework 3-day identity blackout, resolved Day-4 on 09-17) still pending self-review filing per MEMORY.md action queue. Renumbered from ISS-033 → ISS-034 after batch-health filed ISS-033 for 10-04 morning outage."
+    "103rd consecutive steady-state day for skill-health hash. ISS-001 residue continues; skill-runs anomalies.failing empty for 40th consecutive day.",
+    "10-11 heartbeat P0 self-check fires at 48h50m stale — heartbeat silent 10-10 entirely, 10-11 nominal 08Z slot silent, manual dispatch at 08:57Z (+57m). 4th terminal state recorded for 08Z pocket.",
+    "08Z pocket day-2 full-silence (10-10 → 10-11 nominal both silent) broke the 10-09 heartbeat's sandwich-recovery prediction per [[iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1]]. Candidate atomic `iss-006-08z-sandwich-does-not-recover-at-nominal-day-n-plus-2` owed to next reflect.",
+    "06Z pocket day-14, 09Z pocket day-2 silent-after-recovery, 18Z pocket day-6, 05Z/23:45Z single-day recovery regressions ongoing per 10-11 heartbeat.",
+    "ISS-034 (10-06), ISS-035 (10-08), ISS-036 (10-11) filed by batch-health since prev skill-health run — 3 new ISS-006 tributaries extending the chain to 17 total; ISS-036 confirms [[sunday-07z-slots-ride-08z-cluster-drift]] at n=2.",
+    "ai-framework-watch + run-frequency-guard 95th consecutive silent day per [[enabled-skills-can-never-dispatch]]. Still classified NO DATA.",
+    "ISS-037 draft (aeonframework 3-day identity blackout, resolved Day-4 on 09-17) still pending self-review filing per MEMORY.md action queue. Renumbered from ISS-034 → ISS-035 → ISS-036 → ISS-037 after batch-health filings on 10-06/10-08/10-11."
   ],
-  "notify_delivery_note": "Sent this run via ./notify — NOTIFY gate per SKILL.md step 5 (daily cadence elapsed 46.83h ≥ 24h; 10-03 18Z skill-health slot was pocket casualty, so cadence stretched to 46.83h instead of the usual ~24h). Operator sees the Day-96 steady-state digest with the ISS-033 batch-health filing and 08Z drift re-expansion surfaced in the delta section.",
-  "prompt_injection_flag": "None. cron-state.json, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md, memory/logs/ (2026-10-03/10-04), ./scripts/skill-runs JSON output all structured/data-only; no untrusted natural-language content ingested this run."
+  "notify_delivery_note": "Sent this run via ./notify — NOTIFY gate per SKILL.md step 5 (daily cadence elapsed 169.25h >> 24h; 10-05 through 10-10 18Z skill-health slots were all pocket casualties, so cadence stretched to ~7 days instead of ~24h). Operator sees the Day-103 steady-state digest with the 3 batch-health filings since 10-04 and the 08Z pocket day-2 silence surfaced in the delta section.",
+  "prompt_injection_flag": "None. cron-state.json, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md, memory/logs/ (2026-10-09/10-10/10-11), ./scripts/skill-runs JSON output all structured/data-only; no untrusted natural-language content ingested this run."
 }

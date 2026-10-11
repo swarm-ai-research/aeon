@@ -1,0 +1,254 @@
+{
+  "root": "skill-health-card",
+  "state": {},
+  "elements": {
+    "skill-health-card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health",
+        "description": "2026-10-11 · Day-103 steady-state"
+      },
+      "children": [
+        "main-status",
+        "sep-1",
+        "status-groups",
+        "sep-2",
+        "delta-section",
+        "sep-3",
+        "footer-section"
+      ]
+    },
+    "main-status": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "health-header",
+        "degraded-title",
+        "degraded-details"
+      ]
+    },
+    "health-header": {
+      "type": "Text",
+      "props": {
+        "text": "HEALTH: DEGRADED(38) — hash e27c0ac60367e7e5 byte-identical to Day-96 (10-04)",
+        "variant": "lead"
+      }
+    },
+    "degraded-title": {
+      "type": "Text",
+      "props": {
+        "text": "🟡 DEGRADED (38) — ISS-001 OAuth-outage denominator burn Day-113",
+        "variant": "body"
+      }
+    },
+    "degraded-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "detail-1",
+        "detail-2",
+        "detail-3"
+      ]
+    },
+    "detail-1": {
+      "type": "Text",
+      "props": {
+        "text": "All 38 share zero-token tails from 2026-06-06→06-20; every skill cf=0 / last_status=success / sr 0.01–0.46",
+        "variant": "body"
+      }
+    },
+    "detail-2": {
+      "type": "Text",
+      "props": {
+        "text": "No live regression: 7d skill-runs 41/41 completed succeeded, 0 failed, 6 in-progress (18Z batch)",
+        "variant": "body"
+      }
+    },
+    "detail-3": {
+      "type": "Text",
+      "props": {
+        "text": "40th consecutive day at zero fleet failures",
+        "variant": "body"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "status-groups": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "no-data-group",
+        "healthy-group"
+      ]
+    },
+    "no-data-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "no-data-text",
+        "dispatch-note"
+      ]
+    },
+    "no-data-text": {
+      "type": "Text",
+      "props": {
+        "text": "⚪ NO DATA (2): ai-framework-watch, run-frequency-guard",
+        "variant": "body"
+      }
+    },
+    "dispatch-note": {
+      "type": "Text",
+      "props": {
+        "text": "DISPATCH-SKILL (95th silent day)",
+        "variant": "caption"
+      }
+    },
+    "healthy-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "healthy-text"
+      ]
+    },
+    "healthy-text": {
+      "type": "Text",
+      "props": {
+        "text": "🟢 HEALTHY (4): agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog",
+        "variant": "body"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "delta-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "delta-heading",
+        "delta-details"
+      ]
+    },
+    "delta-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Delta since Day-96 (all owned by batch-health, not this skill)",
+        "level": "h4"
+      }
+    },
+    "delta-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "delta-1",
+        "delta-2",
+        "delta-3"
+      ]
+    },
+    "delta-1": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-034 (10-06), ISS-035 (10-08), ISS-036 (10-11) — 3 new ISS-006 tributaries",
+        "variant": "body"
+      }
+    },
+    "delta-2": {
+      "type": "Text",
+      "props": {
+        "text": "08Z pocket day-2 full-silence 10-10→10-11, 4th terminal state (heartbeat P0 self-check fired)",
+        "variant": "body"
+      }
+    },
+    "delta-3": {
+      "type": "Text",
+      "props": {
+        "text": "INDEX open-count 29 → 32",
+        "variant": "body"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "footer-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issue-stats",
+        "gate-status"
+      ]
+    },
+    "issue-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-open",
+        "stat-filed",
+        "stat-resolved"
+      ]
+    },
+    "stat-open": {
+      "type": "Stat",
+      "props": {
+        "label": "Open issues",
+        "value": "32"
+      }
+    },
+    "stat-filed": {
+      "type": "Stat",
+      "props": {
+        "label": "Filed this run",
+        "value": "0"
+      }
+    },
+    "stat-resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved this run",
+        "value": "0"
+      }
+    },
+    "gate-status": {
+      "type": "Text",
+      "props": {
+        "text": "Gate: NOTIFY (elapsed 169h >> 24h; last skill-health 10-04 18:25Z, 18Z slot pocket casualty 10-05→10-10)",
+        "variant": "body"
+      }
+    }
+  }
+}
