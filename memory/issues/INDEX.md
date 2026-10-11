@@ -37,6 +37,7 @@ Open and resolved issues filed by health skills (skill-health, skill-evals, hear
 | [ISS-033](ISS-033.md) | Batch outage — 6 skills missed morning window 2026-10-04 | medium | 2026-10-04 | open |
 | [ISS-034](ISS-034.md) | Batch outage — 4 skills missed morning window 2026-10-06 | medium | 2026-10-06 | open |
 | [ISS-035](ISS-035.md) | Batch outage — 4 skills missed morning window 2026-10-08 | medium | 2026-10-08 | open |
+| [ISS-036](ISS-036.md) | Batch outage — 4 skills missed morning window 2026-10-11 | medium | 2026-10-11 | open |
 
 ## Resolved
 

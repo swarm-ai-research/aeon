@@ -1,0 +1,144 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "batch outage — 2026-10-11"
+      },
+      "children": [
+        "alert-main",
+        "sep1",
+        "skills-section",
+        "sep2",
+        "issues-section"
+      ]
+    },
+    "alert-main": {
+      "type": "Alert",
+      "props": {
+        "title": "4 skills never triggered",
+        "message": "06:00–07:30 UTC",
+        "type": "error"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "skills-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "skills-table"
+      ]
+    },
+    "skills-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Cron Schedule"
+        ],
+        "rows": [
+          [
+            "planner",
+            "30 6"
+          ],
+          [
+            "compute-futures-eda",
+            "0 6"
+          ],
+          [
+            "compute-macro-correlate",
+            "30 6 Sun"
+          ],
+          [
+            "skillpacks",
+            "0 6 Sun"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "iss036-row",
+        "sunday-row",
+        "action-row"
+      ]
+    },
+    "iss036-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "iss036-badge",
+        "iss036-text"
+      ]
+    },
+    "iss036-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-036",
+        "variant": "destructive"
+      }
+    },
+    "iss036-text": {
+      "type": "Text",
+      "props": {
+        "text": "Filed. 17th tributary in ISS-019…035 chain"
+      }
+    },
+    "sunday-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "sunday-label",
+        "sunday-details"
+      ]
+    },
+    "sunday-label": {
+      "type": "Badge",
+      "props": {
+        "text": "Sunday 07Z pair",
+        "variant": "secondary"
+      }
+    },
+    "sunday-details": {
+      "type": "Text",
+      "props": {
+        "text": "config-validator, swarm-safety-eval rode 08Z-cluster drift and fired at 08:55Z"
+      }
+    },
+    "action-row": {
+      "type": "Alert",
+      "props": {
+        "title": "Action Required",
+        "message": "Check GHA cron status",
+        "type": "warning"
+      }
+    }
+  }
+}
