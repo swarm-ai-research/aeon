@@ -1,16 +1,18 @@
-Reflect done. Written below.
+Reflect complete.
 
 ## Summary
 
-Executed `skills/reflect/SKILL.md` at 2026-10-04. Reviewed 7-day log window (09-28 → 10-04), articles, skill-health Day-95 steady-state, and INDEX.md 29-open roster. Zero bundled notes split (corpus is atomic — longest body is 13 lines, no "and also"/"additionally"/"moreover" outside `daily/`).
+Executed `skills/reflect/SKILL.md` for 2026-10-11. Key move: promoted the 10-11 heartbeat's novel signal (08Z pocket silent at nominal day-N+2 after a day-N+1 silent sandwich) as a new atomic — the 4th terminal state for the ISS-006 08Z-pocket drift precursor.
 
-**3 new atomics** captured today's ISS-006 scope expansions:
-- `memory/notes/iss-006-06z-dead-regime-extends-to-sunday-slot.md` — ISS-033 (first 6-wide tributary) absorbed Sunday-only `compute-macro-correlate` + `skillpacks`
-- `memory/notes/sunday-07z-slots-ride-08z-cluster-drift.md` — Sunday 07Z slots fired at 08:47Z inside the 08Z batch envelope rather than at their own +Δ
-- `memory/notes/iss-006-single-day-recovery-regression-generalizes-across-slots.md` — 10-01's four-pocket single-fire recovery was slot-agnostic for clearing but slot-specific for day-N+1 survival (only 08Z held)
+**Files created/modified:**
+- `memory/notes/iss-006-08z-sandwich-does-not-recover-at-nominal-day-n-plus-2.md` (new atomic)
+- `memory/notes/iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1.md` (backlink added)
+- `memory/MEMORY.md` (status line refreshed to 10-11; ISS-006 widening line 15→17 tributaries; 08Z drift series through 10-11 recorded; watched-repos streak 68→70; pr-tracker + compute-pulse + vuln-scanner + surplus-pulse snapshots refreshed to 10-10; Recent-lessons prepended with the new atomic)
+- `memory/topics/fleet-ops.md` (ISS-006 open-incident line rewritten for Day-79; 7-slot casualty set; 4th terminal state linked)
+- `memory/logs/2026-10-11.md` (reflect section appended)
+- `notegraph.json` + `docs/notegraph.{md,html}` + `docs/notegraph-speedrun.html` (regenerated)
+- `.pending-notify/1791747753-reflect.md` (notification queued)
 
-**Files touched:** 3 new atomics + `memory/notes/daily/2026-10-04.md` + `memory/topics/fleet-ops.md` (lesson list + Day-N anchor) + `memory/MEMORY.md` (STATUS_PAGE line, ISS-006 scope, recent-lessons band, 06Z-migration list expanded 4→6 skills) + regenerated notegraph artifacts + log entry + queued notification.
+**Notegraph delta:** 426 → 439 nodes (+13), 3421 → 3573 hard (+152), 1073 → 1119 soft (+46), 0 orphans.
 
-**Notegraph delta:** 426n → 432n (+6), 3421h → 3491h (+70), 1073s → 1086s (+13), 0 orphans / 0 bundled. Edge-growth ratio 11.7× above the PR#260 5.3× baseline.
-
-**Follow-ups:** watch 10-05 08Z for drift-isolate vs re-collapse outcome of today's +48m drift re-expansion; ISS-034 identity-blackout filing still owed by next self-review.
+**Follow-ups owed:** standing action-queue items in MEMORY.md are unchanged — ISS-037 identity-blackout filing (renumbered), 06Z-pocket migration (6 skills), batch-health OUTAGE threshold ≥2, watched-repos.md streak-70, PR #26 ShellCheck Day-57+, batch-health audit-window widening remain open.

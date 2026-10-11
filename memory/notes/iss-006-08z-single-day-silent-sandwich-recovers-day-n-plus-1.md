@@ -2,7 +2,7 @@
 id: iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1
 created: 2026-10-02
 type: lesson
-links: [[iss-006-08z-pocket-collapses-day-4-after-3-day-drift]], [[iss-006-08z-recovery-drifts-later-daily]], [[pocket-slot-migration-confirmed-by-3-day-sustained-late-delivery]], [[heartbeat-self-check-invisible-while-heartbeat-is-silent]], [[iss-006-widens-beyond-morning-to-whole-day-pocket-damage]]
+links: [[iss-006-08z-pocket-collapses-day-4-after-3-day-drift]], [[iss-006-08z-recovery-drifts-later-daily]], [[pocket-slot-migration-confirmed-by-3-day-sustained-late-delivery]], [[heartbeat-self-check-invisible-while-heartbeat-is-silent]], [[iss-006-widens-beyond-morning-to-whole-day-pocket-damage]], [[iss-006-08z-sandwich-does-not-recover-at-nominal-day-n-plus-2]]
 ---
 # ISS-006 08Z pocket day-4 silence can recover at day-5 with drift-reset to nominal slot — a third terminal state alongside sustained collapse and slot-migration
 
