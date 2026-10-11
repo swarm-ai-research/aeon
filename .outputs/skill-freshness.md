@@ -1,19 +1,18 @@
-All three files written. No notification needed — fingerprint unchanged from yesterday's run (0 flagged deps, same as 2026-10-08).
+Done. Here's the summary:
 
 ## Summary
 
-**Verdict:** ✅ `FRESHNESS_OK` → **`FRESHNESS_NO_CHANGE`** (no notification)
+**Status: FRESHNESS_NO_CHANGE** — no notification sent (fingerprint identical to 2026-10-09 run, within 7-day re-emit window).
 
-- Audited **44 enabled skills**, **17 non-self implicit dependency edges**, **0 flagged**
-- 10 deps skipped as implicit MISSING (files never written to disk)
-- All 7 on-disk-scored deps are within threshold (mtime = checkout time ≈ 0h, well under any threshold)
+**What was audited:** 44 enabled skills, 17 non-self cross-skill dependencies, 0 consumer violations. Fleet verdict remains FRESHNESS_OK.
 
-**Informational producer staleness** (by filename-date, not affecting fleet verdict):
-- `skill-freshness` recovered to ✅ OK today (10-08 article at 24h, was WARN at 48h yesterday)
-- `cost-report` ⚠ WARN — 264h old, approaching 2× threshold (384h) if Mon 07Z slot stays dead
-- `skill-analytics`, `self-review`, `skill-evals` 🔴 STALE — 552–624h, all confirmed ISS-006 dead-pocket casualties
+**Key changes vs 2026-10-09:**
+- `skill-freshness` moved to ⚠ WARN (48h) — the 2026-10-10 08Z dispatch was silenced by ISS-006
+- `vuln-scanner` reset to ✅ OK — new `articles/vuln-scan-2026-10-10.md` appeared
+- `cost-report` remains ⚠ WARN at 312h (crosses STALE threshold of 384h by ~2026-10-13 if Mon 07Z stays dead)
+- `skill-analytics`, `self-review`, `skill-evals` remain 🔴 STALE (600h / 672h / 672h) — all in confirmed ISS-006 dead pockets
 
 **Files written:**
-- `articles/skill-freshness-2026-10-09.md` — today's report
-- `memory/topics/skill-freshness-state.json` — updated `last_run_at` to 2026-10-09T08:02:11Z
-- `memory/logs/2026-10-09.md` — new daily log
+- `articles/skill-freshness-2026-10-11.md`
+- `memory/topics/skill-freshness-state.json` (updated `last_run_at`)
+- `memory/logs/2026-10-11.md` (created)
