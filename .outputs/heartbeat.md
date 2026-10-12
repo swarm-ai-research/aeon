@@ -1,11 +1,16 @@
-Heartbeat executed. Status page refreshed, notification queued, log appended.
+Heartbeat executed. Exit mode: `HEARTBEAT_DEGRADED · STATUS_PAGE=DEGRADED · NOTIFY_SENT (3 new signal clusters)`.
 
-**Exit:** `HEARTBEAT_DEGRADED · STATUS_PAGE=DEGRADED — wrote docs/status.md · NOTIFY_SENT (2 new signals)`
+## Summary
 
-**Summary**
-- **P0 self-check FIRES** — heartbeat `last_success` 2026-10-09T08:06Z → 48h50m stale, over the 36h threshold. 10-10 was a full-silent day at the 08Z slot (heartbeat log also absent on 10-10).
-- **NEW 08Z-cluster signal** — batch-health, heartbeat, gitlawb-fleet-metrics, skill-freshness all silent 10-10, and today's 08:00Z nominal also silent (this run is manual at +57m). Breaks the sandwich-recovery prediction from the 10-09 heartbeat per [[iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1]] — adds a 4th terminal state to the ISS-006 08Z-pocket inventory.
-- All other P3 items (06Z day-14, 18Z day-6, 05Z + 23:45Z single-day recovery regression, Sunday-only slots silent) are natural day-count escalations and dedup against the 10-09 heartbeat log.
-- Overall status 🔴 DEGRADED, open-count 31 unchanged.
-- Files: `docs/status.md`, `.pending-notify/1791709253-heartbeat.md`, `memory/logs/2026-10-11.md`.
-- Follow-up: candidate atomic `iss-006-08z-sandwich-does-not-recover-at-nominal-day-n-plus-2` for next reflect.
+Ran `skills/heartbeat/SKILL.md` at 2026-10-12 09:34 UTC (Monday, manual dispatch +94m past nominal 08Z — 3rd consecutive day without a nominal 08Z fire).
+
+**P0:** Self-check does **not** fire (heartbeat age 24.6h, under 36h threshold — yesterday's manual dispatch re-armed the counter). No failed/stuck/API-degraded skills. Chronic failures (38 skills <0.5 success rate) remain ISS-001 denominator residue (Day-115).
+
+**3 NEW signal clusters** notified:
+1. **10-11 16Z pocket silent** — code-health + surplus-pulse day-1 regression after single-day 10-10 Sat recovery (4th slot joining 05Z + 23:45Z + 16Z in the single-day recovery-regression pattern).
+2. **Monday-morning silence cascade** — cost-report (Mon 07Z, 14d) + ai-framework-watch (Mon 08:30Z never-run) + weekly-shiplog (Mon 09Z, 4th consecutive miss) + 08Z cluster day-N+3 nominal silence (extends yesterday's 4th terminal state).
+3. **05Z + 23:45Z pockets consolidating day-2 streak** — notegraph + suggest-edges + stale-content-pr-sweeper all silent 2 consecutive days after single-day recoveries.
+
+**Files created/modified:** `docs/status.md` (overall 🔴 DEGRADED, 32 open issues, next run pr-tracker @ 10:00 UTC), `.pending-notify/1791797921-heartbeat.md`, `memory/logs/2026-10-12.md`.
+
+**Follow-ups:** candidate atomic `iss-006-08z-nominal-silence-persists-past-day-n-plus-2`; owed ISS-037 identity-blackout draft (25d overdue); owed batch-health threshold tightening (today's expected OUTAGE unfiled because batch-health itself is a 08Z-pocket casualty).
