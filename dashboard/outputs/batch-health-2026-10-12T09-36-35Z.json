@@ -1,0 +1,266 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Batch Health Report — Outage Detected"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "header_text",
+        "sep1",
+        "triggered_section",
+        "sep2",
+        "issues_section",
+        "sep3",
+        "action_section"
+      ]
+    },
+    "header_text": {
+      "type": "Heading",
+      "props": {
+        "text": "Batch outage — 2026-10-12",
+        "level": "h2"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "triggered_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "triggered_heading",
+        "triggered_desc",
+        "skill_row1",
+        "skill_row2",
+        "skill_row3",
+        "skill_row4",
+        "skill_row5"
+      ]
+    },
+    "triggered_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "5 skills never triggered (06:00–07:30 UTC)",
+        "level": "h3"
+      }
+    },
+    "triggered_desc": {
+      "type": "Text",
+      "props": {
+        "text": "Status check recommended for all scheduled tasks",
+        "variant": "muted"
+      }
+    },
+    "skill_row1": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_planner",
+        "sched_planner"
+      ]
+    },
+    "badge_planner": {
+      "type": "Badge",
+      "props": {
+        "text": "planner",
+        "variant": "destructive"
+      }
+    },
+    "sched_planner": {
+      "type": "Text",
+      "props": {
+        "text": "30 6 * * *",
+        "variant": "caption"
+      }
+    },
+    "skill_row2": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_memflush",
+        "sched_memflush"
+      ]
+    },
+    "badge_memflush": {
+      "type": "Badge",
+      "props": {
+        "text": "memory-flush",
+        "variant": "destructive"
+      }
+    },
+    "sched_memflush": {
+      "type": "Text",
+      "props": {
+        "text": "0 6 2/2 * *",
+        "variant": "caption"
+      }
+    },
+    "skill_row3": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_memdedupe",
+        "sched_memdedupe"
+      ]
+    },
+    "badge_memdedupe": {
+      "type": "Badge",
+      "props": {
+        "text": "memory-structural-dedupe",
+        "variant": "destructive"
+      }
+    },
+    "sched_memdedupe": {
+      "type": "Text",
+      "props": {
+        "text": "10 6 2/2 * *",
+        "variant": "caption"
+      }
+    },
+    "skill_row4": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_eda",
+        "sched_eda"
+      ]
+    },
+    "badge_eda": {
+      "type": "Badge",
+      "props": {
+        "text": "compute-futures-eda",
+        "variant": "destructive"
+      }
+    },
+    "sched_eda": {
+      "type": "Text",
+      "props": {
+        "text": "0 6 * * *",
+        "variant": "caption"
+      }
+    },
+    "skill_row5": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_cost",
+        "sched_cost"
+      ]
+    },
+    "badge_cost": {
+      "type": "Badge",
+      "props": {
+        "text": "cost-report",
+        "variant": "destructive"
+      }
+    },
+    "sched_cost": {
+      "type": "Text",
+      "props": {
+        "text": "0 7 * * 1",
+        "variant": "caption"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "issues_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues_heading",
+        "alert_iss037",
+        "drift_stat"
+      ]
+    },
+    "issues_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues & Metrics",
+        "level": "h3"
+      }
+    },
+    "alert_iss037": {
+      "type": "Alert",
+      "props": {
+        "title": "ISS-037 Filed",
+        "message": "18th ISS-006 tributary",
+        "type": "warning"
+      }
+    },
+    "drift_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "08Z Cluster Drift",
+        "value": "+93m",
+        "delta": "new series max",
+        "trend": "up"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "action_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action_heading",
+        "action_item"
+      ]
+    },
+    "action_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Next Steps",
+        "level": "h3"
+      }
+    },
+    "action_item": {
+      "type": "Text",
+      "props": {
+        "text": "Check GHA cron status",
+        "variant": "body"
+      }
+    }
+  }
+}

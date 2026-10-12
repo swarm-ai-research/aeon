@@ -1,9 +1,10 @@
-batch outage — 2026-10-11
+batch outage — 2026-10-12
 
-4 skills never triggered (06:00–07:30 UTC):
-- planner (30 6)
-- compute-futures-eda (0 6)
-- compute-macro-correlate (30 6 Sun)
-- skillpacks (0 6 Sun)
+5 skills never triggered (06:00–07:30 UTC):
+- planner (30 6 * * *)
+- memory-flush (0 6 2/2 * *)
+- memory-structural-dedupe (10 6 2/2 * *)
+- compute-futures-eda (0 6 * * *)
+- cost-report (0 7 * * 1)
 
-ISS-036 filed. 17th tributary in ISS-019…035 chain. Sunday 07Z pair (config-validator, swarm-safety-eval) rode 08Z-cluster drift and fired at 08:55Z. check GHA cron status.
+ISS-037 filed. 18th ISS-006 tributary. 08Z cluster drifted +93m (new series max). check GHA cron status.
