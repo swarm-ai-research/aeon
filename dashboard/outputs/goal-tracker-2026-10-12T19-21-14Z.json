@@ -1,0 +1,23 @@
+{
+  "root": "goal-tracker-card",
+  "state": {},
+  "elements": {
+    "goal-tracker-card": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker"
+      },
+      "children": [
+        "goal-tracker-alert"
+      ]
+    },
+    "goal-tracker-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "title": "No Goals Tracked",
+        "message": "Add a '## Goals' section to memory/MEMORY.md to start tracking goals"
+      }
+    }
+  }
+}
