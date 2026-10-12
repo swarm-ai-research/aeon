@@ -1,0 +1,374 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-10-12"
+      },
+      "children": [
+        "summary-stats",
+        "issue-alert",
+        "sep1",
+        "verdicts"
+      ]
+    },
+    "summary-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-reviewed",
+        "stat-skipped"
+      ]
+    },
+    "stat-reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "9"
+      }
+    },
+    "stat-skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped (bots)",
+        "value": "5"
+      }
+    },
+    "issue-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Dedup-saturation cycle n=2",
+        "message": "All 9 non-bot SHAs byte-identical to 2026-10-11. Write blocked: 403 addPullRequestReview + pulls/N/comments per [[aeon-app-no-write-on-swarm-repo]]. Verdicts unchanged."
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "verdicts": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "approve-group",
+        "request-changes-group",
+        "block-group"
+      ]
+    },
+    "approve-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "approve-badge",
+        "approve-list"
+      ]
+    },
+    "approve-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (3)",
+        "variant": "default"
+      }
+    },
+    "approve-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "approve-628",
+        "approve-619",
+        "approve-518"
+      ]
+    },
+    "approve-628": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link-628",
+        "text-628"
+      ]
+    },
+    "link-628": {
+      "type": "Link",
+      "props": {
+        "label": "#628",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/628"
+      }
+    },
+    "text-628": {
+      "type": "Text",
+      "props": {
+        "text": "5/5 docs",
+        "variant": "caption"
+      }
+    },
+    "approve-619": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link-619",
+        "text-619"
+      ]
+    },
+    "link-619": {
+      "type": "Link",
+      "props": {
+        "label": "#619",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/619"
+      }
+    },
+    "text-619": {
+      "type": "Text",
+      "props": {
+        "text": "5/5 council rankers",
+        "variant": "caption"
+      }
+    },
+    "approve-518": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link-518",
+        "text-518"
+      ]
+    },
+    "link-518": {
+      "type": "Link",
+      "props": {
+        "label": "#518",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518"
+      }
+    },
+    "text-518": {
+      "type": "Text",
+      "props": {
+        "text": "4/5 scenario YAML",
+        "variant": "caption"
+      }
+    },
+    "request-changes-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "request-changes-badge",
+        "request-changes-list"
+      ]
+    },
+    "request-changes-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES (6)",
+        "variant": "outline"
+      }
+    },
+    "request-changes-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rc-618",
+        "rc-616",
+        "rc-614",
+        "rc-612",
+        "rc-611",
+        "rc-517"
+      ]
+    },
+    "rc-618": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link-618",
+        "text-618"
+      ]
+    },
+    "link-618": {
+      "type": "Link",
+      "props": {
+        "label": "#618",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/618"
+      }
+    },
+    "text-618": {
+      "type": "Text",
+      "props": {
+        "text": "merge dirty",
+        "variant": "caption"
+      }
+    },
+    "rc-616": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link-616",
+        "text-616"
+      ]
+    },
+    "link-616": {
+      "type": "Link",
+      "props": {
+        "label": "#616",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/616"
+      }
+    },
+    "text-616": {
+      "type": "Text",
+      "props": {
+        "text": "render-verify + merge dirty/blocked",
+        "variant": "caption"
+      }
+    },
+    "rc-614": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link-614",
+        "text-614"
+      ]
+    },
+    "link-614": {
+      "type": "Link",
+      "props": {
+        "label": "#614",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/614"
+      }
+    },
+    "text-614": {
+      "type": "Text",
+      "props": {
+        "text": "render-verify + merge dirty/blocked",
+        "variant": "caption"
+      }
+    },
+    "rc-612": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link-612",
+        "text-612"
+      ]
+    },
+    "link-612": {
+      "type": "Link",
+      "props": {
+        "label": "#612",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/612"
+      }
+    },
+    "text-612": {
+      "type": "Text",
+      "props": {
+        "text": "render-verify + merge dirty/blocked",
+        "variant": "caption"
+      }
+    },
+    "rc-611": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link-611",
+        "text-611"
+      ]
+    },
+    "link-611": {
+      "type": "Link",
+      "props": {
+        "label": "#611",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/611"
+      }
+    },
+    "text-611": {
+      "type": "Text",
+      "props": {
+        "text": "render-verify + merge dirty/blocked",
+        "variant": "caption"
+      }
+    },
+    "rc-517": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link-517",
+        "text-517"
+      ]
+    },
+    "link-517": {
+      "type": "Link",
+      "props": {
+        "label": "#517",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517"
+      }
+    },
+    "text-517": {
+      "type": "Text",
+      "props": {
+        "text": "no CI on fork PR",
+        "variant": "caption"
+      }
+    },
+    "block-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "block-badge"
+      ]
+    },
+    "block-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "BLOCK (0)",
+        "variant": "default"
+      }
+    }
+  }
+}
