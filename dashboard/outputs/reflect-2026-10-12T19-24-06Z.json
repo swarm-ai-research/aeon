@@ -1,0 +1,69 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "reflect",
+        "description": "Memory consolidation"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_date",
+        "stack_metrics",
+        "text_observation"
+      ]
+    },
+    "text_date": {
+      "type": "Text",
+      "props": {
+        "text": "2026-10-12",
+        "variant": "caption"
+      }
+    },
+    "stack_metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_n",
+        "stat_e"
+      ]
+    },
+    "stat_n": {
+      "type": "Stat",
+      "props": {
+        "label": "n",
+        "value": "+2",
+        "trend": "up"
+      }
+    },
+    "stat_e": {
+      "type": "Stat",
+      "props": {
+        "label": "e",
+        "value": "+19",
+        "trend": "up"
+      }
+    },
+    "text_observation": {
+      "type": "Text",
+      "props": {
+        "text": "1 new atomic: 08Z nominal silence persists past day-N+2",
+        "variant": "muted"
+      }
+    }
+  }
+}
