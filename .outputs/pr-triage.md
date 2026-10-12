@@ -1,17 +1,21 @@
-`PR_TRIAGE_OK no-candidates`.
-
 ## Summary
 
-Ran `pr-triage` skill on `swarm-ai-research/swarm` (repo mode).
+Ran `skills/pr-triage/SKILL.md` in **repo mode** against `swarm-ai-research/swarm`.
 
-- **Fetched**: 9 open PRs created within 14 days.
-- **Skipped all 9**:
-  - 2 bots: #621, #622 (dependabot)
-  - 7 already-triaged at current head SHA (matched against `memory/triaged-prs.json["swarm-ai-research/swarm"]`): #611 `bf2cab7`, #612 `1c56c08`, #614 `4475b87`, #616 `0d527e3`, #618 `d33d8e9`, #619 `4ef6578`, #628 `8e2f6a7`.
-- **No new triages**: no comments posted, no labels applied, no PRs closed, no state file writes, no notify.
-- **Terminal**: `PR_TRIAGE_OK no-candidates`.
+**Result: `PR_TRIAGE_OK no-candidates`** — all 4 open PRs in the 14-day window are from `app/dependabot` (bot author, in the trusted set); they route to `auto-merge` / `pr-review`, not pr-triage.
 
-Files modified:
-- `memory/logs/2026-09-26.md` — appended `### pr-triage` log entry.
+| # | Author | Skip reason |
+|---|---|---|
+| #636 | `app/dependabot` | bot |
+| #635 | `app/dependabot` | bot |
+| #634 | `app/dependabot` | bot |
+| #633 | `app/dependabot` | bot |
 
-Follow-up: none. Re-triage will fire automatically when any rsavitt PR gets a new head SHA (force-push or new commit) since dedup is keyed on `(number, headRefOid)`.
+- Triaged: 0 · accepted/needs-changes/deferred/out-of-scope all 0
+- No comments posted, no labels applied, no PRs closed
+- No notification (nothing matched the significance gate: no OOS close, no first-PR ACCEPTED)
+- `memory/triaged-prs.json` unchanged (no new records)
+
+**Files created:** `memory/logs/2026-10-12.md`
+
+**Follow-ups:** none from this run. Standing items unchanged (swarm app write-permission gap per [[aeon-app-no-write-on-swarm-repo]]; pr-review dedup write-gating per [[pr-review-dedup-saturation-freezes-write-blocked-repo-queues]]).
