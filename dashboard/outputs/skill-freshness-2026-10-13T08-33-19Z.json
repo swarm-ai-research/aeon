@@ -1,0 +1,40 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Freshness",
+        "description": "2026-10-13 — FRESHNESS_NO_CHANGE (suppressed)"
+      },
+      "children": [
+        "status_check",
+        "deps_stat",
+        "warning_alert"
+      ]
+    },
+    "status_check": {
+      "type": "Text",
+      "props": {
+        "text": "✅ FRESHNESS_OK",
+        "variant": "lead"
+      }
+    },
+    "deps_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Dependencies flagged",
+        "value": "0/17"
+      }
+    },
+    "warning_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "cost-report",
+        "message": "WARN at ~369h, crosses STALE in ~15h at ~2026-10-14T00:00Z if no dispatch"
+      }
+    }
+  }
+}
