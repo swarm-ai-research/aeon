@@ -1,0 +1,119 @@
+{
+  "root": "card_heartbeat",
+  "state": {},
+  "elements": {
+    "card_heartbeat": {
+      "type": "Card",
+      "props": {
+        "title": "Heartbeat — 10-13 08:29Z"
+      },
+      "children": [
+        "alert_degraded",
+        "text_selfcheck",
+        "sep_1",
+        "heading_signals",
+        "stack_signals",
+        "sep_2",
+        "text_final"
+      ]
+    },
+    "alert_degraded": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "🔴 DEGRADED",
+        "message": "33 open issues"
+      }
+    },
+    "text_selfcheck": {
+      "type": "Text",
+      "props": {
+        "text": "P0 self-check OK (22.8h since last run, <36h)",
+        "variant": "body"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_signals": {
+      "type": "Heading",
+      "props": {
+        "text": "NEW Signals",
+        "level": "h3"
+      }
+    },
+    "stack_signals": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "signal_1",
+        "signal_2",
+        "signal_3",
+        "signal_4",
+        "signal_5",
+        "signal_6"
+      ]
+    },
+    "signal_1": {
+      "type": "Text",
+      "props": {
+        "text": "(1) 18Z pocket RECOVERED 10-12 at +80m drift after 7-day silent streak (goal-tracker/skill-health/reflect/pr-review fired 19:19–24Z)",
+        "variant": "body"
+      }
+    },
+    "signal_2": {
+      "type": "Text",
+      "props": {
+        "text": "(2) 10-13 08Z cluster fire-with-drift +27m — recovery from 10-12 +93m silent-at-nominal (new 08Z-cluster drift-reset path)",
+        "variant": "body"
+      }
+    },
+    "signal_3": {
+      "type": "Text",
+      "props": {
+        "text": "(3) 10-13 05Z pocket day-3 silent (notegraph/suggest-edges last 10-10) — promotes [[iss-006-single-day-recovery-regression-generalizes-across-slots]] from day-2 to multi-day regime",
+        "variant": "body"
+      }
+    },
+    "signal_4": {
+      "type": "Text",
+      "props": {
+        "text": "(4) 10-12 16Z pocket day-2 silent (code-health/surplus-pulse)",
+        "variant": "body"
+      }
+    },
+    "signal_5": {
+      "type": "Text",
+      "props": {
+        "text": "(5) 10-12 23:45Z stale-content-pr-sweeper day-2 silent confirmed",
+        "variant": "body"
+      }
+    },
+    "signal_6": {
+      "type": "Text",
+      "props": {
+        "text": "(6) 10-12 Mon-12Z milestone-tracker silent (7-day Mon streak)",
+        "variant": "body"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_final": {
+      "type": "Text",
+      "props": {
+        "text": "06Z pocket day-16 natural. Status page regenerated.",
+        "variant": "muted"
+      }
+    }
+  }
+}
