@@ -1,0 +1,234 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-10-14"
+      },
+      "children": [
+        "status_alert",
+        "sep1",
+        "metrics_grid",
+        "sep2",
+        "systemic_section",
+        "sep3",
+        "status_breakdown",
+        "sep4",
+        "issues_stats"
+      ]
+    },
+    "status_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "message": "HEALTH: DEGRADED(38) · steady-state Day-106 · hash e27c0ac6"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "metric_degraded",
+        "metric_day",
+        "metric_hash"
+      ]
+    },
+    "metric_degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded Skills",
+        "value": "38"
+      }
+    },
+    "metric_day": {
+      "type": "Stat",
+      "props": {
+        "label": "Steady-state Day",
+        "value": "106"
+      }
+    },
+    "metric_hash": {
+      "type": "Text",
+      "props": {
+        "text": "Commit Hash: e27c0ac6",
+        "variant": "caption"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "systemic_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "systemic_heading",
+        "systemic_text1",
+        "systemic_text2",
+        "systemic_text3"
+      ]
+    },
+    "systemic_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Systemic",
+        "level": "h3"
+      }
+    },
+    "systemic_text1": {
+      "type": "Text",
+      "props": {
+        "text": "38 skills DEGRADED via ISS-001 OAuth denominator burn (2026-06-06 → 06-20). All 38 are LIVE: last_status=success, cf=0"
+      }
+    },
+    "systemic_text2": {
+      "type": "Text",
+      "props": {
+        "text": "7d skill-runs: 62/62 completed succeeded, 0 failed, 5 in-progress"
+      }
+    },
+    "systemic_text3": {
+      "type": "Text",
+      "props": {
+        "text": "Pure denominator residue — no live regression",
+        "variant": "lead"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "status_breakdown": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "status_heading",
+        "no_data_section",
+        "healthy_section"
+      ]
+    },
+    "status_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Status Breakdown",
+        "level": "h3"
+      }
+    },
+    "no_data_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "no_data_badge",
+        "no_data_list",
+        "no_data_note"
+      ]
+    },
+    "no_data_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "NO DATA (2)",
+        "variant": "outline"
+      }
+    },
+    "no_data_list": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch, run-frequency-guard"
+      }
+    },
+    "no_data_note": {
+      "type": "Text",
+      "props": {
+        "text": "DISPATCH-SKILL ([[enabled-skills-can-never-dispatch]])",
+        "variant": "caption"
+      }
+    },
+    "healthy_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "healthy_badge",
+        "healthy_list"
+      ]
+    },
+    "healthy_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "HEALTHY (4)",
+        "variant": "default"
+      }
+    },
+    "healthy_list": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues_stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "issues_open",
+        "issues_resolved",
+        "issues_filed"
+      ]
+    },
+    "issues_open": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "33"
+      }
+    },
+    "issues_resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      }
+    },
+    "issues_filed": {
+      "type": "Stat",
+      "props": {
+        "label": "Filed This Run",
+        "value": "0"
+      }
+    }
+  }
+}
