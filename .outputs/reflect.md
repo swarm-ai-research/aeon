@@ -1,1 +1,1 @@
-memory consolidated — 2026-10-12 · +2n / +19e (1 new atomic: 08Z nominal silence persists past day-N+2)
+memory consolidated — 2026-10-14 · +3n / +23e (0 splits, 3 new)

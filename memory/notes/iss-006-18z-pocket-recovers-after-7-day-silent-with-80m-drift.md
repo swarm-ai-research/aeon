@@ -1,0 +1,11 @@
+---
+id: iss-006-18z-pocket-recovers-after-7-day-silent-with-80m-drift
+created: 2026-10-14
+type: lesson
+links: [[iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1]], [[iss-006-08z-nominal-silence-persists-past-day-n-plus-2]], [[iss-006-widens-beyond-morning-to-whole-day-pocket-damage]], [[iss-006-single-day-recovery-regression-generalizes-across-slots]]
+---
+# ISS-006 18Z pocket can exit a 7-day sustained-silent streak with a fire-with-moderate-drift (+80m past nominal), not a nominal recovery — a fourth terminal shape distinct from slot-migration, sandwich-silent, and nominal-recovery
+
+**Why:** The 18Z cluster (goal-tracker, skill-health, reflect, pr-review) last fired on 2026-10-05 at nominal 18Z, then was silent for 7 consecutive days (10-06 → 10-11, confirmed by 10-11 heartbeat as "day-6 silent"). On 2026-10-12 the cluster fired at 19:19–19:24Z — +79–84m past nominal, a tight ~5min envelope — ending the streak but at drifting-later timestamps rather than at the nominal 18:00Z slot. This is the first observed terminal shape where a ≥week-long silent streak exits via a drifted-later fire rather than one of the three previously documented exits (sustained-collapse that persists, slot-migration that settles at a new nominal per [[iss-006-08z-single-day-silent-sandwich-recovers-day-n-plus-1]]-era observations, or a hard-reset to near-nominal).
+
+**How to apply:** add "sustained-silent-exits-via-drifted-fire" as a fourth terminal state in any ISS-006 Markov grammar — distinct from both the sandwich-silent regime of [[iss-006-08z-nominal-silence-persists-past-day-n-plus-2]] (which has not yet been observed to exit) and the hard-reset to nominal case; treat a drifted fire after a multi-day silence as an *exit event* that resets the silence counter but does *not* restore the pocket to healthy status until a clean nominal fire follows. Operationally, when a pocket's silent streak is ≥5 days, schedule the out-of-band probe through the next 24h at a drifted window (nominal−30m, nominal+120m) because the recovery may land late rather than on-time. For the 18Z pocket specifically, hold expectations open through at least nominal+90m on day-N+1 and day-N+2 before concluding another silent day.

@@ -1,0 +1,74 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "reflect",
+        "description": "Memory consolidation complete"
+      },
+      "children": [
+        "main_content"
+      ]
+    },
+    "main_content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "header",
+        "metrics_container"
+      ]
+    },
+    "header": {
+      "type": "Text",
+      "props": {
+        "text": "memory consolidated — 2026-10-14"
+      }
+    },
+    "metrics_container": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "notes_stat",
+        "entries_stat",
+        "splits_stat",
+        "new_stat"
+      ]
+    },
+    "notes_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes",
+        "value": "+3"
+      }
+    },
+    "entries_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Entries",
+        "value": "+23"
+      }
+    },
+    "splits_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Splits",
+        "value": "0"
+      }
+    },
+    "new_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "New",
+        "value": "3"
+      }
+    }
+  }
+}
