@@ -1,0 +1,276 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review (merge-gate) — 2026-10-14",
+        "description": "swarm-ai-research/swarm"
+      },
+      "children": [
+        "stats_section",
+        "approve_section",
+        "request_section",
+        "block_section",
+        "tech_note"
+      ]
+    },
+    "stats_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_reviewed",
+        "stat_skipped"
+      ]
+    },
+    "stat_reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Non-bot PRs Reviewed",
+        "value": "9"
+      }
+    },
+    "stat_skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Dependabot PRs Skipped",
+        "value": "5"
+      }
+    },
+    "approve_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "approve_heading",
+        "sep1",
+        "approve_prs"
+      ]
+    },
+    "approve_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "✅ APPROVE",
+        "level": "h3"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "approve_prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_628",
+        "pr_619",
+        "pr_518"
+      ]
+    },
+    "pr_628": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#628",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/628",
+        "source": "swarm-ai-research/swarm",
+        "score": "5/5"
+      }
+    },
+    "pr_619": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#619",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/619",
+        "source": "swarm-ai-research/swarm",
+        "score": "5/5"
+      }
+    },
+    "pr_518": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#518",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518",
+        "source": "swarm-ai-research/swarm",
+        "score": "4/5"
+      }
+    },
+    "request_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "request_heading",
+        "sep2",
+        "request_prs"
+      ]
+    },
+    "request_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🔄 REQUEST_CHANGES",
+        "level": "h3"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "request_prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_618",
+        "pr_616",
+        "pr_614",
+        "pr_612",
+        "pr_611",
+        "pr_517"
+      ]
+    },
+    "pr_618": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#618",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/618",
+        "source": "swarm-ai-research/swarm",
+        "score": "3/5"
+      }
+    },
+    "pr_616": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#616",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/616",
+        "source": "swarm-ai-research/swarm"
+      }
+    },
+    "pr_614": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#614",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/614",
+        "source": "swarm-ai-research/swarm"
+      }
+    },
+    "pr_612": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#612",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/612",
+        "source": "swarm-ai-research/swarm"
+      }
+    },
+    "pr_611": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "xs"
+      },
+      "children": [
+        "pr_611_link",
+        "pr_611_note"
+      ]
+    },
+    "pr_611_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#611",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/611",
+        "source": "swarm-ai-research/swarm",
+        "score": "2/5"
+      }
+    },
+    "pr_611_note": {
+      "type": "Text",
+      "props": {
+        "text": "render-verify + quality-gate FAIL, rebase needed",
+        "variant": "caption"
+      }
+    },
+    "pr_517": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "xs"
+      },
+      "children": [
+        "pr_517_link",
+        "pr_517_note"
+      ]
+    },
+    "pr_517_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#517",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517",
+        "source": "swarm-ai-research/swarm",
+        "score": "2/5"
+      }
+    },
+    "pr_517_note": {
+      "type": "Text",
+      "props": {
+        "text": "fork, no CI ran",
+        "variant": "caption"
+      }
+    },
+    "block_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "block_heading",
+        "sep3",
+        "block_content"
+      ]
+    },
+    "block_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🚫 BLOCK",
+        "level": "h3"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "block_content": {
+      "type": "Text",
+      "props": {
+        "text": "0 — no critical security/correctness risk on any PR",
+        "variant": "muted"
+      }
+    },
+    "tech_note": {
+      "type": "Alert",
+      "props": {
+        "title": "Review Posts Blocked",
+        "message": "Review posts 403'd on both addPullRequestReview and addComment (standing swarm write-block); verdicts logged only. State byte-identical to 10-12 across all 9 PRs.",
+        "type": "warning"
+      }
+    }
+  }
+}
