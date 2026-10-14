@@ -1,0 +1,218 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review (merge-gate)",
+        "description": "2026-10-14, operator-triggered re-run"
+      },
+      "children": [
+        "summary-text",
+        "sep1",
+        "stats-stack",
+        "sep2",
+        "approve-section",
+        "sep3",
+        "request-section",
+        "sep4",
+        "alert-block"
+      ]
+    },
+    "summary-text": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed 9 non-bot PRs on swarm-ai-research/swarm (skipped 5 dependabot). No critical risk present."
+      }
+    },
+    "sep1": {
+      "type": "Separator"
+    },
+    "stats-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-approve",
+        "stat-request",
+        "stat-block"
+      ]
+    },
+    "stat-approve": {
+      "type": "Stat",
+      "props": {
+        "label": "APPROVE",
+        "value": "3"
+      }
+    },
+    "stat-request": {
+      "type": "Stat",
+      "props": {
+        "label": "REQUEST_CHANGES",
+        "value": "6"
+      }
+    },
+    "stat-block": {
+      "type": "Stat",
+      "props": {
+        "label": "BLOCK",
+        "value": "0"
+      }
+    },
+    "sep2": {
+      "type": "Separator"
+    },
+    "approve-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "approve-heading",
+        "approve-list"
+      ]
+    },
+    "approve-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "APPROVE (3)",
+        "level": "h3"
+      }
+    },
+    "approve-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-628",
+        "pr-619",
+        "pr-518"
+      ]
+    },
+    "pr-628": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#628",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/628",
+        "source": "docs 5/5"
+      }
+    },
+    "pr-619": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#619",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/619",
+        "source": "prompt 5/5"
+      }
+    },
+    "pr-518": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#518",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518",
+        "source": "schema 4/5"
+      }
+    },
+    "sep3": {
+      "type": "Separator"
+    },
+    "request-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "request-heading",
+        "request-list"
+      ]
+    },
+    "request-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "REQUEST_CHANGES (6)",
+        "level": "h3"
+      }
+    },
+    "request-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-618",
+        "pr-616",
+        "pr-614",
+        "pr-612",
+        "pr-611",
+        "pr-517"
+      ]
+    },
+    "pr-618": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#618",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/618",
+        "source": "3/5 DIRTY — rebase"
+      }
+    },
+    "pr-616": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#616",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/616",
+        "source": "2/5 — docs-build FAIL"
+      }
+    },
+    "pr-614": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#614",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/614",
+        "source": "2/5 — docs-build FAIL"
+      }
+    },
+    "pr-612": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#612",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/612",
+        "source": "2/5 — docs-build FAIL"
+      }
+    },
+    "pr-611": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#611",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/611",
+        "source": "2/5 — docs-build FAIL"
+      }
+    },
+    "pr-517": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#517",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517",
+        "source": "2/5 fork — no CI ran"
+      }
+    },
+    "sep4": {
+      "type": "Separator"
+    },
+    "alert-block": {
+      "type": "Alert",
+      "props": {
+        "title": "Write-block persists",
+        "message": "403 `addPullRequestReview` — verdicts logged locally only. Standing: [[aeon-app-no-write-on-swarm-repo]]",
+        "type": "warning"
+      }
+    }
+  }
+}
