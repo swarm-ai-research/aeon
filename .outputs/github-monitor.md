@@ -1,6 +1,12 @@
 ## Summary
 
-Ran `skills/github-monitor/SKILL.md`. `memory/watched-repos.md` is still absent, so the skill short-circuits at step 1 per its own contract: logged `GITHUB_MONITOR_EMPTY_CONFIG`, no `gh` calls made, no notification sent (per step-4 silence rule).
+Executed `github-monitor` SKILL.md step 1 and short-circuited: `memory/watched-repos.md` is missing, so per the skill's own rule ("If the file is missing or empty, log `GITHUB_MONITOR_EMPTY_CONFIG` and end"), I logged the sentinel and ended with no notification and no `gh` calls.
 
-- Files touched: `memory/logs/2026-10-12.md` (new, with `### github-monitor` entry).
-- Follow-ups: standing MEMORY.md action-queue item "Populate `memory/watched-repos.md` OR disable 6 dependents" — this run adds n=1 to the streak (last audit 10-10, now streak-71-ish); also reconcile the `repo-revive` SKILL.md path mismatch (`memory/topics/watched-repos.md` vs `memory/watched-repos.md` used by the other five dependents).
+**Result:** `GITHUB_MONITOR_EMPTY_CONFIG` (streak-71, confirming MEMORY.md's existing current-focus bullet).
+
+**Files modified:**
+- `memory/logs/2026-10-14.md` — appended `### github-monitor` section + run summary.
+
+**Follow-up (already on MEMORY.md action queue, not newly introduced):**
+- Populate `memory/watched-repos.md` or disable the 6 dependents (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive).
+- Reconcile path mismatch — repo-revive references `memory/topics/watched-repos.md`; the other five reference `memory/watched-repos.md`.
