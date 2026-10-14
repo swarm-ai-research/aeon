@@ -1,21 +1,14 @@
 ## Summary
 
-Ran `skills/pr-triage/SKILL.md` in **repo mode** against `swarm-ai-research/swarm`.
+Ran `pr-triage` against `swarm-ai-research/swarm` with `${var}=swarm-ai-research/swarm` (repo mode).
 
-**Result: `PR_TRIAGE_OK no-candidates`** — all 4 open PRs in the 14-day window are from `app/dependabot` (bot author, in the trusted set); they route to `auto-merge` / `pr-review`, not pr-triage.
+**Result: `PR_TRIAGE_OK no-candidates`.**
 
-| # | Author | Skip reason |
-|---|---|---|
-| #636 | `app/dependabot` | bot |
-| #635 | `app/dependabot` | bot |
-| #634 | `app/dependabot` | bot |
-| #633 | `app/dependabot` | bot |
+- 4 open PRs in the 14-day lookback: #636, #635, #634, #633.
+- All authored by `app/dependabot` → bot author → trusted set → routed to `auto-merge` / `pr-review`, not triage.
+- No external-author PRs in the window → nothing to triage, no comments, no labels, no closures, no `./notify`.
 
-- Triaged: 0 · accepted/needs-changes/deferred/out-of-scope all 0
-- No comments posted, no labels applied, no PRs closed
-- No notification (nothing matched the significance gate: no OOS close, no first-PR ACCEPTED)
-- `memory/triaged-prs.json` unchanged (no new records)
+**Files modified:**
+- `memory/logs/2026-10-14.md` — appended `## pr-triage` section + summary.
 
-**Files created:** `memory/logs/2026-10-12.md`
-
-**Follow-ups:** none from this run. Standing items unchanged (swarm app write-permission gap per [[aeon-app-no-write-on-swarm-repo]]; pr-review dedup write-gating per [[pr-review-dedup-saturation-freezes-write-blocked-repo-queues]]).
+**Follow-ups:** none from this run. The existing `aeon-app-no-write-on-swarm-repo` 403 constraint and dependabot write-skipped history in `memory/triaged-prs.json` are unchanged (nothing to append — zero triage events this cycle; all 2026-07-25 → 2026-09-22 records remain within the 90-day retention window).
