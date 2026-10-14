@@ -1,0 +1,319 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Analytics",
+        "description": "2026-10-14"
+      },
+      "children": [
+        "header",
+        "alert-placeholder",
+        "stats_section",
+        "anomalies_section",
+        "separator1",
+        "critical_section",
+        "separator2",
+        "degraded_section",
+        "separator3",
+        "topbyrunsection",
+        "separator4",
+        "full_details"
+      ]
+    },
+    "header": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "info_text"
+      ]
+    },
+    "info_text": {
+      "type": "Text",
+      "props": {
+        "text": "10 scheduled skill(s) didn't run this window — planner",
+        "variant": "lead"
+      }
+    },
+    "alert-placeholder": {
+      "type": "Text",
+      "props": {
+        "text": "",
+        "variant": "caption"
+      }
+    },
+    "stats_section": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_window",
+        "stat_runs",
+        "stat_skills",
+        "stat_success"
+      ]
+    },
+    "stat_window": {
+      "type": "Stat",
+      "props": {
+        "label": "Window",
+        "value": "last 7d"
+      }
+    },
+    "stat_runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs",
+        "value": "67"
+      }
+    },
+    "stat_skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills",
+        "value": "27"
+      }
+    },
+    "stat_success": {
+      "type": "Stat",
+      "props": {
+        "label": "Success Rate",
+        "value": "100.0%",
+        "trend": "up"
+      }
+    },
+    "anomalies_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "anomalies_heading",
+        "anomalies_badges"
+      ]
+    },
+    "anomalies_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Anomalies: 13",
+        "level": "h3"
+      }
+    },
+    "anomalies_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_critical",
+        "badge_degraded",
+        "badge_warning"
+      ]
+    },
+    "badge_critical": {
+      "type": "Badge",
+      "props": {
+        "text": "🔴 10 Critical",
+        "variant": "destructive"
+      }
+    },
+    "badge_degraded": {
+      "type": "Badge",
+      "props": {
+        "text": "🟠 3 Degraded",
+        "variant": "secondary"
+      }
+    },
+    "badge_warning": {
+      "type": "Badge",
+      "props": {
+        "text": "🟡 0 Warning",
+        "variant": "outline"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "critical_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "critical_heading",
+        "critical_list"
+      ]
+    },
+    "critical_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🔴 Critical (top 3)",
+        "level": "h3"
+      }
+    },
+    "critical_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "critical_item_1",
+        "critical_item_2",
+        "critical_item_3"
+      ]
+    },
+    "critical_item_1": {
+      "type": "Text",
+      "props": {
+        "text": "planner — SILENT: scheduled `30 6 * * *`, zero runs (ISS-006 06Z dead regime)"
+      }
+    },
+    "critical_item_2": {
+      "type": "Text",
+      "props": {
+        "text": "compute-futures-eda — SILENT: scheduled `0 6 * * *`, zero runs (ISS-006 06Z dead regime)"
+      }
+    },
+    "critical_item_3": {
+      "type": "Text",
+      "props": {
+        "text": "memory-flush — SILENT: scheduled `0 6 2/2 * *`, zero runs (ISS-006 06Z dead regime)"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "degraded_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded_heading",
+        "degraded_list"
+      ]
+    },
+    "degraded_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟠 Degraded",
+        "level": "h3"
+      }
+    },
+    "degraded_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "degraded_item_1",
+        "degraded_item_2",
+        "degraded_item_3"
+      ]
+    },
+    "degraded_item_1": {
+      "type": "Text",
+      "props": {
+        "text": "goal-tracker — LOW_SUCCESS: 66.7% over 3 runs (1 in_progress at snapshot)"
+      }
+    },
+    "degraded_item_2": {
+      "type": "Text",
+      "props": {
+        "text": "reflect — LOW_SUCCESS: 66.7% over 3 runs (1 in_progress at snapshot)"
+      }
+    },
+    "degraded_item_3": {
+      "type": "Text",
+      "props": {
+        "text": "skill-health — LOW_SUCCESS: 66.7% over 3 runs (1 in_progress at snapshot)"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "topbyrunsection": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "topbyrun_heading",
+        "topbyrun_list"
+      ]
+    },
+    "topbyrun_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top by runs",
+        "level": "h3"
+      }
+    },
+    "topbyrun_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "topbyrun_item_1",
+        "topbyrun_item_2",
+        "topbyrun_item_3"
+      ]
+    },
+    "topbyrun_item_1": {
+      "type": "Text",
+      "props": {
+        "text": "pr-review (6)"
+      }
+    },
+    "topbyrun_item_2": {
+      "type": "Text",
+      "props": {
+        "text": "batch-health (5)"
+      }
+    },
+    "topbyrun_item_3": {
+      "type": "Text",
+      "props": {
+        "text": "gitlawb-fleet-metrics (5)"
+      }
+    },
+    "separator4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "full_details": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full report",
+        "href": "articles/skill-analytics-2026-10-14.md"
+      }
+    }
+  }
+}
