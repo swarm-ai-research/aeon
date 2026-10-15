@@ -1,0 +1,99 @@
+{
+  "root": "card-reflect",
+  "state": {},
+  "elements": {
+    "card-reflect": {
+      "type": "Card",
+      "props": {
+        "title": "reflect",
+        "description": "Memory consolidated"
+      },
+      "children": [
+        "summary-stack",
+        "separator",
+        "metrics-section",
+        "separator2",
+        "issues-section"
+      ]
+    },
+    "summary-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "date-stat"
+      ]
+    },
+    "date-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Consolidated",
+        "value": "2026-10-15"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "metric-notes",
+        "metric-entries"
+      ]
+    },
+    "metric-notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes Added",
+        "value": "+1"
+      }
+    },
+    "metric-entries": {
+      "type": "Stat",
+      "props": {
+        "label": "Entries Added",
+        "value": "+5"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issues-label",
+        "new-issue-badge"
+      ]
+    },
+    "issues-label": {
+      "type": "Text",
+      "props": {
+        "text": "1 New Atomic Issue",
+        "variant": "lead"
+      }
+    },
+    "new-issue-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "pr-tracker-issuecount-mixes-manual-and-bot-pipeline",
+        "variant": "default"
+      }
+    }
+  }
+}
