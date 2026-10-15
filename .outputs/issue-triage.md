@@ -1,10 +1,8 @@
+`ISSUE_TRIAGE_OK no-watched-repos`
+
 ## Summary
-
-Executed the `issue-triage` skill. It short-circuited at its config gate: `${var}` is empty and `memory/watched-repos.md` is absent (streak-71), so it emitted the terminal line `ISSUE_TRIAGE_OK no-watched-repos` per SKILL.md and exited without classifying any issues, applying any labels, or firing notify.
-
-**Files modified:**
-- `memory/logs/2026-10-14.md` — appended `## Issue Triage` section with the full report fields (all zero/none) + the standing context about the missing watched-repos config and the repo-revive path-mismatch defect.
-
-**Follow-ups (already on MEMORY.md action queue, unchanged):**
-- Populate `memory/watched-repos.md` OR disable the six dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive).
-- Reconcile path drift: repo-revive references `memory/topics/watched-repos.md`; the other five reference `memory/watched-repos.md`.
+- **Action taken:** none — short-circuit per §Config: `${var}` empty and `memory/watched-repos.md` absent → log `ISSUE_TRIAGE_OK no-watched-repos` and exit before any repo probe, label write, or comment post.
+- **Streak:** 74-day confirmation of the `watched-repos config missing` state tracked in `memory/MEMORY.md` (prior audit on 2026-10-13 recorded streak-73). Issue-triage remains one of the six skills short-circuiting on this.
+- **Files modified:** `memory/logs/2026-10-15.md` only (appended `## Issue Triage` section).
+- **Notify fired:** no (nothing actionable; the skill only notifies on urgent / p0 / security / duplicate-close / advisory verdicts, none of which can be produced from a short-circuit exit).
+- **Follow-up (unchanged, on action queue):** populate `memory/watched-repos.md` OR disable the six dependents (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Also reconcile the path mismatch — repo-revive references `memory/topics/watched-repos.md` while the other five reference `memory/watched-repos.md`.
