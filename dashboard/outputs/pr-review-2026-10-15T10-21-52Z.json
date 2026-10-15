@@ -1,0 +1,287 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-10-15",
+        "description": "swarm-ai-research/swarm merge-gate (operator-triggered)"
+      },
+      "children": [
+        "summary-row",
+        "sep1",
+        "approve-section",
+        "sep2",
+        "changes-section",
+        "sep3",
+        "block-section",
+        "sep4",
+        "note-alert"
+      ]
+    },
+    "summary-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-reviewed",
+        "stat-skipped"
+      ]
+    },
+    "stat-reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed",
+        "value": "9"
+      }
+    },
+    "stat-skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Bot-skipped",
+        "value": "5"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "approve-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "approve-badge",
+        "approve-prs"
+      ]
+    },
+    "approve-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE (3)",
+        "variant": "default"
+      }
+    },
+    "approve-prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-628",
+        "pr-619",
+        "pr-518"
+      ]
+    },
+    "pr-628": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#628",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/628",
+        "source": "GitHub"
+      }
+    },
+    "pr-619": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#619",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/619",
+        "source": "GitHub"
+      }
+    },
+    "pr-518": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#518",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518",
+        "source": "GitHub"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "changes-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "changes-badge",
+        "changes-group1",
+        "changes-group2",
+        "changes-group3"
+      ]
+    },
+    "changes-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES (6)",
+        "variant": "secondary"
+      }
+    },
+    "changes-group1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "reason-618",
+        "pr-618"
+      ]
+    },
+    "reason-618": {
+      "type": "Text",
+      "props": {
+        "text": "DIRTY-conflict",
+        "variant": "caption"
+      }
+    },
+    "pr-618": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#618",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/618",
+        "source": "GitHub"
+      }
+    },
+    "changes-group2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "reason-docs",
+        "prs-docs-fail"
+      ]
+    },
+    "reason-docs": {
+      "type": "Text",
+      "props": {
+        "text": "docs-build FAIL",
+        "variant": "caption"
+      }
+    },
+    "prs-docs-fail": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-616",
+        "pr-614",
+        "pr-612",
+        "pr-611"
+      ]
+    },
+    "pr-616": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#616",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/616",
+        "source": "GitHub"
+      }
+    },
+    "pr-614": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#614",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/614",
+        "source": "GitHub"
+      }
+    },
+    "pr-612": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#612",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/612",
+        "source": "GitHub"
+      }
+    },
+    "pr-611": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#611",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/611",
+        "source": "GitHub"
+      }
+    },
+    "changes-group3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "reason-517",
+        "pr-517"
+      ]
+    },
+    "reason-517": {
+      "type": "Text",
+      "props": {
+        "text": "fork no-CI",
+        "variant": "caption"
+      }
+    },
+    "pr-517": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#517",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517",
+        "source": "GitHub"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "block-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "block-badge"
+      ]
+    },
+    "block-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "BLOCK (0)",
+        "variant": "outline"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "note-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Write-blocked on swarm",
+        "message": "Verdicts logged, nothing posted remotely.",
+        "type": "info"
+      }
+    }
+  }
+}
