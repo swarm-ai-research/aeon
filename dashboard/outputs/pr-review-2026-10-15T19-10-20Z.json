@@ -1,0 +1,286 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-10-15",
+        "description": "operator re-run"
+      },
+      "children": [
+        "summary-section",
+        "separator-1",
+        "tallies-section",
+        "separator-2",
+        "notes-section"
+      ]
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-reviewed",
+        "stat-skipped"
+      ]
+    },
+    "stat-reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed (non-bot)",
+        "value": "9"
+      }
+    },
+    "stat-skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped (dependabot)",
+        "value": "5"
+      }
+    },
+    "separator-1": {
+      "type": "Separator"
+    },
+    "tallies-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "approve-group",
+        "request-changes-group",
+        "block-group"
+      ]
+    },
+    "approve-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "approve-title",
+        "approve-prs"
+      ]
+    },
+    "approve-title": {
+      "type": "Heading",
+      "props": {
+        "text": "APPROVE (3)",
+        "level": "h3"
+      }
+    },
+    "approve-prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-link-628",
+        "pr-link-619",
+        "pr-link-518"
+      ]
+    },
+    "pr-link-628": {
+      "type": "Link",
+      "props": {
+        "label": "#628",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/628"
+      }
+    },
+    "pr-link-619": {
+      "type": "Link",
+      "props": {
+        "label": "#619",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/619"
+      }
+    },
+    "pr-link-518": {
+      "type": "Link",
+      "props": {
+        "label": "#518",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518"
+      }
+    },
+    "request-changes-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "request-title",
+        "request-items"
+      ]
+    },
+    "request-title": {
+      "type": "Heading",
+      "props": {
+        "text": "REQUEST_CHANGES (6)",
+        "level": "h3"
+      }
+    },
+    "request-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "req-618",
+        "req-616-614-612-611",
+        "req-517"
+      ]
+    },
+    "req-618": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-link-618",
+        "reason-618"
+      ]
+    },
+    "pr-link-618": {
+      "type": "Link",
+      "props": {
+        "label": "#618",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/618"
+      }
+    },
+    "reason-618": {
+      "type": "Badge",
+      "props": {
+        "text": "DIRTY",
+        "variant": "destructive"
+      }
+    },
+    "req-616-614-612-611": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-link-616",
+        "pr-link-614",
+        "pr-link-612",
+        "pr-link-611",
+        "reason-docbuild"
+      ]
+    },
+    "pr-link-616": {
+      "type": "Link",
+      "props": {
+        "label": "#616",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/616"
+      }
+    },
+    "pr-link-614": {
+      "type": "Link",
+      "props": {
+        "label": "#614",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/614"
+      }
+    },
+    "pr-link-612": {
+      "type": "Link",
+      "props": {
+        "label": "#612",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/612"
+      }
+    },
+    "pr-link-611": {
+      "type": "Link",
+      "props": {
+        "label": "#611",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/611"
+      }
+    },
+    "reason-docbuild": {
+      "type": "Badge",
+      "props": {
+        "text": "docs-build FAIL",
+        "variant": "destructive"
+      }
+    },
+    "req-517": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-link-517",
+        "reason-517"
+      ]
+    },
+    "pr-link-517": {
+      "type": "Link",
+      "props": {
+        "label": "#517",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517"
+      }
+    },
+    "reason-517": {
+      "type": "Badge",
+      "props": {
+        "text": "fork no-CI",
+        "variant": "destructive"
+      }
+    },
+    "block-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "block-title"
+      ]
+    },
+    "block-title": {
+      "type": "Heading",
+      "props": {
+        "text": "BLOCK (0)",
+        "level": "h3"
+      }
+    },
+    "separator-2": {
+      "type": "Separator"
+    },
+    "notes-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "consistency-note",
+        "write-probe-alert"
+      ]
+    },
+    "consistency-note": {
+      "type": "Text",
+      "props": {
+        "text": "All 9 SHAs byte-identical to morning operator run",
+        "variant": "caption"
+      }
+    },
+    "write-probe-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Write Probe Failed",
+        "message": "403 error persists — verdicts logged only, not posted",
+        "type": "warning"
+      }
+    }
+  }
+}
