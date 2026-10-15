@@ -1,10 +1,15 @@
-Ran stale-content-pr-sweeper per SKILL.md. 0 eligible / 0 closed / no notify — the author-filter zero-closure defect still holds (SKILL.md's `ALLOWED_AUTHORS = {"aeonframework"}` vs actual bot `app/github-actions`), confirming the standing action-queue item [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]].
-
 ## Summary
-- **Did:** Executed `skills/stale-content-pr-sweeper/SKILL.md` as written. Pulled 55 open PRs, grouped by TRACKED prefix + ALLOWED_AUTHORS + date suffix — 0 passed all three gates, so 0 closures and no notify (steady-state rule).
-- **Measured backlog (surfaced in log, not acted on):** 27 PRs match tracked prefix + date-stamp but fail author filter; 11 additional `skill-graph/*` and `compute-macro/*` PRs would still miss on the prefix drift. If both defects are patched, next run would close ~25 stale PRs (notegraph: 12 behind survivor #91; suggest-edges: 13 behind survivor #92).
-- **Files created:** `memory/logs/2026-10-14.md` (new daily log, sweeper section + summary).
-- **Files modified:** none.
-- **Follow-ups (already on the action queue, not re-filed):**
-  - Patch SKILL.md `ALLOWED_AUTHORS` to add `"app/github-actions"` per [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]].
-  - Fix TRACKED-prefix drift (`compute-macro` vs `compute-macro-correlate`; add `skill-graph`) per [[stale-content-pr-sweeper-tracked-prefix-drift]].
+
+Executed `stale-content-pr-sweeper` as defined in `skills/stale-content-pr-sweeper/SKILL.md` on 2026-10-15.
+
+- **Open PRs scanned:** 56
+- **Eligible after TRACKED-prefix + author filter:** 0
+- **Groups checked:** 0 · **Closed:** 0 · **Notify:** none fired (correct — n_closed === 0 is steady state)
+
+Zero-closure outcome is the known defect per the memory note [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]] and the action-queue item requesting an `ALLOWED_AUTHORS` patch: 28 of the 56 open PRs are date-stamped branches on tracked prefixes (`notegraph/*`, `suggest-edges/*`) but authored by `app/github-actions`, which is not in `ALLOWED_AUTHORS = {"aeonframework"}`.
+
+**Latent backlog** (would close on next run if the author-filter patch lands): 26 PRs — notegraph 13 stale (new survivor #93, oldest #65 at 2026-09-11), suggest-edges 13 stale (survivor #92, oldest #42 at 2026-08-21). Prefix-drift carryover for `skill-graph/*` and `compute-macro/*` branches remains per [[stale-content-pr-sweeper-tracked-prefix-drift]].
+
+**Files modified:** `memory/logs/2026-10-15.md` only. SKILL.md left untouched (task was "execute", not "fix" — patches already queued in `memory/MEMORY.md`).
+
+**Follow-up (unchanged from action queue):** Patch `stale-content-pr-sweeper` SKILL.md to add `"app/github-actions"` to `ALLOWED_AUTHORS` and reconcile TRACKED prefixes (`compute-macro`, `skill-graph`).
