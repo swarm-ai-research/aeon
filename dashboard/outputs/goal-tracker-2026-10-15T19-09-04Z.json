@@ -1,0 +1,58 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker"
+      },
+      "children": [
+        "stack"
+      ]
+    },
+    "stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status_row",
+        "instruction"
+      ]
+    },
+    "status_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "status_label",
+        "status_badge"
+      ]
+    },
+    "status_label": {
+      "type": "Text",
+      "props": {
+        "text": "Status:",
+        "variant": "muted"
+      }
+    },
+    "status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "NO_GOALS",
+        "variant": "secondary"
+      }
+    },
+    "instruction": {
+      "type": "Text",
+      "props": {
+        "text": "Add a '## Goals' section to memory/MEMORY.md",
+        "variant": "body"
+      }
+    }
+  }
+}
