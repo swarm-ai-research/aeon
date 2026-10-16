@@ -1,0 +1,300 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-10-16 (2nd run)"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-summary",
+        "sep-1",
+        "stack-stats",
+        "sep-2",
+        "stack-verdicts",
+        "sep-3",
+        "text-context"
+      ]
+    },
+    "text-summary": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed 9 non-bot PRs, skipped 5 dependabot"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "stack-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-reviewed",
+        "stat-skipped"
+      ]
+    },
+    "stat-reviewed": {
+      "type": "Stat",
+      "props": {
+        "label": "Reviewed (non-bot)",
+        "value": "9"
+      }
+    },
+    "stat-skipped": {
+      "type": "Stat",
+      "props": {
+        "label": "Skipped (dependabot)",
+        "value": "5"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "stack-verdicts": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "verdict-approve",
+        "verdict-changes",
+        "verdict-block"
+      ]
+    },
+    "verdict-approve": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-approve",
+        "prs-approve"
+      ]
+    },
+    "text-approve": {
+      "type": "Text",
+      "props": {
+        "text": "APPROVE (3)",
+        "variant": "lead"
+      }
+    },
+    "prs-approve": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-628",
+        "pr-619",
+        "pr-518"
+      ]
+    },
+    "pr-628": {
+      "type": "Link",
+      "props": {
+        "label": "#628",
+        "href": "https://github.com/aeon/aeon/pull/628"
+      }
+    },
+    "pr-619": {
+      "type": "Link",
+      "props": {
+        "label": "#619",
+        "href": "https://github.com/aeon/aeon/pull/619"
+      }
+    },
+    "pr-518": {
+      "type": "Link",
+      "props": {
+        "label": "#518",
+        "href": "https://github.com/aeon/aeon/pull/518"
+      }
+    },
+    "verdict-changes": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-changes",
+        "prs-changes-group"
+      ]
+    },
+    "text-changes": {
+      "type": "Text",
+      "props": {
+        "text": "REQUEST_CHANGES (6)",
+        "variant": "lead"
+      }
+    },
+    "prs-changes-group": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "changes-618",
+        "changes-docs",
+        "changes-517"
+      ]
+    },
+    "changes-618": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-618",
+        "badge-dirty"
+      ]
+    },
+    "pr-618": {
+      "type": "Link",
+      "props": {
+        "label": "#618",
+        "href": "https://github.com/aeon/aeon/pull/618"
+      }
+    },
+    "badge-dirty": {
+      "type": "Badge",
+      "props": {
+        "text": "DIRTY-conflict",
+        "variant": "destructive"
+      }
+    },
+    "changes-docs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "prs-docs",
+        "badge-docs"
+      ]
+    },
+    "prs-docs": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-616",
+        "pr-614",
+        "pr-612",
+        "pr-611"
+      ]
+    },
+    "pr-616": {
+      "type": "Link",
+      "props": {
+        "label": "#616",
+        "href": "https://github.com/aeon/aeon/pull/616"
+      }
+    },
+    "pr-614": {
+      "type": "Link",
+      "props": {
+        "label": "#614",
+        "href": "https://github.com/aeon/aeon/pull/614"
+      }
+    },
+    "pr-612": {
+      "type": "Link",
+      "props": {
+        "label": "#612",
+        "href": "https://github.com/aeon/aeon/pull/612"
+      }
+    },
+    "pr-611": {
+      "type": "Link",
+      "props": {
+        "label": "#611",
+        "href": "https://github.com/aeon/aeon/pull/611"
+      }
+    },
+    "badge-docs": {
+      "type": "Badge",
+      "props": {
+        "text": "docs-build FAIL",
+        "variant": "destructive"
+      }
+    },
+    "changes-517": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-517",
+        "badge-fork"
+      ]
+    },
+    "pr-517": {
+      "type": "Link",
+      "props": {
+        "label": "#517",
+        "href": "https://github.com/aeon/aeon/pull/517"
+      }
+    },
+    "badge-fork": {
+      "type": "Badge",
+      "props": {
+        "text": "fork no-CI",
+        "variant": "outline"
+      }
+    },
+    "verdict-block": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-block"
+      ]
+    },
+    "text-block": {
+      "type": "Text",
+      "props": {
+        "text": "BLOCK (0)",
+        "variant": "lead"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "text-context": {
+      "type": "Text",
+      "props": {
+        "text": "All non-bot SHAs byte-identical to morning run; write-block (403) stands, verdicts logged only.",
+        "variant": "caption"
+      }
+    }
+  }
+}
