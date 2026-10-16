@@ -1,0 +1,199 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-10-16"
+      },
+      "children": [
+        "health-alert",
+        "sep-1",
+        "degraded-stack",
+        "sep-2",
+        "nodata-stack",
+        "sep-3",
+        "healthy-stack",
+        "sep-4",
+        "stats-stack"
+      ]
+    },
+    "health-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "HEALTH: DEGRADED (38 skills)",
+        "message": "Systemic: ISS-001 OAuth-outage denominator-burn Day-118 | 38 skills affected | No live regression | 45th consecutive day at zero fleet failures"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "degraded-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded-h",
+        "degraded-table",
+        "degraded-note"
+      ]
+    },
+    "degraded-h": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 DEGRADED (top 5 of 38, by last-success age)",
+        "level": "h3"
+      }
+    },
+    "degraded-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Last Success",
+          "Success Rate",
+          "Status"
+        ],
+        "rows": [
+          [
+            "skill-evals",
+            "33d",
+            "0.07",
+            "WAIT (ISS-001)"
+          ],
+          [
+            "janitor",
+            "26d",
+            "0.06",
+            "WAIT (ISS-001)"
+          ],
+          [
+            "memory-flush",
+            "26d",
+            "0.17",
+            "WAIT (ISS-001)"
+          ],
+          [
+            "memory-structural-dedupe",
+            "26d",
+            "0.17",
+            "WAIT (ISS-001)"
+          ],
+          [
+            "compute-futures-eda",
+            "19d",
+            "0.23",
+            "WAIT (ISS-001)"
+          ]
+        ]
+      }
+    },
+    "degraded-note": {
+      "type": "Text",
+      "props": {
+        "text": "+33 more — see memory/issues/INDEX.md",
+        "variant": "muted"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "nodata-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "nodata-h",
+        "nodata-t"
+      ]
+    },
+    "nodata-h": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA (2)",
+        "level": "h3"
+      }
+    },
+    "nodata-t": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch, run-frequency-guard — DISPATCH-SKILL",
+        "variant": "body"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "healthy-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "healthy-h",
+        "healthy-t"
+      ]
+    },
+    "healthy-h": {
+      "type": "Heading",
+      "props": {
+        "text": "🟢 HEALTHY: 4",
+        "level": "h3"
+      }
+    },
+    "healthy-t": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog",
+        "variant": "body"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stats-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stats-1",
+        "stats-2"
+      ]
+    },
+    "stats-1": {
+      "type": "Text",
+      "props": {
+        "text": "Open issues: 34 · Resolved this run: 0 · Day-108 steady-state (hash e27c0ac60367e7e5)",
+        "variant": "caption"
+      }
+    },
+    "stats-2": {
+      "type": "Text",
+      "props": {
+        "text": "Filed by other detectors since 10-15: ISS-038 (batch-health 10-16, 19th ISS-006 tributary)",
+        "variant": "caption"
+      }
+    }
+  }
+}
