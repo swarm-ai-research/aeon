@@ -1,0 +1,160 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "batch outage",
+        "description": "2026-10-16"
+      },
+      "children": [
+        "alert_outage",
+        "sep1",
+        "heading_skills",
+        "stack_skills",
+        "sep2",
+        "heading_issues",
+        "stack_issues",
+        "sep3",
+        "heading_diagnostic",
+        "text_diagnostic",
+        "sep4",
+        "text_action"
+      ]
+    },
+    "alert_outage": {
+      "type": "Alert",
+      "props": {
+        "title": "Batch Outage",
+        "message": "4 skills never triggered during 06:00–07:30 UTC window",
+        "type": "error"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_skills": {
+      "type": "Heading",
+      "props": {
+        "text": "Skills Never Triggered",
+        "level": "h3"
+      }
+    },
+    "stack_skills": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skill_planner",
+        "skill_eda",
+        "skill_flush",
+        "skill_dedupe"
+      ]
+    },
+    "skill_planner": {
+      "type": "Text",
+      "props": {
+        "text": "planner (30 6 * * *)",
+        "variant": "body"
+      }
+    },
+    "skill_eda": {
+      "type": "Text",
+      "props": {
+        "text": "compute-futures-eda (0 6 * * *)",
+        "variant": "body"
+      }
+    },
+    "skill_flush": {
+      "type": "Text",
+      "props": {
+        "text": "memory-flush (0 6 2/2 * *)",
+        "variant": "body"
+      }
+    },
+    "skill_dedupe": {
+      "type": "Text",
+      "props": {
+        "text": "memory-structural-dedupe (10 6 2/2 * *)",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_issues": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues",
+        "level": "h3"
+      }
+    },
+    "stack_issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_iss038",
+        "text_iss006"
+      ]
+    },
+    "text_iss038": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-038 filed",
+        "variant": "body"
+      }
+    },
+    "text_iss006": {
+      "type": "Text",
+      "props": {
+        "text": "19th ISS-006 tributary (standard even-DOM 4-tuple)",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_diagnostic": {
+      "type": "Heading",
+      "props": {
+        "text": "Diagnostics",
+        "level": "h3"
+      }
+    },
+    "text_diagnostic": {
+      "type": "Text",
+      "props": {
+        "text": "08Z cluster drifted +98m — new series peak",
+        "variant": "body"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_action": {
+      "type": "Text",
+      "props": {
+        "text": "check GHA cron status",
+        "variant": "lead"
+      }
+    }
+  }
+}
