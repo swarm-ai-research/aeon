@@ -1,0 +1,484 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review",
+        "description": "Reviewed 9 on swarm-ai-research/swarm (operator-triggered merge-gate), skipped 5 (dependabot bots)."
+      },
+      "children": [
+        "sep-1",
+        "stack-prs",
+        "sep-2",
+        "summary-alert"
+      ]
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-628",
+        "pr-619",
+        "pr-618",
+        "pr-group-docs",
+        "pr-518",
+        "pr-517"
+      ]
+    },
+    "pr-628": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-628-header",
+        "pr-628-desc",
+        "pr-628-status"
+      ]
+    },
+    "pr-628-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "link-628",
+        "badge-628-author",
+        "badge-628-verdict"
+      ]
+    },
+    "link-628": {
+      "type": "Link",
+      "props": {
+        "label": "#628",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/628"
+      }
+    },
+    "badge-628-author": {
+      "type": "Badge",
+      "props": {
+        "text": "rsavitt",
+        "variant": "secondary"
+      }
+    },
+    "badge-628-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE 5/5",
+        "variant": "default"
+      }
+    },
+    "pr-628-desc": {
+      "type": "Text",
+      "props": {
+        "text": "docs blog",
+        "variant": "body"
+      }
+    },
+    "pr-628-status": {
+      "type": "Text",
+      "props": {
+        "text": "✓ Approved",
+        "variant": "caption"
+      }
+    },
+    "pr-619": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-619-header",
+        "pr-619-desc",
+        "pr-619-status"
+      ]
+    },
+    "pr-619-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "link-619",
+        "badge-619-author",
+        "badge-619-verdict"
+      ]
+    },
+    "link-619": {
+      "type": "Link",
+      "props": {
+        "label": "#619",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/619"
+      }
+    },
+    "badge-619-author": {
+      "type": "Badge",
+      "props": {
+        "text": "rsavitt",
+        "variant": "secondary"
+      }
+    },
+    "badge-619-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE 5/5",
+        "variant": "default"
+      }
+    },
+    "pr-619-desc": {
+      "type": "Text",
+      "props": {
+        "text": "council-ranker prompt + 3 tests",
+        "variant": "body"
+      }
+    },
+    "pr-619-status": {
+      "type": "Text",
+      "props": {
+        "text": "✓ Approved",
+        "variant": "caption"
+      }
+    },
+    "pr-618": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-618-header",
+        "pr-618-desc",
+        "pr-618-status",
+        "alert-618"
+      ]
+    },
+    "pr-618-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "link-618",
+        "badge-618-author",
+        "badge-618-verdict"
+      ]
+    },
+    "link-618": {
+      "type": "Link",
+      "props": {
+        "label": "#618",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/618"
+      }
+    },
+    "badge-618-author": {
+      "type": "Badge",
+      "props": {
+        "text": "rsavitt",
+        "variant": "secondary"
+      }
+    },
+    "badge-618-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES 3/5",
+        "variant": "outline"
+      }
+    },
+    "pr-618-desc": {
+      "type": "Text",
+      "props": {
+        "text": "slashing wire (14 files, 7 tests)",
+        "variant": "body"
+      }
+    },
+    "pr-618-status": {
+      "type": "Text",
+      "props": {
+        "text": "⚠ Changes requested",
+        "variant": "caption"
+      }
+    },
+    "alert-618": {
+      "type": "Alert",
+      "props": {
+        "message": "DIRTY: rebase onto main",
+        "type": "warning"
+      }
+    },
+    "pr-group-docs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-docs-header",
+        "pr-docs-desc",
+        "pr-docs-status",
+        "alert-docs"
+      ]
+    },
+    "pr-docs-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-docs-links-row",
+        "pr-docs-meta-row"
+      ]
+    },
+    "pr-docs-links-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "link-616",
+        "link-614",
+        "link-612",
+        "link-611"
+      ]
+    },
+    "link-616": {
+      "type": "Link",
+      "props": {
+        "label": "#616",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/616"
+      }
+    },
+    "link-614": {
+      "type": "Link",
+      "props": {
+        "label": "#614",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/614"
+      }
+    },
+    "link-612": {
+      "type": "Link",
+      "props": {
+        "label": "#612",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/612"
+      }
+    },
+    "link-611": {
+      "type": "Link",
+      "props": {
+        "label": "#611",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/611"
+      }
+    },
+    "pr-docs-meta-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-docs-author",
+        "badge-docs-verdict"
+      ]
+    },
+    "badge-docs-author": {
+      "type": "Badge",
+      "props": {
+        "text": "rsavitt",
+        "variant": "secondary"
+      }
+    },
+    "badge-docs-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES 2/5",
+        "variant": "outline"
+      }
+    },
+    "pr-docs-desc": {
+      "type": "Text",
+      "props": {
+        "text": "docs PRs",
+        "variant": "body"
+      }
+    },
+    "pr-docs-status": {
+      "type": "Text",
+      "props": {
+        "text": "⚠ Changes requested",
+        "variant": "caption"
+      }
+    },
+    "alert-docs": {
+      "type": "Alert",
+      "props": {
+        "message": "render-verify + quality-gate FAIL",
+        "type": "warning"
+      }
+    },
+    "pr-518": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-518-header",
+        "pr-518-desc",
+        "pr-518-status",
+        "alert-518"
+      ]
+    },
+    "pr-518-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "link-518",
+        "badge-518-author",
+        "badge-518-verdict"
+      ]
+    },
+    "link-518": {
+      "type": "Link",
+      "props": {
+        "label": "#518",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518"
+      }
+    },
+    "badge-518-author": {
+      "type": "Badge",
+      "props": {
+        "text": "go165",
+        "variant": "secondary"
+      }
+    },
+    "badge-518-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE 4/5",
+        "variant": "default"
+      }
+    },
+    "pr-518-desc": {
+      "type": "Text",
+      "props": {
+        "text": "fork scenario schema + 86 lines tests",
+        "variant": "body"
+      }
+    },
+    "pr-518-status": {
+      "type": "Text",
+      "props": {
+        "text": "✓ Approved",
+        "variant": "caption"
+      }
+    },
+    "alert-518": {
+      "type": "Alert",
+      "props": {
+        "message": "Vercel non-blocking",
+        "type": "info"
+      }
+    },
+    "pr-517": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-517-header",
+        "pr-517-desc",
+        "pr-517-status",
+        "alert-517"
+      ]
+    },
+    "pr-517-header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "link-517",
+        "badge-517-author",
+        "badge-517-verdict"
+      ]
+    },
+    "link-517": {
+      "type": "Link",
+      "props": {
+        "label": "#517",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517"
+      }
+    },
+    "badge-517-author": {
+      "type": "Badge",
+      "props": {
+        "text": "go165",
+        "variant": "secondary"
+      }
+    },
+    "badge-517-verdict": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES 2/5",
+        "variant": "outline"
+      }
+    },
+    "pr-517-desc": {
+      "type": "Text",
+      "props": {
+        "text": "fork swarm diff CLI, 709 lines, no CI ran",
+        "variant": "body"
+      }
+    },
+    "pr-517-status": {
+      "type": "Text",
+      "props": {
+        "text": "⚠ Changes requested",
+        "variant": "caption"
+      }
+    },
+    "alert-517": {
+      "type": "Alert",
+      "props": {
+        "message": "fork needs maintainer CI auth",
+        "type": "warning"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Summary",
+        "message": "BLOCK 0 — no critical security/correctness risk. Write-blocked (403) on swarm; verdicts logged, not posted.",
+        "type": "success"
+      }
+    }
+  }
+}
