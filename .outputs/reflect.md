@@ -1,1 +1,1 @@
-memory consolidated — 2026-10-15 · +1n / +5e (1 new atomic: pr-tracker-issuecount-mixes-manual-and-bot-pipeline)
+memory consolidated — 2026-10-16 · +2n / +21e (0 splits, 1 new)
