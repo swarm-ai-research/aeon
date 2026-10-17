@@ -1,21 +1,20 @@
 {
-  "last_run": "2026-09-27T06:30:00Z",
-  "top_priority": "agi-tracker-enabled-false-via-pr",
+  "last_run": "2026-10-17T06:30:00Z",
+  "top_priority": "stale-content-pr-sweeper-allowed-authors-patch",
   "priority_streak": {
-    "agi-tracker-enabled-false-via-pr": 18,
-    "iss-006-messages-yml-multi-pocket-rewrite": 34,
-    "pr-26-ci-regressed-shellcheck-fail": 3,
-    "watched-repos-population-or-disable": 28,
-    "docs-status-md-snapshot-rebase-gate": 49,
-    "swarm-repo-app-perm-gap": 54,
-    "suggest-edges-templated-corpus-prefilter": 25,
-    "stale-content-pr-sweeper-allowed-authors-patch": 27,
-    "pr-tracker-patch-batch": 71,
-    "aeon-repo-pr-26-merge-ready": 25,
-    "skill-repair-87d-silent": 3,
-    "08z-pocket-collapse-heartbeat-force-dispatch": 1
+    "stale-content-pr-sweeper-allowed-authors-patch": 28,
+    "agi-tracker-enabled-false-via-pr": 19,
+    "iss-006-messages-yml-multi-pocket-rewrite": 35,
+    "pr-26-ci-regressed-shellcheck-fail": 4,
+    "iss-039-identity-blackout-filing": 1,
+    "watched-repos-population-or-disable": 29,
+    "docs-status-md-snapshot-rebase-gate": 50,
+    "swarm-repo-app-perm-gap": 55,
+    "suggest-edges-templated-corpus-prefilter": 26,
+    "pr-tracker-patch-batch": 72,
+    "aeon-repo-pr-26-merge-ready": 26
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Thirty-third planner run; TWENTY-SEVENTH since 08-07 PR-creation toggle unblock. First fire since 09-20 (7-day gap in the 06:30Z pocket — planner is a direct 06Z-pocket casualty per ISS-006 daily-dead regime; today Sun DOM=27 odd is the predicted weekend-compounded outage slot). Rank-1 UNCHANGED: `agi-tracker-enabled-false-via-pr` (streak 17→18) — 13th silent-Mon at 2026-09-28T13:00Z is now T-1, hardest deadline on the board. Novel rank-2 today: `08z-pocket-collapse-heartbeat-force-dispatch` (streak 1) — heartbeat + batch-health + skill-freshness + gitlawb-fleet-metrics all silent 45h+ since 2026-09-25T09:5xZ per [[iss-006-08z-pocket-collapses-day-4-after-3-day-drift]] (day-2 collapse); force-dispatch heartbeat to trip its own self-check, refresh docs/status.md, and unblock batch-health's 09-26 ISS-006 tributary. Rank-3 ISS-006 messages.yml rewrite (streak 34, stuck-goal escalated to WIP-branch action for the first time). Rank-4/5 carry (PR #26 Day-49, watched-repos streak-57). Fleet: 0 broken (cf>=2), 38 DEGRADED (ISS-001 residue Day-99), 25 stale >72h, 25 open issues. Reactive trigger did NOT fire (0 skills at cf>=2). ${var} empty -> plan-only, no dispatch. Soul absent; voice defaulted first-person direct."
+  "notes": "Thirty-fourth planner run; first fire since 2026-09-27 (20-day gap in the 06:30Z pocket — planner is a direct 06Z-pocket casualty per ISS-006 daily-dead regime). Today Sat DOM=17 odd. Rank-1 CHANGED from 09-27's `agi-tracker-enabled-false-via-pr` to `stale-content-pr-sweeper-allowed-authors-patch` (streak 27→28 continuity bump) — n=4 confirmed author-filter zero-closure defect across 10-14 / 10-15 / 10-16-AM / 10-16-PM, 26-PR latent stale backlog growing ~1/day. Rank-2 agi-tracker enabled:false (streak 18→19) — Mon 10-19 T+2 is the 15th silent-Mon slot. Rank-3 ISS-006 messages.yml rewrite (streak 34→35 stuck-goal, escalated to 'start WIP branch' this run instead of a sixth restatement). Rank-4 PR #26 ShellCheck (Day-49+). Rank-5 ISS-039 identity-blackout filing (new rank, streak 1) — 30-day overdue doc debt. Fleet: 0 broken (cf>=2), 38 DEGRADED (ISS-001 Day-118), 15+ stale >48h (ISS-006 pocket casualties), 34 open issues. Heartbeat 10-16 landed +101m past 08Z nominal (new series peak); slot-agnostic drift-recovery promoted at n=2 per [[iss-006-drift-recovery-is-slot-agnostic-and-magnitude-non-monotonic]]. Reactive trigger did NOT fire (0 skills at cf>=2). ${var} empty -> plan-only, no dispatch. Soul absent; voice defaulted first-person direct."
 }

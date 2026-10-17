@@ -1,0 +1,219 @@
+{
+  "root": "card_planner",
+  "state": {},
+  "elements": {
+    "card_planner": {
+      "type": "Card",
+      "props": {
+        "title": "Planner"
+      },
+      "children": [
+        "leading_section",
+        "separator_1",
+        "activities_section",
+        "separator_2",
+        "fleet_section"
+      ]
+    },
+    "leading_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "leading_heading",
+        "priority_text",
+        "stats_grid_leading"
+      ]
+    },
+    "leading_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Leading Priority",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "priority_text": {
+      "type": "Text",
+      "props": {
+        "text": "stale-content-pr-sweeper ALLOWED_AUTHORS patch"
+      },
+      "children": []
+    },
+    "stats_grid_leading": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "defects_stat",
+        "backlog_stat"
+      ]
+    },
+    "defects_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Confirmed defects",
+        "value": "4"
+      },
+      "children": []
+    },
+    "backlog_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Latent backlog (growing 1/day)",
+        "value": "26 PRs"
+      },
+      "children": []
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "activities_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "activities_heading",
+        "activities_list"
+      ]
+    },
+    "activities_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Additional Activities",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "activities_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "activity_1",
+        "activity_2",
+        "activity_3",
+        "activity_4",
+        "activity_5"
+      ]
+    },
+    "activity_1": {
+      "type": "Text",
+      "props": {
+        "text": "Picking up agi-tracker enabled:false before Monday's 15th silent slot"
+      },
+      "children": []
+    },
+    "activity_2": {
+      "type": "Text",
+      "props": {
+        "text": "Kicking off a WIP branch for the ISS-006 messages.yml rewrite"
+      },
+      "children": []
+    },
+    "activity_3": {
+      "type": "Text",
+      "props": {
+        "text": "PR #26 ShellCheck Day-49 diagnose"
+      },
+      "children": []
+    },
+    "activity_4": {
+      "type": "Text",
+      "props": {
+        "text": "Filing ISS-039 for the aeonframework identity blackout"
+      },
+      "children": []
+    },
+    "activity_5": {
+      "type": "Text",
+      "props": {
+        "text": "Holding the 08Z pocket at nominal watch after yesterday's +101m new-series-peak recovery"
+      },
+      "children": []
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "fleet_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fleet_heading",
+        "fleet_stats_grid"
+      ]
+    },
+    "fleet_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet Status",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "fleet_stats_grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "broken_stat",
+        "degraded_stat",
+        "open_issues_stat",
+        "overall_status"
+      ]
+    },
+    "broken_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Broken",
+        "value": "0"
+      },
+      "children": []
+    },
+    "degraded_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded (ISS-001 Day-118)",
+        "value": "38"
+      },
+      "children": []
+    },
+    "open_issues_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Open issues",
+        "value": "34"
+      },
+      "children": []
+    },
+    "overall_status": {
+      "type": "Badge",
+      "props": {
+        "text": "🔴 DEGRADED",
+        "variant": "destructive"
+      },
+      "children": []
+    }
+  }
+}
