@@ -1,52 +1,49 @@
 # PR Status
 
-*Last updated: 2026-10-15*
+*Last updated: 2026-10-17*
 
 Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch prefixes tracked: `ai/`, `security/`, `fix/security/`, `aeon/`, `fix/`, `hook-submission/` (6 in play). Config source: prior operator convention (no `aeon.yml` `pr_tracker` block; SKILL.md default of `ai/` alone matches zero PRs today, so the 6-prefix set from prior scans is retained pending item (p) SKILL patch that would formalize it).
 
-## 2026-10-15 — Day-32 post-recovery scan · **bucket tuple `(0, 2, 0, 0)` holds 5th consecutive scan; `issueCount` 62 → 64 breaks 3-scan flat**
+## 2026-10-17 — Day-34 post-recovery scan · **bucket tuple `(0, 2, 0, 0)` holds 6th consecutive scan; `issueCount` flat at 64 vs 10-15**
 
-First-attempt GraphQL hit a transient `502 Bad Gateway` from nginx; retried once after 8s and succeeded. `issueCount` jumps +2 to 64 — first non-zero delta since 10-07 broke an 11-day observation gap. The two new nodes are **manual (non-bot-prefix) apache-org PRs** filed yesterday 2026-10-14 by the `aeonframework` identity, so they land in `issueCount` but drop out at prefix-filter — buckets are unaffected.
+GraphQL first-attempt success today — the transient `502 Bad Gateway` from 10-15 did NOT recur, so the one-shot retry wrapper hypothesis (new item (s) draft) stays at n=1 observation. `issueCount` steady at 64 (no delta vs 10-15); the two apache-org manual PRs from 10-14 are still the only non-bot-prefix surface activity in the top-60. Buckets fully frozen.
 
-- GraphQL `search(query:"author:aeonframework is:pr", type:ISSUE, first:60)` → `issueCount = 64` (vs 62 across 10-07 / 10-10 / 10-14; sequence now `62 → 62 → 62 → 64`)
-- First-attempt exit=1 with HTTP 502 body `<html><title>502 Bad Gateway</title>…</html>` from nginx — new error-shape distinct from the Shopify IP-allowlist `exit=1 + stderr + non-empty stdout` pattern (this one has an HTML body, no useful JSON). Retried after 8s, succeeded.
-- Second attempt returned 60 nodes (59 concrete + 1 null slot = Shopify IP-allow-list PR, confirmed via stderr `Shopify organization has an IP allow list enabled, and your IP address is not permitted to access this resource`); 3 non-prefix drops (`apache/struts#2012` MERGED 2026-10-15T07:09Z branch `WW-5772-csp-inline-handlers`, `apache/wicket#1667` OPEN branch `csp-autocomplete-choicefilter`, `theagentrouter/agent-router#2755` branch `mcp-default-seed`)
-- 56 prefix-match PRs retained (state split: 44 CLOSED / 10 MERGED / 2 OPEN); vs 58 on 10-14 — net `−2` prefix-match because older MERGED/CLOSED items got pushed below top-60 by the two new apache-org `updatedAt` events
-- **Bucket tuple `(0, 2, 0, 0)`** — identical to 10-14, 10-10, 10-07; **5th consecutive scan at this value**, 8-day frozen window
+- GraphQL `search(query:"author:aeonframework is:pr", type:ISSUE, first:60)` → `issueCount = 64` (vs 64/62/62/62 across 10-15/10-14/10-10/10-07; sequence now `62 → 62 → 62 → 64 → 64`)
+- Second attempt returned 60 nodes (59 concrete + 1 null slot = Shopify IP-allow-list PR, n=5-sustained via stderr `Shopify organization has an IP allow list enabled, and your IP address is not permitted to access this resource`)
+- 3 non-prefix drops: `apache/struts#2012` MERGED 2026-10-15 (branch `WW-5772-csp-inline-handlers`), `apache/wicket#1667` OPEN (branch `csp-autocomplete-choicefilter`), `theagentrouter/agent-router#2755` MERGED 2026-09-28 (branch `mcp-default-seed`)
+- 56 prefix-match PRs retained (state split: 44 CLOSED / 10 MERGED / 2 OPEN) — identical to 10-15
+- **Bucket tuple `(0, 2, 0, 0)`** — identical to 10-15, 10-14, 10-10, 10-07; **6th consecutive scan at this value**, 10-day frozen window
 
-### Bucket delta from 2026-10-14 scan
+### Bucket delta from 2026-10-15 scan
 
-| Bucket | 10-14 | 10-15 | Δ |
+| Bucket | 10-15 | 10-17 | Δ |
 |--------|-------|-------|---|
-| merged7d | 0 | 0 | 0 (15th scan dry — mxc#1124 landed 09-28 is 17d past, outside 7d window) |
-| staleLetter | 2 | 2 | 0 (wigolo#216 + RuView#1409 unchanged) |
+| merged7d | 0 | 0 | 0 (16th scan dry — mxc#1124 landed 09-28 is 19d past, outside 7d window) |
+| staleLetter | 2 | 2 | 0 (wigolo#216 + RuView#1409 unchanged, both +2d age) |
 | closed7d | 0 | 0 | 0 |
 | activeLetter | 0 | 0 | 0 |
-| Open total | 2 | 2 | 0 (prefix-match only — ignoring apache/wicket#1667 which is non-prefix) |
-| issueCount | 62 | 64 | **+2** (first non-zero in 4 scans; both deltas are manual aeonframework PRs on apache org, non-bot-prefix) |
-| closed30d | 24 | 24 | 0 (09-17 bulk-close cluster still inside window; next rollover 10-17 i.e. in 2 days) |
+| Open total | 2 | 2 | 0 (prefix-match only — apache/wicket#1667 is still open but non-prefix) |
+| issueCount | 64 | 64 | 0 (first flat delta since the 3-scan plateau 10-07/10-10/10-14 at 62) |
+| closed30d | 24 | 24 | 0 (09-17 bulk-close cluster is exactly 30d past today — rolls off on 10-18) |
 
 ### Signal notes
 
-- **`issueCount` +2 to 64 — first non-zero delta since 10-07** — breaks the 3-scan flat 62. Both deltas trace to the apache-org manual PR cluster (details below); neither increments any bot bucket. Steady-state attractor hypothesis from 10-14 (bucket tuple frozen) still intact — the apache-org PRs are *operator surface activity visible through the author filter*, not bot-pipeline output. **Candidate atomic**: `[[pr-tracker-manual-aeonframework-prs-surface-in-top-60-but-not-in-buckets]]` — `issueCount` is a mixed surface (bot + manual operator) while buckets are bot-only; delta drift between the two now has observational evidence.
-- **Manual aeonframework activity on apache org** — two PRs opened yesterday 2026-10-14 by the `aeonframework` identity, neither on bot-prefix branches:
-  - `apache/struts#2012` — WW-5772 Remove inline event handlers from optiontransferselect/… — opened 10-14T19:27Z, **MERGED today 10-15T07:09Z** (~12h turnaround — fast operator-tier contribution, distinct from the <5min aeon-adjacent fast-merge class per [[pr-tracker-hook-submission-prefix-promotes-with-aeon-adjacent-fast-merges]])
-  - `apache/wicket#1667` — CSP autocomplete+ChoiceFilter work (WICKET-6938) — opened 10-14T19:27Z, still OPEN
-  - These are CSP/XSS-adjacent manual contributions, suggesting operator-driven work in parallel to the bot stream. Flagging because: (a) the aeonframework identity is now observationally dual-use (bot + manual), and (b) manual PRs with branch prefixes outside the 6-set are a new data-quality consideration for any skill that treats "aeonframework author" as a bot-only proxy.
-- **Transient 502 on first attempt** — new error class for pr-tracker. First time nginx 502 observed on `gh api graphql` from this skill. One-shot retry at 8s succeeded. Candidate atomic: `[[pr-tracker-gh-api-graphql-transient-502-bad-gateway]]` — first observation at n=1, no promotion yet. If recurs, consider adding a retry-with-backoff wrapper to the primary query path (currently SKILL.md step-2 primary falls through to `gh search prs` on error — but a transient 502 doesn't warrant falling back to the lossier search API when retry works).
-- **Shopify null-slot n=4** — stderr IP-allowlist message identical across 10-07/10-10/10-14/10-15; promotes [[pr-tracker-shopify-ip-allowlist-null-slot]] to n=4-sustained. Partial-success handling (`exit=1 + non-empty stdout + null-slot in nodes`) continues to work implicitly. SKILL patch item (r) formalization still owed (currently 3 variants observed: (i) Shopify null-slot — benign, (ii) non-empty error body — benign, (iii) nginx 502 → stdout=HTML — need to retry; a single partial-success handler must distinguish these).
-- **Both open PRs still stale, no engagement change (n=4 consecutive scans frozen)**:
-  - `KnockOutEZ/wigolo#216` — 86d old (was 85d on 10-14), last review `COMMENTED` on 2026-07-20 (86d stale review); 10 comments
-  - `ruvnet/RuView#1409` — 83d old (was 82d on 10-14), last review `APPROVED` on 2026-08-28 (47d stale approve, unmerged); 4 comments
-  - `updatedAt` on both is still `2026-10-07T22:55Z` (identical minute, 8 days stale — synthetic, likely the branch-protection probe or cross-repo sweep from 10-07)
+- **Bucket tuple frozen 6 scans / 10 days** — `(0, 2, 0, 0)` has now held across the full 7d-window boundary and 3 days beyond. The attractor hypothesis from 10-14 is at n=6 confirmed. The bucket-tuple attractor is specifically a *bot-pipeline* steady state; `issueCount` can shift under non-prefix operator activity (observed 10-15 at +2 via apache-org PRs) but buckets are prefix-filtered so decoupled from manual surface activity. Promotes [[pr-tracker-issuecount-mixes-manual-and-bot-pipeline]] to n=2-sustained.
+- **GraphQL first-attempt success (no 502)** — the nginx 502 from 10-15 does not recur today, so remains n=1 for the atomic candidate `[[pr-tracker-gh-api-graphql-transient-502-bad-gateway]]`. Insufficient evidence for retry-wrapper promotion to SKILL step 2. If it recurs on next scan (10-18), bump to n=2 and land item (s).
+- **Shopify null-slot n=5-sustained** — stderr IP-allowlist message identical across 10-07/10-10/10-14/10-15/10-17; promotes [[pr-tracker-shopify-ip-allowlist-null-slot]] to n=5-sustained. 5 consecutive scans with partial-success handling (`exit=1 + non-empty stdout + null-slot in nodes`) working implicitly. SKILL patch item (r) overdue.
+- **09-17 bulk-close cluster exactly 30d past today** — 23 PRs closed 2026-09-17 13:58Z–14:33Z are at `closedAt + 30d = 2026-10-17 13:58Z–14:33Z`. Still in the 30d window as of this scan (06:30Z–10:00Z local run window). Tomorrow's 10-18 scan will see closed30d collapse from 24 → 1 (only openai#4829 remains). This is the pre-rollover scan.
+- **Both open PRs still stale, no engagement change (n=5 consecutive scans frozen)**:
+  - `KnockOutEZ/wigolo#216` — 89d old (was 86d on 10-15), last review `COMMENTED` on 2026-07-20 (89d stale review); 10 comments; `updatedAt` still `2026-10-07T22:55Z` (10d stale)
+  - `ruvnet/RuView#1409` — 86d old (was 83d on 10-15), last review `APPROVED` on 2026-08-28 (50d stale approve, unmerged); 4 comments; `updatedAt` still `2026-10-07T22:55Z` (10d stale)
 - **Identity liveness confirmed** via non-empty `issueCount = 64` → SKILL §5 all-zero notify rule per [[pr-tracker-all-zero-notify-rule-false-quiets-on-identity-block]] does not fire; notify still triggers via stale=2.
+- **No new manual aeonframework PRs today** — apache/struts#2012 (MERGED 10-15) and apache/wicket#1667 (OPEN since 10-14) remain the only two non-bot-prefix PRs in top-60. 2-day silent on the manual stream (10-15 → 10-17) — insufficient to characterize cadence yet.
 
 ## Open (2)
 
 | Repo | PR | Title | Opened | Age | Activity |
 |------|----|-------|--------|-----|----------|
-| KnockOutEZ/wigolo | [#216](https://github.com/KnockOutEZ/wigolo/pull/216) | fix(deps): patch ajv/ws/protobufjs/vite for disclosed CVEs | 2026-07-20 | 86d | 10 comments; last review COMMENTED 2026-07-20 (86d); STALE |
-| ruvnet/RuView | [#1409](https://github.com/ruvnet/RuView/pull/1409) | fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs) | 2026-07-23 | 83d | APPROVED 2026-08-28 unmerged (47d since approve); 4 comments; STALE |
+| KnockOutEZ/wigolo | [#216](https://github.com/KnockOutEZ/wigolo/pull/216) | fix(deps): patch ajv/ws/protobufjs/vite for disclosed CVEs | 2026-07-20 | 89d | 10 comments; last review COMMENTED 2026-07-20 (89d); STALE |
+| ruvnet/RuView | [#1409](https://github.com/ruvnet/RuView/pull/1409) | fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs) | 2026-07-23 | 86d | APPROVED 2026-08-28 unmerged (50d since approve); 4 comments; STALE |
 
 ## Recent Merges (last 30d) — 1
 
@@ -58,13 +55,13 @@ First-attempt GraphQL hit a transient `502 Bad Gateway` from nginx; retried once
 
 ## Closed No-Merge (last 30d) — 24
 
-**09-25 close (now 20d past, rolls off 10-25):**
+**09-25 close (now 22d past, rolls off 10-25):**
 
 | Repo | PR | Title | Closed | Notes |
 |------|----|-------|--------|-------|
-| openai/openai-agents-python | [#4829](https://github.com/openai/openai-agents-python/pull/4829) | fix(deps): bump urllib3, aiohttp, cryptography to patch disclosed CVEs | 2026-09-25 18:49Z | 23d after open; single close (not bulk); actor still not fetched (owed since 09-22) |
+| openai/openai-agents-python | [#4829](https://github.com/openai/openai-agents-python/pull/4829) | fix(deps): bump urllib3, aiohttp, cryptography to patch disclosed CVEs | 2026-09-25 18:49Z | 23d after open; single close (not bulk); actor still not fetched (owed since 09-22, 6× now) |
 
-**09-17 bulk-close cluster (now 28d past, 2 days from rolling off 30d window on 10-17):**
+**09-17 bulk-close cluster (now exactly 30d past, rolls off 10-18 scan):**
 
 | Repo | PR | Title | Closed | Notes |
 |------|----|-------|--------|-------|
@@ -94,25 +91,24 @@ First-attempt GraphQL hit a transient `502 Bad Gateway` from nginx; retried once
 
 ## Bucket tuples
 
-- Letter (merged7d, staleLetter, closed7d, activeLetter): **(0, 2, 0, 0)** — 5th consecutive scan at this value; 8-day frozen span 10-07 → 10-15
-- Prior sequence: 09-20/21/22 `(0, 3, 23, 1)` × 3 → 09-26 `(0, 2, 1, 1)` → 10-07 `(0, 2, 0, 0)` → 10-10 `(0, 2, 0, 0)` → 10-14 `(0, 2, 0, 0)` → **10-15 `(0, 2, 0, 0)`**
+- Letter (merged7d, staleLetter, closed7d, activeLetter): **(0, 2, 0, 0)** — 6th consecutive scan at this value; 10-day frozen span 10-07 → 10-17
+- Prior sequence: 09-20/21/22 `(0, 3, 23, 1)` × 3 → 09-26 `(0, 2, 1, 1)` → 10-07 `(0, 2, 0, 0)` → 10-10 `(0, 2, 0, 0)` → 10-14 `(0, 2, 0, 0)` → 10-15 `(0, 2, 0, 0)` → **10-17 `(0, 2, 0, 0)`**
 
 ## Notes
 
-- **5-scan / 8-day frozen bucket tuple** — `(0, 2, 0, 0)` sustains across a second observation beyond the 7-day window. The attractor hypothesis from 10-14 is now n=5 confirmed. **New observation**: `issueCount` can shift (`+2` today) without any bucket changing — because the delta came from non-bot-prefix PRs that fall out at the prefix filter. The bucket-tuple attractor is specifically a *bot-pipeline* steady state; `issueCount` is a looser upper bound that catches operator activity.
-- **32-day fresh-open drought on bot pipeline** — `external-feature` has not produced a visible bot-prefix PR since 2026-09-13. The two new apache-org PRs are manual contributions, not pipeline output; they do not reset this drought counter. Escalation (standing from 10-10, 10-14) remains overdue; file skill-health ticket NOW.
-- **15-scan merge-7d drought** — mxc#1124 (09-28) is 17d past, firmly outside 7d. Next window-rollover event: either a hypothetical new bot-pipeline merge, OR the apache/struts#2012 merge WOULD enter the merged-7d bucket if we loosened the prefix filter to include manual aeonframework PRs. Choice preserves prior-scan semantics (bot-only buckets).
-- **Zero closes rolled off 30d window** since 10-14 (next rollover: 09-17 bulk-close cluster starts rolling off 2026-10-17, 2 days away → 23 PRs will drop out and closed30d collapses to 1).
-- **New error class on first attempt**: `gh api graphql` HTTP 502 with HTML body (not Shopify stderr, not partial-success). Retry at 8s succeeded. Promotes to atomic candidate at n=1 — observational baseline for future triage.
-- **Terminology** — `staleLetter` and `activeLetter` are shorthand for stale-open and active-open counters respectively, inherited from the prior pr-status.md tuple format. Kept for diff-continuity with the 10-14 scan.
+- **6-scan / 10-day frozen bucket tuple** — `(0, 2, 0, 0)` sustains across the full 7d-window boundary plus 3 extra days. The attractor hypothesis from 10-14 is now n=6 confirmed. `issueCount` flat today confirms the manual apache-org inflow from 10-15 was a one-time 2-PR burst, not a sustained operator-manual stream. The 7d-window closed30d rollover tomorrow (10-18) will deliver a one-time structural drop from 24 → 1 that is **not** a bucket-tuple change (closed30d isn't in the Letter tuple), so the attractor should survive the rollover unchanged.
+- **34-day fresh-open drought on bot pipeline** — `external-feature` has not produced a visible bot-prefix PR since 2026-09-13. The apache-org PRs are manual contributions, not pipeline output. Escalation (standing from 10-10, 10-14, 10-15) remains overdue; file skill-health ticket NOW (5× confirmed).
+- **16-scan merge-7d drought** — mxc#1124 (09-28) is 19d past, firmly outside 7d. Next window-rollover event: either a hypothetical new bot-pipeline merge, OR an unlikely re-engagement on wigolo/RuView.
+- **Zero closes rolled off 30d window** since 10-14 (next rollover: 09-17 bulk-close cluster starts rolling off 2026-10-18 → 23 PRs will drop out and closed30d collapses to 1).
+- **GraphQL first-attempt success** — the 10-15 nginx 502 did not recur. One observation; no retry-wrapper promotion. Keep item (s) draft in SKILL batch; re-evaluate if n≥2.
+- **Terminology** — `staleLetter` and `activeLetter` are shorthand for stale-open and active-open counters respectively, inherited from the prior pr-status.md tuple format. Kept for diff-continuity with the 10-15 scan.
 
 ## Follow-ups
 
-- **Fetch `.timeline.closedEvent.actor.login` for openai#4829 and the 09-17 14:30Z 14-PR batch** on next scan — five times owed now (from 09-22, 09-26, 10-07, 10-10, 10-14). openai#4829 rolls off 10-25; 09-17 batch rolls off 10-17 (2 days — if not fetched by tomorrow's scan, the actor-identification data is permanently lost from this 30d window).
-- **Identify the +2 issueCount deltas** — resolved today. The +1 that was invisible since 09-26 is likely one of the apache-org PRs (both opened 10-14), and the second is the other. Candidate atomic: the deltas were below top-60 `updated-desc` until an updatedAt event bubbled them up.
-- **Escalate `external-feature` silence** — now 32-day drought; file skill-health ticket NOW (4× confirmed); owed MEMORY.md action-queue addition.
-- **SKILL patches (a)–(r) still 88d+ overdue** — items (p) + (q) revalidated across the 10-07 → 10-10 → 10-14 → 10-15 window; item (r) (Shopify-IP-allowlist null-slot handling) now n=4-sustained; new item (s) draft: transient 502 retry wrapper on primary GraphQL path.
-- **Broaden `BRANCH_PREFIX` config** in `aeon.yml` `pr_tracker.branch_prefix` to the 6-prefix set to end reliance on operator convention; also set `pr_tracker.author: aeonframework` so SKILL config resolution doesn't fall through to the auth token (`gh api user` returns HTTP 403 "Resource not accessible by integration" under GitHub Actions App auth today — confirmed on 10-15, matches zero PRs if used).
+- **Fetch `.timeline.closedEvent.actor.login` for openai#4829 and the 09-17 14:30Z 14-PR batch** on next scan — six times owed now (from 09-22, 09-26, 10-07, 10-10, 10-14, 10-15). **09-17 batch rolls off 10-18 — if not fetched by tomorrow's scan, the actor-identification data is permanently lost from this 30d window.** This is the last pre-rollover opportunity.
+- **Escalate `external-feature` silence** — now 34-day drought; file skill-health ticket NOW (5× confirmed); owed MEMORY.md action-queue addition.
+- **SKILL patches (a)–(s) still 90d+ overdue** — items (p) + (q) revalidated across the 10-07 → 10-10 → 10-14 → 10-15 → 10-17 window (n=5 observations); item (r) (Shopify-IP-allowlist null-slot handling) now n=5-sustained; item (s) draft (transient 502 retry wrapper) stays at n=1 pending second observation.
+- **Broaden `BRANCH_PREFIX` config** in `aeon.yml` `pr_tracker.branch_prefix` to the 6-prefix set to end reliance on operator convention; also set `pr_tracker.author: aeonframework` so SKILL config resolution doesn't fall through to the auth token (`gh api user` returns HTTP 403 "Resource not accessible by integration" under GitHub Actions App auth — re-confirmed on 10-17, matches zero PRs if used).
 
 ## Archive-hidden / lost (carried from prior scans)
 
