@@ -1,7 +1,12 @@
 ## Summary
 
-Executed `skills/repo-revive/SKILL.md` on 2026-10-10. Short-circuited at step 1: both candidate-pool paths are absent (`memory/topics/watched-repos.md` canonical for this skill, and `memory/watched-repos.md` used by five sibling skills). Per SKILL.md this is the documented no-op case — log and exit, no notification.
+Executed `skills/repo-revive/SKILL.md` for 2026-10-17. Both candidate config files are absent:
 
-- **Files touched:** `memory/logs/2026-10-10.md` (appended `## Repo Revive` entry with `REPO_REVIVE_NO_CONFIG` sentinel).
-- **No external actions:** no gh API, no clone, no PR, no tweet draft, no notify.
-- **Follow-ups** (already in action queue): populate `memory/watched-repos.md` and reconcile the `memory/topics/watched-repos.md` vs `memory/watched-repos.md` path mismatch across the six dependent skills.
+- `memory/topics/watched-repos.md` (skill-referenced path) — missing
+- `memory/watched-repos.md` (sibling-skill-referenced path) — missing
+
+Per the skill's step-1 config-missing rule, this is a clean short-circuit: no selection, no clone, no PR, no notification. Logged `REPO_REVIVE_NO_CONFIG` to `memory/logs/2026-10-17.md`. Config-missing streak advances to 76 (from 75 recorded 10-16).
+
+**Files modified:** `memory/logs/2026-10-17.md` (appended `## Repo Revive` section).
+
+**Follow-up (already on action queue, not surfaced to notify):** populate watched-repos config at one path and reconcile the SKILL.md path mismatch between repo-revive and the other five dependents (code-health, github-monitor, issue-triage, changelog, weekly-shiplog).
