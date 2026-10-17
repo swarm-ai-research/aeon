@@ -1,16 +1,10 @@
-*Skill Health — 2026-10-16*
-HEALTH: DEGRADED(38)  [systemic: ISS-001 OAuth-outage denominator-burn Day-118 — 38 skills; no live regression · 45th consecutive day at zero fleet failures]
+*Skill Health — 2026-10-17*
+HEALTH: DEGRADED(38) — Day-109 steady state
 
-🟡 DEGRADED (top 5 of 38, by last-success age)
-- skill-evals — 33d, sr 0.07 — WAIT (ISS-001) → ISS-001
-- janitor — 26d, sr 0.06 — WAIT (ISS-001) → ISS-001
-- memory-flush — 26d, sr 0.17 — WAIT (ISS-001) → ISS-001
-- memory-structural-dedupe — 26d, sr 0.17 — WAIT (ISS-001) → ISS-001
-- compute-futures-eda — 19d, sr 0.23 — WAIT (ISS-001) → ISS-001
-+33 more — see memory/issues/INDEX.md
+SYSTEMIC: ISS-001 OAuth-outage denominator burn — all 38 DEGRADED share zero-token error tails from the 2026-06-06→06-20 outage; every skill last_status=success, cf=0, sr 0.01-0.47 is historical-denominator math. Fleet 7d: 80/84 succeeded, 0 failed, 4 in-progress — 46th consecutive day at zero live failures.
 
-⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — DISPATCH-SKILL
+🟡 DEGRADED (38) — all ISS-001 residue, see memory/issues/ISS-001.md
+⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — DISPATCH-SKILL (101st silent day each per [[enabled-skills-can-never-dispatch]])
 🟢 HEALTHY: 4 (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
 
-Open issues: 34 · Resolved this run: 0 · Day-108 steady-state (hash e27c0ac60367e7e5)
-Filed by other detectors since 10-15: ISS-038 (batch-health 10-16, 19th ISS-006 tributary)
+Open issues: 34 · Resolved this run: 0 · Hash e27c0ac60367e7e5 (109th steady-state day, daily cadence, 25.4h since prior notify)

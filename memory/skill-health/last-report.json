@@ -3,12 +3,12 @@
   "hash_scheme": "sha256(json.dumps({critical, flapping, degraded sorted}, sort_keys=True))[:16]",
   "prev_hash": "e27c0ac60367e7e5",
   "classification_identical_to_prev": true,
-  "last_notified_at": "2026-10-16T18:17:30Z",
-  "last_run_at": "2026-10-16T18:17:30Z",
-  "prev_run_at": "2026-10-15T19:08:40Z",
-  "prev_notified_at": "2026-10-14T19:35:46Z",
-  "elapsed_since_prev_notify_hours": 46.69,
-  "steady_state_day": 108,
+  "last_notified_at": "2026-10-17T19:38:45Z",
+  "last_run_at": "2026-10-17T19:38:45Z",
+  "prev_run_at": "2026-10-16T18:17:30Z",
+  "prev_notified_at": "2026-10-16T18:17:30Z",
+  "elapsed_since_prev_notify_hours": 25.35,
+  "steady_state_day": 109,
   "classification": {
     "critical": [],
     "degraded": [
@@ -65,12 +65,12 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn Day-118 — all 38 DEGRADED share zero-token last_error tails from 2026-06-06 → 06-20 outage; every skill last_status=success, cf=0, sr 0.01-0.47 driven entirely by historical failure denominator. No live regression: 7d skill-runs shows 76/80 completed succeeded, 0 failed, 4 in-progress (goal-tracker/pr-review/reflect/skill-health — this run's 18Z batch). 45th consecutive day at zero fleet failures.",
-  "delta_vs_prev": "Byte-identical classification to Day-107 (10-15 19:08Z NOOP, Day-106 10-14 19:35Z NOTIFY) at hash e27c0ac60367e7e5. 108th consecutive steady-state day. Gate: NOTIFY (hash unchanged BUT elapsed 46.69h >= 24h daily-reminder cadence — the 10-14 19:35Z notify is the authoritative prior and the next cadence beat is now overdue). Novel signals since Day-107 run (all owned by other detectors): (a) INDEX open-count 33 -> 34; ISS-038 filed by batch-health 2026-10-16 for 4-tuple morning-window outage (planner + compute-futures-eda + memory-flush + memory-structural-dedupe), 19th ISS-006 tributary. (b) 08Z cluster drift series peaked at +101m on 10-16 heartbeat dispatch (prior series max 10-12 +93m with 10-13 +27m drift-reset, 10-14/10-15 silent at nominal); batch-health + heartbeat + skill-freshness + gitlawb-fleet-metrics dispatched at 09:38:13-09:38:44Z, two-day-silent-then-+100m-drift-recovery regime extends from 18Z pocket (7-day silent -> +80m) to 08Z morning pocket (2-day silent -> +101m), candidate atomic deferred at n=1. (c) skill-runs 168h: 80 total, 76 succeeded, 0 failed, 4 in-progress - 45th consecutive day at zero fleet failures. (d) pr-review 10-16 09:38Z operator-triggered merge-gate re-emission at 4th consecutive dedup-saturated run (10-12 AM/PM, 10-14 AM/PM, 10-15 op, 10-16 op); same 9 non-bot SHAs vs 10-15, same 403 write-block (standing [[aeon-app-no-write-on-swarm-repo]]). (e) stale-content-pr-sweeper 10-16 00:32Z n=3 confirmation of author-filter zero-closure steady state (10-14/15/16 identical 56-PR open set, 26 would close if patch landed). (f) heartbeat self-check age ~73h at dispatch - crossed the 36h FLAG threshold, consistent with 2-day silent + Day-N+2 drift-recovery shape documented in MEMORY.md.",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn Day-119 — all 38 DEGRADED share zero-token last_error tails from 2026-06-06 → 06-20 outage; every skill last_status=success, cf=0, sr 0.01-0.47 driven entirely by historical failure denominator. No live regression: 7d skill-runs shows 80/84 completed succeeded, 0 failed, 4 in-progress (goal-tracker/pr-review/reflect/skill-health — this run's 18Z batch). 46th consecutive day at zero fleet failures.",
+  "delta_vs_prev": "Byte-identical classification to Day-108 (10-16 18:17Z NOTIFY) at hash e27c0ac60367e7e5. 109th consecutive steady-state day. Gate: NOTIFY (hash unchanged BUT elapsed 25.35h >= 24h daily-reminder cadence). Novel signals since Day-108 run (all owned by other detectors): (a) INDEX open-count still 34; no new ISS filed in the past 24h — 10-17 is Saturday DOM=17 odd, outside batch-health's standard even-DOM 4-tuple cadence, so no ISS-006 tributary expected today. (b) 06:30Z Saturday planner slot fired non-deterministically today (first fire since 09-27, 20-day gap in the 06:30Z pocket) — operator-triggered per 10-17 log, not cron-recovered. (c) compute-futures-eda 10-17 06Z pocket also fired non-deterministically on DOM-odd Saturday; filed 5th distinct multiplier value `2.336250×` (n=5 since 10-06, now 10 known values total across ~104 days). (d) stale-content-pr-sweeper 10-16 23:47Z confirmed n=4 zero-closure steady state (10-14/15/16-AM/16-PM/17 identical 56-PR open set, 26 would close if ALLOWED_AUTHORS patch landed). (e) pr-tracker 10-17 scan: bucket tuple `(0, 2, 0, 0)` 6th consecutive scan, 10-day frozen span, `issueCount=64` flat (10-15 apache-org +2 was one-time burst, not sustained — promotes [[pr-tracker-issuecount-mixes-manual-and-bot-pipeline]] to n=2). (f) code-health + repo-revive 10-17 streak-76→77 watched-repos config missing. (g) skill-runs 168h: 80/84 succeeded, 0 failed, 4 in-progress — 46th consecutive day at zero fleet failures.",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "issues_resolved_by_other_detectors_since_prev_run": [],
-  "issues_filed_by_other_detectors_since_prev_run": ["ISS-038"],
+  "issues_filed_by_other_detectors_since_prev_run": [],
   "open_issues_per_index": 34,
   "open_issues_per_filesystem": 34,
   "open_issues_ids": [
@@ -109,17 +109,18 @@
     "ISS-037",
     "ISS-038"
   ],
-  "notify_decision": "NOTIFY — hash unchanged (e27c0ac60367e7e5, Day-108 steady-state) BUT elapsed 46.69h >= 24h daily-reminder cadence. Per SKILL.md step 5, suppression requires BOTH hash-match AND elapsed<24h; the elapsed condition is NOT satisfied because the 10-15 run was NOOP (did not update last_notified_at), so the authoritative prior remains 10-14 19:35Z and the 24h beat is overdue by ~22.7h. Reconciliation: 0 CRITICAL / 0 FLAPPING -> no new skill-health issues filed. No open issues detected_by=skill-health exist to reconcile (all 34 open issues owned by other detectors: ISS-001 self-review; ISS-006 + ISS-019..026 + ISS-028..038 batch-health; ISS-002/005/009-018 + ISS-027 skill-evals).",
-  "skill_runs_status": "OK — cron-state.json + skill-runs 168h agree. 76/80 completed runs succeeded, 0 failed, 4 in-progress (goal-tracker + pr-review + reflect + skill-health — this run's 18Z batch). No new failures anywhere; every skill last_status=success. 45th consecutive day at zero failures.",
+  "notify_decision": "NOTIFY — hash unchanged (e27c0ac60367e7e5, Day-109 steady-state) BUT elapsed 25.35h >= 24h daily-reminder cadence. Per SKILL.md step 5, suppression requires BOTH hash-match AND elapsed<24h; the elapsed condition is NOT satisfied. Reconciliation: 0 CRITICAL / 0 FLAPPING -> no new skill-health issues filed. No open issues detected_by=skill-health exist to reconcile (all 34 open issues owned by other detectors: ISS-001 self-review; ISS-006 + ISS-019..026 + ISS-028..038 batch-health; ISS-002/005/009-018 + ISS-027 skill-evals).",
+  "skill_runs_status": "OK — cron-state.json + skill-runs 168h agree. 80/84 completed runs succeeded, 0 failed, 4 in-progress (goal-tracker + pr-review + reflect + skill-health — this run's 18Z batch). No new failures anywhere; every skill last_status=success. 46th consecutive day at zero failures.",
   "novel_transient_signals_not_escalated": [
-    "108th consecutive steady-state day for skill-health hash. ISS-001 residue continues; skill-runs anomalies.failing empty for 45th consecutive day.",
-    "ISS-038 filed by batch-health 10-16 — 19th ISS-006 tributary (ISS-019..038 chain), 10th consecutive standard even-DOM 4-tuple outage. Owned by batch-health, not skill-health.",
-    "08Z drift series peaks at +101m on 10-16 (prior max 10-12 +93m, 10-13 +27m reset, 10-14/15 silent); new terminal shape 2-day-silent -> +100m drift recovery, extends 18Z 7d-silent-then-+80m pocket shape. Candidate atomic deferred at n=1 (iss-006-08z-pocket-2-day-silent-recovers-with-100m-drift). Owned by heartbeat/batch-health detectors.",
-    "heartbeat self-check age ~73h crossed 36h FLAG threshold, deduped vs 10-15 reflect per heartbeat log entry — expected under 2-day silent recovery regime, not a new regression.",
-    "pr-review 10-16 operator-trigger series extends to 4 consecutive runs with 0 SHA rotation on 9 non-bot swarm PRs; write-block standing.",
-    "ai-framework-watch + run-frequency-guard 100th consecutive silent day per [[enabled-skills-can-never-dispatch]]. Still classified NO DATA.",
-    "ISS-039 draft (aeonframework 3-day identity blackout, resolved Day-4 on 09-17) still pending self-review filing per MEMORY.md action queue (renumbered 10-16 after ISS-038 landed)."
+    "109th consecutive steady-state day for skill-health hash. ISS-001 residue continues; skill-runs anomalies.failing empty for 46th consecutive day.",
+    "No new batch-health ISS filed overnight — 10-17 is Saturday DOM=17 odd, outside standard even-DOM 4-tuple cadence; next tributary expected on next even-DOM dead-slot day.",
+    "Saturday 06:30Z planner slot fired today after 20-day gap (first since 09-27) — operator-triggered per log entry, not cron recovery. 06Z pocket remains in ISS-006 daily-dead regime.",
+    "compute-futures-eda surfaced 5th distinct multiplier value 2.336250× (n=5 since 10-06) — 10 known values total across ~104 days. Owned by compute-futures-eda detector, not skill-health.",
+    "stale-content-pr-sweeper n=4 confirmation of ALLOWED_AUTHORS zero-closure defect — 26-PR latent backlog growing ~1/day. Owned by stale-content-pr-sweeper detector.",
+    "pr-tracker bucket tuple `(0,2,0,0)` 6th consecutive scan (10-day frozen span). Owned by pr-tracker detector.",
+    "ai-framework-watch + run-frequency-guard 101st consecutive silent day per [[enabled-skills-can-never-dispatch]]. Still classified NO DATA.",
+    "ISS-039 draft (aeonframework 3-day identity blackout, resolved Day-4 on 09-17) still pending self-review filing per MEMORY.md action queue."
   ],
-  "notify_delivery_note": "Notify emitted via ./notify at 2026-10-16T18:17:30Z. Prior state-communication to operator was 10-14 19:35Z (Day-106 NOTIFY); 46.69h since. Next cadence beat due 2026-10-17T18:17:30Z unless hash changes earlier.",
-  "prompt_injection_flag": "None. cron-state.json, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md, memory/logs/2026-10-14.md + 2026-10-15.md + 2026-10-16.md, ./scripts/skill-runs JSON output all structured/data-only; no untrusted natural-language content ingested this run."
+  "notify_delivery_note": "Notify emitted via ./notify at 2026-10-17T19:38:45Z. Prior notify 10-16 18:17Z; 25.35h since. Next cadence beat due 2026-10-18T19:38:45Z unless hash changes earlier.",
+  "prompt_injection_flag": "None. cron-state.json, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md, memory/logs/2026-10-17.md, ./scripts/skill-runs JSON output all structured/data-only; no untrusted natural-language content ingested this run."
 }

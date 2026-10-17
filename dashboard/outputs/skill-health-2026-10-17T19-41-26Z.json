@@ -1,0 +1,203 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-10-17",
+        "description": "Day-109 steady state"
+      },
+      "children": [
+        "heading-status",
+        "sep-1",
+        "systemic-alert",
+        "sep-2",
+        "status-stack",
+        "sep-3",
+        "summary-stack"
+      ]
+    },
+    "heading-status": {
+      "type": "Heading",
+      "props": {
+        "text": "HEALTH: DEGRADED(38)",
+        "level": "h2"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "systemic-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "SYSTEMIC: ISS-001 OAuth-outage denominator burn",
+        "message": "All 38 DEGRADED share zero-token error tails from the 2026-06-06→06-20 outage; every skill last_status=success, cf=0, sr 0.01-0.47 is historical-denominator math. Fleet 7d: 80/84 succeeded, 0 failed, 4 in-progress — 46th consecutive day at zero live failures.",
+        "type": "warning"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "status-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded-status",
+        "nodata-status",
+        "healthy-status"
+      ]
+    },
+    "degraded-status": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-degraded",
+        "text-degraded-link"
+      ]
+    },
+    "badge-degraded": {
+      "type": "Badge",
+      "props": {
+        "text": "🟡 DEGRADED (38)",
+        "variant": "destructive"
+      }
+    },
+    "text-degraded-link": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "text-degraded-intro",
+        "link-iss001"
+      ]
+    },
+    "text-degraded-intro": {
+      "type": "Text",
+      "props": {
+        "text": "All ISS-001 residue, see",
+        "variant": "body"
+      }
+    },
+    "link-iss001": {
+      "type": "Link",
+      "props": {
+        "label": "memory/issues/ISS-001.md",
+        "href": "memory/issues/ISS-001.md"
+      }
+    },
+    "nodata-status": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-nodata",
+        "text-nodata"
+      ]
+    },
+    "badge-nodata": {
+      "type": "Badge",
+      "props": {
+        "text": "⚪ NO DATA (2)",
+        "variant": "outline"
+      }
+    },
+    "text-nodata": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch, run-frequency-guard — DISPATCH-SKILL (101st silent day each per [[enabled-skills-can-never-dispatch]])",
+        "variant": "body"
+      }
+    },
+    "healthy-status": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-healthy",
+        "text-healthy"
+      ]
+    },
+    "badge-healthy": {
+      "type": "Badge",
+      "props": {
+        "text": "🟢 HEALTHY (4)",
+        "variant": "secondary"
+      }
+    },
+    "text-healthy": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog",
+        "variant": "body"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stats-row",
+        "metadata-text"
+      ]
+    },
+    "stats-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-open-issues",
+        "stat-resolved"
+      ]
+    },
+    "stat-open-issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open issues",
+        "value": "34"
+      }
+    },
+    "stat-resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved this run",
+        "value": "0"
+      }
+    },
+    "metadata-text": {
+      "type": "Text",
+      "props": {
+        "text": "Hash e27c0ac60367e7e5 (109th steady-state day, daily cadence, 25.4h since prior notify)",
+        "variant": "caption"
+      }
+    }
+  }
+}
