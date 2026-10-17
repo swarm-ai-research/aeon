@@ -1,0 +1,133 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-10-17 — 144 rows, 4 modes"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "grid_overview",
+        "sep_1",
+        "alert_critical",
+        "sep_2",
+        "alert_high",
+        "sep_3",
+        "grid_status",
+        "sep_4",
+        "link_report"
+      ]
+    },
+    "grid_overview": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Data Points",
+        "value": "144",
+        "delta": "rows"
+      }
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_critical": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "CRITICAL: Multiplier Regime Shifts",
+        "message": "Regime shifted from n=2 at 2.193750x (09-27) to oscillating cycle over 3 discrete values {2.193750, 2.336250, 2.550000}. New 5th value 2.336250x discovered n=5 since 10-06."
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_high": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "HIGH: Spread Retail Top-Loss Purity",
+        "message": "Purity breaks to 5/6 at operator intrusion #6. Retail mean -$4,960 (33% shallower than 09-27 under same 2.193750x)."
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "grid_status": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "badge_conservation",
+        "stat_filing_gap"
+      ]
+    },
+    "badge_conservation": {
+      "type": "Badge",
+      "props": {
+        "text": "Conservation OK (all 4 modes)",
+        "variant": "default"
+      }
+    },
+    "stat_filing_gap": {
+      "type": "Stat",
+      "props": {
+        "label": "Filing Gap (06Z-pocket silence)",
+        "value": "20 days"
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link_report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Detailed Report",
+        "href": "memory/topics/compute-futures-eda/2026-10-17.md",
+        "source": "Aeon Memory"
+      }
+    }
+  }
+}
