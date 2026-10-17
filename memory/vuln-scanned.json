@@ -179,6 +179,17 @@
    "dep_advisories": 23,
    "confirmed_code_vulns": 0,
    "channel": "public-pr (drafted, pending operator submission \u2014 see .pending-disclosure/LosaLosSantos-aurelio-finance-2026-10-10T170000Z-deps.md). Bump 6 transitive pkgs for 23 OSV advisories (1 CRIT anyio IDNA 2003 TLS spoof, 2 HIGH starlette form-DoS + urllib3 chunk-size, 19 MOD, 1 LOW). No PVR: all 4 semgrep hits are github-actions-mutable-action-tag WARNINGs on a secrets-free CI workflow, not application vulns. 0 verified secrets. App binds localhost-only (uvicorn default host at start.sh:71), CORS pinned to :5173, no subprocess/eval/pickle/yaml.load across backend/app, MCP server stdio-only + SQLite mode=ro."
+  },
+  {
+   "repo": "CopilotKit/OpenDots",
+   "scanned_at": "2026-10-17T17:30:00Z",
+   "head": "ab39f2508f3fd23a949837622456f3d61a108e9a",
+   "semgrep_candidates": 3,
+   "verified_secrets": 0,
+   "dep_vuln_packages": 4,
+   "dep_advisories": 4,
+   "confirmed_code_vulns": 0,
+   "channel": "public-pr (drafted, pending operator submission \u2014 see .pending-disclosure/CopilotKit-OpenDots-2026-10-17T173000Z-deps.md). Bump 4 transitive pkgs: @graphql-tools/utils 11.2.2\u219212.0.1 (HIGH prod via graphql-yoga edge, mergeDeep prototype pollution), shell-quote 1.9.0\u21921.11.0 (CRIT dev-only via concurrently), source-map-js 1.2.1\u21921.2.2 (HIGH DoS dev-only via postcss), katex 0.16.47 left unbumped (LOW chained bypass; semver minor risk vs no exposed gadget). No PVR: 0 exploitable code findings. 3 semgrep hits all triaged false: 2\u00d7 mutable-action-tag on actions/checkout@v4 + setup-node@v4 (standard, perms already contents:read); 1\u00d7 missing-USER on supervisor.Dockerfile (SECURITY.md explicitly scopes browser sidecar to isolated network, documented boundary). SSRF guard in src/browser/security.ts covers IPv4 CGNAT + link-local + TEST-NET-1/2/3 + multicast and IPv6 2000::/3 with Teredo + 6to4 + ORCHID exclusions; DNS pinned via lookup override. Slack identity requires provider+tenant+human+actor-id allowlist. Voice redirect:error, SDP two-way validation, 6-turn cap. Computer gateway per-Dot HMAC token, endpoint allowlist container:4100 or 127.0.0.1:supervisorPort, 50ms permission re-check during actions. Pages BEGIN IMMEDIATE + revision check + Space-scoped. Composio policy-hash sessions. Prior CopilotKit scan OpenBot 2026-08-29 49d ago (outside 30d dedup); OpenDots is distinct template with different maintainer branch. SKILL.md still carries stale gh repo fork idiom (used direct git clone)."
   }
  ]
 }

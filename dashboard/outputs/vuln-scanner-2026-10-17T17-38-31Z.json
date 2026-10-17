@@ -1,0 +1,321 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Vuln Scanner — CopilotKit/OpenDots",
+        "description": "Security vulnerability scan for 5.5k star TypeScript project (HEAD ab39f25)"
+      },
+      "children": [
+        "repo-info",
+        "sep1",
+        "code-audit-section",
+        "sep2",
+        "deps-section",
+        "sep3",
+        "scanners-section",
+        "sep4",
+        "draft-note"
+      ]
+    },
+    "repo-info": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "repo-badge-stars",
+        "repo-badge-lang",
+        "repo-badge-head"
+      ]
+    },
+    "repo-badge-stars": {
+      "type": "Badge",
+      "props": {
+        "text": "5.5k stars",
+        "variant": "secondary"
+      }
+    },
+    "repo-badge-lang": {
+      "type": "Badge",
+      "props": {
+        "text": "TypeScript",
+        "variant": "secondary"
+      }
+    },
+    "repo-badge-head": {
+      "type": "Badge",
+      "props": {
+        "text": "HEAD ab39f25",
+        "variant": "outline"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "code-audit-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "audit-heading",
+        "audit-vulns",
+        "audit-secrets"
+      ]
+    },
+    "audit-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Code Audit",
+        "level": "h3"
+      }
+    },
+    "audit-vulns": {
+      "type": "Text",
+      "props": {
+        "text": "0 confirmed vulnerabilities across 3 semgrep candidates",
+        "variant": "body"
+      }
+    },
+    "audit-secrets": {
+      "type": "Text",
+      "props": {
+        "text": "0 verified secrets (filesystem + git history scan)",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "deps-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "deps-heading",
+        "deps-intro",
+        "deps-table"
+      ]
+    },
+    "deps-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Dependency Updates",
+        "level": "h3"
+      }
+    },
+    "deps-intro": {
+      "type": "Text",
+      "props": {
+        "text": "1 public-pr dep-bump drafted bundling 4 OSV advisories:",
+        "variant": "body"
+      }
+    },
+    "deps-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Package",
+          "From",
+          "To",
+          "Severity",
+          "Notes"
+        ],
+        "rows": [
+          [
+            "@graphql-tools/utils",
+            "11.2.2",
+            "12.0.1",
+            "HIGH",
+            "Prod-reachable via graphql-yoga edge"
+          ],
+          [
+            "shell-quote",
+            "1.9",
+            "1.11",
+            "CRITICAL",
+            "Dev-only via concurrently"
+          ],
+          [
+            "source-map-js",
+            "1.2.1",
+            "1.2.2",
+            "HIGH",
+            "Dev-only via postcss"
+          ],
+          [
+            "katex",
+            "0.16",
+            "—",
+            "LOW",
+            "Deliberately held for Renovate"
+          ]
+        ]
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "scanners-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "scanners-heading",
+        "scanners-list"
+      ]
+    },
+    "scanners-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Scanner Status",
+        "level": "h3"
+      }
+    },
+    "scanners-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "scanner-semgrep",
+        "scanner-trufflehog",
+        "scanner-osv",
+        "scanner-slither"
+      ]
+    },
+    "scanner-semgrep": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "scanner-semgrep-name",
+        "scanner-semgrep-status"
+      ]
+    },
+    "scanner-semgrep-name": {
+      "type": "Text",
+      "props": {
+        "text": "semgrep",
+        "variant": "caption"
+      }
+    },
+    "scanner-semgrep-status": {
+      "type": "Badge",
+      "props": {
+        "text": "ok",
+        "variant": "secondary"
+      }
+    },
+    "scanner-trufflehog": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "scanner-trufflehog-name",
+        "scanner-trufflehog-status"
+      ]
+    },
+    "scanner-trufflehog-name": {
+      "type": "Text",
+      "props": {
+        "text": "trufflehog (fs+git)",
+        "variant": "caption"
+      }
+    },
+    "scanner-trufflehog-status": {
+      "type": "Badge",
+      "props": {
+        "text": "ok",
+        "variant": "secondary"
+      }
+    },
+    "scanner-osv": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "scanner-osv-name",
+        "scanner-osv-status"
+      ]
+    },
+    "scanner-osv-name": {
+      "type": "Text",
+      "props": {
+        "text": "osv",
+        "variant": "caption"
+      }
+    },
+    "scanner-osv-status": {
+      "type": "Badge",
+      "props": {
+        "text": "ok",
+        "variant": "secondary"
+      }
+    },
+    "scanner-slither": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "scanner-slither-name",
+        "scanner-slither-status"
+      ]
+    },
+    "scanner-slither-name": {
+      "type": "Text",
+      "props": {
+        "text": "slither",
+        "variant": "caption"
+      }
+    },
+    "scanner-slither-status": {
+      "type": "Badge",
+      "props": {
+        "text": "n/a",
+        "variant": "outline"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "draft-note": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "title": "Draft PR Pending",
+        "message": "Dependency bump PR drafted in .pending-disclosure/ awaiting operator submission"
+      }
+    }
+  }
+}
