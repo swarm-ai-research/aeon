@@ -1,6 +1,6 @@
 # Compute Pulse Tracker
 
-*Last run: 2026-10-10*
+*Last run: 2026-10-17*
 
 ## Durable claims
 - [[inference-cost-1000x-collapse]] — ~1,000× aggregate inference cost collapse since 2022 with 50–75% frontier-vs-prior-flagship spread per cycle; inference now >$50B market in 2026, growing faster than training for first time
@@ -16,10 +16,12 @@
 
 ## Inference Pricing Baseline
 
-Current prices ($/1M tokens in/out) as of 2026-09-12:
+Current prices ($/1M tokens in/out) as of 2026-10-17:
 
 | Model | Input | Output | Notes |
 |-------|-------|--------|-------|
+| GPT-6 Astra | $10.00 | $50.00 | NEW flagship (Oct 2026 context); replaces GPT-5.6 Sol as top tier |
+| GPT-6.1 Sol | $2.00 | $10.00 | Launched Sep 29, 2026 (DevDay); near-Astra at 1/5 price; cached $0.10/M (50% below GPT-6 Sol cached rate) |
 | Claude Fable 5.1 | $10.00 | $50.00 | Flagship; cache reads $0.25/M (75% cut from prior $1.00/M) |
 | Claude Mythos 5 | $10.00 | — | New flagship tier (sibling to Fable 5) |
 | Claude Opus 5 | $5.00 | $25.00 | Jul 24, 2026; Fast Mode $10/$50; 1M context |
@@ -45,20 +47,20 @@ Current prices ($/1M tokens in/out) as of 2026-09-12:
 | DeepSeek V4-Pro | ~$0.44 | ~$0.87 | Price raised August 2026 (was $0.27/$0.89 post-75%-cut; hike executed); still below OpenAI/Anthropic |
 | DeepSeek V4-Flash | ~$0.14+ | ~$0.28+ | Price raised August 2026 (was $0.15/M; exact post-hike rate unconfirmed); open weights V4-Flash-0731 released Jul 31 |
 
-*Structural signal: 1,000× aggregate cost collapse since late 2022. No major list-price cuts from any major lab Sep 12 → Oct 10. Two counter-signals landed: DeepSeek raised V4 API prices (August 2026, first reversal from Chinese labs), and Grok top-tier output price reportedly increased Aug 20. GPT-5.6 Sol promotional $4/$20 holds through Nov 21. Claude Sonnet 5 at standard $3/$15 (introductory expired Sep 1 as predicted). Vera Rubin 350+ factories globally — 10× tokens/MW vs Blackwell structural deflationary pressure ongoing. OpenAI Jalapeño benchmarks published Aug 25 (1.5–1.9× peak throughput vs NVIDIA GB300, 700W TDP) — custom silicon narrowing NVIDIA dependency. Inference now 70% of total AI compute spend. Jevons paradox persists: per-token costs falling, enterprise AI bills growing. OpenAI 20% SW optimization reduction still not passed through as list-price cut. DeepSeek open weights V4-Flash-0731 released Jul 31 under commercial license.*
+*Structural signal: 1,000× aggregate cost collapse since late 2022. **GPT-6.1 Sol launched Sep 29** at $2/$10 — 1/5 of GPT-6 Astra ($10/$50), confirming within-generation compression continuing. GPT-6 Astra now confirmed as OpenAI's new frontier flagship above GPT-5.6 Sol. GPT-5.6 Sol promotional $4/$20 holds through Nov 21. Claude Sonnet 5 at standard $3/$15 (stable). Two counter-signals: DeepSeek raised V4 API prices (Aug 2026), Grok top-tier output reportedly increased Aug 20. Vera Rubin 350+ factories globally — 10× tokens/MW vs Blackwell structural deflationary pressure ongoing. AMD CEO Lisa Su: inference now ~60% of AI compute ("Year of Inference"). Jevons paradox persists: total compute demand growing 4–5× per year despite chip efficiency gains. OpenAI 20% SW optimization reduction still not passed through as list-price cut.*
 
 ## Decentralized Compute Tokens
 
-Prices as of 2026-09-12:
+Prices as of 2026-10-17:
 
 | Symbol | Project | Price | Signal |
 |--------|---------|-------|--------|
-| RENDER | Render Network | ~$1.38 | +6% vs Aug 22; Q2 demand exceeded supply (first time ever); sector recovering |
-| TAO | Bittensor | ~$231–315 | Sep 12: $258; Mar 26 data shows ~$314; range unclear. Halving Dec 2025 cut daily emissions 50% (7200→3600 TAO/day). No new milestone signal |
-| IO | io.net | — | Burn-based tokenomics tied to network earnings active; no confirmed price |
-| AKT | Akash Network | ~$0.85–0.97 | Mid-2026 mcap ~$250-265M (vs $130M Sep 12 — significant recovery if correct); usage fundamentals intact |
+| RENDER | Render Network | ~$1.37–1.89 | Flat-mixed vs prior range; KuCoin Aug 19: $1.37; other sources $1.67–1.89. No new protocol milestone |
+| TAO | Bittensor | ~$200–290 | Lower end of prior $231–315 range; KuCoin A$289/~$195 USD; no new milestone |
+| IO | io.net | ~$0.14–0.18 | Significant decline; mcap ~$60M. Burn tokenomics active; no milestone |
+| AKT | Akash Network | ~$0.51–0.62 | Delta page May 2026: $0.51 mcap $152M; MEXC: +11% to $0.62. Below prior $0.85–0.97 range |
 
-*DePIN narrative Sep 2026: TAO +34% vs Aug 22 is the standout mover — no specific protocol milestone but SEC ETF window remains a binary catalyst. RENDER +6%, holding its Q2 demand-exceeds-supply inflection. No DePIN token milestones (new subnet, partnership, TGE) this week. Sector macro: DePIN mcap grew from $5.2B to >$19B in a year, with IO.net, Akash, and Render cited as the three networks with demonstrable real-user demand. Inference workloads now 70% of GPU demand — the profile where decentralized networks have structural cost advantages (45–60% below AWS for inference). DePIN vs hyperscaler dynamic: centralized hyperscalers dominate frontier training; decentralized networks winning flexible burst-capacity inference routing. Narrative accelerating at sector level; individual token price action mixed.*
+*DePIN narrative Oct 2026: TAO lower-end of its $200-315 range (no new catalysts). IO declining sharply in mcap (~$60M vs a prior much higher phase). RENDER flat. AKT below prior estimates. No DePIN token milestones (new subnet, partnership, TGE) this week. Sector macro: AMD CEO frames 2026 as "Year of Inference" with inference ~60% of AI compute — the structural tailwind for DePIN compute networks. But individual token price action has cooled. DePIN vs hyperscaler: centralized capex race deepening (Vera Rubin ramp, Colossus 2) while DePIN mcap consolidates. Narrative holding at sector level; individual price action bearish.*
 
 ## Hardware Signal Log
 
@@ -75,6 +77,7 @@ Prices as of 2026-09-12:
 - 2026-08-22: **Core Scientific doubles AI DC capacity to 1.1 GW** via 15-year infrastructure agreement with AMD (major; >100k GPU-equivalent capacity) / **AMD Helios** rack-scale AI system launched — 6th-gen EPYC 9006 + MI455X + Pensando networking; single-vendor Vera Rubin rival claiming better tokens-per-dollar density / **Nebius Group** European AI infrastructure launch (Amsterdam HQ, large-scale GPU clusters + developer tools) / Vera Rubin volume production ongoing, multi-cloud allocations live / **GPT-5.6 Sol CUT >20%** (Aug 21) — first Sol cut, final major tier to enter price war / **Gemini 3.6 Flash −50%** (Aug 13) / enterprise inference avg $1.16–1.18/M (2026 low, Aug 6–8) / DePIN: RENDER +2%, TAO +2%, AKT oversold / momentum: breakout (12 pts)
 - 2026-09-12: **Crusoe + Lancium: 1 GW AI DC campus** (Childress, TX) construction start Q3 2026 — 270 acres, grid-connected, purpose-built for advanced AI accelerators (major, >100k GPU-equivalent) / **Yotta Services: 40,000 Vera Rubin GB300 GPUs** ($12B expansion, 120 MW, Noida India) — first major Asian Vera Rubin deployment / **NVIDIA Vera Rubin LPX + CPX inference platforms** announced — NVLink Fusion optimized configs for agentic inference, lower token cost/MW; complements NVL72 / Vera Rubin hyperscaler wave ongoing (AWS/GCP/Azure/OCI/CoreWeave/Lambda/Nebius/Nscale all receiving H2 2026 deliveries) / DePIN: TAO +34% ($258), RENDER +6% ($1.38), AKT mcap $130M / momentum: accelerating (7 pts)
 - 2026-10-10: **OpenAI Jalapeño first published benchmarks** (Aug 25, 2026) — 1.5–1.9× peak throughput and 1.7–3.6× lower latency vs NVIDIA GB200/GB300 on InferenceX benchmark (GPT-OSS 120B, DeepSeek R1, Kimi K2.5 1T); 700W TDP, 550W measured; GW-scale deployment H2 2026, volume ramp 2027; SemiAnalysis caveated Vera Rubin not yet tested against Jalapeño (notable milestone) / **NVIDIA 16×GB10 cluster** prep for large model inference (Kimi K3, DeepSeek V4 Pro) / **Foxconn × NVIDIA Taiwan** $1.4B, 27 MW GB300 DC — first Asian GB300 supercomputing site / **xAI Colossus 2** targeting 1M GPUs by end-2026/early 2027 / Vera Rubin 350+ factories globally, ongoing hyperscaler ramp / DePIN: TAO ~$231–315 (flat-mixed), RENDER ~$1.36–1.89 (flat), AKT mcap recovery possible (~$250M from $130M) / momentum: building (4 pts)
+- 2026-10-17: Vera Rubin 350+ factories ongoing (no new cluster this week) / AMD CEO Lisa Su: 2026 "Year of Inference" — inference now ~60% of AI compute, total demand growing 4–5×/yr / xAI Colossus 2 carry-forward (no confirmed status update) / DePIN: RENDER ~$1.37–1.89 (flat), TAO ~$200–290 (lower end), IO ~$0.14 (declining), AKT ~$0.51–0.62 / momentum: building (5 pts)
 
 ## Pricing Signal Log
 
@@ -91,3 +94,4 @@ Prices as of 2026-09-12:
 - 2026-08-22: **GPT-5.6 Sol CUT >20% (Aug 21)** — first Sol price cut; was $5.00/1M in, last major tier to join the price war; driven by Anthropic + Chinese lab margin pressure per reports. **Gemini 3.6 Flash −50%** (Aug 13, $1.50 → $0.75/1M in) — Google equalized 3.6 Flash rate to new 3.7 Flash introductory level. **Gemini 3.7 Flash NEW** (Aug 13, $0.75/$3.75 introductory, doubles Jan 1 2027). Enterprise inference avg hit **2026 low $1.16–1.18/M** Aug 6–8 (Jefferies/Silicon Data). GPT-4.1 nano still at $0.10/$0.40; GPT-5-nano confirmed at $0.05/$0.40 (cheaper floor). Claude Sonnet 5 introductory expiry Aug 31 — 9 days. DeepSeek price increase still announced (no date). OpenAI 20% internal cost reduction still undeployed as list-price cut. / read: advancing
 - 2026-09-12: stable — no list-price cuts >10% from any major lab this week. **Claude Sonnet 5 introductory expired Sep 1** → now $3/$15 (+50%; as predicted 3 weeks ago). **Fable 5.1 cache reads −75%** ($1.00 → $0.25/M, practical cost −16% vs Fable 5). **GPT-5.6 Sol confirmed at $4/$20** (promotional rate locked through Nov 21, 2026). **DeepSeek V4.1 Flash** enters at $0.15/M input — new cheapest-flagship floor. Sep "48h lab window": Anthropic, OpenAI, Google, Meta all refined flagships (cache cuts + safeguard tuning) while holding list prices. OpenAI 20% SW cost reduction still undeployed as list-price cut. DeepSeek price increase still announced (no date). Vera Rubin structural deflationary pressure: 10× tokens/MW vs Blackwell now in active hyperscaler deployment. / read: advancing
 - 2026-10-10: stable on list prices — no >10% cuts from any lab since Sep 12. **Counter-signals: DeepSeek raised V4 API prices August 2026** (first Chinese-lab reversal; V4-Pro ~$0.44/$0.87 estimated post-hike, V4-Flash ~$0.14+/$0.28+ estimated — still below OpenAI/Anthropic). **Grok API top-tier reportedly increased Aug 20** (CostBench: $2.50 → $6/M output; unconfirmed on other sources). GPT-5.6 Sol promotional $4/$20 holds through Nov 21. No new Anthropic or Google cuts. OpenAI 20% SW cost reduction still not deployed as list-price cut. **OpenAI Jalapeño benchmarks** (Aug 25) signal hardware-level cost compression accelerating outside NVIDIA. Structural trend: Vera Rubin 350+ factories = 10× tokens/MW deflationary pressure ongoing. Two counter-signals (DeepSeek/Grok) vs ongoing hardware deflation — compression narrative holding at structural layer, softening at list-price layer. / read: advancing (structural)
+- 2026-10-17: **GPT-6.1 Sol launched Sep 29** at $2/$10/1M — 1/5 of GPT-6 Astra ($10/$50) within one generation; cached input $0.10/M (50% below GPT-6 Sol cached). GPT-6 Astra confirmed as new OpenAI frontier flagship at $10/$50. No new cuts from Anthropic, Google, xAI, or DeepSeek this week. GPT-5.6 Sol promotional $4/$20 holds through Nov 21. OpenAI 20% SW cost reduction still undeployed as list-price cut. AMD "Year of Inference" framing: inference 60% of AI compute, total demand +4–5×/yr. Jevons paradox fully active. / read: advancing
