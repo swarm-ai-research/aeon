@@ -1,0 +1,77 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "reflect",
+        "description": "Memory consolidated — 2026-10-17"
+      },
+      "children": [
+        "metrics-stack"
+      ]
+    },
+    "metrics-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "primary-metrics",
+        "secondary-metrics"
+      ]
+    },
+    "primary-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "notes-stat",
+        "entries-stat"
+      ]
+    },
+    "notes-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes added",
+        "value": "+23"
+      }
+    },
+    "entries-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Entries added",
+        "value": "+132"
+      }
+    },
+    "secondary-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "splits-stat",
+        "atomic-stat"
+      ]
+    },
+    "splits-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Splits",
+        "value": "0"
+      }
+    },
+    "atomic-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "New atomic",
+        "value": "0"
+      }
+    }
+  }
+}
