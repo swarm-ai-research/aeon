@@ -1,0 +1,163 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-10-17",
+        "description": "operator-triggered merge-gate, 6th re-emission"
+      },
+      "children": [
+        "summary-text",
+        "separator1",
+        "pr-list-stack",
+        "separator2",
+        "tally-section"
+      ]
+    },
+    "summary-text": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed 9, skipped 5 (bots). All 9 SHAs byte-identical to 10-16; verdicts unchanged.",
+        "variant": "body"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-list-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-628",
+        "pr-619",
+        "pr-618",
+        "pr-616",
+        "pr-614",
+        "pr-612",
+        "pr-611",
+        "pr-518",
+        "pr-517"
+      ]
+    },
+    "pr-628": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #628",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/628",
+        "source": "APPROVE (5/5)",
+        "score": "docs-only, 22/22 SUCCESS"
+      }
+    },
+    "pr-619": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #619",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/619",
+        "source": "APPROVE (5/5)",
+        "score": "prompt+tests, 21/21 SUCCESS"
+      }
+    },
+    "pr-618": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #618",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/618",
+        "source": "REQUEST_CHANGES (3/5)",
+        "score": "DIRTY merge conflict, rebase before merge"
+      }
+    },
+    "pr-616": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #616",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/616",
+        "source": "REQUEST_CHANGES (2/5)",
+        "score": "render-verify + quality-gate FAIL"
+      }
+    },
+    "pr-614": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #614",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/614",
+        "source": "REQUEST_CHANGES (2/5)",
+        "score": "render-verify + quality-gate FAIL"
+      }
+    },
+    "pr-612": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #612",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/612",
+        "source": "REQUEST_CHANGES (2/5)",
+        "score": "render-verify + quality-gate FAIL"
+      }
+    },
+    "pr-611": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #611",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/611",
+        "source": "REQUEST_CHANGES (2/5)",
+        "score": "render-verify + quality-gate FAIL"
+      }
+    },
+    "pr-518": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #518",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518",
+        "source": "APPROVE (4/5)",
+        "score": "pydantic schema+tests, 18 real checks SUCCESS"
+      }
+    },
+    "pr-517": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #517",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517",
+        "source": "REQUEST_CHANGES (2/5)",
+        "score": "fork, no CI ran, 709 lines no quality signal"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "tally-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "tally-text",
+        "write-probe-text"
+      ]
+    },
+    "tally-text": {
+      "type": "Text",
+      "props": {
+        "text": "Tally: APPROVE 3, REQUEST_CHANGES 6, BLOCK 0.",
+        "variant": "body"
+      }
+    },
+    "write-probe-text": {
+      "type": "Text",
+      "props": {
+        "text": "Write-probe 403 standing — verdicts logged locally only, no remote post.",
+        "variant": "caption"
+      }
+    }
+  }
+}
