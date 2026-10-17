@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-10-01T05:06:10.501503573+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "4e516df4-e3c1-45e4-bbb4-c8cc6a73f34e",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/classify.py\",\"target\":\".audit/classify.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-01T05:06:10.501503573+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-01T15:15:52.803Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/classify.py — blocked: prior-file trust boundary enables security-finding suppression (2026-10-01)\" — 5 findings (1 critical, 4 issue). Verdict: blocked: prior-file trust boundary enables security-finding suppression. Issue: ✓ Created issue #1dea0d4b-0c2a-4ad7-855c-bf9ad240c2f3\n  Title:  Review: .audit/classify.py — blocked: prior-file trust boundary enables security-finding suppression (2026-10-01)\n  Body:   ## Code Review: .audit/classify.py\n\n**Date:*…"
+  },
+  "completed_at": "2026-10-01T15:17:04.308Z"
+}

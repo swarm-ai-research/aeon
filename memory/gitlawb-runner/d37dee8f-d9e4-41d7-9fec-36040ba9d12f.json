@@ -1,0 +1,39 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6MksUuVYyp93QA6pc2qAnXFQZdaoHq46dugXVweeehX4S2M",
+    "capability": "repo:admin",
+    "created_at": "2026-06-07T00:56:32.472858388+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpiXbCJzXGLw9bQXw5t8ja734YsrhYWEQMqsicwUcjHbH",
+    "id": "d37dee8f-d9e4-41d7-9fec-36040ba9d12f",
+    "kind": "audit",
+    "payload": "{\"focus\":\"skill stack health — sweep memory/issues/INDEX.md and recent workflow runs, file new ISS-NNN entries for unrecorded degradations\",\"goal_id\":\"keep-the-engineering-skill-stack-running-clean\",\"title\":\"[goal:keep-the-engineering-skill-stack-running-clean] Keep the engineering skill stack running clean\",\"objective\":\"Detect and file issues for any skill regression (failed runs, format drift, missing output) within 24h of occurrence\",\"success_criteria\":\"No skill in red state for more than two consecutive cycles without an open issue in memory/issues/\",\"next_action_hint\":\"Run skill-health-style sweep over memory/issues/INDEX.md and recent workflow runs; file new ISS-NNN if a degradation is unrecorded\",\"state\":{}}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-06-07T00:56:32.472858388+00:00"
+  },
+  "instance": {
+    "name": "aeon-sentinel",
+    "did": "did:key:z6MksUuVYyp93QA6pc2qAnXFQZdaoHq46dugXVweeehX4S2M",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "repo:admin",
+      "git:push",
+      "agent:deploy"
+    ],
+    "model": "aeon-sentinel",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Security monitoring",
+    "health": "active",
+    "last_checked": "2026-06-07T01:55:20.882Z"
+  },
+  "result": {
+    "executor": "prototype",
+    "summary": "Security audit [LOW]: Attenuation enforcement: PASS; Renewal escalation check: PASS; Fail-closed on missing activity: PASS; Self-modification block: PASS; Blocklist mechanism: PASS."
+  },
+  "completed_at": "2026-06-07T01:55:23.259Z"
+}

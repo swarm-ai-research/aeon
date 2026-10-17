@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-10-08T05:22:55.898307733+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "7dbaa750-60a6-47fd-aee4-63295dc80405",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta.py\",\"target\":\".audit/delta.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-08T05:22:55.898307733+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-08T05:22:55.100Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta.py — blocked: mutable prior-fingerprint source enables finding suppression (2026-10-08)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: mutable prior-fingerprint source enables finding suppression. Issue: ✓ Created issue #49f9a732-3343-417d-8f70-3fa6faec2f74\n  Title:  Review: .audit/delta.py — blocked: mutable prior-fingerprint source enables finding suppression (2026-10-08)\n  Body:   ## Code Review: .audit/delta.py\n\n**Date:** 2026-10-08\n**…"
+  },
+  "completed_at": "2026-10-08T05:24:44.880Z"
+}

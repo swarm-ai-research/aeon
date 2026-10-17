@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:open",
+    "created_at": "2026-08-25T20:33:25.224733411+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "7432d9ba-4f86-412c-b6a7-0277cea80c72",
+    "kind": "docs-pass",
+    "payload": "{\"title\":\"docs-pass on recent code changes\",\"target\":\".audit-bin/actionlint, .audit-bin/actionlint.tar.gz, .audit-bin/zizmor\",\"focus\":\"missing docstrings, stale comments, README drift — open a PR with improvements\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-25T20:33:25.224733411+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-25T20:33:23.291Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Code-pass docs-pass made no changes — Documentation pass: skipped — 3 open docs-pass PR(s) already in backlog (limit 3)."
+  },
+  "completed_at": "2026-08-25T20:33:47.798Z"
+}

@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-25T04:16:16.525182716+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "522c8c91-1035-4059-aa3d-b0eb82e901be",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/build_report.py\",\"target\":\".audit/build_report.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-25T04:16:16.525182716+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-25T13:26:53.974Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/build_report.py — blocked: guaranteed FileNotFoundError on write; arbitrary file read from untrusted finding paths (2026-09-25)\" — 5 findings (2 critical, 3 issue). Verdict: blocked: guaranteed FileNotFoundError on write; arbitrary file read from untrusted finding paths. Issue: ✓ Created issue #b452b823-ec3d-4de5-a947-992ec5f670f0\n  Title:  Review: .audit/build_report.py — blocked: guaranteed FileNotFoundError on write; arbitrary file read from untruste…"
+  },
+  "completed_at": "2026-09-25T13:29:27.333Z"
+}
