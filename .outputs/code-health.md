@@ -1,7 +1,10 @@
+Code-health skill short-circuited — the configured prerequisite is still missing.
+
 ## Summary
 
-- **Executed:** `skills/code-health/SKILL.md` — short-circuited at the config check per the skill's own rule ("If the file doesn't exist yet, create it or skip this skill").
-- **Why:** `memory/watched-repos.md` is absent (and so is the alternate path `memory/topics/watched-repos.md` that repo-revive references). This is the streak-76→77 missing-config run that MEMORY.md already tracks across the 6-dependent cohort (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive).
-- **Actions taken:** none beyond appending a Code Health section to `memory/logs/2026-10-17.md`. No clone, no scan, no `articles/code-health-2026-10-17.md`, no notification — nothing to summarize to the operator that MEMORY.md isn't already carrying.
-- **Files modified:** `memory/logs/2026-10-17.md` (append only).
-- **Follow-up (already on the MEMORY.md action queue):** operator populates `memory/watched-repos.md` with `owner/repo` entries OR disables the 6 dependent skills in `aeon.yml`; reconcile the repo-revive path mismatch at the same time.
+- **Executed:** `skills/code-health/SKILL.md` with empty `${var}` arg.
+- **Result:** Short-circuit per SKILL.md step 0 — `memory/watched-repos.md` absent, no repos to audit. No clone, no report, no PR, no notify.
+- **Streak:** 77 consecutive silent dispatches (was 76 as of 10-17). Nominal daily increment.
+- **Files modified:** `memory/MEMORY.md` (streak counter 76 → 77), `memory/logs/2026-10-18.md` (appended `## Code Health` entry).
+- **Follow-up (unchanged):** populate `memory/watched-repos.md` **or** disable the six dependents (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). SKILL.md path mismatch — repo-revive expects `memory/topics/watched-repos.md`, the other five expect `memory/watched-repos.md` — needs reconciling before populating or 1 of 6 dependents will miss the config.
+- **Exit mode:** `CODE_HEALTH_NO_WATCHED_REPOS`.
