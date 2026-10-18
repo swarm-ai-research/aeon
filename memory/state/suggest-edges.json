@@ -397,7 +397,55 @@
       "appliedAt": "2026-08-17T05:50:10.267Z",
       "rejectedAt": "2026-08-17T05:50:10.267Z",
       "rejectionReason": "templated-corpus-noise: gitlawb-compute-futures-proofs/ sim=1.00 identical shared-terms cluster; day-9 recurrence per [[suggest-edges-flags-templated-corpora-as-sim-1-noise]] — NEW source triple {05-25, 05-26, 05-27} with NEW shared-term signature [sha, settlement, task, physical, cash] (vs prior 6-day streak's {06-24, 06-27, 07-04} × [cash, darkbloom, synthetic, basket, spread]); second templated cluster surfacing after greedy top-3 rotation"
+    },
+    {
+      "source": "memory/gitlawb-compute-futures-proofs/2026-06-27.md",
+      "target": "memory/gitlawb-compute-futures-proofs/2026-08-25.md",
+      "score": 0.949,
+      "shared": [
+        "cash",
+        "darkbloom",
+        "synthetic",
+        "basket",
+        "spread"
+      ],
+      "bullet": "- [[memory/gitlawb-compute-futures-proofs/2026-08-25.md]] — Compute-Futures Scenario Sweep _(similarity 0.95)_",
+      "appliedAt": "2026-10-18T06:22:10.568Z",
+      "rejectedAt": "2026-10-18T06:23:32.807Z",
+      "rejectionReason": "templated-corpus-noise: gitlawb-compute-futures-proofs/ within-cohort pair per [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]; 22-day post-09-26 recurrence (7th within-cohort fire after PRs #70/71/74/78/81); source-edit reverted, no PR opened — pre-filter within-cohort pairs in scripts/suggest-edges.mjs still outstanding"
+    },
+    {
+      "source": "memory/gitlawb-compute-futures-proofs/2026-06-27.md",
+      "target": "memory/gitlawb-compute-futures-proofs/2026-09-05.md",
+      "score": 0.949,
+      "shared": [
+        "cash",
+        "darkbloom",
+        "synthetic",
+        "756z",
+        "basket"
+      ],
+      "bullet": "- [[2026-09-05]] — Compute-Futures Scenario Sweep _(similarity 0.95)_",
+      "appliedAt": "2026-10-18T06:22:10.569Z",
+      "rejectedAt": "2026-10-18T06:23:32.807Z",
+      "rejectionReason": "templated-corpus-noise: gitlawb-compute-futures-proofs/ within-cohort pair per [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]; 22-day post-09-26 recurrence (7th within-cohort fire after PRs #70/71/74/78/81); source-edit reverted, no PR opened — pre-filter within-cohort pairs in scripts/suggest-edges.mjs still outstanding"
+    },
+    {
+      "source": "memory/gitlawb-compute-futures-proofs/2026-06-27.md",
+      "target": "memory/gitlawb-compute-futures-proofs/2026-09-24.md",
+      "score": 0.949,
+      "shared": [
+        "cash",
+        "darkbloom",
+        "synthetic",
+        "basket",
+        "spread"
+      ],
+      "bullet": "- [[memory/gitlawb-compute-futures-proofs/2026-09-24.md]] — Compute-Futures Scenario Sweep _(similarity 0.95)_",
+      "appliedAt": "2026-10-18T06:22:10.569Z",
+      "rejectedAt": "2026-10-18T06:23:32.807Z",
+      "rejectionReason": "templated-corpus-noise: gitlawb-compute-futures-proofs/ within-cohort pair per [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]; 22-day post-09-26 recurrence (7th within-cohort fire after PRs #70/71/74/78/81); source-edit reverted, no PR opened — pre-filter within-cohort pairs in scripts/suggest-edges.mjs still outstanding"
     }
   ],
-  "lastRun": "2026-10-15T05:31:52.172Z"
+  "lastRun": "2026-10-18T06:22:10.569Z"
 }
