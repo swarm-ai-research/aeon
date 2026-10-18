@@ -1,0 +1,180 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-10-18"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "summary_section",
+        "sep1",
+        "metrics_section",
+        "sep2",
+        "conservation_section",
+        "sep3",
+        "report_section"
+      ]
+    },
+    "summary_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rows_modes_text",
+        "top_mode_text"
+      ]
+    },
+    "rows_modes_text": {
+      "type": "Text",
+      "props": {
+        "text": "144 rows, 4 modes"
+      }
+    },
+    "top_mode_text": {
+      "type": "Text",
+      "props": {
+        "text": "Top: MEDIUM x402"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "mean_price_stat",
+        "band_break_text",
+        "drift_badge"
+      ]
+    },
+    "mean_price_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Mean",
+        "value": "$338.21",
+        "delta": "+$8.02 vs 10-17",
+        "trend": "up"
+      }
+    },
+    "band_break_text": {
+      "type": "Text",
+      "props": {
+        "text": "Breaks the $315–$335 band ceiling"
+      }
+    },
+    "drift_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "3rd consecutive upward drift",
+        "variant": "secondary"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "conservation_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "conservation_heading",
+        "conservation_items_stack",
+        "multiplier_stat",
+        "purity_stat",
+        "pairs_stat"
+      ]
+    },
+    "conservation_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status",
+        "level": "h3"
+      }
+    },
+    "conservation_items_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "conservation_items_text",
+        "conservation_note_text"
+      ]
+    },
+    "conservation_items_text": {
+      "type": "Text",
+      "props": {
+        "text": "Basket OK • Spread OK • Synth OK • x402 OK"
+      }
+    },
+    "conservation_note_text": {
+      "type": "Text",
+      "props": {
+        "text": "All 10+ orders under drift gates, 1−/3+ signs",
+        "variant": "caption"
+      }
+    },
+    "multiplier_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Multiplier (n=2 consecutive days)",
+        "value": "2.193750×"
+      }
+    },
+    "purity_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Spread Retail Top-6 Purity",
+        "value": "6/6"
+      }
+    },
+    "pairs_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Zero Within-Mode Strong Pairs",
+        "value": "n=26"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report_section": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-10-18.md",
+        "source": "Compute-Futures EDA"
+      }
+    }
+  }
+}
