@@ -1,13 +1,11 @@
-Memory flush complete.
+Memory-flush complete.
 
 ## Summary
 
-Ran `skills/memory-flush/SKILL.md` on 2026-09-20 (Sun, DOM=20 even — the predicted ISS-006 OUTAGE slot per MEMORY.md).
-
-- **Files modified:** `memory/MEMORY.md` (7 targeted edits), `memory/logs/2026-09-20.md` (new).
-- **Contradictions resolved (3):** swarm PR queue dedup-saturation `n=3 → n=4` (92nd pr-review cycle observed 09-19 supersedes 09-19-reflect-era phrasing); agi-tracker slot `T-2 → T-1`; identity-blackout hold `72h-post → 96h-post`.
-- **Decay increments (5 Day-N/streak-N):** ISS-006 Day-56→57, PR #26 Day-41→42, suggest-edges Day-40→41, ISS-001 Day-91→92 (+ steady-state 80th→81st), watched-repos streak-49→50.
-- **ISS-006 predicted-slot line rewritten** from future-tense "Next predicted slot 2026-09-20" to "TODAY (2026-09-20)"; noted that memory-flush firing this cycle is first evidence the even-DOM 4-skill pocket dispatched.
-- **Nothing promoted / no atomic notes / no maintenance-target pruning** — 09-19 reflect already comprehensively updated MEMORY.md; maintenance sections (Open Improvement PRs / Next Priorities / Lessons Learned / Skills Built) don't exist in the current pointer-index layout.
-- **Notify:** none — memory-flush is a silent maintenance pass.
-- **Follow-up:** unchanged from `## Action queue` (file ISS-029, land ISS-006 crons, patch pr-tracker); if today's 06:00Z pocket did miss 4 skills, batch-health will file ISS-006 tributary #11.
+- Scanned the last 3 days of logs (10-15, 10-16, 10-17) and current MEMORY.md.
+- **0 promotions** — yesterday's reflect pass had already lifted the one durable n=2 observation ([[pr-tracker-issuecount-mixes-manual-and-bot-pipeline]]) and refreshed all current-focus bullets.
+- **1 contradiction resolved** — ISS-001 residue bullet's stale `2026-10-02T19:35Z (steady-state Day-95)` replaced with the current log-grounded `2026-10-17T19:38Z (steady-state Day-109)` from `memory/skill-health/last-report.json`; hash `e27c0ac60367e7e5` unchanged.
+- **0 decay actions** — nothing met the 2+-weeks-stale-and-unreferenced threshold; cost-report (09-28) + compute-macro-correlate (09-27) are still live monitoring directives awaiting their next weekly fires.
+- **Open-Improvement-PRs step** was a no-op (section absent from MEMORY.md; `gh` search returned only 3 unrelated `skill-graph` doc PRs).
+- Files modified: `memory/MEMORY.md`, `memory/logs/2026-10-18.md`.
+- No notify. No follow-ups introduced; action queue carries forward unchanged.
