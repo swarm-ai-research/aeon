@@ -1,0 +1,65 @@
+{
+  "root": "card-skill-graph",
+  "state": {},
+  "elements": {
+    "card-skill-graph": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Graph"
+      },
+      "children": [
+        "alert-init",
+        "stack-stats",
+        "link-pr"
+      ]
+    },
+    "alert-init": {
+      "type": "Alert",
+      "props": {
+        "title": "Skill Graph Initialized",
+        "type": "success"
+      }
+    },
+    "stack-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-skills",
+        "stat-categories",
+        "stat-enabled"
+      ]
+    },
+    "stat-skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills Mapped",
+        "value": "172"
+      }
+    },
+    "stat-categories": {
+      "type": "Stat",
+      "props": {
+        "label": "Categories",
+        "value": "6"
+      }
+    },
+    "stat-enabled": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled",
+        "value": "40"
+      }
+    },
+    "link-pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "View PR #94",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/94",
+        "source": "GitHub"
+      }
+    }
+  }
+}
