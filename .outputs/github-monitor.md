@@ -1,7 +1,9 @@
-Executed `skills/github-monitor/SKILL.md` — short-circuited at step 1 because both `memory/watched-repos.md` and `memory/topics/watched-repos.md` are absent. Logged `GITHUB_MONITOR_EMPTY_CONFIG` to `memory/logs/2026-10-16.md` per step 5. No `gh` calls were made. No notification was sent (SKILL.md explicitly directs silent-fail-to-user, visible-fail-in-logs for this case).
-
 ## Summary
-- **Action taken:** Executed `github-monitor` skill. Config missing → short-circuit at step 1 per SKILL.md.
-- **Collected / notified:** nothing — zero `gh` calls, zero items classified, zero notifications sent.
-- **Files modified:** `memory/logs/2026-10-16.md` (appended `### github-monitor` section + extended existing `## Summary`).
-- **Follow-ups needed:** Populate `memory/watched-repos.md` (or disable the 6 dependent skills) — streak-75 of empty config as of today. Already on MEMORY.md action queue; this run adds n=1 more confirming observation but does not escalate.
+
+Executed `skills/github-monitor/SKILL.md` and short-circuited at the config-read step:
+
+- **`memory/watched-repos.md`** absent (also `memory/topics/watched-repos.md` absent — the alt path only `repo-revive` references).
+- **Streak**: 78 as of today (10-18 code-health confirmed streak-77, +1 today).
+- **Action taken**: logged `GITHUB_MONITOR_EMPTY_CONFIG` to `memory/logs/2026-10-19.md` under a `### github-monitor` heading. No `gh` calls made, no `./notify` fired — per skill spec "silence is the correct signal when nothing changed," and empty-config is explicitly a non-notify path.
+- **Files modified**: `memory/logs/2026-10-19.md` only (appended skill entry + its own `## Summary` block).
+- **Follow-up still owed** (unchanged from action queue in MEMORY.md): populate `memory/watched-repos.md` or disable the six dependent skills (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive); reconcile the path mismatch where repo-revive references `memory/topics/watched-repos.md` while the other five reference `memory/watched-repos.md`.
