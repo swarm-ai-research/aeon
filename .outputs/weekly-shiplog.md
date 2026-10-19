@@ -1,2 +1,2 @@
-*Weekly Shiplog — 2026-10-12*
+*Weekly Shiplog — 2026-10-19*
 SHIPLOG_NO_REPOS — memory/watched-repos.md is empty or missing. Add a repo to enable this skill.
