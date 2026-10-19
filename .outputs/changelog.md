@@ -1,1 +1,1 @@
-changelog: `memory/watched-repos.md` missing — nothing to scan (streak-57).
+changelog: `memory/watched-repos.md` missing — nothing to scan.
