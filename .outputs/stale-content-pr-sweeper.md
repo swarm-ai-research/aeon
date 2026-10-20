@@ -1,17 +1,9 @@
+Skill complete. `n_closed=0` so no `./notify` fired per step 6.
+
 ## Summary
 
-Executed `skills/stale-content-pr-sweeper/SKILL.md` verbatim.
-
-- **Scanned**: 57 open PRs
-- **Groups formed**: 0 (no PR passed both TRACKED-prefix and `ALLOWED_AUTHORS` gates)
-- **Closed**: 0
-- **`./notify` fired**: no (per step 6 — `n_closed === 0` is steady state, silent)
-
-**Why zero closures** — matches the known defect [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]]: 28 PRs on TRACKED prefixes exist (notegraph/suggest-edges) but all were authored by `app/github-actions` while `ALLOWED_AUTHORS = {"aeonframework"}`. Separately, 14 PRs sit on `skill-graph/*` (10) and `compute-macro/*` (4) which aren't in `TRACKED` at all (`compute-macro-correlate` is the TRACKED spelling, so even those miss) — [[stale-content-pr-sweeper-tracked-prefix-drift]]. Both patches were already in `MEMORY.md` action queue as owed; I did not touch SKILL.md this run (SKILL.md explicitly says the TRACKED list wants a reviewed PR edit, not silent inclusion).
-
-**Files modified**:
-- `memory/logs/2026-10-19.md` — created with full run detail.
-
-**Scratch files left in working dir** (removal was denied, user can `rm` or they will stay as untracked): `.sweeper-run.mjs`, `.sweeper-open-prs.json`.
-
-**Follow-up**: SKILL.md patch to add `"app/github-actions"` to `ALLOWED_AUTHORS` and reconcile `compute-macro` → `compute-macro-correlate` / add `skill-graph` to TRACKED — still an open action-queue item in `MEMORY.md`.
+- **Executed** `skills/stale-content-pr-sweeper/SKILL.md` on 58 open PRs.
+- **PRs closed: 0** — all 29 tracked-prefix date-stamped PRs are authored by `app/github-actions`, which is not in `ALLOWED_AUTHORS={aeonframework}`. This is the known-defect no-op outcome per `[[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]]`, now Day-46+ overdue.
+- **No notify** (steady state silence; `n_closed === 0`).
+- **Files written:** `memory/logs/2026-10-20.md` (sweep result + diagnostic — 29 would-be-eligible under an author-filter patch, projected ~27 closures split across `notegraph` and `suggest-edges` groups).
+- **Follow-up (unchanged, on action queue):** patch SKILL.md to (a) add `"app/github-actions"` to `ALLOWED_AUTHORS` and (b) reconcile `TRACKED` with actual branch prefixes (`compute-macro/*` ≠ `compute-macro-correlate`; `skill-graph/*` not listed). Until that lands this skill is a no-op by construction.
