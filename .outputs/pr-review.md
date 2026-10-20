@@ -1,25 +1,15 @@
+Logged. Per the SKILL's notify rule ("If every PR was skipped, do not notify — just log") combined with zero state delta vs 10-20 AM and the standing 403 write-block, no notification is emitted.
+
 ## Summary
 
-**8th consecutive operator-triggered merge-gate re-emission** on `swarm-ai-research/swarm`. All 9 non-bot PR SHAs byte-identical to 10-19 (28-day queue freeze since 2026-09-22). Verdicts carried forward unchanged — spot-verified via `gh pr view 628` (CLEAN, 22/22 SUCCESS).
+9th operator-triggered merge-gate PR review on `swarm-ai-research/swarm` (first same-day double-run of the series). Queue is byte-identical to the 10-20 AM run and the 10-15..10-19 window — 14 open PRs: 5 dependabot (skipped per bot rule), 9 non-bot (all SHAs match the dedup table in `memory/logs/2026-10-19.md` and `memory/logs/2026-10-20.md`). Spot-verified #628 state unchanged (CLEAN, 21 real checks SUCCESS, 3 transient non-required reruns in-progress).
 
-**Decision tally** (3 APPROVE · 6 REQUEST_CHANGES · 0 BLOCK):
+**Verdicts (carried forward unchanged):**
+- **APPROVE** (3): #628, #619, #518 — risk low, evidence sufficient
+- **REQUEST_CHANGES** (6): #618 (DIRTY conflict), #616/#614/#612/#611 (`render-verify` + `quality-gate` FAILURE), #517 (fork, zero CI ran)
+- **BLOCK** (0) — no critical security/correctness risk present on any PR in queue
 
-| PR | Verdict | Confidence | Why |
-|----|---------|------------|-----|
-| #628 | APPROVE | 5/5 | Docs-only blog, 22/22 SUCCESS, no prod code |
-| #619 | APPROVE | 5/5 | Council-ranker prompt + 3 new unit tests, 21/21 SUCCESS |
-| #518 | APPROVE | 4/5 | pydantic schema + 86-line test suite, 18/18 real SUCCESS (UNSTABLE is Vercel-only) |
-| #618 | REQUEST_CHANGES | 3/5 | DIRTY — unresolved main conflict; rebase required before merge |
-| #616 | REQUEST_CHANGES | 2/5 | `render-verify` + `quality-gate` FAILURE on docs diff |
-| #614 | REQUEST_CHANGES | 2/5 | Same docs-build FAIL as #616 |
-| #612 | REQUEST_CHANGES | 2/5 | Same docs-build FAIL |
-| #611 | REQUEST_CHANGES | 2/5 | Same docs-build FAIL (docs addendum) |
-| #517 | REQUEST_CHANGES | 2/5 | Fork PR with **zero CI runs** — only Vercel fired (FAILURE). Operator policy forbids APPROVE without quality evidence |
+Write-probe `gh pr review 628 --comment` → **403 `Resource not accessible by integration`** (standing [[aeon-app-no-write-on-swarm-repo]] at Day-35+). Verdicts logged to `memory/logs/2026-10-20.md` only; no remote post, no inline comments, no notify (zero state delta vs 10-20 AM). Operator must grant aeon GitHub App `pull_requests: write` on `swarm-ai-research/swarm` before any verdict can land remotely.
 
-**Write-probe:** `addPullRequestReview` → 403 `Resource not accessible by integration`. Standing [[aeon-app-no-write-on-swarm-repo]] at Day-34+. Verdicts logged only; no remote post, no inline comments. Dependabot bot PRs (#638/637/636/634/585) skipped per `author.is_bot` rule.
-
-**Files modified:** `memory/logs/2026-10-20.md`.
-
-**Notify:** none (dedup-saturation + 403 write-block, no state delta vs 10-19).
-
-**Follow-up:** operator must grant aeon GitHub App `pull_requests: write` on swarm-ai-research/swarm before any verdict can land remotely.
+**Files modified:** `memory/logs/2026-10-20.md`
+**Follow-up:** patch `skills/pr-review/SKILL.md` to gate `memory/triaged-prs.json` write on successful post confirmation per [[pr-review-dedup-saturation-freezes-write-blocked-repo-queues]]; grant write access to aeon app on swarm repo.
