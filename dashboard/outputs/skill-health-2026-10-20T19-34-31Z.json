@@ -1,0 +1,98 @@
+{
+  "root": "skill-health-card",
+  "state": {},
+  "elements": {
+    "skill-health-card": {
+      "type": "Card",
+      "props": {
+        "title": "skill-health",
+        "description": "2026-10-20"
+      },
+      "children": [
+        "status-alert",
+        "details-stack"
+      ]
+    },
+    "status-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "HEALTH DEGRADED",
+        "message": "38 days degraded (Day 112) — steady-state, hash e27c0ac60367e7e5 unchanged"
+      }
+    },
+    "details-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "uptime-stat",
+        "sep-1",
+        "issues-grid",
+        "sep-2",
+        "report-link"
+      ]
+    },
+    "uptime-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Consecutive days without live failures",
+        "value": "49"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "open-issues",
+        "filed-today",
+        "resolved-today"
+      ]
+    },
+    "open-issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open issues",
+        "value": "34"
+      }
+    },
+    "filed-today": {
+      "type": "Stat",
+      "props": {
+        "label": "Filed today",
+        "value": "0"
+      }
+    },
+    "resolved-today": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved today",
+        "value": "0"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report-link": {
+      "type": "Link",
+      "props": {
+        "label": "View full report",
+        "href": ".pending-notify/skill-health-2026-10-20.md"
+      }
+    }
+  }
+}
