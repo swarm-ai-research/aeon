@@ -1,0 +1,48 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Memory Consolidated"
+      },
+      "children": [
+        "stack-content"
+      ]
+    },
+    "stack-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-date",
+        "text-metrics",
+        "text-details"
+      ]
+    },
+    "text-date": {
+      "type": "Text",
+      "props": {
+        "text": "2026-10-20",
+        "variant": "caption"
+      }
+    },
+    "text-metrics": {
+      "type": "Text",
+      "props": {
+        "text": "+1n / +20e",
+        "variant": "lead"
+      }
+    },
+    "text-details": {
+      "type": "Text",
+      "props": {
+        "text": "(0 splits, 1 new)",
+        "variant": "muted"
+      }
+    }
+  }
+}
