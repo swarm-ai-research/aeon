@@ -1,33 +1,50 @@
 {
   "version": "1",
-  "generated_at": "2026-10-14T19:35:00Z",
+  "generated_at": "2026-10-21T19:57:00Z",
   "skill": "skill-analytics",
-  "title": "Skill Analytics — 2026-10-14",
+  "title": "Skill Analytics — 2026-10-21",
   "spec": {
     "type": "Stack",
     "props": {"direction": "vertical", "gap": "md"},
     "children": [
-      {"type": "Alert", "props": {"variant": "destructive", "children": "13 anomaly flag(s) raised — 10 SILENT scheduled skills + 3 LOW_SUCCESS (in_progress at snapshot)"}},
-      {"type": "Heading", "props": {"level": 2, "children": "Skill Analytics — 2026-10-14"}},
-      {"type": "Text", "props": {"variant": "muted", "children": "10 scheduled skill(s) didn't run this window — planner"}},
+      {"type": "Alert", "props": {"variant": "destructive", "children": "7 anomaly flag(s) raised — see Anomalies section"}},
+      {"type": "Heading", "props": {"level": 2, "children": "Skill Analytics — 2026-10-21"}},
+      {"type": "Text", "props": {"variant": "muted", "children": "7 scheduled skill(s) didn't run this window — compute-macro-correlate, config-validator, self-review, skill-evals, cost-report, agi-tracker, milestone-tracker"}},
       {"type": "Grid", "props": {"columns": 4, "gap": "sm"}, "children": [
         {"type": "Card", "props": {"children": [
           {"type": "Text", "props": {"variant": "muted", "children": "Total runs"}},
-          {"type": "Heading", "props": {"level": 3, "children": "67"}}
+          {"type": "Heading", "props": {"level": 3, "children": "86"}}
         ]}},
         {"type": "Card", "props": {"children": [
           {"type": "Text", "props": {"variant": "muted", "children": "Active skills"}},
-          {"type": "Heading", "props": {"level": 3, "children": "27"}}
+          {"type": "Heading", "props": {"level": 3, "children": "33"}}
         ]}},
         {"type": "Card", "props": {"children": [
           {"type": "Text", "props": {"variant": "muted", "children": "Success rate"}},
-          {"type": "Heading", "props": {"level": 3, "children": "100.0%"}}
+          {"type": "Heading", "props": {"level": 3, "children": "100%"}}
         ]}},
         {"type": "Card", "props": {"children": [
           {"type": "Text", "props": {"variant": "muted", "children": "Anomalies"}},
-          {"type": "Heading", "props": {"level": 3, "children": "13"}}
+          {"type": "Heading", "props": {"level": 3, "children": "7"}}
         ]}}
       ]},
+      {"type": "Heading", "props": {"level": 3, "children": "Anomalies (🔴 7 SILENT)"}},
+      {"type": "Table", "props": {
+        "columns": [
+          {"key": "flag", "header": "Flag"},
+          {"key": "skill", "header": "Skill"},
+          {"key": "detail", "header": "Detail"}
+        ],
+        "rows": [
+          {"flag": "🔴 SILENT", "skill": "compute-macro-correlate", "detail": "scheduled 30 6 * * 0 — ISS-006 Sun 06:30Z pocket"},
+          {"flag": "🔴 SILENT", "skill": "config-validator", "detail": "scheduled 0 7 * * 0 — ISS-006 Sun 07Z cluster"},
+          {"flag": "🔴 SILENT", "skill": "self-review", "detail": "scheduled 30 18 * * 0 — Sun 18:30Z pocket"},
+          {"flag": "🔴 SILENT", "skill": "skill-evals", "detail": "scheduled 0 9 * * 0 — Sun 09Z pocket, last run 2026-09-13"},
+          {"flag": "🔴 SILENT", "skill": "cost-report", "detail": "scheduled 0 7 * * 1 — Mon 07Z pocket"},
+          {"flag": "🔴 SILENT", "skill": "agi-tracker", "detail": "scheduled 0 13 * * 1 — SKILL.md absent, known no-op"},
+          {"flag": "🔴 SILENT", "skill": "milestone-tracker", "detail": "scheduled 0 12 * * 1 — Mon 12Z pocket"}
+        ]
+      }},
       {"type": "Heading", "props": {"level": 3, "children": "Top runners"}},
       {"type": "Table", "props": {
         "columns": [
@@ -38,41 +55,21 @@
           {"key": "exit", "header": "Dominant exit"}
         ],
         "rows": [
-          {"rank": "1", "skill": "pr-review", "runs": "6", "success": "83.3%", "exit": "uncategorized"},
-          {"rank": "2", "skill": "batch-health", "runs": "5", "success": "100.0%", "exit": "ok"},
-          {"rank": "3", "skill": "gitlawb-fleet-metrics", "runs": "5", "success": "100.0%", "exit": "uncategorized"},
-          {"rank": "4", "skill": "heartbeat", "runs": "5", "success": "100.0%", "exit": "uncategorized"},
-          {"rank": "5", "skill": "skill-freshness", "runs": "5", "success": "100.0%", "exit": "ok"},
-          {"rank": "6", "skill": "code-health", "runs": "3", "success": "100.0%", "exit": "skip_other"},
-          {"rank": "7", "skill": "fleet-control", "runs": "3", "success": "100.0%", "exit": "uncategorized"},
-          {"rank": "8", "skill": "github-monitor", "runs": "3", "success": "100.0%", "exit": "uncategorized"},
-          {"rank": "9", "skill": "goal-tracker", "runs": "3", "success": "66.7%", "exit": "uncategorized"},
-          {"rank": "10", "skill": "issue-triage", "runs": "3", "success": "100.0%", "exit": "ok"},
-          {"rank": "11", "skill": "reflect", "runs": "3", "success": "66.7%", "exit": "ok"},
-          {"rank": "12", "skill": "skill-health", "runs": "3", "success": "66.7%", "exit": "uncategorized"},
-          {"rank": "13", "skill": "notegraph", "runs": "2", "success": "100.0%", "exit": "ok"},
-          {"rank": "14", "skill": "pr-tracker", "runs": "2", "success": "100.0%", "exit": "ok"},
-          {"rank": "15", "skill": "pr-triage", "runs": "2", "success": "100.0%", "exit": "ok"}
-        ]
-      }},
-      {"type": "Heading", "props": {"level": 3, "children": "Silent scheduled skills (10)"}},
-      {"type": "Table", "props": {
-        "columns": [
-          {"key": "skill", "header": "Skill"},
-          {"key": "schedule", "header": "Schedule"},
-          {"key": "notes", "header": "Notes"}
-        ],
-        "rows": [
-          {"skill": "planner", "schedule": "30 6 * * *", "notes": "ISS-006 06Z dead regime"},
-          {"skill": "compute-futures-eda", "schedule": "0 6 * * *", "notes": "ISS-006 06Z dead regime"},
-          {"skill": "memory-flush", "schedule": "0 6 2/2 * *", "notes": "ISS-006 06Z dead regime"},
-          {"skill": "memory-structural-dedupe", "schedule": "10 6 2/2 * *", "notes": "ISS-006 06Z dead regime"},
-          {"skill": "compute-macro-correlate", "schedule": "30 6 * * 0", "notes": "ISS-006 Sunday 06Z absorbed"},
-          {"skill": "janitor", "schedule": "30 5 * * 0", "notes": "05Z casualty — Sunday"},
-          {"skill": "skill-evals", "schedule": "0 9 * * 0", "notes": "09Z casualty — Sunday"},
-          {"skill": "changelog", "schedule": "0 16 * * 1", "notes": "Monday 16:00 — investigate"},
-          {"skill": "agi-tracker", "schedule": "0 13 * * 1", "notes": "SKILL.md missing — no-op"},
-          {"skill": "milestone-tracker", "schedule": "0 12 * * 1", "notes": "Monday 12:00 — investigate"}
+          {"rank": "1", "skill": "pr-review (swarm)", "runs": "9", "success": "89%", "exit": "ok"},
+          {"rank": "2", "skill": "pr-tracker", "runs": "6", "success": "100%", "exit": "ok"},
+          {"rank": "3", "skill": "stale-content-pr-sweeper", "runs": "6", "success": "100%", "exit": "ok"},
+          {"rank": "4", "skill": "goal-tracker", "runs": "5", "success": "80%", "exit": "uncategorized"},
+          {"rank": "5", "skill": "notegraph", "runs": "5", "success": "100%", "exit": "ok"},
+          {"rank": "6", "skill": "reflect", "runs": "5", "success": "100%", "exit": "ok"},
+          {"rank": "7", "skill": "skill-health", "runs": "5", "success": "80%", "exit": "ok"},
+          {"rank": "8", "skill": "fleet-control", "runs": "4", "success": "100%", "exit": "uncategorized"},
+          {"rank": "9", "skill": "github-monitor", "runs": "4", "success": "100%", "exit": "uncategorized"},
+          {"rank": "10", "skill": "issue-triage", "runs": "4", "success": "100%", "exit": "ok"},
+          {"rank": "11", "skill": "pr-triage (swarm)", "runs": "4", "success": "100%", "exit": "ok"},
+          {"rank": "12", "skill": "code-health", "runs": "3", "success": "100%", "exit": "ok"},
+          {"rank": "13", "skill": "suggest-edges", "runs": "3", "success": "100%", "exit": "uncategorized"},
+          {"rank": "14", "skill": "surplus-pulse", "runs": "3", "success": "100%", "exit": "ok"},
+          {"rank": "15", "skill": "compute-futures-eda", "runs": "2", "success": "100%", "exit": "uncategorized"}
         ]
       }}
     ]

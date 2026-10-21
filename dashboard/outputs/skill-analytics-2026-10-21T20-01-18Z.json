@@ -1,0 +1,242 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Analytics — 2026-10-21"
+      },
+      "children": [
+        "metrics_stack",
+        "separator_1",
+        "alert_critical",
+        "separator_2",
+        "silent_skills_section",
+        "separator_3",
+        "top_performers_section",
+        "separator_4",
+        "full_article_section"
+      ]
+    },
+    "metrics_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_window",
+        "stat_runs",
+        "stat_skills",
+        "stat_success",
+        "stat_anomalies"
+      ]
+    },
+    "stat_window": {
+      "type": "Stat",
+      "props": {
+        "label": "Window",
+        "value": "Last 7d"
+      }
+    },
+    "stat_runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs",
+        "value": "86"
+      }
+    },
+    "stat_skills": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills",
+        "value": "33"
+      }
+    },
+    "stat_success": {
+      "type": "Stat",
+      "props": {
+        "label": "Success Rate",
+        "value": "100%"
+      }
+    },
+    "stat_anomalies": {
+      "type": "Stat",
+      "props": {
+        "label": "Anomalies",
+        "value": "7"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_critical": {
+      "type": "Alert",
+      "props": {
+        "title": "Critical: 7 Scheduled Skills Silent",
+        "message": "All 4 Sunday-scheduled skills silent (ISS-006) + 3 Monday slots",
+        "type": "error"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "silent_skills_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "silent_skills_heading",
+        "silent_skills_table"
+      ]
+    },
+    "silent_skills_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Silent Skills",
+        "level": "h3"
+      }
+    },
+    "silent_skills_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Schedule",
+          "Notes"
+        ],
+        "rows": [
+          [
+            "compute-macro-correlate",
+            "30 6 * * 0 (Sun 06:30Z)",
+            "ISS-006 Sunday pocket"
+          ],
+          [
+            "config-validator",
+            "0 7 * * 0 (Sun 07:00Z)",
+            "ISS-006 Sunday 07Z cluster"
+          ],
+          [
+            "self-review",
+            "30 18 * * 0 (Sun 18:30Z)",
+            "Sunday 18:30Z pocket"
+          ],
+          [
+            "skill-evals",
+            "0 9 * * 0 (Sun 09:00Z)",
+            "Last run 2026-09-13"
+          ],
+          [
+            "cost-report",
+            "0 7 * * 1 (Mon 07:00Z)",
+            "Monday 07Z pocket"
+          ],
+          [
+            "agi-tracker",
+            "0 13 * * 1",
+            "SKILL.md absent (known no-op)"
+          ],
+          [
+            "milestone-tracker",
+            "0 12 * * 1 (Mon 12:00Z)",
+            "Monday 12Z pocket"
+          ]
+        ]
+      }
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "top_performers_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "top_performers_heading",
+        "top_performers_list"
+      ]
+    },
+    "top_performers_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top by Runs",
+        "level": "h3"
+      }
+    },
+    "top_performers_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "top_1",
+        "top_2",
+        "top_3"
+      ]
+    },
+    "top_1": {
+      "type": "Text",
+      "props": {
+        "text": "pr-review/swarm — 9 runs"
+      }
+    },
+    "top_2": {
+      "type": "Text",
+      "props": {
+        "text": "pr-tracker — 6 runs"
+      }
+    },
+    "top_3": {
+      "type": "Text",
+      "props": {
+        "text": "stale-content-pr-sweeper — 6 runs"
+      }
+    },
+    "separator_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "full_article_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "full_article_heading",
+        "full_article_link"
+      ]
+    },
+    "full_article_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Full Report",
+        "level": "h3"
+      }
+    },
+    "full_article_link": {
+      "type": "Link",
+      "props": {
+        "label": "articles/skill-analytics-2026-10-21.md",
+        "href": "articles/skill-analytics-2026-10-21.md"
+      }
+    }
+  }
+}
