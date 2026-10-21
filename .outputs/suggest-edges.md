@@ -1,11 +1,10 @@
-Executed `suggest-edges`; the script surfaced 3 within-cohort proposals inside `memory/gitlawb-compute-futures-proofs/` (source `2026-06-27.md` × targets `2026-08-25.md`, `2026-09-05.md`, `2026-09-24.md`, all similarity 0.949). Known templated-corpus noise class — matching the 10-15 precedent, I auto-rejected them: reverted the source-note edit, moved the 3 `applied` entries to `rejected` in `memory/state/suggest-edges.json`, silent exit (no PR, no notify). Commit `4f4a185` pushed to main.
+Executed `skills/suggest-edges/SKILL.md`. The script produced 3 proposals — all within-cohort `gitlawb-compute-futures-proofs/` pairs (sim 0.933–0.945), the same templated-corpus noise auto-rejected on 10-15 and 10-18.
 
 ## Summary
-- **Skill:** `suggest-edges` — ran per `skills/suggest-edges/SKILL.md`.
-- **Verdict:** `SUGGEST_EDGES_NO_PROPOSALS` (effective — all 3 proposals in known-noise class).
-- **Proposals:** 3 within-cohort pairs inside `memory/gitlawb-compute-futures-proofs/`, all source `2026-06-27.md`, all similarity 0.949. 7th within-cohort fire; 3-day post-10-15 recurrence (n=2 of auto-reject-silently regime).
-- **Action taken:** reverted the single `## Related notes` append on `memory/gitlawb-compute-futures-proofs/2026-06-27.md`; moved 3 applied entries → `rejected` in state (applied 6→3, rejected 24→27) with the standard templated-corpus-noise reason per [[suggest-edges-flags-templated-corpora-as-sim-1-noise]].
-- **PR:** none. **Notify:** none.
-- **Files modified:** `memory/state/suggest-edges.json`, `memory/logs/2026-10-18.md` (appended `## Suggest-edges` + Summary alongside today's prior memory-flush + notegraph sections).
-- **Commit:** `4f4a185 chore(suggest-edges): auto-reject 3 within-cohort templated-corpus proposals` → pushed to `origin/main` after two rebase cycles (concurrent memory-flush/notegraph commits during the run).
-- **Follow-up (unchanged action-queue item):** pre-filter within-`gitlawb-compute-futures-proofs/` pairs in `scripts/suggest-edges.mjs` or route the templated series to its own MOC. New observation worth folding in: today's 3 proposals all shared one source — add a per-source cap (`≤1 proposal per source per run`) as a secondary guard against this greedy-top-3 single-source concentration shape.
+
+- **Ran** `node scripts/suggest-edges.mjs` → 3 proposals, all within-cohort `gitlawb-compute-futures-proofs/` pairs → 8th within-cohort fire in the templated-corpus series.
+- **Auto-rejected** per the 10-15/10-18 precedent and [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]: reverted source edits (`2026-06-20.md`, `2026-08-03.md`, `2026-08-25.md`) via `git checkout --`; moved all 3 entries from `applied` → `rejected` in `memory/state/suggest-edges.json` with the "8th within-cohort fire" rejection reason.
+- **No PR, no notify** — matches the auto-reject regime (SKILL exit `SUGGEST_EDGES_NO_PROPOSALS` semantics: nothing worth proposing survived the filter).
+- **Files modified**: `memory/state/suggest-edges.json` (applied 3 unchanged, rejected 27→30), `memory/logs/2026-10-21.md` (appended Suggest Edges entry). Source files reverted — no net change vs HEAD.
+- **Observation worth logging**: today's 3 proposals had 3 distinct sources, so the single-source greedy clustering seen 10-18 per [[suggest-edges-greedy-concentrates-on-single-source-under-cohort-exhaustion]] did not reproduce — consistent with that hypothesis (dominant node `2026-06-27.md` now carries enough rejections that the score-ordered walk rotated to adjacent cohort members). The hypothesis is unfalsified, not disconfirmed.
+- **Follow-up**: ship the two-part `scripts/suggest-edges.mjs` patch on the action queue (pre-filter within-cohort pairs + per-source cap ≤1/run); 25+ days past the first auto-reject fire with no code-level fix.
