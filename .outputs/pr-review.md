@@ -1,15 +1,21 @@
-Logged. Per the SKILL's notify rule ("If every PR was skipped, do not notify — just log") combined with zero state delta vs 10-20 AM and the standing 403 write-block, no notification is emitted.
+PR-review merge-gate pass complete for `swarm-ai-research/swarm` (10th consecutive operator-triggered re-emission).
 
-## Summary
+**Verdicts** (carried forward from 10-20 PM at byte-identical SHAs; `gh pr view` spot-checks on #628/#518/#517/#618 confirm no state drift):
 
-9th operator-triggered merge-gate PR review on `swarm-ai-research/swarm` (first same-day double-run of the series). Queue is byte-identical to the 10-20 AM run and the 10-15..10-19 window — 14 open PRs: 5 dependabot (skipped per bot rule), 9 non-bot (all SHAs match the dedup table in `memory/logs/2026-10-19.md` and `memory/logs/2026-10-20.md`). Spot-verified #628 state unchanged (CLEAN, 21 real checks SUCCESS, 3 transient non-required reruns in-progress).
+| PR | Author | Verdict | Confidence |
+| --- | --- | --- | --- |
+| #628 | rsavitt | **APPROVE** | 5/5 |
+| #619 | rsavitt | **APPROVE** | 5/5 |
+| #518 | go165 (fork) | **APPROVE** | 4/5 |
+| #618 | rsavitt | **REQUEST_CHANGES** | 3/5 |
+| #616 | rsavitt | **REQUEST_CHANGES** | 2/5 |
+| #614 | rsavitt | **REQUEST_CHANGES** | 2/5 |
+| #612 | rsavitt | **REQUEST_CHANGES** | 2/5 |
+| #611 | rsavitt | **REQUEST_CHANGES** | 2/5 |
+| #517 | go165 (fork) | **REQUEST_CHANGES** | 2/5 |
 
-**Verdicts (carried forward unchanged):**
-- **APPROVE** (3): #628, #619, #518 — risk low, evidence sufficient
-- **REQUEST_CHANGES** (6): #618 (DIRTY conflict), #616/#614/#612/#611 (`render-verify` + `quality-gate` FAILURE), #517 (fork, zero CI ran)
-- **BLOCK** (0) — no critical security/correctness risk present on any PR in queue
+**Tally:** APPROVE 3 · REQUEST_CHANGES 6 · BLOCK 0 — no critical security/correctness risk present on any PR in queue.
 
-Write-probe `gh pr review 628 --comment` → **403 `Resource not accessible by integration`** (standing [[aeon-app-no-write-on-swarm-repo]] at Day-35+). Verdicts logged to `memory/logs/2026-10-20.md` only; no remote post, no inline comments, no notify (zero state delta vs 10-20 AM). Operator must grant aeon GitHub App `pull_requests: write` on `swarm-ai-research/swarm` before any verdict can land remotely.
+**Write-block:** `gh pr review` → GraphQL 403 `Resource not accessible by integration (addPullRequestReview)`. Standing [[aeon-app-no-write-on-swarm-repo]] now Day-36+; verdicts remain log-only until the aeon GitHub App gains `pull_requests: write` on the repo. 5 dependabot PRs skipped per bot-author rule. No notify this run (zero deltas vs 10-20 PM; dedup-saturation + write-block pattern).
 
-**Files modified:** `memory/logs/2026-10-20.md`
-**Follow-up:** patch `skills/pr-review/SKILL.md` to gate `memory/triaged-prs.json` write on successful post confirmation per [[pr-review-dedup-saturation-freezes-write-blocked-repo-queues]]; grant write access to aeon app on swarm repo.
+Files modified: `memory/logs/2026-10-21.md`.
