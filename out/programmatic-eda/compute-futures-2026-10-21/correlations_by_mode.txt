@@ -1,0 +1,74 @@
+=== Correlation Matrix (pearson) — mode=basket ===
+                 seed  role_pnl  wallet_sum_pnl  realizedAbs  minSpot  maxSpot  minCurve  maxCurve  rounds  settlementLegs  x402Total  deniedWorkers
+seed            1.000     0.013           0.035       -0.611   -0.026   -0.518     0.095    -0.179     NaN          -0.187        NaN            NaN
+role_pnl        0.013     1.000          -0.002       -0.011   -0.001    0.005     0.004     0.006     NaN          -0.000        NaN            NaN
+wallet_sum_pnl  0.035    -0.002           1.000       -0.529   -0.870    0.110     0.185    -0.014     NaN          -0.246        NaN            NaN
+realizedAbs    -0.611    -0.011          -0.529        1.000    0.440   -0.004     0.010     0.172     NaN           0.132        NaN            NaN
+minSpot        -0.026    -0.001          -0.870        0.440    1.000    0.115     0.193    -0.053     NaN           0.175        NaN            NaN
+maxSpot        -0.518     0.005           0.110       -0.004    0.115    1.000     0.311    -0.040     NaN           0.076        NaN            NaN
+minCurve        0.095     0.004           0.185        0.010    0.193    0.311     1.000    -0.011     NaN          -0.165        NaN            NaN
+maxCurve       -0.179     0.006          -0.014        0.172   -0.053   -0.040    -0.011     1.000     NaN           0.210        NaN            NaN
+rounds            NaN       NaN             NaN          NaN      NaN      NaN       NaN       NaN     NaN             NaN        NaN            NaN
+settlementLegs -0.187    -0.000          -0.246        0.132    0.175    0.076    -0.165     0.210     NaN           1.000        NaN            NaN
+x402Total         NaN       NaN             NaN          NaN      NaN      NaN       NaN       NaN     NaN             NaN        NaN            NaN
+deniedWorkers     NaN       NaN             NaN          NaN      NaN      NaN       NaN       NaN     NaN             NaN        NaN            NaN
+
+=== Strong Pairs (|r| ≥ 0.8) — mode=basket ===
+         col_a   col_b  correlation
+wallet_sum_pnl minSpot        -0.87
+
+=== Correlation Matrix (pearson) — mode=spread ===
+                 seed  role_pnl  wallet_sum_pnl  realizedAbs  minSpot  maxSpot  minCurve  maxCurve  rounds  settlementLegs  x402Total  deniedWorkers
+seed            1.000     0.002           0.152        0.462    0.406    0.502    -0.342     0.750     NaN          -0.254        NaN            NaN
+role_pnl        0.002     1.000          -0.003       -0.004    0.013    0.019     0.007     0.012     NaN          -0.014        NaN            NaN
+wallet_sum_pnl  0.152    -0.003           1.000        0.334    0.479   -0.228     0.084     0.422     NaN          -0.034        NaN            NaN
+realizedAbs     0.462    -0.004           0.334        1.000    0.006    0.128    -0.213     0.635     NaN           0.063        NaN            NaN
+minSpot         0.406     0.013           0.479        0.006    1.000    0.207     0.162     0.411     NaN          -0.226        NaN            NaN
+maxSpot         0.502     0.019          -0.228        0.128    0.207    1.000    -0.173     0.598     NaN          -0.387        NaN            NaN
+minCurve       -0.342     0.007           0.084       -0.213    0.162   -0.173     1.000    -0.018     NaN          -0.654        NaN            NaN
+maxCurve        0.750     0.012           0.422        0.635    0.411    0.598    -0.018     1.000     NaN          -0.500        NaN            NaN
+rounds            NaN       NaN             NaN          NaN      NaN      NaN       NaN       NaN     NaN             NaN        NaN            NaN
+settlementLegs -0.254    -0.014          -0.034        0.063   -0.226   -0.387    -0.654    -0.500     NaN           1.000        NaN            NaN
+x402Total         NaN       NaN             NaN          NaN      NaN      NaN       NaN       NaN     NaN             NaN        NaN            NaN
+deniedWorkers     NaN       NaN             NaN          NaN      NaN      NaN       NaN       NaN     NaN             NaN        NaN            NaN
+
+=== Strong Pairs (|r| ≥ 0.8) — mode=spread ===
+  None found.
+
+=== Correlation Matrix (pearson) — mode=synthetic ===
+                 seed  role_pnl  wallet_sum_pnl  realizedAbs  minSpot  maxSpot  minCurve  maxCurve  rounds  settlementLegs  x402Total  deniedWorkers
+seed            1.000     0.012          -0.340       -0.605   -0.026   -0.518     0.234    -0.162     NaN          -0.340        NaN            NaN
+role_pnl        0.012     1.000           0.001       -0.009    0.000    0.008     0.011     0.016     NaN          -0.012        NaN            NaN
+wallet_sum_pnl -0.340     0.001           1.000        0.063    0.083    0.123    -0.182    -0.014     NaN           0.171        NaN            NaN
+realizedAbs    -0.605    -0.009           0.063        1.000    0.417   -0.036    -0.207     0.262     NaN          -0.019        NaN            NaN
+minSpot        -0.026     0.000           0.083        0.417    1.000    0.115     0.025    -0.076     NaN          -0.392        NaN            NaN
+maxSpot        -0.518     0.008           0.123       -0.036    0.115    1.000     0.195    -0.066     NaN          -0.106        NaN            NaN
+minCurve        0.234     0.011          -0.182       -0.207    0.025    0.195     1.000     0.016     NaN           0.221        NaN            NaN
+maxCurve       -0.162     0.016          -0.014        0.262   -0.076   -0.066     0.016     1.000     NaN           0.364        NaN            NaN
+rounds            NaN       NaN             NaN          NaN      NaN      NaN       NaN       NaN     NaN             NaN        NaN            NaN
+settlementLegs -0.340    -0.012           0.171       -0.019   -0.392   -0.106     0.221     0.364     NaN           1.000        NaN            NaN
+x402Total         NaN       NaN             NaN          NaN      NaN      NaN       NaN       NaN     NaN             NaN        NaN            NaN
+deniedWorkers     NaN       NaN             NaN          NaN      NaN      NaN       NaN       NaN     NaN             NaN        NaN            NaN
+
+=== Strong Pairs (|r| ≥ 0.8) — mode=synthetic ===
+  None found.
+
+=== Correlation Matrix (pearson) — mode=x402 ===
+                 seed  role_pnl  wallet_sum_pnl  realizedAbs  minSpot  maxSpot  minCurve  maxCurve  rounds  settlementLegs  x402Total  deniedWorkers
+seed            1.000     0.012          -0.340       -0.605   -0.026   -0.518     0.234    -0.162     NaN          -0.340     -0.271            NaN
+role_pnl        0.012     1.000           0.001       -0.009    0.000    0.008     0.011     0.016     NaN          -0.012     -0.013            NaN
+wallet_sum_pnl -0.340     0.001           1.000        0.063    0.083    0.123    -0.182    -0.014     NaN           0.171      0.481            NaN
+realizedAbs    -0.605    -0.009           0.063        1.000    0.417   -0.036    -0.207     0.262     NaN          -0.019      0.355            NaN
+minSpot        -0.026     0.000           0.083        0.417    1.000    0.115     0.025    -0.076     NaN          -0.392      0.294            NaN
+maxSpot        -0.518     0.008           0.123       -0.036    0.115    1.000     0.195    -0.066     NaN          -0.106     -0.224            NaN
+minCurve        0.234     0.011          -0.182       -0.207    0.025    0.195     1.000     0.016     NaN           0.221     -0.456            NaN
+maxCurve       -0.162     0.016          -0.014        0.262   -0.076   -0.066     0.016     1.000     NaN           0.364     -0.399            NaN
+rounds            NaN       NaN             NaN          NaN      NaN      NaN       NaN       NaN     NaN             NaN        NaN            NaN
+settlementLegs -0.340    -0.012           0.171       -0.019   -0.392   -0.106     0.221     0.364     NaN           1.000     -0.006            NaN
+x402Total      -0.271    -0.013           0.481        0.355    0.294   -0.224    -0.456    -0.399     NaN          -0.006      1.000            NaN
+deniedWorkers     NaN       NaN             NaN          NaN      NaN      NaN       NaN       NaN     NaN             NaN        NaN            NaN
+
+=== Strong Pairs (|r| ≥ 0.8) — mode=x402 ===
+  None found.
+
+Matrix saved to out/programmatic-eda/compute-futures-2026-10-21/correlations_by_mode.csv

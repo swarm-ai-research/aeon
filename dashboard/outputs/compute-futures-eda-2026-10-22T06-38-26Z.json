@@ -1,0 +1,264 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-10-21",
+        "description": "144 rows, 4 modes"
+      },
+      "children": [
+        "summary_text",
+        "sep1",
+        "findings_stack",
+        "sep2",
+        "report_link"
+      ]
+    },
+    "summary_text": {
+      "type": "Text",
+      "props": {
+        "text": "Multiplier shifts to new discrete value, mean reversion within band, and all conservation modes intact.",
+        "variant": "lead"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "findings_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "finding_mode",
+        "finding_multiplier",
+        "finding_std",
+        "finding_mean",
+        "finding_purity",
+        "finding_dominance",
+        "finding_conservation",
+        "finding_gap"
+      ]
+    },
+    "finding_mode": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "label_mode",
+        "badge_mode"
+      ]
+    },
+    "label_mode": {
+      "type": "Text",
+      "props": {
+        "text": "Top Mode:",
+        "variant": "caption"
+      }
+    },
+    "badge_mode": {
+      "type": "Badge",
+      "props": {
+        "text": "MEDIUM",
+        "variant": "default"
+      }
+    },
+    "finding_multiplier": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "label_mult",
+        "stat_mult"
+      ]
+    },
+    "label_mult": {
+      "type": "Text",
+      "props": {
+        "text": "basket:synth multiplier",
+        "variant": "caption"
+      }
+    },
+    "stat_mult": {
+      "type": "Stat",
+      "props": {
+        "value": "2.350×",
+        "label": "11th in oscillating set; breaks 10-17/18 2.193750× plateau at predicted n=3 confirmation"
+      }
+    },
+    "finding_std": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "label_std",
+        "text_std"
+      ]
+    },
+    "label_std": {
+      "type": "Text",
+      "props": {
+        "text": "Standard deviation",
+        "variant": "caption"
+      }
+    },
+    "text_std": {
+      "type": "Text",
+      "props": {
+        "text": "1.55e-15 byte-identical across 12 seeds × 2 spot columns",
+        "variant": "body"
+      }
+    },
+    "finding_mean": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "label_mean",
+        "stat_mean"
+      ]
+    },
+    "label_mean": {
+      "type": "Text",
+      "props": {
+        "text": "x402Total mean",
+        "variant": "caption"
+      }
+    },
+    "stat_mean": {
+      "type": "Stat",
+      "props": {
+        "value": "$324.91",
+        "label": "Inside $315–$335 band (range narrows 40%); kills 10-18's monotonic-drift-up hypothesis"
+      }
+    },
+    "finding_purity": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "label_purity",
+        "badge_purity"
+      ]
+    },
+    "label_purity": {
+      "type": "Text",
+      "props": {
+        "text": "Spread retail top-loss purity:",
+        "variant": "caption"
+      }
+    },
+    "badge_purity": {
+      "type": "Badge",
+      "props": {
+        "text": "6/6 at n=2",
+        "variant": "secondary"
+      }
+    },
+    "finding_dominance": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "label_dominance",
+        "text_dominance"
+      ]
+    },
+    "label_dominance": {
+      "type": "Text",
+      "props": {
+        "text": "Padded dominance",
+        "variant": "caption"
+      }
+    },
+    "text_dominance": {
+      "type": "Text",
+      "props": {
+        "text": "Sign-flips a 2nd time to 2.64× deeper",
+        "variant": "body"
+      }
+    },
+    "finding_conservation": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "label_conservation",
+        "badge_conservation"
+      ]
+    },
+    "label_conservation": {
+      "type": "Text",
+      "props": {
+        "text": "Conservation:",
+        "variant": "caption"
+      }
+    },
+    "badge_conservation": {
+      "type": "Badge",
+      "props": {
+        "text": "All 4 modes OK (4-/0+) — first all-negative in 18-filing record",
+        "variant": "secondary"
+      }
+    },
+    "finding_gap": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "label_gap",
+        "text_gap"
+      ]
+    },
+    "label_gap": {
+      "type": "Text",
+      "props": {
+        "text": "Prior-filing gap",
+        "variant": "caption"
+      }
+    },
+    "text_gap": {
+      "type": "Text",
+      "props": {
+        "text": "3 days (10-19/20 06Z pocket silent)",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-10-21.md",
+        "source": "Compute-Futures EDA"
+      }
+    }
+  }
+}
