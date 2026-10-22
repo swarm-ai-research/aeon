@@ -1,0 +1,337 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Planner"
+      },
+      "children": [
+        "section-main-action",
+        "separator-1",
+        "section-pr-tracker",
+        "separator-2",
+        "section-issues",
+        "separator-3",
+        "section-fleet-health"
+      ]
+    },
+    "section-main-action": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-main",
+        "grid-sweeper-stats"
+      ]
+    },
+    "heading-main": {
+      "type": "Heading",
+      "props": {
+        "text": "Cutting stale-content-pr-sweeper author-filter patch",
+        "level": "h2"
+      }
+    },
+    "grid-sweeper-stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat-day",
+        "stat-backlog",
+        "stat-growth",
+        "stat-streak",
+        "stat-rank"
+      ]
+    },
+    "stat-day": {
+      "type": "Stat",
+      "props": {
+        "label": "Days",
+        "value": "47+"
+      }
+    },
+    "stat-backlog": {
+      "type": "Stat",
+      "props": {
+        "label": "Latent backlog",
+        "value": "30 PRs"
+      }
+    },
+    "stat-growth": {
+      "type": "Stat",
+      "props": {
+        "label": "Daily growth",
+        "value": "+1/day"
+      }
+    },
+    "stat-streak": {
+      "type": "Stat",
+      "props": {
+        "label": "Streak",
+        "value": "29"
+      }
+    },
+    "stat-rank": {
+      "type": "Stat",
+      "props": {
+        "label": "Rank",
+        "value": "1"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-pr-tracker": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-pr-tracker",
+        "grid-pr-stats"
+      ]
+    },
+    "heading-pr-tracker": {
+      "type": "Heading",
+      "props": {
+        "text": "Promoting pr-tracker SKILL: 3s-backoff retry wrapper",
+        "level": "h2"
+      }
+    },
+    "grid-pr-stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "badge-pr-status",
+        "stat-graphql-obs",
+        "progress-retry-success"
+      ]
+    },
+    "badge-pr-status": {
+      "type": "Badge",
+      "props": {
+        "text": "Draft → Patch queue",
+        "variant": "secondary"
+      }
+    },
+    "stat-graphql-obs": {
+      "type": "Stat",
+      "props": {
+        "label": "GraphQL-502 observations",
+        "value": "3"
+      }
+    },
+    "progress-retry-success": {
+      "type": "Progress",
+      "props": {
+        "value": 100,
+        "label": "Retry success rate"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-issues": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-issues",
+        "issue-039",
+        "issue-006"
+      ]
+    },
+    "heading-issues": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues",
+        "level": "h2"
+      }
+    },
+    "issue-039": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-iss-039",
+        "grid-iss-039"
+      ]
+    },
+    "heading-iss-039": {
+      "type": "Heading",
+      "props": {
+        "text": "ISS-039: Identity blackout (Filing)",
+        "level": "h3"
+      }
+    },
+    "grid-iss-039": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "text-iss-039-date",
+        "stat-iss-039-age"
+      ]
+    },
+    "text-iss-039-date": {
+      "type": "Text",
+      "props": {
+        "text": "Event: 2025-09-14",
+        "variant": "body"
+      }
+    },
+    "stat-iss-039-age": {
+      "type": "Stat",
+      "props": {
+        "label": "Overdue",
+        "value": "35 days"
+      }
+    },
+    "issue-006": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-iss-006",
+        "grid-iss-006",
+        "text-iss-006-meta"
+      ]
+    },
+    "heading-iss-006": {
+      "type": "Heading",
+      "props": {
+        "text": "ISS-006: Cron rewrite",
+        "level": "h3"
+      }
+    },
+    "grid-iss-006": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "md"
+      },
+      "children": [
+        "stat-iss-006-rank",
+        "stat-iss-006-streak",
+        "badge-iss-006-action"
+      ]
+    },
+    "stat-iss-006-rank": {
+      "type": "Stat",
+      "props": {
+        "label": "Rank",
+        "value": "4"
+      }
+    },
+    "stat-iss-006-streak": {
+      "type": "Stat",
+      "props": {
+        "label": "Streak",
+        "value": "36"
+      }
+    },
+    "badge-iss-006-action": {
+      "type": "Badge",
+      "props": {
+        "text": "Escalation: Open draft branch",
+        "variant": "outline"
+      }
+    },
+    "text-iss-006-meta": {
+      "type": "Text",
+      "props": {
+        "text": "Meta-evidence: Planner's 5-day silence (2026-10-17 to 2026-10-22)",
+        "variant": "caption"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-fleet-health": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-fleet",
+        "grid-fleet-stats"
+      ]
+    },
+    "heading-fleet": {
+      "type": "Heading",
+      "props": {
+        "text": "Fleet Health Summary",
+        "level": "h2"
+      }
+    },
+    "grid-fleet-stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat-broken",
+        "stat-degraded",
+        "stat-open-issues",
+        "stat-zero-failures"
+      ]
+    },
+    "stat-broken": {
+      "type": "Stat",
+      "props": {
+        "label": "Broken",
+        "value": "0"
+      }
+    },
+    "stat-degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded (ISS-001 Day-113)",
+        "value": "38"
+      }
+    },
+    "stat-open-issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open issues",
+        "value": "34"
+      }
+    },
+    "stat-zero-failures": {
+      "type": "Stat",
+      "props": {
+        "label": "Days without fleet failures",
+        "value": "50"
+      }
+    }
+  }
+}
