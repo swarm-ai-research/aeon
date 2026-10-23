@@ -1,0 +1,222 @@
+{
+  "root": "card-eda",
+  "state": {},
+  "elements": {
+    "card-eda": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-10-22"
+      },
+      "children": [
+        "sep-top",
+        "metrics-stack",
+        "sep-1",
+        "modes-stack",
+        "sep-2",
+        "conservation-section",
+        "sep-3",
+        "findings-stack",
+        "sep-4",
+        "report-link"
+      ]
+    },
+    "sep-top": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-rows",
+        "stat-multiplier"
+      ]
+    },
+    "stat-rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Rows",
+        "value": "144"
+      }
+    },
+    "stat-multiplier": {
+      "type": "Stat",
+      "props": {
+        "label": "Basket:Synth Multiplier (Top)",
+        "value": "2.350×",
+        "trend": "up"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "modes-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-basket",
+        "badge-spread",
+        "badge-synthetic",
+        "badge-x402"
+      ]
+    },
+    "badge-basket": {
+      "type": "Badge",
+      "props": {
+        "text": "Basket",
+        "variant": "default"
+      }
+    },
+    "badge-spread": {
+      "type": "Badge",
+      "props": {
+        "text": "Spread",
+        "variant": "default"
+      }
+    },
+    "badge-synthetic": {
+      "type": "Badge",
+      "props": {
+        "text": "Synthetic",
+        "variant": "default"
+      }
+    },
+    "badge-x402": {
+      "type": "Badge",
+      "props": {
+        "text": "x402",
+        "variant": "default"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "conservation-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-conservation-label",
+        "text-conservation-detail"
+      ]
+    },
+    "text-conservation-label": {
+      "type": "Text",
+      "props": {
+        "text": "Conservation Status",
+        "variant": "lead"
+      }
+    },
+    "text-conservation-detail": {
+      "type": "Text",
+      "props": {
+        "text": "OK all modes (2+/2zero — 5th distinct sign pattern in 5 filings → stochastic class)",
+        "variant": "body"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "findings-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-finding-multiplier",
+        "text-finding-plateau",
+        "text-finding-x402total",
+        "text-finding-x402-details"
+      ]
+    },
+    "text-finding-multiplier": {
+      "type": "Text",
+      "props": {
+        "text": "2.350× basket:synth multiplier HOLDS n=2",
+        "variant": "lead"
+      }
+    },
+    "text-finding-plateau": {
+      "type": "Text",
+      "props": {
+        "text": "First 2-day plateau at this value; byte-identical across 12 seeds × 2 spot cols",
+        "variant": "body"
+      }
+    },
+    "text-finding-x402total": {
+      "type": "Text",
+      "props": {
+        "text": "x402Total: $330 inside band",
+        "variant": "lead"
+      }
+    },
+    "text-finding-x402-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-padded-seed",
+        "text-sign-flip",
+        "text-purity"
+      ]
+    },
+    "text-padded-seed": {
+      "type": "Text",
+      "props": {
+        "text": "Padded seed 2026102211 inflates range to $179",
+        "variant": "body"
+      }
+    },
+    "text-sign-flip": {
+      "type": "Text",
+      "props": {
+        "text": "3rd sign-flip in padded ratio sequence",
+        "variant": "muted"
+      }
+    },
+    "text-purity": {
+      "type": "Text",
+      "props": {
+        "text": "Retail top-loss purity 6/6 n=3",
+        "variant": "muted"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "report-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report: Compute-Futures EDA",
+        "href": "memory/topics/compute-futures-eda/2026-10-22.md",
+        "source": "Aeon Memory"
+      }
+    }
+  }
+}
