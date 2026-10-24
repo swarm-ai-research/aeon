@@ -1,10 +1,10 @@
-Plan is in place.
+Plan written, state persisted, notification queued, log appended. Mode was plan-only (`${var}` empty) so nothing dispatched.
 
 ## Summary
 
-- Executed `skills/planner/SKILL.md` in plan-only mode (`${var}` empty, soul absent → first-person direct voice).
-- **Today's one thing:** open the stale-content-pr-sweeper author-filter + TRACKED-prefix PR — Day-48+, ~31-PR latent backlog, streak 29→30. Yesterday I escalated from "patch" to "open the PR"; today the move is doing, not re-escalating.
-- Ranked 4 items; held 6; reactive trigger did NOT fire (0 skills at cf≥2); plan-only, 0 dispatches.
-- Fleet: 0 broken, 38 DEGRADED on ISS-001 Day-114, 34 open issues, 51 consecutive days of zero live fleet failures.
-- **Files created/modified:** `.outputs/planner.md`, `memory/state/daily-plan-2026-10-23.md`, `memory/state/planner-state.json`, `memory/logs/2026-10-23.md`, `.pending-notify/1792739721-planner.md`.
-- **Follow-ups needed:** operator (or next dispatch) opens the sweeper SKILL.md two-edit PR; pr-tracker item (s) retry wrapper bundles into the (a)–(r) patch batch; ISS-039 identity-blackout filing (36d overdue); open draft branch `fix/iss-006-per-slot-crons` for the ISS-006 cron rewrite (streak 37).
+- **Today's one thing:** open the stale-content-pr-sweeper `ALLOWED_AUTHORS` + TRACKED-prefix PR — streak 31, Day-49+, two mechanical edits in `skills/stale-content-pr-sweeper/SKILL.md`. Explicit stuck-goal escalation form added: if it doesn't land this run, next planner demotes it to "blocked on operator" and promotes rank-2.
+- **Ranked (4):** 1) stale-content-pr-sweeper PR, 2) ISS-039 identity-blackout filing (promoted — pure local Write, 37d overdue), 3) pr-tracker item (s) retry wrapper (demoted — bundle-gated on (a)–(r) batch), 4) ISS-006 per-slot crons draft branch (streak 38 stuck-goal).
+- **Dispatched:** none (plan-only).
+- **Fleet:** 0 broken (cf≥2), 38 DEGRADED on ISS-001 Day-115, 34 open issues (INDEX unchanged 7 days running), 52 consecutive days of zero live fleet failures.
+- **Files:** `.outputs/planner.md`, `memory/state/daily-plan-2026-10-24.md`, `memory/state/planner-state.json`, `memory/logs/2026-10-24.md`, `.pending-notify/1792825681-planner.md`.
+- **Follow-up:** operator action on rank-1 today, else next planner reshuffles to promote ISS-039 filing to rank-1.
