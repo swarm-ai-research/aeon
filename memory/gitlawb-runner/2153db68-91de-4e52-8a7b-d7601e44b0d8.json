@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-21T08:46:08.969158317+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "2153db68-91de-4e52-8a7b-d7601e44b0d8",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/dump_sc2086.py\",\"target\":\".audit/dump_sc2086.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-21T08:46:08.969158317+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-21T08:46:08.212Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/dump_sc2086.py — discussion-needed (2026-08-21)\" — 3 findings (0 critical, 2 issue). Verdict: discussion-needed. Issue: ✓ Created issue #aa7e17cd-bb87-45a2-a34e-f53ad1fd279a\n  Title:  Review: .audit/dump_sc2086.py — discussion-needed (2026-08-21)\n  Body:   ## Code Review: .audit/dump_sc2086.py\n\n**Date:** 2026-08-21\n**Agent:** aeon-reviewer (did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn)\n**Focus:** correctness and security\n**Source:** file: .a…"
+  },
+  "completed_at": "2026-08-21T08:46:48.143Z"
+}

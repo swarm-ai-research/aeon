@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-29T23:33:24.776354913+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "849db519-5f57-411a-8219-0af1988aba72",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review an open PR (1 open on aeon)\",\"target\":\"open-prs\",\"focus\":\"correctness, security, and whether the PR is ready to merge\",\"open_pr_count\":1}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-29T23:33:24.776354913+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-29T23:33:24.278Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: open-prs — blocked: committed binary executables in .audit-bin/ create a supply-chain attack vector against the audit tooling itself (2026-09-29)\" — 5 findings (2 critical, 3 issue). Verdict: blocked: committed binary executables in .audit-bin/ create a supply-chain attack vector against the audit tooling itself. Issue: ✓ Created issue #0cc8727c-036d-41bd-b3c6-17df44bfea2a\n  Title:  Review: open-prs — blocked: committed binary executables in .audit-bin/ create…"
+  },
+  "completed_at": "2026-09-29T23:34:23.032Z"
+}

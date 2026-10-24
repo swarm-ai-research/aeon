@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6MkqVs15JyUugGu11TjwS5REKCHGrxK4uHvAFyDKGqNLVie",
+    "capability": "git:push",
+    "created_at": "2026-08-15T20:26:40.868126378+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "bf0b3d14-c09c-45ba-97b8-b8a078085644",
+    "kind": "compute-futures-sweep",
+    "payload": "{\"title\":\"Run compute-futures scenario sweep and record analytics proof\",\"component\":\"compute-futures\",\"action\":\"run compute-futures scenario sweep and record analytics proof\",\"commit_proof\":true,\"modes\":[\"synthetic\",\"basket\",\"spread\",\"x402\"],\"seeds\":[202608151,202608152,202608153,202608154,202608155,202608156,202608157,202608158,202608159,2026081510,2026081511,2026081512],\"rounds\":60,\"live\":true,\"pair\":true}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-15T20:26:40.868126378+00:00"
+  },
+  "instance": {
+    "name": "aeon-deployer",
+    "did": "did:key:z6MkqVs15JyUugGu11TjwS5REKCHGrxK4uHvAFyDKGqNLVie",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:push",
+      "pr:merge",
+      "agent:deploy"
+    ],
+    "model": "aeon-deployer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Deploy and merge",
+    "health": "active",
+    "last_checked": "2026-08-15T20:26:38.973Z",
+    "identity_dir": "~/.gitlawb/fleet/deployer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "[prefetch-openrouter] wrote 4 models → out/live-prices.json (gemma-4-26b=$0.120/$0.400 · minimax-m2.5=$0.100/$0.150 · qwen3.5-27b-claude-opus=$30.000/$150.000 · qwen3.5-122b=$30.000/$180.000)\nCompute-futures sweep CSV recorded: memory/gitlawb-compute-futures-proofs/2026-08-15.csv\nCompute-futures sweep proof recorded: memory/gitlawb-compute-futures-proofs/2026-08-15.md\nGitLawb proof pushed to gitlawb://did:key:z6MkpiXbCJzXGLw9bQXw5t8ja734YsrhYWEQMqsicwUcjHbH/aeon@main as aeon-deployer (44c52c655…"
+  },
+  "completed_at": "2026-08-15T20:30:16.684Z"
+}

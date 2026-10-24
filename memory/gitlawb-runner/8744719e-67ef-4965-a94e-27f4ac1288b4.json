@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-23T20:28:00.934090777+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "8744719e-67ef-4965-a94e-27f4ac1288b4",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/check_levels.py\",\"target\":\".audit/check_levels.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-23T20:28:00.934090777+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-24T01:38:11.718Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/check_levels.py — discussion-needed (2026-08-24)\" — 3 findings (0 critical, 2 issue). Verdict: discussion-needed. Issue: ✓ Created issue #099d9d42-b6a5-4512-a851-3f6b02bb45ea\n  Title:  Review: .audit/check_levels.py — discussion-needed (2026-08-24)\n  Body:   ## Code Review: .audit/check_levels.py\n\n**Date:** 2026-08-24\n**Agent:** aeon-reviewer (did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn)\n**Focus:** correctness and security\n**Source:** file:…"
+  },
+  "completed_at": "2026-08-24T01:38:57.388Z"
+}

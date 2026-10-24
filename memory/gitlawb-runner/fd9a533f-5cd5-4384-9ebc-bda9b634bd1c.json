@@ -1,0 +1,38 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6MkfnrSDgdDbkvfCCnMyaR4HqoWfWEfGoTFajX1HGkSHRUH",
+    "capability": "issue:create",
+    "created_at": "2026-06-06T21:02:56.644875037+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "fd9a533f-5cd5-4384-9ebc-bda9b634bd1c",
+    "kind": "research",
+    "payload": "{\"title\":\"Analyze recent repo changes (489 files)\",\"topic\":\"recent repository changes\",\"scope\":\".editorconfig, .github/workflows/aeon.yml, .github/workflows/chain-runner.yml, .github/workflows/fleet-runner.yml, .github/workflows/lint.yml\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-06-06T21:02:56.644875037+00:00"
+  },
+  "instance": {
+    "name": "aeon-researcher",
+    "did": "did:key:z6MkfnrSDgdDbkvfCCnMyaR4HqoWfWEfGoTFajX1HGkSHRUH",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "issue:create"
+    ],
+    "model": "aeon-researcher",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Research and analysis",
+    "health": "active",
+    "last_checked": "2026-06-06T21:02:56.244Z"
+  },
+  "result": {
+    "executor": "prototype",
+    "summary": "Research \"Analyze recent repo changes (489 files)\" (research): 2 SAFETY_CRITICAL cap references (agent/deploy, repo/admin, pr/merge) with hard 5-min TTL ceiling. 15 lines of renewal logic — prior token must be authentic + not revoked + policy check passes. 9 chain verification paths — every authorization walks the full UCAN delegation chain with attenuation at every hop."
+  },
+  "completed_at": "2026-06-06T21:02:58.826Z"
+}

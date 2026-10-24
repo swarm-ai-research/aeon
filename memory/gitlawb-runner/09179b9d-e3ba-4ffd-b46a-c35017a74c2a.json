@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-22T20:27:27.537085948+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "09179b9d-e3ba-4ffd-b46a-c35017a74c2a",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta.py\",\"target\":\".audit/delta.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-22T20:27:27.537085948+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-23T01:40:09.617Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta.py — discussion-needed (2026-08-23)\" — 4 findings (0 critical, 4 issue). Verdict: discussion-needed. Issue: ✓ Created issue #7767d799-4ba3-417d-a02a-39267bfc1299\n  Title:  Review: .audit/delta.py — discussion-needed (2026-08-23)\n  Body:   ## Code Review: .audit/delta.py\n\n**Date:** 2026-08-23\n**Agent:** aeon-reviewer (did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn)\n**Focus:** correctness and security\n**Source:** file: .audit/delta.py\n**Ve…"
+  },
+  "completed_at": "2026-08-23T01:43:56.866Z"
+}
