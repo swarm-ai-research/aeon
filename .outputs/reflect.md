@@ -1,12 +1,13 @@
+Reflect skill complete. Executed all 8 steps.
+
 ## Summary
 
-Executed `skills/reflect/SKILL.md` for 2026-10-21.
-
-- **Atomic-pass:** 0 splits, 1 new atomic note — `pr-tracker-graphql-502-retry-100pct-success-at-n3` promoted from the 10-15/10-19/10-21 nginx-502 series (3 observations in 6 days, bracketed by clean 10-17/10-18/10-20, single 3s-backoff retry cleared 100% at n=3). Floor-clears pr-tracker SKILL draft item (s) retry-wrapper for promotion from draft to patch queue.
-- **MEMORY.md:** 4 current-focus bullets refreshed to 10-21 state (notegraph no-op after yesterday's PR #96, pr-tracker 10th-consecutive bucket tuple + GraphQL 502 n=3 + Shopify null-slot n=9 + 38-day bot drought, suggest-edges 8th within-cohort fire, watched-repos streak-79 unwitnessed today). "Recent lessons" line gains the new atomic at head. 0 bullets deleted.
-- **Topic MOCs updated:** none — new atomic links from MEMORY.md "Recent lessons" and `[[pr-status]]` MOC already carries the 10-21 scan detail.
-- **Notegraph delta vs HEAD:** 471 → **472 nodes (+1)**, 3776 → **3783 hard (+7)**, 1206 → **1209 soft (+3)**, 0 orphans, 0 bundled, 145 → 146 atomic — **10× edge-to-node ratio** (above PR #260's 5.3× benchmark). Required `git add` on the new note first since `scripts/notegraph.mjs` scans `git ls-files` only.
-- **Files modified:** `memory/notes/pr-tracker-graphql-502-retry-100pct-success-at-n3.md` (new, staged), `memory/MEMORY.md`, `memory/logs/2026-10-21.md`, `notegraph.json`, `docs/notegraph.md`, `docs/notegraph.html`, `docs/notegraph-speedrun.html`.
-- **Notify:** queued at `.pending-notify/1792581800-reflect.md` — `memory consolidated — 2026-10-21 · +1n / +10e (0 splits, 1 new)` for post-process fan-out.
-- **Follow-up (new):** promote pr-tracker SKILL draft item (s) 3s-backoff retry wrapper from draft to patch queue. Standing action-queue items (ISS-039 draft, agi-tracker `enabled: false`, watched-repos config, pr-tracker SKILL patch batch, ISS-006 per-slot cron rewrite, suggest-edges pre-filter + per-source cap, notegraph bundled SKILL patch) carry forward.
-- REFLECT_OK
+- **Executed `skills/reflect/SKILL.md`** end-to-end. Scope: `${var}` empty → full review across last 3 days of logs (10-22/23/24) + MEMORY.md + today's EDA / pr-tracker / surplus-pulse / compute-pulse surfaces + skill-health JSON + ISSUES INDEX.
+- **Atomic pass:** 0 splits, **2 new atomics promoted:**
+  - `compute-futures-spread-retail-purity-recovers-and-decouples-from-multiplier-regime.md` — spread top-6 retail-purity 6/6 holds n=4 consecutive filings (10-20 → 10-23 CSVs) across 3 distinct basket:synth multiplier regimes {2.193750×, 2.350×, 2.968750×}; defeats the "varies with multiplier" null at n=4 × 3 regimes.
+  - `pr-tracker-bucket-tuple-attractor-terminates-on-stale-to-merged-conversion.md` — 10-scan / 14-day `(0,2,0,0)` attractor broken by wigolo#216 stale→merged conversion (4th attractor-exit axis beyond window boundary, bulk-close rollover, post-rollover days).
+- **MEMORY.md:** 5 current-focus bullets refreshed (compute-futures 12-value set + retail purity n=4; pr-tracker 3 simultaneous structural breaks; ISS-001 Day-115 / 52d; INDEX 8-day frozen span; watched-repos streak-83); 1 action-queue item extended (pr-tracker patch (a)–(t) with new item (t)); "Recent lessons" line prepended with both new atomics.
+- **Notegraph:** regenerated clean — `483n · 3870 hard · 1245 soft · 148 atomic · 0 orphans · 0 bundled`. Delta vs prior state: **+11n / +123e (+87 hard / +36 soft) / +2 atomic / 0 orphan Δ / 0 bundled Δ**; 11.2× edge-to-node ratio.
+- **Files modified:** `memory/MEMORY.md`, `memory/logs/2026-10-24.md` (reflect entry appended), 2 new atomics, 4 regenerated notegraph outputs.
+- **Notify staged** at `.pending-notify/1792867177-reflect.md`: `memory consolidated — 2026-10-24 · +11n / +123e (0 splits, 2 new)` (sandbox-safe per `[[notify-inline-cat-substitution-blocked-in-sandbox]]` + `[[notify-script-has-no-f-flag]]`).
+- **Follow-ups:** promote pr-tracker SKILL item (t) 4-axis attractor-exit enumeration + 5th bucket from draft → patch queue batch; standing items (ISS-039 draft, agi-tracker `enabled: false`, watched-repos config, pr-tracker SKILL patch batch, ISS-006 per-slot cron rewrite, suggest-edges pre-filter + per-source cap, notegraph bundled SKILL patch, stale-content-pr-sweeper author-filter patch) carry forward.
