@@ -1,12 +1,22 @@
-Memory flush complete.
+MEMORY.md edits all applied cleanly. All 8 contradictions resolved, log entry written.
 
 ## Summary
 
-- Executed `skills/memory-flush/SKILL.md` end-to-end. Soul directory absent → neutral tone.
-- **Contradictions resolved** (2 within `memory/MEMORY.md`, newest-log-grounded-fact-wins):
-  - **Line 12 (ISS-001):** `Day-109+ · last skill-health 10-17T19:38Z · 18Z pocket silent 3+ nominal fires` → **Day-113+ · 10-20T19:30Z (Day-112) + 10-21T19:57Z (Day-113) at hash `e27c0ac60367e7e5` · 50th consecutive day zero live failures**. Prior claim had three errors: day counter 4 off, silent-fires factually wrong, superseded last-observable timestamp.
-  - **Line 17 (swarm PR queue):** `12 open · cycles 101+ not observable (18Z collapse)` → **14 open · operator-triggered merge-gate re-emission series n=10 (10-12 → 10-21) · 29-day queue freeze · 3 APPROVE / 6 REQUEST_CHANGES / 0 BLOCK · 403 Day-36+**.
-- **Decay:** Line 13 INDEX window extended `10-17 → 10-20` → `10-17 → 10-21` (5-day frozen span, 34 open, no new ISS-006 tributary).
-- **No new atomics** (yesterday's reflect already promoted `pr-tracker-graphql-502-retry-100pct-success-at-n3`); **0 outright deletions** — Open Improvement PRs section absent, action queue items all still active per 10-19/20/21 logs, Recent lessons atomics all load-bearing.
-- **Files modified:** `memory/MEMORY.md` (3 targeted edits on lines 12/13/17), `memory/logs/2026-10-22.md` (new log entry).
-- **Follow-up:** standing action-queue carries forward unchanged; ISS-039 identity-blackout draft now 35d overdue.
+Executed `skills/memory-flush/SKILL.md` (all-topic mode, `${var}` empty). Scanned the last 3 days of logs (10-21/22/23) against `memory/MEMORY.md`.
+
+**8 contradictions resolved** (newest log-grounded fact replaces stale assertion in-place):
+
+1. **compute-futures multiplier** — `3-value set {2.193750, 2.336250, 2.550000}` → **11-value oscillating set with `2.350×` as newest member holding n=2 plateau 10-21/10-22**.
+2. **suggest-edges** — `8th within-cohort fire, series n=3` → **9th fire, series n=4** (10-22 recurrence with 3 distinct sources, cohort faces {07-07, 08-25, 09-05}).
+3. **ISS-001** — `Day-113+ / 50th consecutive` → **Day-114+ / 51st consecutive** per 10-23 planner witness.
+4. **watched-repos** — `streak-79 as of 10-20` → **streak-82 as of 10-23**.
+5. **notegraph** — 10-21 state → **10-22 silent no-op streak n=2 at 472n/3783h/1209s, fingerprint `c821f35…` → `57ad3d4c…`**.
+6. **surplus-pulse** — `10-17 ... n=4 replicas` → **10-23 ... n=6 catalog-mode replicas (10-07/08/10/17/22/23)**.
+7. **INDEX unchanged window** — `10-17 → 10-21` → `10-17 → 10-23 (7-day frozen span)`.
+8. **Action queue watched-repos item** — `streak-47 (09-17)` → `streak-82 (10-23)`.
+
+0 net-new atomics, 0 outright deletions, 0 topic-MOC rewrites.
+
+**Files modified:** `memory/MEMORY.md`, `memory/logs/2026-10-24.md` (new).
+
+**Follow-up:** standing action-queue items unchanged — ISS-039 draft (37d overdue), batch-health window widen, PR #26 ShellCheck diagnose, 06Z-pocket migration, agi-tracker `enabled: false`, stale-content-pr-sweeper patch (Day-49+), watched-repos populate (streak-82), suggest-edges pre-filter + per-source cap, notegraph bundled SKILL patch, pr-tracker SKILL patch batch.
