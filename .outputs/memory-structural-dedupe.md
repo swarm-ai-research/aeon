@@ -1,13 +1,10 @@
-Clean run — no notification per spec.
+Clean run — nothing to collapse.
 
 ## Summary
 
-Executed `memory-structural-dedupe` on 2026-10-22. Scanned `memory/MEMORY.md` for structural duplicate rows in single-canonical sections.
-
-- **Sections present in MEMORY.md:** `Current focus`, `Topics`, `Conventions`, `Pointers`, `Action queue` — all intentionally multi-line, out of scope.
-- **Single-canonical sections flagged by this skill** (`Recent Articles`, `Skills Built`, `Lessons Learned`, `Wallet`, `Issue Tracker`, `Recent Newsletters`): **none present** in current MEMORY.md structure.
-- **Result:** clean — no structural drift to collapse. Skipped pointer dedupe (only runs after a structural rewrite). No notification sent per SKILL.md step 3.
-
-**Files created:** `memory/logs/2026-10-22.md` with `MEMORY_STRUCTURAL_DEDUPE_OK`.
-
-**Follow-up:** none required. MEMORY.md has evolved away from the row-accumulating section shape this skill targets; if `Recent Articles` / `Skills Built` / etc. are reintroduced by future `reflect` / `memory-flush` work, this skill will detect drift on its next 2-day cadence fire.
+- Ran the `memory-structural-dedupe` skill against `memory/MEMORY.md` (71 lines, `${var}` empty → check all single-canonical sections).
+- None of the SKILL's target single-canonical sections (`Recent Articles`, `Skills Built`, `Lessons Learned`, `Wallet`, `Issue Tracker`, `Recent Newsletters`) are present. The current pointer-only index exposes only `Current focus` (intentionally multi-line, exception), `Topics` (handled by `scripts/memory-dedupe`, exception), `Conventions`, `Pointers`, and `Action queue` (intentionally multi-line, exception).
+- No structural drift → no section rewrite, no `scripts/memory-dedupe --fix` belt-and-suspenders pass, no notification.
+- Files created: `memory/logs/2026-10-24.md` with the required `MEMORY_STRUCTURAL_DEDUPE_OK` log entry.
+- Files modified: none.
+- Follow-up (optional, not blocking): MEMORY.md's pointer-only restructure has moved the drift target out of the index entirely; if this model is durable, the SKILL's single-canonical section list could be updated or the SKILL retired. Left untouched for forward compatibility.
