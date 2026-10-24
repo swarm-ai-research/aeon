@@ -11,6 +11,7 @@
     "phase3": "node phase3.mjs",
     "phase4": "node phase4.mjs",
     "phase5": "node phase5.mjs",
+    "test": "node reviewer-gate.test.mjs && node task-runner.test.mjs && node fleet-heal.test.mjs",
     "runner": "node task-runner.mjs once"
   }
 }
