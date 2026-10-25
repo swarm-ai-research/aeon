@@ -295,5 +295,116 @@ class TestExtractFindings(unittest.TestCase):
         self.assertEqual(rule_ids, {'r1', 'r2'})
 
 
+# ---------------------------------------------------------------------------
+# Replicated from classify.py — compute_verdict()
+# Covers the 6-branch verdict/mode selection used after delta classification.
+# ---------------------------------------------------------------------------
+
+def compute_verdict(findings, new_crit, new_high, new_med, new_low, reintro, unchanged):
+    """Return (verdict_string, mode_string) mirroring classify.py's logic."""
+    total_new = new_crit + new_high + new_med + new_low
+    if len(findings) == 0:
+        return ('WORKFLOW_AUDIT_CLEAN — no findings across 8 files', 'CLEAN')
+    elif total_new == 0 and reintro == 0:
+        return (
+            f'WORKFLOW_AUDIT_UNCHANGED — {unchanged} carried over from 2026-09-27',
+            'UNCHANGED',
+        )
+    elif reintro >= 1:
+        return (
+            f'WORKFLOW_AUDIT_REGRESSION — {reintro} previously-fixed finding(s) reintroduced',
+            'REGRESSION',
+        )
+    elif new_crit >= 1:
+        return (
+            f'WORKFLOW_AUDIT_NEW_CRITICAL — {new_crit} new critical finding(s)',
+            'NEW_CRITICAL',
+        )
+    elif new_high >= 1:
+        return (
+            f'WORKFLOW_AUDIT_NEW_HIGH — {new_high} new high-severity finding(s)',
+            'NEW_HIGH',
+        )
+    else:
+        return (
+            f'WORKFLOW_AUDIT_NEW_INFO — {new_med + new_low} new lower-severity finding(s)',
+            'NEW_INFO',
+        )
+
+
+class TestComputeVerdict(unittest.TestCase):
+    """Tests for the 6-branch verdict classification in classify.py."""
+
+    def test_empty_findings_returns_clean(self):
+        _, mode = compute_verdict([], 0, 0, 0, 0, 0, 0)
+        self.assertEqual(mode, 'CLEAN')
+
+    def test_clean_verdict_contains_keyword(self):
+        verdict, _ = compute_verdict([], 0, 0, 0, 0, 0, 0)
+        self.assertIn('WORKFLOW_AUDIT_CLEAN', verdict)
+
+    def test_all_unchanged_returns_unchanged(self):
+        # findings list non-empty but no new or reintroduced items
+        findings = [{'delta': 'UNCHANGED'}] * 5
+        _, mode = compute_verdict(findings, 0, 0, 0, 0, 0, 5)
+        self.assertEqual(mode, 'UNCHANGED')
+
+    def test_unchanged_verdict_embeds_count(self):
+        findings = [{}] * 3
+        verdict, _ = compute_verdict(findings, 0, 0, 0, 0, 0, 3)
+        self.assertIn('3', verdict)
+
+    def test_reintroduced_finding_returns_regression(self):
+        findings = [{}]
+        _, mode = compute_verdict(findings, 0, 0, 0, 0, 1, 0)
+        self.assertEqual(mode, 'REGRESSION')
+
+    def test_regression_beats_new_critical(self):
+        # reintro is checked before new_crit — REGRESSION wins
+        findings = [{}]
+        _, mode = compute_verdict(findings, 2, 1, 0, 0, 1, 0)
+        self.assertEqual(mode, 'REGRESSION')
+
+    def test_new_critical_returns_new_critical(self):
+        findings = [{}]
+        _, mode = compute_verdict(findings, 1, 0, 0, 0, 0, 0)
+        self.assertEqual(mode, 'NEW_CRITICAL')
+
+    def test_new_critical_verdict_embeds_count(self):
+        findings = [{}]
+        verdict, _ = compute_verdict(findings, 3, 0, 0, 0, 0, 0)
+        self.assertIn('3', verdict)
+        self.assertIn('WORKFLOW_AUDIT_NEW_CRITICAL', verdict)
+
+    def test_new_high_without_critical_returns_new_high(self):
+        findings = [{}]
+        _, mode = compute_verdict(findings, 0, 2, 0, 0, 0, 0)
+        self.assertEqual(mode, 'NEW_HIGH')
+
+    def test_new_high_verdict_embeds_count(self):
+        findings = [{}]
+        verdict, _ = compute_verdict(findings, 0, 4, 0, 0, 0, 0)
+        self.assertIn('4', verdict)
+
+    def test_only_medium_findings_returns_new_info(self):
+        findings = [{}]
+        _, mode = compute_verdict(findings, 0, 0, 3, 0, 0, 0)
+        self.assertEqual(mode, 'NEW_INFO')
+
+    def test_only_low_findings_returns_new_info(self):
+        findings = [{}]
+        _, mode = compute_verdict(findings, 0, 0, 0, 5, 0, 0)
+        self.assertEqual(mode, 'NEW_INFO')
+
+    def test_new_info_sums_medium_and_low(self):
+        findings = [{}]
+        verdict, _ = compute_verdict(findings, 0, 0, 2, 3, 0, 0)
+        self.assertIn('5', verdict)
+
+    def test_warning_empty_confidence_is_medium(self):
+        # Mirrors test_error_empty_confidence_is_high but for warning
+        self.assertEqual(our_severity({'level': 'warning', 'confidence': ''}), 'Medium')
+
+
 if __name__ == '__main__':
     unittest.main()
