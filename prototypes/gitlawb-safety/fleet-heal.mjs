@@ -12,9 +12,11 @@
 //   5. Escalates safety violations to the operator
 
 import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from "node:fs";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { homedir } from "node:os";
 import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
+import { ceilingFor } from "./src/caps.mjs";
 import { makePolicyCheck } from "./src/policy.mjs";
 import { makeReviewerGate } from "./src/reviewer-gate.mjs";
 
@@ -33,15 +35,75 @@ const NODE = "https://node.gitlawb.com";
 const REPO_RESOURCE =
   process.env.GITLAWB_REPO_URL ??
   "gitlawb://did:key:z6MkpiXbCJzXGLw9bQXw5t8ja734YsrhYWEQMqsicwUcjHbH/aeon";
-const RENEW_EXPIRY_HOURS = Number(process.env.GITLAWB_RENEW_HOURS || 168); // 7d default
-
-const DRY_RUN = process.argv.includes("--dry-run");
+const RENEW_EXPIRY_HOURS = Number(process.env.GITLAWB_RENEW_HOURS || 168); // bounded below per capability
+const arming = resolveArming({
+  armedValue: process.env.GITLAWB_SELF_HEAL_ARMED,
+  destructiveValue: process.env.GITLAWB_SELF_HEAL_DESTRUCTIVE,
+  forceDryRun: process.argv.includes("--dry-run"),
+});
+const SELF_HEAL_ARMED = arming.armed;
+const DESTRUCTIVE_ACTIONS_ARMED = arming.destructive;
+// Classification is the safe default. Privilege-changing renewal requires the
+// explicit operator arming variable; respawn and kill require a second gate.
+const DRY_RUN = arming.dryRun;
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
 
 const log = (msg) => console.log(`[fleet-heal] ${msg}`);
 const now = () => new Date().toISOString();
 const nowSec = () => Math.floor(Date.now() / 1000);
+
+function parseBoolean(value, fallback) {
+  if (value == null || value === "") return fallback;
+  return ["1", "true", "yes", "on"].includes(String(value).toLowerCase());
+}
+
+function resolveArming({ armedValue, destructiveValue, forceDryRun = false }) {
+  const armed = parseBoolean(armedValue, false);
+  const destructive = armed && parseBoolean(destructiveValue, false);
+  return { armed, destructive, dryRun: forceDryRun || !armed };
+}
+
+function renewalTtlSeconds(capability, requestedHours = RENEW_EXPIRY_HOURS) {
+  if (!Number.isFinite(requestedHours) || requestedHours <= 0) return null;
+  return Math.min(requestedHours * 3600, ceilingFor(capToCan(capability)));
+}
+
+// `gl ucan delegate` must return the newly minted token (or a JSON view of it).
+// Never trust the requested duration alone: inspect the returned expiry and
+// fail closed when the CLI gives us no verifiable expiry.
+function extractExpirySeconds(output) {
+  const text = String(output ?? "").trim();
+  if (!text) return null;
+
+  let parsed = null;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    const match = text.match(/(?:"exp"|"expires_at"|"expiresAt"|"expiry")\s*:\s*"?([0-9]+(?:\.[0-9]+)?)"?/);
+    if (match) parsed = { exp: Number(match[1]) };
+  }
+
+  const values = [];
+  const visit = (value) => {
+    if (!value || typeof value !== "object") return;
+    for (const [key, child] of Object.entries(value)) {
+      if (["exp", "expires_at", "expiresAt", "expiry"].includes(key)) {
+        if (typeof child === "number") values.push(child);
+        else if (typeof child === "string") {
+          const numeric = Number(child);
+          const date = Number.isNaN(numeric) ? Date.parse(child) / 1000 : numeric;
+          if (Number.isFinite(date)) values.push(date);
+        }
+      }
+      visit(child);
+    }
+  };
+  visit(parsed);
+
+  const expiry = values.find((value) => Number.isFinite(value) && value > 1_000_000_000);
+  return expiry ?? null;
+}
 
 function loadJSON(path) {
   try { return JSON.parse(readFileSync(path, "utf8")); } catch { return null; }
@@ -203,22 +265,49 @@ async function attemptRenewal(inst, operator, activityData, reviewerDid) {
 
   if (DRY_RUN) {
     log(`  [dry-run] Would re-delegate ${(inst.capabilities || []).length} caps via gl`);
-    return { renewed: true, dryRun: true };
+    return { renewed: false, dryRun: true, reason: "self_heal_disarmed" };
   }
 
-  // ── 2. ACT — operator re-grants each capability with a fresh expiry ──
-  for (const cap of inst.capabilities || []) {
+  // ── 2. ACT — operator re-grants each capability with a locally bounded expiry ──
+  const returnedExpiries = [];
+  const capabilities = inst.capabilities || [];
+  if (capabilities.length === 0) {
+    return { renewed: false, reason: "no_capabilities_to_renew" };
+  }
+  for (const cap of capabilities) {
+    const ttlSeconds = renewalTtlSeconds(cap);
+    if (ttlSeconds === null) {
+      return { renewed: false, reason: "invalid_renewal_duration" };
+    }
+
+    // The GitLawb CLI accepts expiry in hours. Fractions are intentional: a
+    // safety-critical cap's 300-second ceiling is 1/12 hour.
+    const requestedHours = ttlSeconds / 3600;
     const out = gl(
       ["ucan", "delegate", "--to", inst.did, "--cap", REPO_RESOURCE, "--can", capToCan(cap),
-       "--expiry", String(RENEW_EXPIRY_HOURS), "--dir", OPERATOR_DIR],
+       "--expiry", String(requestedHours), "--dir", OPERATOR_DIR],
     );
     if (out === null) {
       log(`  Delegate FAILED for ${cap}`);
       return { renewed: false, reason: `delegate_failed:${cap}` };
     }
+
+    const returnedExpiry = extractExpirySeconds(out);
+    const latestAllowed = nowSec() + ttlSeconds + 5;
+    if (returnedExpiry === null) {
+      log(`  Delegate FAILED for ${cap}: returned token has no verifiable expiry`);
+      return { renewed: false, reason: `delegate_missing_expiry:${cap}` };
+    }
+    if (returnedExpiry <= nowSec() || returnedExpiry > latestAllowed) {
+      log(`  Delegate FAILED for ${cap}: returned expiry exceeds local ceiling`);
+      return { renewed: false, reason: `delegate_expiry_out_of_bounds:${cap}` };
+    }
+    returnedExpiries.push(returnedExpiry);
   }
-  const newExpiry = new Date(Date.now() + RENEW_EXPIRY_HOURS * 3600 * 1000).toISOString();
-  log(`  Renewed ${inst.capabilities.length} caps via gl (expiry → ${newExpiry})`);
+
+  const newExpirySeconds = Math.min(...returnedExpiries);
+  const newExpiry = new Date(newExpirySeconds * 1000).toISOString();
+  log(`  Renewed ${capabilities.length} caps via gl (expiry → ${newExpiry})`);
   return { renewed: true, capExpiresAt: newExpiry };
 }
 
@@ -293,7 +382,9 @@ async function heal() {
       case "expiring":
         // Attempt renewal with synthetic activity
         const renewResult = await attemptRenewal(inst, instances.operator, activity[inst.did] || {}, reviewerDid);
-        if (renewResult.renewed) {
+        if (renewResult.dryRun) {
+          actions.push({ name: inst.name, action: "renewal_blocked_disarmed" });
+        } else if (renewResult.renewed) {
           inst.health = "active";
           inst.cap_status = "active";
           if (renewResult.capExpiresAt) inst.cap_expires_at = renewResult.capExpiresAt;
@@ -312,7 +403,9 @@ async function heal() {
         const failures = inst.consecutive_renewal_failures || 0;
         if (failures < 3) {
           const degResult = await attemptRenewal(inst, instances.operator, activity[inst.did] || {}, reviewerDid);
-          if (degResult.renewed) {
+          if (degResult.dryRun) {
+            actions.push({ name: inst.name, action: "renewal_blocked_disarmed" });
+          } else if (degResult.renewed) {
             inst.health = "active";
             inst.cap_status = "active";
             if (degResult.capExpiresAt) inst.cap_expires_at = degResult.capExpiresAt;
@@ -333,6 +426,13 @@ async function heal() {
         break;
 
       case "expired":
+        // Respawn is separately armed because it kills and creates identities.
+        if (DRY_RUN || !DESTRUCTIVE_ACTIONS_ARMED) {
+          log(`  Respawn BLOCKED for ${inst.name}: ${DRY_RUN ? "self-heal is disarmed" : "destructive actions are disarmed"}`);
+          actions.push({ name: inst.name, action: "respawn_blocked_destructive_actions_disarmed" });
+          inst.last_checked = now();
+          break;
+        }
         // Respawn with fresh identity
         const respResult = respawnAgent(inst, instances.operator);
         if (respResult.respawned) {
@@ -357,7 +457,13 @@ async function heal() {
         break;
 
       case "untrusted":
-        // Trust too low — auto-kill
+        // Trust too low — auto-kill only with the explicit destructive gate.
+        if (DRY_RUN || !DESTRUCTIVE_ACTIONS_ARMED) {
+          log(`  Auto-kill BLOCKED for ${inst.name}: ${DRY_RUN ? "self-heal is disarmed" : "destructive actions are disarmed"}`);
+          actions.push({ name: inst.name, action: "auto_kill_blocked_destructive_actions_disarmed", trust: newTrust });
+          inst.last_checked = now();
+          break;
+        }
         if (!DRY_RUN) {
           gl(["agent", "kill", inst.did, "--reason", `self-heal: trust below threshold (${newTrust})`, "--yes"], FLEET_DIR);
         }
@@ -395,15 +501,19 @@ async function heal() {
 
 // ── Run ─────────────────────────────────────────────────────────────────────
 
-const result = await heal();
+export { extractExpirySeconds, parseBoolean, renewalTtlSeconds, resolveArming };
 
-// Output for fleet-runner integration. Distinguish "no instances in the
-// registry" from "instances exist and are all healthy" — previously a healthy
-// fleet with nothing to do (healed=0, actions=0) was mislabelled no_instances.
-if (result.total === 0) {
-  console.log(`FLEET_HEAL no_instances`);
-} else if (result.healed > 0) {
-  console.log(`FLEET_HEAL healed=${result.healed} actions=${result.actions.length}`);
-} else {
-  console.log(`FLEET_HEAL checked=${result.total} no_healing_needed actions=${result.actions.length}`);
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  const result = await heal();
+
+  // Output for fleet-runner integration. Distinguish "no instances in the
+  // registry" from "instances exist and are all healthy" — previously a healthy
+  // fleet with nothing to do (healed=0, actions=0) was mislabelled no_instances.
+  if (result.total === 0) {
+    console.log(`FLEET_HEAL no_instances`);
+  } else if (result.healed > 0) {
+    console.log(`FLEET_HEAL healed=${result.healed} actions=${result.actions.length}`);
+  } else {
+    console.log(`FLEET_HEAL checked=${result.total} no_healing_needed actions=${result.actions.length}`);
+  }
 }
