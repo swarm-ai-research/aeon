@@ -1,0 +1,81 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "stack"
+      ]
+    },
+    "stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading",
+        "meta",
+        "separator",
+        "changes"
+      ]
+    },
+    "heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Memory Consolidated",
+        "level": "h2"
+      }
+    },
+    "meta": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "date",
+        "metrics"
+      ]
+    },
+    "date": {
+      "type": "Badge",
+      "props": {
+        "text": "2026-10-25",
+        "variant": "secondary"
+      }
+    },
+    "metrics": {
+      "type": "Text",
+      "props": {
+        "text": "+1n / +11e"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "changes": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "changes_text"
+      ]
+    },
+    "changes_text": {
+      "type": "Text",
+      "props": {
+        "text": "1 new atomic: suggest-edges per-node cap generalization"
+      }
+    }
+  }
+}
