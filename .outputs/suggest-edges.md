@@ -1,17 +1,18 @@
 ## Summary
 
-Ran `scripts/suggest-edges.mjs`. All 3 proposals were within-cohort `gitlawb-compute-futures-proofs/` pairs (sim 0.927–0.930) — templated-corpus noise per the established pattern.
+Executed `skills/suggest-edges/SKILL.md`. The script surfaced 3 proposals, all within the `memory/gitlawb-compute-futures-proofs/` templated corpus (sim 0.923–0.924) — matching the auto-reject pattern established 10-15/10-18/10-21/10-22. This is the **10th within-cohort fire** post-last-PR.
 
-**Action taken (9th within-cohort fire, 4th consecutive auto-reject):**
-- Reverted source note edits via `git checkout` on `2026-06-27.md`, `2026-07-26.md`, `2026-08-14.md`.
-- Moved all 3 applied entries → `rejected` in `memory/state/suggest-edges.json` with rejection reason + timestamp (applied 6→3, rejected 30→33).
-- No PR opened, no notification sent — consistent with the 10-15/10-18/10-21 auto-reject cycles and the SKILL's "silent on no new proposals" exit mode.
-- Appended `memory/logs/2026-10-22.md`.
+**Actions taken:**
+- Reverted `memory/gitlawb-compute-futures-proofs/{2026-06-27,2026-08-03,2026-08-22}.md` via `git checkout`.
+- Moved the 3 just-applied entries from `applied` → `rejected` in `memory/state/suggest-edges.json` with rejection reason tagged (series n=5 of auto-reject regime; 10th within-cohort fire; 29 days post-09-26).
+- Logged activity to `memory/logs/2026-10-25.md`.
 
-**Files modified:**
-- `memory/state/suggest-edges.json`
-- `memory/logs/2026-10-22.md` (new)
+**No PR, no notify** — expected silence on templated-corpus auto-reject per MEMORY.md guidance.
 
-**Follow-up (unchanged, still queued):** Pre-filter within-cohort `gitlawb-compute-futures-proofs/` pairs + add per-source cap in `scripts/suggest-edges.mjs` per MEMORY.md action queue — would eliminate the recurring auto-reject cycle at the suggester level.
+**State counters:** applied 6→3, rejected 33→36.
 
-**Exit mode:** `SUGGEST_EDGES_NO_PROPOSALS` (all surfaced pairs classified as known noise).
+**Target-concentration variant observed:** 3 distinct sources but target `2026-08-31` appears 2× — mirror of the single-source clustering noted on 10-18; reinforces the per-source cap (and per-target cap) follow-up still owed on `scripts/suggest-edges.mjs`.
+
+**Files modified:** `memory/state/suggest-edges.json`, `memory/logs/2026-10-25.md` (new).
+
+**Follow-up (unchanged):** within-cohort pre-filter + per-source cap in `scripts/suggest-edges.mjs` — the auto-reject regime is now n=5 across 10 days, each run paying full script runtime + manual reversion cost.
