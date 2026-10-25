@@ -98,6 +98,19 @@ def attack_chain(f):
         }
     return None
 
+def render_compact_table(out, section_title, severity_findings):
+    out.append(f'## {section_title}')
+    out.append('')
+    if severity_findings:
+        out.append('| Rule | File | Line | Message |')
+        out.append('|------|------|-----:|---------|')
+        for f in severity_findings:
+            msg = f.get('message', '').replace('|', '\\|')[:100]
+            out.append(f'| `{f["rule_id"]}` | `{f["file"]}` | {f["line"]} | {msg} |')
+    else:
+        out.append('_None._')
+    out.append('')
+
 def render_finding(f, is_new=True):
     tag = f'[{f["severity"].upper()}]'
     delta_tag = f['delta']
@@ -186,31 +199,8 @@ for rule, items in by_rule.items():
     lines.append('')
 
 # Medium/Low compact tables
-lines.append('## New Medium findings (compact)')
-lines.append('')
-med_findings = [f for f in findings if f['severity'] == 'Medium']
-if med_findings:
-    lines.append('| Rule | File | Line | Message |')
-    lines.append('|------|------|-----:|---------|')
-    for f in med_findings:
-        msg = f.get('message', '').replace('|', '\\|')[:100]
-        lines.append(f'| `{f["rule_id"]}` | `{f["file"]}` | {f["line"]} | {msg} |')
-else:
-    lines.append('_None._')
-lines.append('')
-
-lines.append('## New Low findings (compact)')
-lines.append('')
-low_findings = [f for f in findings if f['severity'] == 'Low']
-if low_findings:
-    lines.append('| Rule | File | Line | Message |')
-    lines.append('|------|------|-----:|---------|')
-    for f in low_findings:
-        msg = f.get('message', '').replace('|', '\\|')[:100]
-        lines.append(f'| `{f["rule_id"]}` | `{f["file"]}` | {f["line"]} | {msg} |')
-else:
-    lines.append('_None._')
-lines.append('')
+render_compact_table(lines, 'New Medium findings (compact)', [f for f in findings if f['severity'] == 'Medium'])
+render_compact_table(lines, 'New Low findings (compact)', [f for f in findings if f['severity'] == 'Low'])
 
 # Carried-over + resolved (empty this run)
 lines.append('## Carried over (unchanged)')
