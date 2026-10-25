@@ -1,2 +1,2 @@
-*Compute-Futures EDA — 2026-10-23*
-144 rows, 4 modes. Top: basket:synth multiplier leaps to NEW 12th discrete value 2.968750× (prior 11-value set didn't contain it; interleaves between 2.900 and 3.025). Conservation: basket/spread/synth/x402 all OK (sign pattern 1+/3−, 6th distinct pattern in 6 filings). Spread retail 6/6 top-loss purity holds n=4 under 3 distinct multiplier regimes. Zero |r|≥0.8 pairs n=29. Report: memory/topics/compute-futures-eda/2026-10-23.md
+*Compute-Futures EDA — 2026-10-24*
+144 rows, 4 modes. Top: MEDIUM spread minCurve outlier_pct jumps to 16.67% (6 rows at lower-fence floor, first >10% reading in 7-filing series). Multiplier 2.968750× plateaus for 2nd day (2nd LEAP-then-plateau cadence); spread retail top-6 purity breaks to 5/6 at n=5 attempt (analyst 202610241 at rank 4 defeats the n=4 streak). Conservation OK all modes; 7th distinct sign pattern in 7 filings (class-series defeated). Report: memory/topics/compute-futures-eda/2026-10-24.md

@@ -1,0 +1,194 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-10-24"
+      },
+      "children": [
+        "summary",
+        "sep1",
+        "medium_spread",
+        "sep2",
+        "outlier",
+        "sep3",
+        "multiplier",
+        "sep4",
+        "purity",
+        "sep5",
+        "conservation",
+        "sep6",
+        "pattern",
+        "sep7",
+        "report_section"
+      ]
+    },
+    "summary": {
+      "type": "Text",
+      "props": {
+        "text": "144 rows, 4 modes"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "medium_spread": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "spread_label",
+        "spread_value"
+      ]
+    },
+    "spread_label": {
+      "type": "Heading",
+      "props": {
+        "text": "MEDIUM Spread minCurve",
+        "level": "h3"
+      }
+    },
+    "spread_value": {
+      "type": "Stat",
+      "props": {
+        "label": "outlier_pct",
+        "value": "16.67%",
+        "delta": "6 rows at lower-fence floor"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "outlier": {
+      "type": "Badge",
+      "props": {
+        "text": "First >10% reading in 7-filing series",
+        "variant": "secondary"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "multiplier": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "mult_label",
+        "mult_value"
+      ]
+    },
+    "mult_label": {
+      "type": "Heading",
+      "props": {
+        "text": "Multiplier Plateau",
+        "level": "h3"
+      }
+    },
+    "mult_value": {
+      "type": "Stat",
+      "props": {
+        "value": "2.968750×",
+        "label": "2nd day plateau (2nd LEAP-then-plateau cadence)"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "purity": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "purity_label",
+        "purity_value",
+        "analyst"
+      ]
+    },
+    "purity_label": {
+      "type": "Heading",
+      "props": {
+        "text": "Spread Retail Top-6 Purity",
+        "level": "h3"
+      }
+    },
+    "purity_value": {
+      "type": "Stat",
+      "props": {
+        "value": "5/6",
+        "label": "n=5 attempt"
+      }
+    },
+    "analyst": {
+      "type": "Text",
+      "props": {
+        "text": "Analyst 202610241 at rank 4 defeats the n=4 streak",
+        "variant": "caption"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "conservation": {
+      "type": "Badge",
+      "props": {
+        "text": "Conservation OK all modes",
+        "variant": "secondary"
+      }
+    },
+    "sep6": {
+      "type": "Separator",
+      "props": {}
+    },
+    "pattern": {
+      "type": "Badge",
+      "props": {
+        "text": "7th distinct sign pattern in 7 filings (class-series defeated)",
+        "variant": "outline"
+      }
+    },
+    "sep7": {
+      "type": "Separator",
+      "props": {}
+    },
+    "report_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "report_heading",
+        "report_link"
+      ]
+    },
+    "report_heading": {
+      "type": "Text",
+      "props": {
+        "text": "Detailed Report",
+        "variant": "lead"
+      }
+    },
+    "report_link": {
+      "type": "Link",
+      "props": {
+        "label": "memory/topics/compute-futures-eda/2026-10-24.md",
+        "href": "memory/topics/compute-futures-eda/2026-10-24.md"
+      }
+    }
+  }
+}
