@@ -1,0 +1,306 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA",
+        "description": "2026-10-25"
+      },
+      "children": [
+        "dataset-summary",
+        "sep1",
+        "alert-medium",
+        "sep2",
+        "settlement-legs",
+        "sep3",
+        "basket-synth",
+        "sep4",
+        "spread-purity",
+        "sep5",
+        "x402-metrics",
+        "sep6",
+        "conservation",
+        "sep7",
+        "detailed-report"
+      ]
+    },
+    "dataset-summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-rows",
+        "stat-modes"
+      ]
+    },
+    "stat-rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Dataset Size",
+        "value": "144 rows"
+      }
+    },
+    "stat-modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Modes",
+        "value": "4"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert-medium": {
+      "type": "Alert",
+      "props": {
+        "title": "Primary Finding: MEDIUM Severity",
+        "message": "Spread settlementLegs outlier_pct DOUBLES from 8.33% → 16.67%",
+        "type": "warning"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "settlement-legs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "settlement-heading",
+        "settlement-text1",
+        "settlement-text2"
+      ]
+    },
+    "settlement-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "SettlementLegs Outliers",
+        "level": "h3"
+      }
+    },
+    "settlement-text1": {
+      "type": "Text",
+      "props": {
+        "text": "6 outliers detected with new low-tail cluster"
+      }
+    },
+    "settlement-text2": {
+      "type": "Text",
+      "props": {
+        "text": "Seeds: 202610251=75, 202610256=77",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "basket-synth": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "basket-heading",
+        "basket-stat",
+        "basket-text1",
+        "basket-text2"
+      ]
+    },
+    "basket-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Basket:Synth Multiplier — NEW",
+        "level": "h3"
+      }
+    },
+    "basket-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Multiplier",
+        "value": "2.968750×"
+      }
+    },
+    "basket-text1": {
+      "type": "Text",
+      "props": {
+        "text": "Extends to 3-day plateau (10-23 → 10-25)"
+      }
+    },
+    "basket-text2": {
+      "type": "Text",
+      "props": {
+        "text": "First run-length >2d in 12-known-values set",
+        "variant": "caption"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "spread-purity": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "purity-heading",
+        "purity-text1",
+        "purity-text2",
+        "purity-text3"
+      ]
+    },
+    "purity-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Spread Retail Purity",
+        "level": "h3"
+      }
+    },
+    "purity-text1": {
+      "type": "Text",
+      "props": {
+        "text": "6/6 n=5 filings: high purity"
+      }
+    },
+    "purity-text2": {
+      "type": "Text",
+      "props": {
+        "text": "10-24 CSV (unprofiled, same regime): 5/6 — degraded"
+      }
+    },
+    "purity-text3": {
+      "type": "Text",
+      "props": {
+        "text": "Purity not deterministic within regime",
+        "variant": "caption"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "x402-metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "x402-heading",
+        "x402-stats"
+      ]
+    },
+    "x402-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "x402Total Values",
+        "level": "h3"
+      }
+    },
+    "x402-stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "x402-mean",
+        "x402-max"
+      ]
+    },
+    "x402-mean": {
+      "type": "Stat",
+      "props": {
+        "label": "Mean (in-band)",
+        "value": "$332.55"
+      }
+    },
+    "x402-max": {
+      "type": "Stat",
+      "props": {
+        "label": "Max (NON-padded seed)",
+        "value": "$415.24"
+      }
+    },
+    "sep6": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "conservation": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "conservation-heading",
+        "conservation-status",
+        "conservation-text1",
+        "conservation-text2"
+      ]
+    },
+    "conservation-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation & Patterns",
+        "level": "h3"
+      }
+    },
+    "conservation-status": {
+      "type": "Badge",
+      "props": {
+        "text": "All OK",
+        "variant": "secondary"
+      }
+    },
+    "conservation-text1": {
+      "type": "Text",
+      "props": {
+        "text": "Sign pattern 3+/1− first bag-repeat (= 10-18) in 7 filings"
+      }
+    },
+    "conservation-text2": {
+      "type": "Text",
+      "props": {
+        "text": "Zero within-mode strong pairs n=30"
+      }
+    },
+    "sep7": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "detailed-report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report: Compute-Futures EDA 2026-10-25",
+        "href": "memory/topics/compute-futures-eda/2026-10-25.md",
+        "source": "Memory"
+      }
+    }
+  }
+}
