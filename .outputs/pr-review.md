@@ -1,21 +1,25 @@
-Review complete. Verdicts consolidated to log + notify body (post path blocked by Day-38 403 standing).
+PR-review run complete. Log appended, notify body queued. Standing 403 Day-39 confirms the write-blocked pattern — no reviews posted to GitHub; verdicts consolidated to log + notify.
 
 ## Summary
 
-Executed `skills/pr-review/SKILL.md` as merge-gate reviewer on `swarm-ai-research/swarm`.
+**Executed `skills/pr-review/SKILL.md`** with `${var}=swarm-ai-research/swarm` under the operator merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK).
 
-**Queue:** 7 open PRs (shrunk from 9 on 10-24 — #628 and #619 merged out, both prior APPROVE).
+**Queue:** 8 open — 6 new (645–650, all rsavitt-authored, opened 2026-10-25 20:21–21:30Z) + 2 pre-existing fork PRs (518, 517).
 
-**Verdicts (1 APPROVE / 6 REQUEST_CHANGES / 0 BLOCK):**
-- **APPROVE 5/5** — #518 scenario YAML schema (all CI SUCCESS incl. render-verify + quality-gate; only Vercel auth FAIL which is a fork-PR artifact, not a quality signal).
-- **REQUEST_CHANGES 3/5** — #618 (slashing wire; flipped from 10-24 APPROVE 4/5 because `mergeStateStatus` regressed UNKNOWN→DIRTY — Sept-17 green CI is stale against the new merge base).
-- **REQUEST_CHANGES 3/5** — #616 (ggiw router; `render-verify` + `quality-gate` FAILURE 41d persist, now also DIRTY).
-- **REQUEST_CHANGES 3/5 / 3/5 / 2/5** — #614 / #612 / #611 (docs-build FAILURE on docs-touching PRs; #611 is docs-only so the applicable gate is red → no early-exit).
-- **REQUEST_CHANGES 1/5** — #517 (fork run_diff; zero CI runs on 1807fec, needs maintainer-dispatch before merge-gate call).
-- **No BLOCKs** — no critical security/correctness breaks surfaced.
+**Reviewed 6, skipped 2** (dup-SHA on #518 a4773a2 + #517 1807fec — same `headRefOid` as yesterday's log).
 
-**Post path:** `addPullRequestReview` returned `Resource not accessible by integration` on #618 — Day-38+ standing 403, 12th consecutive full-skip cycle. Verdicts not posted remotely; consolidated into `memory/logs/2026-10-25.md` + `.pending-notify/1792952618-pr-review.md`. `memory/triaged-prs.json` not written per [[pr-review-dedup-saturation-freezes-write-blocked-repo-queues]].
+**Verdicts: 4 APPROVE / 2 REQUEST_CHANGES / 0 BLOCK**
+- **APPROVE 5/5**: #649 (docs cross-link fix), #648 (null-model audit w/ regression tests + prod `graph_structural.py` fix), #647 (Ball agents-lessons docs), #645 (collusion activity-null calibration w/ synthetic positive control).
+- **REQUEST_CHANGES 3/5**: #650 + #646 — both ADD the identical 5-file surface (`docs/research/pace-layers-swarm-lag.md`, `scripts/layer_lag.py`, `tests/test_layer_lag.py` + 2 modifications). Only one can merge; operator must close the other.
+- **BLOCK**: none — no critical security/correctness breaks.
 
-**Files modified:** `memory/logs/2026-10-25.md` (pr-review section + summary); `.pending-notify/1792952618-pr-review.md` (notify body).
+**Standing 403 Day-39** confirmed on `addPullRequestReview` via one test post on #650. 13th consecutive full-skip cycle on write. `memory/triaged-prs.json` NOT written per the post-success gate.
 
-**Follow-up:** install aeon GitHub App with `pull_requests: write` on swarm OR document swarm as report-only (Day-38+ overdue); memory-flush owes an update to the "swarm PR queue 14 open — n=10, 29-day freeze" bullet (now 7 open / n=12 / 33-day freeze, split 1/6/0).
+**Material shift vs 10-25**: yesterday's doc-blocked chain (#611/#612/#614/#616/#618) all merged/closed; 6 fresh clean-CI PRs replaced them. The 42-day `render-verify` + `quality-gate` FAILURE on `docs/research/*` touches appears resolved for the new PRs.
+
+**Files:**
+- `memory/logs/2026-10-26.md` — appended pr-review section + summary.
+- `.pending-notify/1793043944-pr-review.md` — notify body (postprocess will fan out).
+- `memory/triaged-prs.json` — NOT touched (gated on successful remote post).
+
+**Follow-ups:** (i) install aeon GitHub App with `pull_requests: write` on swarm OR document swarm as report-only — Day-39+ overdue; (ii) MEMORY.md "swarm PR queue 7 open — n=12, 33-day freeze" bullet is stale (now 8 open, 4A/2R/0B on an entirely different PR set) — flag for memory-flush; (iii) consider an atomic for the apparent `docs/research/*` build-gate resolution if it holds on next docs-touch PR.
