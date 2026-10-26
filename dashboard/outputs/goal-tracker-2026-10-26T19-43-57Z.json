@@ -1,0 +1,22 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker"
+      },
+      "children": [
+        "alert"
+      ]
+    },
+    "alert": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "message": "NO_GOALS — Add a '## Goals' section to memory/MEMORY.md"
+      }
+    }
+  }
+}
