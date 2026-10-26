@@ -1,22 +1,14 @@
-MEMORY.md edits all applied cleanly. All 8 contradictions resolved, log entry written.
+Memory flush complete.
 
 ## Summary
 
-Executed `skills/memory-flush/SKILL.md` (all-topic mode, `${var}` empty). Scanned the last 3 days of logs (10-21/22/23) against `memory/MEMORY.md`.
-
-**8 contradictions resolved** (newest log-grounded fact replaces stale assertion in-place):
-
-1. **compute-futures multiplier** — `3-value set {2.193750, 2.336250, 2.550000}` → **11-value oscillating set with `2.350×` as newest member holding n=2 plateau 10-21/10-22**.
-2. **suggest-edges** — `8th within-cohort fire, series n=3` → **9th fire, series n=4** (10-22 recurrence with 3 distinct sources, cohort faces {07-07, 08-25, 09-05}).
-3. **ISS-001** — `Day-113+ / 50th consecutive` → **Day-114+ / 51st consecutive** per 10-23 planner witness.
-4. **watched-repos** — `streak-79 as of 10-20` → **streak-82 as of 10-23**.
-5. **notegraph** — 10-21 state → **10-22 silent no-op streak n=2 at 472n/3783h/1209s, fingerprint `c821f35…` → `57ad3d4c…`**.
-6. **surplus-pulse** — `10-17 ... n=4 replicas` → **10-23 ... n=6 catalog-mode replicas (10-07/08/10/17/22/23)**.
-7. **INDEX unchanged window** — `10-17 → 10-21` → `10-17 → 10-23 (7-day frozen span)`.
-8. **Action queue watched-repos item** — `streak-47 (09-17)` → `streak-82 (10-23)`.
-
-0 net-new atomics, 0 outright deletions, 0 topic-MOC rewrites.
-
-**Files modified:** `memory/MEMORY.md`, `memory/logs/2026-10-24.md` (new).
-
-**Follow-up:** standing action-queue items unchanged — ISS-039 draft (37d overdue), batch-health window widen, PR #26 ShellCheck diagnose, 06Z-pocket migration, agi-tracker `enabled: false`, stale-content-pr-sweeper patch (Day-49+), watched-repos populate (streak-82), suggest-edges pre-filter + per-source cap, notegraph bundled SKILL patch, pr-tracker SKILL patch batch.
+- Executed `skills/memory-flush/SKILL.md` (all-topic mode). Scanned last 3 days of logs (10-23/24/25) + MEMORY.md + state files + open improve: PRs.
+- 4 contradictions resolved on MEMORY.md current-focus (newest log-grounded fact wins; stale assertion deleted in same edit):
+  - **ISS-001:** Day-116+ / 53d → Day-117+ / 54d (per 10-25 skill-health NOOP; `last_notified_at` preserved).
+  - **swarm PR queue:** 14 open / n=10 / 29-day freeze / 3A-6R-0B / Day-36+ → 7 open / n=12 / 33-day freeze / 1A-6R-0B / Day-38+ (queue shrunk 14→7 as #628 + #619 merged out; #618 flipped APPROVE→REQUEST_CHANGES on new DIRTY state).
+  - **INDEX frozen span:** 9-day (10-17 → 10-25) → 10-day (10-17 → 10-26).
+  - **compute-pulse:** stale 10-17 state (momentum 5, GPT-6.1 Sol frame) → 10-24 state (momentum 3, Claude 5.5 family + Gemini 4 Argon, TAO ~$280).
+- 0 net-new atomics (10-25 reflect already promoted today's); 0 outright deletions; 0 topic-MOC rewrites.
+- Decay step 4 cross-check clean: no "Open Improvement PRs" section exists (only #103 docs(skill-graph) is open, not a literal `improve:`); action-queue items all active; Lessons Learned line still load-bearing; no Skills Built table under pointer-only structure.
+- Files modified: `memory/MEMORY.md`, `memory/logs/2026-10-26.md` (new).
+- No PR, no notify — memory-flush is diffable local state per SKILL design.
