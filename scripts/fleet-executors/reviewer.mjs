@@ -59,7 +59,7 @@ if (CODE_PASS_KINDS.has(taskKind)) {
 // recent activity before its safety-critical capability is renewed. The verdict
 // line is printed FIRST so it survives result-summary truncation, and is read
 // back by the gate via the task artifact (RENEWAL_VERDICT ... fp=<fingerprint>).
-if ((task.kind ?? task.type) === "renewal-review" || payload.review_kind === "renewal") {
+if (taskKind === "renewal-review" || payload.review_kind === "renewal") {
   const fp = payload.fingerprint ?? "unknown";
   const files = Array.isArray(payload.changedFiles) ? payload.changedFiles : [];
   const lines = Number(payload.changedLines) || 0;
