@@ -1,0 +1,73 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Memory Consolidated"
+      },
+      "children": [
+        "date-text",
+        "separator",
+        "stats-grid"
+      ]
+    },
+    "date-text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-10-26",
+        "variant": "muted"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stats-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat-n",
+        "stat-e",
+        "stat-atomics",
+        "stat-splits"
+      ]
+    },
+    "stat-n": {
+      "type": "Stat",
+      "props": {
+        "label": "n",
+        "value": "+1",
+        "trend": "up"
+      }
+    },
+    "stat-e": {
+      "type": "Stat",
+      "props": {
+        "label": "e",
+        "value": "+21",
+        "trend": "up"
+      }
+    },
+    "stat-atomics": {
+      "type": "Stat",
+      "props": {
+        "label": "New Atomics",
+        "value": "2"
+      }
+    },
+    "stat-splits": {
+      "type": "Stat",
+      "props": {
+        "label": "Splits",
+        "value": "0"
+      }
+    }
+  }
+}

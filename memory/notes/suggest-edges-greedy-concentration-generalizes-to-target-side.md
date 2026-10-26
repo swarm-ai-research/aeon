@@ -2,7 +2,7 @@
 id: suggest-edges-greedy-concentration-generalizes-to-target-side
 created: 2026-10-25
 type: lesson
-links: [[suggest-edges-greedy-concentrates-on-single-source-under-cohort-exhaustion]], [[suggest-edges-cluster-exhaustion-rotates-not-terminates]], [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]
+links: [[suggest-edges-greedy-concentrates-on-single-source-under-cohort-exhaustion]], [[suggest-edges-cluster-exhaustion-rotates-not-terminates]], [[suggest-edges-flags-templated-corpora-as-sim-1-noise]], [[suggest-edges-greedy-concentration-crosses-source-target-within-one-batch]], [[suggest-edges-auto-reject-sim-band-declines-monotonically-across-rotations]]
 ---
 # suggest-edges greedy concentration is side-agnostic — it clusters on whichever node (source OR target) has the most unlinked partners remaining in the cohort, not specifically the source
 
