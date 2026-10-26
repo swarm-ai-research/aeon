@@ -1,21 +1,21 @@
 {
-  "last_run": "2026-10-24T06:30:00Z",
-  "top_priority": "stale-content-pr-sweeper-allowed-authors-patch",
+  "last_run": "2026-10-26T06:30:00Z",
+  "top_priority": "iss-039-identity-blackout-filing",
   "priority_streak": {
-    "stale-content-pr-sweeper-allowed-authors-patch": 31,
-    "iss-039-identity-blackout-filing": 4,
-    "pr-tracker-item-s-retry-wrapper-promote": 3,
-    "iss-006-messages-yml-multi-pocket-rewrite": 38,
-    "agi-tracker-enabled-false-via-pr": 22,
-    "pr-26-ci-regressed-shellcheck-fail": 7,
-    "watched-repos-population-or-disable": 32,
-    "docs-status-md-snapshot-rebase-gate": 53,
-    "swarm-repo-app-perm-gap": 58,
-    "suggest-edges-templated-corpus-prefilter": 29,
-    "pr-tracker-patch-batch": 75,
-    "aeon-repo-pr-26-merge-ready": 29
+    "iss-039-identity-blackout-filing": 5,
+    "pr-tracker-item-s-retry-wrapper-promote": 4,
+    "iss-006-messages-yml-multi-pocket-rewrite": 39,
+    "stale-content-pr-sweeper-allowed-authors-patch": 32,
+    "agi-tracker-enabled-false-via-pr": 23,
+    "pr-26-ci-regressed-shellcheck-fail": 8,
+    "watched-repos-population-or-disable": 33,
+    "docs-status-md-snapshot-rebase-gate": 54,
+    "swarm-repo-app-perm-gap": 59,
+    "suggest-edges-templated-corpus-prefilter": 30,
+    "pr-tracker-patch-batch": 76,
+    "aeon-repo-pr-26-merge-ready": 30
   },
   "dispatched": [],
   "mode": "plan",
-  "notes": "Thirty-seventh planner run; Sat DOM=24 even 06:30Z fire executed cleanly (no reactive trigger, 0 skills at cf>=2). Rank-1 UNCHANGED at `stale-content-pr-sweeper-allowed-authors-patch` (streak 30->31) — Day-49+ now, latent closable backlog ~32 PRs (+1/day since 10-23's planner didn't land it either). Explicit stuck-goal escalation form added: if rank-1 doesn't land this run, next planner demotes it to 'blocked on operator' holding item and promotes rank-2 to top. Rank-2 ISS-039 identity-blackout filing promoted ahead of pr-tracker item (s) (streak 3->4) because filing is a pure local Write — no PR dance, no permission dependency, no bundle coordination. Rank-3 pr-tracker item (s) demoted from rank-2 slot (streak 2->3) because it's bundle-gated on the (a)-(r) batch which has its own 75-day streak; promoting it standalone fragments the queue. Rank-4 ISS-006 cron rewrite (streak 37->38 stuck-goal). Fleet: 0 broken (cf>=2), 38 DEGRADED (ISS-001 Day-115), 34 open issues (INDEX unchanged 7 days running 10-17 -> 10-23), 52nd consecutive day of zero live fleet failures. Nominal 06:30Z fire witnessed. ${var} empty -> plan-only, no dispatch. Soul absent; voice defaulted first-person direct."
+  "notes": "Thirty-eighth planner run; Sun DOM=26 even 06:30Z fire executed cleanly (no reactive trigger, 0 skills at cf>=2). Rank-1 ROTATED per yesterday's explicit stuck-goal escalation form: prior rank-1 stale-content-pr-sweeper-allowed-authors-patch (streak 31->32) did not land yesterday (none of 5 open PRs #98/#103/#104/#105/#106 match) -> demoted to Holding ('blocked on operator'); prior rank-2 iss-039-identity-blackout-filing (streak 4->5) promoted to top because it's a pure local Write (no PR, no permission dep, no bundle coordination, serves Action-queue top item). Rank-2 pr-tracker item (s) 3s-backoff retry wrapper (streak 3->4) remains bundle-gated on (a)-(r) 76-day batch but promotion-ready at n=3 100% retry success. Rank-3 ISS-006 per-slot cron rewrite (streak 38->39 stuck-goal, 20th tributary ISS-038 10-16). Fleet: 0 broken (cf>=2), 38 DEGRADED on ISS-001 Day-116 (117-day byte-identical hash streak), 34 open issues (INDEX frozen 10-day span 10-17 -> 10-26), 54th consecutive day of zero live fleet failures. ${var} empty -> plan-only, no dispatch. Soul absent; voice defaulted first-person direct."
 }

@@ -1,10 +1,11 @@
-Plan written, state persisted, notification queued, log appended. Mode was plan-only (`${var}` empty) so nothing dispatched.
+Plan written, state persisted, notify body staged. Mode was plan-only (`${var}` empty) so no dispatch.
 
 ## Summary
 
-- **Today's one thing:** open the stale-content-pr-sweeper `ALLOWED_AUTHORS` + TRACKED-prefix PR — streak 31, Day-49+, two mechanical edits in `skills/stale-content-pr-sweeper/SKILL.md`. Explicit stuck-goal escalation form added: if it doesn't land this run, next planner demotes it to "blocked on operator" and promotes rank-2.
-- **Ranked (4):** 1) stale-content-pr-sweeper PR, 2) ISS-039 identity-blackout filing (promoted — pure local Write, 37d overdue), 3) pr-tracker item (s) retry wrapper (demoted — bundle-gated on (a)–(r) batch), 4) ISS-006 per-slot crons draft branch (streak 38 stuck-goal).
-- **Dispatched:** none (plan-only).
-- **Fleet:** 0 broken (cf≥2), 38 DEGRADED on ISS-001 Day-115, 34 open issues (INDEX unchanged 7 days running), 52 consecutive days of zero live fleet failures.
-- **Files:** `.outputs/planner.md`, `memory/state/daily-plan-2026-10-24.md`, `memory/state/planner-state.json`, `memory/logs/2026-10-24.md`, `.pending-notify/1792825681-planner.md`.
-- **Follow-up:** operator action on rank-1 today, else next planner reshuffles to promote ISS-039 filing to rank-1.
+- Executed `skills/planner/SKILL.md` in plan-only mode (`${var}` empty, no dispatch; soul absent → first-person direct voice).
+- **Today's one thing:** file **ISS-039** (aeonframework 2026-09-14 → 09-16 identity blackout + Day-4 recovery) — pure local Write, 38 days overdue, severity `medium`/category `unknown`.
+- **Rank-1 rotation** executed per yesterday's own explicit stuck-goal escalation: prior rank-1 `stale-content-pr-sweeper-allowed-authors-patch` (streak 31→32) did not land yesterday (none of 5 open PRs #98/#103–106 match) → demoted to Holding ("blocked on operator"). `iss-039-identity-blackout-filing` (streak 4→5) promoted to rank-1 because it's a self-executable local Write.
+- Ranked 3: ISS-039 filing · pr-tracker item (s) retry wrapper promote (streak 4) · ISS-006 per-slot cron rewrite (streak 39).
+- Fleet: 0 broken, 38 DEGRADED on ISS-001 Day-116 (117-day byte-identical hash streak), 34 open issues (INDEX frozen 10 days 10-17 → 10-26), 54th consecutive day of zero live failures.
+- Files created/modified: `.outputs/planner.md`, `memory/state/daily-plan-2026-10-26.md`, `memory/state/planner-state.json`, `memory/logs/2026-10-26.md`, `.pending-notify/1792997249-planner.md`.
+- Follow-up: `.pending-notify/1792997249-planner.md` will fan out via `./scripts/postprocess-notify.sh`; rank-1 ISS-039 filing can be taken directly by any later skill-health, reflect, or self-review run — no operator action required to land.
