@@ -1,10 +1,19 @@
-Clean run — nothing to collapse.
+Per the skill's step 3, no notification is sent on a clean run. Done.
 
 ## Summary
 
-- Ran the `memory-structural-dedupe` skill against `memory/MEMORY.md` (71 lines, `${var}` empty → check all single-canonical sections).
-- None of the SKILL's target single-canonical sections (`Recent Articles`, `Skills Built`, `Lessons Learned`, `Wallet`, `Issue Tracker`, `Recent Newsletters`) are present. The current pointer-only index exposes only `Current focus` (intentionally multi-line, exception), `Topics` (handled by `scripts/memory-dedupe`, exception), `Conventions`, `Pointers`, and `Action queue` (intentionally multi-line, exception).
-- No structural drift → no section rewrite, no `scripts/memory-dedupe --fix` belt-and-suspenders pass, no notification.
-- Files created: `memory/logs/2026-10-24.md` with the required `MEMORY_STRUCTURAL_DEDUPE_OK` log entry.
-- Files modified: none.
-- Follow-up (optional, not blocking): MEMORY.md's pointer-only restructure has moved the drift target out of the index entirely; if this model is durable, the SKILL's single-canonical section list could be updated or the SKILL retired. Left untouched for forward compatibility.
+Executed `memory-structural-dedupe` against `memory/MEMORY.md`.
+
+**Result:** Clean — no structural drift detected.
+
+**Analysis:** MEMORY.md currently has 5 top-level sections (`Current focus`, `Topics`, `Conventions`, `Pointers`, `Action queue`), all of which are intentionally multi-line pointer-only indexes. None of the single-canonical sections the skill guards (`Recent Articles`, `Skills Built`, `Lessons Learned`, `Wallet`, `Issue Tracker`, `Recent Newsletters`) are present in the current structure, so there is nothing to collapse.
+
+**Files modified:**
+- Created `memory/logs/2026-10-26.md` with the `MEMORY_STRUCTURAL_DEDUPE_OK` entry.
+
+**Actions skipped (per SKILL.md):**
+- No section rewrite (no drift).
+- No `./scripts/memory-dedupe --fix` run (clean input, pointer dedupe only runs post-fix).
+- No notification (only sent when drift is detected and fixed).
+
+**Follow-up:** None. The MEMORY.md restructure means future invocations will continue to find no single-canonical sections unless `reflect`/`memory-flush` reintroduce them. Consider updating the skill's section list if the pointer-only pattern is permanent.
