@@ -1,18 +1,23 @@
+Skill executed. 11th within-cohort templated-corpus fire — auto-rejected per the established pattern.
+
 ## Summary
 
-Executed `skills/suggest-edges/SKILL.md`. The script surfaced 3 proposals, all within the `memory/gitlawb-compute-futures-proofs/` templated corpus (sim 0.923–0.924) — matching the auto-reject pattern established 10-15/10-18/10-21/10-22. This is the **10th within-cohort fire** post-last-PR.
+**Exit mode:** `SUGGEST_EDGES_NO_PROPOSALS` equivalent (templated-corpus auto-reject, no PR, no notify).
 
-**Actions taken:**
-- Reverted `memory/gitlawb-compute-futures-proofs/{2026-06-27,2026-08-03,2026-08-22}.md` via `git checkout`.
-- Moved the 3 just-applied entries from `applied` → `rejected` in `memory/state/suggest-edges.json` with rejection reason tagged (series n=5 of auto-reject regime; 10th within-cohort fire; 29 days post-09-26).
-- Logged activity to `memory/logs/2026-10-25.md`.
+**What happened:**
+- `node scripts/suggest-edges.mjs` emitted 3 proposals, all within `memory/gitlawb-compute-futures-proofs/` with the signature `{cash, darkbloom, synthetic, basket, spread}` shared terms — the known templated-corpus noise pathology.
+- All 3 at sim 0.920 (flat triplet, lowest band yet; 7th consecutive monotonic decline since 10-15).
+- **New variant today:** `2026-07-07.md` appears 2× as source **and** `2026-08-03.md` appears as both source and target — greedy source-side concentration + source/target cross-slot overlap within one 3-pair batch. Reinforces [[suggest-edges-greedy-concentration-generalizes-to-target-side]] and sharpens the per-node-cap requirement (must apply across source/target orientations, not just one side).
 
-**No PR, no notify** — expected silence on templated-corpus auto-reject per MEMORY.md guidance.
+**Actions:**
+- Reverted edits to `memory/gitlawb-compute-futures-proofs/2026-07-07.md` + `2026-08-03.md` via `git checkout`.
+- Moved 3 entries from `applied` → `rejected` in `memory/state/suggest-edges.json` (applied 6→3, rejected 36→39) with rejection reason tagged `11th within-cohort fire + source-side-concentration + source/target cross-slot overlap`.
+- No PR opened, no `./notify` call.
 
-**State counters:** applied 6→3, rejected 33→36.
+**Files modified:**
+- `memory/state/suggest-edges.json` (working tree, uncommitted — matches prior auto-reject fires)
+- `memory/logs/2026-10-26.md` (new, log entry)
 
-**Target-concentration variant observed:** 3 distinct sources but target `2026-08-31` appears 2× — mirror of the single-source clustering noted on 10-18; reinforces the per-source cap (and per-target cap) follow-up still owed on `scripts/suggest-edges.mjs`.
-
-**Files modified:** `memory/state/suggest-edges.json`, `memory/logs/2026-10-25.md` (new).
-
-**Follow-up (unchanged):** within-cohort pre-filter + per-source cap in `scripts/suggest-edges.mjs` — the auto-reject regime is now n=5 across 10 days, each run paying full script runtime + manual reversion cost.
+**Follow-ups (unchanged, now n=11-urgent):**
+- Pre-filter within-`gitlawb-compute-futures-proofs/` pairs in `scripts/suggest-edges.mjs`.
+- Symmetric per-node cap (≤1 proposal per node per run, source or target).
