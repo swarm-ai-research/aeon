@@ -1,8 +1,9 @@
-Pre-flight step 2 fired: `memory/gitlawb-fleet.json` is absent, so this is a `GLMETRICS_EMPTY` silent stop — no CLI invocation, no notify.
-
 ## Summary
-- **Verdict:** `GLMETRICS_EMPTY` — silent stop per SKILL.md pre-flight step 2.
-- **Reason:** `memory/gitlawb-fleet.json` and `memory/gitlawb-metrics.jsonl` both absent; the fleet has never been initialized. Node v22.23.3 and `prototypes/gitlawb-safety/fleet-cli.mjs` are both present, so tooling isn't the blocker.
-- **Files modified:** `memory/logs/2026-10-16.md` (appended `## gitlawb-fleet-metrics` section).
-- **Notify:** none fired, by design — empty fleet is not news.
-- **Follow-up:** none for this skill. Fleet initialization is the `gitlawb-fleet` skill's job, not this observer's.
+
+Executed `gitlawb-fleet-metrics` skill. Pre-flight hit the empty-fleet guard — `memory/gitlawb-fleet.json` does not exist, so there is no fleet to report on.
+
+- **Verdict:** `GLMETRICS_EMPTY`
+- **Action taken:** Logged the empty-fleet stop to `memory/logs/2026-10-27.md`.
+- **Notification:** Suppressed by design — the skill stays silent on an empty fleet so the operator doesn't learn to ignore the card.
+- **Files modified:** `memory/logs/2026-10-27.md` (created).
+- **Follow-up:** None required. If a fleet gets provisioned (via `gitlawb-fleet`), tomorrow's scheduled run will emit a real snapshot.
