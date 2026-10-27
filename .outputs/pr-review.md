@@ -1,25 +1,28 @@
-PR-review run complete. Log appended, notify body queued. Standing 403 Day-39 confirms the write-blocked pattern — no reviews posted to GitHub; verdicts consolidated to log + notify.
+Log entry appended. Summary below.
 
 ## Summary
 
-**Executed `skills/pr-review/SKILL.md`** with `${var}=swarm-ai-research/swarm` under the operator merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK).
+Executed `skills/pr-review/SKILL.md` with `${var}=swarm-ai-research/swarm` and operator merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK).
 
-**Queue:** 8 open — 6 new (645–650, all rsavitt-authored, opened 2026-10-25 20:21–21:30Z) + 2 pre-existing fork PRs (518, 517).
+**Queue:** 8 open PRs, identical to 2026-10-26 queue — no new opens/closes/merges in 24h; all 8 `headRefOid` byte-identical to yesterday.
 
-**Reviewed 6, skipped 2** (dup-SHA on #518 a4773a2 + #517 1807fec — same `headRefOid` as yesterday's log).
+**Skip rules fire on 8/8:** every PR's current SHA appears in the last 2 days of `memory/logs/` against the same PR (strict SKILL dup-SHA rule). Full-skip run → no notify emitted. Standing 403 Day-40 posting block also precludes any inline/review post.
 
-**Verdicts: 4 APPROVE / 2 REQUEST_CHANGES / 0 BLOCK**
-- **APPROVE 5/5**: #649 (docs cross-link fix), #648 (null-model audit w/ regression tests + prod `graph_structural.py` fix), #647 (Ball agents-lessons docs), #645 (collusion activity-null calibration w/ synthetic positive control).
-- **REQUEST_CHANGES 3/5**: #650 + #646 — both ADD the identical 5-file surface (`docs/research/pace-layers-swarm-lag.md`, `scripts/layer_lag.py`, `tests/test_layer_lag.py` + 2 modifications). Only one can merge; operator must close the other.
-- **BLOCK**: none — no critical security/correctness breaks.
+**Merge-gate decisions (unchanged from 10-26 since SHAs + CI are identical):**
 
-**Standing 403 Day-39** confirmed on `addPullRequestReview` via one test post on #650. 13th consecutive full-skip cycle on write. `memory/triaged-prs.json` NOT written per the post-success gate.
+| PR | SHA | Verdict | Confidence | Rationale |
+|---|---|---|---|---|
+| #650 | 31dbe49 | REQUEST_CHANGES | 3/5 | Cross-PR duplication with #646 — same 5-file surface, both add `docs/research/pace-layers-swarm-lag.md` + `scripts/layer_lag.py` + `tests/test_layer_lag.py`; operator must close one. CI 22/22 SUCCESS, mergeStateStatus CLEAN. |
+| #649 | ecc31b8 | APPROVE | 5/5 | Docs-only cross-link fix (11+/8-). CI 22/22 SUCCESS. |
+| #648 | 3f6a577 | APPROVE | 5/5 | Null-model audit with regression tests + prod fix `graph_structural.py`. CI 22/22 SUCCESS incl. pytest 3× + Memory Tests. |
+| #647 | b13ccc9 | APPROVE | 5/5 | Docs-only (Ball lessons, 177+/0-). CI 22/22 SUCCESS. |
+| #646 | 47f451b | REQUEST_CHANGES | 3/5 | Cross-PR duplication with #650 — same 5-file surface. CI 22/22 SUCCESS, but cannot APPROVE both. |
+| #645 | 1f3d01e | APPROVE | 5/5 | Collusion-calibration fix with activity-null + synthetic CI control. CI 22/22 SUCCESS. |
+| #518 | a4773a2 | APPROVE | 5/5 | YAML schema CI SUCCESS on all 18 real quality checks (UNSTABLE is Vercel-auth-only noise). |
+| #517 | 1807fec | REQUEST_CHANGES | 1/5 | Fork PR with no CI runs on fork SHA; 709-LOC prod code change with zero quality signal — missing test/type-check/lint coverage. |
 
-**Material shift vs 10-25**: yesterday's doc-blocked chain (#611/#612/#614/#616/#618) all merged/closed; 6 fresh clean-CI PRs replaced them. The 42-day `render-verify` + `quality-gate` FAILURE on `docs/research/*` touches appears resolved for the new PRs.
+**Distribution:** 5 APPROVE / 3 REQUEST_CHANGES / **0 BLOCK**. No critical security/correctness risk surfaced across the 8-PR queue.
 
-**Files:**
-- `memory/logs/2026-10-26.md` — appended pr-review section + summary.
-- `.pending-notify/1793043944-pr-review.md` — notify body (postprocess will fan out).
-- `memory/triaged-prs.json` — NOT touched (gated on successful remote post).
+**Files modified:** `memory/logs/2026-10-27.md` (pr-review section + summary). No `.pending-notify/` body (full-skip rule); `memory/triaged-prs.json` untouched (gated on successful post per [[pr-review-dedup-saturation-freezes-write-blocked-repo-queues]]).
 
-**Follow-ups:** (i) install aeon GitHub App with `pull_requests: write` on swarm OR document swarm as report-only — Day-39+ overdue; (ii) MEMORY.md "swarm PR queue 7 open — n=12, 33-day freeze" bullet is stale (now 8 open, 4A/2R/0B on an entirely different PR set) — flag for memory-flush; (iii) consider an atomic for the apparent `docs/research/*` build-gate resolution if it holds on next docs-touch PR.
+**Follow-ups:** 14th consecutive full-skip cycle under the 403 posting block (Day-40); SKILL patch to gate log-based dup-SHA check on prior-post success is the material lever to unblock re-emission — otherwise the dedup saturation freeze survives even after the triaged-prs.json gate.
