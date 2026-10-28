@@ -1,12 +1,19 @@
-## Summary
+The skill-freshness run is complete. Here's the summary:
 
-**Skill Freshness — 2026-10-27 · FRESHNESS_OK**
+**Verdict: ✅ FRESHNESS_OK → FRESHNESS_NO_CHANGE** (no notification sent)
 
-Audited 44 enabled skills. Found 0 explicit chain consume edges (all chains blocks are commented out) and ~22 implicit file references across SKILL.md files. After filtering self-state reads and references to files that never existed, **zero cross-skill dependencies remain to flag**.
+**What ran:**
+- Audited 44 enabled consumers across 9 discovered file dependencies
+- 0 dependencies flagged — all within their freshness windows
+- Fingerprint identical to yesterday's run (2026-10-27), so no notification (within the 7-day re-emit window)
 
-Key observations:
-- **agi-tracker** is `enabled: true` but has no SKILL.md — skipped from consumer scan (11+ silent dispatches noted in MEMORY.md)
-- **Sandbox limitation active**: shallow clone (1 commit) makes all stat mtimes equal to checkout time and git log timestamps useless for per-file aging. Article ages are derived from filenames (reliable); memory/topics and memory/state file ages are indeterminate. The [[skill-freshness-mtime-blind-in-gha]] fix remains in the action queue.
-- Several producers show large article gaps (skill-evals 44d, cost-report 29d, self-review 16d) but none have identified cross-skill consumers, so these are fleet-health signals rather than freshness flags.
+**Key findings surfaced in the report:**
+- No active `chains: consume:` edges (all chains are commented out), so no explicit cross-skill dependency risk
+- Memory/topics and memory/state files cannot be age-assessed due to the known GHA mtime-blindness bug (`[[skill-freshness-mtime-blind-in-gha]]`) — they're treated as OK rather than false-positive STALE
+- Several self-only producers have stale articles (vuln-scan 11d, self-review 17d, cost-report 30d, skill-evals 45d), but since no enabled consumer reads those articles as explicit deps, they don't trigger flags — they're fleet health signals for `skill-health` / `skill-analytics` to track
+- `agi-tracker` is enabled in `aeon.yml` but its `skills/agi-tracker/` directory is absent — skipped from audit (consistent with the existing MEMORY.md action item)
 
-Files written: `articles/skill-freshness-2026-10-27.md`, `memory/topics/skill-freshness-state.json`, `memory/logs/2026-10-27.md`. No notification sent (FRESHNESS_OK — silence is the signal).
+**Files written:**
+- `articles/skill-freshness-2026-10-28.md`
+- `memory/topics/skill-freshness-state.json` (updated `last_run_at`)
+- `memory/logs/2026-10-28.md` (created with log block)
