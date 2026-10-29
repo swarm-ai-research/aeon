@@ -1,0 +1,292 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA — 2026-10-29"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "grid_overview",
+        "separator1",
+        "heading_finding",
+        "badge_priority",
+        "stack_finding",
+        "separator2",
+        "heading_details",
+        "grid_metrics",
+        "separator3",
+        "heading_issues",
+        "alert_gap",
+        "text_unprofiled_label",
+        "grid_unprofiled",
+        "alert_patch",
+        "separator4",
+        "link_report"
+      ]
+    },
+    "grid_overview": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat_rows",
+        "stat_modes"
+      ]
+    },
+    "stat_rows": {
+      "type": "Stat",
+      "props": {
+        "label": "Dataset size",
+        "value": "144 rows"
+      }
+    },
+    "stat_modes": {
+      "type": "Stat",
+      "props": {
+        "label": "Number of modes",
+        "value": "4"
+      }
+    },
+    "separator1": {
+      "type": "Separator"
+    },
+    "heading_finding": {
+      "type": "Heading",
+      "props": {
+        "text": "Top Finding",
+        "level": "h2"
+      }
+    },
+    "badge_priority": {
+      "type": "Badge",
+      "props": {
+        "text": "MEDIUM Priority",
+        "variant": "outline"
+      }
+    },
+    "stack_finding": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_finding_main",
+        "stat_new_value",
+        "stat_previous",
+        "text_consecutive",
+        "text_interleave",
+        "text_new_discrete"
+      ]
+    },
+    "text_finding_main": {
+      "type": "Text",
+      "props": {
+        "text": "basket:synth multiplier LEAPS to NEW 13th discrete value",
+        "variant": "lead"
+      }
+    },
+    "stat_new_value": {
+      "type": "Stat",
+      "props": {
+        "label": "New multiplier value",
+        "value": "3.111250×"
+      }
+    },
+    "stat_previous": {
+      "type": "Stat",
+      "props": {
+        "label": "Previous plateau (3-day, 10-27)",
+        "value": "2.968750×"
+      }
+    },
+    "text_consecutive": {
+      "type": "Text",
+      "props": {
+        "text": "Holds n=3 consecutive values",
+        "variant": "body"
+      }
+    },
+    "text_interleave": {
+      "type": "Text",
+      "props": {
+        "text": "Interleaves between prior-known 3.025 and 3.225",
+        "variant": "body"
+      }
+    },
+    "text_new_discrete": {
+      "type": "Text",
+      "props": {
+        "text": "Breaks 3-day plateau established on 10-27",
+        "variant": "muted"
+      }
+    },
+    "separator2": {
+      "type": "Separator"
+    },
+    "heading_details": {
+      "type": "Heading",
+      "props": {
+        "text": "Technical Details",
+        "level": "h2"
+      }
+    },
+    "grid_metrics": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat_conservation",
+        "stat_strong_pairs",
+        "stat_purity",
+        "stat_outlier",
+        "stat_std",
+        "stat_range"
+      ]
+    },
+    "stat_conservation": {
+      "type": "Stat",
+      "props": {
+        "label": "Conservation",
+        "value": "OK all modes (float dust)"
+      }
+    },
+    "stat_strong_pairs": {
+      "type": "Stat",
+      "props": {
+        "label": "Within-mode strong pairs",
+        "value": "n=0 (benchmark n=30)"
+      }
+    },
+    "stat_purity": {
+      "type": "Stat",
+      "props": {
+        "label": "Retail top-6 purity",
+        "value": "6/6 (n=5 across 4 regimes)"
+      }
+    },
+    "stat_outlier": {
+      "type": "Stat",
+      "props": {
+        "label": "x402Total outlier %",
+        "value": "0.00%",
+        "trend": "neutral"
+      }
+    },
+    "stat_std": {
+      "type": "Stat",
+      "props": {
+        "label": "Tightest std",
+        "value": "$24.51"
+      }
+    },
+    "stat_range": {
+      "type": "Stat",
+      "props": {
+        "label": "Range (series)",
+        "value": "$81.45"
+      }
+    },
+    "separator3": {
+      "type": "Separator"
+    },
+    "heading_issues": {
+      "type": "Heading",
+      "props": {
+        "text": "Content Gaps & Actions",
+        "level": "h2"
+      }
+    },
+    "alert_gap": {
+      "type": "Alert",
+      "props": {
+        "title": "6-day content gap since 10-23",
+        "message": "Data collection has a 6-day gap. Current analysis through 10-29 reflects this gap.",
+        "type": "warning"
+      }
+    },
+    "text_unprofiled_label": {
+      "type": "Text",
+      "props": {
+        "text": "Unprofiled CSV dates:",
+        "variant": "caption"
+      }
+    },
+    "grid_unprofiled": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "sm"
+      },
+      "children": [
+        "badge_date_1024",
+        "badge_date_1025",
+        "badge_date_1027",
+        "badge_date_1028"
+      ]
+    },
+    "badge_date_1024": {
+      "type": "Badge",
+      "props": {
+        "text": "10-24",
+        "variant": "secondary"
+      }
+    },
+    "badge_date_1025": {
+      "type": "Badge",
+      "props": {
+        "text": "10-25",
+        "variant": "secondary"
+      }
+    },
+    "badge_date_1027": {
+      "type": "Badge",
+      "props": {
+        "text": "10-27",
+        "variant": "secondary"
+      }
+    },
+    "badge_date_1028": {
+      "type": "Badge",
+      "props": {
+        "text": "10-28",
+        "variant": "secondary"
+      }
+    },
+    "alert_patch": {
+      "type": "Alert",
+      "props": {
+        "title": "Catch-up patch pending",
+        "message": "SKILL `tail -n 1` catch-up patch still owed",
+        "type": "info"
+      }
+    },
+    "separator4": {
+      "type": "Separator"
+    },
+    "link_report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full detailed report",
+        "href": "memory/topics/compute-futures-eda/2026-10-29.md",
+        "source": "Aeon memory"
+      }
+    }
+  }
+}
