@@ -1,0 +1,75 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Notegraph",
+        "description": "Notegraph updated"
+      },
+      "children": [
+        "stack"
+      ]
+    },
+    "stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metrics-row",
+        "separator",
+        "pr-link"
+      ]
+    },
+    "metrics-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-notes",
+        "badge-issue",
+        "stat-edges"
+      ]
+    },
+    "stat-notes": {
+      "type": "Stat",
+      "props": {
+        "label": "Notes added",
+        "value": "1"
+      }
+    },
+    "badge-issue": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-039",
+        "variant": "outline"
+      }
+    },
+    "stat-edges": {
+      "type": "Stat",
+      "props": {
+        "label": "Edges",
+        "value": "17"
+      }
+    },
+    "separator": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Pull Request #114",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/114",
+        "source": "GitHub"
+      }
+    }
+  }
+}
