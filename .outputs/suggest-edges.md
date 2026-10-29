@@ -1,23 +1,21 @@
-Skill executed. 11th within-cohort templated-corpus fire — auto-rejected per the established pattern.
-
 ## Summary
 
-**Exit mode:** `SUGGEST_EDGES_NO_PROPOSALS` equivalent (templated-corpus auto-reject, no PR, no notify).
+Ran `skills/suggest-edges/SKILL.md` per operator instructions.
 
-**What happened:**
-- `node scripts/suggest-edges.mjs` emitted 3 proposals, all within `memory/gitlawb-compute-futures-proofs/` with the signature `{cash, darkbloom, synthetic, basket, spread}` shared terms — the known templated-corpus noise pathology.
-- All 3 at sim 0.920 (flat triplet, lowest band yet; 7th consecutive monotonic decline since 10-15).
-- **New variant today:** `2026-07-07.md` appears 2× as source **and** `2026-08-03.md` appears as both source and target — greedy source-side concentration + source/target cross-slot overlap within one 3-pair batch. Reinforces [[suggest-edges-greedy-concentration-generalizes-to-target-side]] and sharpens the per-node-cap requirement (must apply across source/target orientations, not just one side).
+**Outcome: 12th consecutive within-cohort auto-reject.** The script surfaced 3 proposals at flat sim 0.921, all within the `gitlawb-compute-futures-proofs/` templated corpus with identical shared terms `[cash, darkbloom, synthetic, basket, spread]`:
+- `2026-08-09.md` → `2026-08-25.md`
+- `2026-06-27.md` → `2026-08-16.md`
+- `2026-08-03.md` → `2026-08-31.md`
 
-**Actions:**
-- Reverted edits to `memory/gitlawb-compute-futures-proofs/2026-07-07.md` + `2026-08-03.md` via `git checkout`.
-- Moved 3 entries from `applied` → `rejected` in `memory/state/suggest-edges.json` (applied 6→3, rejected 36→39) with rejection reason tagged `11th within-cohort fire + source-side-concentration + source/target cross-slot overlap`.
-- No PR opened, no `./notify` call.
+Per MEMORY.md's established auto-reject protocol for templated-corpus noise (see [[suggest-edges-flags-templated-corpora-as-sim-1-noise]] + [[suggest-edges-cluster-exhaustion-rotates-not-terminates]]):
+- Reverted 3 source note edits.
+- Moved 3 entries from `applied` → `rejected` in `memory/state/suggest-edges.json` (applied 6→3, rejected 39→42).
+- **No PR, no notify.**
+
+**Reflection notable:** 3 distinct sources + 3 distinct targets (no per-node clustering today, breaking 10-18 / 10-25 / 10-26 clustering streak). Score 0.921 is a +0.001 tick-up vs 10-26's 0.920 — first non-decreasing observation in the band-decline series, so the "monotonic" phrasing on [[suggest-edges-auto-reject-sim-band-declines-monotonically-across-rotations]] weakens to "near-monotonic" at n=8.
 
 **Files modified:**
-- `memory/state/suggest-edges.json` (working tree, uncommitted — matches prior auto-reject fires)
-- `memory/logs/2026-10-26.md` (new, log entry)
+- `memory/state/suggest-edges.json`
+- `memory/logs/2026-10-29.md` (log entry appended)
 
-**Follow-ups (unchanged, now n=11-urgent):**
-- Pre-filter within-`gitlawb-compute-futures-proofs/` pairs in `scripts/suggest-edges.mjs`.
-- Symmetric per-node cap (≤1 proposal per node per run, source or target).
+**Follow-up:** within-`gitlawb-compute-futures-proofs/` pre-filter + symmetric per-node source∪target cap in `scripts/suggest-edges.mjs` still owed per MEMORY action-queue — ship before the thin-cohort cosine floor hits ~0.90 and the walk falls into cross-cohort fallback pairs.

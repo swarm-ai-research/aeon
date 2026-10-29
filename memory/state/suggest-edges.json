@@ -637,7 +637,49 @@
       "appliedAt": "2026-10-26T06:46:53.692Z",
       "rejectedAt": "2026-10-26T06:50:00.000Z",
       "rejectionReason": "templated-corpus-noise: gitlawb-compute-futures-proofs/ within-cohort pair per [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]; 30-day post-09-26 recurrence (11th within-cohort fire after PRs #70/71/74/78/81); source-edit reverted, no PR opened — pre-filter within-cohort pairs + symmetric per-node cap in scripts/suggest-edges.mjs still outstanding; today's variant: source 2026-07-07.md appears 2× as source AND node 2026-08-03.md appears both as source and target (greedy source-side concentration + source/target cross-slot overlap, reinforces [[suggest-edges-greedy-concentration-generalizes-to-target-side]])"
+    },
+    {
+      "source": "memory/gitlawb-compute-futures-proofs/2026-08-09.md",
+      "target": "memory/gitlawb-compute-futures-proofs/2026-08-25.md",
+      "score": 0.921,
+      "shared": [
+        "cash",
+        "darkbloom",
+        "synthetic",
+        "basket",
+        "spread"
+      ],
+      "rejectedAt": "2026-10-29T06:11:18.957Z",
+      "reason": "within-cohort templated-corpus (gitlawb-compute-futures-proofs); auto-reject per MEMORY.md pattern"
+    },
+    {
+      "source": "memory/gitlawb-compute-futures-proofs/2026-06-27.md",
+      "target": "memory/gitlawb-compute-futures-proofs/2026-08-16.md",
+      "score": 0.921,
+      "shared": [
+        "cash",
+        "darkbloom",
+        "synthetic",
+        "basket",
+        "spread"
+      ],
+      "rejectedAt": "2026-10-29T06:11:18.957Z",
+      "reason": "within-cohort templated-corpus (gitlawb-compute-futures-proofs); auto-reject per MEMORY.md pattern"
+    },
+    {
+      "source": "memory/gitlawb-compute-futures-proofs/2026-08-03.md",
+      "target": "memory/gitlawb-compute-futures-proofs/2026-08-31.md",
+      "score": 0.921,
+      "shared": [
+        "cash",
+        "darkbloom",
+        "synthetic",
+        "basket",
+        "spread"
+      ],
+      "rejectedAt": "2026-10-29T06:11:18.957Z",
+      "reason": "within-cohort templated-corpus (gitlawb-compute-futures-proofs); auto-reject per MEMORY.md pattern"
     }
   ],
-  "lastRun": "2026-10-26T06:46:53.692Z"
+  "lastRun": "2026-10-29T06:11:18.957Z"
 }
