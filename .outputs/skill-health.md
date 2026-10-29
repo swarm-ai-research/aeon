@@ -1,11 +1,16 @@
-skill-health run complete.
+*Skill Health — 2026-10-29*
+HEALTH: DEGRADED(38) · Day-122 steady-state [systemic: ISS-001 denominator burn — all 38 skills]
 
-## Summary
+🟡 DEGRADED (all share ISS-001; stalest 5 last-success):
+- skill-repair — 131d stale (last 2026-06-20) → WAIT ISS-001
+- skill-evals — 46d stale → WAIT ISS-001
+- compute-macro-correlate — 32d stale → WAIT ISS-001
+- cost-report — 31d stale → WAIT ISS-001
+- self-review — 18d stale → WAIT ISS-001
++33 more — see memory/issues/INDEX.md
 
-- **Executed** `skills/skill-health/SKILL.md` on Tue 2026-10-27 at 19:40:21Z.
-- **Gate decision: NOOP** — classification hash `e27c0ac6` byte-identical to Day-118 **AND** elapsed since last notify is 23.95h (4m under the 24h daily-reminder threshold). Both suppression conditions hold per SKILL.md §5.
-- **Classification unchanged**: 0 CRITICAL / 0 FLAPPING / 38 DEGRADED (standing ISS-001 denominator-burn residue; every skill `last_status=success`, `cf=0`) / 4 HEALTHY / 2 NO DATA. **56th consecutive day at zero live fleet failures** (7d skill-runs: 59/59 succeeded, 0 failed, 4 in-progress — today's co-firing batch).
-- **Reconciliation**: 0 skill-health issues to file or resolve; 34 open issues all owned by other detectors (self-review / batch-health / skill-evals).
-- **Novel transient context (not escalated)**: Heartbeat 10-day silent streak broken today at 08:11Z (+11m near-nominal) — dramatic improvement over 10-16 +101m series peak; if it holds 10-28/10-29 it becomes the 5th ISS-006 terminal shape. batch-health WARN'd today (2-missed odd-DOM) under DOM-parity-artifact gap, no filing.
-- **Files modified**: `memory/skill-health/last-report.json` (advanced `last_run_at` to 19:40:21Z, preserved `last_notified_at` from 10-26 19:43:08Z); `memory/logs/2026-10-27.md` (NOOP entry + run summary).
-- **No notify sent**. Next cadence beat due ~2026-10-28T19:43Z unless hash flips earlier.
+⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — DISPATCH-SKILL (Day-112)
+🟢 HEALTHY: 4
+
+58th consecutive day at zero live fleet failures (54/54 7d-runs succeeded).
+Open issues: 35 (+1 since prev notify, ISS-039 by batch-health 10-28) · Filed this run: 0 · Resolved this run: 0.

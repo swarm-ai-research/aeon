@@ -1,0 +1,266 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-10-29"
+      },
+      "children": [
+        "status_section",
+        "separator_1",
+        "overview_stats",
+        "separator_2",
+        "degraded_section",
+        "separator_3",
+        "other_status_section",
+        "separator_4",
+        "fleet_section"
+      ]
+    },
+    "status_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "status_badge",
+        "status_text"
+      ]
+    },
+    "status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "DEGRADED(38)",
+        "variant": "destructive"
+      }
+    },
+    "status_text": {
+      "type": "Text",
+      "props": {
+        "text": "Day-122 steady-state [systemic: ISS-001 denominator burn — all 38 skills]",
+        "variant": "body"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "overview_stats": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "stat_degraded",
+        "stat_no_data",
+        "stat_healthy",
+        "stat_issues"
+      ]
+    },
+    "stat_degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded Skills",
+        "value": "38"
+      }
+    },
+    "stat_no_data": {
+      "type": "Stat",
+      "props": {
+        "label": "No Data",
+        "value": "2"
+      }
+    },
+    "stat_healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Healthy",
+        "value": "4"
+      }
+    },
+    "stat_issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "35"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "degraded_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded_heading",
+        "degraded_list"
+      ]
+    },
+    "degraded_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 Degraded (all share ISS-001; stalest 5 last-success)",
+        "level": "h3"
+      }
+    },
+    "degraded_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skill_1",
+        "skill_2",
+        "skill_3",
+        "skill_4",
+        "skill_5",
+        "skill_more"
+      ]
+    },
+    "skill_1": {
+      "type": "Text",
+      "props": {
+        "text": "skill-repair — 131d stale (last 2026-06-20) → WAIT ISS-001",
+        "variant": "body"
+      }
+    },
+    "skill_2": {
+      "type": "Text",
+      "props": {
+        "text": "skill-evals — 46d stale → WAIT ISS-001",
+        "variant": "body"
+      }
+    },
+    "skill_3": {
+      "type": "Text",
+      "props": {
+        "text": "compute-macro-correlate — 32d stale → WAIT ISS-001",
+        "variant": "body"
+      }
+    },
+    "skill_4": {
+      "type": "Text",
+      "props": {
+        "text": "cost-report — 31d stale → WAIT ISS-001",
+        "variant": "body"
+      }
+    },
+    "skill_5": {
+      "type": "Text",
+      "props": {
+        "text": "self-review — 18d stale → WAIT ISS-001",
+        "variant": "body"
+      }
+    },
+    "skill_more": {
+      "type": "Text",
+      "props": {
+        "text": "+33 more — see memory/issues/INDEX.md",
+        "variant": "caption"
+      }
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "other_status_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "no_data_section",
+        "healthy_section"
+      ]
+    },
+    "no_data_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "no_data_heading",
+        "no_data_content"
+      ]
+    },
+    "no_data_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ No Data (2)",
+        "level": "h3"
+      }
+    },
+    "no_data_content": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch, run-frequency-guard — DISPATCH-SKILL (Day-112)",
+        "variant": "body"
+      }
+    },
+    "healthy_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "healthy_badge"
+      ]
+    },
+    "healthy_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "🟢 Healthy: 4",
+        "variant": "default"
+      }
+    },
+    "separator_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fleet_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fleet_headline",
+        "issue_summary"
+      ]
+    },
+    "fleet_headline": {
+      "type": "Text",
+      "props": {
+        "text": "58th consecutive day at zero live fleet failures (54/54 7d-runs succeeded).",
+        "variant": "lead"
+      }
+    },
+    "issue_summary": {
+      "type": "Text",
+      "props": {
+        "text": "Open issues: 35 (+1 since prev notify, ISS-039 by batch-health 10-28) · Filed this run: 0 · Resolved this run: 0.",
+        "variant": "body"
+      }
+    }
+  }
+}
