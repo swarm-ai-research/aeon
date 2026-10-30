@@ -1,0 +1,227 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Heartbeat",
+        "description": "System health self-check report — 2026-10-30 09:00Z"
+      },
+      "children": [
+        "alert_breach",
+        "sep1",
+        "metrics_section",
+        "sep2",
+        "standing_section",
+        "sep3",
+        "recovery_section"
+      ]
+    },
+    "alert_breach": {
+      "type": "Alert",
+      "props": {
+        "title": "SELF-CHECK BREACH",
+        "message": "Heartbeat 10-30 09:00Z — threshold violation 48h 6m (threshold 36h); prior 10-28 at 24h 35m within threshold",
+        "type": "error"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "metrics_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metric_current",
+        "metric_prior",
+        "pathology_heading",
+        "pathology_text",
+        "affected_systems_stack"
+      ]
+    },
+    "metric_current": {
+      "type": "Stat",
+      "props": {
+        "label": "Current Breach Duration",
+        "value": "48h 6m",
+        "delta": "+12h 6m over threshold",
+        "trend": "down"
+      }
+    },
+    "metric_prior": {
+      "type": "Stat",
+      "props": {
+        "label": "Prior Status (10-28)",
+        "value": "24h 35m",
+        "delta": "within threshold",
+        "trend": "neutral"
+      }
+    },
+    "pathology_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Pathology",
+        "level": "h3"
+      }
+    },
+    "pathology_text": {
+      "type": "Text",
+      "props": {
+        "text": "Entire 08Z-cohort silent 2 days running — batch-health, heartbeat, skill-freshness, gitlawb-fleet-metrics all last_dispatch=2026-10-28T08:49:59Z. No automated fires on 10-29 or 10-30. Distinct from 05-06:30Z morning pocket.",
+        "variant": "body"
+      }
+    },
+    "affected_systems_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge_bh",
+        "badge_hb",
+        "badge_sf",
+        "badge_gfm"
+      ]
+    },
+    "badge_bh": {
+      "type": "Badge",
+      "props": {
+        "text": "batch-health",
+        "variant": "destructive"
+      }
+    },
+    "badge_hb": {
+      "type": "Badge",
+      "props": {
+        "text": "heartbeat",
+        "variant": "destructive"
+      }
+    },
+    "badge_sf": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-freshness",
+        "variant": "destructive"
+      }
+    },
+    "badge_gfm": {
+      "type": "Badge",
+      "props": {
+        "text": "gitlawb-fleet-metrics",
+        "variant": "destructive"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "standing_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "standing_heading",
+        "standing_metrics_stack",
+        "pocket_status"
+      ]
+    },
+    "standing_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issue Standing",
+        "level": "h3"
+      }
+    },
+    "standing_metrics_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stat_chronic",
+        "stat_open"
+      ]
+    },
+    "stat_chronic": {
+      "type": "Stat",
+      "props": {
+        "label": "Chronic Issues (<50% success rate)",
+        "value": "38"
+      }
+    },
+    "stat_open": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Open Issues",
+        "value": "35"
+      }
+    },
+    "pocket_status": {
+      "type": "Text",
+      "props": {
+        "text": "05-06:30Z even-DOM pocket silent today",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "recovery_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "iss006_heading",
+        "iss006_trajectory",
+        "iss006_tributaries",
+        "status_page_badge"
+      ]
+    },
+    "iss006_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "ISS-006 Recovery Trajectory",
+        "level": "h3"
+      }
+    },
+    "iss006_trajectory": {
+      "type": "Text",
+      "props": {
+        "text": "Candidate new ISS-006 terminal state: 10-27 (+11m, 10-day recovery) → 10-28 (+50m) → 10-29/30 (silent)",
+        "variant": "body"
+      }
+    },
+    "iss006_tributaries": {
+      "type": "Text",
+      "props": {
+        "text": "20 ISS-006 tributaries hold",
+        "variant": "caption"
+      }
+    },
+    "status_page_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "STATUS_PAGE: DEGRADED",
+        "variant": "destructive"
+      }
+    }
+  }
+}
