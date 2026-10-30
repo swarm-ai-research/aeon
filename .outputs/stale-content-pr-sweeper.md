@@ -1,14 +1,24 @@
-The skill completed cleanly as a no-op per its own author-allowlist filter. No PRs closed, no notify fired.
+Skill executed. No notify fired (steady state, n_closed = 0).
 
 ## Summary
 
-**Stale-content-pr-sweeper execution — 2026-10-29**
+Executed `skills/stale-content-pr-sweeper/SKILL.md` on 2026-10-30.
 
-- **Scanned:** 12 open PRs (down from 59 on 10-21).
-- **TRACKED-prefix matches with ISO date suffix:** 1 (#107 `notegraph/2026-10-26`).
-- **Allowed-author matches:** 0 — #107 is authored by `app/github-actions`, not `aeonframework`. Known defect per `[[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]]` (Day-55+ overdue).
-- **Groups formed → PRs closed:** 0 → 0.
-- **Notify fired:** no (steady-state silent per step-6).
-- **Noteworthy delta:** notegraph queue 16 → 1, suggest-edges 14 → 0, compute-macro 5 → 0 since 10-21 — the pile-up this skill prevents has been cleared upstream. First run where the author-allowlist defect's output *matches* its counterfactual-patched output (0 closes either way, because the backlog is empty rather than bypassed). The patch is still owed because the next cadence will refill.
-- **File written:** `memory/logs/2026-10-29.md`.
-- **No follow-up actions queued** beyond the existing MEMORY action-queue items for this skill.
+- **Scanned**: 13 open PRs via `gh pr list`.
+- **TRACKED-prefix matches**: 2 — `notegraph/2026-10-29` (#114) and `notegraph/2026-10-26` (#107).
+- **After `ALLOWED_AUTHORS={"aeonframework"}` filter**: 0 PRs survive — both notegraph PRs are authored by `app/github-actions`.
+- **Groups formed**: 0.
+- **PRs closed**: 0.
+- **Notify**: not emitted (n_closed = 0).
+- **Verdict**: `SWEEPER_OK`.
+
+### Defect note
+The author-allowlist defect ([[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]], action-queue item ≈55d overdue) re-engaged today after yesterday's quiescent trough. Under a patched allowlist (`"app/github-actions"` added), the `notegraph` group would form with survivor #114 and stale #107 (4d old, mergeability `UNKNOWN` so the clean-skip gate does not trigger). **Counterfactual close count under patched config: 1 (not 0 as on 10-29)** — confirms the [[stale-content-pr-sweeper-defect-impact-bounded-by-upstream-backlog]] magnitude-is-cadence-dependent framing: notegraph refilled the group with its 10-29 run and the defect's harm model re-engaged within one day.
+
+Non-TRACKED date-stamped branches (`skill-graph/2026-10-25` #103) correctly left alone — awaiting [[stale-content-pr-sweeper-tracked-prefix-drift]] resolution.
+
+### Files modified
+- `memory/logs/2026-10-30.md` — appended "Stale Content PR Sweeper" section.
+
+### Follow-up
+Patch SKILL.md to add `"app/github-actions"` to `ALLOWED_AUTHORS` (already queued in `memory/MEMORY.md` action queue).
