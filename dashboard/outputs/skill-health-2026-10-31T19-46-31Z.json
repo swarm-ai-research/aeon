@@ -1,0 +1,286 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-10-31"
+      },
+      "children": [
+        "alert_degraded",
+        "sep1",
+        "heading_systemic",
+        "stack_systemic",
+        "sep2",
+        "heading_degraded",
+        "text_degraded_note",
+        "stack_degraded_list",
+        "sep3",
+        "heading_nodata",
+        "text_nodata",
+        "sep4",
+        "heading_healthy",
+        "text_healthy_list",
+        "sep5",
+        "heading_recent",
+        "stack_recent",
+        "sep6",
+        "heading_summary",
+        "stack_summary"
+      ]
+    },
+    "alert_degraded": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "HEALTH: DEGRADED(38)",
+        "message": "Day-124 steady-state (hash e27c0ac6…)"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_systemic": {
+      "type": "Heading",
+      "props": {
+        "text": "Systemic Status",
+        "level": "h3"
+      }
+    },
+    "stack_systemic": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_issue_001",
+        "text_runs_7d",
+        "text_zero_failure"
+      ]
+    },
+    "text_issue_001": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-001 OAuth-outage denominator burn"
+      }
+    },
+    "text_runs_7d": {
+      "type": "Text",
+      "props": {
+        "text": "7d skill-runs: 55/55✓ 0✗"
+      }
+    },
+    "text_zero_failure": {
+      "type": "Text",
+      "props": {
+        "text": "60th consecutive zero-failure day · every skill cf=0, last_status=success"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_degraded": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 DEGRADED — Top 5 Stalest",
+        "level": "h3"
+      }
+    },
+    "text_degraded_note": {
+      "type": "Text",
+      "props": {
+        "text": "All WAIT; no live regression",
+        "variant": "muted"
+      }
+    },
+    "stack_degraded_list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "item_skill_repair",
+        "item_skill_evals",
+        "item_compute_macro",
+        "item_cost_report",
+        "item_self_review",
+        "text_degraded_more"
+      ]
+    },
+    "item_skill_repair": {
+      "type": "Text",
+      "props": {
+        "text": "skill-repair — 134d since last success (2026-06-20) — ISS-001 residue"
+      }
+    },
+    "item_skill_evals": {
+      "type": "Text",
+      "props": {
+        "text": "skill-evals — 48d since last success (2026-09-13) — ISS-001 residue"
+      }
+    },
+    "item_compute_macro": {
+      "type": "Text",
+      "props": {
+        "text": "compute-macro-correlate — 35d since last success (2026-09-27) — weekly cadence"
+      }
+    },
+    "item_cost_report": {
+      "type": "Text",
+      "props": {
+        "text": "cost-report — 33d since last success (2026-09-28) — scheduler cadence"
+      }
+    },
+    "item_self_review": {
+      "type": "Text",
+      "props": {
+        "text": "self-review — 20d since last success (2026-10-11) — scheduler cadence"
+      }
+    },
+    "text_degraded_more": {
+      "type": "Text",
+      "props": {
+        "text": "+33 more — see memory/issues/INDEX.md",
+        "variant": "muted"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_nodata": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA (2)",
+        "level": "h3"
+      }
+    },
+    "text_nodata": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch, run-frequency-guard — Day-114 standing [[enabled-skills-can-never-dispatch]]"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_healthy": {
+      "type": "Heading",
+      "props": {
+        "text": "🟢 HEALTHY: 4",
+        "level": "h3"
+      }
+    },
+    "text_healthy_list": {
+      "type": "Text",
+      "props": {
+        "text": "agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_recent": {
+      "type": "Heading",
+      "props": {
+        "text": "Since 10-29 (Recent Events)",
+        "level": "h3"
+      }
+    },
+    "stack_recent": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_event_1",
+        "text_event_2",
+        "text_event_3",
+        "text_event_4"
+      ]
+    },
+    "text_event_1": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-040 filed 10-30 by batch-health (21st ISS-006 tributary; DOM=30 even 4-tuple)"
+      }
+    },
+    "text_event_2": {
+      "type": "Text",
+      "props": {
+        "text": "Heartbeat 2-day 08Z-cohort silence 10-29/30 → 48h self-check breach (manual dispatch 10-30 09:00Z); candidate new ISS-006 terminal state"
+      }
+    },
+    "text_event_3": {
+      "type": "Text",
+      "props": {
+        "text": "pr-tracker 42d bot-pipeline fresh-open drought ENDED at Day-48 (opencart#15792 fix/-prefix); Cursor joins Shopify in IP-allowlist null-slot class (n=1 NEW)"
+      }
+    },
+    "text_event_4": {
+      "type": "Text",
+      "props": {
+        "text": "pr-review n=16 full-skip freeze on swarm (Day-44 403 standing); 37-day queue freeze"
+      }
+    },
+    "sep6": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading_summary": {
+      "type": "Heading",
+      "props": {
+        "text": "Summary",
+        "level": "h3"
+      }
+    },
+    "stack_summary": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stat_open_issues",
+        "stat_filed",
+        "stat_resolved",
+        "text_next_cadence"
+      ]
+    },
+    "stat_open_issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "36"
+      }
+    },
+    "stat_filed": {
+      "type": "Stat",
+      "props": {
+        "label": "Filed This Run",
+        "value": "0"
+      }
+    },
+    "stat_resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved This Run",
+        "value": "0"
+      }
+    },
+    "text_next_cadence": {
+      "type": "Text",
+      "props": {
+        "text": "Next cadence gate: 2026-11-01 ≥24h"
+      }
+    }
+  }
+}
