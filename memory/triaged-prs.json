@@ -1,7 +1,5 @@
 {
   "swarm-ai-research/swarm": [
-    {"n": 536, "sha": "76e6200", "at": "2026-07-25", "verdict": "DEFER", "note": "no-permission (write blocked)"},
-    {"n": 543, "sha": "70b20e0", "at": "2026-07-25", "verdict": "ACCEPTED", "note": "no-permission (write blocked)"},
     {"n": 549, "sha": "cc720dd", "at": "2026-08-06", "verdict": "DEFER", "note": "no-permission (write blocked); size 3818 no large-ok"},
     {"n": 543, "sha": "bad79e4", "at": "2026-08-07", "verdict": "ACCEPTED", "note": "no-permission (write blocked); re-triage new head"},
     {"n": 549, "sha": "afe5124", "at": "2026-08-07", "verdict": "DEFER", "note": "no-permission (write blocked); re-triage new head; size 3818 no large-ok"},
@@ -18,6 +16,12 @@
     {"n": 620, "sha": "b00e90c", "at": "2026-09-17", "verdict": "DEFER", "note": "no-permission (write blocked); rsavitt docs/game-app build artifact untracking, size 85907 (mostly deletions) no large-ok"},
     {"n": 628, "sha": "8e2f6a7", "at": "2026-09-22", "verdict": "ACCEPTED", "note": "no-permission (write blocked); rsavitt docs-only blog post + mkdocs nav, +139/-0"},
     {"n": 518, "sha": "a4773a2", "at": "2026-09-22", "verdict": "APPROVE", "note": "no-permission (write blocked); go165 scenario YAML schema validation, +298/-0 across swarm/models/{__init__,scenario}.py + swarm/scenarios/loader.py + tests/test_scenario_schema.py; all 20+ CI checks green (test 3.10/3.11/3.12, type-check, lint, quality-gate); confidence 5/5"},
-    {"n": 517, "sha": "1807fec", "at": "2026-09-22", "verdict": "REQUEST_CHANGES", "note": "no-permission (write blocked); go165 run-diff utility, +709/-1 across swarm/analysis/run_diff.py + swarm/__main__.py (new `swarm diff` subcommand) + swarm/replay/{__init__,diff,run_diff}.py + scripts/run_diff.py + tests/test_replay_diff.py; CI/CodeQL/Memory Management Tests all action_required on 1807fec — no test/type-check evidence; needs maintainer workflow approval; confidence 3/5"}
+    {"n": 517, "sha": "1807fec", "at": "2026-09-22", "verdict": "REQUEST_CHANGES", "note": "no-permission (write blocked); go165 run-diff utility, +709/-1 across swarm/analysis/run_diff.py + swarm/__main__.py (new `swarm diff` subcommand) + swarm/replay/{__init__,diff,run_diff}.py + scripts/run_diff.py + tests/test_replay_diff.py; CI/CodeQL/Memory Management Tests all action_required on 1807fec — no test/type-check evidence; needs maintainer workflow approval; confidence 3/5"},
+    {"n": 645, "sha": "1f3d01e", "at": "2026-10-31", "verdict": "ACCEPTED", "note": "no-permission (write blocked); rsavitt collusion group concentration activity-null calibration, +218/-16 across docs/research/ + CHANGELOG.md + scripts/sweep_rl_capacity.py + swarm/metrics/collusion.py + tests/ + .claude/provenance.jsonl, size 234, no protected paths touched"},
+    {"n": 646, "sha": "47f451b", "at": "2026-10-31", "verdict": "DEFER", "note": "no-permission (write blocked); rsavitt pace-layers note + scripts/layer_lag.py +495 + tests + .claude/commands, +962/-0 size 962 no large-ok, no protected paths"},
+    {"n": 647, "sha": "b13ccc9", "at": "2026-10-31", "verdict": "ACCEPTED", "note": "no-permission (write blocked); rsavitt docs/research only (how-i-work-with-agents-lessons + index), +177/-0 size 177"},
+    {"n": 648, "sha": "3f6a577", "at": "2026-10-31", "verdict": "DEFER", "note": "no-permission (write blocked); rsavitt null-model audit of collusion evidence, +720/-7 across docs/research/ + experiments/ + swarm/metrics/graph_structural.py + tests/, size 727 no large-ok, no protected paths"},
+    {"n": 649, "sha": "ecc31b8", "at": "2026-10-31", "verdict": "ACCEPTED", "note": "no-permission (write blocked); rsavitt docs/research avalon-m1 cross-link/grid fix only, +11/-8 size 19"},
+    {"n": 650, "sha": "31dbe49", "at": "2026-10-31", "verdict": "DEFER", "note": "no-permission (write blocked); rsavitt pace-layers reopen variant +docs +scripts/layer_lag.py +501 +tests +.claude/commands, +978/-0 size 978 no large-ok, no protected paths"}
   ]
 }
