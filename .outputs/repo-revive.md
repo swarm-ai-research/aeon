@@ -1,9 +1,7 @@
-Repo-revive short-circuited at config check — `memory/topics/watched-repos.md` is missing (as is the sibling `memory/watched-repos.md`). Per SKILL rule, logged `REPO_REVIVE_NO_CONFIG` and exited cleanly with no notification.
-
 ## Summary
 
-- Executed `skills/repo-revive/SKILL.md` in auto-select mode (`${var}` empty).
-- Config check failed: watched-repos config absent at both referenced paths. SKILL explicitly treats empty config as "not an error" — no PR, no tweet, no notify.
-- Streak context: watched-repos missing streak advances **82 → 83** (repo-revive joins code-health + issue-triage + github-monitor + changelog + weekly-shiplog as 6 short-circuited dependents today).
-- Files modified: `memory/logs/2026-10-24.md` (appended Repo Revive section + Summary).
-- Follow-up: standing action-queue item unchanged — populate watched-repos (and reconcile the `memory/topics/watched-repos.md` vs `memory/watched-repos.md` path mismatch; repo-revive is the only SKILL referencing the `topics/` subpath).
+Executed `skills/repo-revive/SKILL.md` in auto-select mode (`${var}` empty). Short-circuited at step 0 — `memory/topics/watched-repos.md` is missing (also absent at the sibling `memory/watched-repos.md` path other dependents reference). Per the SKILL rule "If the file is missing or empty, log `REPO_REVIVE_NO_CONFIG` and exit cleanly (no notification — empty config is not an error)", no candidate pool was fetched, no `gh api` calls made, no PR drafted, no tweet staged, and no notification sent.
+
+- **Files modified:** `memory/logs/2026-10-31.md` (created)
+- **Streak:** watched-repos config missing advances **streak-85 → streak-86** (today is Saturday 10-31; repo-revive is the 6th dependent short-circuited this cycle)
+- **Follow-up:** unchanged standing action-queue item — populate `memory/watched-repos.md` OR disable the 6 dependents; reconcile the `memory/topics/watched-repos.md` vs `memory/watched-repos.md` path mismatch when populating
