@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:open",
+    "created_at": "2026-10-25T22:22:57.786373413+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "24ceec01-bd88-45da-940b-44a72512a2c4",
+    "kind": "test-pass",
+    "payload": "{\"title\":\"test-pass on recent code changes\",\"target\":\".audit-bin/actionlint, .audit-bin/actionlint.tar.gz, .audit-bin/zizmor\",\"focus\":\"uncovered branches, missing edge-case tests — open a PR with new tests\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-25T22:22:57.786373413+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-25T09:05:05.775Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Code-pass test-pass opened PR: https://github.com/swarm-ai-research/aeon/pull/104 — Added 30 new unit tests to `.audit/test_audit_logic.py` covering four previously untested helpers from `normalize.py`: `extract_step_name()`, `normalize_file()`, `sev_zizmor()` (highlighting its case-sensitive `'High'` check, which differs from `our_severity()`'s `.lower()` approach), and `sev_actionlint()`."
+  },
+  "completed_at": "2026-10-25T22:25:14.208Z"
+}

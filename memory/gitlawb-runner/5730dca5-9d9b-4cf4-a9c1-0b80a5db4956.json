@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6MkqVs15JyUugGu11TjwS5REKCHGrxK4uHvAFyDKGqNLVie",
+    "capability": "git:push",
+    "created_at": "2026-06-19T03:08:21.740376247+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "5730dca5-9d9b-4cf4-a9c1-0b80a5db4956",
+    "kind": "compute-futures-sim-surplus",
+    "payload": "{\"title\":\"Run compute-futures market simulation (Surplus live feed) and record curve proof\",\"component\":\"compute-futures\",\"action\":\"run compute-futures sim (surplus, live) and record curve proof\",\"commit_proof\":true,\"x402\":false,\"surplus\":true,\"live\":true}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-06-19T03:08:21.740376247+00:00"
+  },
+  "instance": {
+    "name": "aeon-deployer",
+    "did": "did:key:z6MkqVs15JyUugGu11TjwS5REKCHGrxK4uHvAFyDKGqNLVie",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:push",
+      "pr:merge",
+      "agent:deploy"
+    ],
+    "model": "aeon-deployer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Deploy and merge",
+    "health": "active",
+    "last_checked": "2026-06-19T03:08:18.538Z",
+    "identity_dir": "~/.gitlawb/fleet/deployer"
+  },
+  "result": {
+    "executor": "prototype",
+    "summary": "GitLawb deploy proof committed to main at 48aeb69a1d5e via aeon-deployer; file=memory/gitlawb-commit-proofs/2026-06-19.md."
+  },
+  "completed_at": "2026-06-19T03:08:27.432Z"
+}

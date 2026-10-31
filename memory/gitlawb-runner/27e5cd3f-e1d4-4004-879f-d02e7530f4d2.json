@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-10-20T04:13:03.962367051+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "27e5cd3f-e1d4-4004-879f-d02e7530f4d2",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta.py\",\"target\":\".audit/delta.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-20T04:13:03.962367051+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-20T04:13:02.957Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta.py — blocked: fragile trailer detection silently empties prior fingerprints (2026-10-20)\" — 3 findings (1 critical, 2 issue). Verdict: blocked: fragile trailer detection silently empties prior fingerprints. Issue: ✓ Created issue #da070012-e3c1-4ee2-bf0e-393e83981235\n  Title:  Review: .audit/delta.py — blocked: fragile trailer detection silently empties prior fingerprints (2026-10-20)\n  Body:   ## Code Review: .audit/delta.py\n\n**Date:** 2026-10-20…"
+  },
+  "completed_at": "2026-10-20T04:14:48.480Z"
+}

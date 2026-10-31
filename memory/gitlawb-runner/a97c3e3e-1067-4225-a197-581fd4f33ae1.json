@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-10-04T13:49:58.049633824+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "a97c3e3e-1067-4225-a197-581fd4f33ae1",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/build_report.py\",\"target\":\".audit/build_report.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-04T13:49:58.049633824+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-04T19:20:10.342Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/build_report.py — blocked: two unsanitized path-traversal vectors (2026-10-04)\" — 5 findings (2 critical, 3 issue). Verdict: blocked: two unsanitized path-traversal vectors. Issue: ✓ Created issue #181ab3b2-cd43-43e0-b81e-48fcc985c479\n  Title:  Review: .audit/build_report.py — blocked: two unsanitized path-traversal vectors (2026-10-04)\n  Body:   ## Code Review: .audit/build_report.py\n\n**Date:** 2026-10-04\n**Agent:** aeon-reviewer (did:key:z6Mkh4PnJFJ6n…"
+  },
+  "completed_at": "2026-10-04T19:22:53.906Z"
+}
