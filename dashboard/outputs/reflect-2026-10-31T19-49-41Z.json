@@ -1,0 +1,89 @@
+{
+  "root": "card_reflect",
+  "state": {},
+  "elements": {
+    "card_reflect": {
+      "type": "Card",
+      "props": {
+        "title": "Memory consolidated"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "date_text",
+        "stats_row",
+        "breakdown_row"
+      ]
+    },
+    "date_text": {
+      "type": "Text",
+      "props": {
+        "text": "2026-10-31",
+        "variant": "muted"
+      }
+    },
+    "stats_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_new",
+        "stat_edits"
+      ]
+    },
+    "stat_new": {
+      "type": "Stat",
+      "props": {
+        "label": "New",
+        "value": "+2"
+      }
+    },
+    "stat_edits": {
+      "type": "Stat",
+      "props": {
+        "label": "Edits",
+        "value": "+16"
+      }
+    },
+    "breakdown_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_new",
+        "badge_superseded",
+        "badge_sharpened"
+      ]
+    },
+    "badge_new": {
+      "type": "Badge",
+      "props": {
+        "text": "1 new"
+      }
+    },
+    "badge_superseded": {
+      "type": "Badge",
+      "props": {
+        "text": "1 superseded"
+      }
+    },
+    "badge_sharpened": {
+      "type": "Badge",
+      "props": {
+        "text": "3 sharpened"
+      }
+    }
+  }
+}

@@ -2,7 +2,8 @@
 id: pr-tracker-shopify-ip-allowlist-null-slot
 created: 2026-10-14
 type: lesson
-links: [[pr-tracker-search-drops-archived-repo-prs]], [[pr-tracker-repo-deletion-loses-pr-permanently]], [[gh-search-prs-api-drift]]
+status: superseded
+links: [[pr-tracker-ip-allowlist-null-slot-class-generalizes-beyond-shopify]], [[pr-tracker-search-drops-archived-repo-prs]], [[pr-tracker-repo-deletion-loses-pr-permanently]], [[gh-search-prs-api-drift]]
 ---
 # pr-tracker GraphQL `search(is:pr author:aeonframework)` returns a null node for a Shopify-authored PR that sits behind an IP allow-list — n=3 scans (10-07, 10-10, 10-14) confirm the slot is persistent, not transient
 

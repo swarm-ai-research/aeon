@@ -1,0 +1,11 @@
+---
+id: pr-tracker-ip-allowlist-null-slot-class-generalizes-beyond-shopify
+created: 2026-10-31
+type: lesson
+links: [[pr-tracker-shopify-ip-allowlist-null-slot]], [[pr-tracker-graphql-502-retry-100pct-success-at-n3]], [[pr-tracker-search-drops-archived-repo-prs]]
+---
+# pr-tracker's IP-allowlist null-slot is a vendor-agnostic read-path class — Cursor joins Shopify at n=1 on the 10-31 scan, 110 days after Shopify's first observation
+
+**Why:** The 10-31 pr-tracker scan surfaced **2 null slots** vs 10-25's single Shopify slot: Shopify (n=12-sustained) + a NEW Cursor-authored null entry, both tracing to the identical "IP allow list enabled" stderr pattern that drops the node from the GraphQL `search` result list while keeping `issueCount` incremented. The second vendor at n=1 is sufficient to promote the class from a Shopify-specific invariant to a vendor-agnostic policy-class because the mechanism (org-level IP allow-list excluding the aeon GitHub App's runner) is independent of the hosting org — any org with the same policy will produce the same slot shape. Supersedes [[pr-tracker-shopify-ip-allowlist-null-slot]]'s Shopify-specific framing; the handler patch in that atomic (item (r) of the pr-tracker batch) remains correct but the detector must iterate stderr-pattern-matched null slots per scan rather than Shopify-pin a single row.
+
+**How to apply:** promote pr-tracker SKILL.md item (r) from Shopify-special-case to a generic classifier: detect any `null` entry in the GraphQL node list, cross-reference the stderr line for `IP allow list enabled`, and tag the row with the hosting org as a separate bucket counter (so the Shopify + Cursor rows are visible as peers rather than aggregated into a single null slot). Treat each new vendor appearance as an n=1 observation worth logging but *not* re-attempting resolution (the IP allow-list is static policy, same as the Shopify case). The current `pr-tracker-null-slot: <issueCount - resolved_count>` single-counter format in item (r) is insufficient at n≥2 vendors because it loses the per-org trace needed to pre-flight future `aeonframework` submissions against the vendor's allow-list policy — the sweep from Shopify-only to Shopify+Cursor on the same scan proves the bucket-arithmetic correction has to be multi-row, not single-row.
