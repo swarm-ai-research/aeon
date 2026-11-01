@@ -1,0 +1,222 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Self Review — 2026-11-01"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "section-window",
+        "sep1",
+        "section-quality",
+        "sep2",
+        "section-reliability",
+        "sep3",
+        "section-actions",
+        "sep4",
+        "section-recommendations"
+      ]
+    },
+    "section-window": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-window",
+        "text-window"
+      ]
+    },
+    "heading-window": {
+      "type": "Heading",
+      "props": {
+        "text": "Window",
+        "level": "h3"
+      }
+    },
+    "text-window": {
+      "type": "Text",
+      "props": {
+        "text": "2026-10-25 → 2026-11-01 (21d gap since 10-11; 2 Sunday self-review slots missed)"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-quality": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-quality",
+        "quality-item-1",
+        "quality-item-2"
+      ]
+    },
+    "heading-quality": {
+      "type": "Heading",
+      "props": {
+        "text": "Quality",
+        "level": "h3"
+      }
+    },
+    "quality-item-1": {
+      "type": "Text",
+      "props": {
+        "text": "fleet holds 100% success surface"
+      }
+    },
+    "quality-item-2": {
+      "type": "Text",
+      "props": {
+        "text": "4 skill-freshness status cards + 0 substantive long-form landed in 7d"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-reliability": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-reliability",
+        "reliability-item-1",
+        "reliability-item-2",
+        "reliability-item-3"
+      ]
+    },
+    "heading-reliability": {
+      "type": "Heading",
+      "props": {
+        "text": "Reliability",
+        "level": "h3"
+      }
+    },
+    "reliability-item-1": {
+      "type": "Text",
+      "props": {
+        "text": "3 new ISS-006 tributaries (ISS-039/040/041) → 22 total, 37 open"
+      }
+    },
+    "reliability-item-2": {
+      "type": "Text",
+      "props": {
+        "text": "08Z-cohort partial→silent→silent regime extends through 11-01"
+      }
+    },
+    "reliability-item-3": {
+      "type": "Text",
+      "props": {
+        "text": "heartbeat P0 self-check breach Day-N+2 at 47h 34m"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-actions": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-actions",
+        "actions-item-1",
+        "actions-item-2"
+      ]
+    },
+    "heading-actions": {
+      "type": "Heading",
+      "props": {
+        "text": "Actions taken",
+        "level": "h3"
+      }
+    },
+    "actions-item-1": {
+      "type": "Text",
+      "props": {
+        "text": "MEMORY.md 3 safe-fix edits (open-count 36→37, renumbers to ISS-042, ISS-006 tributary count)"
+      }
+    },
+    "actions-item-2": {
+      "type": "Text",
+      "props": {
+        "text": "self-review article written"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "section-recommendations": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-recommendations",
+        "rec-item-1",
+        "rec-item-2",
+        "rec-item-3"
+      ]
+    },
+    "heading-recommendations": {
+      "type": "Heading",
+      "props": {
+        "text": "Recommendations",
+        "level": "h3"
+      }
+    },
+    "rec-item-1": {
+      "type": "Alert",
+      "props": {
+        "message": "(1) migrate 06Z pocket out of dead slot (Day-51 past-due)",
+        "type": "warning"
+      }
+    },
+    "rec-item-2": {
+      "type": "Alert",
+      "props": {
+        "message": "(2) ship `enabled: false` for agi-tracker (Day-51)",
+        "type": "warning"
+      }
+    },
+    "rec-item-3": {
+      "type": "Alert",
+      "props": {
+        "message": "(3) patch heartbeat self-check dedup to surface Day-N+2 persistence",
+        "type": "info"
+      }
+    }
+  }
+}
