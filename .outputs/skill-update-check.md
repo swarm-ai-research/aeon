@@ -1,7 +1,7 @@
 ## Summary
 
-`skills.lock` does not exist at the repo root — no imported skills are tracked. Per the skill's step 1 instructions:
+`skills.lock` does not exist in this repository, so there are no imported skills to audit. Per the skill spec:
 
-- Logged `SKILL_UPDATE_CHECK_NO_LOCK: skills.lock not found — no imported skills tracked` to `memory/logs/2026-10-18.md`
-- No notification sent (skill explicitly says "Do NOT notify" in this case)
-- No report generated
+- **Logged** `SKILL_UPDATE_CHECK_NO_LOCK: skills.lock not found — no imported skills tracked` to `memory/logs/2026-11-01.md`
+- **No notification sent** (lock-missing is a silent stop condition)
+- **No report written** (nothing to report)
