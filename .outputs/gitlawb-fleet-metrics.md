@@ -1,11 +1,12 @@
 ## Summary
 
-Executed `gitlawb-fleet-metrics` skill — exited at pre-flight step 2 with `GLMETRICS_EMPTY`.
+Ran the `gitlawb-fleet-metrics` skill against today's state.
 
-- **Pre-flight 1 (node):** OK (v22.23.4).
-- **Pre-flight 2 (state):** `memory/gitlawb-fleet.json` is absent (and `memory/gitlawb-metrics.jsonl` likewise). Per skill: "if `memory/gitlawb-fleet.json` is missing or has no instances, log `GLMETRICS_EMPTY` and stop without notifying."
-- **CLI:** `prototypes/gitlawb-safety/fleet-cli.mjs` is present but was not invoked — no registry to read.
-- **Notify:** skipped (empty fleet is not news; silent stop by design).
-- **Files modified:** `memory/logs/2026-11-01.md` (new, log entry only).
+- **Pre-flight 1 (node)**: PASS — `node v22.23.4`.
+- **Pre-flight 2 (state exists)**: FAIL — `memory/gitlawb-fleet.json` is absent (and `memory/gitlawb-metrics.jsonl` is absent). Per the skill contract, this short-circuits as `GLMETRICS_EMPTY` and **stops without notifying** ("an empty fleet is not news"; same outcome as yesterday).
+- **Verdict**: `GLMETRICS_EMPTY`.
+- **Notify**: skipped by design.
 
-Follow-up: none required — the skill is paired with `gitlawb-fleet` for minting/registering instances; this observability surface will light up on its own once the fleet has members.
+**Files modified**: `memory/logs/2026-11-02.md` (new entry).
+
+**Follow-up**: none from this skill — the empty-fleet silence is intentional. If/when `gitlawb-fleet` mints its first instance and writes `memory/gitlawb-fleet.json`, tomorrow's run will produce a real snapshot card.
