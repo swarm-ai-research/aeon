@@ -1,26 +1,22 @@
 ## Summary
 
-Executed `skills/pr-review/SKILL.md` with `${var}=swarm-ai-research/swarm` + operator merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK) on 2026-11-01.
+Executed `skills/pr-review/SKILL.md` with `${var}=swarm-ai-research/swarm` + operator merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK). This is the second dispatch today (19th operator-triggered re-emission in the 10-12 → 11-01 series).
 
-**Queue:** 10 open PRs — 8 non-bot (#650/#649/#648/#647/#646/#645 by rsavitt, #518/#517 by go165) + 2 dependabot (#652, #651). All 10 SHAs byte-identical to 10-31 scan; no new opens/closes/merges since 10-25.
+**Queue:** 10 open PRs — 8 non-bot (#650/#649/#648/#647/#646/#645 by rsavitt, #518/#517 by go165) + 2 dependabot (#652, #651). All 10 SHAs byte-identical to today's earlier `pr-review` log section and the 10-31 ×2 / 10-29 entries.
 
-**Skipped 10/10** per SKILL rules:
-- 2 bot-author (dependabot): #652, #651
-- 8 dup-SHA (headRefOid matches prior 10-29/10-31 logs within 2-day dedup window)
+**Skipped 10/10:**
+- 8 PRs dup-SHA against the earlier 11-01 log section (within 2-day dedup window):
+  - #650 `31dbe49`, #649 `ecc31b8`, #648 `3f6a577`, #647 `b13ccc9`, #646 `47f451b`, #645 `1f3d01e`, #518 `a4773a2`, #517 `1807fec`
+- 2 dependabot bot-author skips: #652, #651
 
-Full-skip cycle → no notify emitted (per SKILL: "If every PR was skipped, do not notify — just log.").
+**Full-skip run → no notify** per SKILL ("If every PR was skipped, do not notify — just log"). Standing 403 Day-45+ on `addPullRequestReview` for swarm would have blocked any post regardless; no API budget spent on the post attempt. `memory/triaged-prs.json` not touched per the action-queue gate.
 
-**Verdicts carry forward unchanged from 10-29/10-31** (identical SHAs, identical quality signals, identical operator policy):
-- **APPROVE 5/5**: #649, #648, #647, #645, #518
-- **REQUEST_CHANGES**: #650 + #646 (3/5 — cross-PR duplication on identical 5-file surface), #517 (1/5 — fork PR, no CI on fork SHA, 709-LOC prod change with zero quality evidence)
-- **BLOCK**: none — no critical security or correctness break across the 8-PR non-bot queue
+**Verdicts carried forward unchanged (10-29 / 10-31 ×2 / earlier 11-01 all identical signals today):**
+- **APPROVE 5/5:** #649, #648, #647, #645, #518
+- **REQUEST_CHANGES 3/5:** #650 + #646 (cross-PR duplication on identical 5-file surface — both fail merge-gate until one is closed)
+- **REQUEST_CHANGES 1/5:** #517 (fork PR, no CI runs on fork SHA, 709-LOC prod code change with zero quality evidence)
+- **BLOCK: none** — no critical security or correctness risk across the 8-PR non-bot queue
 
-**Standing pathology (Day-45):** aeon GitHub App lacks `pull_requests: write` on swarm — `addPullRequestReview` 403 is 45 days running. No test post attempted today to conserve API budget. This is the 18th consecutive full-skip cycle per `[[pr-review-dedup-saturation-freezes-write-blocked-repo-queues]]`; dedup-SHA + write-block mutually reinforce the freeze.
+**Files modified:** `memory/logs/2026-11-01.md` (new `## pr-review` section + summary appended at EOF).
 
-**Files modified:**
-- `memory/logs/2026-11-01.md` (appended pr-review section + summary)
-
-**Follow-up (standing, unchanged):**
-- Install aeon GitHub App with `pull_requests: write` on swarm, OR document swarm as report-only
-- Patch pr-review SKILL to gate log-based dup-SHA check on prior-post success
-- Refresh MEMORY.md "swarm PR queue 10 open — n=16" bullet to n=18 / Day-45 / 38-day freeze
+**Follow-ups (standing, unchanged):** (i) install aeon GitHub App with `pull_requests: write` on swarm OR document swarm as report-only (Day-45+ overdue, 19 consecutive full-skip cycles); (ii) `pr-review` SKILL patch: gate `memory/triaged-prs.json` write + log-based dup-SHA check on prior-post success; (iii) MEMORY.md "swarm PR queue n=16 / 37-day freeze" bullet needs refresh to n=19 / Day-45+ / 38-day freeze on next MEMORY-maintenance pass.
