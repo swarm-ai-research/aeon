@@ -1,13 +1,14 @@
+Notification is suppressed (FRESHNESS_NO_CHANGE). The fleet verdict is FRESHNESS_OK with an identical fingerprint to yesterday's run, so `./notify` is skipped per the dedup rule.
+
 ## Summary
 
-Ran `skill-freshness` for 2026-11-01.
+**Verdict:** ✅ FRESHNESS_OK → status FRESHNESS_NO_CHANGE (no notification sent)
 
-**Verdict: ✅ FRESHNESS_OK** — 44 enabled skills audited, 9 dependencies checked, 0 flagged.
-
-Key findings:
-- No enabled consumer has an explicit cross-skill article dependency, so no stale articles trigger fleet flags
-- Chains block is fully commented out → 0 explicit consume edges
-- All 9 assessed state/topic file dependencies appear fresh (sandbox mtime limitation means non-article files are indeterminate, treated as OK)
-- **Notable**: `vuln-scan` article is at 360h (~15 days) and will cross the 384h STALE threshold in ~24h; no cross-skill consumer means no flag fires, but it's the nearest approaching stale signal in the table
-
-Notification suppressed (FRESHNESS_OK — silence is the signal). Files committed: `articles/skill-freshness-2026-11-01.md`, `memory/topics/skill-freshness-state.json`, `memory/logs/2026-11-01.md`.
+- **Audited**: 44 enabled skills, 9 dependencies, 0 flagged
+- **Explicit chain edges**: 0 (chains block fully commented out in aeon.yml)
+- **Implicit deps assessed**: planner/notegraph/suggest-edges/skillpacks state files + surplus-pulse/compute-pulse/compute-macro-correlate/skill-freshness topic files — all indeterminate OK (GHA shallow-clone mtime blindness per [[skill-freshness-mtime-blind-in-gha]])
+- **Notable movements vs yesterday**:
+  - `self-review` recovered from 21d STALE → 1d OK (new article landed in the `07a6718` reflect commit)
+  - `vuln-scan` now ~378h old, crossing the 384h STALE boundary in ~6h; no cross-skill consumer so no flag fires
+- **Files written**: `articles/skill-freshness-2026-11-02.md`, `memory/topics/skill-freshness-state.json` (timestamp updated), `memory/logs/2026-11-02.md`
+- **Dedup**: fingerprint `da39a3ee…` (empty flagged set) matches yesterday → FRESHNESS_NO_CHANGE, notify suppressed
