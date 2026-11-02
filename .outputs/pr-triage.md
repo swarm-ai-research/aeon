@@ -1,23 +1,24 @@
+`PR_TRIAGE_OK no-candidates` — nothing to do and no notification per the step-10 gate.
+
 ## Summary
 
-Executed `skills/pr-triage/SKILL.md` in repo mode on `swarm-ai-research/swarm`.
+**Mode:** repo (`var=swarm-ai-research/swarm`)
 
-**Verdicts (6 triaged, 2 bot-PRs skipped):**
-- **#645** ACCEPTED — collusion group-concentration null calibration, +218/-16 (size 234)
-- **#646** DEFER — pace-layers note + `scripts/layer_lag.py`, size 962 > 500, no `large-ok`
-- **#647** ACCEPTED — docs/research "How I Work with Agents" lessons, size 177
-- **#648** DEFER — null-model audit of collusion evidence, size 727 > 500, no `large-ok`
-- **#649** ACCEPTED — docs/research avalon-m1 cross-link/grid fix, size 19
-- **#650** DEFER — pace-layers v2 variant with `scripts/layer_lag.py`, size 978 > 500, no `large-ok`
+**Result:** 0 triaged, 8 skipped, 0 overflow. Terminal state `PR_TRIAGE_OK no-candidates`.
 
-**Skipped bots:** #651, #652 (`app/dependabot` → route to auto-merge / pr-review).
+**Breakdown of the 8 open PRs in the 14-day window:**
+- **2 bot (skipped — trusted set):** #652 `app/dependabot` langgraph 1.2.17, #651 `app/dependabot` langchain-core 1.7.0 — these route to `auto-merge`/`pr-review`, not triage.
+- **6 rsavitt (skipped — already triaged at current head SHA per `memory/triaged-prs.json`):**
+  - #650 `31dbe49` → DEFER (pace-layers +978)
+  - #649 `ecc31b8` → ACCEPTED (avalon-m1 cross-link fix)
+  - #648 `3f6a577` → DEFER (null-model audit +720)
+  - #647 `b13ccc9` → ACCEPTED (how-i-work-with-agents +177)
+  - #646 `47f451b` → DEFER (pace-layers +962)
+  - #645 `1f3d01e` → ACCEPTED (collusion activity-null calibration +218)
 
-**Writes blocked:** 403 `addComment` on swarm (standing issue per MEMORY.md's n=14 pr-review freeze). All 6 comment/label operations logged `PR_TRIAGE_NO_PERMISSION`; verdicts recorded in `memory/triaged-prs.json` state only, no PR-side signal posted. Operator convention from prior runs preserved.
+Head SHAs are byte-identical to the 2026-10-31 triage snapshot — no new pushes have landed, so re-triage is correctly suppressed by the `(number, headRefOid)` idempotency key.
 
 **Files modified:**
-- `memory/triaged-prs.json` — appended 6 new entries, pruned 2 >90d-old entries (now 23 total)
-- `memory/logs/2026-10-31.md` — created
+- `memory/logs/2026-11-02.md` — new log entry with full skip accounting.
 
-**Notify:** no — no OUT-OF-SCOPE, no first-PR welcome (rsavitt has 9 prior triage records).
-
-**Follow-up:** Standing swarm write-blockade remains; verdicts stay client-side only until maintainer either installs the aeon app with `pull_requests: write` or documents swarm as report-only. #646/#650 touch the same `scripts/layer_lag.py` material on different branches — maintainer picks the carry-forward.
+**Follow-up:** none required this run. Standing items (aeon GitHub App 403 on swarm `addComment`, write-blocked repo queue freeze) are tracked in existing memory atoms and need no new tributary filing today.
