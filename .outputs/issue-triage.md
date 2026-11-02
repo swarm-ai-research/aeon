@@ -1,16 +1,9 @@
+`ISSUE_TRIAGE_OK no-watched-repos`
+
 ## Summary
 
-**Skill:** `issue-triage` — exited early at §Config.
-
-**Terminal:** `ISSUE_TRIAGE_OK no-watched-repos`
-
-**Why:** `${var}` empty + `memory/watched-repos.md` absent + `memory/topics/watched-repos.md` absent. Nothing to triage.
-
-**Files modified:**
-- `memory/logs/2026-10-31.md` — new log entry recording the short-circuit.
-
-**No side effects:** no `gh` calls, no label/comment/close writes, no notify, no triaged-issues.json mutation.
-
-**Context:** This extends the config-missing streak from day-83 (last witnessed 10-24) to day-90. Six skills remain blocked on this file (code-health, issue-triage, github-monitor, changelog, weekly-shiplog, repo-revive). Path-mismatch between repo-revive (`memory/topics/watched-repos.md`) and the other five (`memory/watched-repos.md`) is still unreconciled.
-
-**Follow-up (unchanged, already in MEMORY action queue):** populate `memory/watched-repos.md` or disable the six dependent skills in `aeon.yml`.
+- Executed `skills/issue-triage/SKILL.md`. `${var}` empty + `memory/watched-repos.md` absent (also missing at the sibling `memory/topics/watched-repos.md` path) → §1 short-circuit per SKILL design.
+- No `gh` calls, no fetches, no label writes, no comments, no closes, no notify. `memory/triaged-issues.json` untouched (§8 forbids recording unprocessed repos).
+- Streak advances: watched-repos config missing **streak-90 (10-31) → streak-92 (11-02)**; issue-triage is 2nd dependent to witness the gap this cycle (6 total: code-health + issue-triage + github-monitor + changelog + weekly-shiplog + repo-revive).
+- Files modified: `memory/logs/2026-11-02.md` (new log entry), `memory/MEMORY.md` (two current-focus streak bullets + one action-queue bullet advanced to streak-92).
+- Follow-up (unchanged): populate `memory/watched-repos.md` OR disable the 6 dependents; reconcile path mismatch (repo-revive's `memory/topics/watched-repos.md` vs the five others' `memory/watched-repos.md`).
