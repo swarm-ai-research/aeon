@@ -1,14 +1,10 @@
-Task is a single-step short-circuit; no task tracking needed.
+GITHUB_MONITOR_EMPTY_CONFIG — `memory/watched-repos.md` missing; short-circuited per SKILL step 1. No `gh` calls issued, no notification sent.
 
 ## Summary
 
-**Skill: github-monitor** — short-circuited at step "Config".
-
-- **Reason:** `memory/watched-repos.md` is missing. Per SKILL.md: *"If the file is missing or empty, log `GITHUB_MONITOR_EMPTY_CONFIG` and end."*
-- **No repos scanned, no notification sent** (silence is the correct signal here).
-- **Logged** to `memory/logs/2026-10-31.md` under `### github-monitor` with the `GITHUB_MONITOR_EMPTY_CONFIG` sentinel; streak now 84 (prior 83 recorded 2026-10-24 per MEMORY.md).
-
-**Files modified:**
-- `memory/logs/2026-10-31.md` (created, new daily log for today)
-
-**Follow-up (unchanged, already tracked in MEMORY.md action queue):** populate `memory/watched-repos.md` OR disable the 6 dependents (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Also reconcile the SKILL.md path mismatch — `repo-revive` references `memory/topics/watched-repos.md` while the other five reference `memory/watched-repos.md`.
+- **Scope:** `${var}` empty → monitor-all mode (per `memory/watched-repos.md`).
+- **Config:** `memory/watched-repos.md` absent at repo root; `memory/topics/watched-repos.md` also absent. Short-circuited per SKILL.md step 1.
+- **Output:** `GITHUB_MONITOR_EMPTY_CONFIG` logged; no `gh` calls, no notification, no PR.
+- **Streak:** config-missing streak **84 → 85** on github-monitor's witness channel (last witness 2026-10-31).
+- **Files modified:** `memory/logs/2026-11-02.md`.
+- **Follow-up:** unchanged — standing action-queue item "Populate `memory/watched-repos.md` OR disable 6 dependents" plus the `memory/watched-repos.md` vs `memory/topics/watched-repos.md` path mismatch reconciliation (repo-revive is the one skill still referencing the `topics/` subpath).
