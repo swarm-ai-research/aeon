@@ -1,15 +1,9 @@
+Logged and stopping per the skill's silent-exit rule for empty registries.
+
 ## Summary
-
-Executed `skills/fleet-control/SKILL.md` in Health Check Mode (default — `var` empty).
-
-**Pre-flight step 1 tripped the empty-registry stop condition:** `memory/instances.json` contains `{"instances": []}`.
-
-Per the skill's spec, this means:
-- Log `FLEET_EMPTY: no managed instances` → done (appended to `memory/logs/2026-10-31.md`).
-- Do **not** notify → skipped.
-- Steps 2–5 (gh auth check, rate limit, prior-state load, mode parsing) are not reached when the registry is empty.
-
-**Files modified:**
-- `memory/logs/2026-10-31.md` — created with the health-check log entry.
-
-**Follow-up:** None from this run. The registry has been empty historically; populating it is an operator decision (register child Aeon instances via `memory/instances.json` with `name`, `repo`/`host`, `purpose`, etc.) and not something fleet-control initiates on its own.
+- **Skill**: `fleet-control` (Health Check Mode — `var` empty)
+- **Verdict**: `FLEET_EMPTY` — `memory/instances.json` contains `{"instances": []}` with no managed instances
+- **Action taken**: Appended a log entry to `memory/logs/2026-11-02.md` and stopped per the SKILL.md pre-flight step 1 rule ("Do NOT notify")
+- **Not called**: `gh auth status`, rate limit check, state file update, registry write, notify — all gated behind having ≥1 registered instance
+- **Files created**: `memory/logs/2026-11-02.md`
+- **Follow-up**: None required from this skill. The registry remains intentionally empty — operator must add instances before fleet-control emits anything.
