@@ -1,0 +1,33 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "weekly-shiplog"
+      },
+      "children": [
+        "heading_main",
+        "alert_no_repos"
+      ]
+    },
+    "heading_main": {
+      "type": "Heading",
+      "props": {
+        "text": "Weekly Shiplog — 2026-11-02",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "alert_no_repos": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "SHIPLOG_NO_REPOS",
+        "message": "memory/watched-repos.md is empty or missing. Add a repo to enable this skill."
+      },
+      "children": []
+    }
+  }
+}
