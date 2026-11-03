@@ -1,0 +1,101 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "batch-health"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "header-section",
+        "alert-section",
+        "analysis-section"
+      ]
+    },
+    "header-section": {
+      "type": "Heading",
+      "props": {
+        "text": "batch gap — 2026-11-03",
+        "level": "h2"
+      }
+    },
+    "alert-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alert-missed",
+        "skills-list"
+      ]
+    },
+    "alert-missed": {
+      "type": "Alert",
+      "props": {
+        "title": "2 scheduled skills didn't run",
+        "type": "warning"
+      }
+    },
+    "skills-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "skill-planner",
+        "skill-compute-futures"
+      ]
+    },
+    "skill-planner": {
+      "type": "Badge",
+      "props": {
+        "text": "planner (30 6 * * *)",
+        "variant": "outline"
+      }
+    },
+    "skill-compute-futures": {
+      "type": "Badge",
+      "props": {
+        "text": "compute-futures-eda (0 6 * * *)",
+        "variant": "outline"
+      }
+    },
+    "analysis-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "separator-1",
+        "analysis-text"
+      ]
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "analysis-text": {
+      "type": "Text",
+      "props": {
+        "text": "Isolated miss — transient cron delay likely. Monitoring. Tuesday DOM=3 (odd) — only 2 skills expected in window = 100% miss, but sub-threshold under current ≥3 OUTAGE rule (known DOM-parity artifact).",
+        "variant": "body"
+      }
+    }
+  }
+}
