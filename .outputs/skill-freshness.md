@@ -1,14 +1,17 @@
-Notification is suppressed (FRESHNESS_NO_CHANGE). The fleet verdict is FRESHNESS_OK with an identical fingerprint to yesterday's run, so `./notify` is skipped per the dedup rule.
-
 ## Summary
 
-**Verdict:** ✅ FRESHNESS_OK → status FRESHNESS_NO_CHANGE (no notification sent)
+Skill-freshness run for 2026-11-03 completed.
 
-- **Audited**: 44 enabled skills, 9 dependencies, 0 flagged
-- **Explicit chain edges**: 0 (chains block fully commented out in aeon.yml)
-- **Implicit deps assessed**: planner/notegraph/suggest-edges/skillpacks state files + surplus-pulse/compute-pulse/compute-macro-correlate/skill-freshness topic files — all indeterminate OK (GHA shallow-clone mtime blindness per [[skill-freshness-mtime-blind-in-gha]])
-- **Notable movements vs yesterday**:
-  - `self-review` recovered from 21d STALE → 1d OK (new article landed in the `07a6718` reflect commit)
-  - `vuln-scan` now ~378h old, crossing the 384h STALE boundary in ~6h; no cross-skill consumer so no flag fires
-- **Files written**: `articles/skill-freshness-2026-11-02.md`, `memory/topics/skill-freshness-state.json` (timestamp updated), `memory/logs/2026-11-02.md`
-- **Dedup**: fingerprint `da39a3ee…` (empty flagged set) matches yesterday → FRESHNESS_NO_CHANGE, notify suppressed
+**Verdict: ✅ FRESHNESS_OK — 44 consumers · 9 deps · 0 flagged**
+
+**Status: FRESHNESS_NO_CHANGE** — fingerprint identical to yesterday's run (both have zero flagged deps); within the 7-day re-emit window. No notification sent.
+
+**Notable movements vs yesterday:**
+- `vuln-scan` crossed the STALE threshold — now 408h old (17d since 2026-10-17), past the 384h boundary. Self-only consumer, no fleet flag.
+- `skill-freshness` article renewed — yesterday's 2026-11-02 article is 24h old, within the 28h daily threshold.
+- `skill-analytics` remains at WARN (312h / 13d, threshold 192h).
+
+**Files committed:**
+- `articles/skill-freshness-2026-11-03.md` — today's report
+- `memory/topics/skill-freshness-state.json` — updated `last_run_at` to 2026-11-03T09:52:07Z
+- `memory/logs/2026-11-03.md` — daily log entry created
