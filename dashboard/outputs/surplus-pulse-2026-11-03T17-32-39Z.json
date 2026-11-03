@@ -1,0 +1,191 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Surplus Pulse",
+        "description": "2026-11-03"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "spot-section",
+        "sep-1",
+        "curve-section",
+        "sep-2",
+        "rail-section",
+        "sep-3",
+        "read-section"
+      ]
+    },
+    "spot-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "spot-heading",
+        "spot-stat"
+      ]
+    },
+    "spot-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Spot",
+        "level": "h3"
+      }
+    },
+    "spot-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Llama 4 Scout (Surplus Intelligence)",
+        "value": "$0.0764/M"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "curve-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "curve-heading",
+        "curve-event-1",
+        "curve-event-2",
+        "curve-event-3"
+      ]
+    },
+    "curve-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Curve",
+        "level": "h3"
+      }
+    },
+    "curve-event-1": {
+      "type": "Stat",
+      "props": {
+        "label": "Hyperscaler H100 reserve @ R6",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "curve-event-2": {
+      "type": "Stat",
+      "props": {
+        "label": "DeepSeek V3.2 open-weights flood @ R13",
+        "value": "−44.2%",
+        "trend": "down"
+      }
+    },
+    "curve-event-3": {
+      "type": "Stat",
+      "props": {
+        "label": "Agent-platform demand surge @ R20",
+        "value": "+50.7%",
+        "trend": "up"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "rail-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rail-heading",
+        "rail-line-1",
+        "rail-line-2"
+      ]
+    },
+    "rail-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Rail",
+        "level": "h3"
+      }
+    },
+    "rail-line-1": {
+      "type": "Text",
+      "props": {
+        "text": "x402 on Base/USDC — Surplus x402"
+      }
+    },
+    "rail-line-2": {
+      "type": "Text",
+      "props": {
+        "text": "surplusintelligence.ai inference endpoint, eip155:8453 · USDC · $0.0033/call"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "read-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "read-heading",
+        "read-body"
+      ]
+    },
+    "read-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "One-line Read",
+        "level": "h3"
+      }
+    },
+    "read-body": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "xs"
+      },
+      "children": [
+        "read-line-1",
+        "read-line-2"
+      ]
+    },
+    "read-line-1": {
+      "type": "Text",
+      "props": {
+        "text": "Catalog mode (SURPLUS_PRICING_URL unset) — deterministic 3-event cycle, final spot $0.1149"
+      }
+    },
+    "read-line-2": {
+      "type": "Text",
+      "props": {
+        "text": "n=7 consecutive catalog-mode replicas (10-07/08/10/17/22/23 + today)"
+      }
+    }
+  }
+}
