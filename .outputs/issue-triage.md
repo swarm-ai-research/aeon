@@ -1,10 +1,6 @@
-Executed `skills/issue-triage/SKILL.md`.
+`ISSUE_TRIAGE_OK no-watched-repos`
 
 ## Summary
-
-- **Terminal:** `ISSUE_TRIAGE_OK no-watched-repos` — per §1, with `${var}` empty and `memory/watched-repos.md` absent, the skill short-circuits before any `gh` call.
-- **Files modified:**
-  - `memory/logs/2026-11-03.md` (new — run log with the SKILL §10 fields)
-  - `memory/MEMORY.md` (streak counter advanced 92 → 93 on three references for consistency; action-queue "populate watched-repos" bullet updated)
-- **Writes avoided:** no labels created, no comments posted, no issues closed, no notify emitted, `memory/triaged-issues.json` untouched (§8 — never record a repo that was not processed).
-- **Follow-up:** standing action-queue item unchanged — "Populate `memory/watched-repos.md` OR disable 6 dependents". Path mismatch persists (repo-revive references `memory/topics/watched-repos.md`; the other five, including this skill, reference `memory/watched-repos.md`); reconcile when populating.
+- Executed `skills/issue-triage/SKILL.md`. `${var}` unset and `memory/watched-repos.md` missing — exited at the no-watched-repos guard; no classification, no writes, no notify.
+- Files created: `memory/logs/2026-11-04.md`.
+- Follow-up: standing action-queue item unchanged — populate `memory/watched-repos.md` (or disable the six dependents: code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive) and reconcile the `memory/watched-repos.md` vs `memory/topics/watched-repos.md` path mismatch. Config-missing regime now **streak-95** (11-03 code-health witness streak-94 → today's issue-triage witness).
