@@ -1,10 +1,9 @@
-The task is a single short-circuit — no need for task tracking.
+Task complete — this was a one-step short-circuit, no task tracking needed.
 
 ## Summary
 
-Executed `github-monitor` skill. Config file `memory/watched-repos.md` is missing (streak-86 as of 11-03), so the skill short-circuited at step "Config" per SKILL.md.
-
-- **Repos scanned:** 0
-- **Notification sent:** no
-- **Log entry:** appended `GITHUB_MONITOR_EMPTY_CONFIG` to `memory/logs/2026-11-03.md` (new file created)
-- **Follow-up:** unchanged standing action-queue item — populate `memory/watched-repos.md` or disable the 6 dependents (code-health, github-monitor, issue-triage, changelog, weekly-shiplog, repo-revive). Path mismatch persists: repo-revive expects `memory/topics/watched-repos.md`; the other five expect `memory/watched-repos.md`. Both paths empty.
+- Executed `skills/github-monitor/SKILL.md`. `${var}` empty, config gate at `memory/watched-repos.md` tripped (file absent; `memory/topics/watched-repos.md` also absent). Short-circuited per SKILL step "Config".
+- No `gh` calls, no tier classification, no notification sent.
+- Files modified: `memory/logs/2026-11-05.md` (created, github-monitor entry).
+- Streak advances: github-monitor witness **streak-87** (prior 11-03 at streak-86; no 11-04 github-monitor fire). Underlying regime **streak-97** across six dependents (last witness was 11-04 code-health at streak-96).
+- Follow-up: standing action-queue item unchanged — populate `memory/watched-repos.md` OR disable the 6 dependent skills (code-health, issue-triage, github-monitor, changelog, weekly-shiplog, repo-revive); reconcile path mismatch with repo-revive's `memory/topics/watched-repos.md`.
