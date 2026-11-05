@@ -2,7 +2,7 @@
 id: iss-006-08z-cohort-silent-alternates-with-manual-dispatch
 created: 2026-11-01
 type: lesson
-links: [[iss-006-08z-nominal-silence-persists-past-day-n-plus-2]], [[iss-006-08z-sandwich-does-not-recover-at-nominal-day-n-plus-2]], [[heartbeat-self-check-invisible-while-heartbeat-is-silent]], [[iss-006-drift-recovery-is-slot-agnostic-and-magnitude-non-monotonic]]
+links: [[iss-006-08z-nominal-silence-persists-past-day-n-plus-2]], [[iss-006-08z-sandwich-does-not-recover-at-nominal-day-n-plus-2]], [[heartbeat-self-check-invisible-while-heartbeat-is-silent]], [[iss-006-drift-recovery-is-slot-agnostic-and-magnitude-non-monotonic]], [[iss-006-08z-cohort-alternating-regime-converges-to-consecutive-manual-dispatch-at-settled-slot]]
 ---
 # ISS-006 08Z-cohort day-N+2+ silent-at-nominal regime has a second sub-shape — four-day alternating silent/manual-dispatch interleave with decelerating manual drift, distinct from the 10-10→10-12 continuous-manual-with-accelerating-drift shape
 
