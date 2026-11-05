@@ -1,13 +1,27 @@
-Logged the merge-gate decision for the swarm queue. Verdict summary:
+## Summary
 
-**Merge-gate verdicts (carried forward, diff byte-identical to last review)**
-- **APPROVE** (5/5): `#649`, `#648`, `#647`, `#645`, `#518`
-- **REQUEST_CHANGES** (3/5): `#650` + `#646` — cross-PR duplication on identical 5-file surface, close one before either can merge
-- **REQUEST_CHANGES` (1/5): `#517` — fork PR, no CI runs on fork SHA, 709-LOC prod change with zero quality evidence
-- **BLOCK**: none — no critical security or correctness risk across the 8 non-bot PRs
+Executed `skills/pr-review/SKILL.md` with `${var}=swarm-ai-research/swarm` + operator merge-gate policy (APPROVE / REQUEST_CHANGES / BLOCK) — series n=21.
 
-**Skipped 10/10**: 8 non-bot PRs hit dup-SHA against the 11-03 log (all 8 head SHAs byte-identical, no `updatedAt` movement since 2026-10-25T21:30Z); 2 dependabot PRs hit bot-author skip. Full-skip run → no `./notify` emitted per SKILL contract.
+**Queue:** 12 open PRs (+2 vs 11-04) — 8 non-bot + 4 dependabot.
+- Fresh dependabot rotation: #656, #655 are new opens; #654 and #653 supersede yesterday's #651/#652.
+- All 8 non-bot SHAs byte-identical to 11-04 log; last non-bot activity still 2026-10-25T21:30Z (11-day freeze).
 
-**Standing pathology**: n=20 consecutive full-skip cycle on swarm, 41-day queue freeze, 48-day 403 write-block on `addPullRequestReview` per [[aeon-app-no-write-on-swarm-repo]] — no remote verdict lands. Follow-ups unchanged: install aeon GitHub App with `pull_requests: write` or document swarm as report-only; gate `triaged-prs.json`/log-based dedup on prior-post success.
+**Skipped 12/12:** 4 bot-author skips + 8 dup-SHA skips (all within the 2-day log window). Bot-reviewer-recently probe confirmed no fresh pile-on. Per SKILL "full-skip → do not notify — just log." Standing 403 `addPullRequestReview` (Day-49) also precludes posting had any PR qualified; `memory/triaged-prs.json` not written.
 
-Files modified: `memory/logs/2026-11-04.md` (new).
+**Standing merge-gate verdicts carry forward unchanged from 10-29/10-31/11-01/11-03/11-04** (diff + CI identical, operator policy identical):
+
+| PR | Verdict | Confidence | One-line rationale |
+|---|---|---|---|
+| #649 | **APPROVE** | 5/5 | docs cross-link + side-channel grid claim fix; evidence sufficient |
+| #648 | **APPROVE** | 5/5 | null-model audit + regression tests |
+| #647 | **APPROVE** | 5/5 | Ball lessons docs |
+| #645 | **APPROVE** | 5/5 | collusion calibration + activity null + CI control |
+| #518 | **APPROVE** | 5/5 | YAML schema validator; UNSTABLE is Vercel-auth-only noise |
+| #650 | **REQUEST_CHANGES** | 3/5 | cross-PR duplication with #646 on identical 5-file surface |
+| #646 | **REQUEST_CHANGES** | 3/5 | cross-PR duplication with #650; operator must close one |
+| #517 | **REQUEST_CHANGES** | 1/5 | fork PR, no CI runs on fork SHA, 709-LOC prod code with zero quality evidence |
+| | **BLOCK** | | none — no critical security or correctness break across the 8-PR non-bot queue |
+
+**Files modified:** `memory/logs/2026-11-05.md` (new). No notify emitted. `memory/triaged-prs.json` untouched.
+
+**Follow-up:** (i) install aeon GitHub App with `pull_requests: write` on swarm OR document swarm as report-only — Day-49+ overdue, 21st full-skip cycle; (ii) pr-review SKILL patch to gate dup-SHA on prior-post success; (iii) MEMORY.md swarm bullet needs refresh to n=21 / Day-49 / 12-PR queue / 11-day freeze on next memory consolidation.
