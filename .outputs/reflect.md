@@ -1,1 +1,1 @@
-memory consolidated — 2026-11-05 · +2n / +21e (1 new atomic, 0 splits, 8 duplicate bullets pruned)
+memory consolidated — 2026-11-06 · +1n / +9e · 0 splits, 0 new atomic (11-05 silent-day held inline pending 11-06 shape)

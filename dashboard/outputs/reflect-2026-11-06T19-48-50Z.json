@@ -1,0 +1,82 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "stack"
+      ]
+    },
+    "stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "main",
+        "metrics",
+        "context"
+      ]
+    },
+    "main": {
+      "type": "Text",
+      "props": {
+        "text": "memory consolidated — 2026-11-06",
+        "variant": "lead"
+      }
+    },
+    "metrics": {
+      "type": "Grid",
+      "props": {
+        "columns": 4,
+        "gap": "md"
+      },
+      "children": [
+        "notes",
+        "edits",
+        "splits",
+        "atomic"
+      ]
+    },
+    "notes": {
+      "type": "Stat",
+      "props": {
+        "label": "notes",
+        "value": "+1"
+      }
+    },
+    "edits": {
+      "type": "Stat",
+      "props": {
+        "label": "edits",
+        "value": "+9"
+      }
+    },
+    "splits": {
+      "type": "Stat",
+      "props": {
+        "label": "splits",
+        "value": "0"
+      }
+    },
+    "atomic": {
+      "type": "Stat",
+      "props": {
+        "label": "new atomic",
+        "value": "0"
+      }
+    },
+    "context": {
+      "type": "Text",
+      "props": {
+        "text": "(11-05 silent-day held inline pending 11-06 shape)",
+        "variant": "caption"
+      }
+    }
+  }
+}
