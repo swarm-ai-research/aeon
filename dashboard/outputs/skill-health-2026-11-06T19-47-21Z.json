@@ -1,0 +1,339 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health 2026-11-06",
+        "description": "steady-state Day-130"
+      },
+      "children": [
+        "status_alert",
+        "sep_1",
+        "system_info",
+        "sep_2",
+        "issue_section",
+        "sep_3",
+        "stalest_section",
+        "sep_4",
+        "no_data_section",
+        "sep_5",
+        "healthy_section",
+        "sep_6",
+        "issues_section"
+      ]
+    },
+    "status_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "HEALTH DEGRADED",
+        "message": "38 skills affected | Hash e27c0ac60367e7e5 unchanged | Elapsed 25.2h (exceeds 24h daily cadence)",
+        "type": "error"
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "system_info": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_degraded",
+        "stat_day",
+        "stat_elapsed"
+      ]
+    },
+    "stat_degraded": {
+      "type": "Stat",
+      "props": {
+        "label": "Degraded Skills",
+        "value": "38"
+      }
+    },
+    "stat_day": {
+      "type": "Stat",
+      "props": {
+        "label": "Current Day",
+        "value": "130"
+      }
+    },
+    "stat_elapsed": {
+      "type": "Stat",
+      "props": {
+        "label": "Elapsed Time",
+        "value": "25.2h"
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issue_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issue_heading",
+        "issue_alert"
+      ]
+    },
+    "issue_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Systemic Issue",
+        "level": "h3"
+      }
+    },
+    "issue_alert": {
+      "type": "Alert",
+      "props": {
+        "title": "ISS-001 OAuth-outage denominator burn",
+        "message": "All 38 degraded skills affected | last_status=success | cf=0 | success_rate frozen 2026-06-06 to 2026-06-20 (outage tail)",
+        "type": "warning"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stalest_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stalest_heading",
+        "stalest_table"
+      ]
+    },
+    "stalest_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top 5 Stalest Skills",
+        "level": "h3"
+      }
+    },
+    "stalest_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Days Since Update",
+          "Related Issue"
+        ],
+        "rows": [
+          [
+            "skill-repair",
+            "140",
+            "ISS-001 residue"
+          ],
+          [
+            "skill-evals",
+            "54",
+            "ISS-006"
+          ],
+          [
+            "compute-macro-correlate",
+            "41",
+            "ISS-006 weekly silent-slots"
+          ],
+          [
+            "cost-report",
+            "40",
+            "ISS-006 weekly silent-slots"
+          ],
+          [
+            "vuln-scanner",
+            "20",
+            "ISS-006 weekly silent-slots"
+          ]
+        ]
+      }
+    },
+    "sep_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "no_data_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "no_data_heading",
+        "no_data_text"
+      ]
+    },
+    "no_data_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "No Data (120d+ Silent)",
+        "level": "h3"
+      }
+    },
+    "no_data_text": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "no_data_item_1",
+        "no_data_item_2",
+        "no_data_category"
+      ]
+    },
+    "no_data_item_1": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "outline"
+      }
+    },
+    "no_data_item_2": {
+      "type": "Badge",
+      "props": {
+        "text": "run-frequency-guard",
+        "variant": "outline"
+      }
+    },
+    "no_data_category": {
+      "type": "Text",
+      "props": {
+        "text": "Category: DISPATCH-SKILL",
+        "variant": "caption"
+      }
+    },
+    "sep_5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "healthy_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "healthy_heading",
+        "healthy_badges"
+      ]
+    },
+    "healthy_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Healthy Skills",
+        "level": "h3"
+      }
+    },
+    "healthy_badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "healthy_badge_1",
+        "healthy_badge_2",
+        "healthy_badge_3",
+        "healthy_badge_4"
+      ]
+    },
+    "healthy_badge_1": {
+      "type": "Badge",
+      "props": {
+        "text": "agi-tracker",
+        "variant": "secondary"
+      }
+    },
+    "healthy_badge_2": {
+      "type": "Badge",
+      "props": {
+        "text": "config-validator",
+        "variant": "secondary"
+      }
+    },
+    "healthy_badge_3": {
+      "type": "Badge",
+      "props": {
+        "text": "swarm-safety-eval",
+        "variant": "secondary"
+      }
+    },
+    "healthy_badge_4": {
+      "type": "Badge",
+      "props": {
+        "text": "weekly-shiplog",
+        "variant": "secondary"
+      }
+    },
+    "sep_6": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "issues_heading",
+        "issues_stats"
+      ]
+    },
+    "issues_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Open Issues",
+        "level": "h3"
+      }
+    },
+    "issues_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issues_total",
+        "issues_activity"
+      ]
+    },
+    "issues_total": {
+      "type": "Stat",
+      "props": {
+        "label": "Total Open Issues",
+        "value": "39"
+      }
+    },
+    "issues_activity": {
+      "type": "Text",
+      "props": {
+        "text": "0 filed this run • 0 resolved this run",
+        "variant": "caption"
+      }
+    }
+  }
+}
