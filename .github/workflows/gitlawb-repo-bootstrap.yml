@@ -75,15 +75,18 @@ jobs:
           "$HOME/.local/bin/gl" --version
 
       - name: Restore operator identity
+        env:
+          GITLAWB_OPERATOR_PEM: ${{ secrets.GITLAWB_OPERATOR_PEM }}
+          GITLAWB_OPERATOR_UCAN: ${{ secrets.GITLAWB_OPERATOR_UCAN }}
         run: |
           set -euo pipefail
-          if [ -z '${{ secrets.GITLAWB_OPERATOR_PEM }}' ]; then
+          if [ -z "$GITLAWB_OPERATOR_PEM" ]; then
             echo "::error::GITLAWB_OPERATOR_PEM is not set — nothing to create the repo as"
             exit 1
           fi
           mkdir -p ~/.gitlawb
-          echo '${{ secrets.GITLAWB_OPERATOR_PEM }}' > ~/.gitlawb/identity.pem
-          echo '${{ secrets.GITLAWB_OPERATOR_UCAN }}' > ~/.gitlawb/ucan.json
+          printf '%s\n' "$GITLAWB_OPERATOR_PEM" > ~/.gitlawb/identity.pem
+          printf '%s\n' "$GITLAWB_OPERATOR_UCAN" > ~/.gitlawb/ucan.json
           chmod 600 ~/.gitlawb/identity.pem
 
       - name: Create repo if absent
