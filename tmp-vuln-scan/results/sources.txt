@@ -1,0 +1,4 @@
+semgrep=ok (12 candidates across 92 files)
+trufflehog=fail (binary not available in sandbox; see note in report)
+osv=fail (osv-scanner binary blocked by sandbox exec policy; substituted direct OSV API queries via api.osv.dev for all 5 direct pinned deps)
+slither=n/a (no .sol files)

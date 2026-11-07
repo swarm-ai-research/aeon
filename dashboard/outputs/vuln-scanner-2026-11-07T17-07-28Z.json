@@ -1,0 +1,197 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Vuln Scanner — interplains/Zero-Breach-Toolkit"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "project_row",
+        "audit_alert",
+        "sep1",
+        "cve_section",
+        "sep2",
+        "scanner_section",
+        "sep3",
+        "notes_section"
+      ]
+    },
+    "project_row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_stars",
+        "badge_lang",
+        "text_commit"
+      ]
+    },
+    "stat_stars": {
+      "type": "Stat",
+      "props": {
+        "label": "GitHub Stars",
+        "value": "4.5k"
+      }
+    },
+    "badge_lang": {
+      "type": "Badge",
+      "props": {
+        "text": "Python",
+        "variant": "secondary"
+      }
+    },
+    "text_commit": {
+      "type": "Text",
+      "props": {
+        "text": "HEAD 10ceaba",
+        "variant": "caption"
+      }
+    },
+    "audit_alert": {
+      "type": "Alert",
+      "props": {
+        "type": "success",
+        "title": "Clean Audit",
+        "message": "12 semgrep candidates reviewed, 0 confirmed"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "cve_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_cve",
+        "cve_count",
+        "cve_analysis",
+        "cve_reachability",
+        "cve_upstream"
+      ]
+    },
+    "heading_cve": {
+      "type": "Heading",
+      "props": {
+        "text": "Cryptography CVEs",
+        "level": "h3"
+      }
+    },
+    "cve_count": {
+      "type": "Badge",
+      "props": {
+        "text": "3 CVEs in cryptography 48.0.1 (Intel-macOS pin)",
+        "variant": "outline"
+      }
+    },
+    "cve_analysis": {
+      "type": "Text",
+      "props": {
+        "text": "Status: Unreachable — codebase touches only AES CBC + aes_key_unwrap, never PKCS#7 or X.509 verification",
+        "variant": "body"
+      }
+    },
+    "cve_reachability": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "message": "No fixed upstream wheel exists for that platform; risk-accept documented in requirements-backups.txt"
+      }
+    },
+    "cve_upstream": {
+      "type": "Text",
+      "props": {
+        "text": "No PVR, no public PR",
+        "variant": "caption"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "scanner_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_scanners",
+        "table_scanners"
+      ]
+    },
+    "heading_scanners": {
+      "type": "Heading",
+      "props": {
+        "text": "Scanner Results",
+        "level": "h3"
+      }
+    },
+    "table_scanners": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Scanner",
+          "Status",
+          "Details"
+        ],
+        "rows": [
+          [
+            "semgrep",
+            "OK",
+            "—"
+          ],
+          [
+            "trufflehog",
+            "Fail",
+            "manual regex substitute, 0 hits"
+          ],
+          [
+            "osv",
+            "Fail",
+            "api.osv.dev direct-query substitute"
+          ],
+          [
+            "slither",
+            "N/A",
+            "—"
+          ]
+        ]
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "notes_section": {
+      "type": "Text",
+      "props": {
+        "text": "Audit complete. All findings documented.",
+        "variant": "muted"
+      }
+    }
+  }
+}

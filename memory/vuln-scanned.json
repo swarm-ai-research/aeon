@@ -190,6 +190,17 @@
    "dep_advisories": 4,
    "confirmed_code_vulns": 0,
    "channel": "public-pr (drafted, pending operator submission \u2014 see .pending-disclosure/CopilotKit-OpenDots-2026-10-17T173000Z-deps.md). Bump 4 transitive pkgs: @graphql-tools/utils 11.2.2\u219212.0.1 (HIGH prod via graphql-yoga edge, mergeDeep prototype pollution), shell-quote 1.9.0\u21921.11.0 (CRIT dev-only via concurrently), source-map-js 1.2.1\u21921.2.2 (HIGH DoS dev-only via postcss), katex 0.16.47 left unbumped (LOW chained bypass; semver minor risk vs no exposed gadget). No PVR: 0 exploitable code findings. 3 semgrep hits all triaged false: 2\u00d7 mutable-action-tag on actions/checkout@v4 + setup-node@v4 (standard, perms already contents:read); 1\u00d7 missing-USER on supervisor.Dockerfile (SECURITY.md explicitly scopes browser sidecar to isolated network, documented boundary). SSRF guard in src/browser/security.ts covers IPv4 CGNAT + link-local + TEST-NET-1/2/3 + multicast and IPv6 2000::/3 with Teredo + 6to4 + ORCHID exclusions; DNS pinned via lookup override. Slack identity requires provider+tenant+human+actor-id allowlist. Voice redirect:error, SDP two-way validation, 6-turn cap. Computer gateway per-Dot HMAC token, endpoint allowlist container:4100 or 127.0.0.1:supervisorPort, 50ms permission re-check during actions. Pages BEGIN IMMEDIATE + revision check + Space-scoped. Composio policy-hash sessions. Prior CopilotKit scan OpenBot 2026-08-29 49d ago (outside 30d dedup); OpenDots is distinct template with different maintainer branch. SKILL.md still carries stale gh repo fork idiom (used direct git clone)."
+  },
+  {
+   "repo": "interplains/Zero-Breach-Toolkit",
+   "scanned_at": "2026-11-07T17:00:00Z",
+   "head": "10ceaba497e40da1f327916a0a3fe0af0ff5994f",
+   "semgrep_candidates": 12,
+   "verified_secrets": 0,
+   "dep_vuln_packages": 1,
+   "dep_advisories": 3,
+   "confirmed_code_vulns": 0,
+   "channel": "n/a \u2014 clean audit. No PVR: all 12 semgrep candidates triaged false (2 defused-xml imports of ExpatError class only, 1 CBC decryption of proprietary iOS/Android backup format with upstream HMAC/PBKDF2 checksum integrity, 5 SHA-1 paired-hash lookups for IOC publishers that only ship SHA-1, 1 XML DOCTYPE-rejection pre-parse guard blocking XXE at modules/traces.py:1108, 1 owner-only 0o700 chmod rule mis-fires as weaker than 0o644, 2 release-tooling exec/urllib fed by in-tree allow-lists, 1 synthetic-fixture SHA-1). No public dep-bump PR: cryptography 48.0.1 on Intel-macOS pin has 3 CVEs (GHSA-g6cj-pr64-35w5 PKCS#7 Bleichenbacher, GHSA-jwv3-5hgf-82ww X.509 path-building DoS, GHSA-m2h6-j472-rp4c X.509 wildcard permittedSubtrees), but none reachable \u2014 codebase imports only Cipher/AES/aes_key_unwrap, never pkcs7 or x509.verification \u2014 and no post-48.0.1 Intel-macOS wheel exists upstream. Documented risk-accept in requirements-backups.txt; mirror of 2026-08-22 watermarks-remover pattern. TruffleHog=fail (sandbox blocked both verified-secrets binary + osv-scanner exec); substituted direct api.osv.dev POSTs for 5 direct pins and manual AWS/Google/GitHub/OpenAI token regex pass (0 hits)."
   }
  ]
 }
