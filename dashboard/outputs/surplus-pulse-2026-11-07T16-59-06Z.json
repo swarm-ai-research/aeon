@@ -1,0 +1,177 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "surplus-pulse",
+        "description": "2026-11-07"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "catalog_section",
+        "sep1",
+        "supply_section",
+        "sep2",
+        "trading_section",
+        "sep3",
+        "spot_price"
+      ]
+    },
+    "catalog_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "catalog_label",
+        "catalog_badge"
+      ]
+    },
+    "catalog_label": {
+      "type": "Text",
+      "props": {
+        "text": "Catalog:",
+        "variant": "caption"
+      }
+    },
+    "catalog_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Llama 4 Scout 0.0764/M",
+        "variant": "default"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "supply_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "supply_heading",
+        "supply_items"
+      ]
+    },
+    "supply_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Supply Changes",
+        "level": "h3"
+      }
+    },
+    "supply_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "h100_stat",
+        "deepseek_stat",
+        "agentplat_stat"
+      ]
+    },
+    "h100_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "H100 supply",
+        "value": "+88.7%",
+        "trend": "up"
+      }
+    },
+    "deepseek_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "DeepSeek V3.2",
+        "value": "-44.2%",
+        "trend": "down"
+      }
+    },
+    "agentplat_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "agent-platform",
+        "value": "+51.3%",
+        "trend": "up"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "trading_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "trading_badge",
+        "trading_details"
+      ]
+    },
+    "trading_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "x402 Base/USDC",
+        "variant": "secondary"
+      }
+    },
+    "trading_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "trade_price",
+        "trade_txs"
+      ]
+    },
+    "trade_price": {
+      "type": "Text",
+      "props": {
+        "text": "198.43"
+      }
+    },
+    "trade_txs": {
+      "type": "Text",
+      "props": {
+        "text": "19 txs"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "spot_price": {
+      "type": "Stat",
+      "props": {
+        "label": "Final Spot",
+        "value": "0.1149"
+      }
+    }
+  }
+}
