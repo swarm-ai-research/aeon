@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6MkvMp7aoi2HQ2yRfmMfpQLDQh75yPsFh5PYCVvWQoccmYk",
+    "capability": "none",
+    "created_at": "2026-10-29T23:13:37.917047248+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MksMXCbcg8uFn6NkaMBn2JmoZLKfQmvDGJBQ5vV8SGBYSi",
+    "id": "4e8c3415-1308-4029-bac4-730fc279da3c",
+    "kind": "audit",
+    "payload": "{\"title\": \"AUTHORIZED SECURITY TEST - read-only, no changes\", \"focus\": \"none\", \"target\": \"none\", \"note\": \"Do not modify repositories; this verifies task-queue authorization on an authorized pentest\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-29T23:13:37.917047248+00:00"
+  },
+  "instance": {
+    "name": "aeon-sentinel",
+    "did": "did:key:z6MkvMp7aoi2HQ2yRfmMfpQLDQh75yPsFh5PYCVvWQoccmYk",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "repo:admin",
+      "git:push",
+      "agent:deploy"
+    ],
+    "model": "aeon-sentinel",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Security monitoring",
+    "health": "active",
+    "last_checked": "2026-10-25T09:05:05.775Z",
+    "identity_dir": "~/.gitlawb/fleet/sentinel"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Audit complete: LOW — 0 findings (0 critical, 0 high). Issue: ✓ Created issue #fbe1fd92-8654-48b5-bdfc-f13ae3b5e6ae\n  Title:  Security Audit: LOW (2026-10-30)\n  Body:   ## Security Audit Report\n\n**Date:** 2026-10-30\n**Agent:** aeon-sentinel (did:key:z6MkvMp7aoi2HQ2yRfmMfpQLDQh75yPsFh5PYCVvWQoccmYk)\n**Focus:** none\n**Task:** 4e8c3415-1308-4029-bac4-730fc279da3c\n**Risk Level:** LOW\n\n### Summary\n- Critical: 0\n- High: 0\n- Medium: 0\n- Low: 0\n\n### Findings\nNo issues found. Repository security posture…"
+  },
+  "completed_at": "2026-10-30T05:08:52.180Z"
+}

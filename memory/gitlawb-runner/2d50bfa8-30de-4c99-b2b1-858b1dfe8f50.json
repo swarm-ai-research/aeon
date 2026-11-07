@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-21T04:13:03.962474843+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "2d50bfa8-30de-4c99-b2b1-858b1dfe8f50",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/build_findings.py\",\"target\":\".audit/build_findings.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-21T04:13:03.962474843+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-21T20:20:10.431Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/build_findings.py — blocked: crash-on-empty-locations and crash-on-empty-runs silently truncate findings (2026-09-21)\" — 5 findings (2 critical, 3 issue). Verdict: blocked: crash-on-empty-locations and crash-on-empty-runs silently truncate findings. Issue: ✓ Created issue #2aa8d6f7-2d42-43ba-a36d-2becec2ef487\n  Title:  Review: .audit/build_findings.py — blocked: crash-on-empty-locations and crash-on-empty-runs silently truncate findings (2026-09-21)\n  B…"
+  },
+  "completed_at": "2026-09-21T20:21:53.660Z"
+}

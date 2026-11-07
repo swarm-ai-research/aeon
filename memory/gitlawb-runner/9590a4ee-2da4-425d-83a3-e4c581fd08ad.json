@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-30T04:52:46.497583872+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "9590a4ee-2da4-425d-83a3-e4c581fd08ad",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review an open PR (1 open on aeon)\",\"target\":\"open-prs\",\"focus\":\"correctness, security, and whether the PR is ready to merge\",\"open_pr_count\":1}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-30T04:52:46.497583872+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-30T04:52:46.030Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: open-prs — blocked: binary executables committed without integrity verification (2026-09-30)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: binary executables committed without integrity verification. Issue: ✓ Created issue #6b7f2a5e-e676-49de-9375-f6b20eb0b5a8\n  Title:  Review: open-prs — blocked: binary executables committed without integrity verification (2026-09-30)\n  Body:   ## Code Review: open-prs\n\n**Date:** 2026-09-30\n**Agent:** aeon-reviewer (…"
+  },
+  "completed_at": "2026-09-30T04:53:56.560Z"
+}

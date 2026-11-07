@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:open",
+    "created_at": "2026-08-07T13:13:09.556424176+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "64e70573-33a5-428c-abc0-8bf4258820d8",
+    "kind": "docs-pass",
+    "payload": "{\"title\":\"docs-pass on recent code changes\",\"target\":\".audit-bin/actionlint, .audit-bin/actionlint.tar.gz, .audit-bin/zizmor\",\"focus\":\"missing docstrings, stale comments, README drift — open a PR with improvements\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-07T13:13:09.556424176+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-07T13:13:08.955Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Code-pass docs-pass opened PR: https://github.com/swarm-ai-research/aeon/pull/20 — Added `ACTIONLINT_VERSION=\"1.7.12\"` with an update reminder to `skills/workflow-security-audit/SKILL.md` — parallel to the existing `ZIZMOR_VERSION` pin — and updated the sandbox note to inline both bundled binary versions (zizmor 1.25.2, actionlint 1.7.12), so future maintainers know exactly what to replace when upgrading either tool."
+  },
+  "completed_at": "2026-08-07T13:24:57.837Z"
+}

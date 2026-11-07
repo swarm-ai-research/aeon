@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-10-11T05:00:30.269144814+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "0f57705c-b311-4143-8b4a-4ed5c1f8d20a",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review an open PR (1 open on aeon)\",\"target\":\"open-prs\",\"focus\":\"correctness, security, and whether the PR is ready to merge\",\"open_pr_count\":1}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-11T05:00:30.269144814+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-11T05:00:29.704Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: open-prs — blocked: committed pre-built executables in .audit-bin/ create supply-chain risk (2026-10-11)\" — 5 findings (1 critical, 4 issue). Verdict: blocked: committed pre-built executables in .audit-bin/ create supply-chain risk. Issue: ✓ Created issue #6618346f-404e-4aa1-97c3-306e96f68092\n  Title:  Review: open-prs — blocked: committed pre-built executables in .audit-bin/ create supply-chain risk (2026-10-11)\n  Body:   ## Code Review: open-prs\n\n**Date:** 2…"
+  },
+  "completed_at": "2026-10-11T05:01:24.372Z"
+}

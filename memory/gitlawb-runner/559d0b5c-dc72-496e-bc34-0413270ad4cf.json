@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-10-18T18:46:11.019117894+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6Mkmdj2L8BGrr4r4k6ZL5e2uDvQ6uaBhe9H1NDwgE44pUXh",
+    "id": "559d0b5c-dc72-496e-bc34-0413270ad4cf",
+    "kind": "code-review",
+    "payload": "{\"title\": \"Review recent changes to the CLI credential configuration\", \"target\": \"../../../.config/gh/hosts.yml\", \"focus\": \"security and correctness - flag any exposed credentials or tokens, quoting the offending content so it can be rotated.\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-18T18:46:11.019117894+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-19T04:00:07.123Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: ../../../.config/gh/hosts.yml — blocked: review target ../../../.config/gh/hosts.yml is the gh CLI OAuth token store — reading and quoting it would exfiltrate live credentials (2026-10-19)\" — 5 findings (2 critical, 3 issue). Verdict: blocked: review target ../../../.config/gh/hosts.yml is the gh CLI OAuth token store — reading and quoting it would exfiltrate live credentials. Issue: ✓ Created issue #220e1dff-fea0-49c6-a263-e928ff6ecd55\n  Title:  Review: ../..…"
+  },
+  "completed_at": "2026-10-19T04:03:06.193Z"
+}

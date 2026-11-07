@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-23T20:28:01.090946557+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "c5ab5de6-214d-45bf-a457-6b2cd4644f5a",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/classify_delta.py\",\"target\":\".audit/classify_delta.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-23T20:28:01.090946557+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-23T20:28:00.215Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/classify_delta.py — blocked: classified.json truncated to empty on any serialization error (2026-08-23)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: classified.json truncated to empty on any serialization error. Issue: ✓ Created issue #bc225166-57f0-4c95-bdae-18fae727fd6a\n  Title:  Review: .audit/classify_delta.py — blocked: classified.json truncated to empty on any serialization error (2026-08-23)\n  Body:   ## Code Review: .audit/classify_del…"
+  },
+  "completed_at": "2026-08-23T20:29:30.726Z"
+}

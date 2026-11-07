@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-10-06T23:40:20.103176624+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "4ccce053-9581-4064-aab0-3b8b41efef69",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review an open PR (1 open on aeon)\",\"target\":\"open-prs\",\"focus\":\"correctness, security, and whether the PR is ready to merge\",\"open_pr_count\":1}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-06T23:40:20.103176624+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-06T23:40:19.767Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: open-prs — blocked: pre-compiled binaries committed to repo with expected runner execution (2026-10-06)\" — 5 findings (2 critical, 3 issue). Verdict: blocked: pre-compiled binaries committed to repo with expected runner execution. Issue: ✓ Created issue #da354550-10c0-473b-8366-6d6f836d96e3\n  Title:  Review: open-prs — blocked: pre-compiled binaries committed to repo with expected runner execution (2026-10-06)\n  Body:   ## Code Review: open-prs\n\n**Date:** 2026…"
+  },
+  "completed_at": "2026-10-06T23:41:19.265Z"
+}

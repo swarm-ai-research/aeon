@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-08-31T04:44:23.096805390+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "5bdd0798-df5a-40f9-adea-5d233c54e52b",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta.py\",\"target\":\".audit/delta.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-08-31T04:44:23.096805390+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-08-31T16:00:21.962Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta.py — blocked: false-resolved reporting corrupts delta audit output (2026-08-31)\" — 5 findings (1 critical, 4 issue). Verdict: blocked: false-resolved reporting corrupts delta audit output. Issue: ✓ Created issue #629e5a78-782c-49f7-9a42-54fdfb281c5f\n  Title:  Review: .audit/delta.py — blocked: false-resolved reporting corrupts delta audit output (2026-08-31)\n  Body:   ## Code Review: .audit/delta.py\n\n**Date:** 2026-08-31\n**Agent:** aeon-reviewer (…"
+  },
+  "completed_at": "2026-08-31T16:03:34.011Z"
+}
