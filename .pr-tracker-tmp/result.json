@@ -1,0 +1,556 @@
+{
+  "attempts": 1,
+  "buckets": {
+    "merged7d": 0,
+    "staleOpen": 1,
+    "closed7d": 0,
+    "activeOpen": 1,
+    "openTotal": 2,
+    "merged30d": 1,
+    "closed30d": 0,
+    "issueCount": 73,
+    "nullSlots": 2,
+    "nonPrefix": 11,
+    "prefixMatch": 47
+  },
+  "recent_merges": [],
+  "recent_merges_30": [
+    {
+      "number": 216,
+      "title": "fix(deps): patch ajv/ws/protobufjs/vite for disclosed CVEs",
+      "state": "MERGED",
+      "headRefName": "security/dep-bump-ajv-ws-protobufjs",
+      "url": "https://github.com/KnockOutEZ/wigolo/pull/216",
+      "createdAt": "2026-07-20T07:53:04Z",
+      "updatedAt": "2026-10-21T14:56:17Z",
+      "mergedAt": "2026-10-21T14:56:16Z",
+      "closedAt": "2026-10-21T14:56:16Z",
+      "repository": {
+        "nameWithOwner": "KnockOutEZ/wigolo"
+      },
+      "reviews": {
+        "nodes": [
+          {
+            "state": "COMMENTED",
+            "submittedAt": "2026-07-20T07:56:47Z"
+          }
+        ]
+      },
+      "comments": {
+        "totalCount": 10
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "aeonframework@proton.me"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "stale_open": [
+    {
+      "number": 15792,
+      "title": "[4.2.x.x] Lock coupon, reward and credit redemption checks at order confirmation",
+      "state": "OPEN",
+      "headRefName": "fix/lock-redemption-checks",
+      "url": "https://github.com/opencart/opencart/pull/15792",
+      "createdAt": "2026-10-29T18:01:19Z",
+      "updatedAt": "2026-10-29T18:01:19Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "repository": {
+        "nameWithOwner": "opencart/opencart"
+      },
+      "reviews": {
+        "nodes": []
+      },
+      "comments": {
+        "totalCount": 0
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "272311952+aeonframework@users.noreply.github.com"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "active_open": [
+    {
+      "number": 1409,
+      "title": "fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs)",
+      "state": "OPEN",
+      "headRefName": "aeon/dep-bump-ruview-2026-07-23",
+      "url": "https://github.com/ruvnet/RuView/pull/1409",
+      "createdAt": "2026-07-23T23:41:02Z",
+      "updatedAt": "2026-11-05T14:44:51Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "repository": {
+        "nameWithOwner": "ruvnet/RuView"
+      },
+      "reviews": {
+        "nodes": [
+          {
+            "state": "APPROVED",
+            "submittedAt": "2026-08-28T06:24:47Z"
+          }
+        ]
+      },
+      "comments": {
+        "totalCount": 5
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "aeonframework@proton.me"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "closed_nomerge": [],
+  "closed_nomerge_30": [],
+  "all_open": [
+    {
+      "number": 1409,
+      "title": "fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs)",
+      "state": "OPEN",
+      "headRefName": "aeon/dep-bump-ruview-2026-07-23",
+      "url": "https://github.com/ruvnet/RuView/pull/1409",
+      "createdAt": "2026-07-23T23:41:02Z",
+      "updatedAt": "2026-11-05T14:44:51Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "repository": {
+        "nameWithOwner": "ruvnet/RuView"
+      },
+      "reviews": {
+        "nodes": [
+          {
+            "state": "APPROVED",
+            "submittedAt": "2026-08-28T06:24:47Z"
+          }
+        ]
+      },
+      "comments": {
+        "totalCount": 5
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "aeonframework@proton.me"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "number": 15792,
+      "title": "[4.2.x.x] Lock coupon, reward and credit redemption checks at order confirmation",
+      "state": "OPEN",
+      "headRefName": "fix/lock-redemption-checks",
+      "url": "https://github.com/opencart/opencart/pull/15792",
+      "createdAt": "2026-10-29T18:01:19Z",
+      "updatedAt": "2026-10-29T18:01:19Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "repository": {
+        "nameWithOwner": "opencart/opencart"
+      },
+      "reviews": {
+        "nodes": []
+      },
+      "comments": {
+        "totalCount": 0
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "272311952+aeonframework@users.noreply.github.com"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "non_prefix": [
+    {
+      "number": 10421,
+      "title": "Load runAsync fragments without inline scripts when installCode=false",
+      "state": "OPEN",
+      "headRefName": "csp-runasync-direct-install",
+      "url": "https://github.com/gwtproject/gwt/pull/10421",
+      "createdAt": "2026-10-22T17:17:26Z",
+      "updatedAt": "2026-10-29T23:33:01Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "repository": {
+        "nameWithOwner": "gwtproject/gwt"
+      },
+      "reviews": {
+        "nodes": []
+      },
+      "comments": {
+        "totalCount": 3
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "272311952+aeonframework@users.noreply.github.com"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "number": 1667,
+      "title": "Let autocomplete selections and ChoiceFilter auto-submit work under the default CSP (WICKET-6938)",
+      "state": "OPEN",
+      "headRefName": "csp-autocomplete-choicefilter",
+      "url": "https://github.com/apache/wicket/pull/1667",
+      "createdAt": "2026-10-14T19:27:29Z",
+      "updatedAt": "2026-10-29T22:03:17Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "repository": {
+        "nameWithOwner": "apache/wicket"
+      },
+      "reviews": {
+        "nodes": [
+          {
+            "state": "CHANGES_REQUESTED",
+            "submittedAt": "2026-10-29T18:45:03Z"
+          }
+        ]
+      },
+      "comments": {
+        "totalCount": 3
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "272311952+aeonframework@users.noreply.github.com"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "number": 1728,
+      "title": "[10.x] Let autocomplete selections and ChoiceFilter auto-submit work under the default CSP (WICKET-6938)",
+      "state": "OPEN",
+      "headRefName": "csp-autocomplete-choicefilter-10.x",
+      "url": "https://github.com/apache/wicket/pull/1728",
+      "createdAt": "2026-10-29T22:02:50Z",
+      "updatedAt": "2026-10-29T22:02:50Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "repository": {
+        "nameWithOwner": "apache/wicket"
+      },
+      "reviews": {
+        "nodes": []
+      },
+      "comments": {
+        "totalCount": 0
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "272311952+aeonframework@users.noreply.github.com"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "number": 4320,
+      "title": "ICU-23585 Fix tbuf overflow in T_CString_integerToString and int64ToString",
+      "state": "OPEN",
+      "headRefName": "cstring-int-to-string-capacity",
+      "url": "https://github.com/unicode-org/icu/pull/4320",
+      "createdAt": "2026-10-22T20:09:06Z",
+      "updatedAt": "2026-10-29T19:59:45Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "repository": {
+        "nameWithOwner": "unicode-org/icu"
+      },
+      "reviews": {
+        "nodes": []
+      },
+      "comments": {
+        "totalCount": 3
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "272311952+aeonframework@users.noreply.github.com"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "number": 41635,
+      "title": "Remove inline event handlers from admin order create so it works under its enforced CSP",
+      "state": "OPEN",
+      "headRefName": "csp-order-create-inline-handlers",
+      "url": "https://github.com/magento/magento2/pull/41635",
+      "createdAt": "2026-10-22T19:04:35Z",
+      "updatedAt": "2026-10-29T18:01:41Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "repository": {
+        "nameWithOwner": "magento/magento2"
+      },
+      "reviews": {
+        "nodes": []
+      },
+      "comments": {
+        "totalCount": 5
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "272311952+aeonframework@users.noreply.github.com"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "number": 33343,
+      "title": "pvkfmt: parse MSBLOB and PVK input through PACKET",
+      "state": "OPEN",
+      "headRefName": "pvkfmt-packet-bounds",
+      "url": "https://github.com/openssl/openssl/pull/33343",
+      "createdAt": "2026-10-22T22:54:25Z",
+      "updatedAt": "2026-10-29T18:01:40Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "repository": {
+        "nameWithOwner": "openssl/openssl"
+      },
+      "reviews": {
+        "nodes": []
+      },
+      "comments": {
+        "totalCount": 1
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "aaron@aeon.fun"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "number": 337,
+      "title": "Replace the remaining sscanf() number parsing with strnum parsers",
+      "state": "OPEN",
+      "headRefName": "strnum-no-sscanf",
+      "url": "https://github.com/dovecot/core/pull/337",
+      "createdAt": "2026-10-23T00:23:26Z",
+      "updatedAt": "2026-10-29T18:06:02Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "repository": {
+        "nameWithOwner": "dovecot/core"
+      },
+      "reviews": {
+        "nodes": []
+      },
+      "comments": {
+        "totalCount": 2
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "272311952+aeonframework@users.noreply.github.com"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "number": 27136,
+      "title": "Build pseudo output in RStrBuf for the remaining strcpy/strcat plugins ##crash",
+      "state": "MERGED",
+      "headRefName": "pseudo-strbuf",
+      "url": "https://github.com/radareorg/radare2/pull/27136",
+      "createdAt": "2026-10-22T22:00:57Z",
+      "updatedAt": "2026-10-23T19:00:17Z",
+      "mergedAt": "2026-10-23T19:00:16Z",
+      "closedAt": "2026-10-23T19:00:16Z",
+      "repository": {
+        "nameWithOwner": "radareorg/radare2"
+      },
+      "reviews": {
+        "nodes": []
+      },
+      "comments": {
+        "totalCount": 1
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "272311952+aeonframework@users.noreply.github.com"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "number": 14767,
+      "title": "Media: Remove inline event handlers from the image editor",
+      "state": "OPEN",
+      "headRefName": "image-editor-no-inline-handlers",
+      "url": "https://github.com/WordPress/wordpress-develop/pull/14767",
+      "createdAt": "2026-10-23T03:04:18Z",
+      "updatedAt": "2026-10-23T03:07:48Z",
+      "mergedAt": null,
+      "closedAt": null,
+      "repository": {
+        "nameWithOwner": "WordPress/wordpress-develop"
+      },
+      "reviews": {
+        "nodes": []
+      },
+      "comments": {
+        "totalCount": 2
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "272311952+aeonframework@users.noreply.github.com"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "number": 2012,
+      "title": "WW-5772 Remove inline event handlers from optiontransferselect, inputtransferselect, updownselect and combobox",
+      "state": "MERGED",
+      "headRefName": "WW-5772-csp-inline-handlers",
+      "url": "https://github.com/apache/struts/pull/2012",
+      "createdAt": "2026-10-14T19:27:25Z",
+      "updatedAt": "2026-10-15T07:09:04Z",
+      "mergedAt": "2026-10-15T07:09:04Z",
+      "closedAt": "2026-10-15T07:09:04Z",
+      "repository": {
+        "nameWithOwner": "apache/struts"
+      },
+      "reviews": {
+        "nodes": [
+          {
+            "state": "COMMENTED",
+            "submittedAt": "2026-10-15T06:48:02Z"
+          }
+        ]
+      },
+      "comments": {
+        "totalCount": 0
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "272311952+aeonframework@users.noreply.github.com"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "number": 2755,
+      "title": "mcp: generate a random session encryption seed in the Helm chart",
+      "state": "MERGED",
+      "headRefName": "mcp-default-seed",
+      "url": "https://github.com/theagentrouter/agent-router/pull/2755",
+      "createdAt": "2026-09-28T14:02:24Z",
+      "updatedAt": "2026-09-28T14:46:22Z",
+      "mergedAt": "2026-09-28T14:46:22Z",
+      "closedAt": "2026-09-28T14:46:22Z",
+      "repository": {
+        "nameWithOwner": "theagentrouter/agent-router"
+      },
+      "reviews": {
+        "nodes": [
+          {
+            "state": "APPROVED",
+            "submittedAt": "2026-09-28T14:29:31Z"
+          }
+        ]
+      },
+      "comments": {
+        "totalCount": 2
+      },
+      "commits": {
+        "nodes": [
+          {
+            "commit": {
+              "author": {
+                "email": "aeonframework@users.noreply.github.com"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "prefix_match_count": 47
+}

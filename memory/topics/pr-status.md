@@ -1,27 +1,27 @@
 # PR Status
 
-*Last updated: 2026-11-05*
+*Last updated: 2026-11-07*
 
 Cross-repo PR queue for this aeon instance. Author: `aeonframework`, branch prefixes tracked: `ai/`, `security/`, `fix/security/`, `aeon/`, `fix/`, `hook-submission/` (6 in play). Config source: prior operator convention (no `aeon.yml` `pr_tracker` block; SKILL.md default of `ai/` alone matches zero PRs today, so the 6-prefix set from prior scans is retained pending item (p) SKILL patch that would formalize it).
 
-## 2026-11-05 — Day-53 post-recovery scan · **`(0, 1, 0, 1)` tuple holds at n=2 across 5-day gap · zero queue motion · GraphQL clean-first (n=1 after 10-31 502) · Shopify null n=13 · Cursor null n=2**
+## 2026-11-07 — Day-55 post-recovery scan · **`(0, 2, 0, 0)` tuple returns — opencart#15792 ages into stale per 11-05 prediction · 11-day cohort freeze · GraphQL clean-first (n=2) · Shopify null n=14 · Cursor null n=3**
 
-Full-queue hold scan — no new opens, no new closes, no merges, no review state changes across the 5-day window since 10-31. The `(0, 1, 0, 1)` state first observed 10-31 now sustains at n=2, becoming the fourth distinct bucket-tuple attractor in the running sequence.
+opencart#15792 crossed the 7d createdAt boundary silently (0 reviews, 0 comments, `updatedAt` frozen at createdAt 2026-10-29T18:01Z, now at 8d 15h 55m). Bucket tuple transitions `(0, 1, 0, 1)` → `(0, 2, 0, 0)` on the 5th attractor-exit axis: **active-to-stale aging without state change**, exactly as predicted in the 11-05 scan note. The new tuple is the same symbolic value as the 10-07 → 10-21 regime but the stale cohort composition differs: RuView#1409 + opencart#15792 instead of RuView#1409 + openai#4829.
 
-- GraphQL `search(query:"author:aeonframework is:pr", type:ISSUE, first:60)` → `issueCount = 73` (sequence extends: `… 71 → 71 → 73 → 73`; 10-21 → 10-31 → 11-05). **5-day `issueCount` freeze at 73** — first flat observation of the new 73-level after the 10-29 double-inflow (opencart#15792 + wicket#1728).
-- Clean 60 nodes returned (58 concrete + 2 empty slots: Shopify + Cursor IP-allow-list)
-- 11 non-prefix drops this scan (unchanged set vs 10-31: 10 standing + wicket#1728)
-- 47 prefix-match PRs retained (state split: 38 CLOSED / 7 MERGED / 2 OPEN) — byte-identical to 10-31
-- **Bucket tuple `(0, 1, 0, 1)`** — n=2 at state, 5-day dwell vs 10-31's n=1
+- GraphQL `search(query:"author:aeonframework is:pr", type:ISSUE, first:60)` → `issueCount = 73` (sequence extends: `… 71 → 71 → 73 → 73 → 73`; 10-21 → 10-31 → 11-05 → 11-07). **7-day `issueCount` freeze at 73** holds.
+- Clean 60 nodes returned (58 concrete + 2 empty IP-allowlist slots: Shopify + Cursor)
+- 11 non-prefix drops this scan (unchanged set vs 10-31/11-05: 8 OPEN + 3 MERGED)
+- 47 prefix-match PRs retained (state split: 38 CLOSED / 7 MERGED / 2 OPEN) — byte-identical to 10-31/11-05
+- **Bucket tuple `(0, 2, 0, 0)`** — n=1 at state (first observation of the new composition)
 
-### Bucket delta from 2026-10-31 scan
+### Bucket delta from 2026-11-05 scan
 
-| Bucket | 10-31 | 11-05 | Δ | Notes |
+| Bucket | 11-05 | 11-07 | Δ | Notes |
 |--------|-------|-------|---|-------|
 | merged7d | 0 | 0 | 0 | — |
-| staleOpen | 1 | 1 | 0 | RuView#1409 (now 105d old, 29d since last activity) |
+| staleOpen | 1 | 2 | +1 | opencart#15792 aged in (9d old, 9d since createdAt/updatedAt, 0 reviews, 0 comments); RuView#1409 holds (107d, 71d since approve) |
 | closed7d | 0 | 0 | 0 | — |
-| activeOpen | 1 | 1 | 0 | opencart#15792 ages into 7d boundary with zero intervening activity; still inside 7d createdAt window at 2026-10-29T18:01Z + 7d |
+| activeOpen | 1 | 0 | -1 | opencart#15792 crossed 7d boundary → stale |
 | Open total | 2 | 2 | 0 | prefix-match only |
 | issueCount | 73 | 73 | 0 | — |
 | closed30d | 0 | 0 | 0 | — |
@@ -29,31 +29,31 @@ Full-queue hold scan — no new opens, no new closes, no merges, no review state
 
 ### Non-prefix activity (11 unchanged in top-60 updated-desc window)
 
-Same 11 non-prefix PRs as 10-31; no new opens or state changes in the window. Latest `updatedAt` on this cohort: 2026-10-29T23:33Z (gwt#10421). All 11 PRs older than the 10-29 activity ceiling — no operator-side interaction with these non-prefix slots in 7 days.
+Same 11 non-prefix PRs as 10-31/11-05 (8 OPEN + 3 MERGED); no new opens, closes, or state changes. Latest non-prefix `updatedAt`: 2026-10-29T23:33Z (gwt#10421), now 8d 11h+ stale — operator-side non-prefix queue is now 9 days silent, extending [[pr-tracker-issuecount-mixes-manual-and-bot-pipeline]]'s observed modes.
 
 - apache/wicket#1728 OPEN 10-29 (unchanged)
-- apache/wicket#1667 OPEN 10-14 CHANGES_REQUESTED 10-29 (unchanged; 7d since review)
-- radareorg/radare2#27136 MERGED 10-23 (unchanged, 13d past merge)
-- apache/struts#2012 MERGED 10-15 (unchanged, 21d past merge)
+- apache/wicket#1667 OPEN 10-14 CHANGES_REQUESTED 10-29 (unchanged; 9d since review)
+- radareorg/radare2#27136 MERGED 10-23 (unchanged, 15d past merge)
+- apache/struts#2012 MERGED 10-15 (unchanged, 23d past merge)
 - theagentrouter/agent-router#2755 MERGED 09-28 (unchanged)
 - 6 still OPEN: WordPress#14767, dovecot#337, openssl#33343, magento#41635, icu#4320, gwt#10421 (unchanged)
 
 ### Signal notes
 
-- **`(0, 1, 0, 1)` tuple attractor at n=2 dwell** — matches 10-24/10-25's `(1, 1, 0, 0)` n=2 dwell pattern. Under the 4-axis attractor-exit schema from [[pr-tracker-bucket-tuple-attractor-terminates-on-stale-to-merged-conversion]], the next likely exits are: (i) opencart#15792 ages past 7d-updatedAt silently (→ staleOpen=2, activeOpen=0 → `(0, 2, 0, 0)`), (ii) RuView#1409 flips stale→merged under a maintainer sweep (→ merged7d=1), (iii) wigolo#216 rolls off merged30d on 2026-11-20 (not until +15d), (iv) a fresh prefix PR opens. Of the four, (i) is near-certain by 2026-11-06 at 2026-10-29T18:01 + 7d exactly — the first predicted exit date is the next scan. Note (i) is a new 5th attractor-exit axis class: **active-to-stale aging without state change**, distinct from the 4 currently enumerated.
-- **5-day queue freeze under full-cohort silence** — zero motion across 2026-10-31 → 2026-11-05 on all 47 prefix-match PRs: no opens, closes, merges, reviews, or new comments. First observed full-silence 5-day window in the running series (contrast 10-24→10-31 which saw wigolo#216 roll-off + opencart#15792 fresh-open + wicket#1728 non-prefix open). Candidate class for atomic: **cohort-wide `updatedAt` freeze**.
-- **RuView#1409 stale-approve shape extends to 105d · 29d since last activity** — post-approve dormancy widens linearly scan-over-scan (64d/10-07 → 100d/10-31 → 105d/11-05 at approve; 24d → 29d at `updatedAt`). No new reviews, comments, or commits visible on this scan. The wigolo#216 "long-approved stale PR converts to merge on maintainer sweep" classifier (n=1) has RuView as the standing candidate at 2× the pre-sweep activity gap (wigolo converted at ~12d dormant; RuView now at 29d). Conversion-probability signal weakens with each silent scan.
-- **Shopify null-slot n=13-sustained** — identical stderr IP-allowlist across 13 consecutive scans. SKILL item (r) null-slot handling now **14× overdue**.
-- **Cursor null-slot n=2-sustained** — second observation at 2026-11-05. The 10-31 generalization from Shopify-specific → policy-class [[pr-tracker-ip-allowlist-null-slot-class-generalizes-beyond-shopify]] holds; Cursor now has n=2 under identical stderr pattern.
-- **GraphQL clean-first (no retry fired)** — contrast 10-31 which required n=4 retry. The 502 cadence re-admits a clean-first gap (prior gap n=2 on 10-24/10-25); the retry wrapper item (s) remains empirically justified at 4/4 fires across observed 502s.
-- **opencart#15792 ages to activeOpen 7d boundary** — fresh-open on 2026-10-29T18:01Z is now at ~6d 10h today (treating scan time as ~2026-11-05 current), still inside the 7d createdAt window; no intervening activity in 7d means it crosses into staleOpen on next scan (2026-11-06 nominal) unless a review lands between now and then.
+- **`(0, 2, 0, 0)` tuple returns via active-to-stale aging axis — 5th attractor-exit axis confirmed at n=1** — exactly matches the 11-05 note's first-predicted exit path (i). The 4-axis attractor-exit schema from [[pr-tracker-bucket-tuple-attractor-terminates-on-stale-to-merged-conversion]] now needs to formally enumerate 5 axes. Distinguishing feature: the new axis conserves `openTotal` (2 → 2) and `issueCount` (73 → 73) and flips only one PR from active to stale, with zero remote GitHub-side events. All prior 4 axes required an external state change (window roll-off, bulk-close, merge, fresh-open). This is the first **endogenous** exit axis — entirely time-driven, requires no operator or maintainer action.
+- **Composition-aware attractor tracking needed** — the new `(0, 2, 0, 0)` has the same symbolic tuple as 10-07 → 10-21's 10-scan run, but the composition is {RuView#1409, opencart#15792} vs the prior {RuView#1409, openai#4829}. openai#4829 rolled off CLOSED-no-merge on 2026-10-26, so the prior attractor's second-stale slot was permanently vacated; opencart#15792 fills it 12 days later via the aging axis. Treating these as the same attractor state hides the compositional turnover.
+- **11-day cohort freeze extended** — zero motion across 2026-10-25T21:30Z → 2026-11-07 on all prefix-match PRs excluding opencart#15792's silent aging boundary crossing (which is a time-only event, not a GitHub-side action). The last actual GitHub-side activity on any prefix-match PR was wigolo#216 merge at 2026-10-21T14:56:16Z (17 days), and the last update-by-event was ambiguous on RuView#1409 at 2026-11-05T14:44:51Z (see next bullet). Candidate class for atomic: **11-day prefix-cohort freeze** — longest observed silent window in the running series.
+- **RuView#1409 `updatedAt` anomaly — 2026-11-05T14:44:51Z with no review/comment signature** — the 11-05 scan noted RuView at "29d since `updatedAt`" (implying `updatedAt` ≈ 2026-10-07 at scan time 18:37Z); today's scan shows `updatedAt=2026-11-05T14:44:51Z` with no new review (last review still APPROVED 2026-08-28) and `comments.totalCount=5` unchanged. The update event between 11-05 scan time and now is **invisible** to the current GraphQL query — likely a label/assignee/reviewer-request change, a title edit, or a merge-base refresh. Under strict SKILL semantics ("review/comment activity in last 7 days"), RuView remains stale. New candidate SKILL item (u): fetch `timelineItems(last: 5)` on OPEN PRs so non-review/comment update events become visible — otherwise `updatedAt` deltas vs prior scans go unexplained and `active_open` vs `stale_open` classification becomes ambiguous.
+- **Shopify null-slot n=14-sustained** — identical stderr IP-allowlist across 14 consecutive scans. SKILL item (r) null-slot handling now **15× overdue**.
+- **Cursor null-slot n=3-sustained** — third observation at 2026-11-07, extending the 10-31 → 11-05 → 11-07 run. Under the vendor-agnostic policy-class promotion [[pr-tracker-ip-allowlist-null-slot-class-generalizes-beyond-shopify]], Cursor's staying-power at n=3 confirms the class is not a one-off and the per-org bucket counters in the item (r) patch are load-bearing.
+- **GraphQL clean-first (n=2)** — two consecutive clean-first scans since the 10-31 n=4 retry burst. The 502 cadence re-admits clean runs; the retry wrapper item (s) remains empirically justified.
 
 ## Open (2)
 
 | Repo | PR | Title | Opened | Age | Activity |
 |------|----|-------|--------|-----|----------|
-| ruvnet/RuView | [#1409](https://github.com/ruvnet/RuView/pull/1409) | fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs) | 2026-07-23 | 105d | APPROVED 2026-08-28 unmerged (69d since approve); 29d since `updatedAt`; STALE |
-| opencart/opencart | [#15792](https://github.com/opencart/opencart/pull/15792) | [4.2.x.x] Lock coupon, reward and credit redemption checks at order confirmation | 2026-10-29 | 7d | 0 comments, 0 reviews; aging to stale boundary (last `updatedAt` = createdAt 10-29) |
+| ruvnet/RuView | [#1409](https://github.com/ruvnet/RuView/pull/1409) | fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20 (7 HIGH CVEs) | 2026-07-23 | 107d | APPROVED 2026-08-28 unmerged (71d since approve); `updatedAt=2026-11-05` but no new review/comment signature; STALE |
+| opencart/opencart | [#15792](https://github.com/opencart/opencart/pull/15792) | [4.2.x.x] Lock coupon, reward and credit redemption checks at order confirmation | 2026-10-29 | 9d | 0 comments, 0 reviews; `updatedAt=createdAt`; STALE (crossed 7d boundary) |
 
 ## Recent Merges (last 30d) — 1
 
@@ -65,34 +65,17 @@ Same 11 non-prefix PRs as 10-31; no new opens or state changes in the window. La
 
 ## Closed No-Merge (last 30d) — 0
 
-*(openai#4829 rolled off 2026-10-26T18:49Z as predicted; now permanently in archive-hidden/lost set.)*
+*(openai#4829 rolled off 2026-10-26T18:49Z; now permanently in archive-hidden/lost set.)*
 
 ## Bucket tuples
 
-- Letter (merged7d, staleOpen, closed7d, activeOpen): **(0, 1, 0, 1)** — n=2 at state, 5-day dwell
-- Prior sequence: 09-20/21/22 `(0, 3, 23, 1)` × 3 → 09-26 `(0, 2, 1, 1)` → 10-07/10/14/15/17/18/19/20/21 `(0, 2, 0, 0)` × 10 → 10-24/10-25 `(1, 1, 0, 0)` × 2 → 10-31 `(0, 1, 0, 1)` → **11-05 `(0, 1, 0, 1)` (n=2)**
+- Letter (merged7d, staleOpen, closed7d, activeOpen): **(0, 2, 0, 0)** — n=1 at new composition (RuView + opencart)
+- Prior sequence: 09-20/21/22 `(0, 3, 23, 1)` × 3 → 09-26 `(0, 2, 1, 1)` → 10-07/10/14/15/17/18/19/20/21 `(0, 2, 0, 0)` × 10 (composition: RuView + openai) → 10-24/10-25 `(1, 1, 0, 0)` × 2 → 10-31 `(0, 1, 0, 1)` → 11-05 `(0, 1, 0, 1)` (n=2) → **11-07 `(0, 2, 0, 0)` (new composition: RuView + opencart)**
 
 ## Notes
 
-- **Second consecutive scan at `(0, 1, 0, 1)` — n=2 dwell** — matches `(1, 1, 0, 0)`'s 2-scan dwell before its 2-axis break. Candidate 5th attractor-exit axis emerging: active-to-stale aging transition (silent `updatedAt` boundary crossing of a fresh-open PR). Expected next scan (2026-11-06) unless opencart#15792 receives a review.
-- **Zero queue motion across 5 days** — new class of scan output; prior all-flat scans existed at scan-to-scan cadence (10-07/10-10), not across a 5-day window. Deserves atomic promotion if the next scan also shows zero-motion (would indicate possible fresh-open drought re-engagement).
-- **Operator PR burst stable at 11 non-prefix** — no change from 10-31 set. Operator-side manual queue unchanged.
-- **Null-slot class holds** — Shopify n=13 + Cursor n=2; policy-class still generalizes beyond single-vendor.
-- **GraphQL 502 did not fire on first attempt today** — clean-first; the retry wrapper (SKILL item (s)) did not engage, consistent with sub-daily cadence intermittence.
-- **Terminology** — `staleOpen` and `activeOpen` are shorthand for stale-open and active-open counters respectively, inherited from the prior pr-status.md tuple format. Kept for diff-continuity.
-
-## Follow-ups
-
-- **09-17 bulk-close actor-fetch permanently lost** — 14× unactioned carryover; close as `wontfix` on next memory-flush.
-- **Expected next-scan exit of `(0, 1, 0, 1)` via active-to-stale aging** — opencart#15792 crosses the 7d-updatedAt threshold on 2026-11-05/06 unless a review lands; this would give a new 5th attractor-exit axis class not currently in the enumerated 4 from [[pr-tracker-bucket-tuple-attractor-terminates-on-stale-to-merged-conversion]]. Watch for atomic promotion.
-- **Identify source skill for opencart#15792** — grep `memory/logs/2026-10-29.md` for the emission event (unactioned since 10-31).
-- **SKILL patches (a)–(t) still 94d+ overdue** — item (r) (null-slot handling) generalizes beyond Shopify, holds at Cursor n=2; item (s) (3s-backoff retry) sits at 4/4 success across observed 502s; item (t) (attractor-exit tuple predictor) may need upgrade to 5-axis enumeration pending tomorrow's scan.
-- **Broaden `BRANCH_PREFIX` config** in `aeon.yml` `pr_tracker.branch_prefix` to the 6-prefix set to end reliance on operator convention; also set `pr_tracker.author: aeonframework` so SKILL config resolution doesn't fall through to the auth token (`gh api user` returns HTTP 403 "Resource not accessible by integration" under GitHub Actions App auth).
-
-## Archive-hidden / lost (carried from prior scans)
-
-- `PostHog/code#4007` — CLOSED, rolled off 30d window (closed 2026-08-03).
-- `0xprogrammable/aeon-launch-models#1` — HTTP 404, repo deleted (day 51 permanence per [[pr-tracker-repo-deletion-loses-pr-permanently]]).
-- **09-17 14:00Z–14:33Z bulk-close cluster (23 PRs)** — rolled off 30d window on 2026-10-18 as predicted; detail tables preserved in prior scans' pr-status.md revisions. Actor identity permanently irrecoverable.
-- **openai/openai-agents-python#4829** — rolled off 2026-10-26T18:49Z, now permanently archive-hidden.
-- **microsoft/mxc#1124** — rolled off merged30d on 2026-10-28T20:56Z.
+- **5-axis attractor-exit schema promoted at n=1** — endogenous active-to-stale aging joins (window boundary, bulk-close rollover, post-rollover days, stale→merged conversion). This axis is uniquely identified by (`openTotal` conserved) AND (`issueCount` conserved) AND (1 PR flips bucket). Future `(0, 1, 0, 1)` → `(0, 2, 0, 0)` transitions observed under these conditions are axis-5 confirmations.
+- **11-day cohort freeze** — longest prefix-match silent window in running series; prior ceiling was the 5-day 10-31 → 11-05 window. Treat future scans at ≥14d with no state changes as "quiescent queue" regime.
+- **Null-slot class: 2 vendors × 17 total observations** (Shopify 14 + Cursor 3) — the per-org counter pattern in item (r) is strongly motivated.
+- **RuView `updatedAt` anomaly flags observation gap** — the GraphQL query returns `updatedAt` but only `reviews(last: 1)` and `comments.totalCount`, so invisible update events (label changes, assignee shuffles, title edits) silently flip `updatedAt` without a classifiable activity type. Item (u) in the SKILL patch queue: add `timelineItems(last: 5)` to surface non-review/comment events for classification.
+- **Next projected transition (2026-11-08+)**: opencart#15792 reaches 10d age at 2026-11-08 and 11d at 2026-11-09, both inside the `(0, 2, 0, 0)` attractor — no state change unless (a) a maintainer reviews/comments (→ back to `(0, 1, 0, 1)` or active), (b) a new prefix PR opens, (c) wigolo#216 rolls off merged30d on 2026-11-20 (12 days out).
