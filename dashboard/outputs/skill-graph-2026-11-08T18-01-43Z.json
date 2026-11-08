@@ -1,0 +1,38 @@
+{
+  "root": "card_root",
+  "state": {},
+  "elements": {
+    "card_root": {
+      "type": "Card",
+      "props": {
+        "title": "skill-graph"
+      },
+      "children": [
+        "msg_text",
+        "skills_stat",
+        "pr_link"
+      ]
+    },
+    "msg_text": {
+      "type": "Text",
+      "props": {
+        "text": "*Skill Graph initialized*"
+      }
+    },
+    "skills_stat": {
+      "type": "Stat",
+      "props": {
+        "value": "172",
+        "label": "Skills mapped across 6 categories"
+      }
+    },
+    "pr_link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "PR #116",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/116",
+        "source": "GitHub"
+      }
+    }
+  }
+}

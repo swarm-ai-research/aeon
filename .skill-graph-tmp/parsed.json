@@ -1,0 +1,3496 @@
+{
+  "skills": {
+    "action-converter": {
+      "slug": "action-converter",
+      "name": "Action Converter",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 18 * * *",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "agent-buzz": {
+      "slug": "agent-buzz",
+      "name": "Agent Buzz",
+      "tags": [
+        "social"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 17 * * *",
+      "var": "",
+      "model": "",
+      "category": "social"
+    },
+    "agent-displacement": {
+      "slug": "agent-displacement",
+      "name": "agent-displacement",
+      "tags": [
+        "ai",
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/agent-displacement.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "ai-framework-watch": {
+      "slug": "ai-framework-watch",
+      "name": "AI Framework Watch",
+      "tags": [
+        "research",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/framework-watch-state.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": true,
+      "enabled": true,
+      "schedule": "30 8 * * 1",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "aixbt-pulse": {
+      "slug": "aixbt-pulse",
+      "name": "AIXBT Pulse",
+      "tags": [
+        "crypto",
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/aixbt-grounding.md": {
+          "read": true,
+          "write": true
+        },
+        "memory/topics/aixbt-clusters.md": {
+          "read": false,
+          "write": true
+        },
+        "memory/topics/aixbt-chains.md": {
+          "read": false,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 9,21 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "article": {
+      "slug": "article",
+      "name": "Daily Article",
+      "tags": [
+        "content"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 14 * * *",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "auto-merge": {
+      "slug": "auto-merge",
+      "name": "Auto Merge",
+      "tags": [
+        "dev",
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/auto-merge-state.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 14 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "auto-workflow": {
+      "slug": "auto-workflow",
+      "name": "Auto-Workflow Builder",
+      "tags": [
+        "meta",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/auto-workflow-analyzed.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "autoresearch": {
+      "slug": "autoresearch",
+      "name": "Autoresearch",
+      "tags": [
+        "meta",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "autoresearch-goal": {
+      "slug": "autoresearch-goal",
+      "name": "Autoresearch Goal",
+      "tags": [
+        "meta",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "meta"
+    },
+    "batch-health": {
+      "slug": "batch-health",
+      "name": "batch-health",
+      "tags": [
+        "meta",
+        "reliability"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 8 * * *",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "builder-map": {
+      "slug": "builder-map",
+      "name": "builder-map",
+      "tags": [
+        "dev",
+        "social",
+        "ecosystem"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/watched-repos.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/ecosystem.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "changelog": {
+      "slug": "changelog",
+      "name": "Changelog",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 16 * * 1",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "channel-recap": {
+      "slug": "channel-recap",
+      "name": "Channel Recap",
+      "tags": [
+        "content"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 17 * * 0",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "code-health": {
+      "slug": "code-health",
+      "name": "Code Health",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 16 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "competitor-launch-radar": {
+      "slug": "competitor-launch-radar",
+      "name": "competitor-launch-radar",
+      "tags": [
+        "research",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/competitor-launch-radar-state.json": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/competitor-launch-radar-state.json.bak": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": true,
+      "enabled": false,
+      "schedule": "0 10 * * 1",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "research"
+    },
+    "compute-futures-eda": {
+      "slug": "compute-futures-eda",
+      "name": "Compute-Futures EDA",
+      "tags": [
+        "data",
+        "analysis",
+        "compute-futures"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/compute-futures-eda": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 6 * * *",
+      "var": "",
+      "model": "",
+      "category": "data"
+    },
+    "compute-macro-correlate": {
+      "slug": "compute-macro-correlate",
+      "name": "Compute × Macro Correlate",
+      "tags": [
+        "data",
+        "analysis",
+        "compute-futures",
+        "macro"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/compute-futures-macro-correlations.md": {
+          "read": true,
+          "write": true
+        },
+        "memory/topics/compute-futures-macro-correlations.md.": {
+          "read": false,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "30 6 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "data"
+    },
+    "compute-pulse": {
+      "slug": "compute-pulse",
+      "name": "compute-pulse",
+      "tags": [
+        "ai",
+        "compute",
+        "infra",
+        "depin"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/compute-tokens.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/compute-pulse.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 11 * * 6",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "config-validator": {
+      "slug": "config-validator",
+      "name": "Config Validator",
+      "tags": [
+        "meta",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 7 * * 0",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "content-engine": {
+      "slug": "content-engine",
+      "name": "Content Engine",
+      "tags": [
+        "content",
+        "research",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": true,
+      "enabled": false,
+      "schedule": "0 14 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "contributor-reward": {
+      "slug": "contributor-reward",
+      "name": "contributor-reward",
+      "tags": [
+        "community",
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/state/contributor-reward-state.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 9 * * 1",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "crypto"
+    },
+    "contributor-spotlight": {
+      "slug": "contributor-spotlight",
+      "name": "contributor-spotlight",
+      "tags": [
+        "meta",
+        "community"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/fork-cohort-state.json": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/contributor-spotlight-history.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 20 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "cost-report": {
+      "slug": "cost-report",
+      "name": "cost-report",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 7 * * 1",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "productivity"
+    },
+    "create-campaign": {
+      "slug": "create-campaign",
+      "name": "Create Campaign",
+      "tags": [
+        "growth",
+        "ads"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "",
+      "category": "social"
+    },
+    "create-skill": {
+      "slug": "create-skill",
+      "name": "Create Skill",
+      "tags": [
+        "dev",
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "daily-routine": {
+      "slug": "daily-routine",
+      "name": "Daily Routine",
+      "tags": [
+        "news"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 7 * * *",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "deal-flow": {
+      "slug": "deal-flow",
+      "name": "Deal Flow",
+      "tags": [
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 14 * * 1",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "deep-research": {
+      "slug": "deep-research",
+      "name": "Deep Research",
+      "tags": [
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": true,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "defi-monitor": {
+      "slug": "defi-monitor",
+      "name": "DeFi Monitor",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 12 * * *",
+      "var": "",
+      "model": "",
+      "category": "crypto"
+    },
+    "defi-overview": {
+      "slug": "defi-overview",
+      "name": "DeFi Overview",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 12 * * *",
+      "var": "",
+      "model": "",
+      "category": "crypto"
+    },
+    "deploy-prototype": {
+      "slug": "deploy-prototype",
+      "name": "Deploy Prototype",
+      "tags": [
+        "dev",
+        "build"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/prototypes.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "digest": {
+      "slug": "digest",
+      "name": "Daily Digest",
+      "tags": [
+        "content"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 14 * * *",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "disclosure-tracker": {
+      "slug": "disclosure-tracker",
+      "name": "disclosure-tracker",
+      "tags": [
+        "security",
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/pr-status.md": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 11 * * *",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "distribute-tokens": {
+      "slug": "distribute-tokens",
+      "name": "Distribute Tokens",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/state/distributions.json": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "",
+      "category": "crypto"
+    },
+    "ecosystem-pulse": {
+      "slug": "ecosystem-pulse",
+      "name": "ecosystem-pulse",
+      "tags": [
+        "research",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/ecosystem-pulse-map.json": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/ecosystem-pulse-state.json": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/ecosystem-pulse-state.json.bak": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": true,
+      "enabled": false,
+      "schedule": "0 11 * * 1",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "engagement-act": {
+      "slug": "engagement-act",
+      "name": "Engagement Act",
+      "tags": [
+        "social",
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/projects-of-interest.md": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "evening-recap": {
+      "slug": "evening-recap",
+      "name": "Evening Recap",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 21 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "productivity"
+    },
+    "external-feature": {
+      "slug": "external-feature",
+      "name": "External Feature",
+      "tags": [
+        "dev",
+        "build"
+      ],
+      "dependsOn": [
+        "repo-scanner"
+      ],
+      "refs": {
+        "memory/topics/repos.md": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 16 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "farcaster-digest": {
+      "slug": "farcaster-digest",
+      "name": "Farcaster Digest",
+      "tags": [
+        "crypto",
+        "social"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/state/farcaster-seen-hashes.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 17 * * *",
+      "var": "",
+      "model": "",
+      "category": "social"
+    },
+    "feature": {
+      "slug": "feature",
+      "name": "Feature",
+      "tags": [
+        "dev",
+        "build"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/watched-repos.md": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "fetch-tweets": {
+      "slug": "fetch-tweets",
+      "name": "Fetch Tweets",
+      "tags": [
+        "social"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 17 * * *",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "fleet-control": {
+      "slug": "fleet-control",
+      "name": "Fleet Control",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/state/fleet-control-state.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 9 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "fleet-state": {
+      "slug": "fleet-state",
+      "name": "fleet-state",
+      "tags": [
+        "meta",
+        "community"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/fork-cohort-state.json": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/fork-release-state.json": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/contributor-spotlight-history.json": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/fleet-state.json": {
+          "read": true,
+          "write": true
+        },
+        "memory/topics/fleet-state.json.bak": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 8 * * 1",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "fork-cohort": {
+      "slug": "fork-cohort",
+      "name": "fork-cohort",
+      "tags": [
+        "meta",
+        "community"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/fork-cohort-state.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 19 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "dev"
+    },
+    "fork-contributor-leaderboard": {
+      "slug": "fork-contributor-leaderboard",
+      "name": "fork-contributor-leaderboard",
+      "tags": [
+        "meta",
+        "community"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/leaderboard-optout.md": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 17 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "fork-first-run-alert": {
+      "slug": "fork-first-run-alert",
+      "name": "fork-first-run-alert",
+      "tags": [
+        "meta",
+        "community"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/fork-cohort-state.json": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/fork-first-run-state.json": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 20 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "dev"
+    },
+    "fork-fleet": {
+      "slug": "fork-fleet",
+      "name": "fork-fleet",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/fork-fleet-state.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 10 * * 1",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "fork-release-tracker": {
+      "slug": "fork-release-tracker",
+      "name": "fork-release-tracker",
+      "tags": [
+        "meta",
+        "community"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/fork-release-state.json": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/fork-release-state.json.bak": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 19 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "fork-skill-digest": {
+      "slug": "fork-skill-digest",
+      "name": "fork-skill-digest",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/fork-skill-digest-state.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 18 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "fork-skill-gap": {
+      "slug": "fork-skill-gap",
+      "name": "fork-skill-gap",
+      "tags": [
+        "meta",
+        "community"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/fork-cohort-state.json": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/fork-skill-gap-state.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 21 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "dev"
+    },
+    "frontier-eval": {
+      "slug": "frontier-eval",
+      "name": "Frontier Eval",
+      "tags": [
+        "eval",
+        "capability",
+        "compute-markets"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/frontier-eval": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "eval"
+    },
+    "github-issues": {
+      "slug": "github-issues",
+      "name": "GitHub Issues",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 9 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "github-monitor": {
+      "slug": "github-monitor",
+      "name": "GitHub Monitor",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 9 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "github-releases": {
+      "slug": "github-releases",
+      "name": "GitHub Releases",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 9 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "github-trending": {
+      "slug": "github-trending",
+      "name": "GitHub Trending",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 9 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "gitlawb-fleet": {
+      "slug": "gitlawb-fleet",
+      "name": "GitLawb Fleet",
+      "tags": [
+        "dev",
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "gitlawb-fleet-metrics": {
+      "slug": "gitlawb-fleet-metrics",
+      "name": "GitLawb Fleet Metrics",
+      "tags": [
+        "dev",
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 8 * * *",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "goal-tracker": {
+      "slug": "goal-tracker",
+      "name": "Goal Tracker",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 18 * * *",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "hacker-news-digest": {
+      "slug": "hacker-news-digest",
+      "name": "Hacker News Digest",
+      "tags": [
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 7 * * *",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "heartbeat": {
+      "slug": "heartbeat",
+      "name": "Heartbeat",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 8 * * *",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "huggingface-trending": {
+      "slug": "huggingface-trending",
+      "name": "Hugging Face Trending",
+      "tags": [
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 9 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "research"
+    },
+    "idea-capture": {
+      "slug": "idea-capture",
+      "name": "Idea Capture",
+      "tags": [
+        "creative"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 14 * * *",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "idea-pipeline": {
+      "slug": "idea-pipeline",
+      "name": "idea-pipeline",
+      "tags": [
+        "meta",
+        "creative"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/startup-ideas.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/startup-ideas-screened.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/git-identities.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/prototypes.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/vercel.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/market-context.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/ecosystem.md": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "idea-validator": {
+      "slug": "idea-validator",
+      "name": "idea-validator",
+      "tags": [
+        "creative",
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/startup-ideas.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/startup-ideas-screened.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "issue-triage": {
+      "slug": "issue-triage",
+      "name": "Issue Triage",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 9 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "janitor": {
+      "slug": "janitor",
+      "name": "Janitor",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "30 5 * * 0",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "last30": {
+      "slug": "last30",
+      "name": "Last 30 Days",
+      "tags": [
+        "research",
+        "social"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/last30-": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": true,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "launch-radar": {
+      "slug": "launch-radar",
+      "name": "launch-radar",
+      "tags": [
+        "meta",
+        "creative",
+        "ideas"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/startup-ideas.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/startup-ideas-screened.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/startup-ideas-market.md": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "list-digest": {
+      "slug": "list-digest",
+      "name": "List Digest",
+      "tags": [
+        "social"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 17 * * *",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "market-context-refresh": {
+      "slug": "market-context-refresh",
+      "name": "Market Context Refresh",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/market-context.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 13 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "crypto"
+    },
+    "memory-flush": {
+      "slug": "memory-flush",
+      "name": "Memory Flush",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/skills-history.md": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 6 2/2 * *",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "memory-structural-dedupe": {
+      "slug": "memory-structural-dedupe",
+      "name": "memory-structural-dedupe",
+      "tags": [
+        "meta",
+        "memory"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "10 6 2/2 * *",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "milestone-tracker": {
+      "slug": "milestone-tracker",
+      "name": "milestone-tracker",
+      "tags": [
+        "meta",
+        "projects"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 12 * * 1",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "monitor-kalshi": {
+      "slug": "monitor-kalshi",
+      "name": "Monitor Kalshi",
+      "tags": [
+        "crypto",
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 13 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "crypto"
+    },
+    "monitor-polymarket": {
+      "slug": "monitor-polymarket",
+      "name": "Monitor Polymarket",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 12 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "crypto"
+    },
+    "monitor-runners": {
+      "slug": "monitor-runners",
+      "name": "Monitor Runners",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 12 * * *",
+      "var": "",
+      "model": "",
+      "category": "crypto"
+    },
+    "morning-brief": {
+      "slug": "morning-brief",
+      "name": "Morning Brief",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 7 * * *",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "narrative-tracker": {
+      "slug": "narrative-tracker",
+      "name": "Narrative Tracker",
+      "tags": [
+        "crypto",
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 13 * * *",
+      "var": "",
+      "model": "",
+      "category": "crypto"
+    },
+    "note-taking": {
+      "slug": "note-taking",
+      "name": "Note Taking",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "notegraph": {
+      "slug": "notegraph",
+      "name": "Note Graph",
+      "tags": [
+        "meta",
+        "docs"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/state/notegraph.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 5 * * *",
+      "var": "",
+      "model": "",
+      "category": "meta"
+    },
+    "on-chain-monitor": {
+      "slug": "on-chain-monitor",
+      "name": "On-Chain Monitor",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 12 * * *",
+      "var": "",
+      "model": "",
+      "category": "crypto"
+    },
+    "onboard": {
+      "slug": "onboard",
+      "name": "onboard",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/onboard-history.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "operator-scorecard": {
+      "slug": "operator-scorecard",
+      "name": "operator-scorecard",
+      "tags": [
+        "meta",
+        "productivity"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 10 * * 1",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "productivity"
+    },
+    "paper-digest": {
+      "slug": "paper-digest",
+      "name": "Paper Digest",
+      "tags": [
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": true,
+      "enabled": false,
+      "schedule": "0 7 * * *",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "paper-pick": {
+      "slug": "paper-pick",
+      "name": "Paper Pick",
+      "tags": [
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 14 * * *",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "planner": {
+      "slug": "planner",
+      "name": "Planner",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/state/planner-state.json": {
+          "read": true,
+          "write": true
+        },
+        "memory/state/daily-plan-": {
+          "read": false,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "30 6 * * *",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "pm-intel": {
+      "slug": "pm-intel",
+      "name": "PM Intel",
+      "tags": [
+        "research",
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/prediction-markets.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "pm-manipulation": {
+      "slug": "pm-manipulation",
+      "name": "PM Manipulation",
+      "tags": [
+        "crypto",
+        "research",
+        "security"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/prediction-markets.md": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": true,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "pm-pulse": {
+      "slug": "pm-pulse",
+      "name": "pm-pulse",
+      "tags": [
+        "crypto",
+        "prediction-markets",
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/prediction-markets.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "polymarket": {
+      "slug": "polymarket",
+      "name": "Polymarket",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "polymarket-comments": {
+      "slug": "polymarket-comments",
+      "name": "Polymarket Comments",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 13 * * *",
+      "var": "",
+      "model": "",
+      "category": "crypto"
+    },
+    "pr-review": {
+      "slug": "pr-review",
+      "name": "PR Review",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/pr-review-rules.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/pr-review-rules": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 9,18 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "pr-tracker": {
+      "slug": "pr-tracker",
+      "name": "PR Tracker",
+      "tags": [
+        "meta",
+        "github"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/pr-status.md": {
+          "read": false,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 10 * * *",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "pr-triage": {
+      "slug": "pr-triage",
+      "name": "PR Triage",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "30 9 * * *",
+      "var": "swarm-ai-research/swarm",
+      "model": "",
+      "category": "dev"
+    },
+    "price-threshold-alert": {
+      "slug": "price-threshold-alert",
+      "name": "price-threshold-alert",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/price-alert-state.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "*/30 * * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "crypto"
+    },
+    "product-hunt-launch": {
+      "slug": "product-hunt-launch",
+      "name": "product-hunt-launch",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "",
+      "category": "social"
+    },
+    "programmatic-eda": {
+      "slug": "programmatic-eda",
+      "name": "Programmatic EDA",
+      "tags": [
+        "data",
+        "analysis"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "data"
+    },
+    "project-lens": {
+      "slug": "project-lens",
+      "name": "project-lens",
+      "tags": [
+        "content",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 15 * * 1,3,5",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "push-recap": {
+      "slug": "push-recap",
+      "name": "push-recap",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 15 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "pvr-triage-monitor": {
+      "slug": "pvr-triage-monitor",
+      "name": "pvr-triage-monitor",
+      "tags": [
+        "security",
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 9 * * 1",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "pvr-watchlist": {
+      "slug": "pvr-watchlist",
+      "name": "pvr-watchlist",
+      "tags": [
+        "security",
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 9 * * 1",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "reddit-digest": {
+      "slug": "reddit-digest",
+      "name": "Reddit Digest",
+      "tags": [
+        "news"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 7 * * *",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "reflect": {
+      "slug": "reflect",
+      "name": "Weekly Reflect",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 18 * * *",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "refresh-x": {
+      "slug": "refresh-x",
+      "name": "Refresh X",
+      "tags": [
+        "social"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 17 * * *",
+      "var": "",
+      "model": "",
+      "category": "social"
+    },
+    "reg-monitor": {
+      "slug": "reg-monitor",
+      "name": "Regulatory Monitor",
+      "tags": [
+        "crypto",
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/reg-monitor-seen.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 14 * * 3",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "remix-tweets": {
+      "slug": "remix-tweets",
+      "name": "Remix Tweets",
+      "tags": [
+        "social"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/tweet-archive.md": {
+          "read": false,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 17 * * *",
+      "var": "",
+      "model": "",
+      "category": "social"
+    },
+    "reply-maker": {
+      "slug": "reply-maker",
+      "name": "Reply Maker",
+      "tags": [
+        "social"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 17 * * *",
+      "var": "",
+      "model": "",
+      "category": "social"
+    },
+    "repo-actions": {
+      "slug": "repo-actions",
+      "name": "repo-actions",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/repos.md": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 15 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "repo-article": {
+      "slug": "repo-article",
+      "name": "repo-article",
+      "tags": [
+        "dev",
+        "content"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 15 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "repo-pulse": {
+      "slug": "repo-pulse",
+      "name": "repo-pulse",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 15 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "repo-revive": {
+      "slug": "repo-revive",
+      "name": "Repo Revive",
+      "tags": [
+        "dev",
+        "growth"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/watched-repos.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/stale-models.md": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 10 * * 6",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "repo-scanner": {
+      "slug": "repo-scanner",
+      "name": "Repo Scanner",
+      "tags": [
+        "dev",
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/repos.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 15 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "dev"
+    },
+    "research-brief": {
+      "slug": "research-brief",
+      "name": "Research Brief",
+      "tags": [
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": true,
+      "enabled": false,
+      "schedule": "0 14 * * *",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "rss-digest": {
+      "slug": "rss-digest",
+      "name": "RSS Digest",
+      "tags": [
+        "news"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 7 * * *",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "rss-feed": {
+      "slug": "rss-feed",
+      "name": "RSS Feed Generator",
+      "tags": [
+        "content"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 17 * * *",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "run-frequency-guard": {
+      "slug": "run-frequency-guard",
+      "name": "run-frequency-guard",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 23 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "runpod-spot-pricing": {
+      "slug": "runpod-spot-pricing",
+      "name": "runpod-spot-pricing",
+      "tags": [
+        "compute",
+        "gpu",
+        "depin",
+        "pricing"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/compute-pulse.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/runpod-pricing.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 13 * * *",
+      "var": "",
+      "model": "",
+      "category": "compute"
+    },
+    "rwa-pulse": {
+      "slug": "rwa-pulse",
+      "name": "rwa-pulse",
+      "tags": [
+        "crypto",
+        "research"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/market-context.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/rwa.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "schedule-ads": {
+      "slug": "schedule-ads",
+      "name": "Schedule Ads",
+      "tags": [
+        "growth",
+        "ads"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 8 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "social"
+    },
+    "search-skill": {
+      "slug": "search-skill",
+      "name": "Search Skills",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 14 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "security-digest": {
+      "slug": "security-digest",
+      "name": "Security Digest",
+      "tags": [
+        "news",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 14 * * *",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "self-improve": {
+      "slug": "self-improve",
+      "name": "self-improve",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 18 1/2 * *",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "self-review": {
+      "slug": "self-review",
+      "name": "Self Review",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "30 18 * * 0",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "show-hn-draft": {
+      "slug": "show-hn-draft",
+      "name": "show-hn-draft",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "",
+      "category": "social"
+    },
+    "signal-verdict": {
+      "slug": "signal-verdict",
+      "name": "signal-verdict",
+      "tags": [
+        "meta",
+        "ops"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/tracked-skills.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "skill-analytics": {
+      "slug": "skill-analytics",
+      "name": "skill-analytics",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "30 18 * * 3",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "skill-enabler": {
+      "slug": "skill-enabler",
+      "name": "skill-enabler",
+      "tags": [
+        "dev",
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "skill-evals": {
+      "slug": "skill-evals",
+      "name": "Skill Evals",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 9 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "productivity"
+    },
+    "skill-freshness": {
+      "slug": "skill-freshness",
+      "name": "skill-freshness",
+      "tags": [
+        "meta",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/skill-freshness-state.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 8 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "skill-graph": {
+      "slug": "skill-graph",
+      "name": "Skill Dependency Graph",
+      "tags": [
+        "meta",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/skill-graph-state.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 17 * * 0",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "skill-health": {
+      "slug": "skill-health",
+      "name": "Skill Health",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 18 * * *",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "skill-leaderboard": {
+      "slug": "skill-leaderboard",
+      "name": "skill-leaderboard",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/skill-leaderboard-state.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 17 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "productivity"
+    },
+    "skill-repair": {
+      "slug": "skill-repair",
+      "name": "Skill Repair",
+      "tags": [
+        "meta",
+        "dev"
+      ],
+      "dependsOn": [
+        "skill-health"
+      ],
+      "refs": {
+        "memory/state/skill-repair-history.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "reactive",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "skill-security-scan": {
+      "slug": "skill-security-scan",
+      "name": "Skill Security Scan",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/state/security-scan.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 16 * * 1",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "skill-update-check": {
+      "slug": "skill-update-check",
+      "name": "skill-update-check",
+      "tags": [
+        "dev",
+        "security"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 19 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "productivity"
+    },
+    "skillpacks": {
+      "slug": "skillpacks",
+      "name": "Skillpacks",
+      "tags": [
+        "meta",
+        "docs"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/state/skillpacks.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 6 * * 0",
+      "var": "",
+      "model": "",
+      "category": "meta"
+    },
+    "smithery-manifest": {
+      "slug": "smithery-manifest",
+      "name": "smithery-manifest",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 6 1/7 * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "dev"
+    },
+    "spawn-instance": {
+      "slug": "spawn-instance",
+      "name": "Spawn Instance",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "stale-content-pr-sweeper": {
+      "slug": "stale-content-pr-sweeper",
+      "name": "Stale Content PR Sweeper",
+      "tags": [
+        "meta",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/state/notegraph.json": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "45 23 * * *",
+      "var": "",
+      "model": "",
+      "category": "meta"
+    },
+    "star-milestone": {
+      "slug": "star-milestone",
+      "name": "star-milestone",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/milestones.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "15 15 * * *",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "star-momentum-alert": {
+      "slug": "star-momentum-alert",
+      "name": "star-momentum-alert",
+      "tags": [
+        "meta",
+        "growth"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/star-momentum-state.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "10 10 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "startup-idea": {
+      "slug": "startup-idea",
+      "name": "Startup Idea",
+      "tags": [
+        "creative"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 18 * * *",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "suggest-edges": {
+      "slug": "suggest-edges",
+      "name": "Suggest Edges",
+      "tags": [
+        "meta",
+        "docs"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/state/suggest-edges.json": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "30 5 * * *",
+      "var": "",
+      "model": "",
+      "category": "meta"
+    },
+    "surplus-pulse": {
+      "slug": "surplus-pulse",
+      "name": "surplus-pulse",
+      "tags": [
+        "ai",
+        "compute",
+        "x402",
+        "depin",
+        "markets"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/projects.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/surplus-pulse.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "30 16 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "ai"
+    },
+    "swarm-safety-eval": {
+      "slug": "swarm-safety-eval",
+      "name": "SWARM Safety Eval",
+      "tags": [
+        "meta",
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "30 7 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "syndicate-article": {
+      "slug": "syndicate-article",
+      "name": "syndicate-article",
+      "tags": [
+        "content",
+        "growth"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 15 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "social"
+    },
+    "technical-explainer": {
+      "slug": "technical-explainer",
+      "name": "Technical Explainer",
+      "tags": [
+        "content"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 14 * * *",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "telegram-digest": {
+      "slug": "telegram-digest",
+      "name": "Telegram Digest",
+      "tags": [
+        "social"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 7 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "research"
+    },
+    "thread-formatter": {
+      "slug": "thread-formatter",
+      "name": "Thread Formatter",
+      "tags": [
+        "social"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 17 * * *",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "token-alert": {
+      "slug": "token-alert",
+      "name": "Token Alert",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 12 * * *",
+      "var": "",
+      "model": "",
+      "category": "crypto"
+    },
+    "token-movers": {
+      "slug": "token-movers",
+      "name": "Token Movers",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 12 * * *",
+      "var": "",
+      "model": "",
+      "category": "crypto"
+    },
+    "token-pick": {
+      "slug": "token-pick",
+      "name": "Token Pick",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 12 * * *",
+      "var": "",
+      "model": "",
+      "category": "crypto"
+    },
+    "token-report": {
+      "slug": "token-report",
+      "name": "token-report",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 12 * * *",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "crypto"
+    },
+    "tool-builder": {
+      "slug": "tool-builder",
+      "name": "Tool Builder",
+      "tags": [
+        "dev",
+        "build"
+      ],
+      "dependsOn": [
+        "action-converter"
+      ],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "reactive",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "topic-momentum": {
+      "slug": "topic-momentum",
+      "name": "topic-momentum",
+      "tags": [
+        "content",
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/content-domains.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/market-context.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/papers.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/content-gaps.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 13 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "other"
+    },
+    "treasury-info": {
+      "slug": "treasury-info",
+      "name": "Treasury Info",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/treasury-snapshots.md": {
+          "read": true,
+          "write": true
+        },
+        "memory/topics/known-tokens.md": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 12 * * *",
+      "var": "",
+      "model": "",
+      "category": "crypto"
+    },
+    "tweet-digest": {
+      "slug": "tweet-digest",
+      "name": "Tweet Digest",
+      "tags": [
+        "social"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/tracked-accounts.yml": {
+          "read": true,
+          "write": false
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "tweet-roundup": {
+      "slug": "tweet-roundup",
+      "name": "Tweet Roundup",
+      "tags": [
+        "social"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 17 * * *",
+      "var": "",
+      "model": "",
+      "category": "social"
+    },
+    "unlock-monitor": {
+      "slug": "unlock-monitor",
+      "name": "Unlock Monitor",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/state/unlock-monitor-seen.json": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 10 * * 1",
+      "var": "",
+      "model": "",
+      "category": "crypto"
+    },
+    "update-gallery": {
+      "slug": "update-gallery",
+      "name": "Update Gallery",
+      "tags": [
+        "content"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/state/update-gallery-state.json": {
+          "read": true,
+          "write": true
+        },
+        "memory/topics/gallery-orphans.md": {
+          "read": false,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 18 * * 0",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "v4-readiness": {
+      "slug": "v4-readiness",
+      "name": "v4-readiness",
+      "tags": [
+        "meta",
+        "dx"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "workflow_dispatch",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "productivity"
+    },
+    "vercel-projects": {
+      "slug": "vercel-projects",
+      "name": "Vercel Projects",
+      "tags": [
+        "dev",
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/vercel.md": {
+          "read": true,
+          "write": true
+        },
+        "memory/topics/repos.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 18 * * 0",
+      "var": "",
+      "model": "claude-sonnet-4-6",
+      "category": "dev"
+    },
+    "vibecoding-digest": {
+      "slug": "vibecoding-digest",
+      "name": "Vibecoding Digest",
+      "tags": [
+        "content"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "30 17 * * *",
+      "var": "",
+      "model": "",
+      "category": "research"
+    },
+    "vuln-scanner": {
+      "slug": "vuln-scanner",
+      "name": "Vuln Scanner",
+      "tags": [
+        "dev",
+        "security"
+      ],
+      "dependsOn": [
+        "github-trending"
+      ],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 16 * * 6",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "vuln-tracker": {
+      "slug": "vuln-tracker",
+      "name": "Vuln Tracker",
+      "tags": [
+        "meta",
+        "security",
+        "github"
+      ],
+      "dependsOn": [
+        "vuln-scanner"
+      ],
+      "refs": {
+        "memory/topics/vuln-followup.md": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 11 * * *",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "wallet-digest": {
+      "slug": "wallet-digest",
+      "name": "Wallet Digest",
+      "tags": [
+        "crypto"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    },
+    "weekly-review": {
+      "slug": "weekly-review",
+      "name": "Weekly Review",
+      "tags": [
+        "meta"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 19 * * 1",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "weekly-shiplog": {
+      "slug": "weekly-shiplog",
+      "name": "weekly-shiplog",
+      "tags": [
+        "content"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 9 * * 1",
+      "var": "",
+      "model": "",
+      "category": "productivity"
+    },
+    "workflow-security-audit": {
+      "slug": "workflow-security-audit",
+      "name": "workflow-security-audit",
+      "tags": [
+        "dev"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": true,
+      "schedule": "0 16 * * 0",
+      "var": "",
+      "model": "",
+      "category": "dev"
+    },
+    "write-tweet": {
+      "slug": "write-tweet",
+      "name": "Write Tweet",
+      "tags": [
+        "social"
+      ],
+      "dependsOn": [],
+      "refs": {},
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "0 17 * * *",
+      "var": "",
+      "model": "",
+      "category": "social"
+    },
+    "x402-monitor": {
+      "slug": "x402-monitor",
+      "name": "Protocol Monitor (x402 default)",
+      "tags": [
+        "dev",
+        "protocol",
+        "ecosystem"
+      ],
+      "dependsOn": [],
+      "refs": {
+        "memory/topics/tracked-protocol.md": {
+          "read": true,
+          "write": false
+        },
+        "memory/topics/protocol-state-": {
+          "read": true,
+          "write": true
+        }
+      },
+      "writesArticles": false,
+      "enabled": false,
+      "schedule": "",
+      "var": "",
+      "model": "",
+      "category": "other"
+    }
+  },
+  "categoryLabels": {
+    "research": "Research & Content",
+    "dev": "Dev & Code",
+    "crypto": "Crypto & Markets",
+    "social": "Social",
+    "productivity": "Productivity & Meta",
+    "other": "Other & Uncategorized"
+  },
+  "dependsEdges": [
+    {
+      "from": "external-feature",
+      "to": "repo-scanner"
+    },
+    {
+      "from": "skill-repair",
+      "to": "skill-health"
+    },
+    {
+      "from": "tool-builder",
+      "to": "action-converter"
+    },
+    {
+      "from": "vuln-scanner",
+      "to": "github-trending"
+    },
+    {
+      "from": "vuln-tracker",
+      "to": "vuln-scanner"
+    }
+  ],
+  "consumeEdges": [],
+  "reactiveTriggers": {
+    "skill-repair": [
+      {
+        "on": "*",
+        "when": "consecutive_failures >= 3"
+      }
+    ],
+    "planner": [
+      {
+        "on": "*",
+        "when": "consecutive_failures >= 2"
+      }
+    ]
+  },
+  "sharedEdges": [
+    {
+      "from": "builder-map",
+      "to": "idea-pipeline",
+      "path": "memory/topics/ecosystem.md"
+    },
+    {
+      "from": "compute-pulse",
+      "to": "runpod-spot-pricing",
+      "path": "memory/topics/compute-pulse.md"
+    },
+    {
+      "from": "contributor-spotlight",
+      "to": "fleet-state",
+      "path": "memory/topics/contributor-spotlight-history.json"
+    },
+    {
+      "from": "deploy-prototype",
+      "to": "idea-pipeline",
+      "path": "memory/topics/prototypes.md"
+    },
+    {
+      "from": "fork-cohort",
+      "to": "contributor-spotlight",
+      "path": "memory/topics/fork-cohort-state.json"
+    },
+    {
+      "from": "fork-cohort",
+      "to": "fleet-state",
+      "path": "memory/topics/fork-cohort-state.json"
+    },
+    {
+      "from": "fork-cohort",
+      "to": "fork-first-run-alert",
+      "path": "memory/topics/fork-cohort-state.json"
+    },
+    {
+      "from": "fork-cohort",
+      "to": "fork-skill-gap",
+      "path": "memory/topics/fork-cohort-state.json"
+    },
+    {
+      "from": "idea-validator",
+      "to": "idea-pipeline",
+      "path": "memory/topics/startup-ideas-screened.md"
+    },
+    {
+      "from": "idea-validator",
+      "to": "launch-radar",
+      "path": "memory/topics/startup-ideas-screened.md"
+    },
+    {
+      "from": "market-context-refresh",
+      "to": "idea-pipeline",
+      "path": "memory/topics/market-context.md"
+    },
+    {
+      "from": "market-context-refresh",
+      "to": "rwa-pulse",
+      "path": "memory/topics/market-context.md"
+    },
+    {
+      "from": "market-context-refresh",
+      "to": "topic-momentum",
+      "path": "memory/topics/market-context.md"
+    },
+    {
+      "from": "notegraph",
+      "to": "stale-content-pr-sweeper",
+      "path": "memory/state/notegraph.json"
+    },
+    {
+      "from": "pm-intel",
+      "to": "pm-manipulation",
+      "path": "memory/topics/prediction-markets.md"
+    },
+    {
+      "from": "pm-intel",
+      "to": "pm-pulse",
+      "path": "memory/topics/prediction-markets.md"
+    },
+    {
+      "from": "pm-pulse",
+      "to": "pm-intel",
+      "path": "memory/topics/prediction-markets.md"
+    },
+    {
+      "from": "pm-pulse",
+      "to": "pm-manipulation",
+      "path": "memory/topics/prediction-markets.md"
+    },
+    {
+      "from": "pr-tracker",
+      "to": "disclosure-tracker",
+      "path": "memory/topics/pr-status.md"
+    },
+    {
+      "from": "repo-scanner",
+      "to": "external-feature",
+      "path": "memory/topics/repos.md"
+    },
+    {
+      "from": "repo-scanner",
+      "to": "repo-actions",
+      "path": "memory/topics/repos.md"
+    },
+    {
+      "from": "repo-scanner",
+      "to": "vercel-projects",
+      "path": "memory/topics/repos.md"
+    },
+    {
+      "from": "vercel-projects",
+      "to": "external-feature",
+      "path": "memory/topics/repos.md"
+    },
+    {
+      "from": "vercel-projects",
+      "to": "repo-actions",
+      "path": "memory/topics/repos.md"
+    },
+    {
+      "from": "vercel-projects",
+      "to": "repo-scanner",
+      "path": "memory/topics/repos.md"
+    },
+    {
+      "from": "vercel-projects",
+      "to": "idea-pipeline",
+      "path": "memory/topics/vercel.md"
+    }
+  ],
+  "contentPipelineEdges": [
+    {
+      "from": "ai-framework-watch",
+      "to": "syndicate-article"
+    },
+    {
+      "from": "ai-framework-watch",
+      "to": "rss-feed"
+    },
+    {
+      "from": "ai-framework-watch",
+      "to": "update-gallery"
+    },
+    {
+      "from": "competitor-launch-radar",
+      "to": "syndicate-article"
+    },
+    {
+      "from": "competitor-launch-radar",
+      "to": "rss-feed"
+    },
+    {
+      "from": "competitor-launch-radar",
+      "to": "update-gallery"
+    },
+    {
+      "from": "content-engine",
+      "to": "syndicate-article"
+    },
+    {
+      "from": "content-engine",
+      "to": "rss-feed"
+    },
+    {
+      "from": "content-engine",
+      "to": "update-gallery"
+    },
+    {
+      "from": "deep-research",
+      "to": "syndicate-article"
+    },
+    {
+      "from": "deep-research",
+      "to": "rss-feed"
+    },
+    {
+      "from": "deep-research",
+      "to": "update-gallery"
+    },
+    {
+      "from": "ecosystem-pulse",
+      "to": "syndicate-article"
+    },
+    {
+      "from": "ecosystem-pulse",
+      "to": "rss-feed"
+    },
+    {
+      "from": "ecosystem-pulse",
+      "to": "update-gallery"
+    },
+    {
+      "from": "last30",
+      "to": "syndicate-article"
+    },
+    {
+      "from": "last30",
+      "to": "rss-feed"
+    },
+    {
+      "from": "last30",
+      "to": "update-gallery"
+    },
+    {
+      "from": "paper-digest",
+      "to": "syndicate-article"
+    },
+    {
+      "from": "paper-digest",
+      "to": "rss-feed"
+    },
+    {
+      "from": "paper-digest",
+      "to": "update-gallery"
+    },
+    {
+      "from": "pm-manipulation",
+      "to": "syndicate-article"
+    },
+    {
+      "from": "pm-manipulation",
+      "to": "rss-feed"
+    },
+    {
+      "from": "pm-manipulation",
+      "to": "update-gallery"
+    },
+    {
+      "from": "research-brief",
+      "to": "syndicate-article"
+    },
+    {
+      "from": "research-brief",
+      "to": "rss-feed"
+    },
+    {
+      "from": "research-brief",
+      "to": "update-gallery"
+    }
+  ],
+  "counts": {
+    "total": 172,
+    "enabled": 43
+  }
+}
