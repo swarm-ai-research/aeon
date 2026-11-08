@@ -1,18 +1,22 @@
-The audit ran clean: all 153 findings (3 Critical, 55 High, 31 Medium, 64 Low) are byte-identical in fingerprint multiset to the 2026-09-27 baseline on PR #85. Delta = 0 new, 0 reintroduced, 0 resolved. Mode is `UNCHANGED`, so per SKILL.md gating no article is written, no PR opened, and no notify sent — log entry only.
-
 ## Summary
 
-**Exit mode:** `WORKFLOW_AUDIT_UNCHANGED` — 153 carried over from 2026-09-27.
+Executed `skills/workflow-security-audit/SKILL.md` for 2026-11-08.
 
-What I did:
-- Ran pre-cached `zizmor v1.25.2` + `actionlint` against all 8 files in `.github/workflows/`.
-- Reconstructed the prior fingerprint algorithm from `.audit/build_final.py` on `fix/workflow-security-audit-2026-09-27` (sha256 of `rule|file|step-or-L<line>` for zizmor, `kind|file|SC<n>:L<line>` for actionlint). Fingerprinting now stable across runs.
-- Multiset-matched 153/153 current findings against the prior PR #85 trailer. Zero delta.
-- Appended a log-only entry to `memory/logs/2026-10-18.md` under `## Workflow Security Audit`.
+**Verdict:** `WORKFLOW_AUDIT_CLEAN` with `WORKFLOW_AUDIT_TOOL_DEGRADED` footer.
 
-Files modified:
-- `memory/logs/2026-10-18.md` — new `## Workflow Security Audit` section.
-- `.audit/` — scratch state (not for commit): `zizmor.sarif`, `actionlint.json`, `findings.json`, `classified.json`, `verdict.json`, plus the normalize/classify helpers and the fingerprint-probe scripts used to recover the prior algorithm.
+**What ran:**
+- Enumerated 8 workflow files under `.github/workflows/` and 0 composite actions under `.github/actions/`.
+- `.audit-bin/zizmor` (v1.25.2) and `.audit-bin/actionlint` binaries are present, but every execution attempt (and `pipx install` fallback) was denied by this session's sandbox approval policy. Per the skill, I continued with the hand-rolled pattern checks and marked the run DEGRADED.
+- All five supplemental hand-rolled checks passed: no toJson-into-shell injection, no `persist-credentials: true`, no user-controlled `GITHUB_ENV`/`GITHUB_OUTPUT` writes, no `inputs.*` → shell/`gh workflow run` direct passthrough (all route through `env:` intermediaries), and no mutable third-party action refs (the three unpinned `aeon.yml` refs are first-party `actions/*` on the skill's trusted-owner allowlist).
 
-Follow-up:
-- The three open audit PRs (#24, #63, #85) still contain the entire manual-review backlog for these 153 findings — zero progress has landed since 2026-09-06. No new issue to add; the existing MEMORY.md action-queue item ("Address workflow-security-audit findings (153 total, 09-06 baseline; PR #63)") already covers this.
+**Confirmed resolved:** the historical `messages.yml:577` toJson-into-shell injection pattern — current `messages.yml:662-682` env-wraps `toJson(github.event.client_payload.message)` as `_CLIENT_PAYLOAD_MESSAGE` and consumes it via `printf '%s' "$_CLIENT_PAYLOAD_MESSAGE" | jq -r '.'`, matching the skill's AFTER template verbatim.
+
+**Not re-verified under degraded scope:** the prior 09-06 zizmor-level inventory from `MEMORY.md` (`secrets-outside-env` on `fleet-runner.yml:157-163`, 11 artipacked Mediums, 9 `ref-version-mismatch` SHA-comment drifts, unpinned `aeon.yml:85/121/133`). These remain the authoritative scanner-level backlog until a non-degraded run can refresh them.
+
+**Files created:**
+- `articles/workflow-security-audit-2026-11-08.md` (baseline report with fingerprint trailer)
+- `memory/logs/2026-11-08.md` (log entry)
+
+**Gating actions skipped (per CLEAN exit mode):** no branch, no commit, no PR, no `./notify` fan-out.
+
+**Follow-up:** re-run with sandbox-approved execution of `.audit-bin/zizmor` and `.audit-bin/actionlint` to refresh the scanner-level delta and drain the "Address workflow-security-audit findings" item in `MEMORY.md`.
