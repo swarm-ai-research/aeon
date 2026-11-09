@@ -1,0 +1,11 @@
+---
+id: pr-tracker-bucket-tuple-attractor-exits-on-endogenous-active-to-stale-aging
+created: 2026-11-09
+type: lesson
+links: [[pr-tracker-bucket-tuple-attractor-terminates-on-stale-to-merged-conversion]], [[pr-tracker-issuecount-mixes-manual-and-bot-pipeline]]
+---
+# pr-tracker bucket-tuple attractors can exit via **endogenous active-to-stale aging** with zero remote state change — first endogenous exit axis, uniquely identified by (`openTotal` conserved) AND (`issueCount` conserved) AND one PR flipping bucket
+
+**Why:** the 11-07 scan transitioned `(0, 1, 0, 1)` → `(0, 2, 0, 0)` at n=1 because `opencart/opencart#15792` silently crossed the 7-day createdAt boundary with `updatedAt` still frozen at 2026-10-29T18:01Z, 0 reviews, 0 comments — exactly the 11-05 scan's first-predicted exit path. All four axes previously enumerated in [[pr-tracker-bucket-tuple-attractor-terminates-on-stale-to-merged-conversion]] required an external GitHub-side event (window roll-off, 30d bulk-close rollover, stale→merged conversion, or a fresh PR open); this is the first axis where the predictor's state changes entirely from time passing, with no API-visible event. The new `(0, 2, 0, 0)` tuple has the same symbolic value as the 10-07 → 10-21 ten-scan run but the stale cohort composition differs — {RuView#1409, opencart#15792} replaces {RuView#1409, openai#4829} — so symbolic-tuple equality now hides compositional turnover.
+
+**How to apply:** the bucket-tuple predictor must enumerate 5 structural exit axes (and 1 composite joint-axis class from the 10-31 observation) and label axis-5 as *endogenous* to distinguish from the exogenous axes 1–4. Axis-5 is uniquely diagnosed by the invariant pair (`openTotal` conserved ∧ `issueCount` conserved) alongside a single-PR bucket flip; when both invariants hold across consecutive scans and `staleOpen` moves +1 with `activeOpen` moving -1, log the transition as `axis-5:endogenous-aging` and do not treat the symbolically-identical tuple state as a continuation of a prior `(0, 2, 0, 0)` run — add a composition-aware tag (set of PR IDs in each bucket) so the dwell counter resets on composition change. For downstream regime reasoning, axis-5 is also the only axis that proceeds under a cohort freeze (no GitHub-side activity on any prefix-match PR), making it the *expected* attractor exit during quiescent-queue regimes.

@@ -2,7 +2,7 @@
 id: pr-tracker-bucket-tuple-attractor-terminates-on-stale-to-merged-conversion
 created: 2026-10-24
 type: lesson
-links: [[pr-tracker-issuecount-mixes-manual-and-bot-pipeline]], [[stale-bucket-bulk-clear-via-clustered-maintainer-sweep]], [[cold-approve-can-merge-not-just-rot]]
+links: [[pr-tracker-issuecount-mixes-manual-and-bot-pipeline]], [[stale-bucket-bulk-clear-via-clustered-maintainer-sweep]], [[cold-approve-can-merge-not-just-rot]], [[pr-tracker-bucket-tuple-attractor-exits-on-endogenous-active-to-stale-aging]]
 ---
 # pr-tracker bucket-tuple attractors can terminate on a stale→merged conversion inside the 7d-active book — 4th structural axis after window boundary, bulk-close rollover, and post-rollover days
 
