@@ -1,0 +1,268 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Planner",
+        "description": "Today's plan and active priorities"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "intro-section",
+        "sep-1",
+        "active-section",
+        "sep-2",
+        "on-hold-section",
+        "sep-3",
+        "notes-section"
+      ]
+    },
+    "intro-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "intro-heading",
+        "intro-text",
+        "intro-context"
+      ]
+    },
+    "intro-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Priority: First-Move PR Against aeon.yml",
+        "level": "h2"
+      }
+    },
+    "intro-text": {
+      "type": "Text",
+      "props": {
+        "text": "Pulling four 08Z-cohort skills out of the dead 06Z pocket to post-10Z slots: compute-futures-eda, memory-flush, memory-structural-dedupe, planner",
+        "variant": "body"
+      }
+    },
+    "intro-context": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-006 39-day restatement run needs a diff, not another atomic.",
+        "variant": "caption"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "active-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "active-heading",
+        "task-1",
+        "task-2",
+        "task-3"
+      ]
+    },
+    "active-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Active Tasks",
+        "level": "h3"
+      }
+    },
+    "task-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "xs"
+      },
+      "children": [
+        "task-1-badge",
+        "task-1-content"
+      ]
+    },
+    "task-1-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "aeon.yml PR",
+        "variant": "secondary"
+      }
+    },
+    "task-1-content": {
+      "type": "Text",
+      "props": {
+        "text": "Move four 08Z-cohort skills from dead 06Z pocket to post-10Z slots",
+        "variant": "body"
+      }
+    },
+    "task-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "xs"
+      },
+      "children": [
+        "task-2-badge",
+        "task-2-content",
+        "task-2-context"
+      ]
+    },
+    "task-2-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "watched-repos PR",
+        "variant": "secondary"
+      }
+    },
+    "task-2-content": {
+      "type": "Text",
+      "props": {
+        "text": "Centenary disable PR for six dependents",
+        "variant": "body"
+      }
+    },
+    "task-2-context": {
+      "type": "Text",
+      "props": {
+        "text": "streak-100 landed yesterday — operator-decision moment",
+        "variant": "caption"
+      }
+    },
+    "task-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "xs"
+      },
+      "children": [
+        "task-3-badge",
+        "task-3-content",
+        "task-3-context"
+      ]
+    },
+    "task-3-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "ISS-044",
+        "variant": "secondary"
+      }
+    },
+    "task-3-content": {
+      "type": "Text",
+      "props": {
+        "text": "File locally for the 09-14 identity blackout",
+        "variant": "body"
+      }
+    },
+    "task-3-context": {
+      "type": "Text",
+      "props": {
+        "text": "Issue filing in progress",
+        "variant": "caption"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "on-hold-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "hold-heading",
+        "hold-intro",
+        "hold-item-1",
+        "hold-item-2",
+        "hold-item-3",
+        "hold-blocking-conditions"
+      ]
+    },
+    "hold-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "On Hold",
+        "level": "h3"
+      }
+    },
+    "hold-intro": {
+      "type": "Text",
+      "props": {
+        "text": "Awaiting prerequisites:",
+        "variant": "caption"
+      }
+    },
+    "hold-item-1": {
+      "type": "Badge",
+      "props": {
+        "text": "Full messages.yml multi-pocket rewrite",
+        "variant": "outline"
+      }
+    },
+    "hold-item-2": {
+      "type": "Badge",
+      "props": {
+        "text": "Stale-sweeper author patch",
+        "variant": "outline"
+      }
+    },
+    "hold-item-3": {
+      "type": "Badge",
+      "props": {
+        "text": "PR-tracker batch",
+        "variant": "outline"
+      }
+    },
+    "hold-blocking-conditions": {
+      "type": "Text",
+      "props": {
+        "text": "Until: 08Z slice merges and swarm app perms land",
+        "variant": "muted"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "notes-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "final-status"
+      ]
+    },
+    "final-status": {
+      "type": "Badge",
+      "props": {
+        "text": "Plan-only — no dispatch",
+        "variant": "outline"
+      }
+    }
+  }
+}
