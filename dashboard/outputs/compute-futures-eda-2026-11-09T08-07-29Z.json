@@ -1,0 +1,247 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Compute-Futures EDA"
+      },
+      "children": [
+        "heading-date",
+        "text-scope",
+        "separator-1",
+        "finding-1-stack",
+        "separator-2",
+        "finding-2-stack",
+        "separator-3",
+        "conservation-stack",
+        "separator-4",
+        "stats-stack",
+        "separator-5",
+        "report-link"
+      ]
+    },
+    "heading-date": {
+      "type": "Heading",
+      "props": {
+        "text": "2026-11-08",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "text-scope": {
+      "type": "Text",
+      "props": {
+        "text": "10-day gap filing — 144 rows, 4 modes",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "finding-1-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-finding-1",
+        "text-finding-1a",
+        "text-finding-1b",
+        "text-finding-1c",
+        "text-finding-1d"
+      ]
+    },
+    "badge-finding-1": {
+      "type": "Badge",
+      "props": {
+        "text": "[MEDIUM] basket:synth multiplier",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "text-finding-1a": {
+      "type": "Text",
+      "props": {
+        "text": "Added 3 NEW values in gap-days: 10-30 (3.325) / 11-03 (2.3925) / 11-04 (2.9825)"
+      },
+      "children": []
+    },
+    "text-finding-1b": {
+      "type": "Text",
+      "props": {
+        "text": "Oscillating set grows 13→16; 3-day-plateau framing defeated"
+      },
+      "children": []
+    },
+    "text-finding-1c": {
+      "type": "Text",
+      "props": {
+        "text": "2.968750 is attractor on 6/10 gap days"
+      },
+      "children": []
+    },
+    "text-finding-1d": {
+      "type": "Text",
+      "props": {
+        "text": "Oscillating set of patterns now grows from 13 to 16 values",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "finding-2-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-finding-2",
+        "text-finding-2a",
+        "text-finding-2b"
+      ]
+    },
+    "badge-finding-2": {
+      "type": "Badge",
+      "props": {
+        "text": "[MEDIUM] maxCurve outlier pattern reverts",
+        "variant": "secondary"
+      },
+      "children": []
+    },
+    "text-finding-2a": {
+      "type": "Text",
+      "props": {
+        "text": "10-29 uniform 8.33% across all 4 modes → today spread 16.67% / others 0%"
+      },
+      "children": []
+    },
+    "text-finding-2b": {
+      "type": "Text",
+      "props": {
+        "text": "Pattern distribution shifted from uniform to variable across modes"
+      },
+      "children": []
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "conservation-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading-conservation",
+        "text-cons-basket",
+        "text-cons-spread",
+        "text-cons-synth"
+      ]
+    },
+    "heading-conservation": {
+      "type": "Heading",
+      "props": {
+        "text": "Conservation Status — OK",
+        "level": "h4"
+      },
+      "children": []
+    },
+    "text-cons-basket": {
+      "type": "Text",
+      "props": {
+        "text": "basket: −6.3e−15"
+      },
+      "children": []
+    },
+    "text-cons-spread": {
+      "type": "Text",
+      "props": {
+        "text": "spread: +1.1e−12"
+      },
+      "children": []
+    },
+    "text-cons-synth": {
+      "type": "Text",
+      "props": {
+        "text": "synth,x402: −4.3e−15"
+      },
+      "children": []
+    },
+    "separator-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "stats-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text-purity",
+        "text-pairs",
+        "text-fallback"
+      ]
+    },
+    "text-purity": {
+      "type": "Text",
+      "props": {
+        "text": "Spread retail top-6 purity: 6/6 holds across n=11×7-regimes"
+      },
+      "children": []
+    },
+    "text-pairs": {
+      "type": "Text",
+      "props": {
+        "text": "Zero within-mode strong pairs (n=31)"
+      },
+      "children": []
+    },
+    "text-fallback": {
+      "type": "Text",
+      "props": {
+        "text": "Pandas missing → stdlib fallback",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "separator-5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "report-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "memory/topics/compute-futures-eda/2026-11-08.md",
+        "source": "Compute-Futures EDA"
+      },
+      "children": []
+    }
+  }
+}
