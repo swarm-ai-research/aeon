@@ -1,1 +1,17 @@
-Skill Health 2026-11-06: HEALTH DEGRADED(38) steady-state Day-130 (hash e27c0ac60367e7e5 unchanged, elapsed 25.2h > 24h daily cadence). Systemic: ISS-001 OAuth-outage denominator burn — all 38 DEGRADED last_status=success, cf=0, success_rate frozen on 2026-06-06 to 06-20 outage tail. Top-5 stalest: skill-repair 140d (ISS-001 residue), skill-evals 54d, compute-macro-correlate 41d, cost-report 40d, vuln-scanner 20d (last 4 all ISS-006 weekly silent-slots). NO DATA 2: ai-framework-watch + run-frequency-guard (120d silent, DISPATCH-SKILL). HEALTHY 4: agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog. Open issues: 39 (0 filed, 0 resolved this run).
+*Skill Health — 2026-11-09*
+HEALTH: DEGRADED(38)  [systemic: ISS-001 OAuth-outage denominator burn, Day-131]
+
+🟡 DEGRADED (38) — stalest
+- skill-repair — 142d since last success — WAIT-API (ISS-001 cascade)
+- skill-evals — 57d since last success — WAIT-API (ISS-001 cascade)
+- compute-macro-correlate — 44d since last success — WAIT-API (ISS-001 cascade)
+- changelog — 21d since last success — WAIT-API (ISS-001 cascade)
+- skill-analytics — 19d since last success — WAIT-API (ISS-001 cascade)
++33 more — all fired at least once post-outage with last_status=success, cf=0; success_rate burn is historical denominator only.
+
+⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — DISPATCH-SKILL (120d silent per [[enabled-skills-can-never-dispatch]])
+🟢 HEALTHY: 4 (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+
+131st consecutive steady-state day at hash e27c0ac60367e7e5. 7d skill-runs: 51/53 completed succeeded, 2 failed with same-day recovery (github-monitor 1/3, pr-triage-swarm 1/3), 4 in-progress at 18Z co-fire.
+
+Open issues: 39 · Resolved this run: 0 · Filed this run: 0

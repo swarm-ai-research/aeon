@@ -1,0 +1,321 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-11-09",
+        "description": "HEALTH: DEGRADED(38) [systemic: ISS-001 OAuth-outage denominator burn, Day-131]"
+      },
+      "children": [
+        "overview-stack",
+        "sep1",
+        "degraded-section",
+        "sep2",
+        "no-data-section",
+        "sep3",
+        "healthy-section",
+        "sep4",
+        "stats-section"
+      ]
+    },
+    "overview-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "health-alert"
+      ]
+    },
+    "health-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "System Status: DEGRADED",
+        "message": "ISS-001 OAuth-outage denominator burn, Day-131 — Systemic cascade affecting 38 skills",
+        "type": "error"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "degraded-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded-heading",
+        "degraded-items"
+      ]
+    },
+    "degraded-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 DEGRADED (38 skills)",
+        "level": "h2"
+      }
+    },
+    "degraded-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "deg-item-1",
+        "deg-item-2",
+        "deg-item-3",
+        "deg-item-4",
+        "deg-item-5",
+        "deg-more-note"
+      ]
+    },
+    "deg-item-1": {
+      "type": "Text",
+      "props": {
+        "text": "skill-repair — 142d since last success — WAIT-API (ISS-001 cascade)",
+        "variant": "body"
+      }
+    },
+    "deg-item-2": {
+      "type": "Text",
+      "props": {
+        "text": "skill-evals — 57d since last success — WAIT-API (ISS-001 cascade)",
+        "variant": "body"
+      }
+    },
+    "deg-item-3": {
+      "type": "Text",
+      "props": {
+        "text": "compute-macro-correlate — 44d since last success — WAIT-API (ISS-001 cascade)",
+        "variant": "body"
+      }
+    },
+    "deg-item-4": {
+      "type": "Text",
+      "props": {
+        "text": "changelog — 21d since last success — WAIT-API (ISS-001 cascade)",
+        "variant": "body"
+      }
+    },
+    "deg-item-5": {
+      "type": "Text",
+      "props": {
+        "text": "skill-analytics — 19d since last success — WAIT-API (ISS-001 cascade)",
+        "variant": "body"
+      }
+    },
+    "deg-more-note": {
+      "type": "Text",
+      "props": {
+        "text": "+33 more — all fired at least once post-outage with last_status=success, cf=0; success_rate burn is historical denominator only",
+        "variant": "caption"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "no-data-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "no-data-heading",
+        "no-data-items"
+      ]
+    },
+    "no-data-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ NO DATA (2)",
+        "level": "h2"
+      }
+    },
+    "no-data-items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "no-data-text"
+      ]
+    },
+    "no-data-text": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch, run-frequency-guard — DISPATCH-SKILL (120d silent per [[enabled-skills-can-never-dispatch]])",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "healthy-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "healthy-heading",
+        "healthy-badges"
+      ]
+    },
+    "healthy-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟢 HEALTHY (4)",
+        "level": "h2"
+      }
+    },
+    "healthy-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-1",
+        "badge-2",
+        "badge-3",
+        "badge-4"
+      ]
+    },
+    "badge-1": {
+      "type": "Badge",
+      "props": {
+        "text": "agi-tracker",
+        "variant": "default"
+      }
+    },
+    "badge-2": {
+      "type": "Badge",
+      "props": {
+        "text": "config-validator",
+        "variant": "default"
+      }
+    },
+    "badge-3": {
+      "type": "Badge",
+      "props": {
+        "text": "swarm-safety-eval",
+        "variant": "default"
+      }
+    },
+    "badge-4": {
+      "type": "Badge",
+      "props": {
+        "text": "weekly-shiplog",
+        "variant": "default"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stats-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stats-heading",
+        "steady-state-stat",
+        "runs-stat",
+        "recovery-text",
+        "in-progress-text",
+        "issues-grid"
+      ]
+    },
+    "stats-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Statistics",
+        "level": "h2"
+      }
+    },
+    "steady-state-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Consecutive steady-state days",
+        "value": "131",
+        "delta": "hash e27c0ac60367e7e5"
+      }
+    },
+    "runs-stat": {
+      "type": "Stat",
+      "props": {
+        "label": "7d Skill Runs (completed & succeeded)",
+        "value": "51/53",
+        "delta": "2 failed with same-day recovery",
+        "trend": "up"
+      }
+    },
+    "recovery-text": {
+      "type": "Text",
+      "props": {
+        "text": "Recovered failures: github-monitor (1/3), pr-triage-swarm (1/3)",
+        "variant": "caption"
+      }
+    },
+    "in-progress-text": {
+      "type": "Text",
+      "props": {
+        "text": "4 in-progress at 18Z co-fire",
+        "variant": "body"
+      }
+    },
+    "issues-grid": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "issues-open",
+        "issues-resolved",
+        "issues-filed"
+      ]
+    },
+    "issues-open": {
+      "type": "Stat",
+      "props": {
+        "label": "Open issues",
+        "value": "39"
+      }
+    },
+    "issues-resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved this run",
+        "value": "0"
+      }
+    },
+    "issues-filed": {
+      "type": "Stat",
+      "props": {
+        "label": "Filed this run",
+        "value": "0"
+      }
+    }
+  }
+}
