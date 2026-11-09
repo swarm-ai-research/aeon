@@ -1,18 +1,13 @@
-*Cost Report — 2026-09-28 (last 7 days)*
+*Cost Report — 2026-11-09 (last 7 days)*
 
-Spent **$118.92** across **25 runs** (↓26.7% WoW); 1 anomaly flagged (notegraph WoW spike), projected monthly burn **~$509.64** ⚠
+Spent **$76.66** across **14 runs** (↓17.7% WoW); 0 anomalies flagged, projected monthly burn **~$328.53**. ⚠ burn-rate watch
 
 Top 3 by cost:
-1. reflect — $59.44 (5 runs)
-2. pr-tracker — $19.46 (3 runs)
-3. notegraph — $16.17 (3 runs)
+1. vuln-scanner — $20.59 (1 run)
+2. reflect — $16.93 (2 runs)
+3. pr-tracker — $13.34 (2 runs)
 
-Actions this week:
-• stale-content-pr-sweeper → disable until watched-repos config fixed (zero output, ~$13.51/wk waste)
-• reflect → pilot Sonnet for synthesis passes (50% of budget, ~$35/wk savings est.)
-• notegraph → merge PRs #79/#80/#82 + bundle fingerprint fixes to cut burst-run context (~$3–5/wk)
+No optimization levers found this week.
 
-⚠ 1 anomaly flagged — notegraph 3.6× WoW spike (burst after 4-day pocket silence)
-
-30-day projection: $509.64
-Full: articles/cost-report-2026-09-28.md
+30-day projection: $328.53
+Full: articles/cost-report-2026-11-09.md

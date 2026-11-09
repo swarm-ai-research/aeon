@@ -1,0 +1,157 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Cost Report — 2026-11-09",
+        "description": "Last 7 days"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stack_stats",
+        "alert_burnrate",
+        "sep1",
+        "heading_top3",
+        "table_top3",
+        "sep2",
+        "text_optimization",
+        "sep3",
+        "stat_projection",
+        "link_full"
+      ]
+    },
+    "stack_stats": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_spent",
+        "stat_runs",
+        "stat_wow",
+        "stat_anomalies"
+      ]
+    },
+    "stat_spent": {
+      "type": "Stat",
+      "props": {
+        "label": "Spent",
+        "value": "$76.66"
+      }
+    },
+    "stat_runs": {
+      "type": "Stat",
+      "props": {
+        "label": "Runs",
+        "value": "14"
+      }
+    },
+    "stat_wow": {
+      "type": "Stat",
+      "props": {
+        "label": "Week-over-Week",
+        "value": "↓17.7%",
+        "trend": "down"
+      }
+    },
+    "stat_anomalies": {
+      "type": "Stat",
+      "props": {
+        "label": "Anomalies",
+        "value": "0"
+      }
+    },
+    "alert_burnrate": {
+      "type": "Alert",
+      "props": {
+        "title": "Burn Rate Watch",
+        "type": "warning"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_top3": {
+      "type": "Heading",
+      "props": {
+        "text": "Top 3 by Cost",
+        "level": "h3"
+      }
+    },
+    "table_top3": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Cost",
+          "Runs"
+        ],
+        "rows": [
+          [
+            "vuln-scanner",
+            "$20.59",
+            "1"
+          ],
+          [
+            "reflect",
+            "$16.93",
+            "2"
+          ],
+          [
+            "pr-tracker",
+            "$13.34",
+            "2"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text_optimization": {
+      "type": "Text",
+      "props": {
+        "text": "No optimization levers found this week.",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stat_projection": {
+      "type": "Stat",
+      "props": {
+        "label": "30-day Projection",
+        "value": "$328.53"
+      }
+    },
+    "link_full": {
+      "type": "Link",
+      "props": {
+        "label": "View Full Report",
+        "href": "articles/cost-report-2026-11-09.md"
+      }
+    }
+  }
+}
