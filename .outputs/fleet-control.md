@@ -1,7 +1,10 @@
 ## Summary
 
-Fleet Control ran in Health Check mode (default). The registry at `memory/instances.json` holds `{"instances": []}` — zero managed instances — so the skill's pre-flight step 1 applies: logged `FLEET_EMPTY: no managed instances` to `memory/logs/2026-11-10.md` and stopped. No notification sent (per skill rule for empty registry). No GitHub API calls made, no state file written.
+Fleet Control ran Health Check Mode (default — no `var` provided). Pre-flight step 1 triggered the `FLEET_EMPTY` early-stop: `memory/instances.json` holds `{"instances": []}` with no registered children.
 
-**Files modified:** `memory/logs/2026-11-10.md` (created).
+Per the skill's silent-stop rule, I logged the condition and did **not** send a notification. Steps 2–4 (gh auth, rate limit, prior state) were skipped — they're gated on ≥1 GitHub-hosted entry.
 
-**Follow-up:** None — the registry must be populated by the operator before Fleet Control has anything to monitor.
+**Files modified:**
+- `memory/logs/2026-11-11.md` (new) — `FLEET_EMPTY` log entry
+
+**Follow-up:** None. The registry has stayed empty since bootstrap; populate `memory/instances.json` if/when managed children exist.
