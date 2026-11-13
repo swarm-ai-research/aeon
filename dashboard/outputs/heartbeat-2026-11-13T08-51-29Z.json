@@ -1,0 +1,244 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Heartbeat 11-13",
+        "description": "Fleet-wide outage and escalation tracking"
+      },
+      "children": [
+        "alert_critical",
+        "sep1",
+        "stack_duration",
+        "sep2",
+        "stack_self_check",
+        "sep3",
+        "stack_full_day",
+        "sep4",
+        "stack_iss006",
+        "sep5",
+        "stack_status",
+        "sep6",
+        "stack_metrics"
+      ]
+    },
+    "alert_critical": {
+      "type": "Alert",
+      "props": {
+        "title": "🔴 Fleet-Wide Silent",
+        "message": "Silent from 2026-11-11 17:20Z to 2026-11-13 08:47Z (~40 hours)",
+        "type": "error"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_duration": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_duration",
+        "text_duration"
+      ]
+    },
+    "heading_duration": {
+      "type": "Heading",
+      "props": {
+        "text": "Silent Period",
+        "level": "h3"
+      }
+    },
+    "text_duration": {
+      "type": "Text",
+      "props": {
+        "text": "2026-11-11 17:20Z → 2026-11-13 08:47Z (approximately 40 hours)"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_self_check": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_self_check",
+        "stat_breach"
+      ]
+    },
+    "heading_self_check": {
+      "type": "Heading",
+      "props": {
+        "text": "Self-Check Status",
+        "level": "h3"
+      }
+    },
+    "stat_breach": {
+      "type": "Stat",
+      "props": {
+        "label": "Heartbeat Self-Check Breach Duration",
+        "value": "47.3 hours",
+        "delta": "cleared by this run",
+        "trend": "neutral"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_full_day": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_full_day",
+        "text_full_day",
+        "badge_first_ever"
+      ]
+    },
+    "heading_full_day": {
+      "type": "Heading",
+      "props": {
+        "text": "Full-Day Silent Event",
+        "level": "h3"
+      }
+    },
+    "text_full_day": {
+      "type": "Text",
+      "props": {
+        "text": "2026-11-12: First-ever full-day silent across all slots (not isolated to 06Z/08Z cohort)"
+      }
+    },
+    "badge_first_ever": {
+      "type": "Badge",
+      "props": {
+        "text": "Historic event",
+        "variant": "destructive"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_iss006": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_iss006",
+        "text_iss006_06z",
+        "text_iss006_other",
+        "badge_iss006"
+      ]
+    },
+    "heading_iss006": {
+      "type": "Heading",
+      "props": {
+        "text": "ISS-006 Escalation",
+        "level": "h3"
+      }
+    },
+    "text_iss006_06z": {
+      "type": "Text",
+      "props": {
+        "text": "06Z cohort: continuous silent from 2026-11-05 to 2026-11-13 (Day 9 ongoing)"
+      }
+    },
+    "text_iss006_other": {
+      "type": "Text",
+      "props": {
+        "text": "08Z, 16Z, 17Z, and 18Z slots: all silent on 2026-11-12"
+      }
+    },
+    "badge_iss006": {
+      "type": "Badge",
+      "props": {
+        "text": "Multi-cohort impact",
+        "variant": "destructive"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_status": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_status",
+        "badge_status"
+      ]
+    },
+    "heading_status": {
+      "type": "Heading",
+      "props": {
+        "text": "System Status",
+        "level": "h3"
+      }
+    },
+    "badge_status": {
+      "type": "Badge",
+      "props": {
+        "text": "STATUS_PAGE=DEGRADED",
+        "variant": "destructive"
+      }
+    },
+    "sep6": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_open_issues",
+        "stat_next_slot"
+      ]
+    },
+    "stat_open_issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "40"
+      }
+    },
+    "stat_next_slot": {
+      "type": "Stat",
+      "props": {
+        "label": "Next Slot",
+        "value": "pr-review 09:00Z"
+      }
+    }
+  }
+}
