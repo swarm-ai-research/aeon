@@ -294,6 +294,68 @@ class TestExtractFindings(unittest.TestCase):
         rule_ids = {f['rule_id'] for f in findings}
         self.assertEqual(rule_ids, {'r1', 'r2'})
 
+    def test_multiple_results_in_single_run(self):
+        # Inner loop: two results in the same run — distinct from two runs each with one result.
+        sarif = {'runs': [{'results': [
+            {'ruleId': 'r1', 'level': 'error', 'message': {}, 'locations': []},
+            {'ruleId': 'r2', 'level': 'warning', 'message': {}, 'locations': []},
+            {'ruleId': 'r3', 'level': 'note', 'message': {}, 'locations': []},
+        ]}]}
+        findings = extract_findings(sarif)
+        self.assertEqual(len(findings), 3)
+        self.assertEqual([f['rule_id'] for f in findings], ['r1', 'r2', 'r3'])
+
+    def test_location_without_physical_location_key_yields_blank(self):
+        # Location entry present but missing the 'physicalLocation' key entirely.
+        sarif = {'runs': [{'results': [
+            {
+                'ruleId': 'r', 'level': 'warning', 'message': {},
+                'locations': [{}],
+            }
+        ]}]}
+        findings = extract_findings(sarif)
+        self.assertEqual(findings[0]['file'], '')
+        self.assertEqual(findings[0]['line'], 0)
+        self.assertEqual(findings[0]['snippet'], '')
+
+    def test_properties_absent_from_result_yields_empty_severity_and_confidence(self):
+        # No 'properties' key — both severity and confidence default to empty string.
+        sarif = {'runs': [{'results': [
+            {'ruleId': 'r', 'level': 'error', 'message': {}, 'locations': []},
+        ]}]}
+        f = extract_findings(sarif)[0]
+        self.assertEqual(f['severity_zizmor'], '')
+        self.assertEqual(f['confidence'], '')
+
+    def test_snippet_exactly_200_chars_is_not_truncated(self):
+        # [:200] on a 200-char string must return the full string unchanged.
+        exact_snip = 'y' * 200
+        sarif = {'runs': [{'results': [
+            {
+                'ruleId': 'r', 'level': 'note', 'message': {},
+                'locations': [{'physicalLocation': {
+                    'artifactLocation': {'uri': 'f.yml'},
+                    'region': {'startLine': 1, 'snippet': {'text': exact_snip}},
+                }}],
+            }
+        ]}]}
+        self.assertEqual(len(extract_findings(sarif)[0]['snippet']), 200)
+
+    def test_region_absent_from_physical_location_yields_zero_line_and_blank_snippet(self):
+        # physicalLocation present but missing 'region' — line defaults to 0, snippet to ''.
+        sarif = {'runs': [{'results': [
+            {
+                'ruleId': 'r', 'level': 'note', 'message': {},
+                'locations': [{'physicalLocation': {
+                    'artifactLocation': {'uri': 'f.yml'},
+                }}],
+            }
+        ]}]}
+        f = extract_findings(sarif)[0]
+        self.assertEqual(f['file'], 'f.yml')
+        self.assertEqual(f['line'], 0)
+        self.assertEqual(f['snippet'], '')
+
 
 if __name__ == '__main__':
     unittest.main()
