@@ -294,6 +294,65 @@ class TestExtractFindings(unittest.TestCase):
         rule_ids = {f['rule_id'] for f in findings}
         self.assertEqual(rule_ids, {'r1', 'r2'})
 
+    def test_multiple_results_in_single_run(self):
+        # Both results from the same run should be collected.
+        sarif = {'runs': [{'results': [
+            {'ruleId': 'r1', 'level': 'error', 'message': {}, 'locations': []},
+            {'ruleId': 'r2', 'level': 'warning', 'message': {}, 'locations': []},
+        ]}]}
+        findings = extract_findings(sarif)
+        self.assertEqual(len(findings), 2)
+        self.assertEqual({f['rule_id'] for f in findings}, {'r1', 'r2'})
+
+    def test_falsy_problem_severity_falls_back_to_zizmor_severity(self):
+        # An empty string is falsy; the `or`-chain must skip it and use the next key.
+        sarif = {'runs': [{'results': [
+            {
+                'ruleId': 'r', 'level': 'note', 'message': {},
+                'properties': {'problem.severity': '', 'zizmor/severity': 'medium'},
+                'locations': [],
+            }
+        ]}]}
+        self.assertEqual(extract_findings(sarif)[0]['severity_zizmor'], 'medium')
+
+    def test_confidence_property_is_extracted(self):
+        # zizmor/confidence must be propagated to the 'confidence' output field.
+        sarif = {'runs': [{'results': [
+            {
+                'ruleId': 'r', 'level': 'warning', 'message': {},
+                'properties': {'zizmor/confidence': 'high'},
+                'locations': [],
+            }
+        ]}]}
+        self.assertEqual(extract_findings(sarif)[0]['confidence'], 'high')
+
+    def test_location_without_physical_location_key(self):
+        # A location entry that has no 'physicalLocation' key must not crash and
+        # must yield empty uri/line/snippet (same as the no-locations path).
+        sarif = {'runs': [{'results': [
+            {
+                'ruleId': 'r', 'level': 'note', 'message': {},
+                'locations': [{}],  # non-empty list but no physicalLocation key
+            }
+        ]}]}
+        f = extract_findings(sarif)[0]
+        self.assertEqual(f['file'], '')
+        self.assertEqual(f['line'], 0)
+        self.assertEqual(f['snippet'], '')
+
+    def test_region_without_snippet_key(self):
+        # When 'snippet' is absent from region, snippet must default to ''.
+        sarif = {'runs': [{'results': [
+            {
+                'ruleId': 'r', 'level': 'note', 'message': {},
+                'locations': [{'physicalLocation': {
+                    'artifactLocation': {'uri': 'f.yml'},
+                    'region': {'startLine': 5},  # no 'snippet' key
+                }}],
+            }
+        ]}]}
+        self.assertEqual(extract_findings(sarif)[0]['snippet'], '')
+
 
 if __name__ == '__main__':
     unittest.main()
