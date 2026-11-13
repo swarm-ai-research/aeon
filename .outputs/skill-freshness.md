@@ -1,16 +1,22 @@
 ## Summary
 
-**skill-freshness run complete — 2026-11-11**
+**skill-freshness run complete — 2026-11-13**
 
-- **Verdict**: ✅ FRESHNESS_OK — 44 enabled consumers, 9 tracked dependencies, 0 flagged
-- **Status**: `FRESHNESS_NO_CHANGE` — fingerprint identical to yesterday's run (2026-11-10), last run 25h ago, within 7-day re-emit window → notification suppressed
-- **Notable observations surfaced but not flagged:**
-  - `articles/skill-evals-2026-09-13.md` (59 days old, STALE) — only consumed by disabled `signal-verdict` and self-reads
-  - `articles/skill-analytics-2026-10-21.md` (21 days old, STALE) — only consumed by disabled `operator-scorecard`
-  - `articles/self-review-2026-11-01.md` (10 days old, WARN) — reflects ISS-006 slot outage, no active enabled consumers via grep-matched paths
-- **Known limitation confirmed**: GHA mtime-blindness from `[[skill-freshness-mtime-blind-in-gha]]` persists — all files share the same git checkout timestamp; the action-queue fix (use `git log -1 --format=%ct`) is still owed
+- **Verdict:** ✅ FRESHNESS_OK — 0 of 8 dependencies flagged across 0 of 44 enabled consumers
+- **Notification:** not sent (FRESHNESS_OK; no news is good news)
+
+**Key findings from the audit:**
+
+The fleet has no active cross-skill consumer dependencies to flag. All chains in `aeon.yml` are commented out (0 explicit `consume:` edges), and no enabled skill's SKILL.md contains a grep-discoverable reference to another enabled skill's articles or `.outputs/` files that would create a live dependency.
+
+**Non-flagged producer gaps worth noting:**
+- `skill-analytics` — last article 23d ago (Oct 21), STALE for a weekly skill; only consumer (`operator-scorecard`) is disabled
+- `skill-evals` — last article 61d ago (Sep 13), deeply STALE; same disabled consumer situation
+- `.outputs/` — all 32 chain files ~39h old (STALE per 4h threshold), but no active chain runners consuming them
+
+Both skill-analytics and skill-evals are likely ISS-006 slot casualties (06Z dead-slot cohort). No consumer-side action required today.
 
 **Files written:**
-- `articles/skill-freshness-2026-11-11.md` (report)
-- `memory/topics/skill-freshness-state.json` (updated `last_run_at`)
-- `memory/logs/2026-11-11.md` (created with this log block)
+- `articles/skill-freshness-2026-11-13.md` — full report
+- `memory/topics/skill-freshness-state.json` — state updated (last_run_at, unchanged fingerprint)
+- `memory/logs/2026-11-13.md` — log entry appended
