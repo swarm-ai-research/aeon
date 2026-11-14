@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-24T04:01:40.691702315+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "7eb7bc7b-ff62-4c23-b2d7-ae361ff841a1",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/build_report.py\",\"target\":\".audit/build_report.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-24T04:01:40.691702315+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-24T13:24:46.543Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/build_report.py — blocked: path-traversal write and arbitrary file read via untrusted data (2026-09-24)\" — 4 findings (2 critical, 2 issue). Verdict: blocked: path-traversal write and arbitrary file read via untrusted data. Issue: ✓ Created issue #bf0f734a-7557-4ecb-8769-7df0250efcc6\n  Title:  Review: .audit/build_report.py — blocked: path-traversal write and arbitrary file read via untrusted data (2026-09-24)\n  Body:   ## Code Review: .audit/build_repo…"
+  },
+  "completed_at": "2026-09-24T13:27:41.132Z"
+}

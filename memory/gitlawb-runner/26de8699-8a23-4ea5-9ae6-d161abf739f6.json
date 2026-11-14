@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-10-20T04:13:03.758847310+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "26de8699-8a23-4ea5-9ae6-d161abf739f6",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/classify.py\",\"target\":\".audit/classify.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-20T04:13:03.758847310+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-20T13:26:26.303Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/classify.py — blocked: prior-report injection can suppress new critical findings (2026-10-20)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: prior-report injection can suppress new critical findings. Issue: ✓ Created issue #cfeed72c-4cd0-4ab4-b3e1-d9537d615145\n  Title:  Review: .audit/classify.py — blocked: prior-report injection can suppress new critical findings (2026-10-20)\n  Body:   ## Code Review: .audit/classify.py\n\n**Date:** 2026-10-20\n**…"
+  },
+  "completed_at": "2026-10-20T13:28:06.888Z"
+}

@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-10-16T16:21:59.357640605+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "31b96a3a-ea2e-4460-ac4d-806dfc3b70bb",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta.py\",\"target\":\".audit/delta.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-16T16:21:59.357640605+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-16T16:21:57.771Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/delta.py — blocked: in_trailer detection reads wrong document offset, corrupting prior-fingerprint parse (2026-10-16)\" — 5 findings (1 critical, 4 issue). Verdict: blocked: in_trailer detection reads wrong document offset, corrupting prior-fingerprint parse. Issue: ✓ Created issue #30f6e5b9-1eb4-470f-a2b8-1461fc97ddb4\n  Title:  Review: .audit/delta.py — blocked: in_trailer detection reads wrong document offset, corrupting prior-fingerprint parse (2026-1…"
+  },
+  "completed_at": "2026-10-16T16:23:32.878Z"
+}
