@@ -1,0 +1,117 @@
+{
+  "root": "card_heartbeat",
+  "state": {},
+  "elements": {
+    "card_heartbeat": {
+      "type": "Card",
+      "props": {
+        "title": "Heartbeat"
+      },
+      "children": [
+        "alert_main",
+        "separator_1",
+        "details_section"
+      ]
+    },
+    "alert_main": {
+      "type": "Alert",
+      "props": {
+        "title": "Status Degraded",
+        "message": "split-cohort silence extends past 11-12's slot-agnostic silent day",
+        "type": "error"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "details_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "timestamp_stat",
+        "drift_stat",
+        "activity_details",
+        "cohort_details",
+        "status_badge"
+      ]
+    },
+    "timestamp_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Heartbeat",
+        "value": "2026-11-14 09:26Z"
+      }
+    },
+    "drift_stat": {
+      "type": "Stat",
+      "props": {
+        "label": "Time Drift",
+        "value": "+86m",
+        "trend": "down"
+      }
+    },
+    "activity_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "activity_11_13",
+        "activity_11_14"
+      ]
+    },
+    "activity_11_13": {
+      "type": "Text",
+      "props": {
+        "text": "11-13 fired only 08Z + 16Z",
+        "variant": "body"
+      }
+    },
+    "activity_11_14": {
+      "type": "Text",
+      "props": {
+        "text": "11-14 all morning cohorts silent through nominal 08Z",
+        "variant": "body"
+      }
+    },
+    "cohort_details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "cohort_06z",
+        "cohort_09z"
+      ]
+    },
+    "cohort_06z": {
+      "type": "Text",
+      "props": {
+        "text": "06Z-cohort: Day-10 continuous silent (11-05 → 11-14)",
+        "variant": "body"
+      }
+    },
+    "cohort_09z": {
+      "type": "Text",
+      "props": {
+        "text": "09Z-cohort: Day-2 silent",
+        "variant": "body"
+      }
+    },
+    "status_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "STATUS_PAGE=DEGRADED",
+        "variant": "destructive"
+      }
+    }
+  }
+}
