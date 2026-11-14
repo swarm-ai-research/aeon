@@ -1,0 +1,143 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Freshness",
+        "description": "2026-11-14"
+      },
+      "children": [
+        "status-alert",
+        "sep1",
+        "worst-heading",
+        "worst-content",
+        "sep2",
+        "action-heading",
+        "action-text",
+        "sep3",
+        "note-alert",
+        "sep4",
+        "full-report"
+      ]
+    },
+    "status-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "🔴 FRESHNESS_STALE",
+        "message": "1 of 10 deps flagged across 1 of 44 enabled consumers",
+        "type": "error"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "worst-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Worst",
+        "level": "h3"
+      }
+    },
+    "worst-content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "worst-consumer",
+        "worst-dep",
+        "worst-badges"
+      ]
+    },
+    "worst-consumer": {
+      "type": "Text",
+      "props": {
+        "text": "fleet-control",
+        "variant": "lead"
+      }
+    },
+    "worst-dep": {
+      "type": "Text",
+      "props": {
+        "text": "← articles/fleet-status-${today}.md"
+      }
+    },
+    "worst-badges": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-class",
+        "badge-sev"
+      ]
+    },
+    "badge-class": {
+      "type": "Badge",
+      "props": {
+        "text": "class articles",
+        "variant": "default"
+      }
+    },
+    "badge-sev": {
+      "type": "Badge",
+      "props": {
+        "text": "sev MISSING",
+        "variant": "destructive"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "action-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Action",
+        "level": "h3"
+      }
+    },
+    "action-text": {
+      "type": "Text",
+      "props": {
+        "text": "Check fleet-control run history with ./scripts/skill-runs --skill fleet-control --hours 168"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "note-alert": {
+      "type": "Alert",
+      "props": {
+        "message": "No fleet-status articles found on disk — skill may not be writing its article output.",
+        "type": "warning"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "full-report": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full report",
+        "href": "articles/skill-freshness-2026-11-14.md",
+        "source": "skill-freshness"
+      }
+    }
+  }
+}
