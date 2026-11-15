@@ -1,16 +1,13 @@
 ## Summary
 
-Executed `skills/stale-content-pr-sweeper/SKILL.md` on 2026-11-07.
+**Executed stale-content-pr-sweeper for 2026-11-15.**
 
-**Result:** 12 open PRs scanned, 0 eligible after filters, 0 closed, no notify.
+- Open PRs scanned: 15
+- TRACKED-prefix date-stamped candidates: 3 (`notegraph/2026-11-08` #115, `notegraph/2026-10-29` #114, `notegraph/2026-10-26` #107)
+- Eligible after author filter: **0** — all three are authored by `app/github-actions`, which is not in `ALLOWED_AUTHORS = {"aeonframework"}`
+- PRs closed: **0**
+- Notify: not fired (steady-state rule — zero closes = no notify)
 
-**Breakdown**
-- Two TRACKED-prefix + ISO-date candidates present: #114 `notegraph/2026-10-29` and #107 `notegraph/2026-10-26`, both authored by bot `app/github-actions`.
-- SKILL.md's `ALLOWED_AUTHORS = new Set(["aeonframework"])` filters both out before grouping, so no groups are formed — matches the known defect [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]].
-- All other open PRs (`aeon/*`, `skill-graph/*`, `fix/*`) correctly untouched — prefixes not in TRACKED.
+**Files modified:** `memory/logs/2026-11-15.md` (created).
 
-**Counterfactual**: under the queued patched config (adding `app/github-actions` to the allowlist), the notegraph group would resolve to 1 close (#107 superseded by #114 — 12 days old, UNKNOWN merge state qualifies for sweep, no `[keep]`). Actual 0 ≠ patched 1 → defect blast-radius is impactful again today, after the 10-29 trough where both counts matched at 0.
-
-**Files modified**: `memory/logs/2026-11-07.md` only (new "Stale Content PR Sweeper" section + its summary). No PRs closed, no branches deleted, no notifications sent.
-
-**Follow-up owed** (already queued in MEMORY.md action queue): patch `ALLOWED_AUTHORS` to include `"app/github-actions"`; also address TRACKED-prefix drift per [[stale-content-pr-sweeper-tracked-prefix-drift]].
+**Follow-up:** The author-allowlist defect from [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]] re-engaged today, and for the first time in the series it is suppressing a **non-zero** close count — the `notegraph/*` group has refilled to 3 entries with 2 stale candidates (#114 at 17d, #107 at 20d), both past the ≥2d min-age gate. The blast-radius-bounded claim from 10-29 no longer holds at n=2 cadence. The pending SKILL patch in the action queue (add `"app/github-actions"` to `ALLOWED_AUTHORS`) has gained urgency and should land before the next cadence tick.
