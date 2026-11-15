@@ -1,8 +1,9 @@
 ---
 id: stale-content-pr-sweeper-defect-impact-bounded-by-upstream-backlog
 created: 2026-10-29
+status: superseded
 type: lesson
-links: [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]], [[stale-content-pr-sweeper-tracked-prefix-drift]], [[operator-bulk-close-post-identity-recovery]]
+links: [[stale-content-pr-sweeper-defect-impact-diverges-from-counterfactual-at-n-2-cadence]], [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]], [[stale-content-pr-sweeper-tracked-prefix-drift]], [[operator-bulk-close-post-identity-recovery]]
 ---
 # stale-content-pr-sweeper author-allowlist defect is non-impactful when upstream clears the backlog — defect blast radius bounded by candidate pile-up size
 

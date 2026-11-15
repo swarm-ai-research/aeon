@@ -1,8 +1,9 @@
 ---
 id: suggest-edges-auto-reject-sim-band-declines-monotonically-across-rotations
 created: 2026-10-26
+status: superseded
 type: lesson
-links: [[suggest-edges-cluster-exhaustion-rotates-not-terminates]], [[suggest-edges-greedy-concentrates-on-single-source-under-cohort-exhaustion]], [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]
+links: [[suggest-edges-score-band-oscillates-at-thin-cohort-floor]], [[suggest-edges-cluster-exhaustion-rotates-not-terminates]], [[suggest-edges-greedy-concentrates-on-single-source-under-cohort-exhaustion]], [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]
 ---
 # suggest-edges auto-reject proposal similarity declines near-monotonically across consecutive rotations, converging toward the thin-cohort cosine floor near 0.9
 
