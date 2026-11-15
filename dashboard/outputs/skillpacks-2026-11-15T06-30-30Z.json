@@ -1,0 +1,65 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Skillpacks"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status-text",
+        "packs-info",
+        "pr-section"
+      ]
+    },
+    "status-text": {
+      "type": "Text",
+      "props": {
+        "text": "Skillpacks updated",
+        "variant": "lead"
+      }
+    },
+    "packs-info": {
+      "type": "Text",
+      "props": {
+        "text": "1 new pack(s): outages-fleet"
+      }
+    },
+    "pr-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-label",
+        "pr-link"
+      ]
+    },
+    "pr-label": {
+      "type": "Text",
+      "props": {
+        "text": "PR:",
+        "variant": "muted"
+      }
+    },
+    "pr-link": {
+      "type": "Link",
+      "props": {
+        "label": "https://github.com/swarm-ai-research/aeon/pull/118",
+        "href": "https://github.com/swarm-ai-research/aeon/pull/118"
+      }
+    }
+  }
+}
