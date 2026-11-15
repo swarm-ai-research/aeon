@@ -10,12 +10,6 @@
   ],
   "members": [
     {
-      "slug": "batch-health",
-      "name": "batch-health",
-      "description": "Daily post-batch audit — checks whether all enabled scheduled skills fired in their expected morning window, alerts on silent misses, files issues on batch-level outages",
-      "install": "./add-skill aaronjmars/aeon batch-health"
-    },
-    {
       "slug": "defi-monitor",
       "name": "DeFi Monitor",
       "description": "Check pool health, positions, and yield rates for tracked protocols",
@@ -119,7 +113,6 @@
     }
   ],
   "install_all": [
-    "./add-skill aaronjmars/aeon batch-health",
     "./add-skill aaronjmars/aeon defi-monitor",
     "./add-skill aaronjmars/aeon defi-overview",
     "./add-skill aaronjmars/aeon distribute-tokens",
