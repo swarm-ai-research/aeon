@@ -679,7 +679,55 @@
       ],
       "rejectedAt": "2026-10-29T06:11:18.957Z",
       "reason": "within-cohort templated-corpus (gitlawb-compute-futures-proofs); auto-reject per MEMORY.md pattern"
+    },
+    {
+      "source": "memory/gitlawb-compute-futures-proofs/2026-06-27.md",
+      "target": "memory/gitlawb-compute-futures-proofs/2026-10-25.md",
+      "score": 0.946,
+      "shared": [
+        "cash",
+        "darkbloom",
+        "synthetic",
+        "basket",
+        "spread"
+      ],
+      "bullet": "- [[2026-10-25]] — Compute-Futures Scenario Sweep _(similarity 0.95)_",
+      "appliedAt": "2026-11-15T06:27:51.489Z",
+      "rejectedAt": "2026-11-15T06:28:16.873Z",
+      "rejectionReason": "templated-corpus-noise: gitlawb-compute-futures-proofs/ within-cohort pair per [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]; 13th within-cohort fire (8th consecutive auto-reject), target 2026-10-25.md 3x single-target clustering variant (same mechanism as 10-25 fire with 2026-08-31 as 3x target); source-edit reverted, no PR opened — pre-filter within-cohort pairs + symmetric per-node source∫target cap in scripts/suggest-edges.mjs still outstanding"
+    },
+    {
+      "source": "memory/gitlawb-compute-futures-proofs/2026-09-24.md",
+      "target": "memory/gitlawb-compute-futures-proofs/2026-10-25.md",
+      "score": 0.942,
+      "shared": [
+        "cash",
+        "darkbloom",
+        "synthetic",
+        "basket",
+        "spread"
+      ],
+      "bullet": "- [[2026-10-25]] — Compute-Futures Scenario Sweep _(similarity 0.94)_",
+      "appliedAt": "2026-11-15T06:27:51.489Z",
+      "rejectedAt": "2026-11-15T06:28:16.873Z",
+      "rejectionReason": "templated-corpus-noise: gitlawb-compute-futures-proofs/ within-cohort pair per [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]; 13th within-cohort fire (8th consecutive auto-reject), target 2026-10-25.md 3x single-target clustering variant (same mechanism as 10-25 fire with 2026-08-31 as 3x target); source-edit reverted, no PR opened — pre-filter within-cohort pairs + symmetric per-node source∫target cap in scripts/suggest-edges.mjs still outstanding"
+    },
+    {
+      "source": "memory/gitlawb-compute-futures-proofs/2026-08-31.md",
+      "target": "memory/gitlawb-compute-futures-proofs/2026-10-25.md",
+      "score": 0.92,
+      "shared": [
+        "cash",
+        "darkbloom",
+        "synthetic",
+        "basket",
+        "spread"
+      ],
+      "bullet": "- [[2026-10-25]] — Compute-Futures Scenario Sweep _(similarity 0.92)_",
+      "appliedAt": "2026-11-15T06:27:51.489Z",
+      "rejectedAt": "2026-11-15T06:28:16.873Z",
+      "rejectionReason": "templated-corpus-noise: gitlawb-compute-futures-proofs/ within-cohort pair per [[suggest-edges-flags-templated-corpora-as-sim-1-noise]]; 13th within-cohort fire (8th consecutive auto-reject), target 2026-10-25.md 3x single-target clustering variant (same mechanism as 10-25 fire with 2026-08-31 as 3x target); source-edit reverted, no PR opened — pre-filter within-cohort pairs + symmetric per-node source∫target cap in scripts/suggest-edges.mjs still outstanding"
     }
   ],
-  "lastRun": "2026-10-29T06:11:18.957Z"
+  "lastRun": "2026-11-15T06:27:51.489Z"
 }
