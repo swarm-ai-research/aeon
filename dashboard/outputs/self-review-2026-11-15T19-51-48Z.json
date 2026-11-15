@@ -1,0 +1,249 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Self Review — 2026-11-15"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "section_quality",
+        "sep_1",
+        "section_reliability",
+        "sep_2",
+        "section_actions",
+        "sep_3",
+        "section_recommendations"
+      ]
+    },
+    "section_quality": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_quality",
+        "quality_badge",
+        "quality_text"
+      ]
+    },
+    "heading_quality": {
+      "type": "Heading",
+      "props": {
+        "text": "Quality",
+        "level": "h2"
+      }
+    },
+    "quality_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "mixed"
+      }
+    },
+    "quality_text": {
+      "type": "Text",
+      "props": {
+        "text": "heartbeat + compute-futures-eda carry the week; pr-review / skill-freshness / surplus-pulse produce duplicate daily output; only 2 non-formulaic articles landed."
+      }
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_reliability": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_reliability",
+        "stat_reliability",
+        "reliability_text"
+      ]
+    },
+    "heading_reliability": {
+      "type": "Heading",
+      "props": {
+        "text": "Reliability",
+        "level": "h2"
+      }
+    },
+    "stat_reliability": {
+      "type": "Stat",
+      "props": {
+        "label": "GHA Successes",
+        "value": "47/53"
+      }
+    },
+    "reliability_text": {
+      "type": "Text",
+      "props": {
+        "text": "~20 of 44 enabled skills didn't dispatch — 06Z cohort Day-10 silent (11-05→11-14), 11-12 was first-observed fleet-wide silent day, ISS-045 filed 11-14. 0% stated failure rate is cosmetic."
+      }
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_actions": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "heading_actions",
+        "stack_action_items"
+      ]
+    },
+    "heading_actions": {
+      "type": "Heading",
+      "props": {
+        "text": "Actions taken",
+        "level": "h2"
+      }
+    },
+    "stack_action_items": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action_1",
+        "action_2"
+      ]
+    },
+    "action_1": {
+      "type": "Text",
+      "props": {
+        "text": "review written to articles/self-review-2026-11-15.md"
+      }
+    },
+    "action_2": {
+      "type": "Text",
+      "props": {
+        "text": "no inline edits applied (MEMORY.md top bullet is factually stale but load-bearing, deferred to next reflect)"
+      }
+    },
+    "sep_3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "section_recommendations": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_recommendations",
+        "stack_recs"
+      ]
+    },
+    "heading_recommendations": {
+      "type": "Heading",
+      "props": {
+        "text": "Recommendations",
+        "level": "h2"
+      }
+    },
+    "stack_recs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "rec_1",
+        "rec_2",
+        "rec_3"
+      ]
+    },
+    "rec_1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rec_1_title",
+        "rec_1_detail"
+      ]
+    },
+    "rec_1_title": {
+      "type": "Text",
+      "props": {
+        "text": "(1) ship ISS-006 08Z-cohort incremental cron migration PR"
+      }
+    },
+    "rec_1_detail": {
+      "type": "Text",
+      "props": {
+        "text": "planner already ranked it #1 on 11-09",
+        "variant": "muted"
+      }
+    },
+    "rec_2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rec_2_title",
+        "rec_2_detail"
+      ]
+    },
+    "rec_2_title": {
+      "type": "Text",
+      "props": {
+        "text": "(2) install aeon-app pull_requests:write on swarm or collapse pr-review to weekly"
+      }
+    },
+    "rec_2_detail": {
+      "type": "Text",
+      "props": {
+        "text": "Day-55+ write-block, 26 full-skip cycles",
+        "variant": "muted"
+      }
+    },
+    "rec_3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "rec_3_title",
+        "rec_3_detail"
+      ]
+    },
+    "rec_3_title": {
+      "type": "Text",
+      "props": {
+        "text": "(3) populate memory/watched-repos.md"
+      }
+    },
+    "rec_3_detail": {
+      "type": "Text",
+      "props": {
+        "text": "streak-105 on 6 dependents",
+        "variant": "muted"
+      }
+    }
+  }
+}
