@@ -1,0 +1,165 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Tracker — 2026-11-16"
+      },
+      "children": [
+        "metrics_stack",
+        "separator1",
+        "stale_section",
+        "separator2",
+        "active_section",
+        "separator3",
+        "queue_section"
+      ]
+    },
+    "metrics_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_landed",
+        "stat_stale",
+        "stat_active",
+        "stat_frozen"
+      ]
+    },
+    "stat_landed": {
+      "type": "Stat",
+      "props": {
+        "label": "Landed (7d)",
+        "value": "0"
+      }
+    },
+    "stat_stale": {
+      "type": "Stat",
+      "props": {
+        "label": "Stale open (>7d)",
+        "value": "1"
+      }
+    },
+    "stat_active": {
+      "type": "Stat",
+      "props": {
+        "label": "Active open",
+        "value": "1"
+      }
+    },
+    "stat_frozen": {
+      "type": "Stat",
+      "props": {
+        "label": "Frozen issue count",
+        "value": "73"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stale_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stale_heading",
+        "stale_pr"
+      ]
+    },
+    "stale_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Stale open (>7d)",
+        "level": "h3"
+      }
+    },
+    "stale_pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "fix(deps): bump fastapi >=0.115.0 and python-multipart >=0.0.20",
+        "href": "https://github.com/ruvnet/RuView/pull/1409",
+        "source": "ruvnet/RuView #1409",
+        "score": "116d; APPROVED 2026-08-28 still unmerged, 80d since approve"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "active_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "active_heading",
+        "active_pr"
+      ]
+    },
+    "active_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Active open",
+        "level": "h3"
+      }
+    },
+    "active_pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "[4.2.x.x] Lock coupon, reward and credit redemption checks at order confirmation",
+        "href": "https://github.com/opencart/opencart/pull/15792",
+        "source": "opencart/opencart #15792",
+        "score": "18d; flipped stale→active via bot self-comment 2026-11-14, no maintainer engagement yet"
+      }
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "queue_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "queue_heading",
+        "queue_text1",
+        "queue_text2"
+      ]
+    },
+    "queue_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Queue Status",
+        "level": "h3"
+      }
+    },
+    "queue_text1": {
+      "type": "Text",
+      "props": {
+        "text": "Issue count frozen at 73 for 4 scans. Prefix-match set byte-identical to 10-31/11-05/11-07 (47 PRs)."
+      }
+    },
+    "queue_text2": {
+      "type": "Text",
+      "props": {
+        "text": "Non-prefix queue broke 9d silence with a 6-PR updatedAt burst across openssl/icu/dovecot/gwt/magento/wicket on 11-14 → 11-16 (set membership unchanged; likely operator-side batch action)."
+      }
+    }
+  }
+}
