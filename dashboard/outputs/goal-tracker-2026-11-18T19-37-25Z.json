@@ -1,0 +1,30 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Goal Tracker"
+      },
+      "children": [
+        "status-section",
+        "action-section"
+      ]
+    },
+    "status-section": {
+      "type": "Heading",
+      "props": {
+        "text": "NO_GOALS",
+        "level": "h3"
+      }
+    },
+    "action-section": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "message": "Add a '## Goals' section to memory/MEMORY.md"
+      }
+    }
+  }
+}
