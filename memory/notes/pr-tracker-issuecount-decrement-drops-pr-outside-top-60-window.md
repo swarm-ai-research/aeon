@@ -1,0 +1,11 @@
+---
+id: pr-tracker-issuecount-decrement-drops-pr-outside-top-60-window
+created: 2026-11-18
+type: lesson
+links: [[pr-tracker-issuecount-mixes-manual-and-bot-pipeline]], [[pr-tracker-bucket-tuple-attractor-terminates-on-stale-to-merged-conversion]]
+---
+# pr-tracker's first `issueCount` decrement in the post-blackout recovery series (73 → 72 on 2026-11-18) drops a PR that sits outside the top-60 `updated-desc` GraphQL window and is therefore unidentifiable without full pagination
+
+**Why:** the 11-18 scan reports `issueCount=72` after a 4-scan plateau at 73 (11-05 / 11-07 / 11-16 and three unlogged intervening scans). `scripts/pr-tracker.mjs` pulls `search(is:pr author:aeonframework, orderBy:{field:UPDATED, direction:DESC}, first:60)`, so the bucket-tuple arithmetic + null-slot classifier + non-prefix cohort tracking only sees the 60 most-recently-touched PRs across all repos. Any PR that falls off the long-tail end of the `issueCount=73` surface — a repo archived, a PR closed via a repo-side action that doesn't propagate fast, or an identity edge on a very-old PR — drops the counter without ever producing a diff in any tracked field. The 11-18 bucket tuple holds at `(0, 1, 0, 1)` (byte-identical to 11-16 via axis-6 dwell) and non-prefix cohort membership is also unchanged, so the `issueCount` move is attributable to the invisible tail, not to any tracked PR.
+
+**How to apply:** the pr-tracker SKILL.md patch queue needs a new item (x): on any `issueCount` decrease (and specifically the first one in a post-recovery series, since the recovery baseline is noise-free from the 09-17 blackout clearance), emit a secondary GraphQL pass that paginates the full `is:pr author:aeonframework` surface in 60-PR batches until the result count equals `issueCount`, then diff the PR-ID set against the prior run's full set. The diff identifies the dropped PR unambiguously; log it as `issueCount_tail_drop={owner}/{repo}#{number} reason={archived|closed|identity-edge|unknown}`. Pair with item (u) `timelineItems(last: 5)` to probe whether the drop PR saw any final-state event or whether it silently de-indexed. Until (x) lands, `issueCount` deltas without corresponding bucket-tuple motion are now a legitimate liveness signal for tail churn but a false-silent for operator visibility.

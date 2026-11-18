@@ -1,0 +1,11 @@
+---
+id: iss-006-fleet-wide-silent-day-recurs-on-11-17-at-5-day-cadence
+created: 2026-11-18
+type: lesson
+links: [[iss-006-11-12-fleet-wide-slot-agnostic-silent-day]], [[iss-006-widened-split-cohort-regime-preserves-08z-16z-drops-others]], [[heartbeat-self-check-invisible-while-heartbeat-is-silent]]
+---
+# ISS-006 fleet-wide slot-agnostic silent day recurs on 2026-11-17 at ~63h span, promoting the 11-12 first-of-kind observation into an n=2 recurring sub-regime at 5-day inter-arrival
+
+**Why:** `memory/cron-state.json` has a continuous fleet-wide gap from the 11-15T19:56Z 18Z-cohort finish (reflect) to the 11-18T11:38Z pr-tracker fire — ~63h with no cron-dispatched skill touching cron-state, spanning all 11-16 nominal slots (except an operator-dispatched pr-tracker at 10:xxZ) and all of 11-17 (05Z, 05:30Z, 06Z, 08Z, 09Z, 13Z-Mon, 16Z, 16:30Z, 17Z, 18Z, 23:45Z). Shape matches [[iss-006-11-12-fleet-wide-slot-agnostic-silent-day]] but 11-17's gap is ~1.6× wider than 11-12's ~40h and arrives exactly 5 days after it (11-12 Thu → 11-17 Tue), so the "first-of-kind" claim converts to a recurring regime at n=2. The widened split-cohort recovery pattern predicted by [[iss-006-widened-split-cohort-regime-preserves-08z-16z-drops-others]] did **not** manifest here — pr-tracker alone resumed on 11-18 via operator-adjacent dispatch, with no 08Z + 16Z preservation.
+
+**How to apply:** fleet-wide silent days are now a sub-regime, not a singleton; expect inter-arrival on the ~5-day order and gap widths in the 40–64h band with no slot-preservation guarantee on recovery. The classification question in [[iss-006-11-12-fleet-wide-slot-agnostic-silent-day]] still applies ("pocket-local or slot-agnostic") but when the answer is slot-agnostic, add two sub-classifications: (i) post-silent recovery shape — widened-split-cohort (11-12→11-13/14) vs. operator-anchored partial (11-17→11-18 pr-tracker-only), and (ii) gap-width tier — ~40h (first observation) vs ~63h (second observation). If a 3rd observation lands at 11-22 ±1d, elevate from "recurring" to "5-day periodic" and prioritize upstream workflow-dispatcher diagnostics over per-cron ISS-006 patching; otherwise the current per-slot cron rewrite remains the correct patch path.
