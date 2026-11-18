@@ -3,12 +3,12 @@
   "hash_scheme": "sha256(json.dumps({critical, flapping, degraded sorted}, sort_keys=True))[:16]",
   "prev_hash": "e27c0ac60367e7e5",
   "classification_identical_to_prev": true,
-  "last_notified_at": "2026-11-15T19:50:00Z",
-  "last_run_at": "2026-11-15T19:50:00Z",
-  "prev_run_at": "2026-11-09T18:41:22Z",
-  "prev_notified_at": "2026-11-09T18:41:22Z",
-  "elapsed_since_prev_notify_hours": 145.15,
-  "steady_state_day": 136,
+  "last_notified_at": "2026-11-18T19:37:57Z",
+  "last_run_at": "2026-11-18T19:37:57Z",
+  "prev_run_at": "2026-11-15T19:50:00Z",
+  "prev_notified_at": "2026-11-15T19:50:00Z",
+  "elapsed_since_prev_notify_hours": 71.78,
+  "steady_state_day": 139,
   "classification": {
     "critical": [],
     "degraded": [
@@ -65,15 +65,15 @@
       "run-frequency-guard"
     ]
   },
-  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn Day-136 — all 38 DEGRADED share zero-token last_error tails from the 2026-06-06 → 06-20 outage; every skill last_status=success, cf=0, success_rate 0.01-0.51 driven entirely by historical failure denominator. 7d skill-runs shows 47/53 completed succeeded, 0 failed, 6 in-progress (today 18Z co-fire: goal-tracker, pr-review, reflect, skill-health, self-review, skill-update-check).",
-  "delta_vs_prev": "Byte-identical classification to Day-131 (11-09 NOTIFY) at hash e27c0ac60367e7e5. 136th consecutive steady-state day; 145.15h since last notify (spans 11-10, 11-11, 11-12, 11-13, 11-14 — skill-health silent all five days under ISS-006 18Z-slot pathology; today 11-15 Sun 18Z cluster co-fired at 19:47Z, +~107m past nominal, consistent with the 08Z-cluster drift-later shape extending to the 18Z slot). Gate: NOTIFY (hash unchanged AND elapsed 145.15h >> 24h daily-reminder cadence). Reconciliation: 0 CRITICAL / 0 FLAPPING → no new skill-health issues filed. No open issues with detected_by=skill-health exist to reconcile (all 41 open issues owned by other detectors: ISS-001 self-review; ISS-002/005/009-018 + ISS-027 skill-evals; ISS-006 + ISS-019..045 batch-health). INDEX.md open-count 41 (up +2 since 11-09: ISS-044 filed 11-10 Tue-EVEN, ISS-045 filed 11-14 Sat-EVEN; first Saturday-EVEN tributary of the ISS-006 series per 11-14 batch-health log). Live-regression channel: 7d window rolled — 51→47 succeeded, 2→0 failed (the two 11-02..11-08 same-day-recovery transients aged out), in-progress count 4→6 reflecting today's full 18Z co-fire batch. 4 HEALTHY unchanged (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog); 2 NO DATA unchanged (ai-framework-watch, run-frequency-guard).",
+  "systemic": "SYSTEMIC: ISS-001 OAuth-outage denominator burn Day-139 — all 38 DEGRADED share zero-token last_error tails from the 2026-06-06 → 06-20 outage; every skill last_status=success, cf=0, success_rate 0.01-0.51 driven entirely by historical failure denominator. 7d skill-runs shows 28/33 completed succeeded, 0 failed, 5 in-progress (today 18Z co-fire: goal-tracker, pr-review, reflect, skill-health, skill-analytics).",
+  "delta_vs_prev": "Byte-identical classification to Day-136 (11-15 NOTIFY) at hash e27c0ac60367e7e5. 139th consecutive steady-state day; 71.78h since last notify (spans 11-16, 11-17 — skill-health silent both days under ISS-006 18Z-slot pathology that cleared on 11-15 Sun 19:47Z then re-engaged; today 11-18 Wed 18Z cluster co-fired at ~19:35Z, +~95m past nominal, continuing the 08Z-cluster drift-later shape propagation to the 18Z slot per [[iss-006-widened-split-cohort-regime-preserves-08z-16z-drops-others]]). Gate: NOTIFY (hash unchanged AND elapsed 71.78h >> 24h daily-reminder cadence). Reconciliation: 0 CRITICAL / 0 FLAPPING → no new skill-health issues filed. No open issues with detected_by=skill-health exist to reconcile (all 41 open issues owned by other detectors: ISS-001 self-review; ISS-002/005/009-018 + ISS-027 skill-evals; ISS-006 + ISS-019..045 batch-health). INDEX.md open-count 41 (unchanged since 11-15; batch-health last fired 11-14 09:25Z Sat, no 11-16 Mon or 11-18 Wed filings yet — Mon nominal 08Z slot presumed silent, Wed 09:10Z not yet logged in 11-18 heartbeat).",
   "issues_filed_this_run": [],
   "issues_resolved_this_run": [],
   "issues_resolved_by_other_detectors_since_prev_run": [],
-  "issues_filed_by_other_detectors_since_prev_run": ["ISS-044", "ISS-045"],
+  "issues_filed_by_other_detectors_since_prev_run": [],
   "open_issues_per_index": 41,
   "open_issues_per_filesystem": 41,
-  "open_issues_delta_since_prev_notify": 2,
+  "open_issues_delta_since_prev_notify": 0,
   "open_issues_ids": [
     "ISS-001","ISS-002","ISS-005","ISS-006","ISS-009","ISS-010","ISS-011","ISS-012","ISS-013",
     "ISS-014","ISS-015","ISS-016","ISS-017","ISS-018","ISS-019","ISS-020","ISS-021","ISS-022",
@@ -81,21 +81,21 @@
     "ISS-032","ISS-033","ISS-034","ISS-035","ISS-036","ISS-037","ISS-038","ISS-039","ISS-040",
     "ISS-041","ISS-042","ISS-043","ISS-044","ISS-045"
   ],
-  "notify_decision": "NOTIFY — hash unchanged (e27c0ac60367e7e5, Day-136 steady-state) AND elapsed 145.15h >> 24h daily-reminder cadence. Per SKILL.md step 5, suppression requires BOTH hash-match AND elapsed<24h; elapsed condition fails by 121.15h so notify fires. Reconciliation: 0 CRITICAL / 0 FLAPPING → no new skill-health issues filed. No open issues detected_by=skill-health exist to reconcile.",
-  "skill_runs_status": "OK — cron-state.json + skill-runs 168h agree. 47/53 completed runs succeeded, 0 failed, 6 in-progress (today 18Z co-firing batch: goal-tracker, pr-review, reflect, skill-health, self-review, skill-update-check). No persistent failures; every skill last_status=success. 72nd consecutive day at anomalies.failing=[] on the live-regression channel.",
+  "notify_decision": "NOTIFY — hash unchanged (e27c0ac60367e7e5, Day-139 steady-state) AND elapsed 71.78h >> 24h daily-reminder cadence. Per SKILL.md step 5, suppression requires BOTH hash-match AND elapsed<24h; elapsed condition fails by 47.78h so notify fires. Reconciliation: 0 CRITICAL / 0 FLAPPING → no new skill-health issues filed. No open issues detected_by=skill-health exist to reconcile.",
+  "skill_runs_status": "OK — cron-state.json + skill-runs 168h agree. 28/33 completed runs succeeded, 0 failed, 5 in-progress (today 18Z co-firing batch: goal-tracker, pr-review, reflect, skill-health, skill-analytics). No persistent failures; every skill last_status=success. 75th consecutive day at anomalies.failing=[] on the live-regression channel.",
   "top_5_stalest_degraded_by_days_since_last_success": [
-    {"skill": "skill-repair", "days_since_last_success": 148.6, "last_success": "2026-06-20T06:21:00Z"},
-    {"skill": "skill-evals", "days_since_last_success": 63.4, "last_success": "2026-09-13T10:36:53Z"},
-    {"skill": "compute-macro-correlate", "days_since_last_success": 49.5, "last_success": "2026-09-27T07:41:30Z"},
-    {"skill": "changelog", "days_since_last_success": 27.1, "last_success": "2026-10-19T17:13:46Z"},
-    {"skill": "skill-analytics", "days_since_last_success": 25.0, "last_success": "2026-10-21T20:02:13Z"}
+    {"skill": "skill-repair", "days_since_last_success": 151.6, "last_success": "2026-06-20T06:21:00Z"},
+    {"skill": "skill-evals", "days_since_last_success": 66.4, "last_success": "2026-09-13T10:36:53Z"},
+    {"skill": "compute-macro-correlate", "days_since_last_success": 52.5, "last_success": "2026-09-27T07:41:30Z"},
+    {"skill": "changelog", "days_since_last_success": 30.1, "last_success": "2026-10-19T17:13:46Z"},
+    {"skill": "skill-analytics", "days_since_last_success": 28.0, "last_success": "2026-10-21T20:02:13Z"}
   ],
   "novel_transient_signals_not_escalated": [
-    "136th consecutive steady-state day for skill-health hash e27c0ac60367e7e5. Prior gap distribution escalates: 11-06 cleared 94.63h → 11-09 cleared 70.95h → 11-15 clears 145.15h. 11-15 is the longest observed inter-notify gap in the 18Z-slot pathology since the hash first locked in — dropping below the ISS-006 18Z-pocket 11-09 fire's +80m drift precedent per [[iss-006-18z-pocket-recovers-after-7-day-silent-with-80m-drift]] but recovering under a 5-day silent preamble (11-10..11-14 all silent at 18Z for skill-health) vs 11-09's 2-day preamble.",
-    "06Z-cohort continuous silent regime (09-ceiling was Day-10 per 11-14 heartbeat log) broken today 11-15 Sun 06:27Z: compute-futures-eda, janitor, notegraph all fired at ~06:27Z (+27m past nominal), skillpacks 06:30Z, suggest-edges 06:30Z. First 06Z-cohort fire since 11-04. ISS-045 (11-14 Sat-EVEN batch-health) tributary closed in spirit by this fire but filed on empty-expected-list rule and not auto-resolved by batch-health.",
-    "ai-framework-watch + run-frequency-guard 129th consecutive silent day per [[enabled-skills-can-never-dispatch]] (weekday witness advance: Mon 11-02 through today 11-15 Sun = +6d since 11-09 run).",
-    "Weekly-skill staleness census advances +6d on top-5 stalest buckets since 11-09: skill-repair 142.5 → 148.6, skill-evals 57.3 → 63.4, compute-macro-correlate 43.5 → 49.5, changelog 21.1 → 27.1, skill-analytics 18.9 → 25.0 — all rooted in ISS-006 Sunday/weekly-slot silent regimes. Replacement pending: skill-update-check at 14d from 11-01 last-success would enter top-5 near 11-15 if changelog or skill-analytics fires; neither has, so same 5 skills repeat with +6d offset."
+    "139th consecutive steady-state day for skill-health hash e27c0ac60367e7e5. Prior gap distribution: 11-06 cleared 94.63h → 11-09 cleared 70.95h → 11-15 cleared 145.15h → 11-18 clears 71.78h. 11-18's 71.78h is a near-return to the 11-09 cadence after the 11-15 outlier 145h gap; skill-health 18Z slot silent 11-16 Mon + 11-17 Tue nominal 18Z slots (both ISS-006 casualties), recovered 11-18 Wed 18Z cluster at +~95m past nominal, same drift-later envelope as 11-15 Sun's +107m.",
+    "ai-framework-watch + run-frequency-guard 132nd consecutive silent day per [[enabled-skills-can-never-dispatch]] (weekday witness advance: +3d since 11-15 run).",
+    "Weekly-skill staleness census advances +3d on top-5 stalest buckets since 11-15: skill-repair 148.6 → 151.6, skill-evals 63.4 → 66.4, compute-macro-correlate 49.5 → 52.5, changelog 27.1 → 30.1 (crosses 30d bucket), skill-analytics 25.0 → 28.0 — all rooted in ISS-006 Sunday/weekly-slot silent regimes. changelog crossing 30d-since-last-success is new bucket threshold this run; no CRITICAL promotion because consecutive_failures=0 and last_status=success — only the stale-dispatch axis is deteriorating, not the execution axis.",
+    "pr-triage 13d since last success (11-05 10:54Z, success_rate 0.30) — same (success, cf=0, stale) shape; not currently top-5 but 11-19 Tue cadence would extend to 14d if nominal 09:30Z slot silent."
   ],
-  "notify_delivery_note": "Direct .pending-notify/1794685800-skill-health.md write per standing action-queue [[notify-inline-cat-substitution-blocked-in-sandbox]] + [[notify-script-has-no-f-flag]]; sandbox blocks `./notify \"$(cat …)\"` command substitution so inline file-emission remains the reliable path for a >120-char body with special characters. Postprocess fan-out will deliver via scripts/postprocess-notify.sh.",
-  "prompt_injection_flag": "None. cron-state.json, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md, memory/logs/2026-11-14.md + 2026-11-15.md, ./scripts/skill-runs JSON output all structured/data-only; no untrusted natural-language content ingested this run."
+  "notify_delivery_note": "Direct .pending-notify/1795030677-skill-health.md write per standing action-queue [[notify-inline-cat-substitution-blocked-in-sandbox]] + [[notify-script-has-no-f-flag]]; sandbox blocks `./notify \"$(cat …)\"` command substitution so inline file-emission remains the reliable path for a >120-char body with special characters. Postprocess fan-out will deliver via scripts/postprocess-notify.sh.",
+  "prompt_injection_flag": "None. cron-state.json, aeon.yml, memory/skill-health/*.json, memory/issues/INDEX.md, memory/logs/2026-11-18.md, ./scripts/skill-runs JSON output all structured/data-only; no untrusted natural-language content ingested this run."
 }

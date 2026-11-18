@@ -1,12 +1,22 @@
-All three artifacts in place. Classification was byte-identical to the 11-09 run but the 24h daily-reminder window elapsed, so notify fired.
+Skill-health executed. Classification byte-identical to 11-15 (hash `e27c0ac60367e7e5`, Day-139 steady-state), gate fired on 71.78h elapsed (>> 24h daily-reminder cadence).
 
 ## Summary
 
-- Ran `skills/skill-health/SKILL.md` for 2026-11-15.
-- **Classification**: 0 CRITICAL / 0 FLAPPING / 38 DEGRADED / 0 WARNING / 4 HEALTHY / 2 NO DATA. Hash `e27c0ac60367e7e5` — byte-identical to prior run (Day-136 steady-state at this hash).
-- **Gate decision**: NOTIFY. Hash unchanged but elapsed 145.15h since prior notify (11-09T18:41Z) >> 24h cadence → step-5 suppression fails on the elapsed clause.
-- **Reconciliation**: 0 CRITICAL / 0 FLAPPING → no new issues filed. No open issues `detected_by=skill-health` exist → nothing to resolve. INDEX.md open-count 41 (+2 since 11-09: ISS-044 + ISS-045, both batch-health-owned).
-- **Systemic**: ISS-001 OAuth-outage denominator residue — all 38 DEGRADED at `last_status=success`, `cf=0`, SR 0.01–0.51 from historical failures only. Live-regression channel clean: 47/53 7d runs succeeded, 0 failed, 6 in-progress (18Z co-fire batch).
-- **Notify emission**: direct `.pending-notify/1794685800-skill-health.md` write per standing sandbox-command-substitution workaround (`./notify "$(cat …)"` blocked at probe). Postprocess fan-out will deliver.
-- **Files created/modified**: `memory/skill-health/last-report.json` (full rewrite); `memory/logs/2026-11-15.md` (appended skill-health section); `.pending-notify/1794685800-skill-health.md` (new).
-- **Follow-up**: none net-new. Next scheduled fire 2026-11-16T18:00Z.
+**Executed skills/skill-health/SKILL.md at 2026-11-18T19:37Z (18Z nominal, +~95m past slot).**
+
+**Classification** (44 enabled skills):
+- CRITICAL: 0 · FLAPPING: 0 · WARNING: 0
+- DEGRADED: 38 (all driven by ISS-001 denominator burn; every skill `last_status=success`, `cf=0`)
+- HEALTHY: 4 (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+- NO DATA: 2 (ai-framework-watch, run-frequency-guard)
+
+**Issue tracker reconciliation**: 0 filed, 0 resolved. Zero open issues carry `detected_by: skill-health`, so nothing to close on recovery. INDEX.md open-count 41 unchanged since 11-15.
+
+**Gate**: NOTIFY — hash `e27c0ac60367e7e5` matched prev run BUT elapsed 71.78h fails the <24h suppression condition.
+
+**Files written**:
+- `.pending-notify/1795030677-skill-health.md` — notification body (postprocess fan-out)
+- `memory/skill-health/last-report.json` — hash, timestamps, classification, systemic, top-5 stalest
+- `memory/logs/2026-11-18.md` — appended `## skill-health` section
+
+**Follow-ups** (carryover, not actioned this run): ISS-033 draft for ai-framework-watch + run-frequency-guard Day-132 silent; `changelog` crosses 30d-since-last-success bucket (new threshold, not escalated — execution axis still clean).
