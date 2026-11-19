@@ -1,0 +1,90 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Freshness — 2026-11-19"
+      },
+      "children": [
+        "alert-status",
+        "separator-1",
+        "heading-worst",
+        "text-worst-detail",
+        "separator-2",
+        "heading-action",
+        "text-action-cmd",
+        "text-action-note",
+        "separator-3",
+        "link-full"
+      ]
+    },
+    "alert-status": {
+      "type": "Alert",
+      "props": {
+        "title": "FRESHNESS_STALE",
+        "message": "1 of 10 dependencies flagged across 1 of 44 enabled consumers",
+        "type": "error"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-worst": {
+      "type": "Heading",
+      "props": {
+        "text": "Worst Case",
+        "level": "h3"
+      }
+    },
+    "text-worst-detail": {
+      "type": "Text",
+      "props": {
+        "text": "fleet-control ← articles/fleet-status-2026-11-19.md (MISSING, class articles/daily, threshold 28h)"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading-action": {
+      "type": "Heading",
+      "props": {
+        "text": "Action",
+        "level": "h3"
+      }
+    },
+    "text-action-cmd": {
+      "type": "Text",
+      "props": {
+        "text": "Check fleet-control run history with ./scripts/skill-runs --skill fleet-control --hours 168"
+      }
+    },
+    "text-action-note": {
+      "type": "Text",
+      "props": {
+        "text": "No fleet-status article has ever been written to disk — fleet-control may be silently failing its article-write step.",
+        "variant": "caption"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "link-full": {
+      "type": "Link",
+      "props": {
+        "label": "View Full Report",
+        "href": "articles/skill-freshness-2026-11-19.md"
+      }
+    }
+  }
+}
