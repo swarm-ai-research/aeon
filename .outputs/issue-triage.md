@@ -1,8 +1,7 @@
 `ISSUE_TRIAGE_OK no-watched-repos`
 
 ## Summary
-- Ran `skills/issue-triage/SKILL.md` for 2026-11-14.
-- Short-circuited at §1: `${var}` empty and neither `memory/watched-repos.md` nor `memory/topics/watched-repos.md` exists → terminal `ISSUE_TRIAGE_OK no-watched-repos`.
-- No GitHub writes, no notify, no state updates.
-- Files created: `memory/logs/2026-11-14.md`.
-- Follow-up: standing "Populate `memory/watched-repos.md` OR disable 6 dependents" item in MEMORY.md action queue remains open (streak extends; 7th consecutive day of no-watched-repos exit on this skill).
+- Ran `skills/issue-triage/SKILL.md`. With `${var}` empty and `memory/watched-repos.md` absent, the skill short-circuits per its §Config guard; nothing to triage.
+- Files modified: `memory/logs/2026-11-19.md` (new log entry).
+- No notify (routine short-circuit — no `urgent`/`p0`/`security`/DUPLICATE-close/advisory verdicts produced).
+- Follow-up: unchanged — action-queue item to populate `memory/watched-repos.md` OR disable the 6 dependents still open; no-watched-repos streak advances from 105 (11-14 Sat) to 110 (11-19 Thu).
