@@ -1,0 +1,402 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-11-19"
+      },
+      "children": [
+        "text-summary",
+        "separator-1",
+        "stack-prs",
+        "separator-2",
+        "alert-writeblock"
+      ]
+    },
+    "text-summary": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed 8, skipped 4 dependabot (no fleet fan-out — selector supplied)."
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "stack-prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-650",
+        "pr-649",
+        "pr-648",
+        "pr-647",
+        "pr-646",
+        "pr-645",
+        "pr-518",
+        "pr-517"
+      ]
+    },
+    "pr-650": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "link-650",
+        "verdict-650"
+      ]
+    },
+    "link-650": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#650: docs + layer_lag.py + tests, all CI green",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/650"
+      }
+    },
+    "verdict-650": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-650",
+        "score-650"
+      ]
+    },
+    "badge-650": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "score-650": {
+      "type": "Text",
+      "props": {
+        "text": "4/5",
+        "variant": "muted"
+      }
+    },
+    "pr-649": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "link-649",
+        "verdict-649"
+      ]
+    },
+    "link-649": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#649: docs-only cross-link fix",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/649"
+      }
+    },
+    "verdict-649": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-649",
+        "score-649"
+      ]
+    },
+    "badge-649": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "score-649": {
+      "type": "Text",
+      "props": {
+        "text": "5/5",
+        "variant": "muted"
+      }
+    },
+    "pr-648": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "link-648",
+        "verdict-648"
+      ]
+    },
+    "link-648": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#648: reciprocity null fix + 7 tests, full suite passes",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/648"
+      }
+    },
+    "verdict-648": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-648",
+        "score-648"
+      ]
+    },
+    "badge-648": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "score-648": {
+      "type": "Text",
+      "props": {
+        "text": "4/5",
+        "variant": "muted"
+      }
+    },
+    "pr-647": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "link-647",
+        "verdict-647"
+      ]
+    },
+    "link-647": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#647: docs-only agent-lessons note",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/647"
+      }
+    },
+    "verdict-647": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-647",
+        "score-647"
+      ]
+    },
+    "badge-647": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "score-647": {
+      "type": "Text",
+      "props": {
+        "text": "5/5",
+        "variant": "muted"
+      }
+    },
+    "pr-646": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "link-646",
+        "verdict-646"
+      ]
+    },
+    "link-646": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#646: pace-layers script + tests",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/646"
+      }
+    },
+    "verdict-646": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-646",
+        "score-646"
+      ]
+    },
+    "badge-646": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "score-646": {
+      "type": "Text",
+      "props": {
+        "text": "4/5",
+        "variant": "muted"
+      }
+    },
+    "pr-645": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "link-645",
+        "verdict-645"
+      ]
+    },
+    "link-645": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#645: collusion calibration, mypy + 8034 tests pass",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/645"
+      }
+    },
+    "verdict-645": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-645",
+        "score-645"
+      ]
+    },
+    "badge-645": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "score-645": {
+      "type": "Text",
+      "props": {
+        "text": "4/5",
+        "variant": "muted"
+      }
+    },
+    "pr-518": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "link-518",
+        "verdict-518"
+      ]
+    },
+    "link-518": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#518: Pydantic scenario schema + validation tests",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518"
+      }
+    },
+    "verdict-518": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-518",
+        "score-518"
+      ]
+    },
+    "badge-518": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "score-518": {
+      "type": "Text",
+      "props": {
+        "text": "4/5",
+        "variant": "muted"
+      }
+    },
+    "pr-517": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "link-517",
+        "verdict-517"
+      ]
+    },
+    "link-517": {
+      "type": "StoryLink",
+      "props": {
+        "title": "swarm-ai-research/swarm#517: no CI ran (only Vercel auth fail); needs maintainer workflow approval before merge gate can judge",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517"
+      }
+    },
+    "verdict-517": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge-517",
+        "score-517"
+      ]
+    },
+    "badge-517": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      }
+    },
+    "score-517": {
+      "type": "Text",
+      "props": {
+        "text": "2/5",
+        "variant": "muted"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "alert-writeblock": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Write-block Day-59+ standing",
+        "message": "addPullRequestReview 403 — verdicts report-only, not posted to GitHub."
+      }
+    }
+  }
+}
