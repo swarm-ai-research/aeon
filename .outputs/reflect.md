@@ -1,1 +1,1 @@
-memory consolidated — 2026-11-18 · +5n / +41e (0 splits, 3 new)
+memory consolidated — 2026-11-19 · +3n / +7e (1 new atomic: skill-freshness flag-count jumps 1→6 under its own 5-day ISS-006 silence; heartbeat self-check breach widened to 119h; 3rd fleet-wide-silent-day prediction window 11-22 ±1d still open)
