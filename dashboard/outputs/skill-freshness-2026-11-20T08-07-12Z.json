@@ -1,0 +1,284 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Freshness — 2026-11-20",
+        "description": "Dependency freshness audit"
+      },
+      "children": [
+        "alert-status",
+        "stat-overview",
+        "sep-1",
+        "heading-worst",
+        "stack-worst",
+        "sep-2",
+        "heading-changes",
+        "text-changes",
+        "heading-warn",
+        "stack-warn",
+        "warn-note",
+        "sep-3",
+        "heading-actions",
+        "stack-actions",
+        "sep-4",
+        "link-full"
+      ]
+    },
+    "alert-status": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "🔴 FRESHNESS_STALE",
+        "message": "6 of 11 dependencies flagged across 6 of 44 enabled consumers"
+      }
+    },
+    "stat-overview": {
+      "type": "Stat",
+      "props": {
+        "label": "Flagged Dependencies",
+        "value": "6 / 11"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading-worst": {
+      "type": "Heading",
+      "props": {
+        "text": "Worst Dependencies",
+        "level": "h3"
+      }
+    },
+    "stack-worst": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "item-worst-1",
+        "item-worst-2",
+        "item-worst-3"
+      ]
+    },
+    "item-worst-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item-1-name",
+        "item-1-status",
+        "item-1-detail"
+      ]
+    },
+    "item-1-name": {
+      "type": "Text",
+      "props": {
+        "text": "fleet-control",
+        "variant": "lead"
+      }
+    },
+    "item-1-status": {
+      "type": "Badge",
+      "props": {
+        "text": "MISSING",
+        "variant": "destructive"
+      }
+    },
+    "item-1-detail": {
+      "type": "Text",
+      "props": {
+        "text": "articles/fleet-status-2026-11-20.md (never produced)",
+        "variant": "caption"
+      }
+    },
+    "item-worst-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item-2-name",
+        "item-2-status",
+        "item-2-detail"
+      ]
+    },
+    "item-2-name": {
+      "type": "Text",
+      "props": {
+        "text": "skill-evals",
+        "variant": "lead"
+      }
+    },
+    "item-2-status": {
+      "type": "Badge",
+      "props": {
+        "text": "STALE",
+        "variant": "destructive"
+      }
+    },
+    "item-2-detail": {
+      "type": "Text",
+      "props": {
+        "text": "articles/skill-evals-2026-09-13.md (1640h / 68d old — ISS-006 Sun-09Z)",
+        "variant": "caption"
+      }
+    },
+    "item-worst-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "item-3-name",
+        "item-3-status",
+        "item-3-detail"
+      ]
+    },
+    "item-3-name": {
+      "type": "Text",
+      "props": {
+        "text": "skill-freshness",
+        "variant": "lead"
+      }
+    },
+    "item-3-status": {
+      "type": "Badge",
+      "props": {
+        "text": "WARN",
+        "variant": "secondary"
+      }
+    },
+    "item-3-detail": {
+      "type": "Text",
+      "props": {
+        "text": "articles/skill-freshness-2026-11-19.md (32h old — upgraded from STALE; today's run clears this)",
+        "variant": "caption"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading-changes": {
+      "type": "Heading",
+      "props": {
+        "text": "Recent Changes (from 2026-11-19)",
+        "level": "h3"
+      }
+    },
+    "text-changes": {
+      "type": "Text",
+      "props": {
+        "text": "skill-freshness STALE→WARN (recovery run wrote 11-19 article)",
+        "variant": "body"
+      }
+    },
+    "heading-warn": {
+      "type": "Heading",
+      "props": {
+        "text": "WARN Items Aging Toward STALE Boundary",
+        "level": "h3"
+      }
+    },
+    "stack-warn": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "warn-item-1",
+        "warn-item-2",
+        "warn-item-3"
+      ]
+    },
+    "warn-item-1": {
+      "type": "Stat",
+      "props": {
+        "label": "vuln-scanner",
+        "value": "320h old",
+        "delta": "→ 384h STALE boundary"
+      }
+    },
+    "warn-item-2": {
+      "type": "Stat",
+      "props": {
+        "label": "workflow-security-audit",
+        "value": "296h old",
+        "delta": "→ 384h STALE boundary"
+      }
+    },
+    "warn-item-3": {
+      "type": "Stat",
+      "props": {
+        "label": "cost-report",
+        "value": "272h old",
+        "delta": "→ 384h STALE boundary"
+      }
+    },
+    "warn-note": {
+      "type": "Text",
+      "props": {
+        "text": "vuln-scanner crosses STALE boundary ~2026-11-24 if 2026-11-22 (Sat) also misses",
+        "variant": "caption"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading-actions": {
+      "type": "Heading",
+      "props": {
+        "text": "Required Actions",
+        "level": "h3"
+      }
+    },
+    "stack-actions": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "action-1",
+        "action-2"
+      ]
+    },
+    "action-1": {
+      "type": "Text",
+      "props": {
+        "text": "Check fleet-control article-write path",
+        "variant": "body"
+      }
+    },
+    "action-2": {
+      "type": "Text",
+      "props": {
+        "text": "Monitor ISS-006 16Z + Mon-07Z cohorts for 2026-11-22/2026-11-23 recovery",
+        "variant": "body"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "link-full": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/skill-freshness-2026-11-20.md",
+        "source": "articles/"
+      }
+    }
+  }
+}
