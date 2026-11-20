@@ -1,13 +1,13 @@
 ## Summary
 
-Ran `gitlawb-fleet-metrics` on 2026-11-19 (window 24h). Preflight short-circuited on the **state-exists** check: `memory/gitlawb-fleet.json` is absent, so per the skill's "empty fleet is not news" rule, verdict = **`GLMETRICS_EMPTY`** — logged and **no notify** sent.
+Executed `gitlawb-fleet-metrics` skill. Pre-flight check #2 tripped: `memory/gitlawb-fleet.json` is missing (no GitLawb fleet registry exists in this repo), so per the skill's explicit rule — "an empty fleet is not news" — logged `GLMETRICS_EMPTY` and stopped without notifying.
 
-- Node runtime: present (v22.23.4) — `GLMETRICS_NO_NODE` not applicable.
-- `memory/gitlawb-fleet.json`: missing.
-- `memory/gitlawb-metrics.jsonl`: missing.
-- CLI (`prototypes/gitlawb-safety/fleet-cli.mjs`) not invoked — short-circuited before step 1.
+**Files modified:**
+- `memory/logs/2026-11-20.md` — appended `gitlawb-fleet-metrics` section with `GLMETRICS_EMPTY` verdict.
 
-**Files written:**
-- `memory/logs/2026-11-19.md` — new daily log with `GLMETRICS_EMPTY` entry.
+**Not done (by design):**
+- No CLI invocation (`fleet-cli.mjs metrics`) — pre-flight stop precedes step 1.
+- No `./notify` call — empty-fleet silent stop.
+- No dashboard card.
 
-**Follow-up:** None owed by this skill. Fleet minting/registration is the responsibility of `gitlawb-fleet`; this read-only observer stays silent until a fleet exists.
+**Follow-up:** None owed by this skill. A fleet registry would need to be minted by `gitlawb-fleet` before this snapshot has anything to report; nothing to file as an issue since the taxonomy explicitly treats `GLMETRICS_EMPTY` as a valid steady-state exit.
