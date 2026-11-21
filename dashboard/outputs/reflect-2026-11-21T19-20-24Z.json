@@ -1,0 +1,79 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "reflect"
+      },
+      "children": [
+        "heading",
+        "content_stack"
+      ]
+    },
+    "heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Memory consolidated",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "content_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "date_badge",
+        "metrics_stack",
+        "breakdown_text"
+      ]
+    },
+    "date_badge": {
+      "type": "Badge",
+      "props": {
+        "text": "2026-11-21",
+        "variant": "outline"
+      },
+      "children": []
+    },
+    "metrics_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat_new_items",
+        "stat_entries"
+      ]
+    },
+    "stat_new_items": {
+      "type": "Stat",
+      "props": {
+        "label": "New items",
+        "value": "+2"
+      },
+      "children": []
+    },
+    "stat_entries": {
+      "type": "Stat",
+      "props": {
+        "label": "Entries",
+        "value": "+30"
+      },
+      "children": []
+    },
+    "breakdown_text": {
+      "type": "Text",
+      "props": {
+        "text": "1 split, 1 new",
+        "variant": "caption"
+      },
+      "children": []
+    }
+  }
+}
