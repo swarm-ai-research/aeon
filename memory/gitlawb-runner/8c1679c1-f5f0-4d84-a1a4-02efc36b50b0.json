@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-10-02T04:55:05.011980870+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "8c1679c1-f5f0-4d84-a1a4-02efc36b50b0",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/build_report.py\",\"target\":\".audit/build_report.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-02T04:55:05.011980870+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-02T04:55:04.427Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/build_report.py — blocked: path-traversal + arbitrary-file-read + HTML-comment-injection (2026-10-02)\" — 5 findings (3 critical, 2 issue). Verdict: blocked: path-traversal + arbitrary-file-read + HTML-comment-injection. Issue: ✓ Created issue #b372a646-4f33-4076-895b-2c2279868b71\n  Title:  Review: .audit/build_report.py — blocked: path-traversal + arbitrary-file-read + HTML-comment-injection (2026-10-02)\n  Body:   ## Code Review: .audit/build_report.py\n…"
+  },
+  "completed_at": "2026-10-02T04:57:56.066Z"
+}

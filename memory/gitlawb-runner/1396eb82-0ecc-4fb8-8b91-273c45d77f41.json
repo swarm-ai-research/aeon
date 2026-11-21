@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-11-10T21:42:42.761073205+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "1396eb82-0ecc-4fb8-8b91-273c45d77f41",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/build_findings.py\",\"target\":\".audit/build_findings.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-11-10T21:42:42.761073205+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-25T09:05:05.775Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/build_findings.py — blocked: unguarded SARIF key accesses crash the pipeline mid-loop, silently dropping all subsequent findings (2026-11-11)\" — 4 findings (2 critical, 2 issue). Verdict: blocked: unguarded SARIF key accesses crash the pipeline mid-loop, silently dropping all subsequent findings. Issue: ✓ Created issue #898ce307-2418-4267-8012-01f631dcb89a\n  Title:  Review: .audit/build_findings.py — blocked: unguarded SARIF key accesses crash the pipel…"
+  },
+  "completed_at": "2026-11-11T05:32:26.672Z"
+}

@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-21T04:13:04.186528369+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "84d8221f-40ba-410d-a378-e9ccc9ff0758",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/classify.py\",\"target\":\".audit/classify.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-21T04:13:04.186528369+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-21T14:57:40.911Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/classify.py — blocked: unvalidated key access crashes audit pipeline silently (2026-09-21)\" — 5 findings (1 critical, 4 issue). Verdict: blocked: unvalidated key access crashes audit pipeline silently. Issue: ✓ Created issue #f1027ecb-e21e-4b32-8b62-b5e60f8fa203\n  Title:  Review: .audit/classify.py — blocked: unvalidated key access crashes audit pipeline silently (2026-09-21)\n  Body:   ## Code Review: .audit/classify.py\n\n**Date:** 2026-09-21\n**Agent:** …"
+  },
+  "completed_at": "2026-09-21T14:58:52.506Z"
+}

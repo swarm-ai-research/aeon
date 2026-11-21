@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-20T12:57:24.253434479+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "df986d52-ce46-494f-8df3-a32e346c8e35",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/build_findings.py\",\"target\":\".audit/build_findings.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-20T12:57:24.253434479+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-20T22:17:38.512Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/build_findings.py — blocked: KeyError crash silently drops all security findings (2026-09-20)\" — 5 findings (1 critical, 4 issue). Verdict: blocked: KeyError crash silently drops all security findings. Issue: ✓ Created issue #223349b3-607d-4ee2-bbae-29a675abeb8e\n  Title:  Review: .audit/build_findings.py — blocked: KeyError crash silently drops all security findings (2026-09-20)\n  Body:   ## Code Review: .audit/build_findings.py\n\n**Date:** 2026-09-20\n**…"
+  },
+  "completed_at": "2026-09-20T22:19:13.077Z"
+}

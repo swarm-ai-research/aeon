@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-06-19T21:14:48.556138642+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "f4e575a1-c211-4148-bd4b-4be8ed3a2102",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/delta2.py\",\"target\":\".audit/delta2.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-06-19T21:14:48.556138642+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-06-19T23:04:07.903Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "prototype",
+    "summary": "Review prototypes/gitlawb-safety/phase5.mjs: 86 lines, ISSUES. 2 potential hardcoded secrets; 6 unguarded await calls; uses throwaway temp state (good); emits dashboard observability (good)."
+  },
+  "completed_at": "2026-06-19T23:04:14.192Z"
+}

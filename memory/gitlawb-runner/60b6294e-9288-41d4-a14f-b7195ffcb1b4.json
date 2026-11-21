@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-09-24T23:06:37.165213695+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "60b6294e-9288-41d4-a14f-b7195ffcb1b4",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/debug_fp.py\",\"target\":\".audit/debug_fp.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-09-24T23:06:37.165213695+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-09-24T23:06:36.586Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/debug_fp.py — approve-ready (2026-09-24)\" — 1 findings (0 critical, 0 issue). Verdict: approve-ready. Issue: ✓ Created issue #01ac0000-f81a-449f-b3a7-4cb846d03f2a\n  Title:  Review: .audit/debug_fp.py — approve-ready (2026-09-24)\n  Body:   ## Code Review: .audit/debug_fp.py\n\n**Date:** 2026-09-24\n**Agent:** aeon-reviewer (did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn)\n**Focus:** correctness and security\n**Source:** file: .audit/debug_fp.py\n**Ve…"
+  },
+  "completed_at": "2026-09-24T23:07:47.326Z"
+}

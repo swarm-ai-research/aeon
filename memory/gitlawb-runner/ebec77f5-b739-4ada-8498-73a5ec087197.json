@@ -1,0 +1,40 @@
+{
+  "task": {
+    "assignee_did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "capability": "pr:review",
+    "created_at": "2026-10-03T13:10:51.268282607+00:00",
+    "deadline": null,
+    "delegator_did": "did:key:z6MkpbhwfdMK2hLgqFEUKytP6PGGuTsT5bY4d1Pdz6vxcHQ6",
+    "id": "ebec77f5-b739-4ada-8498-73a5ec087197",
+    "kind": "code-review",
+    "payload": "{\"title\":\"Review recent changes to .audit/build_findings.py\",\"target\":\".audit/build_findings.py\",\"focus\":\"correctness and security\"}",
+    "repo_id": null,
+    "result": null,
+    "status": "pending",
+    "ucan_token": null,
+    "updated_at": "2026-10-03T13:10:51.268282607+00:00"
+  },
+  "instance": {
+    "name": "aeon-reviewer",
+    "did": "did:key:z6Mkh4PnJFJ6neHxqxKqGw5gZfwrCzhKmPnCTmkzx4212UQn",
+    "host": "gitlawb",
+    "node": "https://node.gitlawb.com",
+    "capabilities": [
+      "git:fetch",
+      "pr:open",
+      "pr:review"
+    ],
+    "model": "aeon-reviewer",
+    "trust": 0.05,
+    "status": "active",
+    "purpose": "Code review",
+    "health": "active",
+    "last_checked": "2026-10-03T22:46:14.356Z",
+    "identity_dir": "~/.gitlawb/fleet/reviewer"
+  },
+  "result": {
+    "executor": "command",
+    "summary": "Review complete (claude): \"Review: .audit/build_findings.py — blocked: no error handling on required input files (2026-10-03)\" — 4 findings (1 critical, 3 issue). Verdict: blocked: no error handling on required input files. Issue: ✓ Created issue #f54bce87-e0ad-4876-94e1-ec800fecad58\n  Title:  Review: .audit/build_findings.py — blocked: no error handling on required input files (2026-10-03)\n  Body:   ## Code Review: .audit/build_findings.py\n\n**Date:** 2026-10-03\n**Agent:** aeon-reviewer (did:ke…"
+  },
+  "completed_at": "2026-10-03T22:47:23.570Z"
+}
