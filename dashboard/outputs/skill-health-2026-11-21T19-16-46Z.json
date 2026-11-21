@@ -1,0 +1,472 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health",
+        "description": "2026-11-21"
+      },
+      "children": [
+        "alert-status",
+        "stats-row",
+        "sep1",
+        "degraded-section",
+        "sep2",
+        "nodata-section",
+        "sep3",
+        "healthy-section",
+        "sep4",
+        "summary-section"
+      ]
+    },
+    "alert-status": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "HEALTH: DEGRADED (38 skills)",
+        "message": "Systemic issue: ISS-001 OAuth-outage denominator burn Day-142 — 38 skills share pre-06-20 failure tails"
+      }
+    },
+    "stats-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-open",
+        "stat-resolved",
+        "stat-filed"
+      ]
+    },
+    "stat-open": {
+      "type": "Stat",
+      "props": {
+        "label": "Open issues",
+        "value": "42"
+      }
+    },
+    "stat-resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved this run",
+        "value": "0"
+      }
+    },
+    "stat-filed": {
+      "type": "Stat",
+      "props": {
+        "label": "Filed this run",
+        "value": "0"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "degraded-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "degraded-heading",
+        "degraded-list",
+        "degraded-more"
+      ]
+    },
+    "degraded-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟡 Degraded / Flapping (top 5 by staleness)",
+        "level": "h3"
+      }
+    },
+    "degraded-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "deg-1",
+        "deg-2",
+        "deg-3",
+        "deg-4",
+        "deg-5"
+      ]
+    },
+    "deg-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "deg-1-row",
+        "deg-1-action"
+      ]
+    },
+    "deg-1-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "deg-1-name",
+        "deg-1-time"
+      ]
+    },
+    "deg-1-name": {
+      "type": "Text",
+      "props": {
+        "text": "skill-repair",
+        "variant": "lead"
+      }
+    },
+    "deg-1-time": {
+      "type": "Badge",
+      "props": {
+        "text": "154.2d since success",
+        "variant": "destructive"
+      }
+    },
+    "deg-1-action": {
+      "type": "Badge",
+      "props": {
+        "text": "INVESTIGATE (ISS-001 residue)",
+        "variant": "outline"
+      }
+    },
+    "deg-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "deg-2-row",
+        "deg-2-action"
+      ]
+    },
+    "deg-2-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "deg-2-name",
+        "deg-2-time"
+      ]
+    },
+    "deg-2-name": {
+      "type": "Text",
+      "props": {
+        "text": "skill-evals",
+        "variant": "lead"
+      }
+    },
+    "deg-2-time": {
+      "type": "Badge",
+      "props": {
+        "text": "69.1d since success",
+        "variant": "destructive"
+      }
+    },
+    "deg-2-action": {
+      "type": "Badge",
+      "props": {
+        "text": "INVESTIGATE (ISS-001 residue)",
+        "variant": "outline"
+      }
+    },
+    "deg-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "deg-3-row",
+        "deg-3-action"
+      ]
+    },
+    "deg-3-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "deg-3-name",
+        "deg-3-time"
+      ]
+    },
+    "deg-3-name": {
+      "type": "Text",
+      "props": {
+        "text": "compute-macro-correlate",
+        "variant": "lead"
+      }
+    },
+    "deg-3-time": {
+      "type": "Badge",
+      "props": {
+        "text": "55.2d since success",
+        "variant": "destructive"
+      }
+    },
+    "deg-3-action": {
+      "type": "Badge",
+      "props": {
+        "text": "INVESTIGATE (ISS-001 residue)",
+        "variant": "outline"
+      }
+    },
+    "deg-4": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "deg-4-row",
+        "deg-4-action"
+      ]
+    },
+    "deg-4-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "deg-4-name",
+        "deg-4-time"
+      ]
+    },
+    "deg-4-name": {
+      "type": "Text",
+      "props": {
+        "text": "changelog",
+        "variant": "lead"
+      }
+    },
+    "deg-4-time": {
+      "type": "Badge",
+      "props": {
+        "text": "32.8d since success",
+        "variant": "destructive"
+      }
+    },
+    "deg-4-action": {
+      "type": "Badge",
+      "props": {
+        "text": "INVESTIGATE (ISS-001 residue)",
+        "variant": "outline"
+      }
+    },
+    "deg-5": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "deg-5-row",
+        "deg-5-action"
+      ]
+    },
+    "deg-5-row": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "deg-5-name",
+        "deg-5-time"
+      ]
+    },
+    "deg-5-name": {
+      "type": "Text",
+      "props": {
+        "text": "memory-structural-dedupe",
+        "variant": "lead"
+      }
+    },
+    "deg-5-time": {
+      "type": "Badge",
+      "props": {
+        "text": "26.2d since success",
+        "variant": "destructive"
+      }
+    },
+    "deg-5-action": {
+      "type": "Badge",
+      "props": {
+        "text": "INVESTIGATE (ISS-001 residue)",
+        "variant": "outline"
+      }
+    },
+    "degraded-more": {
+      "type": "Text",
+      "props": {
+        "text": "+33 more — see memory/issues/INDEX.md (all tied to ISS-001)",
+        "variant": "muted"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "nodata-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "nodata-heading",
+        "nodata-list"
+      ]
+    },
+    "nodata-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "⚪ No Data (2)",
+        "level": "h3"
+      }
+    },
+    "nodata-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "nodata-1",
+        "nodata-2",
+        "nodata-note"
+      ]
+    },
+    "nodata-1": {
+      "type": "Badge",
+      "props": {
+        "text": "ai-framework-watch",
+        "variant": "outline"
+      }
+    },
+    "nodata-2": {
+      "type": "Badge",
+      "props": {
+        "text": "run-frequency-guard",
+        "variant": "outline"
+      }
+    },
+    "nodata-note": {
+      "type": "Text",
+      "props": {
+        "text": "135d silent per enabled-skills-can-never-dispatch — DISPATCH-SKILL",
+        "variant": "caption"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "healthy-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "healthy-heading",
+        "healthy-list"
+      ]
+    },
+    "healthy-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "🟢 Healthy (4)",
+        "level": "h3"
+      }
+    },
+    "healthy-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "healthy-1",
+        "healthy-2",
+        "healthy-3",
+        "healthy-4"
+      ]
+    },
+    "healthy-1": {
+      "type": "Badge",
+      "props": {
+        "text": "agi-tracker",
+        "variant": "secondary"
+      }
+    },
+    "healthy-2": {
+      "type": "Badge",
+      "props": {
+        "text": "config-validator",
+        "variant": "secondary"
+      }
+    },
+    "healthy-3": {
+      "type": "Badge",
+      "props": {
+        "text": "swarm-safety-eval",
+        "variant": "secondary"
+      }
+    },
+    "healthy-4": {
+      "type": "Badge",
+      "props": {
+        "text": "weekly-shiplog",
+        "variant": "secondary"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "summary-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "summary-text"
+      ]
+    },
+    "summary-text": {
+      "type": "Text",
+      "props": {
+        "text": "ISS-046 filed 11-20 by batch-health",
+        "variant": "caption"
+      }
+    }
+  }
+}
