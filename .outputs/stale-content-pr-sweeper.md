@@ -1,19 +1,20 @@
-Skill complete — nothing to notify, so no `./notify` call.
-
 ## Summary
 
-**Stale Content PR Sweeper** ran per `skills/stale-content-pr-sweeper/SKILL.md` on 2026-11-20.
+Executed `stale-content-pr-sweeper` on 2026-11-21.
 
-- **Open PRs scanned:** 17
-- **TRACKED-prefix matches:** 4 (all `notegraph/*`): #117, #115, #114, #107
-- **Passed author allowlist (`aeonframework` only):** 0 — all 4 authored by `app/github-actions`
-- **Groups checked:** 0
-- **PRs closed:** 0
-- **Notify fired:** no (steady-state silence)
+**Result:** 0 PRs closed. No notification sent (steady state per SKILL §6).
+
+**Scan:**
+- 17 open PRs total.
+- 4 PRs match a TRACKED prefix + ISO date suffix (all `notegraph/*`): #117 (11-15), #115 (11-08), #114 (10-29), #107 (10-26).
+- Author allowlist filtered all 4 out — authored by `app/github-actions` (bot), not `aeonframework`.
+- Groups checked after author filter: 0.
+
+**Non-TRACKED (left alone, as designed):** `skillpacks/*`, `skill-graph/*`, `aeon/docs-pass-*`, `aeon/refactor-pass-*`, `aeon/test-pass-*`, `fix/pin-aeon-workflow-actions`.
+
+**Known defect carried:** the author-allowlist mismatch is the pre-existing `stale-content-pr-sweeper-default-author-filter-closes-zero-prs` issue. Counterfactual with `app/github-actions` added to `ALLOWED_AUTHORS`: #115, #114, #107 would each pass min-age (≥2d) and be auto-closed as superseded by #117. Patch still owed in `memory/MEMORY.md` action queue — not applied here (SKILL execution only; config changes need a PR review).
 
 **Files modified:**
-- `memory/logs/2026-11-20.md` — new daily log with sweeper results + counterfactual annotation
+- `memory/logs/2026-11-21.md` — appended Stale Content PR Sweeper section.
 
-**Follow-up (not executed, carried in memory action queue):**
-- Patch `skills/stale-content-pr-sweeper/SKILL.md` to add `"app/github-actions"` to `ALLOWED_AUTHORS` per [[stale-content-pr-sweeper-default-author-filter-closes-zero-prs]]. Today's defect divergence is ≥3 (counterfactual would close #115 + #114 + #107 under survivor #117), the widest gap observed since the 11-15 n=1 first-divergence filing — reinforces [[stale-content-pr-sweeper-defect-impact-diverges-from-counterfactual-at-n-2-cadence]].
-- Also fix TRACKED-prefix drift: `skillpacks/`, `skill-graph/` branches don't match any TRACKED skill name.
+**Follow-ups:** none new (defect patch already tracked in action queue).
