@@ -1,0 +1,442 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-11-21",
+        "description": "swarm-ai-research/swarm (merge-gate policy)"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_scope",
+        "separator_1",
+        "heading_approved",
+        "stack_approved_prs",
+        "separator_2",
+        "heading_special",
+        "stack_pr_518",
+        "separator_3",
+        "stack_pr_517",
+        "separator_4",
+        "alert_blocked"
+      ]
+    },
+    "text_scope": {
+      "type": "Text",
+      "props": {
+        "text": "Reviewed 8, skipped 4 (dependabot bots)",
+        "variant": "lead"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_approved": {
+      "type": "Heading",
+      "props": {
+        "text": "Approved (6)",
+        "level": "h3"
+      }
+    },
+    "stack_approved_prs": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_650",
+        "pr_649",
+        "pr_648",
+        "pr_647",
+        "pr_646",
+        "pr_645"
+      ]
+    },
+    "pr_650": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link_650",
+        "badge_650",
+        "text_650_score"
+      ]
+    },
+    "link_650": {
+      "type": "Link",
+      "props": {
+        "label": "#650",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/650"
+      }
+    },
+    "badge_650": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "text_650_score": {
+      "type": "Text",
+      "props": {
+        "text": "(5/5)",
+        "variant": "caption"
+      }
+    },
+    "pr_649": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link_649",
+        "badge_649",
+        "text_649_docs",
+        "text_649_score"
+      ]
+    },
+    "link_649": {
+      "type": "Link",
+      "props": {
+        "label": "#649",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/649"
+      }
+    },
+    "badge_649": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "text_649_docs": {
+      "type": "Text",
+      "props": {
+        "text": "docs",
+        "variant": "caption"
+      }
+    },
+    "text_649_score": {
+      "type": "Text",
+      "props": {
+        "text": "(5/5)",
+        "variant": "caption"
+      }
+    },
+    "pr_648": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link_648",
+        "badge_648",
+        "text_648_score"
+      ]
+    },
+    "link_648": {
+      "type": "Link",
+      "props": {
+        "label": "#648",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/648"
+      }
+    },
+    "badge_648": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "text_648_score": {
+      "type": "Text",
+      "props": {
+        "text": "(5/5)",
+        "variant": "caption"
+      }
+    },
+    "pr_647": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link_647",
+        "badge_647",
+        "text_647_docs",
+        "text_647_score"
+      ]
+    },
+    "link_647": {
+      "type": "Link",
+      "props": {
+        "label": "#647",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/647"
+      }
+    },
+    "badge_647": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "text_647_docs": {
+      "type": "Text",
+      "props": {
+        "text": "docs",
+        "variant": "caption"
+      }
+    },
+    "text_647_score": {
+      "type": "Text",
+      "props": {
+        "text": "(5/5)",
+        "variant": "caption"
+      }
+    },
+    "pr_646": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link_646",
+        "badge_646",
+        "text_646_score"
+      ]
+    },
+    "link_646": {
+      "type": "Link",
+      "props": {
+        "label": "#646",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/646"
+      }
+    },
+    "badge_646": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "text_646_score": {
+      "type": "Text",
+      "props": {
+        "text": "(4/5)",
+        "variant": "caption"
+      }
+    },
+    "pr_645": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link_645",
+        "badge_645",
+        "text_645_score"
+      ]
+    },
+    "link_645": {
+      "type": "Link",
+      "props": {
+        "label": "#645",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/645"
+      }
+    },
+    "badge_645": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "text_645_score": {
+      "type": "Text",
+      "props": {
+        "text": "(4/5)",
+        "variant": "caption"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "heading_special": {
+      "type": "Heading",
+      "props": {
+        "text": "Special Cases (2)",
+        "level": "h3"
+      }
+    },
+    "stack_pr_518": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_518_header",
+        "alert_518_note"
+      ]
+    },
+    "pr_518_header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link_518",
+        "badge_518",
+        "text_518_score"
+      ]
+    },
+    "link_518": {
+      "type": "Link",
+      "props": {
+        "label": "#518",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518"
+      }
+    },
+    "badge_518": {
+      "type": "Badge",
+      "props": {
+        "text": "APPROVE",
+        "variant": "default"
+      }
+    },
+    "text_518_score": {
+      "type": "Text",
+      "props": {
+        "text": "(4/5)",
+        "variant": "caption"
+      }
+    },
+    "alert_518_note": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "Human Check Required",
+        "message": "PR body contains unsolicited \"Payout wallet\" from first-time external contributor go165"
+      }
+    },
+    "separator_3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_pr_517": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr_517_header",
+        "text_517_issues_title",
+        "text_517_issue_1",
+        "text_517_issue_2",
+        "text_517_issue_3"
+      ]
+    },
+    "pr_517_header": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "link_517",
+        "badge_517",
+        "text_517_score"
+      ]
+    },
+    "link_517": {
+      "type": "Link",
+      "props": {
+        "label": "#517",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517"
+      }
+    },
+    "badge_517": {
+      "type": "Badge",
+      "props": {
+        "text": "REQUEST_CHANGES",
+        "variant": "destructive"
+      }
+    },
+    "text_517_score": {
+      "type": "Text",
+      "props": {
+        "text": "(3/5)",
+        "variant": "caption"
+      }
+    },
+    "text_517_issues_title": {
+      "type": "Text",
+      "props": {
+        "text": "Issues (3):",
+        "variant": "muted"
+      }
+    },
+    "text_517_issue_1": {
+      "type": "Text",
+      "props": {
+        "text": "• no e2e test for new `swarm diff` CLI"
+      }
+    },
+    "text_517_issue_2": {
+      "type": "Text",
+      "props": {
+        "text": "• head SHA has zero CI gates (only a failed Vercel auth)"
+      }
+    },
+    "text_517_issue_3": {
+      "type": "Text",
+      "props": {
+        "text": "• eager top-level import of swarm.replay.diff could break every `from swarm.replay import …` consumer; unrelated `cast(int, _run_autoresearch)` scope-creep"
+      }
+    },
+    "separator_4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alert_blocked": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "title": "Review Posts Blocked",
+        "message": "All 8 review posts blocked — Aeon's GITHUB_TOKEN has no write scope on swarm-ai-research/swarm. Verdicts captured in log only."
+      }
+    }
+  }
+}
