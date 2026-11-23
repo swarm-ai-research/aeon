@@ -1,0 +1,223 @@
+{
+  "root": "card-heartbeat",
+  "state": {},
+  "elements": {
+    "card-heartbeat": {
+      "type": "Card",
+      "props": {
+        "title": "Heartbeat Health Check",
+        "description": "System self-check monitoring alert"
+      },
+      "children": [
+        "alert-critical",
+        "sep1",
+        "details-stack",
+        "sep2",
+        "status-stack",
+        "sep3",
+        "issues-stack"
+      ]
+    },
+    "alert-critical": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "🔴 P0 Heartbeat Breach",
+        "message": "Self-check silent for ~73 hours (last check: 11-20T08:05Z, threshold >36h). Predicted 3rd fleet-wide silent day on 11-22."
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "details-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-cadence",
+        "cadence-text",
+        "cohort-heading",
+        "cohort-details"
+      ]
+    },
+    "heading-cadence": {
+      "type": "Heading",
+      "props": {
+        "text": "Cadence Pattern",
+        "level": "h3"
+      }
+    },
+    "cadence-text": {
+      "type": "Text",
+      "props": {
+        "text": "5-day cadence confirmed after 11-12 and 11-17; pattern predicts 3rd silent day occurrence on 11-22."
+      }
+    },
+    "cohort-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "08Z Cohort Status",
+        "level": "h3"
+      }
+    },
+    "cohort-details": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "cohort-silent",
+        "cohort-impact"
+      ]
+    },
+    "cohort-silent": {
+      "type": "Text",
+      "props": {
+        "text": "Silent on both 11-21 and 11-22"
+      }
+    },
+    "cohort-impact": {
+      "type": "Badge",
+      "props": {
+        "text": "split-cohort preservation broken",
+        "variant": "destructive"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "status-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-status",
+        "status-grid",
+        "working-heading",
+        "working-text"
+      ]
+    },
+    "heading-status": {
+      "type": "Heading",
+      "props": {
+        "text": "System Status",
+        "level": "h3"
+      }
+    },
+    "status-grid": {
+      "type": "Grid",
+      "props": {
+        "columns": 2,
+        "gap": "md"
+      },
+      "children": [
+        "stat-page",
+        "stat-issues"
+      ]
+    },
+    "stat-page": {
+      "type": "Stat",
+      "props": {
+        "label": "Status Page",
+        "value": "DEGRADED",
+        "trend": "down"
+      }
+    },
+    "stat-issues": {
+      "type": "Stat",
+      "props": {
+        "label": "Open Issues",
+        "value": "42"
+      }
+    },
+    "working-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Operational Tasks",
+        "level": "h4"
+      }
+    },
+    "working-text": {
+      "type": "Text",
+      "props": {
+        "text": "Only skill-update-check fired on 11-22 at 20:21Z"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading-affected",
+        "affected-stack"
+      ]
+    },
+    "heading-affected": {
+      "type": "Heading",
+      "props": {
+        "text": "Affected Skills",
+        "level": "h3"
+      }
+    },
+    "affected-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-batch",
+        "badge-heartbeat",
+        "badge-gitlawb",
+        "badge-freshness"
+      ]
+    },
+    "badge-batch": {
+      "type": "Badge",
+      "props": {
+        "text": "batch-health",
+        "variant": "outline"
+      }
+    },
+    "badge-heartbeat": {
+      "type": "Badge",
+      "props": {
+        "text": "heartbeat",
+        "variant": "outline"
+      }
+    },
+    "badge-gitlawb": {
+      "type": "Badge",
+      "props": {
+        "text": "gitlawb-fleet-metrics",
+        "variant": "outline"
+      }
+    },
+    "badge-freshness": {
+      "type": "Badge",
+      "props": {
+        "text": "skill-freshness",
+        "variant": "outline"
+      }
+    }
+  }
+}
