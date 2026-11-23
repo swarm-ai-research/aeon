@@ -1,0 +1,170 @@
+{
+  "root": "card-freshness",
+  "state": {},
+  "elements": {
+    "card-freshness": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Freshness — 2026-11-23"
+      },
+      "children": [
+        "alert-main",
+        "sep-1",
+        "heading-worst",
+        "table-worst",
+        "sep-2",
+        "heading-new-flags",
+        "flags-stack",
+        "sep-3",
+        "heading-action",
+        "action-stack",
+        "sep-4",
+        "link-full"
+      ]
+    },
+    "alert-main": {
+      "type": "Alert",
+      "props": {
+        "title": "🔴 FRESHNESS_STALE",
+        "message": "7 of 11 deps flagged across 7 of 44 enabled consumers",
+        "type": "error"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading-worst": {
+      "type": "Heading",
+      "props": {
+        "text": "Worst Cases",
+        "level": "h3"
+      }
+    },
+    "table-worst": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Consumer",
+          "File",
+          "Age",
+          "Frequency",
+          "Status"
+        ],
+        "rows": [
+          [
+            "fleet-control",
+            "articles/fleet-status-2026-11-23.md",
+            "never produced",
+            "—",
+            "MISSING"
+          ],
+          [
+            "skill-evals",
+            "articles/skill-evals-2026-09-13.md",
+            "1713h old",
+            "weekly",
+            "STALE"
+          ],
+          [
+            "skill-freshness",
+            "articles/skill-freshness-2026-11-20.md",
+            "73h old",
+            "daily",
+            "STALE ↑"
+          ],
+          [
+            "vuln-scanner",
+            "articles/vuln-scan-2026-11-07.md",
+            "393h old",
+            "weekly",
+            "STALE ↑"
+          ]
+        ]
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading-new-flags": {
+      "type": "Heading",
+      "props": {
+        "text": "New Flags",
+        "level": "h3"
+      }
+    },
+    "flags-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "flag-1",
+        "flag-2",
+        "flag-3"
+      ]
+    },
+    "flag-1": {
+      "type": "Text",
+      "props": {
+        "text": "skill-freshness WARN→STALE (3-day gap)",
+        "variant": "body"
+      }
+    },
+    "flag-2": {
+      "type": "Text",
+      "props": {
+        "text": "vuln-scanner WARN→STALE (crossed 384h)",
+        "variant": "body"
+      }
+    },
+    "flag-3": {
+      "type": "Text",
+      "props": {
+        "text": "self-review newly WARN (201h, 18Z slot outage)",
+        "variant": "body"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "heading-action": {
+      "type": "Heading",
+      "props": {
+        "text": "Action Required",
+        "level": "h3"
+      }
+    },
+    "action-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "action-text"
+      ]
+    },
+    "action-text": {
+      "type": "Text",
+      "props": {
+        "text": "vuln-scanner crossed 2× threshold — if 2026-11-29 Sat also silent, file ISS-006 Sat-16Z tributary.",
+        "variant": "body"
+      }
+    },
+    "sep-4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "link-full": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Full Report",
+        "href": "articles/skill-freshness-2026-11-23.md"
+      }
+    }
+  }
+}
