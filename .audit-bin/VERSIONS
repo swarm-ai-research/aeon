@@ -1,0 +1,10 @@
+# Pre-cached scanner binaries
+#
+# These binaries are committed so workflow-security-audit can run offline on
+# GitHub Actions runners where outbound PyPI/curl is blocked.
+#
+# Update both the binary AND this file when upgrading a tool.
+# See skills/workflow-security-audit/SKILL.md §0b for version-pin maintenance notes.
+
+zizmor     1.25.2   https://github.com/zizmorcore/zizmor/releases/tag/v1.25.2
+actionlint (latest at time of commit — see https://github.com/rhysd/actionlint/releases)
