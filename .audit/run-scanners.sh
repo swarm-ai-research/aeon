@@ -1,8 +1,7 @@
 #!/bin/bash
 set -u
-mkdir -p /home/runner/work/aeon/aeon/.audit
-cd /home/runner/work/aeon/aeon
-export PATH="/home/runner/work/aeon/aeon/.audit-bin:$PATH"
+mkdir -p .audit
+export PATH="$PWD/.audit-bin:$PATH"
 zizmor --version > .audit/zizmor.version 2>&1 || echo "zizmor version unavailable" > .audit/zizmor.version
 actionlint -version > .audit/actionlint.version 2>&1 || echo "actionlint version unavailable" > .audit/actionlint.version
 zizmor --format sarif --persona auditor .github/workflows > .audit/zizmor.sarif 2> .audit/zizmor.err
