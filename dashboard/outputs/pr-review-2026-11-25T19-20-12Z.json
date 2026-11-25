@@ -1,0 +1,173 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "PR Review — 2026-11-25 (merge-gate re-run)",
+        "description": "swarm-ai-research/swarm · Reviewed 8 (bot-skipped 4)"
+      },
+      "children": [
+        "separator-1",
+        "distribution",
+        "separator-2",
+        "prs-stack",
+        "separator-3",
+        "alert-writeblock"
+      ]
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "distribution": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-approve",
+        "stat-request",
+        "stat-block"
+      ]
+    },
+    "stat-approve": {
+      "type": "Stat",
+      "props": {
+        "label": "APPROVE",
+        "value": "7"
+      }
+    },
+    "stat-request": {
+      "type": "Stat",
+      "props": {
+        "label": "REQUEST_CHANGES",
+        "value": "1"
+      }
+    },
+    "stat-block": {
+      "type": "Stat",
+      "props": {
+        "label": "BLOCK",
+        "value": "0"
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "prs-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-650",
+        "pr-649",
+        "pr-648",
+        "pr-647",
+        "pr-646",
+        "pr-645",
+        "pr-518",
+        "pr-517"
+      ]
+    },
+    "pr-650": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#650",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/650",
+        "source": "APPROVE 4/5"
+      }
+    },
+    "pr-649": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#649",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/649",
+        "source": "APPROVE 5/5 docs"
+      }
+    },
+    "pr-648": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#648",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/648",
+        "source": "APPROVE 4/5 bugfix"
+      }
+    },
+    "pr-647": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#647",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/647",
+        "source": "APPROVE 5/5 docs"
+      }
+    },
+    "pr-646": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#646",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/646",
+        "source": "APPROVE 4/5"
+      }
+    },
+    "pr-645": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#645",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/645",
+        "source": "APPROVE 4/5"
+      }
+    },
+    "pr-518": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#518",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/518",
+        "source": "APPROVE 4/5 — ⚠ Payout-wallet nudge from first-time contrib go165"
+      }
+    },
+    "pr-517": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "pr-517-link",
+        "pr-517-details"
+      ]
+    },
+    "pr-517-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "#517",
+        "href": "https://github.com/swarm-ai-research/swarm/pull/517",
+        "source": "REQUEST_CHANGES 2/5"
+      }
+    },
+    "pr-517-details": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "message": "zero CI ran on head SHA, eager swarm.replay.diff import risks consumers, no e2e for `python -m swarm diff` CLI, unrelated `cast(int, _run_autoresearch)` scope-creep"
+      }
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "alert-writeblock": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "title": "aeon-app write-block",
+        "message": "Day-67+ on swarm: verdicts logged only; posting still 403s"
+      }
+    }
+  }
+}
