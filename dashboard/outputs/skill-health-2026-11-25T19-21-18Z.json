@@ -1,0 +1,340 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health — 2026-11-25",
+        "description": "Health status monitoring for Aeon skills"
+      },
+      "children": [
+        "health-status",
+        "separator-0",
+        "systemic-alert",
+        "separator-1",
+        "no-data-section",
+        "separator-2",
+        "healthy-section",
+        "separator-3",
+        "reconciliation-section",
+        "separator-4",
+        "issues-section",
+        "separator-5",
+        "stalest-section"
+      ]
+    },
+    "health-status": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat-enabled",
+        "stat-critical",
+        "stat-flapping",
+        "stat-warning"
+      ]
+    },
+    "stat-enabled": {
+      "type": "Stat",
+      "props": {
+        "label": "Enabled Skills",
+        "value": "44"
+      }
+    },
+    "stat-critical": {
+      "type": "Stat",
+      "props": {
+        "label": "CRITICAL",
+        "value": "0"
+      }
+    },
+    "stat-flapping": {
+      "type": "Stat",
+      "props": {
+        "label": "FLAPPING",
+        "value": "0"
+      }
+    },
+    "stat-warning": {
+      "type": "Stat",
+      "props": {
+        "label": "WARNING",
+        "value": "0"
+      }
+    },
+    "separator-0": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "systemic-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "ISS-001 OAuth-outage denominator burn",
+        "message": "Day-143. 38 skills classified DEGRADED on success_rate alone (0.01–0.51) — all share zero-token last_error tails from the 2026-06-06 → 06-20 outage. Every skill cf=0, last_status=success. 7d skill-runs: 51/56 succeeded, 0 failed, 5 in-progress. Live-regression anomalies.failing = [] (Day-79)."
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "no-data-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "NO DATA (2)",
+        "level": "h3"
+      }
+    },
+    "no-data-text": {
+      "type": "Text",
+      "props": {
+        "text": "ai-framework-watch, run-frequency-guard — [[enabled-skills-can-never-dispatch]] Day-137.",
+        "variant": "body"
+      }
+    },
+    "no-data-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "no-data-heading",
+        "no-data-text"
+      ]
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "healthy-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "HEALTHY (4)",
+        "level": "h3"
+      }
+    },
+    "healthy-skills": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-agi-tracker",
+        "badge-config-validator",
+        "badge-swarm-safety-eval",
+        "badge-weekly-shiplog"
+      ]
+    },
+    "badge-agi-tracker": {
+      "type": "Badge",
+      "props": {
+        "text": "agi-tracker",
+        "variant": "default"
+      }
+    },
+    "badge-config-validator": {
+      "type": "Badge",
+      "props": {
+        "text": "config-validator",
+        "variant": "default"
+      }
+    },
+    "badge-swarm-safety-eval": {
+      "type": "Badge",
+      "props": {
+        "text": "swarm-safety-eval",
+        "variant": "default"
+      }
+    },
+    "badge-weekly-shiplog": {
+      "type": "Badge",
+      "props": {
+        "text": "weekly-shiplog",
+        "variant": "default"
+      }
+    },
+    "healthy-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "healthy-heading",
+        "healthy-skills"
+      ]
+    },
+    "separator-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "reconciliation-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Reconciliation",
+        "level": "h3"
+      }
+    },
+    "reconciliation-text": {
+      "type": "Text",
+      "props": {
+        "text": "0 CRITICAL / 0 FLAPPING → no skill-health issues filed this run. No open issues owned by detected_by=skill-health exist to resolve.",
+        "variant": "body"
+      }
+    },
+    "steady-state-text": {
+      "type": "Text",
+      "props": {
+        "text": "143rd consecutive steady-state day at hash e27c0ac60367e7e5. Elapsed since last notify: 96.05h (> 24h daily-reminder cadence → NOTIFY).",
+        "variant": "body"
+      }
+    },
+    "reconciliation-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "reconciliation-text",
+        "steady-state-text"
+      ]
+    },
+    "reconciliation-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "reconciliation-heading",
+        "reconciliation-stack"
+      ]
+    },
+    "separator-4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "issues-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Issues",
+        "level": "h3"
+      }
+    },
+    "issues-open-text": {
+      "type": "Text",
+      "props": {
+        "text": "Open: 43 (+1 since 11-21: ISS-047 filed by batch-health on 11-23)",
+        "variant": "body"
+      }
+    },
+    "issues-resolved-text": {
+      "type": "Text",
+      "props": {
+        "text": "Resolved this run: 0",
+        "variant": "body"
+      }
+    },
+    "issues-ownership-text": {
+      "type": "Text",
+      "props": {
+        "text": "All 43 open issues owned by other detectors: ISS-001 (self-review); ISS-002/005/009–018/027 (skill-evals); ISS-006 + ISS-019..047 (batch-health).",
+        "variant": "body"
+      }
+    },
+    "issues-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issues-open-text",
+        "issues-resolved-text",
+        "issues-ownership-text"
+      ]
+    },
+    "issues-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "issues-heading",
+        "issues-stack"
+      ]
+    },
+    "separator-5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stalest-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Top-5 Stalest DEGRADED Skills",
+        "level": "h3"
+      }
+    },
+    "stalest-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Days Since Last Success"
+        ],
+        "rows": [
+          [
+            "skill-repair",
+            "158"
+          ],
+          [
+            "skill-evals",
+            "73"
+          ],
+          [
+            "compute-macro-correlate",
+            "59"
+          ],
+          [
+            "changelog",
+            "37"
+          ],
+          [
+            "memory-structural-dedupe",
+            "30"
+          ]
+        ]
+      }
+    },
+    "stalest-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "stalest-heading",
+        "stalest-table"
+      ]
+    }
+  }
+}

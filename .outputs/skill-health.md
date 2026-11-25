@@ -1,15 +1,14 @@
-*Skill Health — 2026-11-21*
-HEALTH: DEGRADED(38)  [systemic: ISS-001 OAuth-outage denominator burn Day-142 — 38 skills share pre-06-20 failure tails]
+*Skill Health — 2026-11-25*
+HEALTH: OK — 44 enabled skills, 0 CRITICAL / 0 FLAPPING / 0 WARNING
 
-🟡 DEGRADED / FLAPPING (top 5 by staleness)
-- skill-repair — 154.2d since success — INVESTIGATE (ISS-001 residue)
-- skill-evals — 69.1d since success — INVESTIGATE (ISS-001 residue)
-- compute-macro-correlate — 55.2d since success — INVESTIGATE (ISS-001 residue)
-- changelog — 32.8d since success — INVESTIGATE (ISS-001 residue)
-- memory-structural-dedupe — 26.2d since success — INVESTIGATE (ISS-001 residue)
-+33 more — see memory/issues/INDEX.md (all tied to ISS-001)
+SYSTEMIC: ISS-001 OAuth-outage denominator burn, Day-143. 38 skills classified DEGRADED on success_rate alone (0.01–0.51) — all share zero-token last_error tails from the 2026-06-06 → 06-20 outage. Every skill cf=0, last_status=success. 7d skill-runs: 51/56 succeeded, 0 failed, 5 in-progress. Live-regression anomalies.failing = [] (Day-79).
 
-⚪ NO DATA (2): ai-framework-watch, run-frequency-guard — DISPATCH-SKILL (135d silent per enabled-skills-can-never-dispatch)
-🟢 HEALTHY: 4 (agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog)
+NO DATA (2): ai-framework-watch, run-frequency-guard — [[enabled-skills-can-never-dispatch]] Day-137.
 
-Open issues: 42 · Resolved this run: 0 · Filed this run: 0 · (ISS-046 filed 11-20 by batch-health)
+HEALTHY (4): agi-tracker, config-validator, swarm-safety-eval, weekly-shiplog.
+
+Reconciliation: 0 CRITICAL / 0 FLAPPING → no skill-health issues filed this run. No open issues owned by detected_by=skill-health exist to resolve. 143rd consecutive steady-state day at hash e27c0ac60367e7e5. Elapsed since last notify: 96.05h (> 24h daily-reminder cadence → NOTIFY).
+
+Open issues: 43 (+1 since 11-21: ISS-047 filed by batch-health on 11-23). Resolved this run: 0. All 43 open issues owned by other detectors (ISS-001 self-review; ISS-002/005/009–018/027 skill-evals; ISS-006 + ISS-019..047 batch-health).
+
+Top-5 stalest DEGRADED by days_since_last_success: skill-repair 158d · skill-evals 73d · compute-macro-correlate 59d · changelog 37d · memory-structural-dedupe 30d.
