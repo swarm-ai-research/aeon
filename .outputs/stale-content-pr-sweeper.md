@@ -1,20 +1,12 @@
+Skill complete. 0 PRs closed, no notify fired (steady state per `n_closed === 0`).
+
 ## Summary
 
-Executed `stale-content-pr-sweeper` on 2026-11-21.
-
-**Result:** 0 PRs closed. No notification sent (steady state per SKILL §6).
-
-**Scan:**
-- 17 open PRs total.
-- 4 PRs match a TRACKED prefix + ISO date suffix (all `notegraph/*`): #117 (11-15), #115 (11-08), #114 (10-29), #107 (10-26).
-- Author allowlist filtered all 4 out — authored by `app/github-actions` (bot), not `aeonframework`.
-- Groups checked after author filter: 0.
-
-**Non-TRACKED (left alone, as designed):** `skillpacks/*`, `skill-graph/*`, `aeon/docs-pass-*`, `aeon/refactor-pass-*`, `aeon/test-pass-*`, `fix/pin-aeon-workflow-actions`.
-
-**Known defect carried:** the author-allowlist mismatch is the pre-existing `stale-content-pr-sweeper-default-author-filter-closes-zero-prs` issue. Counterfactual with `app/github-actions` added to `ALLOWED_AUTHORS`: #115, #114, #107 would each pass min-age (≥2d) and be auto-closed as superseded by #117. Patch still owed in `memory/MEMORY.md` action queue — not applied here (SKILL execution only; config changes need a PR review).
-
-**Files modified:**
-- `memory/logs/2026-11-21.md` — appended Stale Content PR Sweeper section.
-
-**Follow-ups:** none new (defect patch already tracked in action queue).
+- **Ran** `stale-content-pr-sweeper` per `skills/stale-content-pr-sweeper/SKILL.md` on 2026-11-25.
+- **Scanned:** 18 open PRs.
+- **Filter breakdown:**
+  - 13 non-TRACKED prefix: 9× `aeon/*` reviewer-passes, 2× `skill-graph/*`, 1× `skillpacks/*`, 1× `fix/*`.
+  - 5× `notegraph/*` with valid date suffix (#119, #117, #115, #114, #107) — all rejected by `ALLOWED_AUTHORS = {"aeonframework"}` because their author is `app/github-actions`.
+- **Closed:** 0. **Notify:** none.
+- **Files modified:** `memory/logs/2026-11-25.md` (new).
+- **Follow-up:** author-allowlist defect is active — patched counterfactual would supersede 4 stale `notegraph/*` PRs behind survivor #119 (2026-11-24). Divergence from counterfactual has widened to n=5 candidates (vs n=3 on 11-15, n=1 on 10-29). The SKILL.md patch adding `"app/github-actions"` to `ALLOWED_AUTHORS` remains on the action queue in `memory/MEMORY.md`.
