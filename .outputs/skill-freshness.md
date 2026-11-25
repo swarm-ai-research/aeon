@@ -1,13 +1,16 @@
-*Skill Freshness — 2026-11-23*
-🔴 FRESHNESS_STALE — 7 of 11 deps flagged across 7 of 44 enabled consumers
+Done. Here's the run summary:
 
-Worst:
-- fleet-control ← articles/fleet-status-2026-11-23.md (never produced, MISSING)
-- skill-evals ← articles/skill-evals-2026-09-13.md (1713h old, weekly, STALE)
-- skill-freshness ← articles/skill-freshness-2026-11-20.md (73h old, daily, STALE ↑)
-- vuln-scanner ← articles/vuln-scan-2026-11-07.md (393h old, weekly, STALE ↑)
+## Summary
 
-New flags: skill-freshness WARN→STALE (3-day gap), vuln-scanner WARN→STALE (crossed 384h), self-review newly WARN (201h, 18Z slot outage).
+**Verdict: ✅ FRESHNESS_OK** — 0 of 11 examined dependencies flagged across 44 enabled consumers.
 
-Action: vuln-scanner crossed 2× threshold — if 2026-11-29 Sat also silent, file ISS-006 Sat-16Z tributary.
-Full: articles/skill-freshness-2026-11-23.md
+**Key finding:** All 7 flags from the prior run (2026-11-23) were self-references — cases where the article prefix exactly matches the consuming skill name (`skill-evals`, `workflow-security-audit`, `cost-report`, `self-review`, `skill-freshness`) or false positives (`vuln-scanner` deduplicates via `memory/vuln-scanned.json`, not prior articles). Applying the SKILL.md § 4 self-reference filter strictly drops all 7.
+
+The only genuine cross-skill dep is `fleet-control → articles/fleet-status-*.md`, which has never existed on disk. Per the MISSING rule, implicit references that "simply never existed" are not flagged.
+
+**No notification sent** — FRESHNESS_OK verdict suppresses notification per spec.
+
+**Files written:**
+- `articles/skill-freshness-2026-11-25.md` — full report
+- `memory/topics/skill-freshness-state.json` — updated (verdict: FRESHNESS_OK, flagged: 0, new fingerprint)
+- `memory/logs/2026-11-25.md` — log block appended
