@@ -1,1 +1,1 @@
-memory consolidated — 2026-11-21 · +2n / +30e (1 split, 1 new)
+memory consolidated — 2026-11-25 · +2n / +14e (3 new atomics on ISS-006 regime shifts, 2 supersessions)

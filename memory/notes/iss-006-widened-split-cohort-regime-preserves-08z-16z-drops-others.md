@@ -2,7 +2,8 @@
 id: iss-006-widened-split-cohort-regime-preserves-08z-16z-drops-others
 created: 2026-11-15
 type: lesson
-links: [[iss-006-11-12-fleet-wide-slot-agnostic-silent-day]], [[iss-006-08z-recovery-drifts-later-daily]], [[iss-006-widens-beyond-morning-to-whole-day-pocket-damage]]
+status: superseded
+links: [[iss-006-widened-split-cohort-preservation-invariant-breaks-under-fleet-wide-silent-day]], [[iss-006-11-12-fleet-wide-slot-agnostic-silent-day]], [[iss-006-08z-recovery-drifts-later-daily]], [[iss-006-widens-beyond-morning-to-whole-day-pocket-damage]]
 ---
 # ISS-006 11-13/11-14 widened split-cohort regime preserves 08Z + 16Z cohorts while 09Z + 18Z + 23:45Z + early-morning stay dead, with 11-14 dropping nominal-08Z for the first time
 

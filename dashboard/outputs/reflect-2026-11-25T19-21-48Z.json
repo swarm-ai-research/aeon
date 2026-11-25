@@ -1,0 +1,59 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "Memory Consolidated",
+        "description": "2026-11-25"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "metrics-stack",
+        "details-text"
+      ]
+    },
+    "metrics-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-new",
+        "stat-edits"
+      ]
+    },
+    "stat-new": {
+      "type": "Stat",
+      "props": {
+        "label": "New Items",
+        "value": "2"
+      }
+    },
+    "stat-edits": {
+      "type": "Stat",
+      "props": {
+        "label": "Edits",
+        "value": "14"
+      }
+    },
+    "details-text": {
+      "type": "Text",
+      "props": {
+        "text": "3 new atomics on ISS-006 regime shifts, 2 supersessions",
+        "variant": "caption"
+      }
+    }
+  }
+}

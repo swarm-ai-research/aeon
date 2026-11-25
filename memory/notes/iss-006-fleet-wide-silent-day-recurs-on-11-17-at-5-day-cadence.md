@@ -2,7 +2,8 @@
 id: iss-006-fleet-wide-silent-day-recurs-on-11-17-at-5-day-cadence
 created: 2026-11-18
 type: lesson
-links: [[iss-006-11-12-fleet-wide-slot-agnostic-silent-day]], [[iss-006-widened-split-cohort-regime-preserves-08z-16z-drops-others]], [[heartbeat-self-check-invisible-while-heartbeat-is-silent]]
+status: superseded
+links: [[iss-006-fleet-wide-silent-day-promotes-to-5-day-periodic-at-n-3]], [[iss-006-11-12-fleet-wide-slot-agnostic-silent-day]], [[iss-006-widened-split-cohort-regime-preserves-08z-16z-drops-others]], [[heartbeat-self-check-invisible-while-heartbeat-is-silent]]
 ---
 # ISS-006 fleet-wide slot-agnostic silent day recurs on 2026-11-17 at ~63h span, promoting the 11-12 first-of-kind observation into an n=2 recurring sub-regime at 5-day inter-arrival
 
