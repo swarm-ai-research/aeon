@@ -295,5 +295,181 @@ class TestExtractFindings(unittest.TestCase):
         self.assertEqual(rule_ids, {'r1', 'r2'})
 
 
+# ---------------------------------------------------------------------------
+# Replicated from normalize.py — extract_step_name(), normalize_file(),
+# sev_zizmor(), sev_actionlint()
+# ---------------------------------------------------------------------------
+
+import re as _re
+
+_STEP_NAME_RE = _re.compile(r'^\s*(?:-\s+)?name:\s*(.+?)\s*$', _re.MULTILINE)
+
+
+def extract_step_name(snippet: str):
+    if not snippet:
+        return None
+    m = _STEP_NAME_RE.search(snippet)
+    if m:
+        return m.group(1).strip().strip('"\'')
+    return None
+
+
+def normalize_file(uri):
+    if uri and '/' not in uri and uri.endswith(('.yml', '.yaml')):
+        return f'.github/workflows/{uri}'
+    return uri
+
+
+def sev_zizmor_normalize(r):
+    """normalize.py version — case-sensitive 'High' (no .lower())."""
+    lvl = r.get('level')
+    conf = r.get('properties', {}).get('zizmor/confidence', '')
+    if lvl == 'error' and conf == 'High':
+        return 'Critical'
+    if lvl == 'error':
+        return 'High'
+    if lvl == 'warning' and conf == 'High':
+        return 'High'
+    if lvl == 'warning':
+        return 'Medium'
+    return 'Low'
+
+
+def sev_actionlint(a):
+    kind = a.get('kind', '')
+    msg = a.get('message', '')
+    if kind == 'expression':
+        return 'High'
+    if kind == 'shellcheck' and ('SC2086' in msg or 'SC2046' in msg) and 'github.' in msg:
+        return 'High'
+    return 'Medium'
+
+
+# ===========================================================================
+# Tests for normalize.py helpers
+# ===========================================================================
+
+class TestExtractStepName(unittest.TestCase):
+    """Tests for normalize.py extract_step_name()."""
+
+    def test_empty_string_returns_none(self):
+        self.assertIsNone(extract_step_name(''))
+
+    def test_none_like_falsy_returns_none(self):
+        # snippet=None is not passed by the caller but the guard handles any falsy value
+        self.assertIsNone(extract_step_name(None))
+
+    def test_snippet_with_name_returns_it(self):
+        snippet = '      - name: Setup Node\n        uses: actions/setup-node@v3'
+        self.assertEqual(extract_step_name(snippet), 'Setup Node')
+
+    def test_snippet_without_name_key_returns_none(self):
+        snippet = '      uses: actions/checkout@v4\n      with:\n        fetch-depth: 0'
+        self.assertIsNone(extract_step_name(snippet))
+
+    def test_quoted_name_strips_quotes(self):
+        snippet = "      - name: 'Run Tests'\n"
+        self.assertEqual(extract_step_name(snippet), 'Run Tests')
+
+    def test_double_quoted_name_strips_quotes(self):
+        snippet = '      - name: "Deploy"\n'
+        self.assertEqual(extract_step_name(snippet), 'Deploy')
+
+    def test_name_with_leading_whitespace_trimmed(self):
+        snippet = 'name:   Checkout Code  \n'
+        self.assertEqual(extract_step_name(snippet), 'Checkout Code')
+
+    def test_multiline_snippet_uses_first_name(self):
+        snippet = 'name: First Step\nname: Second Step\n'
+        self.assertEqual(extract_step_name(snippet), 'First Step')
+
+
+class TestNormalizeFile(unittest.TestCase):
+    """Tests for normalize.py normalize_file()."""
+
+    def test_bare_yml_filename_gets_workflow_prefix(self):
+        self.assertEqual(normalize_file('ci.yml'), '.github/workflows/ci.yml')
+
+    def test_bare_yaml_filename_gets_workflow_prefix(self):
+        self.assertEqual(normalize_file('release.yaml'), '.github/workflows/release.yaml')
+
+    def test_path_with_slash_is_unchanged(self):
+        self.assertEqual(normalize_file('.github/workflows/ci.yml'), '.github/workflows/ci.yml')
+
+    def test_empty_string_is_unchanged(self):
+        self.assertEqual(normalize_file(''), '')
+
+    def test_none_is_unchanged(self):
+        self.assertIsNone(normalize_file(None))
+
+    def test_non_yaml_extension_is_unchanged(self):
+        self.assertEqual(normalize_file('ci.json'), 'ci.json')
+
+    def test_filename_with_path_but_yaml_ext_unchanged(self):
+        self.assertEqual(normalize_file('subdir/ci.yml'), 'subdir/ci.yml')
+
+
+class TestSevZizmor(unittest.TestCase):
+    """Tests for normalize.py sev_zizmor() — note the case-SENSITIVE 'High' check."""
+
+    def test_error_high_confidence_is_critical(self):
+        self.assertEqual(sev_zizmor_normalize({'level': 'error', 'properties': {'zizmor/confidence': 'High'}}), 'Critical')
+
+    def test_error_lowercase_high_is_NOT_critical(self):
+        # normalize.py does NOT call .lower() — 'high' != 'High' → falls to plain error branch
+        self.assertEqual(sev_zizmor_normalize({'level': 'error', 'properties': {'zizmor/confidence': 'high'}}), 'High')
+
+    def test_error_no_confidence_is_high(self):
+        self.assertEqual(sev_zizmor_normalize({'level': 'error', 'properties': {}}), 'High')
+
+    def test_warning_high_confidence_is_high(self):
+        self.assertEqual(sev_zizmor_normalize({'level': 'warning', 'properties': {'zizmor/confidence': 'High'}}), 'High')
+
+    def test_warning_lowercase_high_is_medium(self):
+        self.assertEqual(sev_zizmor_normalize({'level': 'warning', 'properties': {'zizmor/confidence': 'high'}}), 'Medium')
+
+    def test_warning_no_confidence_is_medium(self):
+        self.assertEqual(sev_zizmor_normalize({'level': 'warning', 'properties': {}}), 'Medium')
+
+    def test_note_level_is_low(self):
+        self.assertEqual(sev_zizmor_normalize({'level': 'note', 'properties': {'zizmor/confidence': 'High'}}), 'Low')
+
+    def test_missing_properties_key_is_low_for_note(self):
+        self.assertEqual(sev_zizmor_normalize({'level': 'note'}), 'Low')
+
+
+class TestSevActionlint(unittest.TestCase):
+    """Tests for normalize.py sev_actionlint()."""
+
+    def test_expression_kind_is_high(self):
+        self.assertEqual(sev_actionlint({'kind': 'expression', 'message': 'some expr issue'}), 'High')
+
+    def test_shellcheck_sc2086_with_github_ref_is_high(self):
+        msg = 'SC2086: Double quote to prevent globbing (github.event.inputs.foo)'
+        self.assertEqual(sev_actionlint({'kind': 'shellcheck', 'message': msg}), 'High')
+
+    def test_shellcheck_sc2046_with_github_ref_is_high(self):
+        msg = 'SC2046: Quote this to prevent word splitting. (github.sha)'
+        self.assertEqual(sev_actionlint({'kind': 'shellcheck', 'message': msg}), 'High')
+
+    def test_shellcheck_sc2086_without_github_ref_is_medium(self):
+        msg = 'SC2086: Double quote to prevent globbing (MY_VAR)'
+        self.assertEqual(sev_actionlint({'kind': 'shellcheck', 'message': msg}), 'Medium')
+
+    def test_shellcheck_other_code_is_medium(self):
+        msg = 'SC2034: foo appears unused'
+        self.assertEqual(sev_actionlint({'kind': 'shellcheck', 'message': msg}), 'Medium')
+
+    def test_unknown_kind_is_medium(self):
+        self.assertEqual(sev_actionlint({'kind': 'syntax', 'message': 'unexpected token'}), 'Medium')
+
+    def test_missing_kind_is_medium(self):
+        self.assertEqual(sev_actionlint({'message': 'some error'}), 'Medium')
+
+    def test_expression_kind_ignores_message_content(self):
+        # kind='expression' → High regardless of message
+        self.assertEqual(sev_actionlint({'kind': 'expression', 'message': ''}), 'High')
+
+
 if __name__ == '__main__':
     unittest.main()
