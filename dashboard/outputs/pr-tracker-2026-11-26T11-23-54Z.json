@@ -1,0 +1,123 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "PR Tracker"
+      },
+      "children": [
+        "date-heading",
+        "metrics-stack",
+        "sep-1",
+        "stale-section",
+        "sep-2",
+        "notes-section"
+      ]
+    },
+    "date-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "2026-11-26",
+        "level": "h4"
+      }
+    },
+    "metrics-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "lg"
+      },
+      "children": [
+        "stat-landed",
+        "stat-stale",
+        "stat-closed"
+      ]
+    },
+    "stat-landed": {
+      "type": "Stat",
+      "props": {
+        "label": "landed (7d)",
+        "value": "0"
+      }
+    },
+    "stat-stale": {
+      "type": "Stat",
+      "props": {
+        "label": "stale open (>7d)",
+        "value": "1"
+      }
+    },
+    "stat-closed": {
+      "type": "Stat",
+      "props": {
+        "label": "closed no-merge (7d)",
+        "value": "0"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stale-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "stale-heading",
+        "stale-pr-1"
+      ]
+    },
+    "stale-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Stale Open (>7d)",
+        "level": "h3"
+      }
+    },
+    "stale-pr-1": {
+      "type": "StoryLink",
+      "props": {
+        "title": "[4.2.x.x] Lock coupon, reward and credit redemption checks at order confirmation",
+        "href": "https://github.com/opencart/opencart/pull/15792",
+        "source": "opencart/opencart #15792 (28d old; axis-5 aged past 7d from 11-14 bot nudge, predicted on 11-18)"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "notes-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "notes-heading",
+        "notes-text"
+      ]
+    },
+    "notes-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Notes",
+        "level": "h3"
+      }
+    },
+    "notes-text": {
+      "type": "Text",
+      "props": {
+        "text": "tuple (0,1,0,1) n=5 with composition role-swap vs 11-18 — RuView active via 11-20 bot nudge, opencart stale via 11-21 axis-5 aging; both 11-18 predictions landed; wigolo#216 rolled off merged30d on schedule; non-prefix engineering-branch cohort re-engaged with 6 real maintainer events (gwt#10421 APPROVED, dovecot/core#337 closed, mholt/archives#98 new).",
+        "variant": "body"
+      }
+    }
+  }
+}
